@@ -3,42 +3,42 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700);
 
 @font-face {
-  font-family: 'icomoon';
-  src: url('./fonts/icomoon.eot');
-  src: url('./fonts/icomoon.eot#iefix-8k8p81') format('embedded-opentype'), url('./fonts/icomoon.ttf') format('truetype'), url('./fonts/icomoon.woff') format('woff'), url('../fonts/icomoon.svg#icomoon') format('svg');
-  font-weight: normal;
-  font-style: normal;
+	font-family: 'icomoon';
+	src: url('./fonts/icomoon.eot');
+	src: url('./fonts/icomoon.eot#iefix-8k8p81') format('embedded-opentype'), url('./fonts/icomoon.ttf') format('truetype'), url('./fonts/icomoon.woff') format('woff'), url('../fonts/icomoon.svg#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
 }
 
 .icon-byui-logo:before {
-  content: "\e000";
-  box-sizing: border-box;
+	content: "\e000";
+	box-sizing: border-box;
 }
 
 .icon-byui-logo {
-  font-size:75px;
-  color:#fff;
-  float:left;
-  margin-top:-22px;
-  padding-top:0px;
+	font-size:75px;
+	color:#fff;
+	float:left;
+	margin-top:-22px;
+	padding-top:0px;
 
-  font-family: 'icomoon';
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 body {
 	font-family: "Open Sans", helvetica, arial, sans-serif;
 	background: #FEFEFE;
 	color: #040404;
-	counter-reset: h3; 
+	counter-reset: h3;
 }
 
 /* Title Bar */
@@ -46,7 +46,6 @@ body {
 	background: #326BA9;
 /*	width: 100%;
 */	padding: 25px;
-
 }
 
 #courseTitle h1 {
@@ -84,14 +83,14 @@ code .user-input {
 
 img.screenshot {
 	display: block;
-    max-height: 60px;
-    margin: 0 auto 0.5em auto;
+	max-height: 60px;
+	margin: 0 auto 0.5em auto;
 }
 
 img.screenshot-large {
 	display: block;
-    max-height: 200px;
-    margin: 0 auto 0.5em auto;
+	max-height: 200px;
+	margin: 0 auto 0.5em auto;
 }
 
 /*p code, li code {
@@ -189,16 +188,20 @@ aside.pull-right strong, aside.pull-left strong {
 }
 
 /* Lists */
-article ul  {
+article ul {
 	margin: 0 0 1em 2em;
 }
 
-article ol  {
+article ol {
+	list-style-type: decimal-leading-zero;
 	margin: 0 0 1em 3em;
 }
 
-article ol li {
-	list-style: decimal-leading-zero;
+article ol > li > ol {
+	list-style-type: lower-alpha;
+}
+
+article ol > li {
 	font-size: 18px;
 	color: #006AB9;
 	margin-bottom: 1em;
@@ -207,8 +210,8 @@ article ol li {
 
 article h3:before {
 	content: counter(h3, upper-roman) ".";
-    counter-increment: h3 1;
-    margin-right: 10px;
+	counter-increment: h3 1;
+	margin-right: 10px;
 }
 
 article li p {
@@ -231,15 +234,14 @@ article ul li p:before {
 }
 
 @media only screen and (max-width: 1250px) {
-    aside.pull-right, aside.pull-left {
-    	width: 96.5%;
-    	position: relative;
+	aside.pull-right, aside.pull-left {
+		width: 96.5%;
+		position: relative;
 		padding: 13px;
 		margin: 0 0 15px 0;
 		right: 0px;
 		left: 0px;
 	}
-
 }
 
 
@@ -279,61 +281,61 @@ article ul li p:before {
  * Class Diagrams
  *******************************/
 .class-diagrams {
-text-align: center;
+	text-align: center;
 }
 
-.class-diagram-spacer{
-background: #EFEFEF;
-padding: 0;
+.class-diagram-spacer {
+	background: #EFEFEF;
+	padding: 0;
 }
 
-.table-class-diagram tr.class-diagram-spacer td{
-padding: 0;
-border: 1px solid #EFEFEF;
+.table-class-diagram tr.class-diagram-spacer td {
+	padding: 0;
+	border: 1px solid #EFEFEF;
 }
 
-.table-class-diagram{
-border: 1px solid #CCC;
-border-collapse: collapse;
-margin-left: 20px;
-margin-bottom: 10px;
-display: inline-block;
-vertical-align: top;
-text-align: left;
-font-family: Menlo, Monaco, Consolas, fixed;
+.table-class-diagram {
+	border: 1px solid #CCC;
+	border-collapse: collapse;
+	margin-left: 20px;
+	margin-bottom: 10px;
+	display: inline-block;
+	vertical-align: top;
+	text-align: left;
+	font-family: Menlo, Monaco, Consolas, fixed;
 }
 
-.table-class-diagram th{
-background: #3981B2;
-color: #EFEFEF;
-text-align: center;
-padding: 5px;
-padding-top: 5px!important;
+.table-class-diagram th {
+	background: #3981B2;
+	color: #EFEFEF;
+	text-align: center;
+	padding: 5px;
+	padding-top: 5px!important;
 }
 
-.table-class-diagram tr td{
-padding: 5px;
-padding-top: 5px!important;
-border-right: 1px dashed #CCC;
+.table-class-diagram tr td {
+	padding: 5px;
+	padding-top: 5px!important;
+	border-right: 1px dashed #CCC;
 }
 
-.table-class-diagram tr{
-border-bottom: 1px solid #EEE;
+.table-class-diagram tr {
+	border-bottom: 1px solid #EEE;
 }
 
-.table-class-diagram tr:last-child, .table-class-diagram tr:first-child{
-border-bottom: none;
+.table-class-diagram tr:last-child, .table-class-diagram tr:first-child {
+	border-bottom: none;
 }
 
 
 /* Instructor Tips */
 
 div.tips {
-  background-color: rgb(230, 230, 230);
-  margin-left: 20px;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  padding: 10px;
+	background-color: rgb(230, 230, 230);
+	margin-left: 20px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	padding: 10px;
 }
 
 div.tips p:first-child {
