@@ -1,54 +1,36 @@
-def makeMultiplier(n):
-	return lambda a : a * n
+def celsFromFahr(fahr):
+	cels = (fahr - 32) * 5 / 9
+	return cels
 
-doubler = makeMultiplier(2)
-tripler = makeMultiplier(3)
-print(doubler(11))
-print(tripler(11))
+def fahrFromCels(cels):
+	fahr = cels * 9 / 5 + 32
+	return fahr
 
+def mphFromKph(kph):
+	mph = kph * 0.621371
+	return mph
 
-def insertSort(list, compare):
-	first = 0
-	last = len(list) - 1
-	i = last - 1
-	while i >= first:
-		swap = list[i]
-		j = i + 1
-		while j <= last:
-			cmp = compare(swap, list[j])
-			if cmp <= 0:
-				break
-			list[j - 1] = list[j]
-			j += 1
-		list[j - 1] = swap
-		i -= 1
+def windChillMetric(tempC, windKPH):
+	pow = windKPH ** 0.16
+	chill = 13.12 + 0.6215 * tempC - 11.37 * pow + 0.3965 * tempC * pow
+	return chill
 
-# In python, lambdas are not allowed to use
-# statements. They can use expressions only.
-compareNumbers = lambda x, y : y - x
-compareStrings = lambda s, t : -1 if s < t else (1 if s > t else 0)
-#compareIgnoreCase = lambda s, t : -1 if s.lower() < t.lower() else (1 if s.lower() > t.lower() else 0)
-
-def compareIgnoreCase(s, t):
-	s = s.upper()
-	t = t.upper()
-	return -1 if s < t else (1 if s > t else 0)
+def windChillUS(tempF, windMPH):
+	pow = windMPH ** 0.16
+	chill = 35.74 + 0.6215 * tempF - 35.75 * pow + 0.4275 * tempF * pow
+	return chill
 
 def main():
-	numbers = [ 7, 10, 8, 16, 3, 35 ]
-	vegetables = [ "Radish", "Carrot", "Tomato", "Pea" ]
-	names = [ "Samuel", "NiCole", "Mitchell", "Nick" ]
+	c = 20
+	f = fahrFromCels(c)
+	print(c)
+	print(f)
+	print(celsFromFahr(f))
 
-	insertSort(numbers, compareNumbers)
-	print(numbers)
-
-	insertSort(vegetables, compareStrings)
-	print(vegetables)
-
-	insertSort(names, compareStrings)
-	print(names)
-	insertSort(names, compareIgnoreCase)
-	print(names)
+	c = -20
+	v = 5
+	print(round(windChillMetric(c, v), 1))
+	print(round(celsFromFahr(windChillUS(fahrFromCels(c), mphFromKph(v))), 1))
 
 if __name__ == "__main__":
 	main()
