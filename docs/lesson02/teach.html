@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" type="text/css" href="../site/style.css" />
+	<title>CSE 111 - Team Activity</title>
+</head>
+<body>
+	<header id="courseTitle">
+		<span class="icon-byui-logo"></span>
+		<h1>CSE 111 | Programming with Functions</h1>
+	</header>
+	<article>
+		<h1>01 Team Activity</h1>
+
+		<h2>Overview</h2>
+		<p>Arrange a one-hour synchronous meeting with your team for
+		this activity. Online students should coordinate a video-sharing
+		meeting. Campus students will use class time for this
+		meeting.</p>
+
+		<p>You should prepare for this meeting by completing the
+		preparation material and the individual checkpoint assignment
+		beforehand.</p>
+
+		<h2>The Problem</h2>
+		<p>A common task for many knowledge workers is to use a number,
+		key, or ID to look up information about a person. For example, a
+		knowledge worker may user a phone number as a key to look up
+		information about a customer. During this activity, your team
+		will write a Python program that uses a student's I-Number to
+		look up the student's name.</p>
+
+		<h2>Instructions</h2>
+		<p>Download both of these files:
+		<a href="inumbers.json" target="_blank" download>inumbers.json</a>
+		and
+		<a href="names.json" target="_blank" download>names.json</a>
+		and save them in the same folder where you will save your Python
+		program.</p>
+
+		<p>Write a Python program that reads two lists from a JSON file.
+		One list will contain student I-Numbers, and the other list will
+		contain student names. After your program reads both lists from
+		the file, your program must ask the user for an I-Number. Your
+		program will then find the index of that I-Number in the first
+		list and use that index to print the corresponding student
+		name. Recall that I-Numbers contain nine digits and are
+		correctly formatted as xx-xxx-xxxx, where each x represents one
+		digit.</p>
+
+		<h3>Core Requirements</h3>
+		<ol>
+			<li>Your program must read the JSON data in the file
+			<code><a href="inumbers.json" target="_blank"
+			download>inumbers.json</a></code> and convert that data into
+			a Python list of strings.</li>
+
+			<li>Your program must read the JSON data in the file
+			<code><a href="names.json" target="_blank"
+			download>names.json</a></code> and convert that data into
+			a Python list of strings.</li>
+
+			<li>Your program must ask the user for an I-Number.</li>
+
+			<li>Your program must display the student name that
+			corresponds to the given I-Number.</li>
+
+			<li>If a user enters an I-Number that doesn't exist in the
+			list of I-Numbers, your program should print the message,
+			"No such student" (without the quotes).</li>
+		</ol>
+
+		<h3>Stretch Challenges</h3>
+		<p></p>
+		<ol>
+			<li>If a user enters an I-Number that is formatted
+			incorrectly, your program should count the number of digits
+			in the I-Number.
+			<ol>
+				<li>If there are too few digits in the I-Number, your
+				program should print, "Invalid I-Number: too few digits"
+				(without the quotes).</li>
+
+				<li>If there are too many digits in the I-Number, your
+				program should print, "Invalid I-Number: too many digits"
+				(without the quotes).</li>
+
+				<li>If the given I-Number contains the correct number of
+				digits, your program should reformat it as xx-xxx-xxxx
+				and then look it up as normal.</li>
+			</ol></li>
+		</ol>
+
+		<h2>Instructor Code</h2>
+		<p>Please work diligently with your team for the one-hour
+		meeting. After the meeting is over, please compare your approach
+		to the provided instructor code.</p>
+
+		<p>Please <strong>do not look at the instructor code</strong>
+		until you have either finished the program or diligently worked
+		for at least one hour. At the end of the hour, if you are still
+		struggling to complete the assignment, you may use the
+		instructor code to help you finish.</p>
+
+		<ul>
+			<li>Instructor code:
+			<a href="./teach02_instructor.py">teach02_instructor.py</a></li>
+		</ul>
+
+		<h2>Submission</h2>
+		<p>When you have finished the activity, please report your
+		progress via the associated I-Learn quiz.</p>
+
+		<p>When asked about which of the requirements you completed,
+		feel free to include any work done during the team meeting or
+		after the meeting, including work done with the help of the
+		instructor code, if necessary. In short, report on what you were
+		able to accomplish, regardless of when you completed it or if
+		you needed help from the instructor code.</p>
+	</article>
+</body>
+</html>
