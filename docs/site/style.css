@@ -204,6 +204,10 @@ article code {
 	font-family: Menlo, Monaco, Consolas, monospace;
 }
 
+article var {
+	font-style: italic;
+}
+
 /* Images */
 img.screenshot {
 	display: block;
