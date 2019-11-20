@@ -1,58 +1,49 @@
-import json
+import csv
 
-# Read the I-Numbers list from the JSON
-# file and convert it from JSON to a list.
-file = open("inumbers.json", "rt")
-iNumbers = json.loads(file.read())
-file.close()
-
-# Read the names list from the JSON file
-# and convert it from JSON to a list.
-file = open("names.json", "rt")
-names = json.loads(file.read())
-file.close()
+# Read the I-Numbers and names list from the CSV
+# file and convert them from CSV into two lists.
+inumbers = []
+names = []
+with open("students.csv", "rt") as file:
+	reader = csv.reader(file, delimiter=",")
+	count = 0
+	for row in reader:
+		if count > 0:
+			inumbers.append(row[0])
+			names.append(row[1])
+		count += 1
 
 # Get an I-Number from the user.
-iNum = str(input("Please enter an I-Number (xx-xxx-xxxx): "))
+text = str(input("Please enter an I-Number (xx-xxx-xxxx): "))
 
-# Count the number of digits in the user input.
-ndigits = 0
-for c in iNum:
+# The I-Numbers are stored in the CSV file as digits only (without any
+# dashes, so we remove all non-digit characters). Also, count the number
+# of invalid characters.
+ninvalid = 0
+inum = ""
+for c in text:
 	if c.isdigit():
-		ndigits += 1
+		inum += c
+	elif c != "-":
+		ninvalid += 1
 
 # Determine if the user input is formatted correctly.
-if len(iNum) == 11 and ndigits == 9 and iNum[2] == '-' and iNum[6] == '-':
-	# The user input is formatted correctly.
-	pass
-else:
-	# The user input is formatted incorrectly.
-	if ndigits < 9:
-		print("Invalid I-Number: too few digits")
-	elif ndigits > 9:
-		print("Invalid I-Number: too many digits")
-	else:
-		# The given I-Number contains the correct number of digits, but
-		# is formatted incorrectly, so reformat it.
-
-		# First copy only the digits from the given I-Number.
-		digits = ""
-		for c in iNum:
-			if c.isdigit():
-				digits += c
-
-		# Second use the original digits to create
-		# a new I-Number that is formatted correctly.
-		iNum = digits[0] + digits[1] + "-" + \
-				digits[2] + digits[3] + digits[4] + "-" + \
-				digits[5] + digits[6] + digits[7] + digits[8]
-
-if ndigits == 9:
-	# Find the I-Number in the list of I-Numbers.
-	if iNum in iNumbers:
+if len(inum) == 9 and ninvalid == 0:
+	# The user input is a valid I-Number. Find
+	# the I-Number in the list of I-Numbers.
+	if inum in inumbers:
 		# Print the student name that corresponds
 		# to the I-Number that the user input.
-		index = iNumbers.index(iNum)
+		index = inumbers.index(inum)
 		print(names[index])
 	else:
 		print("No such student")
+else:
+	# The user input is invalid.
+	if ninvalid > 0:
+		errmsg = "Invalid character in I-Number"
+	elif len(inum) < 9:
+		errmsg = "Invalid I-Number: too few digits"
+	elif len(inum) > 9:
+		errmsg = "Invalid I-Number: too many digits"
+	print(errmsg)

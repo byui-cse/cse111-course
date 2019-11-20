@@ -13,7 +13,7 @@
 		<h1>CSE 111 | Programming with Functions</h1>
 	</header>
 	<article>
-		<h1>01 Team Activity</h1>
+		<h1>02 Team Activity: CSV Files and Lists</h1>
 
 		<h2>Overview</h2>
 		<p>Arrange a one-hour synchronous meeting with your team for
@@ -34,63 +34,55 @@
 		look up the student's name.</p>
 
 		<h2>Instructions</h2>
-		<p>Download both of these files:
-		<a href="inumbers.json" target="_blank" download>inumbers.json</a>
-		and
-		<a href="names.json" target="_blank" download>names.json</a>
-		and save them in the same folder where you will save your Python
-		program.</p>
+		<p>Download this file: <a target="_blank" download
+		href="students.csv">students.csv</a> and save it in the same
+		folder where you will save your Python program.</p>
 
-		<p>Write a Python program that reads two lists from a JSON file.
-		One list will contain student I-Numbers, and the other list will
-		contain student names. After your program reads both lists from
-		the file, your program must ask the user for an I-Number. Your
-		program will then find the index of that I-Number in the first
-		list and use that index to print the corresponding student
-		name. Recall that I-Numbers contain nine digits and are
-		correctly formatted as xx-xxx-xxxx, where each x represents one
-		digit.</p>
+		<p>Write a Python program that reads the contents of the
+		<code>students.csv</code> file and creates two lists while
+		reading the file. One list will contain student I-Numbers, and
+		the other list will contain student names. After your program
+		creates both lists from the file, your program must ask the user
+		for an I-Number. Your program will then find the index of that
+		I-Number in the first list and use that index to print the
+		corresponding student name. Recall that I-Numbers contain nine
+		digits and are correctly formatted as xx-xxx-xxxx, where each x
+		represents one digit.</p>
 
 		<h3>Core Requirements</h3>
 		<ol>
-			<li>Your program must read the JSON data in the file
-			<code><a href="inumbers.json" target="_blank"
-			download>inumbers.json</a></code> and convert that data into
-			a Python list of strings.</li>
+			<li><div>Your program must read the data in the
+			<a target="_blank" download
+			href="students.csv">students.csv</a> CSV file and convert
+			that data into two Python lists of strings.</div></li>
 
-			<li>Your program must read the JSON data in the file
-			<code><a href="names.json" target="_blank"
-			download>names.json</a></code> and convert that data into
-			a Python list of strings.</li>
+			<li><div>Your program must ask the user for an
+			I-Number.</div></li>
 
-			<li>Your program must ask the user for an I-Number.</li>
+			<li><div>Your program must display the student name that
+			corresponds to the given I-Number.</div></li>
 
-			<li>Your program must display the student name that
-			corresponds to the given I-Number.</li>
-
-			<li>If a user enters an I-Number that doesn't exist in the
-			list of I-Numbers, your program should print the message,
-			"No such student" (without the quotes).</li>
+			<li><div>If a user enters an I-Number that doesn't exist in the
+			list of I-Numbers, your program must print the message,
+			"No such student" (without the quotes).</div></li>
 		</ol>
 
 		<h3>Stretch Challenges</h3>
-		<p></p>
 		<ol>
-			<li>If a user enters an I-Number that is formatted
-			incorrectly, your program should count the number of digits
-			in the I-Number.
+			<li><div>When a user enters an I-Number, your program should
+			ensure it is a valid I-Number.</div>
 			<ol>
-				<li>If there are too few digits in the I-Number, your
-				program should print, "Invalid I-Number: too few digits"
-				(without the quotes).</li>
+				<li><div>If there are too few digits in the I-Number,
+				your program should print, "Invalid I-Number: too few
+				digits" (without the quotes).</div></li>
 
-				<li>If there are too many digits in the I-Number, your
-				program should print, "Invalid I-Number: too many digits"
-				(without the quotes).</li>
+				<li><div>If there are too many digits in the I-Number,
+				your program should print, "Invalid I-Number: too many
+				digits" (without the quotes).</div></li>
 
-				<li>If the given I-Number contains the correct number of
-				digits, your program should reformat it as xx-xxx-xxxx
-				and then look it up as normal.</li>
+				<li><div>If the given I-Number contains any characters
+				besides digits and dashes, your program should output
+				"Invalid I-Number" (without the quotes).</div></li>
 			</ol></li>
 		</ol>
 
@@ -105,7 +97,7 @@
 		struggling to complete the assignment, you may use the
 		instructor code to help you finish.</p>
 
-		<ul>
+		<ul class="links">
 			<li>Instructor code:
 			<a href="./teach02_instructor.py">teach02_instructor.py</a></li>
 		</ul>
