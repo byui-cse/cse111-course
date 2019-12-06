@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" type="text/css" href="../site/style.css" />
+	<title>CSE 111 - Calling Functions</title>
+</head>
+<body>
+	<header id="courseTitle">
+		<span class="icon-byui-logo"></span>
+		<h1>CSE 111 | Programming with Functions</h1>
+	</header>
+	<article>
+		<h1>03 Prepare: Calling Functions</h1>
+
+		<p>Because most useful computer programs are very large,
+		programmers divide their programs into parts. Dividing a program
+		into parts makes it easier to write, debug, and understand the
+		program. A programmer can divide a Python program into modules,
+		classes, and functions. In this lesson, you will learn how to
+		use (call) existing functions, and in the next lesson, you will
+		learn how to write your own functions.</p>
+		Here are the Python programming concepts and topics that you
+		should learn this week.</p>
+		<ol>
+			<li><div>A function is a group of statements (computer
+			commands) that together perform one task.</div></li>
+
+			<li><div>Python includes many built-in functions such as:
+			<code>input</code>, <code>print</code>, <code>open</code>,
+			<code>len</code>, <code>range</code>, <code>int</code>,
+			<code>float</code>, <code>str</code>, <code>abs</code>,
+			<code>round</code>, <code>list</code>, <code>set</code>, and
+			<code>dict</code>.</div></li>
+
+			<li><div>Python also includes many standard modules which
+			have more functions, such as the <code>math</code> module
+			which includes the <code>floor</code>, <code>ceil</code>,
+			and <code>sqrt</code> functions and the <code>csv</code>
+			module which includes the <code>reader</code> and
+			<code>writer</code> functions.</div></li>
+
+			<li><div>To <dfn>call</dfn> or <dfn>invoke</dfn> a function
+			means to write code that causes the computer to execute the
+			code that is inside of that function. During CSE 110, you
+			often wrote code that called the <code>input</code> and
+			<code>print</code> functions. For example:
+<pre>name = input("Please enter your name")
+print(f"Hello {name}")</pre></div></li>
+
+			<li><div>To correctly call a function a programmer must know
+			<ol>
+				<li><div>the name of the function</div></li>
+				<li><div>in which module the function is located</div></li>
+				<li><div>what the function does</div></li>
+				<li><div>the parameters that the function takes</div></li>
+			</ol>
+			All of this information is normally available in online
+			documentation. For example, we can read about all of the
+			built-in functions at
+			<a target="_blank" href="https://docs.python.org/3/library/functions.html">docs.python.org/3/library/functions.html</a>,
+			and we can read about the <code>math</code> module at
+			<a target="_blank" href="https://docs.python.org/3/library/math.html">docs.python.org/3/library/math.html</a>
+			and the <code>csv</code> module at
+			<a target="_blank" href="https://docs.python.org/3/library/csv.html">docs.python.org/3/library/csv.html</a>.</div></li>
+
+			<li><div>A <dfn>parameter</dfn> is a piece of data that a
+			function needs in order to complete its task. In the online
+			documentation for the <code>math</code> module, we can see
+			that the
+			<a target="_blank" href="https://docs.python.org/3/library/math.html#math.sqrt"><code>math.sqrt</code></a>
+			function has one parameter named <var>x</var> which is the
+			number that <code>math.sqrt</code> will compute the square
+			root of. In order for the <code>math.sqrt</code> function to
+			do its job (compute the square root), a programmer must
+			write code to pass a number through the parameter
+			<var>x</var> into into the <code>math.sqrt</code> function.
+			Here is a simple example of passing a number to the
+			<code>math.sqrt</code> function:
+			<pre>r = math.sqrt(71)</pre>
+			In the above example, 71 will be passed through the
+			parameter <var>x</var> into the <code>math.sqrt</code>
+			function. The <code>sqrt</code> function will compute the
+			square root of 71 and return the computed value which will
+			then be stored in the variable <var>x</var>.</div></li>
+
+			<li><div>
+			<ul>
+				<li><div><a target=_"blank" href="https://realpython.com/python-print/">print() Function</a></div></li>
+				<li><div><a target=_"blank" href="https://realpython.com/python-square-root-function/">math.sqrt() Function</a></div></li>
+				<li><div><a target=_"blank" href="https://realpython.com/python-range/">range() Function</a></div></li>
+				<li><div><a target=_"blank" href=""></a></div></li>
+				<li><div><a target=_"blank" href=""></a></div></li>
+				<li><div><a target=_"blank" href=""></a></div></li>
+				<li><div><a target=_"blank" href=""></a></div></li>
+				<li><div><a target=_"blank" href=""></a></div></li>
+				<li><div><a target=_"blank" href=""></a></div></li>
+			</ul></div></li>
+
+			<li><div></div></li>
+			<li><div></div></li>
+			<li><div></div></li>
+			<li><div></div></li>
+		</ol>
+
+		<p>If any of the concepts or topics in the previous list seem
+		unfamiliar to you, you should review them. To review the
+		unfamiliar concepts, you could re-watch some of the Microsoft
+        <a target="_blank"
+        href="https://www.youtube.com/playlist?list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6">videos about Python</a>
+		that you watched for CSE 110. Or you could read some of these
+		tutorials.</p>
+
+		<ul class="links">
+			<li><a target="_blank"
+			href="https://realpython.com/python-conditional-statements/">Conditional Statements in Python</a></li>
+			<li><a target="_blank" href="https://realpython.com/courses/lists-tuples-python/">Lists and Tuples in Python</a></li>
+			<li><a target="_blank" href="https://realpython.com/courses/dictionaries-python/">Dictionaries in Python</a></li>
+			<li><a target="_blank" href="https://realpython.com/python-for-loop/">Python "for" Loops</a></li>
+			<li><a target="_blank" href="https://realpython.com/python-while-loop/">Python "while" Loops</a></li>
+			<li><a target="_blank" href="https://realpython.com/python-csv/">Reading and Writing CSV Files in Python</a></li>
+		</ul>
+
+		<p>You could also read some of the Python tutorials at
+		<a target="_blank"
+		href="https://www.w3schools.com/python/default.asp">w3schools.com</a>.
+		Or you could search for "Python" in the
+		<a target="_blank" href="https://library.byui.edu">online catalog</a>
+		of the BYU-Idaho library and read one of the online books from
+		the result set.</p>
+	</article>
+</body>
+</html>
