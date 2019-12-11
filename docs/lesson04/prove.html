@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" type="text/css" href="../site/style.css" />
+	<style>
+		span.input { background-color: green; color: white; }
+	</style>
+	<title>CSE 111 - Course Materials</title>
+</head>
+<body>
+	<header id="courseTitle">
+		<span class="icon-byui-logo"></span>
+		<h1>CSE 111 | Programming with Functions</h1>
+	</header>
+	<article>
+		<h1>04 Prove: Assignment</h1>
+
+		<h2>Overview</h2>
+		<p>Write a Python program that calls built-in functions,
+		standard functions, and functions in a third party library.</p>
+
+		<h2>Project Description</h2>
+		<p>In the spring of 2019, several BYU-Idaho students created a
+		small Android app to help people learn vocabulary words in a
+		foreign language. This app stores the vocabulary words in
+		language pairs in a centralized firebase database. Your
+		assignment during lessons 3 and 4 is to write a Python program
+		that runs on your computer and enables a user to do the
+		following:</p>
+		<ol>
+			<li>select a language pair</li>
+			<li>list all of the words stored in the database for that
+			language pair</li>
+			<li>find a word and its translation in the language
+			pair</li>
+			<li>add a new word and its translation to the language
+			pair</li>
+		</ol>
+
+		<p>During lesson 3, you wrote the first half of this program.
+		During lesson 4, you will add the code to comminucate with the
+		firebase database.</p>
+
+		<h2>Project Requirements</h2>
+		<p>Your program must first get the list of supported language
+		pairs from the firebase database and then allow the user to
+		choose a langange pair. Then it must repeatedly show a menu to
+		the user until the user chooses "Quit" from the menu. Here is a
+		sample run of the program that you will write: (The words shown
+		in <span class="input">green</span> are the input that the user
+		typed.)</p>
+
+<pre class="console">
+Please choose a language pair (1 - 6):
+[1] ENtoES
+[2] ENtoPT
+[3] ENtoRU
+[4] EStoEN
+[5] PTtoEN
+[6] RUtoEN
+<span class="input">5</span>
+PTtoEN
+
+Please choose an action (L, F, A, Q):
+[L]ist all words
+[F]ind a word
+[A]dd a word
+[Q]uit
+<span class="input">L</span>
+List all words
+    coisa -&gt; thing
+    dinheiro -&gt; money
+    gato -&gt; cat
+    homem -&gt; man
+    mulher -&gt; woman
+
+Please choose an action (L, F, A, Q):
+[L]ist all words
+[F]ind a word
+[A]dd a word
+[Q]uit
+<span class="input">f</span>
+Find a word
+    Please enter a word: <span class="input">gato</span>
+    gato -&gt; cat
+
+Please choose an action (L, F, A, Q):
+[L]ist all words
+[F]ind a word
+[A]dd a word
+[Q]uit
+<span class="input">a</span>
+Add a word
+    Please enter a word: <span class="input">cozinha</span>
+    Please enter that word's translation: <span class="input">kitchen</span>
+    cozinha -&gt; kitchen
+
+Please choose an action (L, F, A, Q):
+[L]ist all words
+[F]ind a word
+[A]dd a word
+[Q]uit
+<span class="input">q</span></pre>
+
+		<h2>Instructions</h2>
+		<p>Use these commands to download pyrebase4 which is the third
+		party library that your program will use to communicate with the
+		firebase database.</p>
+<pre class="console">
+</pre>
+
+		<p>At the top of your program, add these lines of Python
+		code to import the firebase library.</p>
+
+<pre class="python">import pyrebase
+
+config = {
+    'apiKey': 'AIzaSyDC0T29-6LtUFGNZfaKx8qWoeJK3k84PvQ',
+    'authDomain': 'dictionary-e9d56.firebaseapp.com',
+    'databaseURL': 'https://dictionary-e9d56.firebaseio.com',
+    'projectId': 'dictionary-e9d56',
+    'storageBucket': 'dictionary-e9d56.appspot.com',
+    'messagingSenderId': '313634715565',
+    'appId': '1:313634715565:web:b1089f3931063636b25324'
+}</pre>
+
+		<h2>Submission</h2>
+		<p></p>
+	</article>
+</body>
+</html>

@@ -59,10 +59,10 @@ print(f"Hello {name}")</pre></div></li>
 			<li><div>To correctly call a function you must know the
 			following:
 			<ol>
+				<li><div>the name of module in which the function is located</div></li>
 				<li><div>the name of the function</div></li>
-				<li><div>in which module the function is located</div></li>
-				<li><div>what the function does</div></li>
 				<li><div>the parameters that the function takes</div></li>
+				<li><div>what the function does</div></li>
 			</ol>
 			All of this information is normally available in online
 			documentation. For example, you can read about all of the
@@ -91,30 +91,30 @@ print(f"Hello {name}")</pre></div></li>
 			parameter <var>x</var> into the <code>math.sqrt</code>
 			function. The <code>sqrt</code> function will compute the
 			square root of 71 and return the computed value which will
-			then be stored in the variable <var>r</var>.</div></li>
+			then be stored in the variable <var>r</var>.
 
-			<li><div>
-			<ul>
-				<li><div><a target=_"blank" href="https://realpython.com/python-print/">print() Function</a></div></li>
-				<li><div><a target=_"blank" href="https://realpython.com/python-square-root-function/">math.sqrt() Function</a></div></li>
-				<li><div><a target=_"blank" href="https://realpython.com/python-range/">range() Function</a></div></li>
-				<li><div><a target=_"blank" href=""></a></div></li>
-				<li><div><a target=_"blank" href=""></a></div></li>
-				<li><div><a target=_"blank" href=""></a></div></li>
-				<li><div><a target=_"blank" href=""></a></div></li>
-				<li><div><a target=_"blank" href=""></a></div></li>
-				<li><div><a target=_"blank" href=""></a></div></li>
-			</ul></div></li>
+			<p>Here is another example that calls the built-in
+			<code>input</code> and <code>open</code> functions to open a
+			text file and then calls the <code>reader</code> function
+			that is in the <code>csv</code>
+			module:</p>
+<pre>filename = input("Please enter a filename: ")
+with open(filename, "rt") as infile:
+    reader = csv.reader(infile)</pre></div></li>
 
-			<li><div></div></li>
-			<li><div></div></li>
-			<li><div></div></li>
 			<li><div></div></li>
 		</ol>
 
-		<p>If any of the concepts or topics in the previous list seem
-		unfamiliar to you, you should review them. To review the
-		unfamiliar concepts, you could re-watch some of the Microsoft
+		<p>If any of the concepts or topics in the list above seem vague
+		or difficult to you, you should read carefully the above list
+		again and then watch these videos:</p>
+		<ul class="links">
+			<li><a target="_blank" href=""></a></li>
+			<li><a target="_blank" href=""></a></li>
+			<li><a target="_blank" href=""></a></li>
+			<li><a target="_blank" href=""></a></li>
+		</ul>
+
         <a target="_blank"
         href="https://www.youtube.com/playlist?list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6">videos about Python</a>
 		that you watched for CSE 110. Or you could read some of these
@@ -122,12 +122,10 @@ print(f"Hello {name}")</pre></div></li>
 
 		<ul class="links">
 			<li><a target="_blank"
-			href="https://realpython.com/python-conditional-statements/">Conditional Statements in Python</a></li>
-			<li><a target="_blank" href="https://realpython.com/courses/lists-tuples-python/">Lists and Tuples in Python</a></li>
-			<li><a target="_blank" href="https://realpython.com/courses/dictionaries-python/">Dictionaries in Python</a></li>
-			<li><a target="_blank" href="https://realpython.com/python-for-loop/">Python "for" Loops</a></li>
-			<li><a target="_blank" href="https://realpython.com/python-while-loop/">Python "while" Loops</a></li>
-			<li><a target="_blank" href="https://realpython.com/python-csv/">Reading and Writing CSV Files in Python</a></li>
+			href="https://realpython.com/python-square-root-function/">Python Square Root Function</a></li>
+			<li><a target="_blank" href=""></a></li>
+			<li><a target="_blank" href=""></a></li>
+			<li><a target="_blank" href=""></a></li>
 		</ul>
 
 		<p>You could also read some of the Python tutorials at
