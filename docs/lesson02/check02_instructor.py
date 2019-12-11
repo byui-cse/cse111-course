@@ -23,4 +23,4 @@ sales_tax = round(subtotal * SALES_TAX_RATE, 2)
 total = subtotal + sales_tax
 
 # Display the total for the user to see.
-print(total)
+print(f"Total: {total}")

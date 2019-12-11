@@ -9,7 +9,8 @@ maxRate = 220 - age
 slowest = round(maxRate * 0.65)
 fastest = round(maxRate * 0.85)
 
-# Use string concatenation to create a message for the user to see.
-output = "When you exercise, you should keep your heart rate between " \
-		+ str(slowest) + " and " + str(fastest) + " beats per minute."
-print(output)
+# Use f-strings to create a message for the user to see.
+print(
+	f"When you exercise, you should keep your heart\n"
+	f"rate between {slowest} and {fastest} beats per minute."
+)
