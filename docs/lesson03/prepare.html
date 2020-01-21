@@ -48,18 +48,19 @@
 
 			<li><div>A programmer (you) can save lots of time by using
 			existing functions. A programmer uses a function by calling
-			or invoking it. To <dfn>call</dfn> or <dfn>invoke</dfn> a
-			function means to write code that causes the computer to
-			execute the code that is inside of that function. During CSE
-			110, you often wrote code that called the <code>input</code>
-			and <code>print</code> functions. For example:
+			it (also known as invoking it). To <dfn>call</dfn> (or
+			<dfn>invoke</dfn>) a function means to write code that
+			causes the computer to execute the code that is inside of
+			that function. During CSE 110, you often wrote code that
+			called the <code>input</code> and <code>print</code>
+			functions. For example:
 <pre>name = input("Please enter your name")
 print(f"Hello {name}")</pre></div></li>
 
 			<li><div>To correctly call a function you must know the
 			following:
 			<ol>
-				<li><div>the name of module in which the function is located</div></li>
+				<li><div>the name of the module in which the function is located</div></li>
 				<li><div>the name of the function</div></li>
 				<li><div>the parameters that the function takes</div></li>
 				<li><div>what the function does</div></li>
@@ -73,25 +74,29 @@ print(f"Hello {name}")</pre></div></li>
 			and the <code>csv</code> module at
 			<a target="_blank" href="https://docs.python.org/3/library/csv.html">docs.python.org/3/library/csv.html</a>.</div></li>
 
-			<li><div>A <dfn>parameter</dfn> is a piece of data that a
+			<li><div><p>A <dfn>parameter</dfn> is a piece of data that a
 			function needs in order to complete its task. In the online
 			documentation for the <code>math</code> module, we see that
 			the
 			<a target="_blank" href="https://docs.python.org/3/library/math.html#math.sqrt"><code>math.sqrt</code></a>
 			function has one parameter named <var>x</var> which is the
 			number that <code>math.sqrt</code> will compute the square
-			root of. In order for the <code>math.sqrt</code> function to
+			root of.</p>
+			<p><code>math.sqrt(x)</code><br>
+			&nbsp; &nbsp; &nbsp; &nbsp; Return the square root of x.</p>
+
+			<p>In order for the <code>math.sqrt</code> function to
 			do its job (compute the square root), a programmer must
 			write code to pass a number through the parameter
 			<var>x</var> into into the <code>math.sqrt</code> function.
 			Here is a simple example of passing a number to the
-			<code>math.sqrt</code> function:
+			<code>math.sqrt</code> function:</p>
 			<pre>r = math.sqrt(71)</pre>
-			In the above example, 71 will be passed through the
+			<p>In the above example, 71 will be passed through the
 			parameter <var>x</var> into the <code>math.sqrt</code>
 			function. The <code>sqrt</code> function will compute the
 			square root of 71 and return the computed value which will
-			then be stored in the variable <var>r</var>.
+			then be stored in the variable <var>r</var>.</p>
 
 			<p>Here is another example that calls the built-in
 			<code>input</code> and <code>open</code> functions to open a

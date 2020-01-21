@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" type="text/css" href="../site/style.css" />
+	<title>CSE 111 - Team Activity</title>
+</head>
+<body>
+	<header id="courseTitle">
+		<span class="icon-byui-logo"></span>
+		<h1>CSE 111 | Programming with Functions</h1>
+	</header>
+	<article>
+		<h1>02 Team Activity: CSV Files and Lists</h1>
+
+		<h2>Overview</h2>
+		<p>Arrange a one-hour synchronous meeting with your team for
+		this activity. Online students should coordinate a video-sharing
+		meeting. Campus students will use class time for this
+		meeting.</p>
+
+		<p>You should prepare for this meeting by completing the
+		preparation material and the individual checkpoint assignment
+		beforehand.</p>
+
+		<h2>The Problem</h2>
+		<p>When working on a long task or completing a long term goal,
+		people sometimes find it difficult to stay motivated. Some
+		people find that inspiring quotes from others who accomplished
+		similar tasks help them to stay motivated. During this activity,
+		your team will write a Python program that prints a quote
+		choosen randomly from a file of quotes.</p>
+
+		<h2>Instructions</h2>
+		<p>Download this file: <a target="_blank" download
+		href="quotes.txt">quotes.txt</a> and save it in the same
+		folder where you will save your Python program.</p>
+
+		<p>Write a Python program that reads the contents of the
+		<code>quotes.txt</code> file into a list and then randomly
+		chooses one of the quotes and prints it for the user to see.
+		Include these two lines of code at the top of your program to
+		import the functions in the random and textwrap modules:</p>
+
+<pre>import random
+import textwrap</pre>
+
+		<h3>Core Requirements</h3>
+		<ol>
+			<li><div>Your program must read the quotes from the
+			<code>quotes.txt</code> file into a list.</div></li>
+
+			<li><div>Your program must randomly choose one of the quotes
+			from the list.</div></li>
+
+			<li><div>Your program must wrap the words in the quote onto
+			multiple lines if the quote is longer than 70 characters and
+			then print the wrapped quote for the user to see.</div></li>
+
+			<li><div>Your program must call the following functions:
+			<ul>
+				<li><div><code>open</code> - to open the
+				<code>quotes.txt</code> file.</div></li>
+				<li><div><code>file.readlines</code> - to read all the
+				lines in the file as a list</div></li>
+				<li><div><code>random.choice</code> - to randomly choose
+				one of the quotes</div></li>
+				<li><div><code>textwrap.wrap</code> - to wrap the words
+				of the chosen quote to 70 characters or fewer per
+				line</div></li>
+				<li><div><code>print</code> - to print the wrapped lines
+				of the quote</div></li>
+				<li><div></div></li>
+			</ul></div></li>
+		</ol>
+
+		<h3>Stretch Challenges</h3>
+		<p>If your team finishes the core requirements in less than an
+		hour, complete one or more of these stretch challenges. Note
+		that the stretch challenges are optional.</p>
+
+		<ol>
+			<li><div>Add something or change something in your program
+			that you think would make your program better, easier for
+			the user, more elegant, or more fun. Be creative.</div></li>
+
+			<li><div>Write comments above the lines of code that were
+			difficult for you to understand.</div></li>
+
+			<li><div>Change the call to the <code>textwrap.wrap</code>
+			function to wrap the words in the quote to 50 characters
+			instead of 70.</div></li>
+
+			<li><div>Allow the user to enter a positive integer to
+			choose how quotes are chosen and printed.</div></li>
+		</ol>
+
+		<h2>Sample Solution</h2>
+		<p>Please work diligently with your team for the one-hour
+		meeting. After the meeting is over, please compare your approach
+		to the sample solution.</p>
+
+		<p>Please <strong>do not look at the sample solution</strong>
+		until you have either finished the program or diligently worked
+		for at least one hour. At the end of the hour, if you are still
+		struggling to complete the assignment, you may use the sample
+		solution to help you finish.</p>
+
+		<ul class="links">
+			<li>Sample solution:
+			<a href="./teach_solution.py">teach_solution.py</a></li>
+		</ul>
+
+		<h2>Submission</h2>
+		<p>When you have finished the activity, please report your
+		progress via the associated I-Learn quiz.</p>
+
+		<p>When asked about which of the requirements you completed,
+		feel free to include any work done during the team meeting or
+		after the meeting, including work done with the help of the
+		sample solution, if necessary. In short, report on what you were
+		able to accomplish, regardless of when you completed it or if
+		you needed help from the sample solution.</p>
+	</article>
+</body>
+</html>
