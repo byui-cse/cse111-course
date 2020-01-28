@@ -20,24 +20,60 @@
 		statements) and logic by completing the following individual
 		checkpoint assignment.</p>
 
-		<h2>Assignment</h2>
+		<h2>Problem Statement</h2>
 		<p>You work for a retail store that wants to increase sales on
 		Tuesday and Wednesday, which are the store&rsquo;s slowest sales
-		days. Write a defining table and then a program that takes a
-		customer&rsquo;s subtotal as input and if the subtotal is
-		greater than $50 and today is Tuesday or Wednesday, subtracts
-		10% from the subtotal. Your program should then compute and
-		output the total amount due by adding sales tax of 6% to the
-		subtotal. At the top of your program, import the
-		<code>datetime</code> module like this:</p>
+		days.
+
+		<h2>Assignment</h2>
+		<p>Write a Python program that takes a customer&rsquo;s subtotal
+		as input and if the subtotal is greater than $50 and today is
+		Tuesday or Wednesday, subtracts 10% from the subtotal. Your
+		program should then compute and output the total amount due by
+		adding sales tax of 6% to the subtotal. At the top of your
+		program, import the <code>datetime</code> module like this:</p>
 		<pre>import datetime</pre>
 		<p>Then within your program, use this Python code that will get
 		the current day of the week from your computer&rsquo;s
 		clock:</p>
-		<pre>weekday = datetime.datetime.now().weekday()</pre>
+		<pre>weekday = datetime.datetime.now().isoweekday()</pre>
 		<p>If you use the above code, the variable <var>weekday</var>
 		will hold 0 if today is Sunday, 1 if today is Monday, and so on
 		to 6 if today is Saturday.</p>
+
+		<h2>Sample Runs</h2>
+<h3>Run on a Monday</h3>
+<pre class="console">Please enter the subtotal: 42.75
+Total: 45.31</pre>
+<pre class="console">Please enter the subtotal: 55.20
+Total: 58.51</pre>
+
+<h3>Run on a Tuesday</h3>
+<pre class="console">Please enter the subtotal: 42.75
+Total: 45.31</pre>
+<pre class="console">Please enter the subtotal: 55.20
+Total: 52.66</pre>
+
+		<h2>Testing Procedure</h2>
+		<p>Verify that your program works correctly by following each
+		step in this testing procedure:</p>
+		<ol class="testing">
+			<li><div>If today is any weekday other than Tuesday or
+			Wednesday, run your program using the input shown in the
+			"Run on a Monday" section above. Ensure that your program's
+			output matches the sample run output. If today is Tuesday or
+			Wednesday, run your program using then input in the "Run on
+			a Tuesday" section.</div></li>
+
+			<li><div>Is there a simple way to test your program for all
+			the days of the week without testing on seven days in a row
+			and without changing your computer's system date? Hint:
+			consider adding temporarily to your program a line of code
+			like this one
+			<pre>weekday = 3</pre>
+			immediately after this line of code
+			<pre>weekday = datetime.datetime.now().isoweekday()</pre></div></li>
+		</ol>
 
 		<h2>Sample Solution</h2>
 		<p>When you program is finished, please view the
@@ -45,12 +81,12 @@
 		solution</a> for this program to compare your program to that
 		one.</p>
 
-		<p>You should work to complete this checkpoint program first,
-		without looking at the sample solution. However, if you have
+		<p>Before looking at the sample solution, you should work to
+		complete this checkpoint program first. However, if you have
 		worked on it for at least an hour and are still having problems,
-		feel free to use the <a href="check_solution.py"
-		target="_blank" download>sample solution</a> to help you finish
-		your program.</p>
+		feel free to use the <a target="_blank" download
+		href="check_solution.py">sample solution</a> to help you
+		finish your program.</p>
 
 		<h2>Submission</h2>
 		<p>When complete, please report your progress in the associated

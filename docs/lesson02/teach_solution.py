@@ -4,8 +4,8 @@ import csv
 # file and convert them from CSV into two lists.
 inumbers = []
 names = []
-with open("students.csv", "rt") as file:
-	reader = csv.reader(file, delimiter=",")
+with open("students.csv", "rt") as infile:
+	reader = csv.reader(infile, delimiter=",")
 	for row in reader:
 		if reader.line_num > 1:
 			inumbers.append(row[0])
@@ -15,8 +15,8 @@ with open("students.csv", "rt") as file:
 text = str(input("Please enter an I-Number (xx-xxx-xxxx): "))
 
 # The I-Numbers are stored in the CSV file as digits only (without any
-# dashes), so we remove all non-digit characters. Also, count the number
-# of invalid characters.
+# dashes), so we remove all non-digit characters from the user's input.
+# Also, count the number of invalid characters.
 ninvalid = 0
 inum = ""
 for c in text:
