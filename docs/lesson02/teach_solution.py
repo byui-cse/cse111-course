@@ -1,15 +1,13 @@
 import csv
 
-# Read the I-Numbers and names list from the CSV
-# file and convert them from CSV into two lists.
-inumbers = []
-names = []
+# Read the I-Numbers and names from the
+# CSV file and add them to a dictionary.
+students = {}
 with open("students.csv", "rt") as infile:
 	reader = csv.reader(infile, delimiter=",")
 	for row in reader:
 		if reader.line_num > 1:
-			inumbers.append(row[0])
-			names.append(row[1])
+			students[row[0]] = row[1]
 
 # Get an I-Number from the user.
 text = str(input("Please enter an I-Number (xx-xxx-xxxx): "))
@@ -29,11 +27,11 @@ for c in text:
 if len(inum) == 9 and ninvalid == 0:
 	# The user input is a valid I-Number. Find
 	# the I-Number in the list of I-Numbers.
-	if inum in inumbers:
+	if inum in students:
 		# Print the student name that corresponds
 		# to the I-Number that the user input.
-		index = inumbers.index(inum)
-		print(names[index])
+		name = students[inum]
+		print(name)
 	else:
 		print("No such student")
 else:

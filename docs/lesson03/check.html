@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="stylesheet" type="text/css" href="../site/style.css" />
-	<title>CSE 111 - Checkpoint 03</title>
+	<title>CSE 111 - Checkpoint</title>
 </head>
 <body>
 	<header id="courseTitle">
@@ -13,28 +13,72 @@
 		<h1>CSE 111 | Programming with Functions</h1>
 	</header>
 	<article>
-		<h1>03 Checkpoint: Decisions and Logic</h1>
+		<h1>03 Checkpoint: Calling Functions</h1>
 
 		<h2>Overview</h2>
-		<p>Demonstrate your understanding of calling existing functions
-		by completing the following individual checkpoint
+		<p>Demonstrate your understanding of calling Python built-in
+		functions by completing the following individual checkpoint
 		assignment.</p>
 
+		<h2>Helpful Documentation</h2>
+		<p>You can read about the Python built-in functions at
+		<a target="_blank"
+		href="https://docs.python.org/3/library/functions.html">docs.python.org/3/library/functions.html</a></p>
+
 		<h2>Assignment</h2>
-		<p>
+		<p>Do the following:</p>
+		<ol>
+			<li><div>Open a new file for a Python program.</div></li>
+			<li><div>Copy and paste this Python code that creates a list
+			into your program.
+<pre>heights = [1.72, 1.50, 1.96, 2.01, 1.75,
+		2.11, 1.60, 1.65, 2.05, 1.50,
+		1.80, 1.83, 2.05, 1.79, 1.84]</pre></div></li>
+			<li><div>Write Python code to call each of these built-in
+			functions and pass the list of heights to each function.
+			Store the value returned from each function in a different
+			variable.
+			<ol>
+				<li><div>len</div></li>
+				<li><div>min</div></li>
+				<li><div>max</div></li>
+				<li><div>sum</div></li>
+			</ol></div></li>
+			<li><div>Write code to call the round function to round the
+			value returned from the sum function to two decimal places
+			and store the result in a variable.</div></li>
+			<li><div>Write code to print the value returned from each of
+			the functions.</div></li>
+		</ol>
+
+		<h2>Sample Run</h2>
+<pre class="console">&gt; python check_solution.py
+len: 15
+min: 1.5
+max: 2.11
+sum: 27.16</pre>
+
+		<h2>Testing Procedure</h2>
+		<p>Verify that your program works correctly by following each
+		step in this testing procedure:</p>
+		<ol class="testing">
+			<li><div>Run your program using the input shown in the
+			sample run section above. Ensure that your program's output
+			matches the sample run output.</div></li>
+		</ol>
 
 		<h2>Sample Solution</h2>
-		<p>When you program is finished, please view the
-		<a href="check_solution.py" target="_blank" download>sample
-		solution</a> for this program to compare your program to that
+		<p>When your program is finished, please view the
+		<a target="_blank" href="check_solution.py" download>sample
+		solution</a> for this program to compare your solution to that
 		one.</p>
 
-		<p>You should work to complete this checkpoint program first,
-		without looking at the sample solution. However, if you have
+		<p>Before looking at the sample solution, you should work to
+		complete this checkpoint program first. However, if you have
 		worked on it for at least an hour and are still having problems,
-		feel free to use the <a href="check_solution.py"
-		target="_blank" download>sample solution</a> to help you finish
-		your program.</p>
+		feel free to use the <a target="_blank" download
+		href="check_solution.py">sample solution</a> to help you
+		finish your program.</p>
 
 		<h2>Submission</h2>
 		<p>When complete, please report your progress in the associated

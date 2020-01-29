@@ -126,12 +126,18 @@ article li > div {
 	margin-left: 0.25em;
 }
 
-article ul.links {
-	list-style-type: none;
-}
-
 article ul {
 	margin: 0 0 1em 2em;
+	list-style-type: disc;
+}
+
+article ul li ul {
+	margin: 0 0 1em 2em;
+	list-style-type: circle;
+}
+
+article ul.links {
+	list-style-type: none;
 }
 
 article ul.links > li:before {
@@ -235,6 +241,11 @@ img.screenshot-large {
 }
 
 /* Tables */
+table > thead > tr > th {
+	text-align: center;
+	font-weight: bold;
+}
+
 .table-small {
 	font-size:small;
 	margin-bottom: 20px;
@@ -262,7 +273,6 @@ img.screenshot-large {
 }
 
 .table-small li {
-
 	padding-left: 10px;
 }
 
