@@ -96,6 +96,12 @@ article p {
 	margin-bottom: 1em;
 }
 
+article blockquote {
+	margin: 1em 1em 1em 1em;
+	border-left: 0.12em solid #006ab9;
+	padding: 0 0 0 0.5em;
+}
+
 article em {
 	font-style: italic;
 	color: #666;
@@ -106,9 +112,17 @@ article strong {
 	color: #cc0000;
 }
 
+article dfn {
+	color: #006ab9;
+}
+
+article var {
+	font-style: italic;
+}
+
 /* Lists */
 article ol {
-	margin-left: 2em;
+	margin: 0 0 1em 2em;
 	list-style-type: decimal;
 }
 
@@ -116,9 +130,17 @@ article ol li ol {
 	list-style-type: lower-alpha;
 }
 
+article li {
+	color: #006ab9;
+}
+
 article ol li {
 	color: #006ab9;
 	margin-bottom: 1em;
+}
+
+article li li {
+	margin-bottom: 0em;
 }
 
 article li > div {
@@ -131,8 +153,7 @@ article ul {
 	list-style-type: disc;
 }
 
-article ul li ul {
-	margin: 0 0 1em 2em;
+article li ul {
 	list-style-type: circle;
 }
 
@@ -210,9 +231,6 @@ article code {
 	font-family: Menlo, Monaco, Consolas, monospace;
 }
 
-article var {
-	font-style: italic;
-}
 
 /* Images */
 img.screenshot {

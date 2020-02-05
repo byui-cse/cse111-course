@@ -13,7 +13,7 @@
 		<h1>CSE 111 | Programming with Functions</h1>
 	</header>
 	<article>
-		<h1>02 Team Activity: CSV Files and Lists</h1>
+		<h1>03 Team Activity: CSV Files and Lists</h1>
 
 		<h2>Overview</h2>
 		<p>Arrange a one-hour synchronous meeting with your team for
@@ -25,7 +25,31 @@
 		preparation material and the individual checkpoint assignment
 		beforehand.</p>
 
-		<h2>The Problem</h2>
+		<h2>Helpful Documentation</h2>
+		<p>The Python <code>random</code> module contains functions to
+		generate pseudo random numbers and to make pseudo random
+		choices. Read about the <code>random</code> module in one of
+		these articles:</p>
+		<ul>
+			<li><div><a target="_blank"
+			href="https://realpython.com/lessons/random-data-generation-python/">Lesson about <code>random</code></a>
+			at Real Python</div></li>
+			<li><div>Official Python <a target="_blank"
+			href="https://docs.python.org/3/library/random.html">documentation
+			about the <code>random</code> module</a></div></li>
+		</ul>
+
+		<p>The Python <code>textwrap</code> module contains functions to
+		format plain text. The module formats text by adding, removing,
+		and moving line breaks in the input text. Read about the
+		<code>textwrap</code> module in this article:</p>
+		<ul>
+			<li><div>Official Python <a target="_blank"
+			href="https://docs.python.org/3/library/textwrap.html">documentation
+			about the <code>textwrap</code> module</a></div></li>
+		</ul>
+
+		<h2>Problem Statement</h2>
 		<p>When working on a long task or completing a long term goal,
 		people sometimes find it difficult to stay motivated. Some
 		people find that inspiring quotes from others who accomplished
@@ -42,7 +66,8 @@
 		<code>quotes.txt</code> file into a list and then randomly
 		chooses one of the quotes and prints it for the user to see.
 		Include these two lines of code at the top of your program to
-		import the functions in the random and textwrap modules:</p>
+		import the functions in the <code>random</code> and
+		<code>textwrap</code> modules:</p>
 
 <pre>import random
 import textwrap</pre>
@@ -50,10 +75,8 @@ import textwrap</pre>
 		<h3>Core Requirements</h3>
 		<ol>
 			<li><div>Your program must read the quotes from the
-			<code>quotes.txt</code> file into a list.</div></li>
-
-			<li><div>Your program must randomly choose one of the quotes
-			from the list.</div></li>
+			<code>quotes.txt</code> file into a list and randomly choose
+			one of the quotes from the list.</div></li>
 
 			<li><div>Your program must wrap the words in the quote onto
 			multiple lines if the quote is longer than 70 characters and

@@ -65,14 +65,34 @@ print(f"Hello {name}")</pre></div></li>
 				<li><div>the parameters that the function takes</div></li>
 				<li><div>what the function does</div></li>
 			</ol>
-			All of this information is normally available in online
-			documentation. For example, you can read about all of the
-			built-in functions at
-			<a target="_blank" href="https://docs.python.org/3/library/functions.html">docs.python.org/3/library/functions.html</a>,
-			and you can read about the <code>math</code> module at
-			<a target="_blank" href="https://docs.python.org/3/library/math.html">docs.python.org/3/library/math.html</a>
-			and the <code>csv</code> module at
-			<a target="_blank" href="https://docs.python.org/3/library/csv.html">docs.python.org/3/library/csv.html</a>.</div></li>
+			<p>All of this information is normally available in online
+			documentation. For example, from the online Python
+			documentation about the <code>math</code> module, we read
+			this about the <code>sqrt</code> function:</p>
+
+			<blockquote><code>math.sqrt(x)</code><br>
+			&nbsp; &nbsp; &nbsp; &nbsp; Return the square root of x.</blockquote>
+			<p>From this short description, we know that</p>
+			<ol>
+				<li><div>the name of its containing module is
+				<code>math</code></div></li>
+				<li><div>the name of the function is
+				<code>sqrt</code></div></li>
+				<li><div>the function takes one parameter
+				(<var>x</var>)</div></li>
+				<li><div>the function computes and returns the square
+				root of a number</div></li>
+			</ol>
+
+			<p>You can read about</p>
+			<ul>
+				<li><div>the built-in functions at
+				<a target="_blank" href="https://docs.python.org/3/library/functions.html">docs.python.org/3/library/functions.html</a>,</div></li>
+				<li><div>the <code>math</code> module at
+				<a target="_blank" href="https://docs.python.org/3/library/math.html">docs.python.org/3/library/math.html</a></div></li>
+				<li><div>the <code>csv</code> module at
+				<a target="_blank" href="https://docs.python.org/3/library/csv.html">docs.python.org/3/library/csv.html</a>.</div></li>
+			</ul></div></li>
 
 			<li><div><p>A <dfn>parameter</dfn> is a piece of data that a
 			function needs in order to complete its task. In the online
@@ -82,8 +102,8 @@ print(f"Hello {name}")</pre></div></li>
 			function has one parameter named <var>x</var> which is the
 			number that <code>math.sqrt</code> will compute the square
 			root of.</p>
-			<p><code>math.sqrt(x)</code><br>
-			&nbsp; &nbsp; &nbsp; &nbsp; Return the square root of x.</p>
+			<blockquote><code>math.sqrt(x)</code><br>
+			&nbsp; &nbsp; &nbsp; &nbsp; Return the square root of x.</blockquote>
 
 			<p>In order for the <code>math.sqrt</code> function to
 			do its job (compute the square root), a programmer must
@@ -92,17 +112,32 @@ print(f"Hello {name}")</pre></div></li>
 			Here is a simple example of passing a number to the
 			<code>math.sqrt</code> function:</p>
 			<pre>r = math.sqrt(71)</pre>
+
 			<p>In the above example, 71 will be passed through the
 			parameter <var>x</var> into the <code>math.sqrt</code>
-			function. The <code>sqrt</code> function will compute the
-			square root of 71 and return the computed value which will
-			then be stored in the variable <var>r</var>.</p>
+			function. The <code>math.sqrt</code> function will compute
+			the square root of 71 and return the computed value which
+			will then be stored in the variable <var>r</var>.</p>
 
-			<p>Here is another example that calls the built-in
+			<p>Here is another example that gets a number from the user
+			and then computes and prints the square root of that number.
+			Notice that this example calls four functions:
+			<code>input</code>, <code>float</code>,
+			<code>math.sqrt</code>, and <code>print</code>. The code in
+			this example first calls the <code>input</code> function to
+			get input from the user, then calls the <code>float</code>
+			function to convert that input to a number, then calls the
+			<code>math.sqrt</code> function to compute the square root,
+			and finally calls the <code>print</code> function to display
+			the result for the user to see.</p>
+<pre>num = float(input("Please enter a number: "))
+rt = math.sqrt(num)
+print(rt)</pre>
+
+			<p>Here is an example that calls the built-in
 			<code>input</code> and <code>open</code> functions to open a
 			text file and then calls the <code>reader</code> function
-			that is in the <code>csv</code>
-			module:</p>
+			that is in the <code>csv</code> module:</p>
 <pre>filename = input("Please enter a filename: ")
 with open(filename, "rt") as infile:
     reader = csv.reader(infile)</pre></div></li>
