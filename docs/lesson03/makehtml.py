@@ -1,20 +1,20 @@
 """Write U.S. National Weather Service forecasts to an HTML file
 
-To successfully use this module to write an HTML file, you code must
+To successfully use this module to write an HTML file, your code must
 first retrieve the weather forecasts from the US National Weather
 Service. The weather service organizes the weather forecast into
 periods of time. Each period covers about 12 hours and is either a day
 or a night.
 
-After you code retrives the periods, it should call these functions from
-this module:
+After your code retrives the periods, it should call these functions
+from this module:
 
 1. makehtml.create_report - must be called once before the other functions.
 2. makehtml.add_row - must be called once at the beginning of each desired
 row of periods.
 3. makehtml.add_period - must be called once for each period in the
 current row.
-4. makehtml.write_report - must be call last after your code has added
+4. makehtml.write_report - must be called last after your code has added
 all desired rows and periods.
 """
 

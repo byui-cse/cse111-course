@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" type="text/css" href="../site/style.css" />
+	<title>makehtml Module</title>
+</head>
+<body>
+	<header id="courseTitle">
+		<span class="icon-byui-logo"></span>
+		<h1>makehtml &mdash; Write U.S. Weather forecasts to an HTML File</h1>
+	</header>
+	<article>
+		<p>The <code>makehtml</code> module writes U.S. National Weather
+		Service forecasts to an HTML file.</p>
+
+		<p>To successfully use this module to write an HTML file, your
+		code must first retrieve the weather forecasts from the U.S.
+		National Weather Service. The weather service organizes the
+		weather forecast into periods of time. Each period covers about
+		12 hours and is either a day or a night.</p>
+
+		<p>After your code retrives the periods, it should call these
+		functions from this module:</p>
+
+		<ol>
+			<li><div><code>makehtml.create_report(filename, locname,
+			options)</code>
+			<div>Creates and returns a weather report that will be used
+			for adding rows and periods and then writing the report.
+			<code>create_report</code> must be called once before the
+			other functions.</div>
+			<div>param <code>filename</code>: path and name of the HTML
+			file where this module will write the weather
+			forecasts.</div>
+			<div>param <code>locname</code>: name of the geographic
+			location (city) where the forecasts apply.</div>
+			<div>param <code>options</code>: an optional list of weather
+			forecast data that the user desires to be written in a
+			report.</div></div></li>
+
+			<li><div><code>makehtml.add_row(report)</code>
+			<div>Adds one row of periods to the weather report.
+			<code>add_row</code> must be called once at the
+			beginning of each desired row of periods.</div></div></li>
+
+			<li><div><code>makehtml.add_period(report, period)</code>
+			<div>Adds one forecast for a period to the current row in
+			the weather report. <code>add_period</code> must be called
+			once for each period in the current row.
+			<div>param <code>report</code>: the report to add the period
+			to</div>
+			<div>param <code>period</code>: a forecast for a period of
+			time that came from the U.S. National Weather
+			Service</div></div></li>
+
+			<li><div><code>makehtml.write_report(report)</code>
+			<div>Writes the weather forecasts to an HTML file.
+			<code>write_report</code> must be called once, after your
+			code has added all desired rows and periods.</div></div></li>
+		</ol>
+	</article>
+</body>
+</html>

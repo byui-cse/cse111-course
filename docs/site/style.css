@@ -259,6 +259,14 @@ img.screenshot-large {
 }
 
 /* Tables */
+article table {
+	margin-bottom: 1em;
+}
+
+th, td {
+	padding: 0.1em 0.25em;
+}
+
 table > thead > tr > th {
 	text-align: center;
 	font-weight: bold;

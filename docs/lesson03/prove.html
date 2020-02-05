@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" type="text/css" href="../site/style.css" />
+	<style>
+		span.input { background-color: green; color: white; }
+	</style>
+	<title>CSE 111 - Course Materials</title>
+</head>
+<body>
+	<header id="courseTitle">
+		<span class="icon-byui-logo"></span>
+		<h1>CSE 111 | Programming with Functions</h1>
+	</header>
+	<article>
+		<h1>03 Prove: Assignment Milestone</h1>
+
+		<h2>Overview</h2>
+		<p>Prove that you can write a Python program that calls built-in
+		and standard functions.</p>
+
+		<h2>Problem Statement</h2>
+		<p>The weather affects people's lives for good and bad every
+		day. Because of the impact of the weather on people's lives, the
+		United States Federal Government sponsors the U.S. National
+		Weather Service which forecasts the weather throughout the
+		entire United States every day. These weather forecasts are
+		available for free as a web service on the internet. Write a
+		Python program that</p>
+
+		<ol>
+			<li><div>allows a user to select a city from a list of
+			cities</div></li>
+			<li><div>retrieves weather forecasts for the next seven days
+			and nights from the U.S. National Weather Service</div></li>
+			<li><div>writes the forecasts to an HTML file that a user
+			can view in a browser</div></li>
+		</ol>
+
+		<p>During lesson 3, you will write half of this Python program.
+		This half will not retrieve the forecast from the U.S. Weather
+		Service but will instead use two sets of test forecasts and will
+		write those forecasts to an HTML file. During lesson 4, you will
+		add the code to prompt the user for their desired city and to
+		retrieve the forecasts from the U.S. Weather Service.</p>
+
+		<h2>Helpful Documentation</h2>
+		<p>The Python makehtml module was written at BYU-Idaho and
+		accepts U.S. National Weather Service data and writes HTML to a
+		file. To prepare for this assignment, read about <a
+		target="_blank" href="makehtml.html">makehtml module</a> and its
+		functions.</p>
+
+		<h2>Assignment</h2>
+		<p>Download both of these files:
+		<a target="_blank" download href="makehtml.py">makehtml.py</a>
+		<a target="_blank" download href="test_periods.py">test_periods.py</a>
+		and save them into the same folder where you will save your
+		Python program. Open the <code>makehtml.py</code> file and
+		examine it. Notice that this file is the makehtml module and
+		contains the four functions: <code>create_report</code>,
+		<code>add_row</code>, <code>add_period</code>,
+		<code>write_report</code> that are described in the module's
+		documentation. Open the <code>test_periods.py</code> file and
+		notice that it contains two lists:
+		<code>periods_that_start_with_a_day</code> and
+		<code>periods_that_start_with_a_night</code>. You will use these
+		two lists to test your program during week 3.</p>
+
+		<p>Write a Python program that creates a weather forecast report
+		in one of these three formats:</p>
+		<ul>
+			<li><div>horizontal three day</div></li>
+			<li><div>vertical five day</div></li>
+			<li><div>horizontal seven day</div></li>
+		</ul>
+
+		<p>All three of these formats are shown in this table.</p>
+		<table><thead>
+			<tr><th></th> <th>periods_that_<br>start_with_a_day</th>
+				<th>periods_that_<br>start_with_a_night</th></tr>
+		</thead><tbody>
+			<tr><th>horizontal three day</th>
+				<td><a target="_blank" href="forecast3day.html">forecast3day.html</a></td>
+				<td><a target="_blank" href="forecast3night.html">forecast3night.html</a></td></tr>
+			<tr><th>vertical five day</th>
+				<td><a target="_blank" href="forecast5day.html">forecast5day.html</a></td>
+				<td><a target="_blank" href="forecast5night.html">forecast5night.html</a></td></tr>
+			<tr><th>horizontal seven day</th>
+				<td><a target="_blank" href="forecast7day.html">forecast7day.html</a></td>
+				<td><a target="_blank" href="forecast7night.html">forecast7night.html</a></td></tr>
+		</tbody></table>
+
+		<p>Use this code to begin your Python program</p>
+<pre>import test_periods
+import makehtml
+
+city_name = "Rexburg, Idaho"
+periods = test_periods.periods_that_start_with_a_day
+# periods = test_periods.periods_that_start_with_a_night
+</pre>
+
+		<p>Finish your program by writing code to call the four
+		functions from the <code>makehtml</code> module as necessary to
+		produce an HTML file in one of the three formats shown in the
+		above table.</p>
+
+		<h2>Testing Procedure</h2>
+		<p>Verify that your program works correctly by following each
+		step in this testing procedure:</p>
+
+		<ol>
+			<li><div>Run your program and double click on the HTML file
+			that you program produces. Double clicking the HTML file
+			should open it in a browser. Look at the document in the
+			browser and verify that it looks matches the corresponding
+			document from the table above.</div></li>
+
+			<li><div>Change your program to use the list
+			<code>periods_that_start_with_a_night</code> and then run
+			your program again. Double click on the HTML file and verify
+			that the document changed and that it looks matches the
+			corresponding document from the table above.</div></li>
+		</ol>
+
+		<h2>Submission</h2>
+		<p></p>
+	</article>
+</body>
+</html>
