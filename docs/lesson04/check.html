@@ -16,84 +16,108 @@
 		<h1>04 Checkpoint: Installing Third-Party Modules</h1>
 
 		<h2>Overview</h2>
-		<p>Use pip to download and install the <code>requests</code>
-		module. Then run a simple program that uses the
-		<code>requests</code> module to retrieve a
-		commodity prices for wool and oranges.</p>
-
-
-
-		<p>Demonstrate your understanding of calling Python built-in
-		functions by completing the following individual checkpoint
-		assignment.</p>
+		<p>Use <code>pip</code> to download and install the
+		<code>requests</code> module. Then verify that
+		<code>requests</code> was installed correctly and that it works
+		by running a simple program that uses the <code>requests</code>
+		module to retrieve commodity prices for wool and oranges.</p>
 
 		<h2>Helpful Documentation</h2>
-		<p>You can read about the Python built-in functions at
-		<a target="_blank"
-		href="https://docs.python.org/3/library/functions.html">docs.python.org/3/library/functions.html</a></p>
+		<ul>
+			<li><div>Documentation about the
+			<a target="_blank"
+			href="https://docs.python.org/3/installing/index.html"><code>pip</code> command</a>
+			 which you will use to install the <code>requests</code>
+			 module.</div></li>
+
+			<li><div>Documentation about the
+			<a target="_blank"
+			href="https://requests.readthedocs.io/en/master/"><code>requests</code> module.</a></div></li>
+		</ul>
 
 		<h2>Assignment</h2>
 		<p>Do the following:</p>
 
-# python -m pip install --user --upgrade pip setuptools wheel
-# python -m pip install --user requests
 		<ol>
-			<li><div>In your text editor, open a new file for a Python
-			program.</div></li>
-			<li><div>Copy and paste this Python code that creates a list
-			into your program.
-<pre>heights = [1.72, 1.50, 1.96, 2.01, 1.75,
-		2.11, 1.60, 1.65, 2.05, 1.50,
-		1.80, 1.83, 2.05, 1.79, 1.84]</pre></div></li>
+			<li><div>Open one of your previous Python programs in VS
+			Code.</div></li>
 
-			<li><div>Write Python code to call each of these built-in
-			functions and pass the list of heights to each function.
-			Store the value returned from each function in a different
-			variable.
+			<li><div>On the menu bar for VS Code, click "Terminal" and
+			then "New Terminal". This will open a terminal frame at the
+			bottom of the VS Code window.</div></li>
+
+			<li><div>Copy and paste the following command into the
+			terminal frame and execute the command by pressing the Enter
+			key.
+			<pre>python -m pip install --user --upgrade pip setuptools wheel</pre>
+			That command will upgrade <code>pip</code> and several other
+			parts of the Python installation modules so that
+			<code>pip</code> will work correctly.</div></li>
+
+			<li><div>Install the requests module by copying, pasting,
+			and executing the following command in the terminal frame.
+			<pre>python -m pip install --user requests</pre></div></li>
+
+			<li><div>Download and save this
+			<a download target="_blank" href="commodities.py">python
+			program</a> and then open it in VS Code.</div></li>
+
+			<li><div>Run the program by clicking the run icon (small
+			green triangle) in the upper right corner of VS
+			Code. If your computer is connected to the internet, the
+			program should run successfully and print prices for
+			Australian wool similar to this:
+<pre>ODA/PWOOLC_USD
+Wool; coarse; 23 micron; Australian Wool Exchange spot quote; US cents per kilogram
+2019-01-17 2020-01-31
+['Date', 'Value']
+['2019-01-31', 1554.131]
+['2019-02-28', 1617.8]
+['2019-03-31', 1586.002]
+['2019-04-30', 1553.879]
+['2019-05-31', 1475.668]
+['2019-06-30', 1430.442]
+['2019-07-31', 1372.036]
+['2019-08-31', 1337.728]
+['2019-09-30', 1346.918]
+['2019-10-31', 1133.594]
+['2019-11-30', 1154.554]
+['2019-12-31', 1157.729]
+['2020-01-31', 1188.525]</pre></div></li>
+
+			<li><div>Examine the commodities.py program in VS Code and
+			note the following:
 			<ol>
-				<li><div><code>len</code></div></li>
-				<li><div><code>min</code></div></li>
-				<li><div><code>max</code></div></li>
-				<li><div><code>sum</code></div></li>
+				<li><div>At line 1, the program imports parts of the
+				standard Python <code>datetime</code> module.</div></li>
+				<li><div>At line 2, the program imports the third-party
+				<code>requests</code> module.</div></li>
+				<li><div>At lines 4 through 24, the program prepares an
+				http request.</div></li>
+				<li><div>At line 27, the program uses the requests
+				module to send the http request to a computer server at
+				quandl.com</div></li>
+				<li><div>At line 30, the program checks the status_code
+				of the request. A status code of 200 means the request
+				succeeded.</div></li>
+				<li><div>If the request succeeded, at lines 31 through
+				39, the program prints the data that was returned by
+				quandl.com from the request.</div></li>
+				<li><div>Try to appreciate how simple this Python
+				program is and how easy it is to retrieve data from a
+				remote computer server using the <code>reqests</code>
+				module. In other programming languages and even with
+				other Python modules, retrieving data from a server is
+				substantially more complex and difficult.</div></li>
 			</ol></div></li>
 
-			<li><div>Write code to call the <code>round</code> function
-			to round the value returned from the sum function to two
-			decimal places and store the result in a
-			variable.</div></li>
-
-			<li><div>Write code to print the value returned from each of
-			the functions.</div></li>
+			<li><div>At line 6 of the program, change the
+			<code>qcode</code> variable from
+			<code>"ODA/PWOOLC_USD"</code> to
+			<code>"ODA/PORANG_USD"</code>. Then run the program again by
+			clicking the run icon (small green triangle). The program
+			should print prices for oranges in the U.S.</div></li>
 		</ol>
-
-		<h2>Sample Run</h2>
-<pre class="console">&gt; python check_solution.py
-len: 15
-min: 1.5
-max: 2.11
-sum: 27.16</pre>
-
-		<h2>Testing Procedure</h2>
-		<p>Verify that your program works correctly by following each
-		step in this testing procedure:</p>
-		<ol class="testing">
-			<li><div>Run your program using the input shown in the
-			sample run section above. Ensure that your program's output
-			matches the sample run output.</div></li>
-		</ol>
-
-		<h2>Sample Solution</h2>
-		<p>When your program is finished, please view the
-		<a target="_blank" href="check_solution.py" download>sample
-		solution</a> for this program to compare your solution to that
-		one.</p>
-
-		<p>Before looking at the sample solution, you should work to
-		complete this checkpoint program first. However, if you have
-		worked on it for at least an hour and are still having problems,
-		feel free to use the <a target="_blank" download
-		href="check_solution.py">sample solution</a> to help you
-		finish your program.</p>
 
 		<h2>Submission</h2>
 		<p>When complete, please report your progress in the associated
