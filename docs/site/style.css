@@ -1,68 +1,39 @@
 @import url("reset.css");
-@import url("./js/highlight/styles/monokai_sublime.css");
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700);
-
-@font-face {
-	font-family: 'icomoon';
-	src: url('./fonts/icomoon.eot');
-	src: url('./fonts/icomoon.eot#iefix-8k8p81') format('embedded-opentype'), url('./fonts/icomoon.ttf') format('truetype'), url('./fonts/icomoon.woff') format('woff'), url('../fonts/icomoon.svg#icomoon') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-
-.icon-byui-logo:before {
-	content: "\e000";
-	box-sizing: border-box;
-}
-
-.icon-byui-logo {
-	font-size:75px;
-	color:#fff;
-	float:left;
-	margin-top:-22px;
-	padding-top:0px;
-
-	font-family: 'icomoon';
-	speak: none;
-	font-style: normal;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1;
-	/* Better Font Rendering */
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
+@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
 
 body {
-	font-family: "Open Sans", helvetica, arial, sans-serif;
-	font-size: 120%;
-	line-height: 1.2em;
-	background: #fefefe;
-	color: #040404;
-	counter-reset: h3;
+	font-family: "Open Sans", Arial, Helvetica, Verdana, sans-serif;
 }
 
-/* Title Bar */
-#courseTitle {
-	background: #326ba9;
-	padding: 1.25em;
+header {
+	background-color: #326ba9;
+	color: white;
 }
-
-#courseTitle .logo {
-	width: 64px;
+header div.logo {
+	display: inline-block;
+	margin: 0.5em 2em 0.5em 1.5em;
+	vertical-align: middle;
+	font-family: Georgia, Palatino, "Book Antiqua", serif;
+	text-transform: uppercase;
+	max-width: 5.5em;
+}
+header div.logo div.upper {
+	margin-bottom: -0.05em;
+	font-size: 160%;
+	font-weight: bolder;
+	text-align: center;
+}
+header div.logo div.lower {
+	border-top: 1px solid white;
+	font-weight: lighter;
+	letter-spacing: 0.08em;
+	text-align: center;
+}
+header h1 {
 	display: inline-block;
 	vertical-align: middle;
-	padding: 0 2em;
-	border-right: 1px solid #ffffff;
-}
-
-#courseTitle h1 {
-	color: #ffffff;
-	font-size: 1.25em;
-	display: inline-block;
-	vertical-align: middle;
-	margin-left: 1.5em;
+	font-size: 150%;  /*1.5em;*/
+	font-weight: normal;
 }
 
 /* Content */
@@ -70,16 +41,20 @@ article {
 	margin: 1em auto;
 	max-width: 40em;
 	padding: 1em;
+	font-size: 110%;
+	line-height: 1.1em;
+	background: #fefefe;
+	color: #040404;
 }
 
 article h1 {
 	text-align: center;
-	font-size: 1.5em;
+	font-size: 150%;
 	margin-bottom: 1em;
 }
 
 article h2 {
-	font-size: 1.25em;
+	font-size: 125%;
 	font-weight: bold;
 	margin: 1.5em 0 0.25em 0;
 	padding-bottom: 0.25em;
@@ -162,7 +137,7 @@ article ul.links {
 }
 
 article ul.links > li:before {
-	font-size: 1.5em;
+	font-size: 150%;
 	color: #006ab9;
 	content: "»";
 	margin-right: 0.25em;
@@ -185,7 +160,7 @@ article div.expr {
 	white-space: nowrap;
 	vertical-align: middle;
 	text-align: center;
-	font-family: "Palatino Linotype",Palatino,Garamond,serif;
+	font-family: "Palatino Linotype", Palatino, Garamond, serif;
 	font-size: large;
 	font-weight: bold;
 }
@@ -194,7 +169,7 @@ article div.blockExpr {
 	white-space: nowrap;
 	vertical-align: middle;
 	text-align: center;
-	font-family: "Palatino Linotype",Palatino,Garamond,serif;
+	font-family: "Palatino Linotype", Palatino, Garamond, serif;
 	font-size: large;
 	font-weight: bold;
 }
@@ -220,14 +195,14 @@ article div.blockExpr div.sum > div { display: block; }
 
 article span.expr {
 	white-space: nowrap;
-	font-family: "Palatino Linotype",Palatino,Garamond,serif;
+	font-family: "Palatino Linotype", Palatino, Garamond, serif;
 	font-size: large;
 }
 
 /* Code Highlighting */
 article pre {
 	font-family: Menlo, Monaco, Consolas, monospace;
-	line-height: 1.3em;
+	line-height: 1.1em;
 	margin: 1.5em auto;
 	border: 1px solid #ccc;
 	padding: 0.25em 0.5em;
@@ -326,51 +301,5 @@ div.tips p:first-child {
 }
 
 div.tips p {
-	font-size: 0.8em;
-}
-
-p.subtitle {
-	text-align: center;
-	margin-top: -30px;
-	color: #0f6cb6;
-	font-size: 1.45em;
-}
-
-span.subtitle {
-	font-weight: bold;
-}
-
-@media only screen and (max-width: 1250px) {
-	aside.pull-right, aside.pull-left {
-		width: 96.5%;
-		position: relative;
-		padding: 13px;
-		margin: 0 0 15px 0;
-		right: 0px;
-		left: 0px;
-	}
-}
-
-aside.pull-right, aside.pull-left {
-	position: absolute;
-	right: 5px;
-	width: 200px;
-	background: #006ab9;
-	padding: 13px;
-	margin: 0 1.5%;
-}
-
-aside.pull-left {
-	left: 5px;
-	right: 0px;
-}
-
-aside.pull-right p, aside.pull-left p {
-	color: white;
-	font-size: 16px
-}
-
-aside.pull-right strong, aside.pull-left strong {
-	color: black;
-	font-size: 18px;
+	font-size: 80%;
 }
