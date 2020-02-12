@@ -16,7 +16,7 @@
 		<h1>CSE 111 | Programming with Functions</h1>
 	</header>
 	<article>
-		<h1>04 Team Activity: Retrieving Data from a Web Service</h1>
+		<h1>04 Team Activity: Retrieving Data from a Web Server</h1>
 
 		<h2>Overview</h2>
 		<p>Arrange a one-hour synchronous meeting with your team for
@@ -54,46 +54,37 @@
 		href="https://swapi.co/documentation">swapi.co/documentation</a></p>
 
 		<h2>Instructions</h2>
-		Use the commodities.py program, that you downloaded during the
-		checkpoint for this lesson, as a reference.
+		<p>Open the <a target="_blank"
+		href="https://swapi.co/documentation">Star Wars API documenation</a>
+		in your browser. From the documentation you can read that this
+		URL <a target="_blank"
+		href="https://swapi.co/api/planets">https://swapi.co/api/planets</a>
+		will return data about all the planets in the Star Wars galaxy,
+		and this URL <a target="_blank"
+		href="https://swapi.co/api/planets">https://swapi.co/api/planets/{i}</a>
+		where <var>{i}</var> is an integer will return data about an
+		individual planet.</p>
 
-
-
-
-		<p>Write a Python program that reads the contents of the
-		<code>quotes.txt</code> file into a list and then randomly
-		chooses one of the quotes and prints it for the user to see.
-		Include these two lines of code at the top of your program to
-		import the functions in the <code>random</code> and
-		<code>textwrap</code> modules:</p>
-
-<pre>import random
-import textwrap</pre>
+		<p>Use the commodities.py program, that you downloaded during
+		this lesson's checkpoint, as a reference, and write a Python
+		program to retrieve the population for each planet and calculate
+		and display the total population of all planets in the Star Wars
+		galaxy.</p>
 
 		<h3>Core Requirements</h3>
 		<ol>
-			<li><div>Your program must read the quotes from the
-			<code>quotes.txt</code> file into a list and randomly choose
-			one of the quotes from the list.</div></li>
+			<li><div>Your program must use the <code>requests</code>
+			module to retrieve data from this URL: <a target=_"blank"
+			href="https://swapi.co/api/planets">https://swapi.co/api/planets</a>
+			and then get the count of planets from that data.</div></li>
 
-			<li><div>Your program must wrap the words in the quote onto
-			multiple lines if the quote is longer than 70 characters and
-			then print the wrapped quote for the user to see.</div></li>
+			<li><div>Your program must contain a loop that repeats once
+			for each planet. Within that loop your program must use the
+			<code>requests</code> module to retrieve the data for each
+			planet and then get the population from that data and add
+			that population into a total population.</div></li>
 
-			<li><div>Your program must call the following functions:
-			<ul>
-				<li><div><code>open</code> - to open the
-				<code>quotes.txt</code> file.</div></li>
-				<li><div><code>file.readlines</code> - to read all the
-				lines in the file as a list</div></li>
-				<li><div><code>random.choice</code> - to randomly choose
-				one of the quotes</div></li>
-				<li><div><code>textwrap.wrap</code> - to wrap the words
-				of the chosen quote to 70 characters or fewer per
-				line</div></li>
-				<li><div><code>print</code> - to print the wrapped lines
-				of the quote</div></li>
-			</ul></div></li>
+			<li><div>Your program must print the total population.</div></li>
 		</ol>
 
 		<h3>Stretch Challenges</h3>
@@ -109,13 +100,29 @@ import textwrap</pre>
 			<li><div>Write comments above the lines of code that were
 			difficult for you to understand.</div></li>
 
-			<li><div>Change the call to the <code>textwrap.wrap</code>
-			function to wrap the words in the quote to 50 characters
-			instead of 70.</div></li>
+			<li><div>Change your program to count the number of planets
+			that are known to have surface water.</div></li>
 
-			<li><div>Allow the user to enter a positive integer to
-			choose how quotes are chosen and printed.</div></li>
+			<li><div>Change your program to compute the average height
+			for all the characters in the swapi database.</div></li>
 		</ol>
+
+		<h2>Warning</h2>
+		<p>Now that you know how to use the <code>requests</code> module
+		to retrieve data, you have enough knowledge to launch a denial
+		of service (DOS) attack against a web server. If you write a
+		program that quickly makes thousands or millions of requests to
+		a server, your program's requests will overwhelm the server.
+		Then other programs that are making normal, legitimate requests
+		will not be served because the server is too busy with the flood
+		of requests from your program. This is a denial of service
+		attack. Don't do this. Launching a DOS attack is rude,
+		unethical, likely illegal, a violation of the BYU-Idaho honor
+		code, and not something that a disciple of Jesus Christ would
+		knowingly do. Launching a DOS attack, either purposefully or
+		accidentally, will lead to your computer's IP address being
+		locked on the server which means the server will refuse to serve
+		your computer. With great power, comes great responsibility.</p>
 
 		<h2>Sample Solution</h2>
 		<p>Please work diligently with your team for the one-hour
@@ -143,16 +150,6 @@ import textwrap</pre>
 		sample solution, if necessary. In short, report on what you were
 		able to accomplish, regardless of when you completed it or if
 		you needed help from the sample solution.</p>
-
-		<h2>Warning</h2>
-
-You have the power to scrape data or make denial of service attacks.
-This is considered bad practice, bad citizenship, may lead to locking of
-your IP address.
-With great power, comes great responsibility.
-Stealing data and attacking sites is unethical, not what a disciple of
-Jesus Christ would do, and is violation of the BYU-Idaho honor
-code .
 	</article>
 </body>
 </html>

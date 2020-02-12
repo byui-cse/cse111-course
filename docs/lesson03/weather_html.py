@@ -133,6 +133,8 @@ def write_detailed_forecast(out, period):
 	forecast = period[DETAILED_FORECAST]
 	out.write(f"\t\t\t\t<td>{forecast}</td>\n")
 
+# A dictionary to find writer functions
+# by their corresponding option name.
 WRITERS = {
 	PERIOD_NAME : write_period_name,
 	TEMPERATURE : write_temperature,
@@ -159,8 +161,8 @@ def write_row(out, periods, options, max_cols):
 
 		for period in periods:
 			if len(period) > 0:
-				# Call the writer function which will write to
-				# the HTML file a piece of data from a period.
+				# Call the writer function which will write to the
+				# HTML file a piece of data from a weather period.
 				write_part(out, period)
 			else:
 				out.write(empty_cell)

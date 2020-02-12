@@ -9,9 +9,11 @@ response = requests.get(url)
 
 # Check the status code to see if the request succeeded.
 if response.status_code == 200:
-	# If the request was succesful, get the json data from the response
-	# and then the count of the number of planets from the json data.
+	# If the request was succesful, convert the JSON data
+	# from the response into a dictionary named data.
 	data = response.json()
+
+	# Get the number of planets from the dictionary.
 	count = int(data["count"])
 
 	# For each planet, get the population (if known), and add it
