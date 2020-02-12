@@ -32,7 +32,7 @@
 
 			<li><div>Documentation about the
 			<a target="_blank"
-			href="https://requests.readthedocs.io/en/master/"><code>requests</code> module.</a></div></li>
+			href="https://requests.readthedocs.io#requests-http-for-humans"><code>requests</code> module.</a></div></li>
 		</ul>
 
 		<h2>Assignment</h2>
@@ -44,7 +44,8 @@
 
 			<li><div>On the menu bar for VS Code, click "Terminal" and
 			then "New Terminal". This will open a terminal frame at the
-			bottom of the VS Code window.</div></li>
+			bottom of the VS Code window. A terminal is a window or
+			frame where user can type computer commands.</div></li>
 
 			<li><div>Copy and paste the following command into the
 			terminal frame and execute the command by pressing the Enter
@@ -54,8 +55,9 @@
 			parts of the Python installation modules so that
 			<code>pip</code> will work correctly.</div></li>
 
-			<li><div>Install the requests module by copying, pasting,
-			and executing the following command in the terminal frame.
+			<li><div>Install the <code>requests</code> module by
+			copying, pasting, and executing the following command in the
+			terminal frame.
 			<pre>python -m pip install --user requests</pre></div></li>
 
 			<li><div>Download and save this
@@ -85,8 +87,9 @@ Wool; coarse; 23 micron; Australian Wool Exchange spot quote; US cents per kilog
 ['2019-12-31', 1157.729]
 ['2020-01-31', 1188.525]</pre></div></li>
 
-			<li><div>Examine the commodities.py program in VS Code and
-			note the following:
+			<li><div>Examine the <code>commodities.py</code> program in
+			VS Code and note the following which will help you in the
+			team activity and prove assignment for this week:
 			<ol>
 				<li><div>At line 1, the program imports parts of the
 				standard Python <code>datetime</code> module.</div></li>
@@ -96,7 +99,13 @@ Wool; coarse; 23 micron; Australian Wool Exchange spot quote; US cents per kilog
 				http request.</div></li>
 				<li><div>At line 27, the program uses the requests
 				module to send the http request to a computer server at
-				quandl.com</div></li>
+				quandl.com. Notice in the call to requests.get that the
+				program is using a named parameter, which coincidentally
+				is named <code>params</code>. Named parameters are
+				optional. In this program, the named parameter
+				<code>params</code> causes the quandl.com server to
+				filter the data that it will send to the
+				program.</div></li>
 				<li><div>At line 30, the program checks the status_code
 				of the request. A status code of 200 means the request
 				succeeded.</div></li>

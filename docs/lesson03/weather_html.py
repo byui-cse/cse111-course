@@ -1,21 +1,22 @@
 """Write U.S. National Weather Service forecasts to an HTML file
 
 To successfully use this module to write an HTML file, your code must
-first retrieve the weather forecasts from the US National Weather
-Service. The weather service organizes the weather forecast into
-periods of time. Each period covers about 12 hours and is either a day
-or a night.
+first retrieve a weather forecast from the US National Weather Service.
+The weather service organizes a weather forecast into periods of time.
+Each period covers about 12 hours and is either a day, an afternoon, or
+a night.
 
-After your code retrives the periods, it should call these functions
+After your code retrieves the periods, it should call these functions
 from this module:
 
-1. makehtml.create_report - must be called once before the other functions.
-2. makehtml.add_row - must be called once at the beginning of each desired
-row of periods.
-3. makehtml.add_period - must be called once for each period in the
+1. weather_html.create_report - must be called once before the other
+functions.
+2. weather_html.start_new_row - must be called once at the beginning of
+each desired row of periods.
+3. weather_html.add_period - must be called once for each period in the
 current row.
-4. makehtml.write_report - must be called last after your code has added
-all desired rows and periods.
+4. weather_html.write_report - must be called once after your code has
+added all desired rows and periods.
 """
 
 import math
@@ -50,7 +51,7 @@ def create_report(filename, locname,
 	}
 
 
-def add_row(report):
+def start_new_row(report):
 	"""Add one row to the weather report."""
 	report["rows"].append([]);
 
@@ -66,7 +67,8 @@ def write_report(report):
 	# Determine the maximum number of columns for all rows.
 	max_cols = max([len(row) for row in report["rows"]])
 
-	# Compute the column width and round down to the nearest tenth.
+	# Compute the column width as a percentage and
+	# round down to the nearest tenth of one percent.
 	col_width = 100 / max_cols
 	col_width = math.floor(col_width * 10) / 10
 
@@ -103,6 +105,7 @@ f'''<!DOCTYPE HTML>
 ''')
 
 
+# Writer functions that write various parts of a period to an HTML file.
 def write_period_name(out, period):
 	name = period[PERIOD_NAME]
 	out.write(f"\t\t\t\t<th>{name}</th>\n")
@@ -139,7 +142,6 @@ WRITERS = {
 	DETAILED_FORECAST : write_detailed_forecast
 }
 
-
 def write_row(out, periods, options, max_cols):
 	"""Write one row of periods to the HTML file."""
 
@@ -149,11 +151,16 @@ def write_row(out, periods, options, max_cols):
 	empties = max_cols - len(periods)
 
 	for option in options:
+		# Write an opening <tr> tag to the HTML file.
 		out.write(tr)
 
+		# Find the writer function that corresponds to the current option.
 		write_part = WRITERS[option]
+
 		for period in periods:
 			if len(period) > 0:
+				# Call the writer function which will write to
+				# the HTML file a piece of data from a period.
 				write_part(out, period)
 			else:
 				out.write(empty_cell)
@@ -162,7 +169,8 @@ def write_row(out, periods, options, max_cols):
 		for _ in range(empties):
 			out.write(empty_cell)
 
+		# Write an closing </tr> tag to the HTML file.
 		out.write(_tr)
 
 
-__all__ = [create_report, add_row, add_period, write_report]
+__all__ = [create_report, start_new_row, add_period, write_report]

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" type="text/css" href="../site/style.css" />
+	<title>weather_html Module</title>
+</head>
+<body>
+	<header id="courseTitle">
+		<span class="icon-byui-logo"></span>
+		<h1>weather_html &mdash; Write U.S. Weather forecasts to an HTML File</h1>
+	</header>
+	<article>
+		<p>The <code>weather_html</code> module writes U.S. National
+		Weather Service forecasts to an HTML file.</p>
+
+		<p>To successfully use this module to write an HTML file, your
+		code must first retrieve a weather forecast from the U.S.
+		National Weather Service. The weather service organizes the
+		weather forecast into periods of time. Each period covers about
+		12 hours and is either a day, an afternoon, or a night.</p>
+
+		<p>After your code retrives the periods from the U.S. Weather
+		service, it should call these functions from this module:</p>
+
+		<ol>
+			<li><div><code>weather_html.create_report(filename, locname,
+			options)</code></div>
+			<div>Creates and returns a weather report that will be used
+			for adding rows and periods and then writing the report.
+			<code>create_report</code> must be called once before
+			calling the other functions in this module.</div>
+			<ul>
+				<li><div>param <code>filename</code>: path and name of
+				the HTML file where this module will write the weather
+				forecast.</div></li>
+				<li><div>param <code>locname</code>: name of the
+				geographic location (city) where the forecast
+				apply.</div></li>
+				<li><div>param <code>options</code>: an optional list of
+				weather forecast data that the user desires to be
+				written in a report.</div></li>
+			</ul></li>
+
+			<li><div><code>weather_html.start_new_row(report)</code></div>
+			<div>Begins a new row of periods in a weather report.
+			<code>start_new_row</code> must be called once at the
+			beginning of each desired row of periods.</div>
+			<ul>
+				<li><div>param <code>report</code>: the report to add
+				the new row to</div></li>
+			</ul></li>
+
+			<li><div><code>weather_html.add_period(report, period)</code></div>
+			<div>Adds one forecast for a period to the current row in
+			the weather report. <code>add_period</code> must be called
+			once for each period in the current row.
+			<ul>
+				<li><div>param <code>report</code>: the report to add
+				the period to</div></li>
+				<li><div>param <code>period</code>: a forecast for a
+				period of time that came from the U.S. National Weather
+				Service</div></li>
+			</ul></li>
+
+			<li><div><code>weather_html.write_report(report)</code></div>
+			<div>Writes the weather forecast to an HTML file.
+			<code>write_report</code> must be called once, after your
+			code has added all desired rows and periods.</div>
+			<ul>
+				<li><div>param <code>report</code>: the report that will
+				be written to an HTML file.</div></li>
+			</ul></li>
+		</ol>
+
+		<h2>Example</h2>
+		<p>The following example code will generate a simple HTML
+		forecast report with one row with two periods in that row. Each
+		period in the report will show only the period name and the
+		temperature.</p>
+<pre>import weather_html
+
+periods = // get a forecast from the U.S. Weather service
+
+# Create a report that will show the period name and temperature.
+report = weather_html.create_report("forecast.html", "Rexburg, Idaho",
+		[weather_html.PERIOD_NAME, weather_html.TEMPERATURE])
+
+# Start a new row in the report.
+weather_html.start_new_row(report)
+
+# Add a period from the forecast to the current row.
+weather_html.add_period(report, periods[0])
+
+# Add a second period from the forecast to the current row.
+weather_html.add_period(report, periods[1])
+
+# Finish the report and write it to the HTML file.
+weather_html.write_report(report)</pre>
+	</article>
+</body>
+</html>

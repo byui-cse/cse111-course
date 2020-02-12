@@ -3,7 +3,7 @@ import requests
 
 # qcode is short for Quandl Code and is the code that determines
 # what data will be downloaded from Quandl by the http request.
-qcode = "ODA/PWOOLC_USD"
+qcode = "ODA/PORANG_USD"
 print(qcode)
 
 # This is the uniform resource locator (URL)

@@ -93,7 +93,7 @@ article h3 {
 }
 
 article p {
-	margin-bottom: 1em;
+	margin: 0 0 1em 0;
 }
 
 article blockquote {
@@ -166,6 +166,16 @@ article ul.links > li:before {
 	color: #006ab9;
 	content: "»";
 	margin-right: 0.25em;
+}
+
+article dl.function {
+	margin: 1em 1em 1em 1em;
+	border-left: 0.12em solid #006ab9;
+	padding: 0 0 0 0.5em;
+}
+
+article dl.function dd {
+	padding-left: 2em;
 }
 
 /* Mathematical Formulas */

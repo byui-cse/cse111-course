@@ -30,30 +30,32 @@
 			(computer commands) that together perform one
 			task.</div></li>
 
-			<li><div>A <dfn>module</dfn> is collection of related
-			functions.</div></li>
-
 			<li><div>Python includes many built-in functions such as:
 			<code>input</code>, <code>print</code>, <code>open</code>,
 			<code>len</code>, <code>range</code>, <code>int</code>,
 			<code>float</code>, <code>str</code>, <code>abs</code>,
 			<code>round</code>, <code>list</code>, <code>set</code>, and
-			<code>dict</code>. You can read about the Python
-			built-in functions at
+			<code>dict</code>. You can read about the built-in Python
+			functions at
 			<a target="_blank" href="https://docs.python.org/3/library/functions.html">docs.python.org/3/library/functions.html</a></div></li>
 
-			<li><div>Python also includes many standard modules which
-			have more functions, such as the <code>math</code> module
-			which includes the <code>floor</code>, <code>ceil</code>,
-			and <code>sqrt</code> functions and the <code>csv</code>
-			module which includes the <code>reader</code> and
+			<li><div>A Python <dfn>module</dfn> is collection of related
+			functions.</div></li>
+
+			<li><div>Python includes many standard modules which have
+			more functions, such as the <code>math</code> module which
+			includes the <code>floor</code>, <code>ceil</code>, and
+			<code>sqrt</code> functions and the <code>csv</code> module
+			which includes the <code>reader</code> and
 			<code>writer</code> functions. You can read more about the
-			Python modules at
-			<a target="_blank" href="https://docs.python.org/3/py-modindex.html">https://docs.python.org/3/py-modindex.html</a></div></li>
+			Python modules at <a target="_blank"
+			href="https://docs.python.org/3/py-modindex.html">https://docs.python.org/3/py-modindex.html</a></div></li>
 
 			<li><div>A programmer (you) can save lots of time by using
-			existing functions. A programmer uses a function by calling
-			it (also known as invoking it). To <dfn>call</dfn> (or
+			existing functions.</div></li>
+
+			<li><div>A programmer uses a function by calling it (also
+			known as invoking it). To <dfn>call</dfn> (or
 			<dfn>invoke</dfn>) a function means to write code that
 			causes the computer to execute the code that is inside of
 			that function. During CSE 110, you often wrote code that
@@ -65,7 +67,8 @@ print(f"Hello {name}")</pre></div></li>
 			<li><div>To correctly call a function you must know the
 			following:
 			<ol>
-				<li><div>the name of the module in which the function is located</div></li>
+				<li><div>the name of the module in which the function is
+				located</div></li>
 				<li><div>the name of the function</div></li>
 				<li><div>the parameters that the function takes</div></li>
 				<li><div>what the function does</div></li>
@@ -75,8 +78,11 @@ print(f"Hello {name}")</pre></div></li>
 			documentation about the <code>math</code> module, we read
 			this about the <code>sqrt</code> function:</p>
 
-			<blockquote><code>math.sqrt(x)</code><br>
-			&nbsp; &nbsp; &nbsp; &nbsp; Return the square root of x.</blockquote>
+			<dl class="function">
+				<dt><code>math.sqrt(x)</code></dt>
+				<dd>Return the square root of x.</dd>
+			</dl>
+
 			<p>From this short description, we know that</p>
 			<ol>
 				<li><div>the name of its containing module is
@@ -87,17 +93,7 @@ print(f"Hello {name}")</pre></div></li>
 				(<var>x</var>)</div></li>
 				<li><div>the function computes and returns the square
 				root of a number</div></li>
-			</ol>
-
-			<p>You can read about</p>
-			<ul>
-				<li><div>the built-in functions at
-				<a target="_blank" href="https://docs.python.org/3/library/functions.html">docs.python.org/3/library/functions.html</a>,</div></li>
-				<li><div>the <code>math</code> module at
-				<a target="_blank" href="https://docs.python.org/3/library/math.html">docs.python.org/3/library/math.html</a></div></li>
-				<li><div>the <code>csv</code> module at
-				<a target="_blank" href="https://docs.python.org/3/library/csv.html">docs.python.org/3/library/csv.html</a>.</div></li>
-			</ul></div></li>
+			</ol></div></li>
 
 			<li><div><p>A <dfn>parameter</dfn> is a piece of data that a
 			function needs in order to complete its task. In the online
@@ -107,8 +103,11 @@ print(f"Hello {name}")</pre></div></li>
 			function has one parameter named <var>x</var> which is the
 			number that <code>math.sqrt</code> will compute the square
 			root of.</p>
-			<blockquote><code>math.sqrt(x)</code><br>
-			&nbsp; &nbsp; &nbsp; &nbsp; Return the square root of x.</blockquote>
+
+			<dl class="function">
+				<dt><code>math.sqrt(x)</code></dt>
+				<dd>Return the square root of x.</dd>
+			</dl>
 
 			<p>In order for the <code>math.sqrt</code> function to
 			do its job (compute the square root), a programmer must
@@ -146,6 +145,45 @@ print(rt)</pre>
 <pre>filename = input("Please enter a filename: ")
 with open(filename, "rt") as infile:
     reader = csv.reader(infile)</pre></div></li>
+
+			<li><div><p>A <dfn>named parameter</dfn> (also called a
+			<dfn>keyword parameter</dfn>) is an optional parameter that
+			you can use to pass optional data to a function. It is
+			called a named parameter because you must type the
+			parameter's name in order to use it. For example, here is an
+			excerpt from the documentation for the <code>print</code>
+			function:</p>
+
+			<dl class="function">
+				<dt><code>print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)</code></dt>
+				<dd>Print objects to the text stream <var>file</var>,
+				separated by <var>sep</var> and followed by
+				<var>end</var>. <var>sep</var>, <var>end</var>,
+				<var>file</var> and <var>flush</var>, if present, must
+				be given as keyword arguments.</dd>
+			</dl>
+
+			<p>Notice from the excerpt that the <code>print</code>
+			function can take many objects that will be printed.
+			Optionally it can take parameters named <var>sep</var>,
+			<var>end</var>, <var>file</var>, and <var>flush</var> which
+			must be named when they are used. For example, this code
+			calls the <code>print</code> function to print three words
+			all separated by a vertical bar (|).</p>
+<pre>x = "sun"
+y = "moon"
+z = "stars"
+print(x, y, z, sep="|")</pre></div></li>
+
+			<li><div>You can read about
+			<ul>
+				<li><div>the built-in functions at
+				<a target="_blank" href="https://docs.python.org/3/library/functions.html">docs.python.org/3/library/functions.html</a>,</div></li>
+				<li><div>the <code>math</code> module at
+				<a target="_blank" href="https://docs.python.org/3/library/math.html">docs.python.org/3/library/math.html</a></div></li>
+				<li><div>the <code>csv</code> module at
+				<a target="_blank" href="https://docs.python.org/3/library/csv.html">docs.python.org/3/library/csv.html</a>.</div></li>
+			</ul></div></li>
 		</ol>
 	</article>
 </body>
