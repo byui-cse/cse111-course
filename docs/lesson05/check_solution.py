@@ -15,6 +15,7 @@ def lp100k_from_mpg(mpg):
 
 
 def main():
+	print("Date, Miles/Gallon, Liters/100 Km")
 	with open("fuel_usage.csv", "rt") as fuel:
 		reader = csv.reader(fuel)
 		for row in reader:
@@ -26,24 +27,26 @@ def main():
 				# for printing.
 				date = row[0]
 
-				# Get starting and ending odometer readings from the csv
-				# file.
+				# Get starting and ending odometer
+				# readings from the csv file.
 				start = float(row[1])
 				end = float(row[2])
 
-				# Get the number of gallons of fuel used from the csv
-				# file.
+				# Get the number of gallons of
+				# fuel used from the csv file.
 				gallons = float(row[3])
 
 				# Call the miles_per_gallon function.
 				mpg = miles_per_gallon(start, end, gallons)
 
-				# Call a function to convert the miles per gallon to
-				# liters per 100 kilometers.
+				# Call a function to convert the miles per gallon
+				# to liters per 100 kilometers.
 				lp100k = lp100k_from_mpg(mpg)
 
 				# Display the results for one row in the csv file.
-				print(date, round(mpg, 1), round(lp100k, 2))
+				print(date, round(mpg, 1), round(lp100k, 2), sep=", ")
 
 
+# Call the main function so that
+# this program will start executing.
 main()
