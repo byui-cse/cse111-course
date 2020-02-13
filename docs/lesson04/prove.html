@@ -5,9 +5,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="stylesheet" type="text/css" href="../site/style.css" />
-	<style>
-		span.input { background-color: green; color: white; }
-	</style>
 	<title>CSE 111 - Prove</title>
 </head>
 <body>
@@ -19,11 +16,11 @@
 		<h1>CSE 111 | Programming with Functions</h1>
 	</header>
 	<article>
-		<h1>03 Prove: Assignment Milestone</h1>
+		<h1>04 Prove: Assignment</h1>
 
 		<h2>Overview</h2>
-		<p>Prove that you can write a Python program that calls built-in
-		and standard functions.</p>
+		<p>Prove that you can write a Python program that calls
+		third-party functions.</p>
 
 		<h2>Problem Statement</h2>
 		<p>The weather affects people's lives for good and bad every
@@ -43,90 +40,95 @@
 			can view in a browser</div></li>
 		</ol>
 
-		<p>During lesson 3, you will write half of this Python program.
-		This half will not retrieve the forecast from the U.S. Weather
-		Service but will instead use two sets of test forecasts and will
-		write those forecasts to an HTML file. During lesson 4, you will
-		add the code to prompt the user for their desired city and to
-		retrieve the forecasts from the U.S. Weather Service.</p>
+		<p>During lesson 3, you wrote the part of this program that
+		writes a weather forecast to an HTML file. During this
+		assignment (lesson 4), you will add the code to prompt the user
+		for their desired city and to retrieve a forecast from the U.S.
+		Weather Service.</p>
 
 		<h2>Helpful Documentation</h2>
-		<p>The Python weather_html module was written at BYU-Idaho and
-		accepts U.S. National Weather Service data and writes HTML to a
-		file. To prepare for this assignment, read about <a
-		target="_blank" href="weather_html.html">weather_html module</a> and its
-		functions.</p>
+		<p>The website <a target="_blank"
+		href="https://www.latlong.net/">latlong.net</a> allows a user to
+		enter the name and state of a city in the U.S. and then displays
+		the latitude and longitude of that city.</p>
+
+		<p>The Python <a target="_blank"
+		href="https://requests.readthedocs.io#requests-http-for-humans"><code>requests</code> module</a>
+		contains functions to send http requests for data to a computer
+		server on the internet and to read the data that the server
+		returns.</p>
+
+		<p>The U.S. National Weather Service maintains a
+		<a target="_blank" href="https://api.weather.gov/">service</a>
+		that returns weather forecasts for cities within the United
+		States. The service is documentated at <a target="_blank"
+		href="https://www.weather.gov/documentation/services-web-api">www.weather.gov/documentation/services-web-api</a>.</p>
+
+		<p>The Python <a target="_blank"
+		href="../lesson03/weather_html.html"><code>weather_html</code> module</a>
+		was written at BYU-Idaho and accepts U.S. National Weather
+		Service forecasts and writes HTML to a file.</p>
 
 		<h2>Assignment</h2>
-		<p>Download both of these files:
-		<a target="_blank" download href="weather_html.py">weather_html.py</a>
-		<a target="_blank" download href="test_periods.py">test_periods.py</a>
-		and save them into the same folder where you will save your
-		Python program. Open the <code>weather_html.py</code> file and
-		examine it. Notice that this file is the weather_html module and
-		contains the four functions: <code>create_report</code>,
-		<code>add_row</code>, <code>add_period</code>,
-		<code>write_report</code> that are described in the module's
-		documentation. Open the <code>test_periods.py</code> file and
-		notice that it contains two lists:
-		<code>periods_that_start_with_a_day</code> and
-		<code>periods_that_start_with_a_night</code>. You will use these
-		two lists to test your program during week 3.</p>
+		<p>Open your program from the prove assignment for last week and
+		add the following to it:</p>
 
-		<p>Write a Python program that creates a weather forecast report
-		in one of these three formats:</p>
-		<ul>
-			<li><div>horizontal three day</div></li>
-			<li><div>vertical five day</div></li>
-			<li><div>horizontal seven day</div></li>
-		</ul>
+		<ol>
+			<li><div>A dictionary with at least five U.S. cities and
+			their corresponding latitude and longitude. A dictionary
+			with this structure would work well:
+			<table><thead>
+				<tr><th>Keys (string)</th> <th>Values (tuple)</th></tr>
+			</thead><tbody>
+				<tr><td>"Dallas, Texas"</td> <td>(32.776665, -96.796989)</td></tr>
+				<tr><td>"Rexburg, Idaho"</td> <td>(43.822893, -111.790988)</td></tr>
+			</tbody></table></div></li>
 
-		<p>All three of these formats are shown in this table.</p>
-		<table><thead>
-			<tr><th></th> <th>periods_that_<br>start_with_a_day</th>
-				<th>periods_that_<br>start_with_a_night</th></tr>
-		</thead><tbody>
-			<tr><th>horizontal three day</th>
-				<td><a target="_blank" href="forecast3day.html">forecast3day.html</a></td>
-				<td><a target="_blank" href="forecast3night.html">forecast3night.html</a></td></tr>
-			<tr><th>vertical five day</th>
-				<td><a target="_blank" href="forecast5day.html">forecast5day.html</a></td>
-				<td><a target="_blank" href="forecast5night.html">forecast5night.html</a></td></tr>
-			<tr><th>horizontal seven day</th>
-				<td><a target="_blank" href="forecast7day.html">forecast7day.html</a></td>
-				<td><a target="_blank" href="forecast7night.html">forecast7night.html</a></td></tr>
-		</tbody></table>
+			<li><div>Python code that allows a user to choose one of the
+			cities in the dictionary.</div></li>
 
-		<p>Use this code to begin your Python program</p>
-<pre>import test_periods
-import weather_html
+			<li><div>Python code that uses the <code>requests</code>
+			module to retrieve the weather forecast for the city that
+			the user chose.</div></li>
+		</ol>
 
-city_name = "Rexburg, Idaho"
-periods = test_periods.periods_that_start_with_a_day
-# periods = test_periods.periods_that_start_with_a_night
-</pre>
+		<p>You should keep the code that you wrote last week to generate
+		an HTML report. You should connect the code from step 3 above
+		with the code that you wrote last week to generate an HTML
+		report.</p>
 
-		<p>Finish your program by writing code to call the four
-		functions from the <code>weather_html</code> module as necessary
-		to produce an HTML file in one of the three formats shown in the
-		above table.</p>
+		<h2>Sample Run</h2>
+<pre>&gt; python prove_solution.py
+Choose a city:
+[1] Dallas, Texas
+[2] Phoenix, Arizona
+[3] Rexburg, Idaho
+[4] Salt Lake City, Utah
+[5] San Diego, California
+Enter 1 - 5: <span class="input">2</span>
+Phoenix, Arizona
+Forecast report written to PhoenixArizona.html</pre>
 
 		<h2>Testing Procedure</h2>
 		<p>Verify that your program works correctly by following each
 		step in this testing procedure:</p>
 
 		<ol>
-			<li><div>Run your program and double click on the HTML file
-			that you program produces. Double clicking the HTML file
-			should open it in a browser. Look at the document in the
-			browser and verify that it looks matches the corresponding
-			document from the table above.</div></li>
+			<li><div>Run your program, choose one of the cities, verify
+			that your program wrote an HTML file to your computer's hard
+			drive, and double click on the HTML file that you program
+			produced. Double clicking the HTML file should open it in a
+			browser. Look at the document in the browser and verify that
+			it looks correct, including the correct city name and a
+			correctly formatted five day, vertical forecast.</div></li>
 
-			<li><div>Change your program to use the list
-			<code>periods_that_start_with_a_night</code> and then run
-			your program again. Double click on the HTML file and verify
-			that the document changed and that it looks matches the
-			corresponding document from the table above.</div></li>
+			<li><div>Repeat the above step for each of the four other
+			cities in your program.</div></li>
+
+			<li><div>Repeat step 1 again for each of the five cities,
+			but do it at a different time of the day. For example, if
+			you first tested your program during the morning, then test
+			it again in the afternoon or vice versa.</div></li>
 		</ol>
 
 		<h2>Submission</h2>

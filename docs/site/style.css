@@ -208,8 +208,11 @@ article pre {
 	padding: 0.25em 0.5em;
 }
 
-article pre .input {
-	border: 2px solid #ccc;
+article pre span.input {
+	border: 1px solid #ccc;
+	padding: 0 0.25em;
+	background-color: green;
+	color: white;
 }
 
 article code {
