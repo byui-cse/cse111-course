@@ -255,7 +255,12 @@ th, td {
 	padding: 0.1em 0.25em;
 }
 
+td.number {
+	text-align: right;
+}
+
 table > thead > tr > th {
+	vertical-align: bottom;
 	text-align: center;
 	font-weight: bold;
 }
