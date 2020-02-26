@@ -7,144 +7,141 @@
 	<link rel="stylesheet" type="text/css" href="../site/style.css" />
 	<title>CSE 111 - Team Activity</title>
 </head>
+
 <body>
-	<header>
-		<div class="logo">
-			<div class="upper">BYU</div>
-			<div class="lower">Idaho</div>
-		</div>
-		<h1>CSE 111 | Programming with Functions</h1>
-	</header>
-	<article>
-		<h1>02 Team Activity: CSV Files and Dictionaries</h1>
+<header>
+	<div class="logo">
+		<div class="upper">BYU</div>
+		<div class="lower">Idaho</div>
+	</div>
+	<h1>CSE 111 | Programming with Functions</h1>
+</header>
+<article>
+	<h1>02 Team Activity: Lookup Student Names</h1>
 
-		<h2>Overview</h2>
-		<p>Arrange a one-hour synchronous meeting with your team for
-		this activity. Online students should coordinate a video-sharing
-		meeting. Campus students will use class time for this
-		meeting.</p>
+	<h2>Overview</h2>
+	<p>Arrange a one-hour synchronous meeting with your team for this
+	activity. Online students should coordinate a video-sharing meeting.
+	Campus students will use class time for this meeting. You should
+	prepare for this meeting by completing the preparation material and
+	the individual checkpoint assignment beforehand.</p>
 
-		<p>You should prepare for this meeting by completing the
-		preparation material and the individual checkpoint assignment
-		beforehand.</p>
+	<h2>Problem Statement</h2>
+	<p>A common task for many knowledge workers is to use a number, key,
+	or ID to look up information about a person. For example, a
+	knowledge worker may use a phone number as a key to find (or look
+	up) information about a customer. During this activity, your team
+	will write a Python program that uses a student's I-Number to look
+	up the student's name.</p>
 
-		<h2>Problem Statement</h2>
-		<p>A common task for many knowledge workers is to use a number,
-		key, or ID to look up information about a person. For example, a
-		knowledge worker may use a phone number as a key to find (or
-		look up) information about a customer. During this activity,
-		your team will write a Python program that uses a student's
-		I-Number to look up the student's name.</p>
+	<h2>Helpful Documentation</h2>
+	<p>A csv file is a text file that contains a list of data. Within
+	each row of a csv file, the data items are separated by a character
+	which is usually a comma. The name "csv" is an acronym for "comma
+	separated values." Python includes functions for processing csv
+	files. Read about the Python <code>csv</code> module in one of these
+	articles:</p>
+	<ul>
+		<li><div><a target="_blank"
+		href="https://realpython.com/python-csv/">Tutorial
+		about csv files</a> at Real Python</div></li>
 
-		<h2>Helpful Documentation</h2>
-		<p>A csv file is a text file that contains a list of data.
-		Within each row of a csv file, the data items are separated by a
-		character which is usually a comma. The name "csv" is an acronym
-		for "comma separated values." Python includes functions for
-		processing csv files. Read about the Python <code>csv</code>
-		module in one of these articles:</p>
-		<ul>
-			<li><div><a target="_blank"
-			href="https://realpython.com/python-csv/">Tutorial
-			about csv files</a> at Real Python</div></li>
+		<li><div>Official Python <a target="_blank"
+		href="https://docs.python.org/3/library/csv.html">documentation
+		about dictionaries</a></div></li>
+	</ul>
 
-			<li><div>Official Python <a target="_blank"
-			href="https://docs.python.org/3/library/csv.html">documentation
-			about dictionaries</a></div></li>
-		</ul>
+	<p>A Python dictionary is a collection of data that is stored in
+	pairs of keys and values. The keys are used to store and quickly
+	find the values. Read about Python dictionaries in one of these
+	articles:</p>
+	<ul>
+		<li><div><a target="_blank"
+		href="https://realpython.com/python-dicts/">Tutorial
+		about dictionaries</a> at Real Python</div></li>
 
-		<p>A Python dictionary is a collection of data that is stored in
-		pairs of keys and values. The keys are used to store and quickly
-		find the values. Read about Python dictionaries in one of these
-		articles:</p>
-		<ul>
-			<li><div><a target="_blank"
-			href="https://realpython.com/python-dicts/">Tutorial
-			about dictionaries</a> at Real Python</div></li>
+		<li><div>Official Python <a target="_blank"
+		href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">documentation about dictionaries</a></div></li>
+	</ul>
 
-			<li><div>Official Python <a target="_blank"
-			href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">documentation about dictionaries</a></div></li>
-		</ul>
+	<h2>Assignment</h2>
+	<p>Download this file: <a target="_blank" download
+	href="students.csv">students.csv</a> and save it in the same folder
+	where you will save your Python program. Open the file in VS Code or
+	another text editor and examine it. Notice that the I-Numbers and
+	names are separated by a comma. Notice also that the I-Numbers are
+	stored in the file without any dashes between the digits.</p>
 
-		<h2>Assignment</h2>
-		<p>Download this file: <a target="_blank" download
-		href="students.csv">students.csv</a> and save it in the same
-		folder where you will save your Python program. Open the file in
-		VS Code or another text editor and examine it. Notice that the
-		I-Numbers and names are separated by a comma. Notice also that
-		the I-Numbers are stored in the file without any dashes between
-		the digits.</p>
+	<p>Write a Python program that reads the contents of the
+	<code>students.csv</code> file and populates a Python dictionary
+	while reading the file. The dictionary uses student I-Numbers as the
+	keys and student names as the values. After your program populates
+	the dictionary from the file, your program must ask the user for an
+	I-Number. Your program will then find and print the corresponding
+	student's name. Recall that I-Numbers contain nine digits and are
+	often typed by users with dashes separating some of the digits like
+	this 62-560-1400. However, the I-Numbers in the
+	<code>students.csv</code> file don't contain dashes.</p>
 
-		<p>Write a Python program that reads the contents of the
-		<code>students.csv</code> file and populates a Python dictionary
-		while reading the file. The dictionary uses student I-Numbers as
-		the keys and student names as the values. After your program
-		populates the dictionary from the file, your program must ask
-		the user for an I-Number. Your program will then find and print
-		the corresponding student's name. Recall that I-Numbers contain
-		nine digits and are often typed by users with dashes separating
-		some of the digits like this 62-560-1400. However, the I-Numbers
-		in the <code>students.csv</code> file don't contain dashes.</p>
+	<h3>Core Requirements</h3>
+	<ol>
+		<li><div>Your program must read the data in the
+		<a target="_blank" download
+		href="students.csv">students.csv</a> CSV file and convert that
+		data into a Python dictionary with I-Numbers as the keys and
+		names as the values.</div></li>
 
-		<h3>Core Requirements</h3>
+		<li><div>Your program must ask the user for an I-Number and must
+		display the student name that corresponds to the given
+		I-Number.</div></li>
+
+		<li><div>If a user enters an I-Number that doesn't exist in the
+		dictionary, your program must print the message, "No such
+		student" (without the quotes).</div></li>
+	</ol>
+
+	<h3>Stretch Challenges</h3>
+	<p>If your team finishes the core requirements in less than an hour,
+	complete one or more of these stretch challenges. Note that the
+	stretch challenges are optional.</p>
+
+	<ol>
+		<li><div>Add something or change something in your program that
+		you think would make your program better, easier for the user,
+		more elegant, or more fun. Be creative.</div></li>
+
+		<li><div>Write comments above the lines of code that were
+		difficult for you to understand.</div></li>
+
+		<li><div>Add code to remove dashes from the I-Number that the
+		user enters. This will allow the user to enter I-Numbers with
+		dashes and still allow the computer to search in the
+		dictionary.</div></li>
+
+		<li><div>When a user enters an I-Number, your program should
+		ensure it is a valid I-Number.</div>
 		<ol>
-			<li><div>Your program must read the data in the
-			<a target="_blank" download
-			href="students.csv">students.csv</a> CSV file and convert
-			that data into a Python dictionary with I-Numbers as the
-			keys and names as the values.</div></li>
+			<li><div>If there are too few digits in the I-Number, your
+			program should print, "Invalid I-Number: too few digits"
+			(without the quotes).</div></li>
 
-			<li><div>Your program must ask the user for an I-Number and
-			must display the student name that corresponds to the given
+			<li><div>If there are too many digits in the I-Number, your
+			program should print, "Invalid I-Number: too many digits"
+			(without the quotes).</div></li>
+
+			<li><div>If the given I-Number contains any characters
+			besides digits and dashes, your program should output
+			"Invalid I-Number" (without the quotes).</div></li>
+
+			<li><div>Write a loop around the code that gets the user
+			input. If the user enters an invalid I-Number, the loop
+			should repeat so that the user is again prompted to enter an
 			I-Number.</div></li>
+		</ol></li>
+	</ol>
 
-			<li><div>If a user enters an I-Number that doesn't exist in
-			the dictionary, your program must print the message, "No
-			such student" (without the quotes).</div></li>
-		</ol>
-
-		<h3>Stretch Challenges</h3>
-		<p>If your team finishes the core requirements in less than an
-		hour, complete one or more of these stretch challenges. Note
-		that the stretch challenges are optional.</p>
-
-		<ol>
-			<li><div>Add something or change something in your program
-			that you think would make your program better, easier for
-			the user, more elegant, or more fun. Be creative.</div></li>
-
-			<li><div>Write comments above the lines of code that were
-			difficult for you to understand.</div></li>
-
-			<li><div>Add code to remove dashes from the I-Number that
-			the user enters. This will allow the user to enter I-Numbers
-			with dashes and still allow the computer to search in the
-			dictionary.</div></li>
-
-			<li><div>When a user enters an I-Number, your program should
-			ensure it is a valid I-Number.</div>
-			<ol>
-				<li><div>If there are too few digits in the I-Number,
-				your program should print, "Invalid I-Number: too few
-				digits" (without the quotes).</div></li>
-
-				<li><div>If there are too many digits in the I-Number,
-				your program should print, "Invalid I-Number: too many
-				digits" (without the quotes).</div></li>
-
-				<li><div>If the given I-Number contains any characters
-				besides digits and dashes, your program should output
-				"Invalid I-Number" (without the quotes).</div></li>
-
-				<li><div>Write a loop around the code that gets the user
-				input. If the user enters an invalid I-Number, the loop
-				should repeat so that the user is again prompted to
-				enter an I-Number.</div></li>
-			</ol></li>
-		</ol>
-
-		<h2>Sample Runs</h2>
-		<p></p>
+	<h2>Sample Runs</h2>
+	<p></p>
 <pre class="console">&gt; python teach_solution.py
 Please enter an I-Number (xx-xxx-xxxx): 551234151
 No such student
@@ -153,50 +150,46 @@ No such student
 Please enter an I-Number (xx-xxx-xxxx): 751766201
 James Smith</pre>
 
-		<h2>Testing Procedure</h2>
-		<p>Verify that your program works correctly by following each
-		step in this testing procedure:</p>
-		<ol class="testing">
-			<li><div>Run your program using the input shown in the
-			sample run section above. Ensure that your program's output
-			matches the sample run output.</div></li>
+	<h2>Testing Procedure</h2>
+	<p>Verify that your program works correctly by following each step
+	in this testing procedure:</p>
+	<ol class="testing">
+		<li><div>Run your program using the input shown in the sample
+		run section above. Ensure that your program's output matches the
+		sample run output.</div></li>
 
-			<li><div>Run your program and give this I-Number as input:
-			<code>00-115-2306</code> (including the dashes). Many users
-			will want to enter I-Numbers with dashes. How should your
-			program handle the dashes?</div></li>
+		<li><div>Run your program and give this I-Number as input:
+		<code>00-115-2306</code> (including the dashes). Many users will
+		want to enter I-Numbers with dashes. How should your program
+		handle the dashes?</div></li>
 
-			<li><div>Run your program and give an I-Number with too few
-			digits or too many digits. How should your program handle
-			these invalid I-Numbers?</div></li>
-		</ol>
+		<li><div>Run your program and give an I-Number with too few
+		digits or too many digits. How should your program handle these
+		invalid I-Numbers?</div></li>
+	</ol>
 
-		<h2>Sample Solution</h2>
-		<p>Please work diligently with your team for the one-hour
-		meeting. After the meeting is over, please compare your approach
-		to the sample solution.</p>
+	<h2>Sample Solution</h2>
+	<p>Please work diligently with your team for the one-hour meeting.
+	After the meeting is over, please compare your approach to the
+	sample solution. Please <strong>do not look at the sample
+	solution</strong> until you have either finished the program or
+	diligently worked for at least one hour. At the end of the hour, if
+	you are still struggling to complete the assignment, you may use the
+	sample solution to help you finish.</p>
 
-		<p>Please <strong>do not look at the sample solution</strong>
-		until you have either finished the program or diligently worked
-		for at least one hour. At the end of the hour, if you are still
-		struggling to complete the assignment, you may use the sample
-		solution to help you finish.</p>
+	<ul class="links">
+		<li>Sample solution:
+		<a href="./teach_solution.py">teach_solution.py</a></li>
+	</ul>
 
-		<ul class="links">
-			<li>Sample solution:
-			<a href="./teach_solution.py">teach_solution.py</a></li>
-		</ul>
-
-		<h2>Submission</h2>
-		<p>When you have finished the activity, please report your
-		progress via the associated I-Learn quiz.</p>
-
-		<p>When asked about which of the requirements you completed,
-		feel free to include any work done during the team meeting or
-		after the meeting, including work done with the help of the
-		sample solution, if necessary. In short, report on what you were
-		able to accomplish, regardless of when you completed it or if
-		you needed help from the sample solution.</p>
-	</article>
+	<h2>Submission</h2>
+	<p>When you have finished the activity, please report your progress
+	via the associated I-Learn quiz. When asked about which of the
+	requirements you completed, feel free to include any work done
+	during the team meeting or after the meeting, including work done
+	with the help of the sample solution, if necessary. In short, report
+	on what you were able to accomplish, regardless of when you
+	completed it or if you needed help from the sample solution.</p>
+</article>
 </body>
 </html>

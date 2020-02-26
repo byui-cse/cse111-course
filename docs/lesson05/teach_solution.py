@@ -3,8 +3,9 @@ import math
 from datetime import date, datetime
 
 
-def compute_age(birthdate):
+def compute_age(birth):
 	"""Compute and return a person's age in years."""
+	birthdate = datetime.strptime(birth, "%Y-%m-%d").date()
 	now = date.today()
 	diff = now - birthdate
 	years = math.floor(diff.days / 365.25)
@@ -50,8 +51,7 @@ def main():
 
 				# Convert from a string to a date and
 				# then compute a person's age in years.
-				birth = datetime.strptime(row[1], "%Y-%m-%d").date()
-				years = compute_age(birth)
+				years = compute_age(row[1])
 
 				# Convert person's weight from pounds to kilograms
 				# and their height from inches to centimeters.

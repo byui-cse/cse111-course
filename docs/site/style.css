@@ -154,7 +154,7 @@ article dl.function dd {
 }
 
 /* Mathematical Formulas */
-article div.expr {
+article div.inlineExpr {
 	display: inline-block;
 	margin: 0 0.5em;
 	white-space: nowrap;
@@ -174,13 +174,13 @@ article div.blockExpr {
 	font-weight: bold;
 }
 
-article div.expr div, article div.blockExpr div {
+article div.inlineExpr div, article div.blockExpr div {
 	display: inline-block;
 	vertical-align: middle;
 	text-align: center;
 }
 
-article div.expr hr, article div.blockExpr hr {
+article div.inlineExpr hr, article div.blockExpr hr {
 	margin: 0 auto;
 	border-top: 1px solid;
 	border-right: 0; border-bottom: 0; border-left: 0;
@@ -193,7 +193,7 @@ article div.blockExpr div.radic { display: block; }
 article div.blockExpr div.sum { font-size: small; }
 article div.blockExpr div.sum > div { display: block; }
 
-article span.expr {
+article span.inlineExpr {
 	white-space: nowrap;
 	font-family: "Palatino Linotype", Palatino, Garamond, serif;
 	font-size: large;

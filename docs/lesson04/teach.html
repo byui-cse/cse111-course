@@ -7,149 +7,141 @@
 	<link rel="stylesheet" type="text/css" href="../site/style.css" />
 	<title>CSE 111 - Team Activity</title>
 </head>
+
 <body>
-	<header>
-		<div class="logo">
-			<div class="upper">BYU</div>
-			<div class="lower">Idaho</div>
-		</div>
-		<h1>CSE 111 | Programming with Functions</h1>
-	</header>
-	<article>
-		<h1>04 Team Activity: Retrieving Data from a Web Server</h1>
+<header>
+	<div class="logo">
+		<div class="upper">BYU</div>
+		<div class="lower">Idaho</div>
+	</div>
+	<h1>CSE 111 | Programming with Functions</h1>
+</header>
+<article>
+	<h1>04 Team Activity: Retrieve Star Wars Data from a Web Server</h1>
 
-		<h2>Overview</h2>
-		<p>Arrange a one-hour synchronous meeting with your team for
-		this activity. Online students should coordinate a video-sharing
-		meeting. Campus students will use class time for this
-		meeting.</p>
+	<h2>Overview</h2>
+	<p>Arrange a one-hour synchronous meeting with your team for this
+	activity. Online students should coordinate a video-sharing meeting.
+	Campus students will use class time for this meeting. You should
+	prepare for this meeting by completing the preparation material and
+	the individual checkpoint assignment beforehand.</p>
 
-		<p>You should prepare for this meeting by completing the
-		preparation material and the individual checkpoint assignment
-		beforehand.</p>
+	<h2>Problem Statement</h2>
+	<p>Star Wars is a series of movies about fictional characters and
+	events that lived and happened a long time ago in a galaxy far far
+	away. Because the movies are popular, there are many fan websites
+	that contain information about the movies. One such website is
+	<a target="_blank" href="swapi.co">swapi.co</a> swapi.co maintains a
+	web service that contains lots of data gleaned from the movies and
+	books about the fictional characters and places that are part of the
+	Star Wars galaxy. During this activity, your team will write a
+	Python program that uses the <code>requests</code> module to
+	retrieve data from the swapi service.</p>
 
-		<h2>Problem Statement</h2>
-		<p>Star Wars is a series of movies about fictional characters
-		and events that lived and happened a long time ago in a galaxy
-		far far away. Because the movies are popular, there are many
-		fan websites that contain information about the movies. One such
-		website is <a target="_blank" href="swapi.co">swapi.co</a>
-		swapi.co maintains a web service that contains lots of data
-		gleaned from the movies and books about the fictional characters
-		and places that are part of the Star Wars galaxy. During this
-		activity, your team will write a Python program that uses the
-		<code>requests</code> module to retrieve data from the swapi
-		service.</p>
+	<h2>Helpful Documentation</h2>
+	<p>The Python <code>requests</code> module contains functions to
+	send http requests for data to a computer server on the internet and
+	to read the data that the server returns. Read about the requests
+	module at <a target="_blank"
+	href="https://requests.readthedocs.io#requests-http-for-humans">requests.readthedocs.io</a></p>
 
-		<h2>Helpful Documentation</h2>
-		<p>The Python <code>requests</code> module contains functions to
-		send http requests for data to a computer server on the internet
-		and to read the data that the server returns. Read about the
-		requests module at <a target="_blank"
-		href="https://requests.readthedocs.io#requests-http-for-humans">requests.readthedocs.io</a></p>
+	<p>The Star Wars API (swapi) maintains lots of data about the
+	ficitional Star Wars galaxy. Read about swapi and experiment with it
+	at <a target="_blank"
+	href="https://swapi.co/documentation">swapi.co/documentation</a></p>
 
-		<p>The Star Wars API (swapi) maintains lots of data about the
-		ficitional Star Wars galaxy. Read about swapi and experiment
-		with it at <a target="_blank"
-		href="https://swapi.co/documentation">swapi.co/documentation</a></p>
+	<h2>Instructions</h2>
+	<p>Open the <a target="_blank"
+	href="https://swapi.co/documentation">Star Wars API documenation</a>
+	in your browser. From the documentation you can read that this URL
+	<a target="_blank"
+	href="https://swapi.co/api/planets">https://swapi.co/api/planets</a>
+	will return data about all the planets in the Star Wars galaxy, and
+	this URL <a target="_blank"
+	href="https://swapi.co/api/planets">https://swapi.co/api/planets/{i}</a>
+	where <var>{i}</var> is an integer will return data about an
+	individual planet.</p>
 
-		<h2>Instructions</h2>
-		<p>Open the <a target="_blank"
-		href="https://swapi.co/documentation">Star Wars API documenation</a>
-		in your browser. From the documentation you can read that this
-		URL <a target="_blank"
+	<p>Use the commodities.py program, that you downloaded during this
+	lesson's checkpoint, as a reference, and write a Python program to
+	retrieve the population for each planet and calculate and display
+	the total population of all planets in the Star Wars galaxy.</p>
+
+	<h3>Core Requirements</h3>
+	<ol>
+		<li><div>Your program must use the <code>requests</code> module
+		to retrieve data from this URL: <a target=_"blank"
 		href="https://swapi.co/api/planets">https://swapi.co/api/planets</a>
-		will return data about all the planets in the Star Wars galaxy,
-		and this URL <a target="_blank"
-		href="https://swapi.co/api/planets">https://swapi.co/api/planets/{i}</a>
-		where <var>{i}</var> is an integer will return data about an
-		individual planet.</p>
+		and then get the count of planets from that data.</div></li>
 
-		<p>Use the commodities.py program, that you downloaded during
-		this lesson's checkpoint, as a reference, and write a Python
-		program to retrieve the population for each planet and calculate
-		and display the total population of all planets in the Star Wars
-		galaxy.</p>
+		<li><div>Your program must contain a loop that repeats once for
+		each planet. Within that loop your program must use the
+		<code>requests</code> module to retrieve the data for each
+		planet and then get the population from that data and add that
+		population into a total population.</div></li>
 
-		<h3>Core Requirements</h3>
-		<ol>
-			<li><div>Your program must use the <code>requests</code>
-			module to retrieve data from this URL: <a target=_"blank"
-			href="https://swapi.co/api/planets">https://swapi.co/api/planets</a>
-			and then get the count of planets from that data.</div></li>
+		<li><div>Your program must print the total population.</div></li>
+	</ol>
 
-			<li><div>Your program must contain a loop that repeats once
-			for each planet. Within that loop your program must use the
-			<code>requests</code> module to retrieve the data for each
-			planet and then get the population from that data and add
-			that population into a total population.</div></li>
+	<h3>Stretch Challenges</h3>
+	<p>If your team finishes the core requirements in less than an hour,
+	complete one or more of these stretch challenges. Note that the
+	stretch challenges are optional.</p>
 
-			<li><div>Your program must print the total population.</div></li>
-		</ol>
+	<ol>
+		<li><div>Add something or change something in your program that
+		you think would make your program better, easier for the user,
+		more elegant, or more fun. Be creative.</div></li>
 
-		<h3>Stretch Challenges</h3>
-		<p>If your team finishes the core requirements in less than an
-		hour, complete one or more of these stretch challenges. Note
-		that the stretch challenges are optional.</p>
+		<li><div>Write comments above the lines of code that were
+		difficult for you to understand.</div></li>
 
-		<ol>
-			<li><div>Add something or change something in your program
-			that you think would make your program better, easier for
-			the user, more elegant, or more fun. Be creative.</div></li>
+		<li><div>Change your program to count the number of planets that
+		are known to have surface water.</div></li>
 
-			<li><div>Write comments above the lines of code that were
-			difficult for you to understand.</div></li>
+		<li><div>Change your program to compute the average height for
+		all the characters in the swapi database.</div></li>
+	</ol>
 
-			<li><div>Change your program to count the number of planets
-			that are known to have surface water.</div></li>
+	<h2>Warning</h2>
+	<p>Now that you know how to use the <code>requests</code> module to
+	retrieve data, you have enough knowledge to launch a denial of
+	service (DOS) attack against a web server. If you write a program
+	that quickly makes thousands or millions of requests to a server,
+	your program's requests will overwhelm the server. Then other
+	programs that are making normal, legitimate requests will not be
+	served because the server is too busy with the flood of requests
+	from your program. This is a denial of service attack. Don't do
+	this. Launching a DOS attack is rude, unethical, likely illegal, a
+	violation of the BYU-Idaho honor code, and not something that a
+	disciple of Jesus Christ would knowingly do. Launching a DOS attack,
+	either purposefully or accidentally, will lead to your computer's IP
+	address being locked on the server which means the server will
+	refuse to serve your computer. With great power, comes great
+	responsibility.</p>
 
-			<li><div>Change your program to compute the average height
-			for all the characters in the swapi database.</div></li>
-		</ol>
+	<h2>Sample Solution</h2>
+	<p>Please work diligently with your team for the one-hour meeting.
+	After the meeting is over, please compare your approach to the
+	sample solution. Please <strong>do not look at the sample
+	solution</strong> until you have either finished the program or
+	diligently worked for at least one hour. At the end of the hour, if
+	you are still struggling to complete the assignment, you may use the
+	sample solution to help you finish.</p>
 
-		<h2>Warning</h2>
-		<p>Now that you know how to use the <code>requests</code> module
-		to retrieve data, you have enough knowledge to launch a denial
-		of service (DOS) attack against a web server. If you write a
-		program that quickly makes thousands or millions of requests to
-		a server, your program's requests will overwhelm the server.
-		Then other programs that are making normal, legitimate requests
-		will not be served because the server is too busy with the flood
-		of requests from your program. This is a denial of service
-		attack. Don't do this. Launching a DOS attack is rude,
-		unethical, likely illegal, a violation of the BYU-Idaho honor
-		code, and not something that a disciple of Jesus Christ would
-		knowingly do. Launching a DOS attack, either purposefully or
-		accidentally, will lead to your computer's IP address being
-		locked on the server which means the server will refuse to serve
-		your computer. With great power, comes great responsibility.</p>
+	<ul class="links">
+		<li>Sample solution:
+		<a href="./teach_solution.py">teach_solution.py</a></li>
+	</ul>
 
-		<h2>Sample Solution</h2>
-		<p>Please work diligently with your team for the one-hour
-		meeting. After the meeting is over, please compare your approach
-		to the sample solution.</p>
-
-		<p>Please <strong>do not look at the sample solution</strong>
-		until you have either finished the program or diligently worked
-		for at least one hour. At the end of the hour, if you are still
-		struggling to complete the assignment, you may use the sample
-		solution to help you finish.</p>
-
-		<ul class="links">
-			<li>Sample solution:
-			<a href="./teach_solution.py">teach_solution.py</a></li>
-		</ul>
-
-		<h2>Submission</h2>
-		<p>When you have finished the activity, please report your
-		progress via the associated I-Learn quiz.</p>
-
-		<p>When asked about which of the requirements you completed,
-		feel free to include any work done during the team meeting or
-		after the meeting, including work done with the help of the
-		sample solution, if necessary. In short, report on what you were
-		able to accomplish, regardless of when you completed it or if
-		you needed help from the sample solution.</p>
-	</article>
+	<h2>Submission</h2>
+	<p>When you have finished the activity, please report your progress
+	via the associated I-Learn quiz. When asked about which of the
+	requirements you completed, feel free to include any work done
+	during the team meeting or after the meeting, including work done
+	with the help of the sample solution, if necessary. In short, report
+	on what you were able to accomplish, regardless of when you
+	completed it or if you needed help from the sample solution.</p>
+</article>
 </body>
 </html>
