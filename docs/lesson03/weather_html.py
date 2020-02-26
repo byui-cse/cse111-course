@@ -32,7 +32,7 @@ DETAILED_FORECAST = "detailedForecast"
 
 
 def create_report(filename, locname,
-		options=[PERIOD_NAME, TEMPERATURE, SHORT_FORECAST]):
+		options=[PERIOD_NAME, SHORT_FORECAST, TEMPERATURE]):
 	"""Create and return a weather report that will be used for adding
 	rows and periods and then writing the report.
 
@@ -65,7 +65,7 @@ def write_report(report):
 	"""Write the weather report to an HTML file."""
 
 	# Determine the maximum number of columns for all rows.
-	max_cols = max([len(row) for row in report["rows"]])
+	max_cols = max(len(row) for row in report["rows"])
 
 	# Compute the column width as a percentage and
 	# round down to the nearest tenth of one percent.
@@ -82,6 +82,7 @@ f'''<!DOCTYPE HTML>
 		<meta charset="utf-8">
 		<title>U.S. National Weather Service Forecast</title>
 		<style>
+			th {{ padding-top: 1.5em; }}
 			td {{ width: {col_width}%; vertical-align: top; }}
 			td.img {{ text-align: center; }}
 		</style>
@@ -173,6 +174,3 @@ def write_row(out, periods, options, max_cols):
 
 		# Write an closing </tr> tag to the HTML file.
 		out.write(_tr)
-
-
-__all__ = [create_report, start_new_row, add_period, write_report]

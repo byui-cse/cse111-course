@@ -25,56 +25,90 @@
 		classes, and functions. In this unit, you will learn how to
 		write your own functions.</p>
 
+		<h2>Concepts</h2>
 		<p>Here are the Python programming concepts and topics that you
 		should learn this week:</p>
 		<ol>
 			<li><div>A function is a group of statements (computer
 			commands) that together perform one task.</div></li>
 
-			<li><div></div></li>
-			<li><div></div></li>
-			<li><div></div></li>
-			<li><div></div></li>
-			<li><div></div></li>
-			<li><div></div></li>
-
 			<li><div>A programmer (you) can save lots of time by using
 			writing and calling your own functions.</div></li>
 
-			<li><div>A <dfn>parameter</dfn> is a piece of data that a
-			function needs in order to complete its task. In the online
-			documentation for the <code>math</code> module, we see that
-			the
-			<a target="_blank" href="https://docs.python.org/3/library/math.html#math.sqrt"><code>math.sqrt</code></a>
-			function has one parameter named <var>x</var> which is the
-			number that <code>math.sqrt</code> will compute the square
-			root of. In order for the <code>math.sqrt</code> function to
-			do its job (compute the square root), a programmer must
-			write code to pass a number through the parameter
-			<var>x</var> into into the <code>math.sqrt</code> function.
-			Here is a simple example of passing a number to the
-			<code>math.sqrt</code> function:
-			<pre>r = math.sqrt(71)</pre>
-			In the above example, 71 will be passed through the
-			parameter <var>x</var> into the <code>math.sqrt</code>
-			function. The <code>sqrt</code> function will compute the
-			square root of 71 and return the computed value which will
-			then be stored in the variable <var>r</var>.
+			<li><div>To write a function in Python, simply type code
+			that matches this template:
+<pre>def <var>function_name</var>(<var>param1</var>, <var>param2</var>, &hellip; <var>paramN</var>):
+    <var>statement1</var>
+    <var>statement2</var>
+        &vellip;
+    <var>statementN</var>
+    return <var>value</var></pre></div></li>
 
-			<p>Here is another example that calls the built-in
-			<code>input</code> and <code>open</code> functions to open a
-			text file and then calls the <code>reader</code> function
-			that is in the <code>csv</code>
-			module:</p>
-<pre>filename = input("Please enter a filename: ")
-with open(filename, "rt") as infile:
-    reader = csv.reader(infile)</pre></div></li>
+			<li><div>The first line of a function is called the
+			<dfn>header</dfn> or <dfn>signature</dfn>, and it includes
+			<ol>
+				<li><div>the keyword <code>def</code></div></li>
+				<li><div>the function name</div></li>
+				<li><div>the parameter list</div></li>
+			</ol></li></div></li>
 
+			<li><div>The function name must start with a letter or the
+			underscore (_). The rest of the name must be made of
+			letters, digits (0–9), or the underscore. A function name
+			cannot include spaces or other punctuation. A function name
+			should be meaningful and should describe curtly what the
+			function does.</div></li>
+
+			<li><div>The parameter list contains data stored in
+			variables that the function needs to complete its task. A
+			<dfn>parameter</dfn> is a variable whose value comes from
+			outside the function. One way to get input into a function
+			is to ask the user for input by calling the built-in Python
+			<code>input</code> function. Another way to get input into a
+			function is through the function's parameters. Getting input
+			through parameters is much more flexible than asking the
+			user for input because the input through parameters can come
+			from the user or a file on a hard drive or the network or a
+			sensor or even another function.</div></li>
+
+			<li><div>The statements inside a function are called the
+			<dfn>body</dfn> of the function. A function may contain as
+			many statements as you wish to write inside of it. However,
+			it is a good idea to limit functions to less than a page (60
+			lines) long. To <dfn>return</dfn> a result from a function
+			so that the result can be used somewhere else in your
+			program, simply type the keyword <code>return</code>
+			followed by whatever value you want returned to the calling
+			function.</div></li>
 		</ol>
 
-		<p>If any of the concepts or topics in the list above seem vague
-		or difficult to you, you should read carefully the above list
-		again and then watch these videos:</p>
+		<h2>Examples</h2>
+		<h3>Example 1</h3>
+		<p>Here is the header for a function named
+		<code>draw_circle</code> that takes three parameters named
+		<code>x</code>, <code>y</code>, and <code>radius</code>.</p>
+		<pre>def draw_circle(x, y, radius)</pre>
+
+		<h3>Example 2</h3>
+		<p>Here is a function (both the header and body) that computes
+		and returns the average of three numbers.</p>
+<pre>def average(a, b, c):
+    """Computes and returns the average of three numbers."""
+    total = a + b + c
+    avg = total / 3
+    return avg</pre>
+
+		<h3>Example 3</h3>
+		<p>Here is a function that takes two parameters and computes and
+		returns the value of this equation:
+&nbsp;<var>f</var>&#x202f;(<var>a</var>,<var>r</var>&#x202f;) = <var>a</var> &times; (1 + <var>r</var>&#x202f;).</p>
+
+<pre>def formula(a, r):
+    result = a * (1 + r)
+    return result</pre>
+
+		<h2>Videos</h2>
+		<p>Watch the following videos about writing functions:</p>
 		<ul class="links">
 			<li><a target="_blank" href="https://www.youtube.com/watch?v=nrCAxXfRU28&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=29">Introducing Functions</a></li>
 			<li><a target="_blank" href="https://www.youtube.com/watch?v=nrCAxXfRU28&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=30">Demo: Functions</a></li>
@@ -83,26 +117,12 @@ with open(filename, "rt") as infile:
 			<li><a target="_blank" href=""></a></li>
 		</ul>
 
-        <a target="_blank"
-        href="https://www.youtube.com/playlist?list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6">videos about Python</a>
-		that you watched for CSE 110. Or you could read some of these
-		tutorials.</p>
-
-		<ul class="links">
-			<li><a target="_blank"
-			href="https://realpython.com/python-square-root-function/">Python Square Root Function</a></li>
-			<li><a target="_blank" href=""></a></li>
-			<li><a target="_blank" href=""></a></li>
-			<li><a target="_blank" href=""></a></li>
-		</ul>
-
-		<p>You could also read some of the Python tutorials at
-		<a target="_blank"
-		href="https://www.w3schools.com/python/default.asp">w3schools.com</a>.
-		Or you could search for "Python" in the
-		<a target="_blank" href="https://library.byui.edu">online catalog</a>
-		of the BYU-Idaho library and read one of the online books from
-		the result set.</p>
+		<p><strong>It is extremely important that you know how to
+		write and call functions.</strong> After watching the above
+		videos, if the concepts related to writing a function still seem
+		confusing or vague to you, <strong>read the concepts in the
+		above list again</strong> and then <strong>watch the videos
+		again</strong>.</p>
 	</article>
 </body>
 </html>
