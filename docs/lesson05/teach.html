@@ -17,7 +17,7 @@
 	<h1>CSE 111 | Programming with Functions</h1>
 </header>
 <article>
-	<h1>05 Team Activity: Write Fitness Functions</h1>
+	<h1>05 Team Activity: Fitness Functions</h1>
 
 	<h2>Overview</h2>
 	<p>Arrange a one-hour synchronous meeting with your team for this
@@ -27,9 +27,9 @@
 	the individual checkpoint assignment beforehand.</p>
 
 	<h2>Problem Statement</h2>
-	<p>Doctors and other health professionals who are helping a client
-	achieve a healthy body weight, sometimes use two computed values
-	called body mass index and basal metabolic rate.</p>
+	<p>Health professionals who are helping a client achieve a healthy
+	body weight, sometimes use two computed values called body mass
+	index and basal metabolic rate.</p>
 
 	<p>From the U.S. Centers for Disease Control and Prevention we read,
 	"Body mass index (BMI) is a person's weight in kilograms divided by
@@ -73,6 +73,10 @@ from datetime import date, datetime
 
 def compute_age(birth):
     """Compute and return a person's age in years."""
+
+    param birth: a person's birthdate stored as
+        a string in this format: YYYY-MM-DD
+    """
     birthdate = datetime.strptime(birth, "%Y-%m-%d").date()
     now = date.today()
     diff = now - birthdate
@@ -131,6 +135,27 @@ def compute_age(birth):
 		<li><div></div></li>
 		<li><div></div></li>
 		<li><div></div></li>
+		<li><div></div></li>
+	</ol>
+
+	<h2>Sample Run</h2>
+<pre class="console">&gt; python teach_solution.py
+Gender, Age (years), Weight (kg), Height (cm), BMI, BMR
+F, 30, 58.97, 157.5, 23.8, 1350.9
+F, 35, 61.23, 163.8, 22.8, 1369.7
+F, 39, 56.7, 161.3, 21.8, 1302.7
+M, 28, 63.5, 182.9, 19.0, 1657.9
+M, 35, 65.77, 176.5, 21.1, 1617.8
+M, 38, 70.31, 174.0, 23.2, 1649.6</pre>
+
+	<p>Note that the output of your program will not be the same for the
+	Age and BMR columns because you will run your program after this
+	assignment was written.</p>
+
+	<h2>Testing Procedure</h2>
+	<p>Verify that your program works correctly by following each step
+	in this testing procedure:</p>
+	<ol class="testing">
 		<li><div></div></li>
 	</ol>
 

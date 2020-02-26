@@ -4,7 +4,11 @@ from datetime import date, datetime
 
 
 def compute_age(birth):
-	"""Compute and return a person's age in years."""
+	"""Compute and return a person's age in years.
+
+	param birth: a person's birthdate stored as
+		a string in this format: YYYY-MM-DD
+	"""
 	birthdate = datetime.strptime(birth, "%Y-%m-%d").date()
 	now = date.today()
 	diff = now - birthdate
