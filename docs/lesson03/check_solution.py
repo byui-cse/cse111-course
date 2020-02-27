@@ -1,7 +1,9 @@
 # A list of people's height in meters.
-heights = [1.72, 1.50, 1.96, 2.01, 1.75,
-		2.11, 1.60, 1.65, 2.05, 1.50,
-		1.80, 1.83, 2.05, 1.79, 1.84]
+heights = [
+	1.72, 1.50, 1.96, 2.01, 1.75,
+	2.11, 1.60, 1.65, 2.05, 1.50,
+	1.80, 1.83, 2.05, 1.79, 1.84
+]
 
 # Call the len, min, max, and sum functions and
 # pass the list of heights to each function.
