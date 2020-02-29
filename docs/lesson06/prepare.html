@@ -18,30 +18,170 @@
 </header>
 <article>
 	<h1>06 Prepare: Optional and Named Parameters and Variable Scope</h1>
-	Optional and Named Parameters
+	<p>Optional and Named Parameters
 	Pass by Value vs Pass by Reference
-	Variable Scope</h1>
+	Variable Scope</p>
 
-	<p>Because most useful computer programs are very large, programmers
-	divide their programs into parts. Dividing a program into parts
-	makes it easier to write, debug, and understand the program. A
-	programmer can divide a Python program into modules, classes, and
-	functions. In this unit, you will learn how to write your own
-	functions.</p>
+	<p>In Python, variables are processed differently based on their
+	data type. For example, here is a small Python program that contains
+	two integer variables named <var>x</var> and <var>y</var>.</p>
+<div class="pre"><pre class="linenums">1
+2
+3
+4
+5
+6
+7
+8</pre>
+<pre class="code">def main():
+    x = 3
+    y = x
+    print(f"x: {x}  y: {y}")
+    y += 1
+    print(f"x: {x}  y: {y}")
 
-	<h2>Concepts</h2>
-	<p>Here are the Python programming concepts and topics that you
-	should learn this week:</p>
-	<ol>
-		<li><div>A function is a group of statements (computer commands)
-		that together perform one task.</div></li>
+main()</pre></div>
 
-		<li><div>A programmer (you) can save lots of time by using
-		writing and calling your own functions.</div></li>
+	<p>The previous code will print this:</p>
+<div class="pre"><pre class="console">&gt; python prep1.py
+x: 3  y: 3
+x: 3  y: 4</pre></div>
+
+	<p>Within the previous code</p>
+	<ul>
+		<li><div>The statement on line 2 stores the value 3 into
+		the variable <var>x</var>.</div></li>
+		<li><div>Line 3 copies the value that is in the variable
+		<var>x</var> into the variable <var>y</var>.</div></li>
+		<li><div>Line 4 prints the values of <var>x</var> and
+		<var>y</var> which are both 3.</div></li>
+		<li><div>Line 5 adds one to the value of <var>y</var>, making
+		its value 4 instead of 3.</div></li>
+		<li><div>Line 6 prints the values of <var>x</var> and
+		<var>y</var>. The value of <var>x</var> remained unchanged. The
+		value of <var>y</var> was changed to 4.</div></li>
+	</ul>
+
+	<p>Why did line 5 (<code>y += 1</code>) change the value of
+	<var>y</var> but not change the value of <var>x</var>? Because line
+	3 <em>copied</em> the value that was in <var>x</var> into
+	<var>y</var>.</p>
+
+	<p>Here is a small Python program that contains two variables named
+	<var>lx</var> and <var>ly</var> that each refer to a list.</p>
+
+<div class="pre"><pre class="linenums">1
+2
+3
+4
+5
+6
+7
+8</pre>
+<pre class="code">def main():
+    lx = [7, -2]
+    ly = lx
+    print(f"lx: {lx}  y: {ly}")
+    ly.append(5)
+    print(f"lx: {lx}  y: {ly}")
+
+main()</pre></div>
+
+	<p>This second program is similar to the first program, but it is
+	processing lists instead of integers. Here is the output of the
+	second program.</p>
+
+<div class="pre"><pre class="console">&gt; python prep2.py
+lx: [7, -2]  y: [7, -2]
+lx: [7, -2, 5]  y: [7, -2, 5]</pre></div>
+
+	<p>Within the output of this second program, we can see there is a
+	big difference between the way a Python program assigns integers and
+	the way it assigns lists. Within this second program</p>
+	<ul>
+		<li><div>The statement on line 2 creates a list and stores a
+		reference to that list in the variable <var>lx</var>.</div></li>
+		<li><div>Line 3 copies the reference in the variable
+		<var>lx</var> into the variable <var>ly</var>. Line 3 does not
+		create a copy of the list but instead causes both the variables
+		<var>lx</var> and <var>ly</var> to refer to the same
+		list.</div></li>
+		<li><div>Line 4 prints the values of <var>lx</var> and
+		<var>ly</var>. Notice that their values are the same as we
+		expect them to be because of line 3.</div></li>
+		<li><div>Line 5 appends the number 5 onto the list
+		<var>ly</var>.</div></li>
+		<li><div>Line 6 prints the values of <var>lx</var> and
+		<var>ly</var> again. Notice in the output that when
+		<var>lx</var> and <var>ly</var> are printed the second time, it
+		appears that the number 5 was appended to both lists.</div></li>
+	</ul>
+
+	<p>Why does it appear that appending the number 5 onto <var>ly</var>
+	also appended the number 5 onto <var>lx</var>? What really happened
+	is that <var>lx</var> and <var>ly</var> refer to the same list.
+	There is really only one list with two references to that list.
+	Because <var>lx</var> and <var>ly</var> refer to the same list, a
+	change to the list through variable <var>ly</var> can be seen
+	through variable <var>lx</var>.</p>
+
+	<p>When a computer executes a Python statement to assign the value
+	of a boolean, integer, or float variable to another variable
+	(<code>y = x</code>), the computer copies the value of one variable
+	into the other. However, when a computer executes a Python statement
+	to assign the value of a string, list, set, or dictionary variable
+	to another variable (<code>ly = lx</code>), the computer does not
+	copy the value but instead copies the reference so that both
+	variables refer to the same value in memory.</p>
+
+	<p>This concept of copying the value for some data types and copying
+	the reference for other data types has important implications for
+	passing values into functions. Consider this Python program with two
+	functions named <code>modify_args</code> and <code>main</code>.</p>
+
+<div class="pre"><pre class="linenums">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16</pre>
+<pre>def modify_args(n, ls):
+    print("  modify_args()")
+    print(f"      n: {n}  ls: {ls}")
+    n += 1
+    ls.append(5)
+    print(f"      n: {n}  ls: {ls}")
+
+def main():
+    print("main()")
+    x = 3
+    lx = [7, -2]
+    print(f"  x: {x}  lx: {lx}")
+    modify_args(x, lx)
+    print(f"  x: {x}  lx: {lx}")
+
+main()</pre></div>
+
+<div class="pre"><pre class="console">&gt; python prep3.py
+main()
+  x: 3  lx: [7, -2]
+  modify_args()
+      n: 3  ls: [7, -2]
+      n: 4  ls: [7, -2, 5]
+  x: 3  lx: [7, -2, 5]</pre></div>
 
 		<li><div></div></li>
-	</ol>
-
+		<li><div></div></li>
 
 	<h2>Videos</h2>
 	<p>Watch the following videos about writing functions:</p>
@@ -51,11 +191,6 @@
 		<li><a target="_blank" href=""></a></li>
 	</ul>
 
-	<p><strong>It is extremely important that you can write and call
-	functions.</strong> After watching the above videos, if the concepts
-	related to writing a function still seem confusing or vague to you,
-	<strong>read the concept list (above the videos) again</strong> and
-	then <strong>watch the videos again</strong>.</p>
 </article>
 </body>
 </html>
