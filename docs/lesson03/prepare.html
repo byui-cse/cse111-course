@@ -64,7 +64,7 @@
 			that function. During CSE 110, you often wrote code that
 			called the <code>input</code> and <code>print</code>
 			functions. For example:
-<pre>name = input("Please enter your name: ")
+<pre class="python">name = input("Please enter your name: ")
 print(f"Hello {name}")</pre></div></li>
 
 			<li><div>To correctly call a function you must know the
@@ -118,7 +118,7 @@ print(f"Hello {name}")</pre></div></li>
 			<var>x</var> into into the <code>math.sqrt</code> function.
 			Here is a simple example of passing a number to the
 			<code>math.sqrt</code> function:</p>
-			<pre>r = math.sqrt(71)</pre>
+			<pre class="python">r = math.sqrt(71)</pre>
 
 			<p>In the above example, 71 will be passed through the
 			parameter <var>x</var> into the <code>math.sqrt</code>
@@ -137,7 +137,7 @@ print(f"Hello {name}")</pre></div></li>
 			<code>math.sqrt</code> function to compute the square root,
 			and finally calls the <code>print</code> function to display
 			the result for the user to see.</p>
-<pre>num = float(input("Please enter a number: "))
+<pre class="python">num = float(input("Please enter a number: "))
 rt = math.sqrt(num)
 print(rt)</pre>
 
@@ -145,7 +145,7 @@ print(rt)</pre>
 			<code>input</code> and <code>open</code> functions to open a
 			text file and then calls the <code>reader</code> function
 			that is in the <code>csv</code> module:</p>
-<pre>filename = input("Please enter a filename: ")
+<pre class="python">filename = input("Please enter a filename: ")
 with open(filename, "rt") as infile:
     reader = csv.reader(infile)</pre></div></li>
 
@@ -173,7 +173,7 @@ with open(filename, "rt") as infile:
 			must be named when they are used. For example, this code
 			calls the <code>print</code> function to print three words
 			all separated by a vertical bar (|).</p>
-<pre>x = "sun"
+<pre class="python">x = "sun"
 y = "moon"
 z = "stars"
 print(x, y, z, sep="|")</pre></div></li>

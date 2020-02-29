@@ -17,11 +17,13 @@
 	<h1>CSE 111 | Programming with Functions</h1>
 </header>
 <article>
-	<h1>06 Prepare: Optional and Named Parameters and Variable Scope</h1>
-	<p>Optional and Named Parameters
-	Pass by Value vs Pass by Reference
-	Variable Scope</p>
+	<h1>06 Prepare: Function Details</h1>
 
+	<h2>Optional and Named Parameters</h2>
+
+	<h2>Variable Scope</h2>
+
+	<h2>Variable Values and References</h2>
 	<p>In Python, variables are processed differently based on their
 	data type. For example, here is a small Python program that contains
 	two integer variables named <var>x</var> and <var>y</var>.</p>
@@ -43,13 +45,13 @@
 main()</pre></div>
 
 	<p>The previous code will print this:</p>
-<div class="pre"><pre class="console">&gt; python prep1.py
+<pre class="console">&gt; python prep1.py
 x: 3  y: 3
-x: 3  y: 4</pre></div>
+x: 3  y: 4</pre>
 
-	<p>Within the previous code</p>
+	<p>Within the previous code,</p>
 	<ul>
-		<li><div>The statement on line 2 stores the value 3 into
+		<li><div>the statement on line 2 stores the value 3 into
 		the variable <var>x</var>.</div></li>
 		<li><div>Line 3 copies the value that is in the variable
 		<var>x</var> into the variable <var>y</var>.</div></li>
@@ -64,11 +66,12 @@ x: 3  y: 4</pre></div>
 
 	<p>Why did line 5 (<code>y += 1</code>) change the value of
 	<var>y</var> but not change the value of <var>x</var>? Because line
-	3 <em>copied</em> the value that was in <var>x</var> into
-	<var>y</var>.</p>
+	3 copied the value that was in <var>x</var> into <var>y</var>.</p>
 
 	<p>Here is a small Python program that contains two variables named
-	<var>lx</var> and <var>ly</var> that each refer to a list.</p>
+	<var>lx</var> and <var>ly</var> that each refer to a list. This
+	program is similar to the first program, but it processes lists
+	instead of integers.</p>
 
 <div class="pre"><pre class="linenums">1
 2
@@ -87,19 +90,17 @@ x: 3  y: 4</pre></div>
 
 main()</pre></div>
 
-	<p>This second program is similar to the first program, but it is
-	processing lists instead of integers. Here is the output of the
-	second program.</p>
+	<p>Here is the output of the second program.</p>
 
-<div class="pre"><pre class="console">&gt; python prep2.py
+<pre class="console">&gt; python prep2.py
 lx: [7, -2]  y: [7, -2]
-lx: [7, -2, 5]  y: [7, -2, 5]</pre></div>
+lx: [7, -2, 5]  y: [7, -2, 5]</pre>
 
-	<p>Within the output of this second program, we can see there is a
-	big difference between the way a Python program assigns integers and
-	the way it assigns lists. Within this second program</p>
+	<p>From the output of this second program, we can see there is a big
+	difference between the way a Python program assigns integers and the
+	way it assigns lists. Within the second program,</p>
 	<ul>
-		<li><div>The statement on line 2 creates a list and stores a
+		<li><div>the statement on line 2 creates a list and stores a
 		reference to that list in the variable <var>lx</var>.</div></li>
 		<li><div>Line 3 copies the reference in the variable
 		<var>lx</var> into the variable <var>ly</var>. Line 3 does not
@@ -127,16 +128,17 @@ lx: [7, -2, 5]  y: [7, -2, 5]</pre></div>
 
 	<p>When a computer executes a Python statement to assign the value
 	of a boolean, integer, or float variable to another variable
-	(<code>y = x</code>), the computer copies the value of one variable
-	into the other. However, when a computer executes a Python statement
-	to assign the value of a string, list, set, or dictionary variable
-	to another variable (<code>ly = lx</code>), the computer does not
-	copy the value but instead copies the reference so that both
-	variables refer to the same value in memory.</p>
+	(<code>y = x</code>), the computer copies <em>the value</em> of one
+	variable into the other. However, when a computer executes a Python
+	statement to assign the value of a string, list, set, or dictionary
+	variable to another variable (<code>ly = lx</code>), the computer
+	does not copy the value but instead copies <em>the reference</em> so
+	that both variables refer to the same value in memory.</p>
 
-	<p>This concept of copying the value for some data types and copying
-	the reference for other data types has important implications for
-	passing values into functions. Consider this Python program with two
+	<p>The fact that the computer copies the value of some data types
+	(boolean, integer, float) and copies the reference for other data
+	types (list, set, dict) has important implications for passing
+	arguments into functions. Consider this Python program with two
 	functions named <code>modify_args</code> and <code>main</code>.</p>
 
 <div class="pre"><pre class="linenums">1
@@ -154,34 +156,92 @@ lx: [7, -2, 5]  y: [7, -2, 5]</pre></div>
 13
 14
 15
-16</pre>
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29</pre>
 <pre>def modify_args(n, ls):
-    print("  modify_args()")
-    print(f"      n: {n}  ls: {ls}")
+    """Demonstrate that the computer passes a value
+    for integers and passes a reference for lists.
+    """
+    print("    modify_args()")
+    print(f"   n: {n}  ls: {ls}")
+
+    # Change the values of both parameters.
     n += 1
     ls.append(5)
-    print(f"      n: {n}  ls: {ls}")
+
+    print(f"   n: {n}  ls: {ls}")
+
 
 def main():
     print("main()")
     x = 3
     lx = [7, -2]
-    print(f"  x: {x}  lx: {lx}")
-    modify_args(x, lx)
-    print(f"  x: {x}  lx: {lx}")
+    print(f"x: {x}  lx: {lx}")
 
+    # Pass one integer and one list
+    # to the modify_args function.
+    modify_args(x, lx)
+
+    print(f"x: {x}  lx: {lx}")
+
+
+# Call main to begin this program.
 main()</pre></div>
 
-<div class="pre"><pre class="console">&gt; python prep3.py
-main()
-  x: 3  lx: [7, -2]
-  modify_args()
-      n: 3  ls: [7, -2]
-      n: 4  ls: [7, -2, 5]
-  x: 3  lx: [7, -2, 5]</pre></div>
+	<p>Within this third program,</p>
+	<ul>
+		<li><div>the statement on line 17 assigns the value 3 to a
+		variable named <var>x</var>.</div></li>
+		<li><div>Line 18 assigns a list to a variable named
+		<var>lx</var>.</div></li>
+		<li><div>Line 19 prints the values of <var>x</var> and
+		<var>lx</var> before they are passed to the
+		<var>modify_args</var> function.</div></li>
+		<li><div>Line 23 calls the <code>modify_args</code> function and
+		passes <var>x</var> and <var>lx</var> to that function.</div></li>
+		<li><div>Within the <code>modify_args</code> function, line 7
+		changes the value of the parameter <var>n</var> by adding one to
+		it.</div></li>
+		<li><div>Line 25 prints the values of <var>x</var> and
+		<var>lx</var> after they were passed to the
+		<code>modify_args</code> function. Notice in the output below
+		that the value of <var>x</var> was not changed by the
+		<code>modify_args</code> function. However, the value of
+		<var>lx</var> was changed by the <code>modify_args</code>
+		function.</div></li>
+		<li><div></div></li>
+	</ul>
 
-		<li><div></div></li>
-		<li><div></div></li>
+<pre class="console">&gt; python prep3.py
+main()
+x: 3  lx: [7, -2]
+    modify_args()
+    n: 3  ls: [7, -2]
+    n: 4  ls: [7, -2, 5]
+x: 3  lx: [7, -2, 5]</pre>
+
+	<p>From the output of the third program, we can see that modifying
+	an integer parameter changes the integer within the called function
+	only. However modifying a list parameter changes the list within the
+	called function and the calling function. Why? Because when a
+	computer passes a boolean, integer, or float variable to a function,
+	the computer copies <em>the value</em> of that variable into the
+	parameter of the called function. However, when a computer passes a
+	list, set, or dictionary variable to a function, the computer copies
+	<em>the reference</em> so that the original variable and the
+	parameter both refer to the same value in memory.</p>
 
 	<h2>Videos</h2>
 	<p>Watch the following videos about writing functions:</p>
@@ -190,7 +250,6 @@ main()
 		<li><a target="_blank" href="https://www.youtube.com/watch?v=nrCAxXfRU28&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=32">Demo: Parameterized Functions</a></li>
 		<li><a target="_blank" href=""></a></li>
 	</ul>
-
 </article>
 </body>
 </html>

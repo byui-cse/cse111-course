@@ -35,26 +35,26 @@
 		program should then compute and output the total amount due by
 		adding sales tax of 6% to the subtotal. At the top of your
 		program, import the <code>datetime</code> module like this:</p>
-		<pre>import datetime</pre>
+		<pre class="python">import datetime</pre>
 		<p>Then within your program, use this Python code that will get
 		the current day of the week from your computer&rsquo;s
 		clock:</p>
-		<pre>weekday = datetime.datetime.now().isoweekday()</pre>
+		<pre class="python">weekday = datetime.datetime.now().isoweekday()</pre>
 		<p>If you use the above code, the variable <var>weekday</var>
 		will hold 0 if today is Sunday, 1 if today is Monday, and so on
 		to 6 if today is Saturday.</p>
 
 		<h2>Sample Runs</h2>
 <h3>Run on a Monday</h3>
-<pre class="console">Please enter the subtotal: 42.75
+<pre class="console">Please enter the subtotal: <span class="input">42.75</span>
 Total: 45.31</pre>
-<pre class="console">Please enter the subtotal: 55.20
+<pre class="console">Please enter the subtotal: <span class="input">55.20</span>
 Total: 58.51</pre>
 
 <h3>Run on a Tuesday</h3>
-<pre class="console">Please enter the subtotal: 42.75
+<pre class="console">Please enter the subtotal: <span class="input">42.75</span>
 Total: 45.31</pre>
-<pre class="console">Please enter the subtotal: 55.20
+<pre class="console">Please enter the subtotal: <span class="input">55.20</span>
 Total: 52.66</pre>
 
 		<h2>Testing Procedure</h2>
@@ -73,9 +73,9 @@ Total: 52.66</pre>
 			and without changing your computer's system date? Hint:
 			consider adding temporarily to your program a line of code
 			like this one
-			<pre>weekday = 3</pre>
+			<pre class="python">weekday = 3</pre>
 			immediately after this line of code
-			<pre>weekday = datetime.datetime.now().isoweekday()</pre></div></li>
+			<pre class="python">weekday = datetime.datetime.now().isoweekday()</pre></div></li>
 		</ol>
 
 		<h2>Sample Solution</h2>

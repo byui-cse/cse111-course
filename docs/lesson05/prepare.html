@@ -38,7 +38,7 @@
 
 		<li><div>To write a function in Python, simply type code that
 		matches this template:
-<pre>def <var>function_name</var>(<var>param1</var>, <var>param2</var>, &hellip; <var>paramN</var>):
+<pre class="python">def <var>function_name</var>(<var>param1</var>, <var>param2</var>, &hellip; <var>paramN</var>):
     <var>statement1</var>
     <var>statement2</var>
         &vellip;
@@ -55,7 +55,7 @@
 		Here is the header for a function named <code>draw_circle</code>
 		that takes three parameters named <code>x</code>,
 		<code>y</code>, and <code>radius</code>:
-<pre>def draw_circle(x, y, radius):</pre></div></li>
+<pre class="python">def draw_circle(x, y, radius):</pre></div></li>
 
 		<li><div>The function name must start with a letter or the
 		underscore (_). The rest of the name must be made of letters,
@@ -87,7 +87,7 @@
 
 		<p>Here is a function (both the header and body) that computes
 		and returns the average of three numbers:</p>
-<pre>def average(a, b, c):
+<pre class="python">def average(a, b, c):
     """Computes and returns the average of three numbers."""
     total = a + b + c
     avg = total / 3
@@ -98,7 +98,7 @@
 		of this equation:
 &nbsp;<var>f</var>&#x202f;(<var>a</var>,<var>r</var>&#x202f;) = <var>a</var> &times; (1 + <var>r</var>&#x202f;).</p>
 
-<pre>def formula(a, r):
+<pre class="python">def formula(a, r):
     """Computes and returns the value of a * (1 + r)"""
     result = a * (1 + r)
     return result</pre></div></li>
@@ -106,7 +106,7 @@
 		<li><div>In all previous Python programs that we wrote in CSE
 		110 and 111, we wrote statements that were not in a function
 		like this simple program:
-<pre># Get a value in miles and convert it to kilometers.
+<pre class="python"># Get a value in miles and convert it to kilometers.
 miles = float(input("Please enter a distance in miles: "))
 km = miles * 1.60934
 print(f"{miles} miles is {km} kilometers")</pre>
@@ -117,7 +117,7 @@ print(f"{miles} miles is {km} kilometers")</pre>
 		inside a function. Also, each program will have a function named
 		<code>main</code> which will contain the beginning statements of
 		the program. For example,
-<pre>def main():
+<pre class="python">def main():
     """Get a value in miles and convert it to kilometers."""
     miles = float(input("Please enter a distance in miles: "))
     km = miles * 1.60934
@@ -126,7 +126,6 @@ print(f"{miles} miles is {km} kilometers")</pre>
 # Start this program by calling the main function.
 main()</pre></div></li>
 	</ol>
-
 
 	<h2>Videos</h2>
 	<p>Watch the following videos about writing functions:</p>
