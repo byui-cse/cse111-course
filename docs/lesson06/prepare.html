@@ -18,10 +18,198 @@
 </header>
 <article>
 	<h1>06 Prepare: Function Details</h1>
-
-	<h2>Optional and Named Parameters</h2>
+	<p>During this lesson, you will learn additional details about
+	writing and calling functions. These details will help you
+	understand functions better and use them more effectively. These
+	details include variable scope, optional parameters, named
+	arguments, and how arguments are passed to functions.</p>
 
 	<h2>Variable Scope</h2>
+	<p>The <dfn>scope</dfn> of a variable determines how long that
+	variable exists and where it can be used. Within a Python program,
+	there are two categories of scope:  local and global. A variable has
+	<dfn>local scope</dfn> when it is defined (assigned a value) inside
+	a function. A variable has <dfn>global scope</dfn> when it is
+	defined outside of all functions. Here is a small Python program
+	that has two variables: <var>g</var> and <var>x</var>. <var>g</var>
+	is defined outside of all functions and therefore has global scope.
+	<var>x</var> is defined inside the function <code>main</code> and
+	therefore has local scope.</p>
+
+<div class="pre"><pre class="linenums">1
+2
+3
+4
+5
+6
+7
+8</pre>
+<pre class="python"># g is global because it is
+# defined outside of all functions.
+g = 25
+
+def main():
+    # x is local because it is
+    # defined inside a function.
+    x = 1</pre></div>
+
+	<p>As shown in the following table, a local variable (a variable
+	with local scope) is defined inside a function, exists for as long
+	as its containing function is executing, and can be used within its
+	containing function but nowhere else. Parameters have local scope
+	scope because they are defined within a function, specifically
+	within a function’s header and exist for as long as their containing
+	function is executing. A global variable (a variable with global
+	scope) is defined outside of all functions, exists for as long as
+	its containing Python program is executing and can be used within
+	all functions in its containing Python program.</p>
+
+	<table><thead>
+		<tr><th colspan="3">Python Variable Scope</th></tr>
+		<tr><th></th> <th>Local</th> <th>Global</th></tr>
+	</thead><tbody>
+		<tr><th>Where to Define</th>
+			<td>Inside a function</td>
+			<td>Outside of all functions</td></tr>
+		<tr><th>Owner</th>
+			<td>The function where the variable is defined</td>
+			<td>The Python file where the variable is defined</td></tr>
+		<tr><th>Lifetime</th>
+			<td>Only as long as its containing function is
+			executing</td>
+			<td>As long as its containing program is executing</td></tr>
+		<tr><th>Where<br>Usable</th>
+			<td>Only inside the function where it is defined</td>
+			<td>In all functions of the Python program</td></tr>
+	</tbody></table>
+
+	<p>The following Python code example contains variables with local,
+	and global scope. The variable <var>nShapes</var> is global because
+	it is defined outside of all functions. Because it is a global
+	variable, the code in the body of all functions may use the variable
+	<var>nShapes</var>. Within the function <code>sqare_area</code>, the
+	parameter named <var>length</var> and the variable named
+	<var>area</var> both have local scope. Within the function
+	<code>rectangle_area</code>, the parameters named <var>width</var>
+	and <var>length</var> have local scope and the variable named
+	<var>area</var> has local scope.</p>
+
+<div class="pre"><pre class="linenums">1
+2
+3
+4
+5
+6
+7
+8
+9</pre>
+<pre class="python">nShapes = 0
+
+def sqare_area(length):
+	area = length * length
+	return area
+
+def rectangle_area(width, length):
+	area = width * length
+	return area</pre></div>
+
+	<p>Because local variables are visible only within the function
+	where they are defined, a programmer can define two variables with
+	the same name as long as he defines them in different functions. In
+	the previous example, both of the functions <code>square_area</code>
+	and <code>rectangle_area</code> contain a parameter named
+	<var>length</var> and a variable named <var>area</var>. All four of
+	these variables are entirely separate and do not conflict with each
+	other in any way because the scope of each variable is local to the
+	function where it is defined.</p>
+
+	<p>A common mistake that many programmers make is to assume that a
+	local variable can be used inside of other functions. For example,
+	the following Python code includes two functions named
+	<code>main</code> and <code>circle_area</code>. Some programmers
+	assume that the variable <var>radius</var> that is defined in
+	<code>main</code> (and is therefore local to <code>main</code> only)
+	can be used in <code>circle_area</code>.</p>
+
+<div class="pre"><pre class="linenums">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15</pre>
+<pre class="python">import math
+
+def main():
+	radius = input("Enter the radius of a circle: )
+	area = circle_area()
+	print(area)
+
+def circle_area():
+	# Mistake! There is no variable named radius
+	# inside this function, so the variable
+	# radius cannot be used in this function.
+	area = math.pi * radius * radius
+	return area
+
+main()</pre></div>
+
+	<h2>Default Parameter Values and Optional Arguments</h2>
+	<p>Python allows function parameters to have default values. If a
+	parameter has a default value, then its corresponding argument is
+	optional. If a function is called without an argument, the
+	corresponding parameter gets its default value. Consider this
+	example Python code:</p>
+
+<div class="pre"><pre class="linenums">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13</pre>
+<pre class="python">import math
+
+def main():
+    <em>length = arc_length(25)</em>
+    print(length)
+
+def arc_length(degrees, <em>radius=1</em>):
+    """Compute and return the arc length of a circle."""
+    circum = 2 * math.pi * radius
+    len = circum * degrees / 360
+    return len
+
+main()</pre></div>
+
+	<p>Notice at line 7 in the header for the <code>arc_length</code>
+	function, that the parameter degrees does not have a default value
+	but the parameter <var>radius</var> has a default value of 1. This
+	means that when a programmer calls the <code>arc_length</code>
+	function, the programmer must pass a value for degrees but is not
+	required to pass a value for radius. At line 4, the programmer
+	called the <code>arc_length</code> function and passed 25 for the
+	<var>degrees</var> parameter but did not pass a value for the
+	<var>radius</var>, so during that call to <code>arc_length</code>,
+	the value of <var>radius</var> will be the default value from line 7
+	which is 1.</p>
+
+	<h2>Named Arguments</h2>
+	<p></p>
 
 	<h2>Variable Values and References</h2>
 	<p>In Python, variables are processed differently based on their
