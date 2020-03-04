@@ -1,3 +1,17 @@
+<!-- Send Matthew an e-mail when I check boxes. -->
+<!--
+Write Overview statement for syllabus
+Solidify course outcomes.
+	Nouns and verbs
+Write lesson level outcomes (subordinate to a course outcome).
+	A successful student will ...
+-->
+<!-- Check your understanding
+Use parentheses with function names.
+Questions for students to predict the outcome of code
+Questions that ask using the library
+What is wrong with the following code?
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,9 +20,130 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="stylesheet" type="text/css" href="../site/style.css" />
 	<title>CSE 111 - Prepare</title>
+	<style>
+		span.scope  { background-color: yellow; }
+		span.define { background-color: orange; }
+		span.use    { background-color: yellow; }
+		span.error  { background-color: red; }
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+		"use strict";
+
+		let cse111 = {
+			addHandlers : function() {
+				const self = this;
+				const showVars = function(event) {
+					self.showVars(event.target);
+				};
+				const hideVars = function(event) {
+					self.hideVars(event.target);
+				};
+				const doc = $(document);
+
+				doc.find('.varDef')
+				.each(function(index, elem) {
+					let span = $(elem);
+					span.attr('data-varDef', span.text());
+				})
+				.mouseover(showVars)
+				.mouseout(hideVars);
+
+				doc.find('.varUse')
+				.each(function(index, elem) {
+					let span = $(elem);
+					span.attr('data-varUse', span.text());
+				})
+				.mouseover(showVars)
+				.mouseout(hideVars);
+			},
+
+
+			showScope : function(span) {
+				$(span).closest('[data-scope]').addClass('scope');
+			},
+
+			hideScope : function(span) {
+				$(span).closest('[data-scope]').removeClass('scope');
+			},
+
+
+			showVars : function(span) {
+				// span holds a variable definition or use.
+				span = $(span);
+				let def = this.findDefinition(span);
+				if (def.length > 0) {
+					let uses = this.findUses(def);
+					def.addClass('define');
+					uses.addClass('use');
+				}
+				else {
+					span.addClass('error');
+				}
+			},
+
+			hideVars : function(span) {
+				span = $(span);
+				let def = this.findDefinition(span);
+				if (def.length > 0) {
+					let uses = this.findUses(def);
+					def.removeClass('define');
+					uses.removeClass('use');
+				}
+				else {
+					span.removeClass('error');
+				}
+			},
+
+			/** Finds and returns the variable definition
+			 * for the variable that is inside span. */
+			findDefinition : function(span) {
+				let def;
+				if (span.attr('data-varDef')) {
+					def = span;
+				}
+				else {
+					const name = span.attr('data-varUse');
+					const selDef = '[data-varDef="' + name + '"]';
+					let scope = span;
+					do {
+						scope = scope.parent().closest('[data-scope]');
+						def = scope.children(selDef);
+						if (def.length == 0) {
+							def = scope.children().children(selDef);
+						}
+					} while (scope.length > 0 && def.length == 0);
+				}
+				return def;
+			},
+
+			/** Finds and returns a list of spans that contain
+			 * a use of the variable that is defined in def. */
+			findUses : function(def) {
+				let name = def.attr('data-varDef');
+				let scope = def.closest('[data-scope]');
+				const selDef = '[data-varDef="' + name + '"]';
+				const selUse = '[data-varUse="' + name + '"]';
+
+				// Find uses of all variables that share the same name.
+				let uses = scope.find(selUse);
+
+				// Remove uses for variables that are
+				// defined within a different scope.
+				scope.find('[data-scope]').each(function(index, elem) {
+					let scope = $(elem);
+					if (scope.find(selDef).length > 0) {
+						uses.not(scope.find(selUse));
+					}
+				});
+
+				return uses;
+			}
+		};
+	</script>
 </head>
 
-<body>
+<body onload="cse111.addHandlers()">
 <header>
 	<div class="logo">
 		<div class="upper">BYU</div>
@@ -44,14 +179,14 @@
 6
 7
 8</pre>
-<pre class="python"># g is global because it is
-# defined outside of all functions.
-g = 25
+<pre class="python"><span data-scope="global"># g is a global variable because it
+# is defined outside of all functions.
+<span onmouseover="cse111.showScope(this)" onmouseout="cse111.hideScope(this)">g</span> = 25
 
-def main():
-    # x is local because it is
-    # defined inside a function.
-    x = 1</pre></div>
+<span data-scope="main">def main():
+    # x is a local variable because
+    # it is defined inside a function.
+    <span onmouseover="cse111.showScope(this)" onmouseout="cse111.hideScope(this)">x</span> = 1</span></span></pre></div>
 
 	<p>As shown in the following table, a local variable (a variable
 	with local scope) is defined inside a function, exists for as long
@@ -87,8 +222,8 @@ def main():
 	and global scope. The variable <var>nShapes</var> is global because
 	it is defined outside of all functions. Because it is a global
 	variable, the code in the body of all functions may use the variable
-	<var>nShapes</var>. Within the function <code>sqare_area</code>, the
-	parameter named <var>length</var> and the variable named
+	<var>nShapes</var>. Within the function <code>square_area</code>,
+	the parameter named <var>length</var> and the variable named
 	<var>area</var> both have local scope. Within the function
 	<code>rectangle_area</code>, the parameters named <var>width</var>
 	and <var>length</var> have local scope and the variable named
@@ -103,15 +238,15 @@ def main():
 7
 8
 9</pre>
-<pre class="python">nShapes = 0
+<pre class="python"><span data-scope="global"><span onmouseover="cse111.showScope(this)" onmouseout="cse111.hideScope(this)">nShapes</span> = 0
 
-def sqare_area(length):
-	area = length * length
-	return area
+<span data-scope="square">def square_area(<span onmouseover="cse111.showScope(this)" onmouseout="cse111.hideScope(this)">length</span>):
+    <span onmouseover="cse111.showScope(this)" onmouseout="cse111.hideScope(this)">area</span> = length * length
+    return area</span>
 
-def rectangle_area(width, length):
-	area = width * length
-	return area</pre></div>
+<span data-scope="rect">def rectangle_area(<span onmouseover="cse111.showScope(this)" onmouseout="cse111.hideScope(this)">width</span>, <span onmouseover="cse111.showScope(this)" onmouseout="cse111.hideScope(this)">length</span>):
+    <span onmouseover="cse111.showScope(this)" onmouseout="cse111.hideScope(this)">area</span> = width * length
+    return area</span></span></pre></div>
 
 	<p>Because local variables are visible only within the function
 	where they are defined, a programmer can define two variables with
@@ -146,21 +281,21 @@ def rectangle_area(width, length):
 13
 14
 15</pre>
-<pre class="python">import math
+<pre class="python"><span data-scope="global">import <span class="varDef">math</span>
 
-def main():
-	radius = input("Enter the radius of a circle: )
-	area = circle_area()
-	print(area)
+<span data-scope="main">def main():
+    <span class="varDef">radius</span> = input("Enter the radius of a circle: )
+    <span class="varDef">area</span> = <span data-funcUse="">circle_area</span>()
+    print(<span class="varUse">area</span>)</span>
 
-def circle_area():
-	# Mistake! There is no variable named radius
-	# inside this function, so the variable
-	# radius cannot be used in this function.
-	area = math.pi * radius * radius
-	return area
+<span data-scope="circle_area">def circle_area():
+    # Mistake! There is no variable named radius
+    # inside this function, so the variable
+    # radius cannot be used in this function.
+    <span class="varDef">area</span> = <span class="varUse">math</span>.pi * <span class="varUse">radius</span> * <span class="varUse">radius</span>
+    return <span class="varUse">area</span></span>
 
-main()</pre></div>
+<span data-funcUse="">main</span>()</span></pre></div>
 
 	<h2>Default Parameter Values and Optional Arguments</h2>
 	<p>Python allows function parameters to have default values. If a
@@ -182,34 +317,31 @@ main()</pre></div>
 11
 12
 13</pre>
-<pre class="python">import math
+<pre class="python"><span data-scope="global">import <span class="varDef">math</span>
 
-def main():
-    <em>length = arc_length(25)</em>
-    print(length)
+<span data-scope="main">def main():
+    <em><span class="varDef">length</span> = arc_length(25)</em>
+    print(<span class="varUse">length</span>)</span>
 
-def arc_length(degrees, <em>radius=1</em>):
-    """Compute and return the arc length of a circle."""
-    circum = 2 * math.pi * radius
-    len = circum * degrees / 360
-    return len
+<span data-scope="arc_length">def arc_length(<span class="varDef">degrees</span>, <em><span class="varDef">radius</span>=1</em>):
+    """Compute and return the length of an arc of a circle."""
+    <span class="varDef">circum</span> = 2 * <span class="varUse">math</span>.pi * <span class="varUse">radius</span>
+    <span class="varDef">len</span> = <span class="varUse">circum</span> * <span class="varUse">degrees</span> / 360
+    return <span class="varUse">len</span></span>
 
-main()</pre></div>
+main()</span></pre></div>
 
 	<p>Notice at line 7 in the header for the <code>arc_length</code>
-	function, that the parameter degrees does not have a default value
-	but the parameter <var>radius</var> has a default value of 1. This
-	means that when a programmer calls the <code>arc_length</code>
-	function, the programmer must pass a value for degrees but is not
-	required to pass a value for radius. At line 4, the programmer
-	called the <code>arc_length</code> function and passed 25 for the
-	<var>degrees</var> parameter but did not pass a value for the
-	<var>radius</var>, so during that call to <code>arc_length</code>,
-	the value of <var>radius</var> will be the default value from line 7
-	which is 1.</p>
-
-	<h2>Named Arguments</h2>
-	<p></p>
+	function, that the parameter <var>degrees</var> does not have a
+	default value but the parameter <var>radius</var> has a default
+	value of 1. This means that when a programmer calls the
+	<code>arc_length</code> function, the programmer must pass a value
+	for degrees but is not required to pass a value for radius. At line
+	4, the programmer called the <code>arc_length</code> function and
+	passed 25 for the <var>degrees</var> parameter but did not pass a
+	value for the <var>radius</var>, so during that call to
+	<code>arc_length</code>, the value of <var>radius</var> will be the
+	default value from line 7 which is 1.</p>
 
 	<h2>Variable Values and References</h2>
 	<p>In Python, variables are processed differently based on their
@@ -226,16 +358,16 @@ main()</pre></div>
 <pre class="code">def main():
     x = 3
     y = x
-    print(f"x: {x}  y: {y}")
+    print(f"Before changing y: x {x}  y {y}")
     y += 1
-    print(f"x: {x}  y: {y}")
+    print(f"After changing y:  x {x}  y {y}")
 
 main()</pre></div>
 
 	<p>The previous code will print this:</p>
-<pre class="console">&gt; python prep1.py
-x: 3  y: 3
-x: 3  y: 4</pre>
+<pre class="console">&gt; python example1.py
+Before changing y: x 3  y 3
+After changing y:  x 3  y 4</pre>
 
 	<p>Within the previous code,</p>
 	<ul>
@@ -272,17 +404,17 @@ x: 3  y: 4</pre>
 <pre class="code">def main():
     lx = [7, -2]
     ly = lx
-    print(f"lx: {lx}  y: {ly}")
+    print(f"Before changing ly: lx {lx}  ly {ly}")
     ly.append(5)
-    print(f"lx: {lx}  y: {ly}")
+    print(f"After changing ly:  lx {lx}  ly {ly}")
 
 main()</pre></div>
 
 	<p>Here is the output of the second program.</p>
 
-<pre class="console">&gt; python prep2.py
-lx: [7, -2]  y: [7, -2]
-lx: [7, -2, 5]  y: [7, -2, 5]</pre>
+<pre class="console">&gt; python example2.py
+Before changing ly: lx [7, -2]  ly [7, -2]
+After changing ly:  lx [7, -2, 5]  ly [7, -2, 5]</pre>
 
 	<p>From the output of this second program, we can see there is a big
 	difference between the way a Python program assigns integers and the
@@ -318,16 +450,16 @@ lx: [7, -2, 5]  y: [7, -2, 5]</pre>
 	of a boolean, integer, or float variable to another variable
 	(<code>y = x</code>), the computer copies <em>the value</em> of one
 	variable into the other. However, when a computer executes a Python
-	statement to assign the value of a string, list, set, or dictionary
-	variable to another variable (<code>ly = lx</code>), the computer
-	does not copy the value but instead copies <em>the reference</em> so
+	statement to assign the value of a list, set, or dictionary variable
+	to another variable (<code>ly = lx</code>), the computer does not
+	copy <em>the value</em> but instead copies <em>the reference</em> so
 	that both variables refer to the same value in memory.</p>
 
 	<p>The fact that the computer copies the value of some data types
 	(boolean, integer, float) and copies the reference for other data
 	types (list, set, dict) has important implications for passing
 	arguments into functions. Consider this Python program with two
-	functions named <code>modify_args</code> and <code>main</code>.</p>
+	functions named <code>main</code> and <code>modify_args</code>.</p>
 
 <div class="pre"><pre class="linenums">1
 2
@@ -358,31 +490,31 @@ lx: [7, -2, 5]  y: [7, -2, 5]</pre>
 27
 28
 29</pre>
-<pre>def modify_args(n, ls):
-    """Demonstrate that the computer passes a value
-    for integers and passes a reference for lists.
-    """
-    print("    modify_args()")
-    print(f"   n: {n}  ls: {ls}")
-
-    # Change the values of both parameters.
-    n += 1
-    ls.append(5)
-
-    print(f"   n: {n}  ls: {ls}")
-
-
-def main():
+<pre>def main():
     print("main()")
     x = 3
     lx = [7, -2]
-    print(f"x: {x}  lx: {lx}")
+    print(f"Before calling modify_args(): x {x}  lx {lx}")
 
     # Pass one integer and one list
     # to the modify_args function.
     modify_args(x, lx)
 
-    print(f"x: {x}  lx: {lx}")
+    print(f"After calling modify_args():  x {x}  lx {lx}")
+
+
+def modify_args(n, ls):
+    """Demonstrate that the computer passes a value
+    for integers and passes a reference for lists.
+    """
+    print("    modify_args(n, ls)")
+    print(f"   Before changing n and ls: n {n}  ls {ls}")
+
+    # Change the values of both parameters.
+    n += 1
+    ls.append(5)
+
+    print(f"   After changing n and ls:  n {n}  ls {ls}")
 
 
 # Call main to begin this program.
@@ -412,13 +544,13 @@ main()</pre></div>
 		<li><div></div></li>
 	</ul>
 
-<pre class="console">&gt; python prep3.py
+<pre class="console">&gt; python example3.py
 main()
-x: 3  lx: [7, -2]
-    modify_args()
-    n: 3  ls: [7, -2]
-    n: 4  ls: [7, -2, 5]
-x: 3  lx: [7, -2, 5]</pre>
+Before calling modify_args(): x 3  lx [7, -2]
+    modify_args(n, ls)
+    Before changing n and ls: n 3  ls [7, -2]
+    After changing n and ls:  n 4  ls [7, -2, 5]
+After calling modify_args():  x 3  lx [7, -2, 5]</pre>
 
 	<p>From the output of the third program, we can see that modifying
 	an integer parameter changes the integer within the called function

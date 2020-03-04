@@ -162,7 +162,6 @@ article div.inlineExpr {
 	text-align: center;
 	font-family: "Palatino Linotype", Palatino, Garamond, serif;
 	font-size: large;
-	font-weight: bold;
 }
 article div.blockExpr {
 	margin: 1em 0;
@@ -171,7 +170,6 @@ article div.blockExpr {
 	text-align: center;
 	font-family: "Palatino Linotype", Palatino, Garamond, serif;
 	font-size: large;
-	font-weight: bold;
 }
 
 article div.inlineExpr div, article div.blockExpr div {
@@ -200,15 +198,35 @@ article span.inlineExpr {
 }
 
 /* Code Highlighting */
-/*
 article pre {
 	font-family: Menlo, Monaco, Consolas, monospace;
 	line-height: 1.1em;
+}
+
+article pre em {
+	color: inherit;
+	font-weight: bold;
+	font-style: normal;
+}
+
+article pre.console {
 	margin: 1.5em auto;
 	border: 1px solid #ccc;
 	padding: 0.25em 0.5em;
 }
-*/
+
+article pre.console span.input {
+	border: 1px solid #ccc;
+	padding: 0 0.25em;
+	background-color: green;
+	color: white;
+}
+
+article pre.python {
+	margin: 1.5em auto;
+	border: 1px solid #ccc;
+	padding: 0.25em 0.5em;
+}
 
 article div.pre {
 	display: table;
@@ -219,11 +237,9 @@ article div.pre {
 
 article div.pre pre {
 	display: table-cell;
-	/*margin: 0;
+	margin: 0;
 	border: 0;
-	padding: 0;*/
-	font-family: Menlo, Monaco, Consolas, monospace;
-	line-height: 1.1em;
+	padding: 0;
 }
 
 article div.pre pre.linenums {
@@ -232,17 +248,7 @@ article div.pre pre.linenums {
 	color: #888;
 }
 
-article div.pre pre.code {
-}
-
-article div.pre pre.console {
-}
-
-article div.pre pre.console span.input {
-	border: 1px solid #ccc;
-	padding: 0 0.25em;
-	background-color: green;
-	color: white;
+article div.pre pre.python {
 }
 
 article code {
