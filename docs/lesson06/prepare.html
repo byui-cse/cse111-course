@@ -18,132 +18,14 @@ What is wrong with the following code?
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<link rel="stylesheet" type="text/css" href="../site/style.css" />
 	<title>CSE 111 - Prepare</title>
-	<style>
-		span.scope  { background-color: yellow; }
-		span.define { background-color: orange; }
-		span.use    { background-color: yellow; }
-		span.error  { background-color: red; }
-	</style>
+	<link rel="stylesheet" type="text/css" href="../site/style.css" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script>
-		"use strict";
-
-		let cse111 = {
-			addHandlers : function() {
-				const self = this;
-				const showVars = function(event) {
-					self.showVars(event.target);
-				};
-				const hideVars = function(event) {
-					self.hideVars(event.target);
-				};
-				const doc = $(document);
-
-				doc.find('.varDef')
-				.each(function(index, elem) {
-					let span = $(elem);
-					span.attr('data-varDef', span.text());
-				})
-				.mouseover(showVars)
-				.mouseout(hideVars);
-
-				doc.find('.varUse')
-				.each(function(index, elem) {
-					let span = $(elem);
-					span.attr('data-varUse', span.text());
-				})
-				.mouseover(showVars)
-				.mouseout(hideVars);
-			},
-
-
-			showScope : function(span) {
-				$(span).closest('[data-scope]').addClass('scope');
-			},
-
-			hideScope : function(span) {
-				$(span).closest('[data-scope]').removeClass('scope');
-			},
-
-
-			showVars : function(span) {
-				// span holds a variable definition or use.
-				span = $(span);
-				let def = this.findDefinition(span);
-				if (def.length > 0) {
-					let uses = this.findUses(def);
-					def.addClass('define');
-					uses.addClass('use');
-				}
-				else {
-					span.addClass('error');
-				}
-			},
-
-			hideVars : function(span) {
-				span = $(span);
-				let def = this.findDefinition(span);
-				if (def.length > 0) {
-					let uses = this.findUses(def);
-					def.removeClass('define');
-					uses.removeClass('use');
-				}
-				else {
-					span.removeClass('error');
-				}
-			},
-
-			/** Finds and returns the variable definition
-			 * for the variable that is inside span. */
-			findDefinition : function(span) {
-				let def;
-				if (span.attr('data-varDef')) {
-					def = span;
-				}
-				else {
-					const name = span.attr('data-varUse');
-					const selDef = '[data-varDef="' + name + '"]';
-					let scope = span;
-					do {
-						scope = scope.parent().closest('[data-scope]');
-						def = scope.children(selDef);
-						if (def.length == 0) {
-							def = scope.children().children(selDef);
-						}
-					} while (scope.length > 0 && def.length == 0);
-				}
-				return def;
-			},
-
-			/** Finds and returns a list of spans that contain
-			 * a use of the variable that is defined in def. */
-			findUses : function(def) {
-				let name = def.attr('data-varDef');
-				let scope = def.closest('[data-scope]');
-				const selDef = '[data-varDef="' + name + '"]';
-				const selUse = '[data-varUse="' + name + '"]';
-
-				// Find uses of all variables that share the same name.
-				let uses = scope.find(selUse);
-
-				// Remove uses for variables that are
-				// defined within a different scope.
-				scope.find('[data-scope]').each(function(index, elem) {
-					let scope = $(elem);
-					if (scope.find(selDef).length > 0) {
-						uses.not(scope.find(selUse));
-					}
-				});
-
-				return uses;
-			}
-		};
-	</script>
+	<script src="../site/scope.js"></script>
 </head>
 
-<body onload="cse111.addHandlers()">
+<body onload="cse111.addScopeHandlers('ex1', 'ex2');
+	cse111.addVarHandlers('ex3', 'ex4', 'ex5', 'ex6', 'ex7')">
 <header>
 	<div class="logo">
 		<div class="upper">BYU</div>
@@ -179,14 +61,14 @@ What is wrong with the following code?
 6
 7
 8</pre>
-<pre class="python"><span data-scope="global"># g is a global variable because it
+<pre class="python" id="ex1"><span data-scope="global"># g is a global variable because it
 # is defined outside of all functions.
-<span onmouseover="cse111.showScope(this)" onmouseout="cse111.hideScope(this)">g</span> = 25
+<span class="varDef">g</span> = 25
 
 <span data-scope="main">def main():
     # x is a local variable because
     # it is defined inside a function.
-    <span onmouseover="cse111.showScope(this)" onmouseout="cse111.hideScope(this)">x</span> = 1</span></span></pre></div>
+    <span class="varDef">x</span> = 1</span></span></pre></div>
 
 	<p>As shown in the following table, a local variable (a variable
 	with local scope) is defined inside a function, exists for as long
@@ -238,14 +120,14 @@ What is wrong with the following code?
 7
 8
 9</pre>
-<pre class="python"><span data-scope="global"><span onmouseover="cse111.showScope(this)" onmouseout="cse111.hideScope(this)">nShapes</span> = 0
+<pre class="python" id="ex2"><span data-scope="global"><span class="varDef">nShapes</span> = 0
 
-<span data-scope="square">def square_area(<span onmouseover="cse111.showScope(this)" onmouseout="cse111.hideScope(this)">length</span>):
-    <span onmouseover="cse111.showScope(this)" onmouseout="cse111.hideScope(this)">area</span> = length * length
+<span data-scope="square">def square_area(<span class="varDef">length</span>):
+    <span class="varDef">area</span> = length * length
     return area</span>
 
-<span data-scope="rect">def rectangle_area(<span onmouseover="cse111.showScope(this)" onmouseout="cse111.hideScope(this)">width</span>, <span onmouseover="cse111.showScope(this)" onmouseout="cse111.hideScope(this)">length</span>):
-    <span onmouseover="cse111.showScope(this)" onmouseout="cse111.hideScope(this)">area</span> = width * length
+<span data-scope="rect">def rectangle_area(<span class="varDef">width</span>, <span class="varDef">length</span>):
+    <span class="varDef">area</span> = width * length
     return area</span></span></pre></div>
 
 	<p>Because local variables are visible only within the function
@@ -261,10 +143,14 @@ What is wrong with the following code?
 	<p>A common mistake that many programmers make is to assume that a
 	local variable can be used inside of other functions. For example,
 	the following Python code includes two functions named
-	<code>main</code> and <code>circle_area</code>. Some programmers
-	assume that the variable <var>radius</var> that is defined in
-	<code>main</code> (and is therefore local to <code>main</code> only)
-	can be used in <code>circle_area</code>.</p>
+	<code>main</code> and <code>circle_area</code>. Line 4 in
+	<code>main</code> defines a variable named <var>radius</var>. Some
+	programmers assume that the variable <var>radius</var> that is
+	defined in <code>main</code> (and is therefore local to
+	<code>main</code> only) can be used in <code>circle_area</code>.
+	However, local variables from one function cannot be used inside
+	another function. The local variables from <code>main</code> cannot
+	be used inside <code>circle_area</code>.</p>
 
 <div class="pre"><pre class="linenums">1
 2
@@ -281,7 +167,7 @@ What is wrong with the following code?
 13
 14
 15</pre>
-<pre class="python"><span data-scope="global">import <span class="varDef">math</span>
+<pre class="python" id="ex3"><span data-scope="global">import <span class="varDef">math</span>
 
 <span data-scope="main">def main():
     <span class="varDef">radius</span> = input("Enter the radius of a circle: )
@@ -290,7 +176,7 @@ What is wrong with the following code?
 
 <span data-scope="circle_area">def circle_area():
     # Mistake! There is no variable named radius
-    # inside this function, so the variable
+    # defined inside this function, so the variable
     # radius cannot be used in this function.
     <span class="varDef">area</span> = <span class="varUse">math</span>.pi * <span class="varUse">radius</span> * <span class="varUse">radius</span>
     return <span class="varUse">area</span></span>
@@ -317,7 +203,7 @@ What is wrong with the following code?
 11
 12
 13</pre>
-<pre class="python"><span data-scope="global">import <span class="varDef">math</span>
+<pre class="python" id="ex4"><span data-scope="global">import <span class="varDef">math</span>
 
 <span data-scope="main">def main():
     <em><span class="varDef">length</span> = arc_length(25)</em>
@@ -343,7 +229,7 @@ main()</span></pre></div>
 	<code>arc_length</code>, the value of <var>radius</var> will be the
 	default value from line 7 which is 1.</p>
 
-	<h2>Variable Values and References</h2>
+	<h2>Passing Values and References</h2>
 	<p>In Python, variables are processed differently based on their
 	data type. For example, here is a small Python program that contains
 	two integer variables named <var>x</var> and <var>y</var>.</p>
@@ -355,21 +241,21 @@ main()</span></pre></div>
 6
 7
 8</pre>
-<pre class="code">def main():
-    x = 3
-    y = x
-    print(f"Before changing y: x {x}  y {y}")
-    y += 1
-    print(f"After changing y:  x {x}  y {y}")
+<pre class="python" id="ex5"><span data-scope="global"><span data-scope="main">def main():
+    <span class="varDef">x</span> = 3
+    <span class="varDef">y</span> = <span class="varUse">x</span>
+    print(f"Before changing y: x {<span class="varUse">x</span>}  y {<span class="varUse">y</span>}")
+    <span class="varUse">y</span> += 1
+    print(f"After changing y:  x {<span class="varUse">x</span>}  y {<span class="varUse">y</span>}")</span>
 
-main()</pre></div>
+main()</span></pre></div>
 
-	<p>The previous code will print this:</p>
+	The previous code will print this:
 <pre class="console">&gt; python example1.py
 Before changing y: x 3  y 3
 After changing y:  x 3  y 4</pre>
 
-	<p>Within the previous code,</p>
+	Within the previous code,
 	<ul>
 		<li><div>the statement on line 2 stores the value 3 into
 		the variable <var>x</var>.</div></li>
@@ -386,12 +272,13 @@ After changing y:  x 3  y 4</pre>
 
 	<p>Why did line 5 (<code>y += 1</code>) change the value of
 	<var>y</var> but not change the value of <var>x</var>? Because line
-	3 copied the value that was in <var>x</var> into <var>y</var>.</p>
+	3 copied <em>the value</em> that was in <var>x</var> into
+	<var>y</var>.</p>
 
 	<p>Here is a small Python program that contains two variables named
 	<var>lx</var> and <var>ly</var> that each refer to a list. This
-	program is similar to the first program, but it processes lists
-	instead of integers.</p>
+	second program is similar to the first program, but it processes
+	lists instead of integers.</p>
 
 <div class="pre"><pre class="linenums">1
 2
@@ -401,24 +288,24 @@ After changing y:  x 3  y 4</pre>
 6
 7
 8</pre>
-<pre class="code">def main():
-    lx = [7, -2]
-    ly = lx
-    print(f"Before changing ly: lx {lx}  ly {ly}")
-    ly.append(5)
-    print(f"After changing ly:  lx {lx}  ly {ly}")
+<pre class="python" id="ex6"><span data-scope="global"><span data-scope="main">def main():
+    <span class="varDef">lx</span> = [7, -2]
+    <span class="varDef">ly</span> = <span class="varUse">lx</span>
+    print(f"Before changing ly: lx {<span class="varUse">lx</span>}  ly {<span class="varUse">ly</span>}")
+    <span class="varUse">ly</span>.append(5)
+    print(f"After changing ly:  lx {<span class="varUse">lx</span>}  ly {<span class="varUse">ly</span>}")</span>
 
-main()</pre></div>
+main()</span></pre></div>
 
-	<p>Here is the output of the second program.</p>
+	Here is the output of the second program.
 
 <pre class="console">&gt; python example2.py
 Before changing ly: lx [7, -2]  ly [7, -2]
 After changing ly:  lx [7, -2, 5]  ly [7, -2, 5]</pre>
 
-	<p>From the output of this second program, we can see there is a big
+	From the output of this second program, we can see there is a big
 	difference between the way a Python program assigns integers and the
-	way it assigns lists. Within the second program,</p>
+	way it assigns lists. Within the second program,
 	<ul>
 		<li><div>the statement on line 2 creates a list and stores a
 		reference to that list in the variable <var>lx</var>.</div></li>
@@ -490,37 +377,37 @@ After changing ly:  lx [7, -2, 5]  ly [7, -2, 5]</pre>
 27
 28
 29</pre>
-<pre>def main():
+<pre class="python" id="ex7"><span data-scope="global"><span data-scope="main">def main():
     print("main()")
-    x = 3
-    lx = [7, -2]
-    print(f"Before calling modify_args(): x {x}  lx {lx}")
+    <span class="varDef">x</span> = 3
+    <span class="varDef">lx</span> = [7, -2]
+    print(f"Before calling modify_args(): x {<span class="varUse">x</span>}  lx {<span class="varUse">lx</span>}")
 
     # Pass one integer and one list
     # to the modify_args function.
-    modify_args(x, lx)
+    modify_args(<span class="varUse">x</span>, <span class="varUse">lx</span>)
 
-    print(f"After calling modify_args():  x {x}  lx {lx}")
+    print(f"After calling modify_args():  x {<span class="varUse">x</span>}  lx {<span class="varUse">lx</span>}")</span>
 
 
-def modify_args(n, ls):
+<span data-scope="modify_args">def modify_args(<span class="varDef">n</span>, <span class="varDef">ls</span>):
     """Demonstrate that the computer passes a value
     for integers and passes a reference for lists.
     """
     print("    modify_args(n, ls)")
-    print(f"   Before changing n and ls: n {n}  ls {ls}")
+    print(f"   Before changing n and ls: n {<span class="varUse">n</span>}  ls {<span class="varUse">ls</span>}")
 
     # Change the values of both parameters.
-    n += 1
-    ls.append(5)
+    <span class="varUse">n</span> += 1
+    <span class="varUse">ls</span>.append(5)
 
-    print(f"   After changing n and ls:  n {n}  ls {ls}")
+    print(f"   After changing n and ls:  n {<span class="varUse">n</span>}  ls {<span class="varUse">ls</span>}")</span>
 
 
 # Call main to begin this program.
-main()</pre></div>
+main()</span></pre></div>
 
-	<p>Within this third program,</p>
+	Within this third program,
 	<ul>
 		<li><div>the statement on line 17 assigns the value 3 to a
 		variable named <var>x</var>.</div></li>
@@ -541,7 +428,6 @@ main()</pre></div>
 		<code>modify_args</code> function. However, the value of
 		<var>lx</var> was changed by the <code>modify_args</code>
 		function.</div></li>
-		<li><div></div></li>
 	</ul>
 
 <pre class="console">&gt; python example3.py

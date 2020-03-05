@@ -198,6 +198,12 @@ article span.inlineExpr {
 }
 
 /* Code Highlighting */
+article code {
+	font-family: Menlo, Monaco, Consolas, monospace;
+	white-space: nowrap;
+}
+
+
 article pre {
 	font-family: Menlo, Monaco, Consolas, monospace;
 	line-height: 1.1em;
@@ -251,10 +257,10 @@ article div.pre pre.linenums {
 article div.pre pre.python {
 }
 
-article code {
-	font-family: Menlo, Monaco, Consolas, monospace;
-	white-space: nowrap;
-}
+article pre.python span.hiScope  { background-color: yellow; }
+article pre.python span.hiVarDef { background-color: orange; }
+article pre.python span.hiVarUse { background-color: yellow; }
+article pre.python span.hiError  { background-color: red; }
 
 
 /* Images */

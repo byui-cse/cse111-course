@@ -7,6 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="../site/style.css" />
 	<title>CSE 111 - Prepare</title>
 </head>
+
 <body>
 	<header>
 		<div class="logo">
@@ -64,8 +65,8 @@
 			that function. During CSE 110, you often wrote code that
 			called the <code>input</code> and <code>print</code>
 			functions. For example:
-<pre class="python">name = input("Please enter your name: ")
-print(f"Hello {name}")</pre></div></li>
+<div class="pre"><pre class="python">name = input("Please enter your name: ")
+print(f"Hello {name}")</pre></div></div></li>
 
 			<li><div>To correctly call a function you must know the
 			following:
@@ -76,86 +77,140 @@ print(f"Hello {name}")</pre></div></li>
 				<li><div>the parameters that the function takes</div></li>
 				<li><div>what the function does</div></li>
 			</ol>
-			<p>All of this information is normally available in online
+			All of this information is normally available in online
 			documentation. For example, from the online Python
 			documentation about the <code>math</code> module, we read
-			this about the <code>sqrt</code> function:</p>
+			this about the <code>sqrt</code> function:
 
 			<dl class="function">
 				<dt><code>math.sqrt(x)</code></dt>
-				<dd>Return the square root of x.</dd>
+				<dd>Return the square root of <var>x</var>.</dd>
 			</dl>
 
-			<p>From this short description, we know that</p>
+			From this short description, we know that
 			<ol>
-				<li><div>the name of its containing module is
+				<li><div>the name of the containing module is
 				<code>math</code></div></li>
 				<li><div>the name of the function is
 				<code>sqrt</code></div></li>
 				<li><div>the function takes one parameter
-				(<var>x</var>)</div></li>
+				named <var>x</var></div></li>
 				<li><div>the function computes and returns the square
 				root of a number</div></li>
 			</ol></div></li>
 
-			<li><div><p>A <dfn>parameter</dfn> is a piece of data that a
+			<li><div>A <dfn>parameter</dfn> is a piece of data that a
 			function needs in order to complete its task. In the online
 			documentation for the <code>math</code> module, we see that
 			the
 			<a target="_blank" href="https://docs.python.org/3/library/math.html#math.sqrt"><code>math.sqrt</code></a>
 			function has one parameter named <var>x</var> which is the
 			number that <code>math.sqrt</code> will compute the square
-			root of.</p>
+			root of.
 
 			<dl class="function">
 				<dt><code>math.sqrt(x)</code></dt>
-				<dd>Return the square root of x.</dd>
+				<dd>Return the square root of <var>x</var>.</dd>
 			</dl>
 
-			<p>In order for the <code>math.sqrt</code> function to
-			do its job (compute the square root), a programmer must
-			write code to pass a number through the parameter
-			<var>x</var> into into the <code>math.sqrt</code> function.
-			Here is a simple example of passing a number to the
-			<code>math.sqrt</code> function:</p>
-			<pre class="python">r = math.sqrt(71)</pre>
+			In order for the <code>math.sqrt</code> function to do its
+			job (compute the square root), a programmer must write code
+			to pass a number through the parameter <var>x</var> into
+			into the <code>math.sqrt</code> function. Here is a simple
+			example of passing a number to the <code>math.sqrt</code>
+			function:
+			<div class="pre"><pre class="python">r = math.sqrt(71)</pre></div>
 
-			<p>In the above example, 71 will be passed through the
+			In the above example, 71 will be passed through the
 			parameter <var>x</var> into the <code>math.sqrt</code>
 			function. The <code>math.sqrt</code> function will compute
 			the square root of 71 and return the computed value which
-			will then be stored in the variable <var>r</var>.</p>
+			will then be stored in the variable <var>r</var>.</div></li>
 
-			<p>Here is another example that gets a number from the user
-			and then computes and prints the square root of that number.
-			Notice that this example calls four functions:
-			<code>input</code>, <code>float</code>,
-			<code>math.sqrt</code>, and <code>print</code>. The code in
-			this example first calls the <code>input</code> function to
-			get input from the user, then calls the <code>float</code>
-			function to convert that input to a number, then calls the
-			<code>math.sqrt</code> function to compute the square root,
-			and finally calls the <code>print</code> function to display
-			the result for the user to see.</p>
-<pre class="python">num = float(input("Please enter a number: "))
-rt = math.sqrt(num)
-print(rt)</pre>
+			<li><div>An <dfn>argument</dfn> is the value that is passed
+			through a parameter into a function. In other words,
+			parameters are listed in a function's header, and arguments
+			are listed in a call to a function. In this example code:
+			<div class="pre"><pre class="python">r = math.sqrt(71)</pre></div>
+			71 is the argument that is passed into the
+			<code>math.sqrt</code> function through its parameter
+			<var>x</var>.
 
-			<p>Here is an example that calls the built-in
-			<code>input</code> and <code>open</code> functions to open a
-			text file and then calls the <code>reader</code> function
-			that is in the <code>csv</code> module:</p>
-<pre class="python">filename = input("Please enter a filename: ")
-with open(filename, "rt") as infile:
-    reader = csv.reader(infile)</pre></div></li>
+			When a function has more than one parameter and a programmer
+			writes code to call that function, the programmer usually
+			writes the arguments in the same order as the parameters.
+			Consider the built-in Python <code>round</code> function:
 
-			<li><div><p>A <dfn>named parameter</dfn> (also called a
+			<!-- At this point in their computer programming education,
+			most students are familiar with only a few functions. In
+			addition, many of the students do not know enough math to
+			successfully pass college algebra. It was difficult to
+			choose a Python function with multiple parameters and a
+			purpose that most students would understand. I settled on
+			the round function even though its second parameter is
+			optional. Here are some other functions that I considered
+			writing about in this list item:
+			divmod, pow, range, open, math.comb,
+			math.perm, math.dist, math.remainder -->
+			<dl class="function">
+				<dt><code>round(number, ndigits)</code></dt>
+				<dd>Return <var>number</var> rounded to
+				<var>ndigits</var> precision after the decimal point. If
+				<var>ndigits</var> is omitted or is <code>None</code>,
+				<code>round</code> returns the nearest integers to
+				<var>number</var>.</dd>
+			</dl>
+
+			Now consider this Python code that gets a number from a
+			user, rounds that number to two digits after the decimal,
+			and then prints the rounded number.
+
+<div class="pre"><pre class="linenums">1
+2
+3</pre>
+<pre class="python">n = float(input("Please enter a number: "))
+r = round(n, 2)
+print(r)</pre></div>
+
+			In the previous example,
+			<ul>
+				<li><div>the code on line 1 calls both the
+				<code>input</code> and <code>float</code>
+				functions.</div></li>
+				<li><div>Line 2 calls the built-in <code>round</code>
+				function and passes two arguments. Notice that the order
+				of the arguments matches the order of the parameters.
+				Specifically the number to be rounded (<var>n</var>) is
+				the first argument and the number of digits after the
+				decimal point (2) is the second argument.</div></li>
+				<li><div>Line 3 prints the rounded number.</div></li>
+			</ul></div></li>
+
+			<li><div>When calling a function, some arguments are
+			optional. Again consider the description of the built-in
+			<code>round</code> function:
+
+			<dl class="function">
+				<dt><code>round(number, ndigits)</code></dt>
+				<dd>Return <var>number</var> rounded to
+				<var>ndigits</var> precision after the decimal point. If
+				<var>ndigits</var> is omitted or is <code>None</code>,
+				<code>round</code> returns the nearest integers to
+				<var>number</var>.</dd>
+			</dl>
+
+			From the description we read that the second argument is
+			optional. If the programmer doesn't pass a second argument,
+			the <var>number</var> will be rounded to an
+			integer.</div></li>
+
+			<li><div>A <dfn>named parameter</dfn> (also called a
 			<dfn>keyword parameter</dfn>) is an optional parameter that
 			you can use to pass optional data to a function. It is
 			called a named parameter because you must type the
 			parameter's name in order to use it. For example, here is an
 			excerpt from the documentation for the <code>print</code>
-			function:</p>
+			function:
 
 			<dl class="function">
 				<dt><code>print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)</code></dt>
@@ -166,13 +221,13 @@ with open(filename, "rt") as infile:
 				be given as keyword arguments.</dd>
 			</dl>
 
-			<p>Notice from the excerpt that the <code>print</code>
-			function can take many objects that will be printed.
-			Optionally it can take parameters named <var>sep</var>,
-			<var>end</var>, <var>file</var>, and <var>flush</var> which
-			must be named when they are used. For example, this code
-			calls the <code>print</code> function to print three words
-			all separated by a vertical bar (|).</p>
+			Notice from the excerpt that the <code>print</code> function
+			can take many objects that will be printed. Optionally it
+			can take parameters named <var>sep</var>, <var>end</var>,
+			<var>file</var>, and <var>flush</var> which must be named
+			when they are used. For example, this code calls the
+			<code>print</code> function to print three words all
+			separated by a vertical bar (|).
 <pre class="python">x = "sun"
 y = "moon"
 z = "stars"
