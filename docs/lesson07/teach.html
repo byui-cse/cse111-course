@@ -27,33 +27,63 @@
 	the individual checkpoint assignment beforehand.</p>
 
 	<h2>Problem Statement</h2>
-	<p>Use test functions to find the mistakes in other functions. Then
-	fix those mistakes so that the test functions pass.</p>
+	<p>Use test functions and <code>pytest</code> to find the mistakes
+	in other functions. Then fix those mistakes so that the test
+	functions pass.</p>
 
 	<h2>Instructions</h2>
-	<p>Download the files:
-	<a download href="base_words.txt">base_words.txt</a> and
-	<a download href="book_of_mormon.txt">book_of_mormon.txt</a> and
-	save them in the same folder where you will save your Python
-	program.</p>
+	<p>Download and save this
+	<a download href="names.py">Python file</a> and then open it in VS
+	Code. Notice that the downloaded file contains three small functions
+	named: <code>full_name</code>, <code>given_name</code>, and
+	<code>family_name</code>. Notice also that each function has a
+	documentation string that describes what the function does. Read the
+	documentation strings for both functions.</p>
 
-	<p>Write a Python program that </p>
+	<p>The functions in the file that you downloaded
+	(<code>names.py</code>) may contain some mistakes. Write a Python
+	test program that tests three functions in <code>names.py</code>.
+	Use <code>pytest</code> to run the test program and use the output
+	from <code>pytest</code> to help you find and fix any mistakes in
+	<code>names.py</code>.</p>
 
 	<p>Do the following:</p>
 	<ol>
-		<li><div>Copy and paste this code into your program at the top
-		of your Python file.
-<pre class="python"></pre></div></li>
+		<li><div>At the top of your test program, add this statement to
+		import the three functions that are in
+		<code>names.py</code>:
+		<div class="pre"><pre class="python">from names import given_name, family_name, full_name</pre></div></div></li>
 
+		<li><div>Write a function named <code>test_full_name</code> that
+		takes no parameters. Write <code>assert</code> statements inside
+		this function to test the value returned from the
+		<code>full_name</code> function. If you are not sure what the
+		<code>full_name</code> function does or how to test it, read the
+		documentation string that is at the top of the
+		<code>full_name</code> function in the <code>names.py</code>
+		file.</div></li>
 
-		<li><div>Write a function named <code></code>
-		that </div></li>
+		<li><div>Write a function named <code>test_given_name</code>
+		that takes no parameters. Write <code>assert</code> statements
+		inside this function to test the value returned from the
+		<code>given_name</code> function.</div></li>
 
-		<li><div>Write a function named <code>main</code> that takes no
-		parameters and does the following:
-		<ol>
-			<li><div></div></li>
-		</ol></div></li>
+		<li><div>Write a function named <code>test_family_name</code>
+		that takes no parameters. Write <code>assert</code> statements
+		inside this function to test the value returned from the
+		<code>family_name</code> function.</div></li>
+
+		<li><div>Execute this command in the terminal frame of VS Code
+		to run your test program:
+		<pre class="console">&gt; python -m pytest &lt;your_python_filename&gt;.py</pre></div></li>
+
+		<li><div>Read the output from <code>pytest</code> and your test
+		program. Use the output to help you find and fix any errors that
+		are in the <code>full_name</code>, <code>given_name</code>, and
+		<code>family_name</code> functions.</div></li>
+
+		<li><div>Repeat steps 5 and 6 until you have found and fixed all
+		the mistakes and your tests pass.</div></li>
 	</ol>
 
 	<h3>Core Requirements</h3>
@@ -69,17 +99,6 @@
 		<li><div></div></li>
 		<li><div></div></li>
 		<li><div></div></li>
-		<li><div></div></li>
-	</ol>
-
-	<h2>Sample Run</h2>
-<pre class="console">&gt; python teach_solution.py
-</pre>
-
-	<h2>Testing Procedure</h2>
-	<p>Verify that your program works correctly by following each step
-	in this testing procedure:</p>
-	<ol class="testing">
 		<li><div></div></li>
 	</ol>
 
