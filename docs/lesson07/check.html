@@ -25,28 +25,19 @@
 	functions and using <code>pytest</code>.</p>
 
 	<h2>Helpful Documentation</h2>
-	Installing pytest
-	Writing your first test
-	Asserting
-	Running tests
-	Reading test results
-
-	<!--
-	<p>The Python <code>random</code> module contains functions to
-	generate pseudo random numbers. You can read about the
-	<code>uniform</code> function in the <code>random</code> module at
-	<a target="_blank"
-	href="https://docs.python.org/3/library/random.html#random.uniform">doc.s.python.org/3/library/random.html#random.uniform</a></p>
-
-	<p>The built-in Python <code>round</code> function rounds a number
-	to a specified number of digits arter the decimal place. You can
-	read about the <code>round</code> function at <a target="_blank"
-	href="https://docs.python.org/3/library/functions.html#round">docs.python.org/3/library/functions.html#round</a></p>
-	-->
+	<p><code>pytest</code> is well documented at <a target="_blank"
+	href="https://docs.pytest.org/en/latest/getting-started.html">docs.pytest.org/en/latest/getting-started.html</a>.
+	However, not all of the documenation about <code>pytest</code>
+	applies to your tasks in CSE 111. The following parts of that
+	documentation do apply and may help you as you complete this
+	lesson's assignments.</p>
+	<ul>
+		<li><div><a target="_blank" href="https://docs.pytest.org/en/latest/getting-started.html#create-your-first-test">Create your first test</a></div></li>
+		<li><div><a target="_blank" href="https://docs.pytest.org/en/latest/usage.html#calling-pytest-through-python-m-pytest">Calling pytest through <code>python -m pytest</code></a></div></li>
+	</ul>
 
 	<h2>Assignment</h2>
-	<p>Write two test functions and run them with
-	<code>pytest</code>.</p>
+	<p>Write two test functions and run them with <code>pytest</code>.</p>
 
 	<ol>
 		<li><div>Download and save this
@@ -123,20 +114,18 @@
 		<li><div>In the terminal frame in VS Code, run your test
 		functions by copying, pasting, and executing this command:
 		<pre class="console">python -m pytest &lt;your_python_filename&gt;.py</pre></div></li>
-
-		<li><div></div></li>
 	</ol>
 
 	<h2>Sample Run</h2>
 <pre class="console">&gt; python -m pytest check_solution.py
-============================= test session starts =============================
+========================= test session starts =========================
 platform win32 -- Python 3.7.6, pytest-5.3.5, py-1.8.1, pluggy-0.13.1
 rootdir: C:\Users\rab29\cse111\cse111-course\docs\lesson07
 collected 2 items
 
-check_solution.py ..                                                     [100%]
+check_solution.py ..                                             [100%]
 
-============================== 2 passed in 0.02s ==============================</pre>
+========================== 2 passed in 0.02s ==========================</pre>
 
 	<h2>Testing Procedure</h2>
 	<p>Verify that your program works correctly by following each step
