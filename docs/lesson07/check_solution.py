@@ -1,6 +1,7 @@
 from words import prefix, suffix
 
 def test_prefix():
+	"""Verify that the prefix function works correctly."""
 	assert prefix("", "") == ""
 	assert prefix("", "correct") == ""
 	assert prefix("clear", "") == ""
@@ -11,7 +12,9 @@ def test_prefix():
 	assert prefix("unwise", "ungrateful") == "un"
 	assert prefix("Disable", "dIstasteful") == "dis"
 
+
 def test_suffix():
+	"""Verify that the suffix function works correctly."""
 	assert suffix("", "") == ""
 	assert suffix("", "correct") == ""
 	assert suffix("clear", "") == ""
