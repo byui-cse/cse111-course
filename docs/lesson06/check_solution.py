@@ -1,24 +1,26 @@
-def modify_arguments(b, i, f, t, s, d):
-	b = True
-	i = 2
-	f = 4.5
-	t[0] = 30
-	t.append(21)
-	s.add("bass")
-	s.remove("flute")
-	d["Carlos"] = 10
-	d["Mijken"] = 14
-
+import random
 
 def main():
-	bo = False
-	it = 1
-	fl = 15.2
-	ls = [24, 25, 26]
-	st = {"drum", "guitar", "ukulele", "flute"}
-	di = {"Lena":6, "Carlos":7}
-	print(bo, it, fl, ls, st, di, sep="; ")
-	modify_arguments(bo, it, fl, ls, st, di)
-	print(bo, it, fl, ls, st, di, sep="; ")
+	randnums = [16.2, 75.1, 52.3]
+	print(f"randnums {randnums}")
+
+	# Add one random number to the list randnums.
+	append_random_numbers(randnums)
+	print(f"randnums {randnums}")
+
+	# Add three random numbers to the list randnums.
+	append_random_numbers(randnums, 3)
+	print(f"randnums {randnums}")
+
+
+def append_random_numbers(ls, n=1):
+	""" Append n random numbers onto the list ls. The
+	random numbers are between 0 and 100, inclusive.
+	"""
+	for _ in range(n):
+		num = random.uniform(0, 100)
+		rounded = round(num, 1)
+		ls.append(rounded)
+
 
 main()
