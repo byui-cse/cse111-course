@@ -11,12 +11,12 @@ def test_given_name():
 	"""Verify that the given_name function returns correct results."""
 	assert given_name("Smith-Jones, Penelope") == "Penelope"
 	assert given_name("Washington, George") == "George"
-	assert given_name("J, Ng") == "J"
+	assert given_name("Ng, J") == "J"
 	assert given_name(", ") == ""
 
 def test_famliy_name():
 	"""Verify that the family_name function returns correct results."""
 	assert family_name("Smith-Jones, Penelope") == "Smith-Jones"
 	assert family_name("Washington, George") == "Washington"
-	assert given_name("J, Ng") == "Ng"
+	assert family_name("Ng, J") == "Ng"
 	assert family_name(", ") == ""

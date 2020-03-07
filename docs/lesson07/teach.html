@@ -27,9 +27,11 @@
 	the individual checkpoint assignment beforehand.</p>
 
 	<h2>Problem Statement</h2>
-	<p>Use test functions and <code>pytest</code> to find the mistakes
-	in other functions. Then fix those mistakes so that the test
-	functions pass.</p>
+	<p>Writing and running test functions often helps a software
+	developer find mistakes in code. Use test functions and
+	<code>pytest</code> to find the mistakes in three previously written
+	functions. Then fix those mistakes so that the test functions
+	pass.</p>
 
 	<h2>Instructions</h2>
 	<p>Download and save this
@@ -91,7 +93,6 @@
 		<li><div></div></li>
 		<li><div></div></li>
 		<li><div></div></li>
-		<li><div></div></li>
 	</ol>
 
 	<h3>Stretch Challenges</h3>
@@ -99,8 +100,45 @@
 		<li><div></div></li>
 		<li><div></div></li>
 		<li><div></div></li>
-		<li><div></div></li>
 	</ol>
+
+	<h2>Sample Run</h2>
+	<pre class="console">&gt; python -m pytest teach_solution.py
+========================= test session starts =========================
+platform win32 -- Python 3.7.6, pytest-5.3.5, py-1.8.1, pluggy-0.13.1
+rootdir: C:\Users\rab29\cse111\cse111-course\docs\lesson07
+collected 3 items
+
+teach_solution.py FF.                                            [100%]
+
+============================== FAILURES ===============================
+___________________________ test_full_name ____________________________
+
+    def test_full_name():
+        """Verify that the full_name function returns correct results."""
+>       assert full_name("Penelope", "Smith-Jones") == "Smith-Jones, Penelope"
+E    AssertionError: assert 'Smith-Jones,Penelope' == 'Smith-Jones, Penelope'
+E      - Smith-Jones,Penelope
+E      + Smith-Jones, Penelope
+E      ?             +
+
+teach_solution.py:5: AssertionError
+___________________________ test_given_name ___________________________
+
+    def test_given_name():
+        """Verify that the given_name function returns correct results."""
+>       assert given_name("Smith-Jones, Penelope") == "Penelope"
+E    AssertionError: assert ' Penelope' == 'Penelope'
+E      -  Penelope
+E      ? -
+E      + Penelope
+
+teach_solution.py:12: AssertionError
+===================== 2 failed, 1 passed in 0.08s =====================</pre>
+
+	<h2>Testing Procedure</h2>
+	<p>Repeat steps 5 and 6 above until you have found and fixed all the
+	mistakes in the <code>names.py</code> file and your tests pass.</p>
 
 	<h2>Sample Solution</h2>
 	<p>Please work diligently with your team for the one-hour meeting.
