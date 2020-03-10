@@ -1,105 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<link rel="stylesheet" type="text/css" href="../site/style.css" />
-	<title>CSE 111 - Checkpoint</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSE 111 - Checkpoint</title>
+    <link rel="stylesheet" type="text/css" href="../site/style.css" />
 </head>
 
 <body>
 <header>
-	<div class="logo">
-		<div class="upper">BYU</div>
-		<div class="lower">Idaho</div>
-	</div>
-	<h1>CSE 111 | Programming with Functions</h1>
+    <div class="logo">
+        <div class="upper">BYU</div>
+        <div class="lower">Idaho</div>
+    </div>
+    <h1>CSE 111 | Programming with Functions</h1>
 </header>
 <article>
-	<h1>05 Checkpoint: Fuel Efficiency</h1>
+    <h1>05 Checkpoint: Fuel Efficiency</h1>
 
-	<h2>Overview</h2>
-	<p>Demonstrate your understanding of writing your own functions with
-	parameters and then calling those functions by completing the
-	following individual checkpoint assignment.</p>
+    <h2>Overview</h2>
+    <p>Demonstrate your understanding of writing your own functions with
+    parameters and then calling those functions by completing the
+    following individual checkpoint assignment.</p>
 
-	<h2>Problem Statement</h2>
-	<p>Many vehicle owners record the fuel efficiency of their vehicles
-	as a way to track the health of the vehicle. If the fuel efficiency
-	of a vehicle suddenly drops, there is probably something wrong with
-	the engine or drive train of the vehicle. In the United States, fuel
-	efficiency for gasoline powered vehicles is computed as miles per
-	gallon. In most other countries, fuel efficiency is computed as
-	liters per 100 kilometers.</p>
+    <h2>Problem Statement</h2>
+    <p>Many vehicle owners record the fuel efficiency of their vehicles
+    as a way to track the health of the vehicle. If the fuel efficiency
+    of a vehicle suddenly drops, there is probably something wrong with
+    the engine or drive train of the vehicle. In the United States, fuel
+    efficiency for gasoline powered vehicles is computed as miles per
+    gallon. In most other countries, fuel efficiency is computed as
+    liters per 100 kilometers.</p>
 
-	<h2>Assignment</h2>
-	<p>Write a program that reads odometer values and fuel amounts from
-	a CSV file and computes and outputs fuel efficiency in both miles
-	per gallon and liters per 100 kilometers.
+    <h2>Assignment</h2>
+    <p>Write a program that reads odometer values and fuel amounts from
+    a CSV file and computes and outputs fuel efficiency in both miles
+    per gallon and liters per 100 kilometers.
 
-	<p>Do the following:</p>
-	<ol>
-		<li><div>Download this file: <a target="_blank" download
-		href="fuel_usage.csv">fuel_usage.csv</a> and save it in the same
-		folder where you will save your Python program.</div></li>
+    <p>Do the following:</p>
+    <ol>
+        <li><div>Download this file: <a target="_blank" download
+        href="fuel_usage.csv">fuel_usage.csv</a> and save it in the same
+        folder where you will save your Python program.</div></li>
 
-		<li><div>At the top of your program import the <code>csv</code>
-		module.</div></li>
+        <li><div>At the top of your program import the <code>csv</code>
+        module.</div></li>
 
-		<li><div>Write a function named <code>miles_per_gallon</code>
-		that has this header:
-		<pre class="python">def miles_per_gallon(start, end, gallons):</pre>
-		<ol>
-			<li><div>The <var>start</var> parameter will contain an
-			odometer value.</div></li>
-			<li><div>The <var>end</var> parameter will contain another
-			odometer value that is larger than the start
-			value.</div></li>
-			<li><div>The <var>gallons</var> parameter will contain a
-			volume amount in U.S. gallons.</div></li>
-			<li><div>This small function must compute and return the
-			fuel efficiency in miles per gallon. The formula for miles
-			per gallon is
-			<div class="blockExpr">mpg = <div>end - start<hr>gallons</div></div>
-			</div></li>
-		</ol></div></li>
+        <li><div>Write a function named <code>miles_per_gallon</code>
+        that has this header:
+        <pre class="python">def miles_per_gallon(start, end, gallons):</pre>
+        <ol>
+            <li><div>The <var>start</var> parameter will contain an
+            odometer value.</div></li>
+            <li><div>The <var>end</var> parameter will contain another
+            odometer value that is larger than the start
+            value.</div></li>
+            <li><div>The <var>gallons</var> parameter will contain a
+            volume amount in U.S. gallons.</div></li>
+            <li><div>This small function must compute and return the
+            fuel efficiency in miles per gallon. The formula for miles
+            per gallon is
+            <div class="blockExpr">mpg = <div>end - start<hr>gallons</div></div>
+            </div></li>
+        </ol></div></li>
 
-		<li><div>Write another function named
-		<code>lp100k_from_mpg</code> that has this header:
-		<pre class="python">def lp100k_from_mpg(mpg):</pre>
-		<ol>
-			<li><div>The <var>mpg</var> parameter will contain a fuel
-			efficiency value in miles per gallon.</div></li>
-			<li><div>This small function must convert the miles per
-			gallon to liters per 100 kilometers and return the converted
-			value. The formula for converting miles per gallon to liters
-			per 100 kilometers is
-			<div class="blockExpr">lp100k = <div>235.215<hr>mpg</div>
-			</div></li>
-		</ol></div></li>
+        <li><div>Write another function named
+        <code>lp100k_from_mpg</code> that has this header:
+        <pre class="python">def lp100k_from_mpg(mpg):</pre>
+        <ol>
+            <li><div>The <var>mpg</var> parameter will contain a fuel
+            efficiency value in miles per gallon.</div></li>
+            <li><div>This small function must convert the miles per
+            gallon to liters per 100 kilometers and return the converted
+            value. The formula for converting miles per gallon to liters
+            per 100 kilometers is
+            <div class="blockExpr">lp100k = <div>235.215<hr>mpg</div>
+            </div></li>
+        </ol></div></li>
 
-		<li><div>Write another function named <code>main</code> with
-		this header:
-		<pre class="python">def main():</pre>
-		This function must do the following:
-		<ol>
-			<li><div>Print this header:
-			"Date, Miles/Gallon, Liters/100 Km"</div></li>
-			<li><div>Open the fuel_usage.csv file for reading.</div></li>
-			<li><div>Use the <code>csv</code> module to get a reader
-			object.</div></li>
-			<li><div>Process each row in the csv file by calling the
-			<code>miles_per_gallon</code> and
-			<code>lp100k_from_mpg</code> functions.</div></li>
-			<li><div>Print the date, miles per gallon, and liters per
-			100 kilometers as comma separated values.</div></li>
-		</ol></div></li>
+        <li><div>Write another function named <code>main</code> with
+        this header:
+        <pre class="python">def main():</pre>
+        This function must do the following:
+        <ol>
+            <li><div>Print this header:
+            "Date, Miles/Gallon, Liters/100 Km"</div></li>
+            <li><div>Open the fuel_usage.csv file for reading.</div></li>
+            <li><div>Use the <code>csv</code> module to get a reader
+            object.</div></li>
+            <li><div>Process each row in the csv file by calling the
+            <code>miles_per_gallon</code> and
+            <code>lp100k_from_mpg</code> functions.</div></li>
+            <li><div>Print the date, miles per gallon, and liters per
+            100 kilometers as comma separated values.</div></li>
+        </ol></div></li>
 
-		<li><div>Write a call to the <code>main</code> function.</div></li>
-	</ol>
+        <li><div>Write a call to the <code>main</code> function.</div></li>
+    </ol>
 
-	<h2>Sample Run</h2>
+    <h2>Sample Run</h2>
 <pre class="console">&gt; python check_solution.py
 Date, Miles/Gallon, Liters/100 Km
 2019 Sep 2, 30.6, 7.69
@@ -108,31 +108,31 @@ Date, Miles/Gallon, Liters/100 Km
 2019 Sep 23, 31.8, 7.4
 2019 Sep 30, 29.1, 8.07</pre>
 
-	<h2>Testing Procedure</h2>
-	<p>Verify that your program works correctly by following each step
-	in this testing procedure:</p>
-	<ol>
-		<li><div>Run your program using the input shown in the sample
-		run section above. Ensure that your program's output matches the
-		sample run output.</div></li>
-	</ol>
+    <h2>Testing Procedure</h2>
+    <p>Verify that your program works correctly by following each step
+    in this testing procedure:</p>
+    <ol>
+        <li><div>Run your program using the input shown in the sample
+        run section above. Ensure that your program's output matches the
+        sample run output.</div></li>
+    </ol>
 
-	<h2>Sample Solution</h2>
-	<p>When you program is finished, please view the
-	<a href="check_solution.py" target="_blank" download>sample
-	solution</a> for this program to compare your program to that
-	one.</p>
+    <h2>Sample Solution</h2>
+    <p>When you program is finished, please view the
+    <a href="check_solution.py" target="_blank" download>sample
+    solution</a> for this program to compare your program to that
+    one.</p>
 
-	<p>You should work to complete this checkpoint program first,
-	without looking at the sample solution. However, if you have
-	worked on it for at least an hour and are still having problems,
-	feel free to use the <a href="check_solution.py"
-	target="_blank" download>sample solution</a> to help you finish
-	your program.</p>
+    <p>You should work to complete this checkpoint program first,
+    without looking at the sample solution. However, if you have
+    worked on it for at least an hour and are still having problems,
+    feel free to use the <a href="check_solution.py"
+    target="_blank" download>sample solution</a> to help you finish
+    your program.</p>
 
-	<h2>Submission</h2>
-	<p>When complete, please report your progress in the associated
-	I-Learn quiz.</p>
+    <h2>Submission</h2>
+    <p>When complete, please report your progress in the associated
+    I-Learn quiz.</p>
 </article>
 </body>
 </html>

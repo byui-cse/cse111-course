@@ -1,74 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<link rel="stylesheet" type="text/css" href="../site/style.css" />
-	<title>CSE 111 - Prove</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSE 111 - Prove</title>
+    <link rel="stylesheet" type="text/css" href="../site/style.css" />
 </head>
+
 <body>
-	<header>
-		<div class="logo">
-			<div class="upper">BYU</div>
-			<div class="lower">Idaho</div>
-		</div>
-		<h1>CSE 111 | Programming with Functions</h1>
-	</header>
-	<article>
-		<h1>01 Prove: Arithmetic</h1>
+<header>
+    <div class="logo">
+        <div class="upper">BYU</div>
+        <div class="lower">Idaho</div>
+    </div>
+    <h1>CSE 111 | Programming with Functions</h1>
+</header>
+<article>
+    <h1>01 Prove: Arithmetic</h1>
 
-		<h2>Overview</h2>
-		<p>Prove that you can write a simple Python program that gets
-		input from a user, performs arithmetic, and displays output to
-		the user.</p>
+    <h2>Overview</h2>
+    <p>Prove that you can write a simple Python program that gets
+    input from a user, performs arithmetic, and displays output to
+    the user.</p>
 
-		<h2>Problem Statement</h2>
-		<p>The size of a car tire in the United States is represented
-		with three numbers like this: 205/60R 15. The first number is
-		the width of the tire in millimeters. The second number is the
-		aspect ratio. The third number is the diameter in inches of the
-		wheel that the tire fits. The volume of space inside a tire can
-		be approximated with this formula:</p>
+    <h2>Problem Statement</h2>
+    <p>The size of a car tire in the United States is represented
+    with three numbers like this: 205/60R 15. The first number is
+    the width of the tire in millimeters. The second number is the
+    aspect ratio. The third number is the diameter in inches of the
+    wheel that the tire fits. The volume of space inside a tire can
+    be approximated with this formula:</p>
 
-		<div class="blockExpr"><var>v</var> = <div>&pi; <var>w</var><sup>2</sup> <var>a</var> (<var>w</var><var>a</var> + 2,540 <var>d</var>)<hr>10,000,000</div></div>
+    <div class="blockExpr"><var>v</var> = <div>&pi; <var>w</var><sup>2</sup> <var>a</var> (<var>w</var><var>a</var> + 2,540 <var>d</var>)<hr>10,000,000</div></div>
 
-		<p>where <var>v</var> is the volume in cubic centimeters,
-		<var>w</var> is the width of the tire in millimeters,
-		<var>a</var> is the aspect ratio of the tire, and
-		<var>d</var> is the diameter of the wheel in inches.</p>
+    <p>where <var>v</var> is the volume in cubic centimeters,
+    <var>w</var> is the width of the tire in millimeters,
+    <var>a</var> is the aspect ratio of the tire, and
+    <var>d</var> is the diameter of the wheel in inches.</p>
 
-		<h2>Assignment</h2>
-		<p>Write a Python program that reads from the keyboard the three
-		numbers for a tire and computes and outputs the volume of space
-		inside that tire.</p>
+    <h2>Assignment</h2>
+    <p>Write a Python program that reads from the keyboard the three
+    numbers for a tire and computes and outputs the volume of space
+    inside that tire.</p>
 
-		<h2>Sample Run</h2>
+    <h2>Sample Run</h2>
 <pre class="console">Enter the width of the tire in cm (ex 205): <span class="input">185</span>
 Enter the aspect ratio of the tire (ex 60): <span class="input">50</span>
 Enter the diameter of the tire in inches (ex 15): <span class="input">14</span>
 24090.1</pre>
 
-		<h2>Testing Procedure</h2>
-		<p>Verify that your program works correctly by following each
-		step in this testing procedure:</p>
-		<ol class="testing">
-			<li><div>Run your program using the input shown in the
-			sample run section above. Ensure that your program's output
-			matches the sample run output.</div></li>
+    <h2>Testing Procedure</h2>
+    <p>Verify that your program works correctly by following each
+    step in this testing procedure:</p>
+    <ol class="testing">
+        <li><div>Run your program using the input shown in the
+        sample run section above. Ensure that your program's output
+        matches the sample run output.</div></li>
 
-			<li><div>Run your program using these values: 205, 60, 15
-			and verify that your program outputs 39924.5</div></li>
+        <li><div>Run your program using these values: 205, 60, 15
+        and verify that your program outputs 39924.5</div></li>
 
-			<li><div>Run your program again and enter the values: -140,
-			20, 14. Did your program output valid results? What should
-			your program do when a user enters negative numbers for this
-			program?</div></li>
-		</ol>
+        <li><div>Run your program again and enter the values: -140,
+        20, 14. Did your program output valid results? What should
+        your program do when a user enters negative numbers for this
+        program?</div></li>
+    </ol>
 
-		<h2>Submission</h2>
-		<p>When complete, please report your progress in the associated
-		I-Learn quiz.</p>
-	</article>
+    <h2>Submission</h2>
+    <p>When complete, please report your progress in the associated
+    I-Learn quiz.</p>
+</article>
 </body>
 </html>

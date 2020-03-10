@@ -2,9 +2,9 @@
 <!--
 Write Overview statement for syllabus
 Solidify course outcomes.
-	Nouns and verbs
+    Nouns and verbs
 Write lesson level outcomes (subordinate to a course outcome).
-	A successful student will ...
+    A successful student will ...
 -->
 <!-- Check your understanding
 Use parentheses with function names.
@@ -15,43 +15,44 @@ What is wrong with the following code?
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>CSE 111 - Prepare</title>
-	<link rel="stylesheet" type="text/css" href="../site/style.css" />
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script src="../site/scope.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSE 111 - Prepare</title>
+    <link rel="stylesheet" type="text/css" href="../site/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="../site/scope.js"></script>
+    <script src="../site/respel.js"></script>
 </head>
 
 <body onload="cse111.addScopeHandlers('ex1', 'ex2');
-	cse111.addVarHandlers('ex3', 'ex4', 'ex5', 'ex6', 'ex7')">
+    cse111.addVarHandlers('ex3', 'ex4', 'ex5', 'ex6', 'ex7')">
 <header>
-	<div class="logo">
-		<div class="upper">BYU</div>
-		<div class="lower">Idaho</div>
-	</div>
-	<h1>CSE 111 | Programming with Functions</h1>
+    <div class="logo">
+        <div class="upper">BYU</div>
+        <div class="lower">Idaho</div>
+    </div>
+    <h1>CSE 111 | Programming with Functions</h1>
 </header>
 <article>
-	<h1>06 Prepare: Function Details</h1>
-	<p>During this lesson, you will learn additional details about
-	writing and calling functions. These details will help you
-	understand functions better and use them more effectively. These
-	details include variable scope, optional parameters, named
-	arguments, and how arguments are passed to functions.</p>
+    <h1>06 Prepare: Function Details</h1>
+    <p>During this lesson, you will learn additional details about
+    writing and calling functions. These details will help you
+    understand functions better and use them more effectively. These
+    details include variable scope, optional parameters, named
+    arguments, and how arguments are passed to functions.</p>
 
-	<h2>Variable Scope</h2>
-	<p>The <dfn>scope</dfn> of a variable determines how long that
-	variable exists and where it can be used. Within a Python program,
-	there are two categories of scope:  local and global. A variable has
-	<dfn>local scope</dfn> when it is defined (assigned a value) inside
-	a function. A variable has <dfn>global scope</dfn> when it is
-	defined outside of all functions. Here is a small Python program
-	that has two variables: <var>g</var> and <var>x</var>. <var>g</var>
-	is defined outside of all functions and therefore has global scope.
-	<var>x</var> is defined inside the function <code>main</code> and
-	therefore has local scope.</p>
+    <h2>Variable Scope</h2>
+    <p>The <dfn>scope</dfn> of a variable determines how long that
+    variable exists and where it can be used. Within a Python program,
+    there are two categories of scope:  local and global. A variable has
+    <dfn>local scope</dfn> when it is defined (assigned a value) inside
+    a function. A variable has <dfn>global scope</dfn> when it is
+    defined outside of all functions. Here is a small Python program
+    that has two variables: <var>g</var> and <var>x</var>. <var>g</var>
+    is defined outside of all functions and therefore has global scope.
+    <var>x</var> is defined inside the function <code>main</code> and
+    therefore has local scope.</p>
 
 <div class="pre"><pre class="linenums">1
 2
@@ -70,46 +71,46 @@ What is wrong with the following code?
     # it is defined inside a function.
     <span class="varDef">x</span> = 1</span></span></pre></div>
 
-	<p>As shown in the following table, a local variable (a variable
-	with local scope) is defined inside a function, exists for as long
-	as its containing function is executing, and can be used within its
-	containing function but nowhere else. Parameters have local scope
-	scope because they are defined within a function, specifically
-	within a function’s header and exist for as long as their containing
-	function is executing. A global variable (a variable with global
-	scope) is defined outside of all functions, exists for as long as
-	its containing Python program is executing and can be used within
-	all functions in its containing Python program.</p>
+    <p>As shown in the following table, a local variable (a variable
+    with local scope) is defined inside a function, exists for as long
+    as its containing function is executing, and can be used within its
+    containing function but nowhere else. Parameters have local scope
+    scope because they are defined within a function, specifically
+    within a function’s header and exist for as long as their containing
+    function is executing. A global variable (a variable with global
+    scope) is defined outside of all functions, exists for as long as
+    its containing Python program is executing and can be used within
+    all functions in its containing Python program.</p>
 
-	<table><thead>
-		<tr><th colspan="3">Python Variable Scope</th></tr>
-		<tr><th></th> <th>Local</th> <th>Global</th></tr>
-	</thead><tbody>
-		<tr><th>Where to Define</th>
-			<td>Inside a function</td>
-			<td>Outside of all functions</td></tr>
-		<tr><th>Owner</th>
-			<td>The function where the variable is defined</td>
-			<td>The Python file where the variable is defined</td></tr>
-		<tr><th>Lifetime</th>
-			<td>Only as long as its containing function is
-			executing</td>
-			<td>As long as its containing program is executing</td></tr>
-		<tr><th>Where<br>Usable</th>
-			<td>Only inside the function where it is defined</td>
-			<td>In all functions of the Python program</td></tr>
-	</tbody></table>
+    <table><thead>
+        <tr><th colspan="3">Python Variable Scope</th></tr>
+        <tr><th></th> <th>Local</th> <th>Global</th></tr>
+    </thead><tbody>
+        <tr><th>Where to Define</th>
+            <td>Inside a function</td>
+            <td>Outside of all functions</td></tr>
+        <tr><th>Owner</th>
+            <td>The function where the variable is defined</td>
+            <td>The Python file where the variable is defined</td></tr>
+        <tr><th>Lifetime</th>
+            <td>Only as long as its containing function is
+            executing</td>
+            <td>As long as its containing program is executing</td></tr>
+        <tr><th>Where<br>Usable</th>
+            <td>Only inside the function where it is defined</td>
+            <td>In all functions of the Python program</td></tr>
+    </tbody></table>
 
-	<p>The following Python code example contains variables with local,
-	and global scope. The variable <var>nShapes</var> is global because
-	it is defined outside of all functions. Because it is a global
-	variable, the code in the body of all functions may use the variable
-	<var>nShapes</var>. Within the function <code>square_area</code>,
-	the parameter named <var>length</var> and the variable named
-	<var>area</var> both have local scope. Within the function
-	<code>rectangle_area</code>, the parameters named <var>width</var>
-	and <var>length</var> have local scope and the variable named
-	<var>area</var> has local scope.</p>
+    <p>The following Python code example contains variables with local,
+    and global scope. The variable <var>nShapes</var> is global because
+    it is defined outside of all functions. Because it is a global
+    variable, the code in the body of all functions may use the variable
+    <var>nShapes</var>. Within the function <code>square_area</code>,
+    the parameter named <var>length</var> and the variable named
+    <var>area</var> both have local scope. Within the function
+    <code>rectangle_area</code>, the parameters named <var>width</var>
+    and <var>length</var> have local scope and the variable named
+    <var>area</var> has local scope.</p>
 
 <div class="pre"><pre class="linenums">1
 2
@@ -130,27 +131,27 @@ What is wrong with the following code?
     <span class="varDef">area</span> = width * length
     return area</span></span></pre></div>
 
-	<p>Because local variables are visible only within the function
-	where they are defined, a programmer can define two variables with
-	the same name as long as he defines them in different functions. In
-	the previous example, both of the functions <code>square_area</code>
-	and <code>rectangle_area</code> contain a parameter named
-	<var>length</var> and a variable named <var>area</var>. All four of
-	these variables are entirely separate and do not conflict with each
-	other in any way because the scope of each variable is local to the
-	function where it is defined.</p>
+    <p>Because local variables are visible only within the function
+    where they are defined, a programmer can define two variables with
+    the same name as long as he defines them in different functions. In
+    the previous example, both of the functions <code>square_area</code>
+    and <code>rectangle_area</code> contain a parameter named
+    <var>length</var> and a variable named <var>area</var>. All four of
+    these variables are entirely separate and do not conflict with each
+    other in any way because the scope of each variable is local to the
+    function where it is defined.</p>
 
-	<p>A common mistake that many programmers make is to assume that a
-	local variable can be used inside of other functions. For example,
-	the following Python code includes two functions named
-	<code>main</code> and <code>circle_area</code>. Line 4 in
-	<code>main</code> defines a variable named <var>radius</var>. Some
-	programmers assume that the variable <var>radius</var> that is
-	defined in <code>main</code> (and is therefore local to
-	<code>main</code> only) can be used in <code>circle_area</code>.
-	However, local variables from one function cannot be used inside
-	another function. The local variables from <code>main</code> cannot
-	be used inside <code>circle_area</code>.</p>
+    <p>A common mistake that many programmers make is to assume that a
+    local variable can be used inside of other functions. For example,
+    the following Python code includes two functions named
+    <code>main</code> and <code>circle_area</code>. Line 4 in
+    <code>main</code> defines a variable named <var>radius</var>. Some
+    programmers assume that the variable <var>radius</var> that is
+    defined in <code>main</code> (and is therefore local to
+    <code>main</code> only) can be used in <code>circle_area</code>.
+    However, local variables from one function cannot be used inside
+    another function. The local variables from <code>main</code> cannot
+    be used inside <code>circle_area</code>.</p>
 
 <div class="pre"><pre class="linenums">1
 2
@@ -183,12 +184,12 @@ What is wrong with the following code?
 
 <span data-funcUse="">main</span>()</span></pre></div>
 
-	<h2>Default Parameter Values and Optional Arguments</h2>
-	<p>Python allows function parameters to have default values. If a
-	parameter has a default value, then its corresponding argument is
-	optional. If a function is called without an argument, the
-	corresponding parameter gets its default value. Consider this
-	example Python code:</p>
+    <h2>Default Parameter Values and Optional Arguments</h2>
+    <p>Python allows function parameters to have default values. If a
+    parameter has a default value, then its corresponding argument is
+    optional. If a function is called without an argument, the
+    corresponding parameter gets its default value. Consider this
+    example Python code:</p>
 
 <div class="pre"><pre class="linenums">1
 2
@@ -217,22 +218,22 @@ What is wrong with the following code?
 
 main()</span></pre></div>
 
-	<p>Notice at line 7 in the header for the <code>arc_length</code>
-	function, that the parameter <var>degrees</var> does not have a
-	default value but the parameter <var>radius</var> has a default
-	value of 1. This means that when a programmer calls the
-	<code>arc_length</code> function, the programmer must pass a value
-	for degrees but is not required to pass a value for radius. At line
-	4, the programmer called the <code>arc_length</code> function and
-	passed 25 for the <var>degrees</var> parameter but did not pass a
-	value for the <var>radius</var>, so during that call to
-	<code>arc_length</code>, the value of <var>radius</var> will be the
-	default value from line 7 which is 1.</p>
+    <p>Notice at line 7 in the header for the <code>arc_length</code>
+    function, that the parameter <var>degrees</var> does not have a
+    default value but the parameter <var>radius</var> has a default
+    value of 1. This means that when a programmer calls the
+    <code>arc_length</code> function, the programmer must pass a value
+    for degrees but is not required to pass a value for radius. At line
+    4, the programmer called the <code>arc_length</code> function and
+    passed 25 for the <var>degrees</var> parameter but did not pass a
+    value for the <var>radius</var>, so during that call to
+    <code>arc_length</code>, the value of <var>radius</var> will be the
+    default value from line 7 which is 1.</p>
 
-	<h2>Passing Values and References</h2>
-	<p>In Python, variables are processed differently based on their
-	data type. For example, here is a small Python program that contains
-	two integer variables named <var>x</var> and <var>y</var>.</p>
+    <h2>Passing Values and References</h2>
+    <p>In Python, variables are processed differently based on their
+    data type. For example, here is a small Python program that contains
+    two integer variables named <var>x</var> and <var>y</var>.</p>
 <div class="pre"><pre class="linenums">1
 2
 3
@@ -250,35 +251,35 @@ main()</span></pre></div>
 
 main()</span></pre></div>
 
-	The previous code will print this:
+    The previous code will print this:
 <pre class="console">&gt; python example1.py
 Before changing y: x 3  y 3
 After changing y:  x 3  y 4</pre>
 
-	Within the previous code,
-	<ul>
-		<li><div>the statement on line 2 stores the value 3 into
-		the variable <var>x</var>.</div></li>
-		<li><div>Line 3 copies the value that is in the variable
-		<var>x</var> into the variable <var>y</var>.</div></li>
-		<li><div>Line 4 prints the values of <var>x</var> and
-		<var>y</var> which are both 3.</div></li>
-		<li><div>Line 5 adds one to the value of <var>y</var>, making
-		its value 4 instead of 3.</div></li>
-		<li><div>Line 6 prints the values of <var>x</var> and
-		<var>y</var>. The value of <var>x</var> remained unchanged. The
-		value of <var>y</var> was changed to 4.</div></li>
-	</ul>
+    Within the previous code,
+    <ul>
+        <li><div>the statement on line 2 stores the value 3 into
+        the variable <var>x</var>.</div></li>
+        <li><div>Line 3 copies the value that is in the variable
+        <var>x</var> into the variable <var>y</var>.</div></li>
+        <li><div>Line 4 prints the values of <var>x</var> and
+        <var>y</var> which are both 3.</div></li>
+        <li><div>Line 5 adds one to the value of <var>y</var>, making
+        its value 4 instead of 3.</div></li>
+        <li><div>Line 6 prints the values of <var>x</var> and
+        <var>y</var>. The value of <var>x</var> remained unchanged. The
+        value of <var>y</var> was changed to 4.</div></li>
+    </ul>
 
-	<p>Why did line 5 (<code>y += 1</code>) change the value of
-	<var>y</var> but not change the value of <var>x</var>? Because line
-	3 copied <em>the value</em> that was in <var>x</var> into
-	<var>y</var>.</p>
+    <p>Why did line 5 (<code>y += 1</code>) change the value of
+    <var>y</var> but not change the value of <var>x</var>? Because line
+    3 copied <em>the value</em> that was in <var>x</var> into
+    <var>y</var>.</p>
 
-	<p>Here is a small Python program that contains two variables named
-	<var>lx</var> and <var>ly</var> that each refer to a list. This
-	second program is similar to the first program, but it processes
-	lists instead of integers.</p>
+    <p>Here is a small Python program that contains two variables named
+    <var>lx</var> and <var>ly</var> that each refer to a list. This
+    second program is similar to the first program, but it processes
+    lists instead of integers.</p>
 
 <div class="pre"><pre class="linenums">1
 2
@@ -297,56 +298,56 @@ After changing y:  x 3  y 4</pre>
 
 main()</span></pre></div>
 
-	Here is the output of the second program.
+    Here is the output of the second program.
 
 <pre class="console">&gt; python example2.py
 Before changing ly: lx [7, -2]  ly [7, -2]
 After changing ly:  lx [7, -2, 5]  ly [7, -2, 5]</pre>
 
-	From the output of this second program, we can see there is a big
-	difference between the way a Python program assigns integers and the
-	way it assigns lists. Within the second program,
-	<ul>
-		<li><div>the statement on line 2 creates a list and stores a
-		reference to that list in the variable <var>lx</var>.</div></li>
-		<li><div>Line 3 copies the reference in the variable
-		<var>lx</var> into the variable <var>ly</var>. Line 3 does not
-		create a copy of the list but instead causes both the variables
-		<var>lx</var> and <var>ly</var> to refer to the same
-		list.</div></li>
-		<li><div>Line 4 prints the values of <var>lx</var> and
-		<var>ly</var>. Notice that their values are the same as we
-		expect them to be because of line 3.</div></li>
-		<li><div>Line 5 appends the number 5 onto the list
-		<var>ly</var>.</div></li>
-		<li><div>Line 6 prints the values of <var>lx</var> and
-		<var>ly</var> again. Notice in the output that when
-		<var>lx</var> and <var>ly</var> are printed the second time, it
-		appears that the number 5 was appended to both lists.</div></li>
-	</ul>
+    From the output of this second program, we can see there is a big
+    difference between the way a Python program assigns integers and the
+    way it assigns lists. Within the second program,
+    <ul>
+        <li><div>the statement on line 2 creates a list and stores a
+        reference to that list in the variable <var>lx</var>.</div></li>
+        <li><div>Line 3 copies the reference in the variable
+        <var>lx</var> into the variable <var>ly</var>. Line 3 does not
+        create a copy of the list but instead causes both the variables
+        <var>lx</var> and <var>ly</var> to refer to the same
+        list.</div></li>
+        <li><div>Line 4 prints the values of <var>lx</var> and
+        <var>ly</var>. Notice that their values are the same as we
+        expect them to be because of line 3.</div></li>
+        <li><div>Line 5 appends the number 5 onto the list
+        <var>ly</var>.</div></li>
+        <li><div>Line 6 prints the values of <var>lx</var> and
+        <var>ly</var> again. Notice in the output that when
+        <var>lx</var> and <var>ly</var> are printed the second time, it
+        appears that the number 5 was appended to both lists.</div></li>
+    </ul>
 
-	<p>Why does it appear that appending the number 5 onto <var>ly</var>
-	also appended the number 5 onto <var>lx</var>? What really happened
-	is that <var>lx</var> and <var>ly</var> refer to the same list.
-	There is really only one list with two references to that list.
-	Because <var>lx</var> and <var>ly</var> refer to the same list, a
-	change to the list through variable <var>ly</var> can be seen
-	through variable <var>lx</var>.</p>
+    <p>Why does it appear that appending the number 5 onto <var>ly</var>
+    also appended the number 5 onto <var>lx</var>? What really happened
+    is that <var>lx</var> and <var>ly</var> refer to the same list.
+    There is really only one list with two references to that list.
+    Because <var>lx</var> and <var>ly</var> refer to the same list, a
+    change to the list through variable <var>ly</var> can be seen
+    through variable <var>lx</var>.</p>
 
-	<p>When a computer executes a Python statement to assign the value
-	of a boolean, integer, or float variable to another variable
-	(<code>y = x</code>), the computer copies <em>the value</em> of one
-	variable into the other. However, when a computer executes a Python
-	statement to assign the value of a list, set, or dictionary variable
-	to another variable (<code>ly = lx</code>), the computer does not
-	copy <em>the value</em> but instead copies <em>the reference</em> so
-	that both variables refer to the same value in memory.</p>
+    <p>When a computer executes a Python statement to assign the value
+    of a boolean, integer, or float variable to another variable
+    (<code>y = x</code>), the computer copies <em>the value</em> of one
+    variable into the other. However, when a computer executes a Python
+    statement to assign the value of a list, set, or dictionary variable
+    to another variable (<code>ly = lx</code>), the computer does not
+    copy <em>the value</em> but instead copies <em>the reference</em> so
+    that both variables refer to the same value in memory.</p>
 
-	<p>The fact that the computer copies the value of some data types
-	(boolean, integer, float) and copies the reference for other data
-	types (list, set, dict) has important implications for passing
-	arguments into functions. Consider this Python program with two
-	functions named <code>main</code> and <code>modify_args</code>.</p>
+    <p>The fact that the computer copies the value of some data types
+    (boolean, integer, float) and copies the reference for other data
+    types (list, set, dict) has important implications for passing
+    arguments into functions. Consider this Python program with two
+    functions named <code>main</code> and <code>modify_args</code>.</p>
 
 <div class="pre"><pre class="linenums">1
 2
@@ -407,28 +408,28 @@ After changing ly:  lx [7, -2, 5]  ly [7, -2, 5]</pre>
 # Call main to begin this program.
 main()</span></pre></div>
 
-	Within this third program,
-	<ul>
-		<li><div>the statement on line 17 assigns the value 3 to a
-		variable named <var>x</var>.</div></li>
-		<li><div>Line 18 assigns a list to a variable named
-		<var>lx</var>.</div></li>
-		<li><div>Line 19 prints the values of <var>x</var> and
-		<var>lx</var> before they are passed to the
-		<var>modify_args</var> function.</div></li>
-		<li><div>Line 23 calls the <code>modify_args</code> function and
-		passes <var>x</var> and <var>lx</var> to that function.</div></li>
-		<li><div>Within the <code>modify_args</code> function, line 7
-		changes the value of the parameter <var>n</var> by adding one to
-		it.</div></li>
-		<li><div>Line 25 prints the values of <var>x</var> and
-		<var>lx</var> after they were passed to the
-		<code>modify_args</code> function. Notice in the output below
-		that the value of <var>x</var> was not changed by the
-		<code>modify_args</code> function. However, the value of
-		<var>lx</var> was changed by the <code>modify_args</code>
-		function.</div></li>
-	</ul>
+    Within this third program,
+    <ul>
+        <li><div>the statement on line 17 assigns the value 3 to a
+        variable named <var>x</var>.</div></li>
+        <li><div>Line 18 assigns a list to a variable named
+        <var>lx</var>.</div></li>
+        <li><div>Line 19 prints the values of <var>x</var> and
+        <var>lx</var> before they are passed to the
+        <var>modify_args</var> function.</div></li>
+        <li><div>Line 23 calls the <code>modify_args</code> function and
+        passes <var>x</var> and <var>lx</var> to that function.</div></li>
+        <li><div>Within the <code>modify_args</code> function, line 7
+        changes the value of the parameter <var>n</var> by adding one to
+        it.</div></li>
+        <li><div>Line 25 prints the values of <var>x</var> and
+        <var>lx</var> after they were passed to the
+        <code>modify_args</code> function. Notice in the output below
+        that the value of <var>x</var> was not changed by the
+        <code>modify_args</code> function. However, the value of
+        <var>lx</var> was changed by the <code>modify_args</code>
+        function.</div></li>
+    </ul>
 
 <pre class="console">&gt; python example3.py
 main()
@@ -438,24 +439,24 @@ Before calling modify_args(): x 3  lx [7, -2]
     After changing n and ls:  n 4  ls [7, -2, 5]
 After calling modify_args():  x 3  lx [7, -2, 5]</pre>
 
-	<p>From the output of the third program, we can see that modifying
-	an integer parameter changes the integer within the called function
-	only. However modifying a list parameter changes the list within the
-	called function and the calling function. Why? Because when a
-	computer passes a boolean, integer, or float variable to a function,
-	the computer copies <em>the value</em> of that variable into the
-	parameter of the called function. However, when a computer passes a
-	list, set, or dictionary variable to a function, the computer copies
-	<em>the reference</em> so that the original variable and the
-	parameter both refer to the same value in memory.</p>
+    <p>From the output of the third program, we can see that modifying
+    an integer parameter changes the integer within the called function
+    only. However modifying a list parameter changes the list within the
+    called function and the calling function. Why? Because when a
+    computer passes a boolean, integer, or float variable to a function,
+    the computer copies <em>the value</em> of that variable into the
+    parameter of the called function. However, when a computer passes a
+    list, set, or dictionary variable to a function, the computer copies
+    <em>the reference</em> so that the original variable and the
+    parameter both refer to the same value in memory.</p>
 
-	<h2>Videos</h2>
-	<p>Watch the following videos about writing functions:</p>
-	<ul class="links">
-		<li><a target="_blank" href="https://www.youtube.com/watch?v=nrCAxXfRU28&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=31">Parameterized Functions</a></li>
-		<li><a target="_blank" href="https://www.youtube.com/watch?v=nrCAxXfRU28&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=32">Demo: Parameterized Functions</a></li>
-		<li><a target="_blank" href=""></a></li>
-	</ul>
+    <h2>Videos</h2>
+    <p>Watch the following videos about writing functions:</p>
+    <ul class="links">
+        <li><a target="_blank" href="https://www.youtube.com/watch?v=nrCAxXfRU28&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=31">Parameterized Functions</a></li>
+        <li><a target="_blank" href="https://www.youtube.com/watch?v=nrCAxXfRU28&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=32">Demo: Parameterized Functions</a></li>
+        <li><a target="_blank" href=""></a></li>
+    </ul>
 </article>
 </body>
 </html>

@@ -11,6 +11,6 @@ fastest = round(maxRate * 0.85)
 
 # Use f-strings to create a message for the user to see.
 print(
-	f"When you exercise to strengthen your heart, you should keep\n"
-	f"your heart rate between {slowest} and {fastest} beats per minute."
+    f"When you exercise to strengthen your heart, you should keep\n"
+    f"your heart rate between {slowest} and {fastest} beats per minute."
 )

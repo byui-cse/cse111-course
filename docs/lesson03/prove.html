@@ -1,87 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<link rel="stylesheet" type="text/css" href="../site/style.css" />
-	<title>CSE 111 - Prove</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSE 111 - Prove</title>
+    <link rel="stylesheet" type="text/css" href="../site/style.css" />
 </head>
+
 <body>
-	<header>
-		<div class="logo">
-			<div class="upper">BYU</div>
-			<div class="lower">Idaho</div>
-		</div>
-		<h1>CSE 111 | Programming with Functions</h1>
-	</header>
-	<article>
-		<h1>03 Prove: Milestone</h1>
+<header>
+    <div class="logo">
+        <div class="upper">BYU</div>
+        <div class="lower">Idaho</div>
+    </div>
+    <h1>CSE 111 | Programming with Functions</h1>
+</header>
+<article>
+    <h1>03 Prove: Milestone</h1>
 
-		<h2>Overview</h2>
-		<p>Prove that you can write a Python program that calls
-		functions.</p>
+    <h2>Overview</h2>
+    <p>Prove that you can write a Python program that calls
+    functions.</p>
 
-		<h2>Problem Statement</h2>
-		<p>The weather affects people's lives for good and bad every
-		day. Because of the impact of the weather on people's lives, the
-		United States Federal Government sponsors the U.S. National
-		Weather Service which forecasts the weather throughout the
-		entire United States every day. These weather forecasts are
-		available for free as a web service on the internet. Write a
-		Python program that</p>
+    <h2>Problem Statement</h2>
+    <p>The weather affects people's lives for good and bad every
+    day. Because of the impact of the weather on people's lives, the
+    United States Federal Government sponsors the U.S. National
+    Weather Service which forecasts the weather throughout the
+    entire United States every day. These weather forecasts are
+    available for free as a web service on the internet. Write a
+    Python program that</p>
 
-		<ol>
-			<li><div>allows a user to select a city from a list of
-			cities</div></li>
-			<li><div>retrieves weather forecast for the next seven days
-			and nights from the U.S. National Weather Service</div></li>
-			<li><div>writes the forecast to an HTML file that a user
-			can view in a browser</div></li>
-		</ol>
+    <ol>
+        <li><div>allows a user to select a city from a list of
+        cities</div></li>
+        <li><div>retrieves weather forecast for the next seven days
+        and nights from the U.S. National Weather Service</div></li>
+        <li><div>writes the forecast to an HTML file that a user
+        can view in a browser</div></li>
+    </ol>
 
-		<p>During this assignment (lesson 3), you will write half of
-		this Python program. During this assignment, your program will
-		not retrieve the forecast from the U.S. Weather Service but will
-		instead use two sample forecasts and will write those forecasts
-		to an HTML file. During lesson 4, you will add the code to
-		prompt the user for their desired city and to retrieve a
-		forecast from the U.S. Weather Service.</p>
+    <p>During this assignment (lesson 3), you will write half of
+    this Python program. During this assignment, your program will
+    not retrieve the forecast from the U.S. Weather Service but will
+    instead use two sample forecasts and will write those forecasts
+    to an HTML file. During lesson 4, you will add the code to
+    prompt the user for their desired city and to retrieve a
+    forecast from the U.S. Weather Service.</p>
 
-		<h2>Helpful Documentation</h2>
-		<p>The Python <code>weather_html</code> module was written at
-		BYU-Idaho and accepts U.S. National Weather Service forecasts
-		and writes HTML to a file. To prepare for this assignment, read
-		about the
-		<a target="_blank" href="weather_html.html"><code>weather_html</code> module</a>
-		and its functions.</p>
+    <h2>Helpful Documentation</h2>
+    <p>The Python <code>weather_html</code> module was written at
+    BYU-Idaho and accepts U.S. National Weather Service forecasts
+    and writes HTML to a file. To prepare for this assignment, read
+    about the
+    <a target="_blank" href="weather_html.html"><code>weather_html</code> module</a>
+    and its functions.</p>
 
-		<h2>Assignment</h2>
-		<p>Do the following:</p>
+    <h2>Assignment</h2>
+    <p>Do the following:</p>
 
-		<ol>
-			<li><div>Download both of these files:
-			<a target="_blank" download href="weather_html.py">weather_html.py</a> and
-			<a target="_blank" download href="test_periods.py">test_periods.py</a>
-			and save them into the same folder where you will save your
-			Python program.</div></li>
+    <ol>
+        <li><div>Download both of these files:
+        <a target="_blank" download href="weather_html.py">weather_html.py</a> and
+        <a target="_blank" download href="test_periods.py">test_periods.py</a>
+        and save them into the same folder where you will save your
+        Python program.</div></li>
 
-			<li><div>Open the <code>weather_html.py</code> file and
-			examine it. Notice that this file is the
-			<code>weather_html</code> module and contains the four
-			functions: <code>create_report</code>,
-			<code>start_new_row</code>, <code>add_period</code>,
-			<code>write_report</code> that are described in the module's
-			documentation.</div></li>
+        <li><div>Open the <code>weather_html.py</code> file and
+        examine it. Notice that this file is the
+        <code>weather_html</code> module and contains the four
+        functions: <code>create_report</code>,
+        <code>start_new_row</code>, <code>add_period</code>,
+        <code>write_report</code> that are described in the module's
+        documentation.</div></li>
 
-			<li><div>Open the <code>test_periods.py</code> file and
-			notice that it contains two lists:
-			<code>periods_that_start_with_a_day</code> and
-			<code>periods_that_start_with_a_night</code>. You will use
-			these two lists to test your program during this
-			assignment.</div></li>
+        <li><div>Open the <code>test_periods.py</code> file and
+        notice that it contains two lists:
+        <code>periods_that_start_with_a_day</code> and
+        <code>periods_that_start_with_a_night</code>. You will use
+        these two lists to test your program during this
+        assignment.</div></li>
 
-		<li><div>Use this code to begin your Python program
+    <li><div>Use this code to begin your Python program
 <pre>import test_periods
 import weather_html
 
@@ -89,46 +90,46 @@ city_name = "Rexburg, Idaho"
 periods = test_periods.periods_that_start_with_a_day
 # periods = test_periods.periods_that_start_with_a_night</pre></div></li>
 
-		<li><div><p>Finish your program by writing code to call the four
-		functions from the <code>weather_html</code> module as necessary
-		to produce an HTML document in a five day vertical format. Your
-		program should also include if statements and loops as
-		necessary. Here are two sample reports in a five day vertical
-		format.</p>
+    <li><div><p>Finish your program by writing code to call the four
+    functions from the <code>weather_html</code> module as necessary
+    to produce an HTML document in a five day vertical format. Your
+    program should also include if statements and loops as
+    necessary. Here are two sample reports in a five day vertical
+    format.</p>
 
-		<ol>
-			<li><div><a target="_blank" href="forecast5day.html">forecast5day.html</a></div></li>
-			<li><div><a target="_blank" href="forecast5night.html">forecast5night.html</a></div></li>
-		</ol>
+    <ol>
+        <li><div><a target="_blank" href="forecast5day.html">forecast5day.html</a></div></li>
+        <li><div><a target="_blank" href="forecast5night.html">forecast5night.html</a></div></li>
+    </ol>
 
-		<p>The first report is for a forecast that was retrieved early
-		in a morning and therefore begins with a day period. The second
-		report is for a forecast that was retrieved in an afternoon and
-		therefore begins with a night period. The reports that your
-		program creates should look like the sample
-		reports.</p></div></li>
-		</ol>
+    <p>The first report is for a forecast that was retrieved early
+    in a morning and therefore begins with a day period. The second
+    report is for a forecast that was retrieved in an afternoon and
+    therefore begins with a night period. The reports that your
+    program creates should look like the sample
+    reports.</p></div></li>
+    </ol>
 
-		<h2>Testing Procedure</h2>
-		<p>Verify that your program works correctly by following each
-		step in this testing procedure:</p>
+    <h2>Testing Procedure</h2>
+    <p>Verify that your program works correctly by following each
+    step in this testing procedure:</p>
 
-		<ol>
-			<li><div>Run your program and double click on the HTML file
-			that you program produces. Double clicking the HTML file
-			should open it in a browser. Look at the document in the
-			browser and verify that it looks like the forecast5day.html
-			document.</div></li>
+    <ol>
+        <li><div>Run your program and double click on the HTML file
+        that you program produces. Double clicking the HTML file
+        should open it in a browser. Look at the document in the
+        browser and verify that it looks like the forecast5day.html
+        document.</div></li>
 
-			<li><div>Change your program to use the list
-			<code>periods_that_start_with_a_night</code> and then run
-			your program again. Double click on the HTML file and verify
-			that the document changed and that it looks like the
-			forecast5night.html document.</div></li>
-		</ol>
+        <li><div>Change your program to use the list
+        <code>periods_that_start_with_a_night</code> and then run
+        your program again. Double click on the HTML file and verify
+        that the document changed and that it looks like the
+        forecast5night.html document.</div></li>
+    </ol>
 
-		<h2>Submission</h2>
-		<p></p>
-	</article>
+    <h2>Submission</h2>
+    <p></p>
+</article>
 </body>
 </html>

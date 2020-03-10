@@ -4,81 +4,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="../site/style.css" />
     <title>CSE 111 - Prove</title>
+    <link rel="stylesheet" type="text/css" href="../site/style.css" />
 </head>
+
 <body>
-    <header>
-		<div class="logo">
-			<div class="upper">BYU</div>
-			<div class="lower">Idaho</div>
-		</div>
-        <h1>CSE 111 | Programming with Functions</h1>
-    </header>
-    <article>
-        <h1>02 Prove: Dictionaries</h1>
+<header>
+    <div class="logo">
+        <div class="upper">BYU</div>
+        <div class="lower">Idaho</div>
+    </div>
+    <h1>CSE 111 | Programming with Functions</h1>
+</header>
+<article>
+    <h1>02 Prove: Dictionaries</h1>
 
-        <h2>Overview</h2>
-        <p>Prove that you can write a simple Python program that creates
-		a dictionary from a CSV file and allows a user to look up values
-		in the dictionary.</p>
+    <h2>Overview</h2>
+    <p>Prove that you can write a simple Python program that creates
+    a dictionary from a CSV file and allows a user to look up values
+    in the dictionary.</p>
 
-        <h2>Problem Statement</h2>
-		<p><a target="_blank" download
-		href="products.csv">products.csv</a> is a CSV file that contains
-		information about products sold by an online store. Write a
-		program that reads products.csv into a Python dictionary and
-		allows a user to look up product information by the product
-		number.</p>
+    <h2>Problem Statement</h2>
+    <p><a target="_blank" download
+    href="products.csv">products.csv</a> is a CSV file that contains
+    information about products sold by an online store. Write a
+    program that reads products.csv into a Python dictionary and
+    allows a user to look up product information by the product
+    number.</p>
 
-        <h2>Assignment</h2>
-        <p>Each row in the products.csv <a target="_blank" download
-		href="products.csv">products.csv</a> file contains five columns:
-		product #, name, description, category, and price. (Note that
-		after you download products.csv you can view its contents by
-		opening it in VS Code.) Your program must do the following:</p>
+    <h2>Assignment</h2>
+    <p>Each row in the products.csv <a target="_blank" download
+    href="products.csv">products.csv</a> file contains five columns:
+    product #, name, description, category, and price. (Note that
+    after you download products.csv you can view its contents by
+    opening it in VS Code.) Your program must do the following:</p>
 
-		<ol>
-			<li><div>Read the product information from products.csv into
-			a Python dictionary.</div></li>
+    <ol>
+        <li><div>Read the product information from products.csv into
+        a Python dictionary.</div></li>
 
-			<li><div>Prompt the user for a product number.</div></li>
+        <li><div>Prompt the user for a product number.</div></li>
 
-			<li><div>Write the prompt code inside of a loop so that if a
-			user enters an invalid product number, your program will
-			print an error message and prompt the user again.</div></li>
+        <li><div>Write the prompt code inside of a loop so that if a
+        user enters an invalid product number, your program will
+        print an error message and prompt the user again.</div></li>
 
-			<li><div>All product numbers in products.csv are composed of
-			five decimal digits. Your program must verify that the user
-			entered a valid product number.</div>
-			<ol>
-				<li><div>If the user enters any character that is not a
-				decimal digit, your program must print "Invalid
-				character in product number" (without the
-				quotes).</div></li>
-				<li><div>If the user enters fewer than five decimal
-				digits, your program must print "Invalid product
-				number: too few digits" (without the quotes).</div></li>
-				<li><div>If the user enters more than five decimal
-				digits, your program must print "Invalid product
-				number: too many digits" (without the quotes).</div></li>
-			</ol></li>
+        <li><div>All product numbers in products.csv are composed of
+        five decimal digits. Your program must verify that the user
+        entered a valid product number.</div>
+        <ol>
+            <li><div>If the user enters any character that is not a
+            decimal digit, your program must print "Invalid
+            character in product number" (without the
+            quotes).</div></li>
+            <li><div>If the user enters fewer than five decimal
+            digits, your program must print "Invalid product
+            number: too few digits" (without the quotes).</div></li>
+            <li><div>If the user enters more than five decimal
+            digits, your program must print "Invalid product
+            number: too many digits" (without the quotes).</div></li>
+        </ol></li>
 
-			<li><div>Your program must look up the product number in the
-			dictionary and print the corresponding product name and
-			price separated by a comma and a space (", ").</div></li>
+        <li><div>Your program must look up the product number in the
+        dictionary and print the corresponding product name and
+        price separated by a comma and a space (", ").</div></li>
 
-			<li><div>Your program should not print the product
-			description and category.</div></li>
+        <li><div>Your program should not print the product
+        description and category.</div></li>
 
-			<li><div>If the user entered a valid product number (five
-			digits) that does not exist in products.csv, your program
-			must print "No such product" (without the quotes).</div></li>
-		</ol>
+        <li><div>If the user entered a valid product number (five
+        digits) that does not exist in products.csv, your program
+        must print "No such product" (without the quotes).</div></li>
+    </ol>
 
-		<h2>Sample Run</h2>
-		<p>Here are two sample runs of the program.</p>
-		<pre class="console">&gt; python3 prove02_solution.py
+    <h2>Sample Run</h2>
+    <p>Here are two sample runs of the program.</p>
+    <pre class="console">&gt; python3 prove02_solution.py
 Please enter a product number: <span class="input">38500a</span>
 Invalid character in product number
 Please enter a product number: <span class="input">3850</span>
@@ -92,18 +93,18 @@ No such product
 Please enter a product number: <span class="input">38500</span>
 Backpacking Tent, 205.99</pre>
 
-        <h2>Testing Procedure</h2>
-		<p>Verify that your program works correctly by following each
-		step in this testing procedure:</p>
+    <h2>Testing Procedure</h2>
+    <p>Verify that your program works correctly by following each
+    step in this testing procedure:</p>
 
-		<ol>
-			<li><div>Run your program using the input shown in the
-			sample run section above. Ensure that your program's output
-			matches the sample run output.</div></li>
-		</ol>
+    <ol>
+        <li><div>Run your program using the input shown in the
+        sample run section above. Ensure that your program's output
+        matches the sample run output.</div></li>
+    </ol>
 
-        <h2>Submission</h2>
-        <p></p>
-    </article>
+    <h2>Submission</h2>
+    <p></p>
+</article>
 </body>
 </html>

@@ -13,8 +13,8 @@ SALES_TAX_RATE = 0.06
 
 # Compute the discount if applicable.
 if subtotal > 50 and (weekday == 2 or weekday == 3):
-	discount = round(subtotal * DISC_RATE, 2)
-	subtotal -= discount
+    discount = round(subtotal * DISC_RATE, 2)
+    subtotal -= discount
 
 # Compute the sales tax and total. Notice that we compute the sales tax
 # after computing the discount because the customer does not pay sales

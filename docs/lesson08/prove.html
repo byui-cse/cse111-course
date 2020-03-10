@@ -1,168 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<link rel="stylesheet" type="text/css" href="../site/style.css" />
-	<title>CSE 111 - Prove</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSE 111 - Prove</title>
+    <link rel="stylesheet" type="text/css" href="../site/style.css" />
 </head>
 
 <body>
 <header>
-	<div class="logo">
-		<div class="upper">BYU</div>
-		<div class="lower">Idaho</div>
-	</div>
-	<h1>CSE 111 | Programming with Functions</h1>
+    <div class="logo">
+        <div class="upper">BYU</div>
+        <div class="lower">Idaho</div>
+    </div>
+    <h1>CSE 111 | Programming with Functions</h1>
 </header>
 <article>
-	<h1>08 Prove: Write a Molecular Mass Calculator</h1>
+    <h1>08 Prove: Write a Molecular Mass Calculator</h1>
 
-	<h2>Overview</h2>
-	<p>Prove that you can write a function that handles errors with
-	<code>try</code> and <code>except</code> and that you can write a
-	test function that verifies that another function raises errors when
-	it is supposed to.</p>
+    <h2>Overview</h2>
+    <p>Prove that you can write a function that handles errors with
+    <code>try</code> and <code>except</code> and that you can write a
+    test function that verifies that another function raises errors when
+    it is supposed to.</p>
 
-	<h2>Problem Statement</h2>
-	<p>The molar mass of a substance is the mass in grams of 1 mole
-	(grams / mole) of the substance. In chemistry a molar mass
-	calculator is a program that computes the molar mass of a substance.
-	To use a molar mass calculator, a chemist enters the formula for a
-	molecule such as H2O or C6H12O6. The calculator splits the formula
-	into elements and for each element in the formula does the
-	following:</p>
-	<ol>
-		<li><div>sums the number of atoms of each element in the
-		formula</div></li>
-		<li><div>looks up the molar mass (also called atomic mass) of
-		each element</div></li>
-		<li><div>multiplies the number of atoms by the atomic
-		mass</div></li>
-		<li><div>adds the product into the molar mass of the
-		molecule</div></li>
-	</ol>
+    <h2>Problem Statement</h2>
+    <p>The molar mass of a substance is the mass in grams of 1 mole
+    (grams / mole) of the substance. In chemistry a molar mass
+    calculator is a program that computes the molar mass of a substance.
+    To use a molar mass calculator, a chemist enters the formula for a
+    molecule such as H2O or C6H12O6. The calculator splits the formula
+    into elements and for each element in the formula does the
+    following:</p>
+    <ol>
+        <li><div>sums the number of atoms of each element in the
+        formula</div></li>
+        <li><div>looks up the atomic mass of each element</div></li>
+        <li><div>multiplies the number of atoms by the atomic
+        mass</div></li>
+        <li><div>adds the product into the molar mass of the
+        molecule</div></li>
+    </ol>
 
-	<h2>Helpful Documentation</h2>
-	<p>During the previous week, you learned that <code>pytest</code>
-	allows you to use the standard Python <code>assert</code> command to
-	verify that a function returns the correct value. But, how can you
-	write a test to verify that a function raises an exception when it
-	is supposed to? Read this article: <a target="_blank"
-	href="https://docs.pytest.org/en/latest/assert.html">docs.pytest.org/en/latest/assert.html</a>,
-	specifically the section titled, "Assertions about expected
-	exceptions" to learn how to verify that a function raises an
-	exception.</p>
+    <h2>Helpful Documentation</h2>
+    <p>During the previous lesson, you learned that <code>pytest</code>
+    allows you to use the standard Python <code>assert</code> command to
+    verify that a function returns the correct value. But, how can you
+    write a test to verify that a function raises an exception when it
+    is supposed to? Read this article: <a target="_blank"
+    href="https://docs.pytest.org/en/latest/assert.html">docs.pytest.org/en/latest/assert.html</a>,
+    specifically the section titled, "Assertions about expected
+    exceptions" to learn how to verify that a function raises an
+    exception.</p>
 
-	<h2>Assignment</h2>
-	<p>During this lesson, you will write and test the remaining parts
-	of a molar mass calulator. Specifically, you will write another test
-	function, run the tests, write the main function for your molar mass
-	calculator, and test your completed calculator by using it like a
-	chemist.</p>
+    <h2>Assignment</h2>
+    <p>During this lesson, you will write and test the remaining parts
+    of a molar mass calulator. Specifically, you will write another test
+    function, run the tests, write the main function for your molar mass
+    calculator, and test your completed calculator by using it like a
+    chemist.</p>
 
-	<p>Do the following:</p>
-	<ol>
-		<li><div><p>Open the <code>test_chemistry.py</code> file from
-		the previous lesson. Near the bottom of the file is a test
-		function named <code>test_parse</code>. Delete the
-		<code>pass</code> statement and write the code for this function
-		so that it adequately tests the <code>chemistry.parse</code>
-		function. The following table lists four chemical formulas and
-		the dictionaries that the <code>parse</code> function should
-		return. Use these formulas and dictionaries in
-		<code>assert</code> statements to test the <code>parse</code>
-		function.</p>
+    <p>Do the following:</p>
+    <ol>
+        <li><div><p>Open the <code>test_chemistry.py</code> file from
+        the previous lesson. Near the bottom of the file is a test
+        function named <code>test_parse</code>. Delete the
+        <code>pass</code> statement and write the code for this function
+        so that it adequately tests the <code>chemistry.parse</code>
+        function. The following table lists four chemical formulas and
+        the dictionaries that the <code>parse</code> function should
+        return. Use these formulas and dictionaries in
+        <code>assert</code> statements to test the <code>parse</code>
+        function.</p>
 
-		<table><thead>
-			<tr><th>Formula</th> <th>Dictionary</th></tr>
-		</thead><tbody>
-			<tr><td>H2O</td> <td>{"H":2, "O":1}</td></tr>
-			<tr><td>C6H6</td> <td>{"C":6, "H":6}</td></tr>
-			<tr><td>PO4H2(CH2)12CH3</td> <td>{"P":1, "O":4, "H":29, "C":13}</td></tr>
-			<tr><td>(C2(NaCl)4H2)2C4Na</td> <td>{"C":8, "Na":9, "Cl":8, "H":4}</td></tr>
-		</tbody></table>
+        <table><thead>
+            <tr><th>Formula</th> <th>Dictionary</th></tr>
+        </thead><tbody>
+            <tr><td>H2O</td> <td>{"H":2, "O":1}</td></tr>
+            <tr><td>C6H6</td> <td>{"C":6, "H":6}</td></tr>
+            <tr><td>PO4H2(CH2)12CH3</td> <td>{"P":1, "O":4, "H":29, "C":13}</td></tr>
+            <tr><td>(C2(NaCl)4H2)2C4Na</td> <td>{"C":8, "Na":9, "Cl":8, "H":4}</td></tr>
+        </tbody></table>
 
-		<p>The following six chemical formulas all contains errors, and
-		the <code>parse</code> function should raise a
-		<code>ValueError</code> when it tries to parse them. Write code
-		in the <code>test_parse</code> function to test that the
-		<code>parse</code> function raises a <code>ValueError</code> for
-		each of them.</p>
+        <p>The following six chemical formulas all contains errors, and
+        the <code>parse</code> function should raise a
+        <code>ValueError</code> when it tries to parse them. Write code
+        in the <code>test_parse</code> function to test that the
+        <code>parse</code> function raises a <code>ValueError</code> for
+        each of them.</p>
 
-		<table><thead>
-			<tr><th>Formula</th></tr>
-		</thead><tbody>
-			<tr><td>L</td></tr>
-			<tr><td>4H</td></tr>
-			<tr><td>H2L4</td></tr>
-			<tr><td>-H</td></tr>
-			<tr><td>(H2O</td></tr>
-			<tr><td>H2)O3</td></tr>
-		</tbody></table>
+        <table><thead>
+            <tr><th>Formula</th></tr>
+        </thead><tbody>
+            <tr><td>L</td></tr>
+            <tr><td>4H</td></tr>
+            <tr><td>H2L4</td></tr>
+            <tr><td>-H</td></tr>
+            <tr><td>(H2O</td></tr>
+            <tr><td>H2)O3</td></tr>
+        </tbody></table>
 
-		<p>Recall that the code to test that a function raises an error
-		looks similar to this:
-		<div class="pre"><pre class="python">with pytest.raises(ValueError): &lt;function_call_here&gt;</pre></div></div></li>
+        <p>Recall that the code to test that a function raises an error
+        looks similar to this:
+<div class="pre"><pre class="python">with pytest.raises(ValueError):
+    &lt;function_call_here(&lt;arguments_here&gt;)&gt;</pre></div></div></li>
 
-		<li><div>From the terminal frame of VS Code, run the four test
-		functions and ensure that all four test functions pass. Here is
-		the command to run the tests:
-		<pre class="console">python -m pytest test_chemistry.py</pre></div></li>
+        <li><div>From the terminal frame of VS Code, run the four test
+        functions and ensure that all four test functions pass. Here is
+        the command to run the tests:
+        <pre class="console">python -m pytest test_chemistry.py</pre></div></li>
 
-		<li><div>Using VS Code, open a new file and save it as
-		<code>molar_mass.py</code> in the same folder that you saved
-		<code>chemistry.py</code> and <code>test_chemistry.py</code>
-		during the previous lesson.</div></li>
+        <li><div>Using VS Code, open a new file and save it as
+        <code>molar_mass.py</code> in the same folder that you saved
+        <code>chemistry.py</code> and <code>test_chemistry.py</code>
+        during the previous lesson.</div></li>
 
-		<li><div>In the new <code>molar_mass.py</code> file, import the
-		<code>parse</code> and <code>molar_mass</code> functions from
-		<code>chemistry.py</code> and write a function named
-		<code>main</code> that does the following:
-		<ol>
-			<li><div>Gets a formula for a molecule from the
-			user.</div></li>
-			<li><div>Calls <code>chemistry.parse</code> to convert the
-			formula to a dictionary.</div></li>
-			<li><div>Calls <code>chemistry.molar_mass</code> to compute
-			the molar mass of the molecule.</div></li>
-			<li><div>Rounds the molar mass to five digits after the
-			decimal point and prints the rounded molar mass.</div></li>
-		</ol></div></li>
+        <li><div>In the new <code>molar_mass.py</code> file, import the
+        <code>parse</code> and <code>molar_mass</code> functions from
+        <code>chemistry.py</code> and write a function named
+        <code>main</code> that does the following:
+        <ol>
+            <li><div>Gets a formula for a molecule from the
+            user.</div></li>
+            <li><div>Calls <code>chemistry.parse</code> to convert the
+            formula to a dictionary.</div></li>
+            <li><div>Calls <code>chemistry.molar_mass</code> to compute
+            the molar mass of the molecule.</div></li>
+            <li><div>Rounds the molar mass to five digits after the
+            decimal point and prints the rounded molar mass.</Ddiv></li>
+            <li><div>Gets a mass in grams from the user.</div></li>
+            <li><div>Divides the mass in grams by the molar mass which
+            results in a value in moles.</div></li>
+            <li><div>Print the value in moles.</div></li>
+        </ol></div></li>
 
-		<li><div>Surround the code in main with <code>try</code> and
-		<code>except</code>. The <code>except</code> block should handle
-		a <code>ValueError</code> and should print a suitable message
-		that tells the chemist that she entered an invalid chemical
-		formula.</div></li>
-	</ol>
+        <li><div>Surround the code in main with <code>try</code> and
+        <code>except</code>. The <code>except</code> block should handle
+        a <code>ValueError</code> and should print a suitable message
+        that tells the chemist that she entered an invalid chemical
+        formula.</div></li>
 
-	<h2>Sample Runs</h2>
+        <li><div>At the bottom of your <code>molar_mass.py</code> file,
+        write a call to the <code>main</code> function just as you have
+        done in previous programs.</li></div>
+    </ol>
+
+    <h2>Sample Runs</h2>
 <pre class="console">&gt; python molar_mass.py
-Molecular formula: CJ3COOH
+Molecular formula of the substance: <span class="input">CJ3COOH</span>
 Error invalid formula: CJ3COOH
                         ^
 
 &gt; python molar_mass.py
-Molecular formula: C6H10O5)4
+Molecular formula of the substance: <span class="input">C6H10O5)4</span>
 Error invalid formula: C6H10O5)4
                               ^
 
 &gt; python molar_mass.py
-Molecular formula: C13H18O2
-206.28082</pre>
+Molecular formula of the substance: <span class="input">C13H18O2</span>
+206.28082 grams/mole
+Mass in grams of the substance: <span class="input">5.04</span>
+0.02443 moles</pre>
 
-	<h2>Testing Procedure</h2>
-	<p>Verify that your program works correctly by following each
-	step in this testing procedure:</p>
+    <h2>Testing Procedure</h2>
+    <p>Verify that your program works correctly by following each
+    step in this testing procedure:</p>
 
-	<ol>
-		<li><div></div></li>
-	</ol>
+    <ol>
+        <li><div></div></li>
+    </ol>
 
-	<h2>Submission</h2>
-	<p></p>
+    <h2>Submission</h2>
+    <p></p>
 </article>
 </body>
 </html>

@@ -1,73 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<link rel="stylesheet" type="text/css" href="../site/style.css" />
-	<title>CSE 111 - Checkpoint</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSE 111 - Checkpoint</title>
+    <link rel="stylesheet" type="text/css" href="../site/style.css" />
 </head>
 
 <body>
 <header>
-	<div class="logo">
-		<div class="upper">BYU</div>
-		<div class="lower">Idaho</div>
-	</div>
-	<h1>CSE 111 | Programming with Functions</h1>
+    <div class="logo">
+        <div class="upper">BYU</div>
+        <div class="lower">Idaho</div>
+    </div>
+    <h1>CSE 111 | Programming with Functions</h1>
 </header>
 <article>
-	<h1>04 Checkpoint: Installing Third-Party Modules</h1>
+    <h1>04 Checkpoint: Installing Third-Party Modules</h1>
 
-	<h2>Overview</h2>
-	<p>Use <code>pip</code> to download and install the
-	<code>requests</code> module. Then verify that <code>requests</code>
-	was installed correctly and that it works by running a simple
-	program that uses the <code>requests</code> module to retrieve
-	commodity prices for wool and oranges.</p>
+    <h2>Overview</h2>
+    <p>Use <code>pip</code> to download and install the
+    <code>requests</code> module. Then verify that <code>requests</code>
+    was installed correctly and that it works by running a simple
+    program that uses the <code>requests</code> module to retrieve
+    commodity prices for wool and oranges.</p>
 
-	<h2>Helpful Documentation</h2>
-	<p>The Python <a target="_blank"
-	href="https://docs.python.org/3/installing/index.html"><code>pip</code>
-	command</a> is a computer command that you will use to install
-	the <code>requests</code> module on your computer.</p>
+    <h2>Helpful Documentation</h2>
+    <p>The Python <a target="_blank"
+    href="https://docs.python.org/3/installing/index.html"><code>pip</code>
+    command</a> is a computer command that you will use to install
+    the <code>requests</code> module on your computer.</p>
 
-	<p>The Python <a target="_blank"
-	href="https://requests.readthedocs.io#requests-http-for-humans"><code>requests</code> module</a>
-	contains functions to send http requests for data to a computer
-	server on the internet and to read the data that the server
-	returns.</p>
+    <p>The Python <a target="_blank"
+    href="https://requests.readthedocs.io#requests-http-for-humans"><code>requests</code> module</a>
+    contains functions to send http requests for data to a computer
+    server on the internet and to read the data that the server
+    returns.</p>
 
-	<h2>Assignment</h2>
-	<p>Do the following:</p>
+    <h2>Assignment</h2>
+    <p>Do the following:</p>
 
-	<ol>
-		<li><div>Download and save this
-		<a download target="_blank" href="commodities.py">python
-		program</a> and then open it in VS Code.</div></li>
+    <ol>
+        <li><div>Download and save this
+        <a download target="_blank" href="commodities.py">python
+        program</a> and then open it in VS Code.</div></li>
 
-		<li><div>On the menu bar for VS Code, click "Terminal" and then
-		"New Terminal". This will open a terminal frame at the bottom of
-		the VS Code window. A terminal is a window or frame where a user
-		can type and execute computer commands.</div></li>
+        <li><div>On the menu bar for VS Code, click "Terminal" and then
+        "New Terminal". This will open a terminal frame at the bottom of
+        the VS Code window. A terminal is a window or frame where a user
+        can type and execute computer commands.</div></li>
 
-		<li><div>Copy and paste the following command into the terminal
-		frame and execute the command by pressing the Enter key.
-		<pre>python -m pip install --user --upgrade pip setuptools wheel</pre>
-		That command will upgrade <code>pip</code> and several other
-		parts of the Python installation modules so that
-		<code>pip</code> will work correctly.</div></li>
+        <li><div>Copy and paste the following command into the terminal
+        frame and execute the command by pressing the Enter key.
+        <pre>python -m pip install --user --upgrade pip setuptools wheel</pre>
+        That command will upgrade <code>pip</code> and several other
+        parts of the Python installation modules so that
+        <code>pip</code> will work correctly.</div></li>
 
-		<li><div>Install the <code>requests</code> module by copying,
-		pasting, and executing the following command in the terminal
-		frame.
-		<pre>python -m pip install --user requests</pre></div></li>
+        <li><div>Install the <code>requests</code> module by copying,
+        pasting, and executing the following command in the terminal
+        frame.
+        <pre>python -m pip install --user requests</pre></div></li>
 
-		<li><div>Run the program that you downloaded in step 1 by
-		clicking the run icon (small green triangle) in the upper right
-		corner of VS Code. If your computer is connected to the
-		internet, the program should run successfully and print prices
-		for Australian wool similar to this:
+        <li><div>Run the program that you downloaded in step 1 by
+        clicking the run icon (small green triangle) in the upper right
+        corner of VS Code. If your computer is connected to the
+        internet, the program should run successfully and print prices
+        for Australian wool similar to this:
 <pre class="console">ODA/PWOOLC_USD
 Wool; coarse; 23 micron; Australian Wool Exchange spot quote; US cents per kilogram
 2019-01-17 2020-01-31
@@ -86,51 +86,51 @@ Wool; coarse; 23 micron; Australian Wool Exchange spot quote; US cents per kilog
 ['2019-12-31', 1157.729]
 ['2020-01-31', 1188.525]</pre></div></li>
 
-		<li><div>Examine the <code>commodities.py</code> program in VS
-		Code and note the following which will help you in the team
-		activity and prove assignment for this week:
-		<ol>
-			<li><div>At line 1, the program imports parts of the
-			standard Python <code>datetime</code> module.</div></li>
-			<li><div>At line 2, the program imports the third-party
-			<code>requests</code> module.</div></li>
-			<li><div>At lines 4 through 24, the program prepares an http
-			request.</div></li>
-			<li><div>At line 27, the program uses the requests module to
-			send the http request to a computer server at quandl.com.
-			Notice in the call to requests.get that the program is using
-			a named parameter, which coincidentally is named
-			<code>params</code>. Named parameters are optional. In this
-			program, the named parameter <code>params</code> causes the
-			quandl.com server to filter the data that it will send to
-			the program.</div></li>
-			<li><div>At line 30, the program checks the status_code of
-			the request. A status code of 200 means the request
-			succeeded.</div></li>
-			<li><div>If the request succeeded, at line 33, the program
-			converts the data that came from the server from JSON data
-			into a dictionary.
-			<li><div> At lines 34 through 39, the program prints the
-			data that was returned by quandl.com from the
-			request.</div></li>
-			<li><div>Try to appreciate how simple this Python program is
-			and how easy it is to retrieve data from a remote computer
-			server using the <code>reqests</code> module. In other
-			programming languages and even with other Python modules,
-			retrieving data from a server is substantially more complex
-			and difficult.</div></li>
-		</ol></div></li>
+        <li><div>Examine the <code>commodities.py</code> program in VS
+        Code and note the following which will help you in the team
+        activity and prove assignment for this week:
+        <ol>
+            <li><div>At line 1, the program imports parts of the
+            standard Python <code>datetime</code> module.</div></li>
+            <li><div>At line 2, the program imports the third-party
+            <code>requests</code> module.</div></li>
+            <li><div>At lines 4 through 24, the program prepares an http
+            request.</div></li>
+            <li><div>At line 27, the program uses the requests module to
+            send the http request to a computer server at quandl.com.
+            Notice in the call to requests.get that the program is using
+            a named parameter, which coincidentally is named
+            <code>params</code>. Named parameters are optional. In this
+            program, the named parameter <code>params</code> causes the
+            quandl.com server to filter the data that it will send to
+            the program.</div></li>
+            <li><div>At line 30, the program checks the status_code of
+            the request. A status code of 200 means the request
+            succeeded.</div></li>
+            <li><div>If the request succeeded, at line 33, the program
+            converts the data that came from the server from JSON data
+            into a dictionary.
+            <li><div> At lines 34 through 39, the program prints the
+            data that was returned by quandl.com from the
+            request.</div></li>
+            <li><div>Try to appreciate how simple this Python program is
+            and how easy it is to retrieve data from a remote computer
+            server using the <code>reqests</code> module. In other
+            programming languages and even with other Python modules,
+            retrieving data from a server is substantially more complex
+            and difficult.</div></li>
+        </ol></div></li>
 
-		<li><div>At line 6 of the program, change the <code>qcode</code>
-		variable from <code>"ODA/PWOOLC_USD"</code> to
-		<code>"ODA/PORANG_USD"</code>. Then run the program again by
-		clicking the run icon (small green triangle). The program should
-		print prices for oranges in the U.S.</div></li>
-	</ol>
+        <li><div>At line 6 of the program, change the <code>qcode</code>
+        variable from <code>"ODA/PWOOLC_USD"</code> to
+        <code>"ODA/PORANG_USD"</code>. Then run the program again by
+        clicking the run icon (small green triangle). The program should
+        print prices for oranges in the U.S.</div></li>
+    </ol>
 
-	<h2>Submission</h2>
-	<p>When complete, please report your progress in the associated
-	I-Learn quiz.</p>
+    <h2>Submission</h2>
+    <p>When complete, please report your progress in the associated
+    I-Learn quiz.</p>
 </article>
 </body>
 </html>

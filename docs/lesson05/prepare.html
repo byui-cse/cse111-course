@@ -1,43 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<link rel="stylesheet" type="text/css" href="../site/style.css" />
-	<title>CSE 111 - Prepare</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSE 111 - Prepare</title>
+    <link rel="stylesheet" type="text/css" href="../site/style.css" />
 </head>
 
 <body>
 <header>
-	<div class="logo">
-		<div class="upper">BYU</div>
-		<div class="lower">Idaho</div>
-	</div>
-	<h1>CSE 111 | Programming with Functions</h1>
+    <div class="logo">
+        <div class="upper">BYU</div>
+        <div class="lower">Idaho</div>
+    </div>
+    <h1>CSE 111 | Programming with Functions</h1>
 </header>
 <article>
-	<h1>05 Prepare: Writing Functions</h1>
+    <h1>05 Prepare: Writing Functions</h1>
 
-	<p>Because most useful computer programs are very large, programmers
-	divide their programs into parts. Dividing a program into parts
-	makes it easier to write, debug, and understand the program. A
-	programmer can divide a Python program into modules, classes, and
-	functions. In this unit, you will learn how to write your own
-	functions.</p>
+    <p>Because most useful computer programs are very large, programmers
+    divide their programs into parts. Dividing a program into parts
+    makes it easier to write, debug, and understand the program. A
+    programmer can divide a Python program into modules, classes, and
+    functions. In this unit, you will learn how to write your own
+    functions.</p>
 
-	<h2>Concepts</h2>
-	<p>Here are the Python programming concepts and topics that you
-	should learn this week:</p>
-	<ol>
-		<li><div>A function is a group of statements (computer commands)
-		that together perform one task.</div></li>
+    <h2>Concepts</h2>
+    <p>Here are the Python programming concepts and topics that you
+    should learn this week:</p>
+    <ol>
+        <li><div>A function is a group of statements (computer commands)
+        that together perform one task.</div></li>
 
-		<li><div>A programmer (you) can save lots of time by using
-		writing and calling your own functions.</div></li>
+        <li><div>A programmer (you) can save lots of time by using
+        writing and calling your own functions.</div></li>
 
-		<li><div>To write a function in Python, simply type code that
-		matches this template:
+        <li><div>To write a function in Python, simply type code that
+        matches this template:
 <pre class="python">def <var>function_name</var>(<var>param1</var>, <var>param2</var>, &hellip; <var>paramN</var>):
     <var>statement1</var>
     <var>statement2</var>
@@ -45,57 +45,57 @@
     <var>statementN</var>
     return <var>value</var></pre></div></li>
 
-		<li><div>The first line of a function is called the
-		<dfn>header</dfn> or <dfn>signature</dfn>, and it includes
-		<ol>
-			<li><div>the keyword <code>def</code></div></li>
-			<li><div>the function name</div></li>
-			<li><div>the parameter list</div></li>
-		</ol></li>
-		Here is the header for a function named <code>draw_circle</code>
-		that takes three parameters named <code>x</code>,
-		<code>y</code>, and <code>radius</code>:
+        <li><div>The first line of a function is called the
+        <dfn>header</dfn> or <dfn>signature</dfn>, and it includes
+        <ol>
+            <li><div>the keyword <code>def</code></div></li>
+            <li><div>the function name</div></li>
+            <li><div>the parameter list</div></li>
+        </ol></li>
+        Here is the header for a function named <code>draw_circle</code>
+        that takes three parameters named <code>x</code>,
+        <code>y</code>, and <code>radius</code>:
 <pre class="python">def draw_circle(x, y, radius):</pre></div></li>
 
-		<li><div>The function name must start with a letter or the
-		underscore (_). The rest of the name must be made of letters,
-		digits (0–9), or the underscore. A function name cannot include
-		spaces or other punctuation. A function name should be
-		meaningful and should describe curtly what the function
-		does.</div></li>
+        <li><div>The function name must start with a letter or the
+        underscore (_). The rest of the name must be made of letters,
+        digits (0–9), or the underscore. A function name cannot include
+        spaces or other punctuation. A function name should be
+        meaningful and should describe curtly what the function
+        does.</div></li>
 
-		<li><div>The parameter list contains data stored in variables
-		that the function needs to complete its task. A
-		<dfn>parameter</dfn> is a variable whose value comes from
-		outside the function. One way to get input into a function is to
-		ask the user for input by calling the built-in Python
-		<code>input</code> function. Another way to get input into a
-		function is through the function's parameters. Getting input
-		through parameters is much more flexible than asking the user
-		for input because the input through parameters can come from the
-		user or a file on a hard drive or the network or a sensor or
-		even another function.</div></li>
+        <li><div>The parameter list contains data stored in variables
+        that the function needs to complete its task. A
+        <dfn>parameter</dfn> is a variable whose value comes from
+        outside the function. One way to get input into a function is to
+        ask the user for input by calling the built-in Python
+        <code>input</code> function. Another way to get input into a
+        function is through the function's parameters. Getting input
+        through parameters is much more flexible than asking the user
+        for input because the input through parameters can come from the
+        user or a file on a hard drive or the network or a sensor or
+        even another function.</div></li>
 
-		<li><div>The statements inside a function are called the
-		<dfn>body</dfn> of the function. A function may contain as many
-		statements as you wish to write inside of it. However, it is a
-		good idea to limit functions to less than a page (60 lines)
-		long. To <dfn>return</dfn> a result from a function so that the
-		result can be used somewhere else in your program, simply type
-		the keyword <code>return</code> followed by whatever value you
-		want returned to the calling function.</p>
+        <li><div>The statements inside a function are called the
+        <dfn>body</dfn> of the function. A function may contain as many
+        statements as you wish to write inside of it. However, it is a
+        good idea to limit functions to less than a page (60 lines)
+        long. To <dfn>return</dfn> a result from a function so that the
+        result can be used somewhere else in your program, simply type
+        the keyword <code>return</code> followed by whatever value you
+        want returned to the calling function.</p>
 
-		<p>Here is a function (both the header and body) that computes
-		and returns the average of three numbers:</p>
+        <p>Here is a function (both the header and body) that computes
+        and returns the average of three numbers:</p>
 <pre class="python">def average(a, b, c):
     """Computes and returns the average of three numbers."""
     total = a + b + c
     avg = total / 3
     return avg</pre>
 
-		<p>Here is a function that takes two parameters named
-		<var>a</var> and <var>r</var> and computes and returns the value
-		of this equation:
+        <p>Here is a function that takes two parameters named
+        <var>a</var> and <var>r</var> and computes and returns the value
+        of this equation:
 &nbsp;<var>f</var>&#x202f;(<var>a</var>,<var>r</var>&#x202f;) = <var>a</var> &times; (1 + <var>r</var>&#x202f;).</p>
 
 <pre class="python">def formula(a, r):
@@ -103,20 +103,20 @@
     result = a * (1 + r)
     return result</pre></div></li>
 
-		<li><div>In all previous Python programs that we wrote in CSE
-		110 and 111, we wrote statements that were not in a function
-		like this simple program:
+        <li><div>In all previous Python programs that we wrote in CSE
+        110 and 111, we wrote statements that were not in a function
+        like this simple program:
 <pre class="python"># Get a value in miles and convert it to kilometers.
 miles = float(input("Please enter a distance in miles: "))
 km = miles * 1.60934
 print(f"{miles} miles is {km} kilometers")</pre>
-		However, writing statements outside of a function can lead to
-		poor organization within a large program. Professional software
-		developers write statements inside a function whenever possible.
-		Beginning with this lesson, we will write nearly all statements
-		inside a function. Also, each program will have a function named
-		<code>main</code> which will contain the beginning statements of
-		the program. For example,
+        However, writing statements outside of a function can lead to
+        poor organization within a large program. Professional software
+        developers write statements inside a function whenever possible.
+        Beginning with this lesson, we will write nearly all statements
+        inside a function. Also, each program will have a function named
+        <code>main</code> which will contain the beginning statements of
+        the program. For example,
 <pre class="python">def main():
     """Get a value in miles and convert it to kilometers."""
     miles = float(input("Please enter a distance in miles: "))
@@ -125,23 +125,23 @@ print(f"{miles} miles is {km} kilometers")</pre>
 
 # Start this program by calling the main function.
 main()</pre></div></li>
-	</ol>
+    </ol>
 
-	<h2>Videos</h2>
-	<p>Watch the following videos about writing functions:</p>
-	<ul class="links">
-		<li><a target="_blank" href="https://www.youtube.com/watch?v=nrCAxXfRU28&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=29">Introducing Functions</a></li>
-		<li><a target="_blank" href="https://www.youtube.com/watch?v=nrCAxXfRU28&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=30">Demo: Functions</a></li>
-		<li><a target="_blank" href="https://www.youtube.com/watch?v=nrCAxXfRU28&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=31">Parameterized Functions</a></li>
-		<li><a target="_blank" href="https://www.youtube.com/watch?v=nrCAxXfRU28&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=32">Demo: Parameterized Functions</a></li>
-		<li><a target="_blank" href=""></a></li>
-	</ul>
+    <h2>Videos</h2>
+    <p>Watch the following videos about writing functions:</p>
+    <ul class="links">
+        <li><a target="_blank" href="https://www.youtube.com/watch?v=nrCAxXfRU28&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=29">Introducing Functions</a></li>
+        <li><a target="_blank" href="https://www.youtube.com/watch?v=nrCAxXfRU28&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=30">Demo: Functions</a></li>
+        <li><a target="_blank" href="https://www.youtube.com/watch?v=nrCAxXfRU28&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=31">Parameterized Functions</a></li>
+        <li><a target="_blank" href="https://www.youtube.com/watch?v=nrCAxXfRU28&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=32">Demo: Parameterized Functions</a></li>
+        <li><a target="_blank" href=""></a></li>
+    </ul>
 
-	<p><strong>It is extremely important that you can write and call
-	functions.</strong> After watching the above videos, if the concepts
-	related to writing a function still seem confusing or vague to you,
-	<strong>read the concept list (above the videos) again</strong> and
-	then <strong>watch the videos again</strong>.</p>
+    <p><strong>It is extremely important that you can write and call
+    functions.</strong> After watching the above videos, if the concepts
+    related to writing a function still seem confusing or vague to you,
+    <strong>read the concept list (above the videos) again</strong> and
+    then <strong>watch the videos again</strong>.</p>
 </article>
 </body>
 </html>
