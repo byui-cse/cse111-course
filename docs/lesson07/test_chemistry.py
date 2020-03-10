@@ -1,4 +1,4 @@
-from chemistry import get_name, get_atomic_mass, parse, molar_mass
+from chemistry import get_name, get_atomic_mass, parse_formula, molar_mass, FormulaError
 import math
 import pytest
 
@@ -16,14 +16,14 @@ def test_atomic_masses():
 
 
 def test_parse():
-    """Test the chemistry.parse function."""
+    """Test the chemistry.parse_formula function."""
     # TODO: write this function.
     pass
 
 
 def test_molar_mass():
     """Test the chemistry.molar_mass function."""
-    assert molar_mass(parse("H2O")) == 18.01528
-    assert molar_mass(parse("C6H6")) == 78.11184
-    assert math.isclose(molar_mass(parse("PO4H2(CH2)12CH3")),
+    assert molar_mass(parse_formula("H2O")) == 18.01528
+    assert molar_mass(parse_formula("C6H6")) == 78.11184
+    assert math.isclose(molar_mass(parse_formula("PO4H2(CH2)12CH3")),
             280.34072, rel_tol=1e-5)

@@ -3,8 +3,8 @@ from collections import namedtuple
 
 def init_periodic_table():
     """Create, initialize, and return a dictionary
-    that contains all know elements. Each key value
-    pair in the dictionary is in this form:
+    that contains all known elements. Each key
+    value pair in the dictionary is in this form:
     symbol : (name, symbol, atomic_mass)
 
     The unit for atomic mass is atomic mass
@@ -17,7 +17,7 @@ def init_periodic_table():
     table["Li"] = Element("Lithium", "Li", 6.941)
     table["Be"] = Element("Beryllium", "Be", 9.012182)
     table["B"] = Element("Boron", "B", 10.811)
-    table["C"] = Element("Carbon", "C", 12.0107)
+    table["C"] = Element("Carbon", "C", 12.01)
     table["N"] = Element("Nitrogen", "N", 14.0067)
     table["O"] = Element("Oxygen", "O", 15.9994)
     table["F"] = Element("Fluorine", "F", 18.9984032)
@@ -147,7 +147,10 @@ def get_atomic_mass(symbol):
     return periodic_table[symbol].atomic_mass
 
 
-def parse(formula):
+class FormulaError(ValueError):
+    pass
+
+def parse_formula(formula):
     """Convert a chemical formula for a molecule into a dictionary that
     stores the number of atoms of each element in the molecule. For
     example, this function will convert "H2O" to {"H":2, "O":1} and
@@ -188,24 +191,24 @@ def parse(formula):
                         index += 1
                     else:
                         # Unknown symbol for an element
-                        raise ValueError(formula, index)
+                        raise FormulaError(formula, index)
                 quant, index = parse_quant(formula, index)
                 prev = get_quant(elems, symbol)
                 elems[symbol] = prev + quant
             elif ch == ")":
                 if level == 0:
                     # Mismatched close parenthesis
-                    raise ValueError(formula, index)
+                    raise FormulaError(formula, index)
                 level -= 1
                 index += 1
                 break
             else:
-                # Illegal character [^()0-9a-zA-Z] or
-                # digit not preceded by an element symbol or close parenthesis
-                raise ValueError(formula, index)
+                # Illegal character [^()0-9a-zA-Z] or digit not preceded
+                # by an element symbol or close parenthesis
+                raise FormulaError(formula, index)
         if level > 0 and level >= start_level:
             # Mismatched open parenthesis
-            raise ValueError(formula, start_index - 1)
+            raise FormulaError(formula, start_index - 1)
         return elems, index
 
     elems, index = parse_r(formula, 0, 0)

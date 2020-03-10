@@ -53,7 +53,7 @@ def create_report(filename, locname,
 
 def start_new_row(report):
     """Add one row to the weather report."""
-    report["rows"].append([]);
+    report["rows"].append([])
 
 
 def add_period(report, period):

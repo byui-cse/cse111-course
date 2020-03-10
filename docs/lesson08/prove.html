@@ -17,13 +17,13 @@
     <h1>CSE 111 | Programming with Functions</h1>
 </header>
 <article>
-    <h1>08 Prove: Write a Molecular Mass Calculator</h1>
+    <h1>08 Prove: Write a Molar Mass Calculator</h1>
 
     <h2>Overview</h2>
-    <p>Prove that you can write a function that handles errors with
+    <p>Prove that you can write a function that handles exceptions with
     <code>try</code> and <code>except</code> and that you can write a
-    test function that verifies that another function raises errors when
-    it is supposed to.</p>
+    test function that verifies that another function raises exceptions
+    when it is supposed to.</p>
 
     <h2>Problem Statement</h2>
     <p>The molar mass of a substance is the mass in grams of 1 mole
@@ -67,12 +67,12 @@
         the previous lesson. Near the bottom of the file is a test
         function named <code>test_parse</code>. Delete the
         <code>pass</code> statement and write the code for this function
-        so that it adequately tests the <code>chemistry.parse</code>
-        function. The following table lists four chemical formulas and
-        the dictionaries that the <code>parse</code> function should
-        return. Use these formulas and dictionaries in
-        <code>assert</code> statements to test the <code>parse</code>
-        function.</p>
+        so that it adequately tests the
+        <code>chemistry.parse_formula</code> function. The following
+        table lists four chemical formulas and the dictionaries that the
+        <code>parse_formula</code> function should return. Use these
+        formulas and dictionaries in <code>assert</code> statements to
+        test the <code>parse_formula</code> function.</p>
 
         <table><thead>
             <tr><th>Formula</th> <th>Dictionary</th></tr>
@@ -84,11 +84,11 @@
         </tbody></table>
 
         <p>The following six chemical formulas all contains errors, and
-        the <code>parse</code> function should raise a
-        <code>ValueError</code> when it tries to parse them. Write code
-        in the <code>test_parse</code> function to test that the
-        <code>parse</code> function raises a <code>ValueError</code> for
-        each of them.</p>
+        the <code>parse_formula</code> function should raise a
+        <code>FormulaError</code> when it tries to parse them. Write
+        code in the <code>test_parse</code> function to test that the
+        <code>parse_formula</code> function raises a
+        <code>FormulaError</code> for each of them.</p>
 
         <table><thead>
             <tr><th>Formula</th></tr>
@@ -103,7 +103,7 @@
 
         <p>Recall that the code to test that a function raises an error
         looks similar to this:
-<div class="pre"><pre class="python">with pytest.raises(ValueError):
+<div class="pre"><pre class="python">with pytest.raises(FormulaError):
     &lt;function_call_here(&lt;arguments_here&gt;)&gt;</pre></div></div></li>
 
         <li><div>From the terminal frame of VS Code, run the four test
@@ -116,15 +116,18 @@
         <code>chemistry.py</code> and <code>test_chemistry.py</code>
         during the previous lesson.</div></li>
 
-        <li><div>In the new <code>molar_mass.py</code> file, import the
-        <code>parse</code> and <code>molar_mass</code> functions from
-        <code>chemistry.py</code> and write a function named
-        <code>main</code> that does the following:
+        <li><div>At the top of the new <code>molar_mass.py</code> file,
+        import <code>parse_formula</code>, <code>molar_mass</code>, and
+        <code>FormulaError</code> from the <code>chemistry</code>
+        module.</div></li>
+
+        <li><div>In the new <code>molar_mass.py</code> file, write a
+        function named <code>main</code> that does the following:
         <ol>
             <li><div>Gets a formula for a molecule from the
             user.</div></li>
-            <li><div>Calls <code>chemistry.parse</code> to convert the
-            formula to a dictionary.</div></li>
+            <li><div>Calls <code>chemistry.parse_formula</code> to
+            convert the formula to a dictionary.</div></li>
             <li><div>Calls <code>chemistry.molar_mass</code> to compute
             the molar mass of the molecule.</div></li>
             <li><div>Rounds the molar mass to five digits after the
@@ -135,9 +138,13 @@
             <li><div>Print the value in moles.</div></li>
         </ol></div></li>
 
-        <li><div>Surround the code in main with <code>try</code> and
-        <code>except</code>. The <code>except</code> block should handle
-        a <code>ValueError</code> and should print a suitable message
+        <li><div>Surround the code in <code>main</code> with
+        <code>try</code> and <code>except</code>. There should be two
+        <code>except</code> blocks, one to handle a
+        <code>FormulaError</code> and one to handle a
+        <code>ValueError</code>.
+
+        and should print a suitable message
         that tells the chemist that she entered an invalid chemical
         formula.</div></li>
 
