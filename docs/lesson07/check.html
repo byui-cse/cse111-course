@@ -26,7 +26,7 @@
 
     <h2>Helpful Documentation</h2>
     <p>You can read about <code>pytest</code> in the <a target="_blank"
-    href="https://docs.pytest.org/en/latest/getting-started.html">docs.pytest.org/en/latest/getting-started.html</a>official
+    href="https://docs.pytest.org/en/latest/getting-started.html">docs.pytest.org/en/latest/getting-started.html</a> official
     online documenation</a>. However, not all of the official
     documenation about <code>pytest</code> applies to your tasks in CSE
     111. The following parts of that documentation are the most
@@ -41,17 +41,6 @@
     <p>Write two test functions and run them with <code>pytest</code>.</p>
 
     <ol>
-        <li><div>Download this Python file:
-        <a download href="words.py">words.py</a>, and save it in the
-        same folder where you will save your Python program. Then open
-        the downloaded file in VS Code.</div></li>
-
-        <li><div>Notice that downloaded file contains two small
-        functions named: <code>prefix</code> and <code>suffix</code>.
-        Notice also that each function has a documentation string that
-        describes what the function does. Read the documentation strings
-        for both functions.</div></li>
-
         <li><div>On the menu bar for VS Code, click "Terminal" and then
         "New Terminal". This will open a terminal frame at the bottom of
         the VS Code window. A terminal is a window or frame where a user
@@ -69,13 +58,28 @@
         frame.
         <pre class="console">python -m pip install --user pytest</pre></div></li>
 
-        <li><div>In VS Code open a new Python file and copy and paste
-        this import statement at the type of the file:
-        <div class="pre"><pre class="python">from words import prefix, suffix</pre></div></div></li>
+        <li><div>Download and save this Python file:
+        <a download href="words.py">words.py</a>. Then open the
+        downloaded file in VS Code.</div></li>
 
-        <li><div>Write a function named <code>test_prefix</code> that
-        takes no parameters and contains <code>assert</code> statements
-        for these nine calls to <code>prefix</code>:
+        <li><div>Notice that downloaded file contains two small
+        functions named: <code>prefix</code> and <code>suffix</code>.
+        Notice also that each function has a documentation string that
+        describes what the function does. Read the documentation strings
+        for both functions.</div></li>
+
+        <li><div>In VS Code open a new Python file and save it with the
+        name <code>test_words.py</code> in the same folder where you
+        saved the downloaded <code>words.py</code> file.</div></li>
+
+        <li><div>Copy and paste this import statement at the top of the
+        <code>test_words.py</code> file:
+<div class="pre"><pre class="python">from words import prefix, suffix</pre></div></div></li>
+
+        <li><div>In <code>test_words.py</code> write a function named
+        <code>test_prefix</code> that takes no parameters and contains
+        <code>assert</code> statements for these nine calls to
+        <code>prefix</code>:
         <table><thead>
             <tr><th colspan="2">Parameters</th>
                 <th rowspan="2">Return<br>Value</th></tr>
@@ -92,9 +96,10 @@
             <tr><td>"Disable"</td> <td>"dIstasteful"</td> <td>"dis"</td></tr>
         </tbody></table></div></li>
 
-        <li><div>Write a function named <code>test_suffix</code> that
-        takes no parameters and contains <code>assert</code> statements
-        for these nine calls to <code>suffix</code>:
+        <li><div>In <code>test_words.py</code> write a function named
+        <code>test_suffix</code> that takes no parameters and contains
+        <code>assert</code> statements for these nine calls to
+        <code>suffix</code>:
         <table><thead>
             <tr><th colspan="2">Parameters</th>
                 <th rowspan="2">Return<br>Value</th></tr>
@@ -111,18 +116,18 @@
             <tr><td>"swimming"</td> <td>"FLYING"</td> <td>"ing"</td></tr>
         </tbody></table></div></li>
 
-        <li><div>Save your Python file.</div></li>
+        <li><div>Save your <code>test_words.py</code> file.</div></li>
 
         <li><div>In the terminal frame in VS Code, run your test
         functions by copying, pasting, and executing this command:
-        <pre class="console">python -m pytest &lt;your_python_filename&gt;.py</pre></div></li>
+<pre class="console">python -m pytest test_words.py</pre></div></li>
     </ol>
 
     <h2>Sample Run</h2>
 <pre class="console">&gt; python -m pytest check_solution.py
 ========================= test session starts =========================
 platform win32 -- Python 3.7.6, pytest-5.3.5, py-1.8.1, pluggy-0.13.1
-rootdir: C:\Users\rab29\cse111\cse111-course\docs\lesson07
+rootdir: C:\Users\barzee\cse111\lesson07
 collected 2 items
 
 check_solution.py ..                                             [100%]

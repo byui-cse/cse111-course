@@ -20,17 +20,17 @@
     <h1>07 Prove: Write a Molar Mass Calculator</h1>
 
     <h2>Overview</h2>
-    <p>Prove that you can write a function and write and run test
+    <p>Prove that you can write a Python program and write and run test
     functions to help you find and fix mistakes.</p>
 
     <h2>Problem Statement</h2>
-    <p>The molar mass of a substance is the mass in grams of 1 mole
-    (grams / mole) of the substance. In chemistry a molar mass
-    calculator is a program that computes the molar mass of a substance.
-    To use a molar mass calculator, a chemist enters the formula for a
-    molecule such as H2O or C6H12O6. The calculator splits the formula
-    into elements and for each element in the formula does the
-    following:</p>
+    <p>The molar mass of a substance is the mass in grams of 1 mole of
+    the substance (grams / mole). In chemistry a molar mass calculator
+    is a program that computes the molar mass of a substance. To use a
+    molar mass calculator, a chemist enters the formula for a molecule
+    such as H<sub>2</sub>O or C<sub>6</sub>H<sub>12</sub>O<sub>6</sub>.
+    The calculator splits the formula into elements and for each element
+    in the formula does the following:</p>
     <ol>
         <li><div>sums the number of atoms of each element in the
         formula</div></li>
@@ -52,9 +52,14 @@
     article: <a target="_blank"
     href="https://realpython.com/iterate-through-dictionary-python/">How
     to Iterate Through a Dictionary in Python</a>. Within that article,
-    the sections titled, "Iterating Through Keys Directly" and
-    "Iterating Through <code>.items()</code>" are the most helpful for
-    this assignment.</p>
+    the section titled,
+    <a target="_blank"
+    href="https://realpython.com/iterate-through-dictionary-python/#iterating-through-items">Iterating
+    Through <code>.items()</code></a> is the most helpful for this
+    assignment. The first code example in the <a target="_blank"
+    href="https://docs.python.org/3/tutorial/datastructures.html#looping-techniques">Looping
+    Techniques</a> section of the Python data structures tutorial may
+    also be helpful to you.</p>
 
     <h2>Assignment</h2>
     <p>During this lesson and the next lesson, you will write and test a
@@ -77,13 +82,26 @@
         to do. Delete the <code>pass</code> statement and then write the
         Python code for the function.</div></li>
 
-        <li><div><p>At the top the <code>test_chemistry.py</code> file are
-        two unfinished functions named <code>test_names</code> and
-        <code>test_atomic_masses</code>. Read the document strings that
-        describe what the functions are supposed to do. Delete the
+        <li><div><p>At the top of the <code>test_chemistry.py</code>
+        file are two unfinished functions named <code>test_names</code>
+        and <code>test_atomic_masses</code>. Read the document strings
+        that describe what the functions are supposed to do. Delete the
         <code>pass</code> statements and then write the Python code for
-        both functions. The correct symbols, names, and atomic masses
-        for the known elements are listed in this table.</p>
+        both functions.</p>
+
+        <p>There are 118 known elements. The names and the atomic masses
+        of all 118 must be tested by the code that you write in
+        <code>test_names</code> and <code>test_atomic_masses</code>.
+        These two test functions will each contain at least 118 lines of
+        code when you are finished writing them. The correct symbols,
+        names, and atomic masses for the known elements are listed in
+        the following table. We <strong>strongly recommend</strong> that
+        you use copy and paste to help you quickly write
+        <code>test_names</code> and <code>test_atomic_masses</code>. If
+        you don't know how to use copy and paste to help you quickly
+        write these two test functions, ask a fellow student, a tutor, a
+        teaching assistant, or your teacher for help.</p>
+
         <div>
             <table style="display:table-cell"><thead>
                 <tr><th>Symbol</th> <th>Name</th></tr>
@@ -331,23 +349,12 @@
                 <tr><td>Zr</td> <td>91.224</td></tr>
             </tbody></table>
         </div>
+</div></li>
 
-        <p>There are 118 known elements. The names and the atomic masses
-        of all 118 must be tested by the code that you write in
-        <code>test_names</code> and <code>test_atomic_masses</code>.
-        These two test functions will each contain at least 118 lines of
-        code when you are finished writing them. We <strong>strongly
-        recommend</strong> that you use copy and paste to help you
-        quickly write <code>test_names</code> and
-        <code>test_atomic_masses</code>. If you don't know how to use
-        copy and paste to help you quickly write these two test
-        functions, ask a fellow student, a tutor, a teaching assistant,
-        or your teacher for help.</p></div></li>
-
-        <li><div>Leave the unfinished <code>test_parse</code> function
-        as it is for this lesson. During the next lesson when you learn
-        about error handling, you will complete the
-        <code>test_parse</code> function.</div></li>
+        <li><div>Leave the <code>test_parse</code> function unfinished
+        for this lesson. During the next lesson when you learn about
+        error handling, you will complete the <code>test_parse</code>
+        function.</div></li>
 
         <li><div>Use <code>pytest</code> to run the tests. Fix mistakes,
         if any, in <code>get_name</code>, <code>get_atomic_mass</code>,
@@ -358,7 +365,7 @@
 <pre class="console">&gt; python -m pytest test_chemistry.py
 ========================= test session starts =========================
 platform win32 -- Python 3.7.6, pytest-5.3.5, py-1.8.1, pluggy-0.13.1
-rootdir: C:\Users\rab29\cse111\cse111-faculty\lesson07
+rootdir: C:\Users\barzee\cse111\lesson07
 collected 4 items
 
 test_chemistry.py ....                                           [100%]

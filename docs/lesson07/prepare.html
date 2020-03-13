@@ -46,57 +46,106 @@ regression tests - keep them around and run later.
 
         <li><div><code>pytest</code> is a Python module that makes it
         easy to write and run test functions. During the checkpoint of
-        this lesson, you will install and use
-        <code>pytest</code>. There are other Python testing modules
-        besides pytest, but pytest seems to be the easiest.</div></li>
+        this lesson, you will install and use <code>pytest</code>. There
+        are other Python testing modules besides <code>pytest</code>,
+        but <code>pytest</code> seems to be the easiest.</div></li>
+
+        <li><div><code>pytest</code> allows us to write simple test
+        functions that use the built-in Python <a target="_blank"
+        href="https://docs.python.org/3/reference/simple_stmts.html#the-assert-statement"><code>assert</code></a>
+        statement to verify that a function returns a correct result.
+        For example, if we want to verify that the built-in
+        <code>min</code> function works correctly, we could write an
+        <code>assert</code> statement like this:
+<div class="pre"><pre class="python">assert min(7, -3, 0, 2) == -3</pre></div>
+        The previous line of code will cause the computer to first call
+        the <code>min</code> function and pass 7, -3, 0, and 2 as
+        parameters to the <code>min</code> function. The
+        <code>min</code> function will find the minimum value of its
+        parameters and return that minimum value. Then the
+        <code>assert</code> statement will compare the returned minimum
+        value to -3. If the returned minimum value is not -3, the
+        <code>assert</code> statement will raise an exception which will
+        cause <code>pytest</code> to print an error message.</div></li>
 
         <li><div>In this course, you will write your test functions in a
         Python file that is separate from your Python program. In other
         words, you will keep normal program code and test code in
         separate files.</div></li>
 
-        <li><div>To test a function a you should do the following:
+        <li><div>To test a function you should do the following:
         <ol>
-            <li><div>Write a function that is part of a normal Python
+            <li><div>Write a function that is part of your normal Python
             program.</div></li>
             <li><div>Think about different parameter values that will
-            cause the computer to execute all the code in the program
-            function and will possibly cause the program function to
-            fail or return an incorrect result.</div></li>
+            cause the computer to execute all the code in your function
+            and will possibly cause your function to fail or return an
+            incorrect result.</div></li>
             <li><div>In a separate Python file, write a test function
-            that calls the program function and uses an assert statement
-            to <em>automatically</em> verify that the value returned
-            from the function is correct.</div></li>
+            that calls your program function and uses an assert
+            statement to <em>automatically</em> verify that the value
+            returned from your program function is correct.</div></li>
             <li><div>Use <code>pytest</code> to run the test
             function.</div></li>
-            <li><div>Read the output of pytest and use that output to
-            help you find and fix mistakes in both the program function
-            and test function.</div></li>
-        </ol>
-
-        <h3>Example</h3>
-        <p>Here is a simple function that computes a person's age in
-        years.
-
-        get started a programmer first writes a function
-        such as this simple function to compute the volume of a cylinder
-        that is saved in a file named <code>shapes.py</code>:
-<div class="pre"><pre class="python">import math
-
-def cylindervolume(radius, height):
-    """compute and return the volume of a cylinder."""
-    volume = math.pi * radius * radius * height
-    return volume
-</pre></div>
-        </div></li>
-
-
-        <li><div></div></li>
-
-        <li><div></div></li>
-
-        <li><div></div></li>
+            <li><div>Read the output of <code>pytest</code> and use that
+            output to help you find and fix mistakes in both your program
+            function and test function.</div></li>
+        </ol></div></li>
     </ol>
+
+        <h2>Example</h2>
+        <p>Here is a simple function named <code>cels_from_fahr</code>
+        that converts a temperature in Fahrenheit to Celsius and that is
+        part of a larger Python program in a file named
+        <code>weather.py</code>:</p>
+
+<div class="pre"><pre class="python">def cels_from_fahr(fahr):
+    """Convert a temperature in Fahrenheit to
+    Celsius and return the Celsius temperature.
+    """
+    cels = (fahr - 32) * 5 / 9
+    return cels</pre></div>
+
+        <p>We want to test the <code>cels_from_fahr</code> function.
+        From the function header, we see that
+        <code>cels_from_fahr</code> takes one parameter named
+        <code>fahr</code>. To adequately test this function we should
+        call it with at least a negative number, zero, and a positive
+        number, so we write this test function in a separate file named
+        <code>test_weather.py</code>:</p>
+
+<div class="pre"><pre class="python">from weather import cels_from_fahr
+
+def test_cels_from_fahr():
+    assert round(cels_from_fahr(-25), 1) == -31.7
+    assert round(cels_from_fahr(0), 1) == -17.8
+    assert round(cels_from_fahr(32), 1) == 0
+    assert round(cels_from_fahr(70), 1) == 21.1</pre></div>
+
+        <p>Then we use <code>pytest</code> to run the test function like
+        this:</p>
+
+<pre class="console">&gt; python -m pytest test_weather.py
+========================= test session starts =========================
+platform win32 -- Python 3.7.6, pytest-5.3.5, py-1.8.1, pluggy-0.13.1
+rootdir: C:\Users\barzee\cse111\weather
+collected 1 item
+
+weather.py .                                                     [100%]
+
+========================== 1 passed in 0.02s ==========================</pre>
+
+        <p><code>pytest</code> runs the <code>test_cels_from_fahr</code>
+        function which calls the <code>cels_from_fahr</code> function
+        four times and verifies that the value returned
+        <code>cels_from_fahr</code> is correct. We can see from the
+        output of pytest, "[100%] and 1 passed" that the cels_from_fahr
+        function return the expected (correct) result all four
+        times.</p>
+
+        <li><div></div></li>
+
+        <li><div></div></li>
 </article>
 </body>
 </html>
