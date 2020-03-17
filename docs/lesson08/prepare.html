@@ -39,19 +39,45 @@
         <li><a target="_blank" href=""></a></li>
     </ul>
 
+    <h2>Documentation</h2>
     <ul class="links">
         <li><a target="_blank" href="https://realpython.com/python-exceptions/">Python Exceptions: An Introduction</a></li>
-        <li><a target="_blank" href="https://realpython.com/courses/introduction-python-exceptions/">Introduction to Python Exceptions</a></li>
-        <li><a target="_blank" href=""></a></li>
+        <li><a target="_blank" href="https://realpython.com/the-most-diabolical-python-antipattern/">The Most Diabolical Python Antipattern</a></li>
+        <li><a target="_blank" href="https://realpython.com/python-traceback/">Understanding the Python Traceback</a></li>
     </ul>
 
-    <p>You could also read some of the Python tutorials at
-    <a target="_blank"
-    href="https://www.w3schools.com/python/default.asp">w3schools.com</a>.
-    Or you could search for "Python" in the
-    <a target="_blank" href="https://library.byui.edu">online catalog</a>
-    of the BYU-Idaho library and read one of the online books from
-    the result set.</p>
+    <ul class="links">
+        <li>Official Python <a target="_blank" href="https://docs.python.org/3/tutorial/errors.html">Errors and Exceptions</a></li>
+        <li>Official Python <a target="_blank" href="https://docs.python.org/3/library/exceptions.html#bltin-exceptions">built-in exceptions</a></li>
+    </ul>
+<div><pre class="python">try:
+    # Normal code
+    # This block must include code that falls into two groups:
+    # 1. Code that may cause an exception to be raised
+    # 2. code that depends on the results from the code in the first group
+except ZeroDivisionError as err:
+    # Code that is executed if the code in the try block caused a
+    # ZeroDivisionError to be raised.
+except OSError as err:
+    # Code that is executed if the code in the try block caused an
+    # OSError to be raised.
+except ValueError as err:
+    # Code that is executed if the code in the try block caused a
+    # ValueError to be raised.
+except (RuntimeError, TypeError, NameError) as err:
+    # Code that is executed if the code in the try block caused a
+    # RuntimeError, TypeError, or NameError to be raised.
+except as err:
+    # Code that is executed if the code in the try block caused any
+    # excption to be raised that was not handled by one of the other
+    # except blocks.
+else:
+    # Code that is executed after the code in the try block if the code
+    # in the try block did not cause an exception to be raised.
+finally:
+    # Code that is executed after all the other code in try, except, and
+    # else blocks regardless of whether an exception was raised or not.</pre></div>
+
 </article>
 </body>
 </html>
