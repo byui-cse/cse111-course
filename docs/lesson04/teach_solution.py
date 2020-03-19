@@ -41,7 +41,7 @@ if response.status_code == 200:
                 total += population
 
     # Print the total population.
-    print(total)
+    print(f"Total {total}")
 else:
     # If the request was not successful, print the status code.
     print(response.status_code)
