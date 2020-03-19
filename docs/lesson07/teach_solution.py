@@ -4,7 +4,7 @@ def test_full_name():
     """Verify that the full_name function returns correct results."""
     assert full_name("Penelope", "Smith-Jones") == "Smith-Jones, Penelope"
     assert full_name("George", "Washington") == "Washington, George"
-    assert given_name("J", "Ng") == "Ng, J"
+    assert full_name("J", "Ng") == "Ng, J"
     assert full_name("", "") == ", "
 
 def test_given_name():

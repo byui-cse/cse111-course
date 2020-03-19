@@ -44,11 +44,13 @@ regression tests - keep them around and run later.
         <em>automatically</em> verify that the program's functions are
         correct.</div></li>
 
-        <li><div><code>pytest</code> is a Python module that makes it
-        easy to write and run test functions. During the checkpoint of
-        this lesson, you will install and use <code>pytest</code>. There
-        are other Python testing modules besides <code>pytest</code>,
-        but <code>pytest</code> seems to be the easiest.</div></li>
+        <li><div><a target="_blank"
+        href="https://docs.pytest.org/en/latest/reference.html"><code>pytest</code></a>
+        is a Python module that makes it easy to write and run test
+        functions. During the checkpoint of this lesson, you will
+        install and use <code>pytest</code>. There are other Python
+        testing modules besides <code>pytest</code>, but
+        <code>pytest</code> seems to be the easiest.</div></li>
 
         <li><div><code>pytest</code> allows us to write simple test
         functions that use the built-in Python <a target="_blank"
@@ -60,13 +62,42 @@ regression tests - keep them around and run later.
 <div class="pre"><pre class="python">assert min(7, -3, 0, 2) == -3</pre></div>
         The previous line of code will cause the computer to first call
         the <code>min</code> function and pass 7, -3, 0, and 2 as
-        parameters to the <code>min</code> function. The
-        <code>min</code> function will find the minimum value of its
-        parameters and return that minimum value. Then the
-        <code>assert</code> statement will compare the returned minimum
-        value to -3. If the returned minimum value is not -3, the
-        <code>assert</code> statement will raise an exception which will
-        cause <code>pytest</code> to print an error message.</div></li>
+        arguments to the <code>min</code> function. The <code>min</code>
+        function will find the minimum value of its parameters and
+        return that minimum value. Then the <code>assert</code>
+        statement will compare the returned minimum value to -3. If the
+        returned minimum value is not -3, the <code>assert</code>
+        statement will raise an exception which will cause
+        <code>pytest</code> to print an error message.</div></li>
+
+        <li><div><p>Within a computer's memory, everything (all numbers,
+        text, sound, pictures, movies, everything) is stored using the
+        binary number system. When executing Python code, a computer
+        stores integers in binary in a way that exactly represents the
+        integers. For example, a computer executing Python code stores
+        the integer 23 as 00010111 in binary which is an exact
+        representation of 23. However, when executing Python code, a
+        computer approximates floating point numbers (numbers with
+        digits after the decimal place). For example, a computer stores
+        the floating point number 23.7 as
+        1000001101111011001100110011010 in binary. This binary number is
+        actually 23.700000762939453 which is an approximation to
+        23.7.</p>
+
+        <p>Because computers approximate floating point numbers, we must
+        be careful when comparing floating point numbers in our test
+        functions. It is bad practice to check if floating point numbers
+        are equal using just the equality operator (==).
+        <code>pytest</code> contains a function named <a target="_blank"
+        href="https://docs.pytest.org/en/latest/reference.html#pytest-approx"><code>approx</code></a>
+        to help us compare floating point numbers. For example, to test
+        the <code>math.sqrt</code> function, we could write an
+        <code>assert</code> statement like this:</p>
+<div class="pre"><pre class="python">assert math.sqrt(5) == approx(2.24, 0.01)</pre></div>
+        <p>The previous <code>assert</code> statement verifies that the
+        value returned from <code>math.sqrt(5)</code> is within 1%
+        (0.01) of 2.24.</p>
+        </div></li>
 
         <li><div>In this course, you will write your test functions in a
         Python file that is separate from your Python program. In other
@@ -93,11 +124,10 @@ regression tests - keep them around and run later.
         </ol></div></li>
     </ol>
 
-        <h2>Example</h2>
-        <p>Here is a simple function named <code>cels_from_fahr</code>
-        that converts a temperature in Fahrenheit to Celsius and that is
-        part of a larger Python program in a file named
-        <code>weather.py</code>:</p>
+    <h2>Example</h2>
+    <p>Here is a simple function named <code>cels_from_fahr</code> that
+    converts a temperature in Fahrenheit to Celsius and that is part of
+    a larger Python program in a file named <code>weather.py</code>:</p>
 
 <div class="pre"><pre class="python">def cels_from_fahr(fahr):
     """Convert a temperature in Fahrenheit to
@@ -106,46 +136,47 @@ regression tests - keep them around and run later.
     cels = (fahr - 32) * 5 / 9
     return cels</pre></div>
 
-        <p>We want to test the <code>cels_from_fahr</code> function.
-        From the function header, we see that
-        <code>cels_from_fahr</code> takes one parameter named
-        <code>fahr</code>. To adequately test this function we should
-        call it with at least a negative number, zero, and a positive
-        number, so we write this test function in a separate file named
-        <code>test_weather.py</code>:</p>
+    <p>We want to test the <code>cels_from_fahr</code> function. From
+    the function header, we see that <code>cels_from_fahr</code> takes
+    one parameter named <code>fahr</code>. To adequately test this
+    function we should call it with at least a negative number, zero,
+    and a positive number, so we write this test function in a separate
+    file named <code>test_weather.py</code>:</p>
 
-<div class="pre"><pre class="python">from weather import cels_from_fahr
+<div class="pre"><pre class="python">from pytest import approx
+from weather import cels_from_fahr
 
 def test_cels_from_fahr():
-    assert round(cels_from_fahr(-25), 1) == -31.7
-    assert round(cels_from_fahr(0), 1) == -17.8
-    assert round(cels_from_fahr(32), 1) == 0
-    assert round(cels_from_fahr(70), 1) == 21.1</pre></div>
+    """Test the cels_from_fahr function by calling it and comparing
+    the values it returns to the expected values. Notice this test
+    function uses pytest.approx to compare floating point numbers.
+    """
+    epsilon = 0.005
+    assert cels_from_fahr(-25) == approx(-31.7, epsilon)
+    assert cels_from_fahr(0) == approx(-17.8, epsilon)
+    assert cels_from_fahr(32) == approx(0, epsilon)
+    assert cels_from_fahr(70) == approx(21.1, epsilon)</pre></div>
 
-        <p>Then we use <code>pytest</code> to run the test function like
-        this:</p>
+    <p>Then we use <code>pytest</code> to run the test function like
+    this:</p>
 
 <pre class="console">&gt; python -m pytest test_weather.py
 ========================= test session starts =========================
-platform win32 -- Python 3.7.6, pytest-5.3.5, py-1.8.1, pluggy-0.13.1
+platform win32 -- Python 3.7.6, pytest-5.4.1, py-1.8.1, pluggy-0.13.1
 rootdir: C:\Users\barzee\cse111\weather
 collected 1 item
 
-weather.py .                                                     [100%]
+test_weather.py .                                                [100%]
 
 ========================== 1 passed in 0.02s ==========================</pre>
 
-        <p><code>pytest</code> runs the <code>test_cels_from_fahr</code>
-        function which calls the <code>cels_from_fahr</code> function
-        four times and verifies that the value returned
-        <code>cels_from_fahr</code> is correct. We can see from the
-        output of pytest, "[100%] and 1 passed" that the cels_from_fahr
-        function return the expected (correct) result all four
-        times.</p>
-
-        <li><div></div></li>
-
-        <li><div></div></li>
+    <p><code>pytest</code> runs the <code>test_cels_from_fahr</code>
+    function which calls the <code>cels_from_fahr</code> function four
+    times and verifies that <code>cels_from_fahr</code> returned the
+    correct value each time. We can see from the output of
+    <code>pytest</code>, "[100%] and 1 passed", that the
+    <code>cels_from_fahr</code> function return the expected (correct)
+    result all four times.</p>
 </article>
 </body>
 </html>
