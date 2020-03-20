@@ -11,7 +11,7 @@ print(qcode)
 url = f"https://www.quandl.com/api/v3/datasets/{qcode}.json"
 
 # These are the start and end dates for the data request. The start date
-# will be 13 about months before today, and the end date will be today.
+# will be about 13 months before today, and the end date will be today.
 end = datetime.today()
 start = end - timedelta(days=13*30)
 

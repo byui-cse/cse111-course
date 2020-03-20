@@ -17,7 +17,7 @@
     <h1>CSE 111 | Programming with Functions</h1>
 </header>
 <article>
-    <h1>05 Team Activity: Fitness Functions</h1>
+    <h1>05 Team Activity: Fitness</h1>
 
     <h2>Overview</h2>
     <p>Arrange a one-hour synchronous meeting with your team for this
@@ -86,11 +86,16 @@ def compute_age(birth):
         <li><div>Write a function named <code>kg_from_lb</code> that
         takes one parameter named <var>lb</var> and converts the value
         in the parameter to kilograms and returns the kilogram
+        value. To find the necessary conversion factor, search for
+        "pounds to kilograms" at
+        <a target="_blank" href="https://google.com">Google</a></div></li>
 
         <li><div>Write a function named <code>cm_from_in</code> that
         takes one parameter named <var>inch</var> and converts the value
         in the parameter from inches to centimeters and returns the
-        centimeter value.</div></li>
+        centimeter value. To find the necessary conversion factor,
+        search for "inches to centimeters" at
+        <a target="_blank" href="https://google.com">Google</a></div></li>
 
         <li><div>Write a function named <code>body_mass_index</code>
         that takes two parameters named <var>weight</var> and
@@ -114,28 +119,68 @@ def compute_age(birth):
             reading</div></li>
             <li><div>Uses the <code>csv</code> module to get a reader
             object</div></li>
-            <li><div>Processes each row in the csv file by calling the
-            <code>compute_age</code>, <code>kg_from_lb</code>,
-            <code>cm_from_in</code>, <code>body_mass_index</code>, and
-            <code>basal_metabolic_rate</code> functions.</div></li>
-            <li><div></div></li>
+            <li><div>Processes each row in the csv file by doing the
+            following:
+            <ol>
+                <li><div>calling the <code>compute_age</code>,
+                <code>kg_from_lb</code>, <code>cm_from_in</code>,
+                <code>body_mass_index</code>, and
+                <code>basal_metabolic_rate</code> functions.</div></li>
+                <li><div>printing the gender, age in years, weight in
+                kilograms, height in centimeters, body mass index, and
+                basal metabolic rate as shown in the "Sample Run"
+                section below.</div></li>
+            </ol></div></li>
         </ol></div></li>
+
+        <li><div>At the bottom of your program write a call to the
+        <code>main</code> function so that your program will start
+        executing when you run it.</div></li>
     </ol>
 
     <h3>Core Requirements</h3>
     <ol>
-        <li><div></div></li>
-        <li><div></div></li>
-        <li><div></div></li>
-        <li><div></div></li>
+        <li><div>Your program contains five complete and correct
+        functions named <code>compute_age</code>,
+        <code>kg_from_lb</code>, <code>cm_from_in</code>,
+        <code>body_mass_index</code>, and
+        <code>basal_metabolic_rate</code>. To be correct, the
+        <code>basal_metabolic_rate</code> function must compute BMR
+        differently for males and females.</div></li>
+
+        <li><div>Your program includes a function named
+        <code>main</code> which prints the header, opens the
+        <code>fitness.csv</code> file, and reads each row in the
+        file.</div></li>
+
+        <li><div>The <code>main</code> function computes and prints the
+        correct values for each row in the <code>fitness.csv</code> file
+        by calling the <code>compute_age</code>, <code>float</code>,
+        <code>round</code>, <code>kg_from_lb</code>,
+        <code>cm_from_in</code>, <code>body_mass_index</code>,
+        <code>basal_metabolic_rate</code>, and <code>print</code>
+        functions.</div></li>
     </ol>
 
     <h3>Stretch Challenges</h3>
+    <p>If your team finishes the core requirements in less than an hour,
+    complete one or more of these stretch challenges. Note that the
+    stretch challenges are optional.</p>
+
     <ol>
-        <li><div></div></li>
-        <li><div></div></li>
-        <li><div></div></li>
-        <li><div></div></li>
+        <li><div>Add something or change something in your program that
+        you think would make your program better, easier for the user,
+        more elegant, or more fun. Be creative.</div></li>
+
+        <li><div>Write a document string for each of these four
+        functions: <code>kg_from_lb</code>, <code>cm_from_in</code>,
+        <code>body_mass_index</code>, <code>basal_metabolic_rate</code>.
+        Use the document string in the compute_age function as an
+        example.</div></li>
+
+        <li><div>Write comments above the lines of code in
+        <code>main</code> that were difficult for you to
+        understand.</div></li>
     </ol>
 
     <h2>Sample Run</h2>
@@ -149,14 +194,18 @@ M, 35, 65.77, 176.5, 21.1, 1617.8
 M, 38, 70.31, 174.0, 23.2, 1649.6</pre>
 
     <p>Note that the output of your program will not be the same for the
-    Age and BMR columns because you will run your program after this
-    assignment was written.</p>
+    Age and BMR columns because a computer printed the sample run before
+    you executed your program. Therefore, when you run your program, the
+    people will be older than they were when the computer printed the
+    sample run.</p>
 
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each step
     in this testing procedure:</p>
     <ol class="testing">
-        <li><div></div></li>
+        <li><div>Run your program and verify that it prints the correct
+        results, rounded and formatted as shown in the sample run
+        above.</div></li>
     </ol>
 
     <h2>Sample Solution</h2>

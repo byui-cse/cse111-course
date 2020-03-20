@@ -101,6 +101,10 @@ article ol {
 	list-style-type: decimal;
 }
 
+article ol li ol li ol {
+	list-style-type: lower-roman;
+}
+
 article ol li ol {
 	list-style-type: lower-alpha;
 }

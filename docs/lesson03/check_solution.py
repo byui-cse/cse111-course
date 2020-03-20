@@ -12,7 +12,8 @@ mn = min(heights)
 mx = max(heights)
 s = sum(heights)
 
-# Round the result from the sum function.
+# Round the result from the sum function
+# to two digits after the decimal.
 s = round(s, 2)
 
 # Display the results for the user to see.
