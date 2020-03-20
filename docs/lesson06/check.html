@@ -17,7 +17,7 @@
     <h1>CSE 111 | Programming with Functions</h1>
 </header>
 <article>
-    <h1>06 Checkpoint: Optional Parameters</h1>
+    <h1>06 Checkpoint: Default Parameter Values and Optional Arguments</h1>
 
     <h2>Overview</h2>
     <p>Demonstrate your understanding of writing a function with an
@@ -27,15 +27,17 @@
     <h2>Helpful Documentation</h2>
     <p>The Python <code>random</code> module contains functions to
     generate pseudo random numbers. You can read about the
-    <code>uniform</code> function in the <a target="_blank"
-    href="https://docs.python.org/3/library/random.html#random.uniform"><code>random</code>
-    module section</a> of the official online Python documentation.</p>
+     <a target="_blank"
+     href="https://docs.python.org/3/library/random.html#random.uniform"><code>uniform</code>
+     function</a> in the <code>random</code> module section of the
+     official online Python documentation.</p>
 
     <p>The built-in Python <code>round</code> function rounds a number
     to a specified number of digits after the decimal place. You can
-    read about the <code>round</code> function in the <a target="_blank"
-    href="https://docs.python.org/3/library/functions.html#round">built-in
-    functions section</a> of the official online Python documentation.</p>
+    read about the <a target="_blank"
+    href="https://docs.python.org/3/library/functions.html#round"><code>round</code>
+    function</a> in the built-in functions section of the official
+    online Python documentation.</p>
 
     <h2>Assignment</h2>
     <p>Write a program with two functions named <code>main</code> and
@@ -49,7 +51,7 @@
             <div class="pre"><pre class="python">randnums = [16.2, 75.1, 52.3]</pre></div></div></li>
             <li><div>prints <var>randnums</var></div></li>
             <li><div>calls the <code>append_random_numbers</code>
-            function once with one argument only to add one number to
+            function once with only one argument to add one number to
             <var>randnums</var></div></li>
             <li><div>prints <var>randnums</var></div></li>
             <li><div>calls the <code>append_random_numbers</code>
@@ -64,10 +66,12 @@
             and an integer named <var>n</var></div></li>
             <li><div>the parameter <var>n</var> has a default value of
             1</div></li>
-            <li><div>appends <var>n</var> random numbers onto the end of
-            the <var>ls</var> list</div></li>
-            <li><div>rounds the random numbers to one digit after the
-            decimal point</div></li>
+            <li><div>computes <var>n</var> pseudo random numbers by
+            calling the <code>random.uniform</code> function.</div></li>
+            <li><div>rounds the <var>n</var> pseudo random numbers to
+            one digit after the decimal.</div></li>
+            <li><div>appends the <var>n</var> pseudo random numbers onto
+            the end of the <var>ls</var> list</div></li>
         </ol></div></li>
 
         <li><div>Calls <code>main()</code> to begin your program
@@ -79,6 +83,10 @@
 randnums [16.2, 75.1, 52.3]
 randnums [16.2, 75.1, 52.3, 39.1]
 randnums [16.2, 75.1, 52.3, 39.1, 11.7, 98.9, 23.7]</pre>
+
+    <p>Note that the output of your program will be slightly different
+    than the output shown above in the sample run. Specifically, the
+    last four random numbers will be different.</p>
 
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each step
