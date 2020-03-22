@@ -44,24 +44,70 @@
     <p><img src="scene.png"
     alt="A semi-realistic outdoor scene drawn by a Python program"></p>
 
-    <h2>Helpful Documentation</h2>
-    <ul>
-        <li><div>A tutorial about <a target="_blank"
-        href="http://zetcode.com/tkinter/drawing/">drawing with
-        tkinter</a></div></li>
-
-        <li><div>Reference for <a target="_blank"
-        href="https://effbot.org/tkinterbook/canvas.htm">tkinter
-        Canvas</a> widget</div></li>
-    </ul>
-
     <h2>Assignment</h2>
+    <p>During this lesson, you will write code that draws the sky,
+    clouds, and the ground. During the next lesson, you will write code
+    that completes the scene. The scene that your program draws may be
+    very different from the example scene above. However, your scene
+    must be outdoor, the sky must have clouds, and the scene must
+    include repetive elements such as blades of grass, trees, leaves
+    on a tree, birds, flowers, insects, fish, pickets in a fence, dashed
+    lines on a road, buildings, bales of hay, snowmen, snowflakes, or
+    icicles. Be creative.</p>
+
+    <p>Each repetive element must be drawn by a function that your
+    program calls repeatedly, once for each repeated element. For
+    example, your program may include a function named
+    <code>draw_leaf</code> that your program repeatedly calls to draw
+    all the leaves on a tree.</p>
+
     <p>Begin your program by copying and pasting the following code into
     a new file named <code>scene.py</code>. This beginning code imports
     several parts of the <code>tkinter</code> library and creates a
     window and a canvas that your program can draw to.</p>
 
-    <div class="pre"><pre class="python">from tkinter import Tk, Canvas, Frame, BOTH
+<div class="pre"><pre class="linenums">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41</pre>
+<pre class="python">from tkinter import Tk, Canvas, Frame, BOTH
 
 
 def main():
@@ -84,8 +130,9 @@ class Scene(Frame):
 
 
 def draw_scene(canvas, left, top, right, bottom):
-    """Draw a scene in the canvas. left, top, right, and bottom contain
-    the extent in pixels of the region where the scene should be drawn.
+    """Draw a scene in the canvas. left, top, right, and bottom
+    contain the extent in pixels of the region where the scene
+    should be drawn.
 
     left - left side of region; less than or equal to right
     top - top of the region; less than or equal to bottom
@@ -102,20 +149,44 @@ def draw_scene(canvas, left, top, right, bottom):
 
 main()</pre></div>
 
-    <ol>
-        <li><div></div></li>
-    </ol>
+    <p>Save your new file as <code>scene.py</code> and run your new
+    Python program. When you run it, it should open a window that
+    contains a blue oval like this:</p>
 
-    <h2>Sample Run</h2>
-<pre class="console">&gt;
-</pre>
+    <p><img src="oval.png" alt="A blue oval drawn by a Python program"></p>
+
+    <p>This oval was drawn by the code at lines 37 and 38. Delete lines
+    37 and 38 and begin writing your program. The purpose of this
+    assignment is to prove that you can write and call functions.
+    Therefore, your program must be divided into functions such as
+    <code>draw_sky</code>, <code>draw_cloud</code>,
+    <code>draw_ground</code>, <code>draw_bird</code>,
+    <code>draw_grass_blade</code>, and <code>draw_insect</code>.</p>
+
+    <h2>Helpful Documentation</h2>
+    <p>As your write your program, be sure that it draws elements in the
+    order of farthest away to nearest. For example, you program should
+    draw the blue sky first, then clouds, then the ground, then trees,
+    then insects in the trees.</p>
+
+    <ul>
+        <li><div>A tutorial about <a target="_blank"
+        href="http://zetcode.com/tkinter/drawing/">drawing with
+        tkinter</a></div></li>
+
+        <li><div>Reference for <a target="_blank"
+        href="https://effbot.org/tkinterbook/canvas.htm">tkinter
+        Canvas</a> widget</div></li>
+    </ul>
 
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each
     step in this testing procedure:</p>
 
     <ol>
-        <li><div></div></li>
+        <li><div>Run your program and verify that it correctly opens a
+        window and draws within that window an outdoor scene that
+        contains at least the sky, clouds, and the ground.</div></li>
     </ol>
 
     <h2>Submission</h2>
