@@ -115,6 +115,7 @@ let simpleSpel = {
 		['house', 'hous', 'hold'],
 
 		['integer', 'intejer', 's'],
+		['into', 'intu'],
 		['involve', 'involv', 's'],
 		['island', 'iland', 's'],
 
