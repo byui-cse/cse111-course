@@ -17,7 +17,7 @@
     <h1>CSE 111 | Programming with Functions</h1>
 </header>
 <article>
-    <h1>06 Team Activity: Simple Text Analysis</h1>
+    <h1>06 Team Activity: Writing Text to a File</h1>
 
     <h2>Overview</h2>
     <p>Arrange a one-hour synchronous meeting with your team for this
@@ -27,59 +27,70 @@
     the individual checkpoint assignment beforehand.</p>
 
     <h2>Problem Statement</h2>
-    <p></p>
+    <p>Many programs need to read and write text to files. Often that
+    text will be in languages other than English. During this
+    exercise you will learn to open a <a target="_blank"
+    href="https://docs.python.org/3/glossary.html#term-text-file">text
+    file</a> and write text to it, including text in languages other
+    than English. You will also learn about the optional arguments to
+    the open function.</p>
+
+    <h2>Helpful Documentation</h2>
+    <ul>
+        <li><div>Built-in Python <a target="_blank"
+        href="https://docs.python.org/3/library/functions.html#open">open function</a></div></li>
+        <li><div><a target="_blank"
+        href="https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files">Reading
+        and Writing Files</a></div></li>
+
+        <li><div><a target="_blank" href="https://home.unicode.org/basic-info/overview/">Unicode overview</a></div></li>
+
+        <li><div>Python <a target="_blank" href="https://docs.python.org/3/library/codecs.html#encodings-and-unicode">encodings and Unicode</a></div></li>
+
+        <li><div><a target="_blank" href="https://docs.python.org/3/library/codecs.html#standard-encodings">Standard encodings</a> in Python</div></li>
+    </ul>
 
     <h2>Instructions</h2>
-    <p>Download the files:
-    <a download href="base_words.txt">base_words.txt</a> and
-    <a download href="book_of_mormon.txt">book_of_mormon.txt</a> and
-    save them in the same folder where you will save your Python
-    program.</p>
+    <p>Write a Python program that opens a file named <code>forgive.txt</code> and writes these three strings to that file.</p>
 
-    <p>Write a Python program that </p>
-
-    <p>Do the following:</p>
-    <ol>
-        <li><div>Copy and paste this code into your program at the top
-        of your Python file.
-<pre class="python"></pre></div></li>
-
-
-        <li><div>Write a function named <code></code>
-        that </div></li>
-
-        <li><div>Write a function named <code>main</code> that takes no
-        parameters and does the following:
-        <ol>
-            <li><div></div></li>
-        </ol></div></li>
-    </ol>
+<div class="pre"><pre class="python">    english_matt_6_14 = "For if ye forgive men their trespasses, your heavenly Father will also forgive you\n"
+    greek_matt_6_14 = "ἐὰν γὰρ ἀφῆτε τοῖς ἀνθρώποις τὰ παραπτώματα αὐτῶν, ἀφήσει καὶ ὑμῖν ὁ πατὴρ ὑμῶν ὁ οὐράνιος\n"
+    deseret_3_nephi_13_14 = "𐐙𐐫𐑉, 𐐮𐑁 𐐷 𐑁𐐲𐑉𐑀𐐮𐑂 𐑋𐐯𐑌 𐑄𐐯𐑉 𐐻𐑉𐐯𐑅𐐹𐐰𐑅𐐮𐑆, 𐐷𐐫𐑉 𐐸𐐯𐑂𐐲𐑌𐑊𐐨 𐐙𐐱𐑄𐐲𐑉 𐐶𐐮𐑊 𐐫𐑊𐑅𐐬 𐑁𐐲𐑉𐑀𐐮𐑂 𐐷𐐭\n"</pre></div>
 
     <h3>Core Requirements</h3>
     <ol>
-        <li><div></div></li>
-        <li><div></div></li>
-        <li><div></div></li>
-        <li><div></div></li>
+        <li><div>Your program must correctly open a text file named
+        <code>forgive.txt</code> and save the English version of
+        Matthew 6:14 into it.</div></li>
+        <li><div>Your program must correctly save the Greek version
+        of Matthew 6:14 into <code>forgive.txt</code>.</div></li>
+        <li><div>Your program must correctly save the Deseret version
+        of 3 Nephi 13:14 into <code>forgive.txt</code>.</div></li>
     </ol>
 
     <h3>Stretch Challenges</h3>
+    <p>If your team finishes the core requirements in less than an
+    hour, complete one or more of these stretch challenges. Note that
+    the stretch challenges are optional.</p>
     <ol>
-        <li><div></div></li>
-        <li><div></div></li>
-        <li><div></div></li>
+        <li><div>Add code to your program so that it writes the text
+        of 3 Nephi 13:14 in another language besides English, Greek,
+        and Deseret.</div></li>
+        <li><div>Write comments above the lines of code that were
+        difficult for you to understand.</div></li>
         <li><div></div></li>
     </ol>
-
-    <h2>Sample Run</h2>
-<pre class="console">&gt; python teach_solution.py
-</pre>
 
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each step
     in this testing procedure:</p>
     <ol class="testing">
-        <li><div></div></li>
+        <li><div>Run your program. It should complete without errors
+        and should create a text file named
+        <code>forgive.txt</code>.</div></li>
+        <li><div>Open the <code>forgive.txt</code> file in VS Code.
+        All the characters in <code>forgive.txt</code> should look
+        the same as they look above in this web page.</div></li>
     </ol>
 
     <h2>Sample Solution</h2>

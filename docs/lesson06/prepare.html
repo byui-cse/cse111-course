@@ -171,7 +171,7 @@ What is wrong with the following code?
 <pre class="python" id="ex3"><span data-scope="global">import <span class="varDef">math</span>
 
 <span data-scope="main">def main():
-    <span class="varDef">radius</span> = input("Enter the radius of a circle: ")
+    <em><span class="varDef">radius</span></em> = input("Enter the radius of a circle: ")
     <span class="varDef">area</span> = <span data-funcUse="">circle_area</span>()
     print(<span class="varUse">area</span>)</span>
 
@@ -179,7 +179,7 @@ What is wrong with the following code?
     # Mistake! There is no variable named radius
     # defined inside this function, so the variable
     # radius cannot be used in this function.
-    <span class="varDef">area</span> = <span class="varUse">math</span>.pi * <span class="varUse">radius</span> * <span class="varUse">radius</span>
+    <span class="varDef">area</span> = <span class="varUse">math</span>.pi * <em><span class="varUse">radius</span></em> * <em><span class="varUse">radius</span></em>
     return <span class="varUse">area</span></span>
 
 <span data-funcUse="">main</span>()</span></pre></div>
@@ -380,7 +380,7 @@ After changing ly:  lx [7, -2, 5]  ly [7, -2, 5]</pre>
 29</pre>
 <pre class="python" id="ex7"><span data-scope="global"><span data-scope="main">def main():
     print("main()")
-    <span class="varDef">x</span> = 3
+    <span class="varDef">x</span> = 5
     <span class="varDef">lx</span> = [7, -2]
     print(f"Before calling modify_args(): x {<span class="varUse">x</span>}  lx {<span class="varUse">lx</span>}")
 
@@ -400,7 +400,7 @@ After changing ly:  lx [7, -2, 5]  ly [7, -2, 5]</pre>
 
     # Change the values of both parameters.
     <span class="varUse">n</span> += 1
-    <span class="varUse">ls</span>.append(5)
+    <span class="varUse">ls</span>.append(4)
 
     print(f"   After changing n and ls:  n {<span class="varUse">n</span>}  ls {<span class="varUse">ls</span>}")</span>
 
@@ -410,19 +410,19 @@ main()</span></pre></div>
 
     Within this third program,
     <ul>
-        <li><div>the statement on line 17 assigns the value 3 to a
+        <li><div>the statement on line 3 assigns the value 5 to a
         variable named <var>x</var>.</div></li>
-        <li><div>Line 18 assigns a list to a variable named
+        <li><div>Line 4 assigns a list to a variable named
         <var>lx</var>.</div></li>
-        <li><div>Line 19 prints the values of <var>x</var> and
+        <li><div>Line 5 prints the values of <var>x</var> and
         <var>lx</var> before they are passed to the
         <var>modify_args</var> function.</div></li>
-        <li><div>Line 23 calls the <code>modify_args</code> function and
+        <li><div>Line 9 calls the <code>modify_args</code> function and
         passes <var>x</var> and <var>lx</var> to that function.</div></li>
-        <li><div>Within the <code>modify_args</code> function, line 7
+        <li><div>Within the <code>modify_args</code> function, line 22
         changes the value of the parameter <var>n</var> by adding one to
         it.</div></li>
-        <li><div>Line 25 prints the values of <var>x</var> and
+        <li><div>Line 23 prints the values of <var>x</var> and
         <var>lx</var> after they were passed to the
         <code>modify_args</code> function. Notice in the output below
         that the value of <var>x</var> was not changed by the
@@ -433,11 +433,11 @@ main()</span></pre></div>
 
 <pre class="console">&gt; python example3.py
 main()
-Before calling modify_args(): x 3  lx [7, -2]
-    modify_args(n, ls)
-    Before changing n and ls: n 3  ls [7, -2]
-    After changing n and ls:  n 4  ls [7, -2, 5]
-After calling modify_args():  x 3  lx [7, -2, 5]</pre>
+    Before calling modify_args(): x 5  lx [7, -2]
+        modify_args(n, ls)
+    Before changing n and ls: n 5  ls [7, -2]
+    After changing n and ls:  n 6  ls [7, -2, 4]
+After calling modify_args():  x 5  lx [7, -2, 4]</pre>
 
     <p>From the output of the third program, we can see that modifying
     an integer parameter changes the integer within the called function
