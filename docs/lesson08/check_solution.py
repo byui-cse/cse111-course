@@ -8,7 +8,6 @@ def main():
         # qcode is short for Quandl Code and is the code that determines
         # what data will be downloaded from Quandl by the http request.
         qcode = "ODA/PORANG_USD"
-        print(qcode)
 
         # This is the uniform resource locator (URL)
         # where this program will send an http request.
@@ -36,6 +35,7 @@ def main():
         if response.status_code == 200:
             # If the request was succesful, print
             # the data that Quandl returned to us.
+            print(qcode)
             dataset = response.json()["dataset"]
             print(dataset["name"])
             print(dataset["start_date"], dataset["end_date"])
@@ -46,20 +46,19 @@ def main():
         else:
             # If the request was not successful, print the status code.
             print(response.status_code)
+
     except ConnectionError as ex:
-        print("Connection Error")
-        print(ex)
+        print("Connection error", ex, sep=": ")
     except Timeout as ex:
-        print("Timeout")
-        print(ex)
+        print("Timeout", ex, sep=": ")
     except TooManyRedirects as ex:
-        print("Too many redirects")
-        print(ex)
+        print("Too many redirects", ex, sep=": ")
     except HTTPError as ex:
-        print("HTTP Error")
-        print(ex)
+        print("HTTP error", ex, sep=": ")
     except RequestException as ex:
-        print(ex)
+        print("Request exception", ex, sep=": ")
+    except Exception as ex:
+        print(type(ex).__name__, ex, sep=": ")
 
 
 main()

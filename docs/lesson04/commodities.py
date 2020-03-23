@@ -4,7 +4,6 @@ import requests
 # qcode is short for Quandl Code and is the code that determines
 # what data will be downloaded from Quandl by the http request.
 qcode = "ODA/PORANG_USD"
-print(qcode)
 
 # This is the uniform resource locator (URL)
 # where this program will send an http request.
@@ -30,6 +29,7 @@ response = requests.get(url, params=args)
 if response.status_code == 200:
     # If the request was succesful, print
     # the data that Quandl returned to us.
+    print(qcode)
     dataset = response.json()["dataset"]
     print(dataset["name"])
     print(dataset["start_date"], dataset["end_date"])
