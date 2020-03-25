@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Copyright 2020, Brigham Young University - Idaho. All rights reserved. -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -84,7 +85,7 @@
     forecast report with one row with two periods in that row. Each
     period in the report will show only the period name and the
     temperature.</p>
-<pre class="python">import weather_html
+<div class="pre"><pre class="python">import weather_html
 
 periods = // get a forecast from the U.S. Weather service
 
@@ -102,7 +103,11 @@ weather_html.add_period(report, periods[0])
 weather_html.add_period(report, periods[1])
 
 # Finish the report and write it to the HTML file.
-weather_html.write_report(report)</pre>
+weather_html.write_report(report)</pre></div>
 </article>
+<footer>
+    <small>Copyright &copy; 2020, Brigham Young University - Idaho. All
+    rights reserved.</small>
+</footer>
 </body>
 </html>

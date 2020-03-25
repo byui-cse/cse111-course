@@ -32,7 +32,7 @@ header div.logo div.lower {
 header h1 {
 	display: inline-block;
 	vertical-align: middle;
-	font-size: 150%;  /*1.5em;*/
+	font-size: 150%;
 	font-weight: normal;
 }
 
@@ -357,4 +357,14 @@ div.tips p:first-child {
 
 div.tips p {
 	font-size: 80%;
+}
+
+footer {
+	margin: 1em auto;
+	max-width: 40em;
+	padding: 1em;
+	font-size: 90%;
+	line-height: 100%;
+	background: #fefefe;
+	color: #040404;
 }
