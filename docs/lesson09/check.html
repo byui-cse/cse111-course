@@ -23,7 +23,7 @@
     <h2>Overview</h2>
     <p>Complete this individual checkpoint assignment to demonstrate
     your ability to use <code>pandas</code> to read a CSV file and
-    retrieve, update, and sort data.</p>
+    to print a summary of the data.</p>
 
     <h2>Helpful Documentation</h2>
     <!--
@@ -45,72 +45,95 @@
     <h2>Assignment</h2>
     <p>Write a Python program with a main function that uses
     <code>pandas</code> to read a CSV file into a <code>DataFrame</code>
-    and to retrieve, update, sort and print data from the
-    <code>DataFrame</code>. Do the following:</p>
+    and to print a summary of the data. Do the following:</p>
 
     <ol>
-        <li><div>Update setup, wheel, etc</div></li>
-        <li><div>Install numpy</div></li>
-        <li><div>Install matplotlib</div></li>
-        <li><div>Install pandas</div></li>
+        <li><div>Open VS Code and open its terminal window: on the menu
+        bar for VS Code, click "Terminal" and then "New
+        Terminal".</div></li>
+
+        <li><div>Upgrade pip, setuptools, and wheel by executing this
+        command:
+<pre class="console">python -m pip install --user --upgrade pip setuptools wheel</pre></div></li>
+
+        <li><div>Install the <code>numpy</code>, matplotlib, and pandas
+        modules:
+<pre class="console">python -m pip install --user numpy matplotlib pandas</pre></div></li>
 
         <li><div>Download and save this <a download
-        href="readings.zip">readings.zip</a> file.</div></li>
+        href="water.zip">water.zip</a> file.</div></li>
 
         <li><div>Unzip the file (extract all) into the same folder where
         you will save your Python program. This will unzip the file
-        <code>readings.csv</code> This file contains water meter
+        <code>water.csv</code> This file contains water meter
         readings for several years from the City of Rexburg,
         Idaho.</div></li>
 
-        <li><div>Open the unzipped <code>readings.csv</code> file in VS
+        <li><div>Open the unzipped <code>water.csv</code> file in VS
         Code and examine it. Notice that each row in the file contains
-        nine columns which are named: meterNumber, priorReadDate,
-        readDate, startRead, endRead, stubSize, numberOfDwellings,
-        accountNumber, and accountType. Notice also that this file is
-        large, containing 279,697 lines. In Rexburg, each water meter is
-        read about once a month. Each line of the
-        <code>readings.csv</code> file, except for the first line, holds
-        the data from reading one water meter one time.</div></li>
+        six columns which are named: meterNumber, readDate,
+        numberOfDays, usage, accountType, and numberOfDwellings. Notice
+        also that this file is large, containing 226,894 lines. In
+        Rexburg, each water meter is read about once a month. Each line
+        in the <code>water.csv</code> file, except for the first
+        line, holds the data from reading one water meter one
+        time.</div></li>
 
         <li><div>Write a Python program with a <code>main</code>
         function that does the following in this order:
         <ol>
-            <li><div></div></li>
+            <li><div>Uses <code>pandas.read_csv</code> to read the
+            <code>water.csv</code> file into a
+            <code>DataFrame</code>.</div></li>
 
-            <li><div></div></li>
+            <li><div>Calls the <code>.describe()</code> function and
+            prints the summary returned from
+            <code>.describe()</code></div></li>
 
-            <li><div></div></li>
-
-            <li><div></div></li>
-
-            <li><div></div></li>
-
-            <li><div></div></li>
+            <li><div>Calls the print function to print the data.</div></li>
         </ol></div></li>
-
-        <li><div></div></li>
-
-        <li><div></div></li>
     </ol>
 
     <h2>Sample Run</h2>
-<pre class="console">&gt; python -m pytest check_solution.py
-========================= test session starts =========================
-platform win32 -- Python 3.7.6, pytest-5.3.5, py-1.8.1, pluggy-0.13.1
-rootdir: C:\Users\barzee\cse111\lesson07
-collected 2 items
+<pre class="console">&gt; python check_solution.py
+meterNumber                  object
+readDate             datetime64[ns]
+numberOfDays                  int32
+usage                         int32
+accountType                  object
+numberOfDwellings             int32
+dtype: object
 
-check_solution.py ..                                             [100%]
+        numberOfDays          usage  numberOfDwellings
+count  227002.000000  227002.000000      227002.000000
+mean       31.084572      38.274112           6.192505
+std        12.648935     290.945001          21.713074
+min         1.000000       0.000000           0.000000
+25%        28.000000       4.000000           1.000000
+50%        30.000000      10.000000           1.000000
+75%        33.000000      34.000000           1.000000
+max       699.000000   30926.000000         207.000000
 
-========================== 2 passed in 0.02s ==========================</pre>
+       meterNumber   readDate  ...        accountType  numberOfDwellings
+0            M1000 2010-01-15  ...  Apartment Complex                  0
+1            M1000 2010-02-15  ...  Apartment Complex                  0
+2            M1000 2010-03-15  ...  Apartment Complex                  0
+3            M1000 2010-04-15  ...  Apartment Complex                  0
+4            M1000 2010-05-19  ...  Apartment Complex                  0
+...            ...        ...  ...                ...                ...
+226997       M9998 2014-08-19  ...          Residence                  1
+226998       M9998 2014-09-15  ...          Residence                  1
+226999       M9998 2014-10-17  ...          Residence                  1
+227000       M9998 2014-11-15  ...          Residence                  1
+227001       M9998 2014-12-15  ...          Residence                  1
+[227002 rows x 6 columns]</pre>
 
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each step
     in this testing procedure:</p>
     <ol>
         <li><div>Run your program and ensure that your program's output
-        is similar to the sample run output.</div></li>
+        is the same as the sample run output.</div></li>
     </ol>
 
     <h2>Sample Solution</h2>

@@ -312,6 +312,12 @@ table > thead > tr > th {
 	font-weight: bold;
 }
 
+table > tbody > tr > th {
+	vertical-align: top;
+	text-align: left;
+	font-weight: bold;
+}
+
 .table-small {
 	font-size:small;
 	margin-bottom: 20px;
