@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CSE 111 - Checkpoint</title>
-    <link rel="stylesheet" type="text/css" href="../site/style.css" />
+    <link rel="icon" type="image/png" href="../site/oneCubed.png">
+    <link rel="stylesheet" type="text/css" href="../site/style.css">
 </head>
 
 <body>
@@ -25,27 +26,30 @@
     your ability to use <code>pandas</code> to read a CSV file and
     to print a summary of the data.</p>
 
-    <h2>Helpful Documentation</h2>
-    <!--
-    <p>You can read about <code>pytest</code> in the official
-    <a target="_blank"
-    href="https://docs.pytest.org/en/latest/getting-started.html">online
-    documenation</a>. However, not all of the official documenation
-    about <code>pytest</code> applies to your tasks in CSE 111. The
-    following parts of that documentation are the most applicable and
-    may help you as you complete this lesson's assignments.</p>
-    <ul>
-        <li><div><a target="_blank" href="https://docs.pytest.org/en/latest/getting-started.html#create-your-first-test">Create your first test</a></div></li>
-        <li><div><a target="_blank" href="https://docs.pytest.org/en/latest/usage.html#calling-pytest-through-python-m-pytest">Calling pytest through <code>python -m pytest</code></a></div></li>
-        <li><div><a target="_blank" href="https://docs.pytest.org/en/latest/reference.html#pytest-approx"><code>pytest.approx</code></a></div></li>
+    <h2>Problem Statement</h2>
+    <p>In many countries of the world, including the USA, drinking water
+    is delivered to houses through underground pipes. Very often this
+    water must be filtered and purified before it is put into the pipes.
+    Of course, filtering and purification costs money, and most cities
+    charge households according to the amount of water that the
+    household uses. In order to know how much water a household uses,
+    the city inserts a device called a water meter in the pipe
+    immediately before each house. The water meter measures how much
+    water passes by it in the pipe. An employee of the city comes
+    frequently to read and record the amount of water used as shown on
+    the meter.</p>
 
-    </ul>
-    -->
+    <p>Employees of the City of Rexburg, Idaho where BYU-Idaho is
+    located read the water meters about once each month. For the
+    checkpoints and assignments of this lesson and the next, you will
+    write Python code that reads and processes a CSV file named
+    water.csv that contains water meter readings for five years from
+    Rexburg.</p>
 
     <h2>Assignment</h2>
     <p>Write a Python program with a main function that uses
     <code>pandas</code> to read a CSV file into a <code>DataFrame</code>
-    and to print a summary of the data. Do the following:</p>
+    and to manipulate and print the data. Do the following:</p>
 
     <ol>
         <li><div>Open VS Code and open its terminal window: on the menu
@@ -93,13 +97,13 @@
             prints the summary returned from
             <code>.describe</code></div></li>
 
-            <li><div>Calls the print function to print the
+            <li><div>Calls the <code>print</code> function to print the
             DataFrame.</div></li>
 
             <li><div>Filters the DataFrame to include residences
             only.</div></li>
 
-            <li><div>Calls the print function to print the
+            <li><div>Calls the <code>print</code> function to print the
             filtered DataFrame.</div></li>
         </ol></div></li>
     </ol>

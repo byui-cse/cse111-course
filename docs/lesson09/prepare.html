@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CSE 111 - Prepare</title>
-    <link rel="stylesheet" type="text/css" href="../site/style.css" />
+    <link rel="icon" type="image/png" href="../site/oneCubed.png">
+    <link rel="stylesheet" type="text/css" href="../site/style.css">
 </head>
 
 <body>
@@ -38,7 +39,6 @@
             <li><a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/01_table_oriented.html">What kind of data does pandas handle?</a></li>
             <li><a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/02_read_write.html">How do I read and write tabular data?</a></li>
             <li><a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/03_subset_data.html">How do I select a subset of a DataFrame?</a></li>
-            <li><a target="_blank" href=""></a></li>
         </ul></li>
     </ul>
 
@@ -83,7 +83,7 @@
 <div class="pre"><pre class="python">import pandas as pd
 
 data = pd.read_csv("fuel_usage.csv")
-<strong>print(data.dtype)</strong></pre></div></div></li>
+<em>print(data.dtype)</em></pre></div></div></li>
 
         <li><div><a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.describe.html"><code>pandas.DataFrame.describe()</code></a>
         is a function that returns several statistics that summarize the
@@ -94,7 +94,7 @@ data = pd.read_csv("fuel_usage.csv")
 <div class="pre"><pre class="python">import pandas as pd
 
 data = pd.read_csv("fuel_usage.csv")
-<strong>print(data.describe())</strong></pre></div></div></li>
+<em>print(data.describe())</em></pre></div></div></li>
 
         <li><div>To <a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/03_subset_data.html#how-do-i-select-specific-columns-from-a-dataframe">select a column</a>
         from a DataFrame write the column's name in square brackets. For
@@ -102,7 +102,7 @@ data = pd.read_csv("fuel_usage.csv")
 <div class="pre"><pre class="python">import pandas as pd
 
 data = pd.read_csv("fuel_usage.csv")
-<strong>column = data["col_name"]</strong></pre></div></div></li>
+<em>column = data["col_name"]</em></pre></div></div></li>
 
         <li><div>To <a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/03_subset_data.html#how-do-i-filter-specific-rows-from-a-dataframe">filter rows</a>
         out of a DataFrame, write a comparison in square brackets. For
@@ -110,27 +110,12 @@ data = pd.read_csv("fuel_usage.csv")
 <div class="pre"><pre class="python">import pandas as pd
 
 data = pd.read_csv("fuel_usage.csv")
-<strong>filtered_data = data[data["col_name"] &gt; value]</strong></pre></div></div></li>
+<em>filtered_data = data[data["col_name"] &gt; value]</em></pre></div></div></li>
 
-        <li><div>.value_counts()</div></li>
+        <li><div>.drop_duplicates()</div></li>
         <li><div>.unique()</div></li>
+        <li><div>.value_counts()</div></li>
         <li><div>.sum(), .min(), .max()</div></li>
-
-
-        <li><div>Checkpoint quizzes: step 1, step 2, ... 5</div></li>
-        <li><div>Team quizzes: step 1, step 2, ... 3</div></li>
-        <li><div>Prove Milestones: differed</div></li>
-        <li><div>Prove Assignments: differed</div></li>
-
-        <li><div>2nd Week</div></li>
-        <li><div>Extract the year into a new column</div></li>
-
-        <li><div>Passing a function: adding a column, .apply on a column
-        instead of rows</div></li>
-
-        <li><div>Create column by using function</div></li>
-
-        <li><div>No: .loc, .iloc, .groupby()</div></li>
     </ol>
 </article>
 <footer>

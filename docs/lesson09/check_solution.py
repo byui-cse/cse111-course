@@ -23,7 +23,7 @@ def main():
     print(data)
     print()
 
-    # Filter the data to residences only.
+    # Filter the data to residences only and print the filtered data.
     filtered = data[data["accountType"] == "Residence"]
     print(filtered)
 

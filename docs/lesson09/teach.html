@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CSE 111 - Team Activity</title>
-    <link rel="stylesheet" type="text/css" href="../site/style.css" />
+    <link rel="icon" type="image/png" href="../site/oneCubed.png">
+    <link rel="stylesheet" type="text/css" href="../site/style.css">
 </head>
 
 <body>
@@ -27,39 +28,131 @@
     prepare for this meeting by completing the preparation material and
     the individual checkpoint assignment beforehand.</p>
 
-    <h2>Problem Statement</h2>
+    <h2>Assignment</h2>
+    <p>Learn more about the <code>pandas</code> module by writing more
+    Python code that manipulates the water meter readings from the City
+    of Rexburg.</p>
+
+    <h2>Helpful Documentation</h2>
+    <h3>Tutorials</h3>
     <ol>
-        <li><div></div></li>
+        <li><div><a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/03_subset_data.html">Select column and filter rows</a></div></li>
+
+        <li><div>Filter DataFrame rows <a target="_blank" href="https://www.interviewqs.com/ddi_code_snippets/select_pandas_dataframe_rows_between_two_dates">between two dates</a></div></li>
+    </ol>
+
+    <h3>References</h3>
+    <ol>
+        <li><div>pandas <a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html">read_csv function</a></div></li>
+
+        <li><div>Series <a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.unique.html">unique function</a></div></li>
+
+        <li><div>Series <a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.sum.html">sum function</a></div></li>
+
+        <li><div>DataFrame <a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.drop_duplicates.html">drop_duplicates function</a></div></li>
+
+        <li><div>Series <a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.value_counts.html">value_counts function</a></div></li>
     </ol>
 
     <h2>Instructions</h2>
-
     <h3>Core Requirements</h3>
     <p>Write a Python program that uses <code>pandas</code> to answer
     these questions:</p>
     <ol>
-        <li><div>For the data stored in water.csv, what is the total
-        amount of water used?</div></li>
-        <li><div>What is the total amount of water used by
-        residences?</div></li>
-        <li><div>What is the total amount of water used by apartment
-        complexes?</div></li>
+        <li><div>select and unique
+        <ol>
+            <li><div>For the data stored in water.csv, how many unique
+            account types are them? What are those unique account
+            types?</div></li>
+            <li><div>How many meters are listed in the file (not how
+            many meter readings, how many unique
+            meterNumbers)?</div></li>
+        </ol></div></li>
+
+        <li><div>filter and sum
+        <ol>
+            <li><div>What is the total amount of water used?</div></li>
+            <li><div>What is the total amount of water used by
+            residences?</div></li>
+            <li><div>What is the total amount of water used by apartment
+            complexes?</div></li>
+        </ol></div></li>
+
+        <li><div>drop_duplicates and value_counts
+        <ol>
+            <li><div>How many meters of each account type are in the
+            file?</div></li>
+        </ol></div></li>
     </ol>
 
     <h3>Stretch Challenges</h3>
     <ol>
-        <li><div>What is the number of dwellings in Rexburg?</div></li>
-        <li><div>What is the average amount of water used by each
-        dwelling?</div></li>
-        <li><div></div></li>
+
+        <li><div>filter between two dates
+        <ol>
+            <li><div>What is the amount of water used in 2014?</div></li>
+        </ol></div></li>
+
+        <li><div>drop_duplicates and sum
+        <ol>
+            <li><div>What is the number of dwellings in Rexburg?</div></li>
+        </ol></div></li>
+
+        <li><div>filter and sum
+        <ol>
+            <li><div>What is the average amount of water used by each
+            dwelling?</div></li>
+        </ol></div></li>
     </ol>
 
     <h2>Sample Run</h2>
-    <pre class="console">&gt; python teach_solution.py
-</pre>
+<pre class="console">&gt; python teach_solution.py
+
+Unique account types:
+17 ['Residence' 'Apartment Complex' 'Business' 'Town Homes' 'BYU-Idaho'
+ 'Vacant' 'School' 'Church' 'City' 'Unknown' 'Out of Town' 'Trailer Court'
+ 'Business with Apartment' 'Sprinklers' 'Free' 'Residence with Apartment'
+ 'Airport Hanger']
+
+Unique meter numbers:
+4241 ['M1002' 'M1007' 'M1013' ... 'M9994' 'M9995' 'M9998']
+
+Total water used: 8750152
+Total water used by residences: 2631210
+Total water used by apartment complexes: 2129887
+
+Account types:
+Residence                   2283
+Apartment Complex           1016
+Business                     571
+Town Homes                    93
+Out of Town                   49
+School                        45
+BYU-Idaho                     41
+Church                        40
+Trailer Court                 34
+City                          20
+Vacant                        15
+Sprinklers                    11
+Residence with Apartment       9
+Business with Apartment        8
+Unknown                        4
+Airport Hanger                 1
+Free                           1
+Name: accountType, dtype: int64
+
+Water used during 2014: 1652765
+Number of dwellings in 2014: 34418
+Average water used by each dwelling in 2014:  40.19</pre>
 
     <h2>Testing Procedure</h2>
-    <p></p>
+    <p>Verify that your program works correctly by following each step
+    in this testing procedure:</p>
+    <ol class="testing">
+        <li><div>Run your program and verify that it prints the correct
+        results, rounded and formatted as shown in the sample run
+        above.</div></li>
+    </ol>
 
     <h2>Sample Solution</h2>
     <p>Please work diligently with your team for the one-hour meeting.
