@@ -20,57 +20,118 @@
 <article>
     <h1>09 Prepare: Data Analysis</h1>
 
-    <p></p>
+    <p>Data analysis is a process of inspecting, transforming, and
+    viewing data with the goal of discovering useful information. During
+    this lesson and the next, you will learn to use a Python module
+    named <code>pandas</code> to perform data analysis.</p>
 
+    <h2>Documentation</h2>
+    <p>The following official <code>pandas</code> documentation will
+    help you as you complete the assignments in this lesson and the
+    next. Before you attempt this lesson's checkpoint, you should read
+    the Overview and the first three parts of the Tutorial.</p>
+
+    <ul class="links">
+        <li><a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/overview.html">Overview of Pandas</a></li>
+        <li><a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/index.html">Getting Started Tutorials</a>
+        <ul class="links">
+            <li><a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/01_table_oriented.html">What kind of data does pandas handle?</a></li>
+            <li><a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/02_read_write.html">How do I read and write tabular data?</a></li>
+            <li><a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/03_subset_data.html">How do I select a subset of a DataFrame?</a></li>
+            <li><a target="_blank" href=""></a></li>
+        </ul></li>
+    </ul>
+
+    <h2>Concepts</h2>
     <p>Here are the Python programming concepts and topics that you
     should learn this week.</p>
 
     <ol>
-        <li><div><code>pandas</code> is a Python module that enables
-        data analysis and includes functionality to read and write CSV
-        files, retrieve, modify, store, sort, and filter data, and draw
-        charts. <code>pandas</code> uses several other modules,
-        including <code>numpy</code> and <code>matplotlib.pyplot</code>.
-        Some of the functionality that seems to be part of
-        <code>pandas</code> is actually part of these other
-        modules.</div></li>
+        <li><div><a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/overview.html"><code>pandas</code></a>
+        is a Python module that enables data analysis and includes
+        functionality to read and write CSV files, retrieve, modify,
+        store, sort, filter, and aggregate data, and draw charts. In
+        order to provide all of that functionality, <code>pandas</code>
+        uses several other modules, including <code>numpy</code> and
+        <code>matplotlib.pyplot</code>. Some of the functionality that
+        seems to be part of <code>pandas</code> is actually part of
+        these other modules.</div></li>
 
         <li><div><code>pandas</code> organizes data into
         <code>DataFrames</code>, <code>Series</code>, and
-        <code>Elements</code>. pandas.read_csv will read a CSV file and
-        return a <code>DataFrame</code> which a two-dimensional
-        structure like a table with rows and columns. Each row and each
-        column in a <code>DataFrame</code> is a <code>Series</code>. A
-        <code>Series</code> has only one dimension and is composed of
-        <code>Elements</code>. An <code>Element</code> is a single piece of
-        data.</div></li>
+        <code>Elements</code>. A <code>DataFrame</code> is a
+        two-dimensional structure like a table with rows and columns.
+        Each row and each column in a <code>DataFrame</code> is a
+        <code>Series</code>. A <code>Series</code> is a one-dimensional
+        structure and is composed of <code>Elements</code>. An
+        <code>Element</code> is a single piece of data.</div></li>
 
-        <li><div></div></li>
+        <li><div><a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html"><code>pandas.read_csv</code></a>
+        will read a CSV file and return a <code>DataFrame</code>.
+        <code>read_csv</code> has a huge number of parameters most of
+        which are optional. The <code>filepath</code>,
+        <code>dtype</code>, and <code>parse_dates</code> parameters are
+        the most useful for the assignments you will complete in this
+        course.</div></li>
 
-        <li><div></div></li>
+        <li><div><a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.dtypes.html"><code>pandas.DataFrame.dtypes</code></a>
+        is an attribute of a DataFrame and contains a Series with the
+        data type of each column in the DataFrame. You may want to print
+        <code>.dtype</code> after calling <code>read_csv()</code> so that
+        you can verify that the DataFrame was read correctly. For
+        example:
+<div class="pre"><pre class="python">import pandas as pd
 
-        <li><div></div></li>
+data = pd.read_csv("fuel_usage.csv")
+<strong>print(data.dtype)</strong></pre></div></div></li>
 
-        <li><div></div></li>
+        <li><div><a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.describe.html"><code>pandas.DataFrame.describe()</code></a>
+        is a function that returns several statistics that summarize the
+        data in a DataFrame. You may want to print the results of
+        <code>.describe()</code> after calling <code>read_csv()</code>
+        to help you understand the data that is in the
+        DataFrame. For example:
+<div class="pre"><pre class="python">import pandas as pd
 
-        <li><div></div></li>
+data = pd.read_csv("fuel_usage.csv")
+<strong>print(data.describe())</strong></pre></div></div></li>
+
+        <li><div>To <a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/03_subset_data.html#how-do-i-select-specific-columns-from-a-dataframe">select a column</a>
+        from a DataFrame write the column's name in square brackets. For
+        example:
+<div class="pre"><pre class="python">import pandas as pd
+
+data = pd.read_csv("fuel_usage.csv")
+<strong>column = data["col_name"]</strong></pre></div></div></li>
+
+        <li><div>To <a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/03_subset_data.html#how-do-i-filter-specific-rows-from-a-dataframe">filter rows</a>
+        out of a DataFrame, write a comparison in square brackets. For
+        example:
+<div class="pre"><pre class="python">import pandas as pd
+
+data = pd.read_csv("fuel_usage.csv")
+<strong>filtered_data = data[data["col_name"] &gt; value]</strong></pre></div></div></li>
+
+        <li><div>.value_counts()</div></li>
+        <li><div>.unique()</div></li>
+        <li><div>.sum(), .min(), .max()</div></li>
+
+
+        <li><div>Checkpoint quizzes: step 1, step 2, ... 5</div></li>
+        <li><div>Team quizzes: step 1, step 2, ... 3</div></li>
+        <li><div>Prove Milestones: differed</div></li>
+        <li><div>Prove Assignments: differed</div></li>
+
+        <li><div>2nd Week</div></li>
+        <li><div>Extract the year into a new column</div></li>
+
+        <li><div>Passing a function: adding a column, .apply on a column
+        instead of rows</div></li>
+
+        <li><div>Create column by using function</div></li>
+
+        <li><div>No: .loc, .iloc, .groupby()</div></li>
     </ol>
-
-    <h2>Videos</h2>
-    <p>Watch these videos about error handling from Microsoft.</p>
-    <ul class="links">
-        <li><a target="_blank" href="https://channel9.msdn.com/Series/Intro-to-Python-Development/Python-for-Beginners-17-of-44-Error-Handling">Error Handling Concepts</a></div></li>
-        <li><a target="_blank" href="https://channel9.msdn.com/Series/Intro-to-Python-Development/Python-for-Beginners-18-of-44-Demo-Error-Handling">Error Handling Demo</a></li>
-        <li><a target="_blank" href=""></a></li>
-    </ul>
-
-    <h2>Documentation</h2>
-    <ul class="links">
-        <li><a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/overview.html">Overview of Pandas</a></li>
-    </ul>
-
-    <ul class="links">
-    </ul>
 </article>
 <footer>
     <small>Copyright &copy; 2020, Brigham Young University - Idaho. All

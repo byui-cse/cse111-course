@@ -86,11 +86,21 @@
             <code>water.csv</code> file into a
             <code>DataFrame</code>.</div></li>
 
-            <li><div>Calls the <code>.describe()</code> function and
-            prints the summary returned from
-            <code>.describe()</code></div></li>
+            <li><div>Prints the DataFrame's <code>.dtype</code>
+            attribute.</div></li>
 
-            <li><div>Calls the print function to print the data.</div></li>
+            <li><div>Calls the <code>.describe</code> function and
+            prints the summary returned from
+            <code>.describe</code></div></li>
+
+            <li><div>Calls the print function to print the
+            DataFrame.</div></li>
+
+            <li><div>Filters the DataFrame to include residences
+            only.</div></li>
+
+            <li><div>Calls the print function to print the
+            filtered DataFrame.</div></li>
         </ol></div></li>
     </ol>
 
@@ -105,28 +115,42 @@ numberOfDwellings             int32
 dtype: object
 
         numberOfDays          usage  numberOfDwellings
-count  227002.000000  227002.000000      227002.000000
-mean       31.084572      38.274112           6.192505
-std        12.648935     290.945001          21.713074
+count  230547.000000  230547.000000      230547.000000
+mean       30.543364      37.953875           7.684242
+std         5.509826     288.758287          22.111602
 min         1.000000       0.000000           0.000000
 25%        28.000000       4.000000           1.000000
 50%        30.000000      10.000000           1.000000
 75%        33.000000      34.000000           1.000000
-max       699.000000   30926.000000         207.000000
+max        98.000000   30926.000000         207.000000
 
        meterNumber   readDate  ...        accountType  numberOfDwellings
-0            M1000 2010-01-15  ...  Apartment Complex                  0
-1            M1000 2010-02-15  ...  Apartment Complex                  0
-2            M1000 2010-03-15  ...  Apartment Complex                  0
-3            M1000 2010-04-15  ...  Apartment Complex                  0
-4            M1000 2010-05-19  ...  Apartment Complex                  0
+0            M1002 2010-01-15  ...          Residence                  1
+1            M1002 2010-02-15  ...          Residence                  1
+2            M1002 2010-03-15  ...          Residence                  1
+3            M1002 2010-04-14  ...          Residence                  1
+4            M1002 2010-05-17  ...          Residence                  1
 ...            ...        ...  ...                ...                ...
-226997       M9998 2014-08-19  ...          Residence                  1
-226998       M9998 2014-09-15  ...          Residence                  1
-226999       M9998 2014-10-17  ...          Residence                  1
-227000       M9998 2014-11-15  ...          Residence                  1
-227001       M9998 2014-12-15  ...          Residence                  1
-[227002 rows x 6 columns]</pre>
+230542       M9998 2014-08-18  ...  Apartment Complex                  1
+230543       M9998 2014-09-15  ...  Apartment Complex                  1
+230544       M9998 2014-10-16  ...  Apartment Complex                  1
+230545       M9998 2014-11-15  ...  Apartment Complex                  1
+230546       M9998 2014-12-15  ...  Apartment Complex                  1
+[230547 rows x 6 columns]
+
+       meterNumber   readDate  ...  accountType  numberOfDwellings
+0            M1002 2010-01-15  ...    Residence                  1
+1            M1002 2010-02-15  ...    Residence                  1
+2            M1002 2010-03-15  ...    Residence                  1
+3            M1002 2010-04-14  ...    Residence                  1
+4            M1002 2010-05-17  ...    Residence                  1
+...            ...        ...  ...          ...                ...
+230482       M9995 2014-08-25  ...    Residence                  1
+230483       M9995 2014-09-16  ...    Residence                  1
+230484       M9995 2014-10-23  ...    Residence                  1
+230485       M9995 2014-11-15  ...    Residence                  1
+230486       M9995 2014-12-15  ...    Residence                  1
+[128638 rows x 6 columns]</pre>
 
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each step
