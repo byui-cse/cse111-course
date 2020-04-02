@@ -46,8 +46,8 @@
         href="https://realpython.com/lessons/random-data-generation-python/">Lesson about <code>random</code></a>
         at Real Python</div></li>
         <li><div>Official Python <a target="_blank"
-        href="https://docs.python.org/3/library/random.html">documentation
-        about the <code>random</code> module</a></div></li>
+        href="https://docs.python.org/3/library/random.html">reference
+        for the <code>random</code> module</a></div></li>
     </ul>
 
     <p>The Python <code>textwrap</code> module contains functions to
@@ -56,11 +56,11 @@
     <code>textwrap</code> module in this article:</p>
     <ul>
         <li><div>Official Python <a target="_blank"
-        href="https://docs.python.org/3/library/textwrap.html">documentation
-        about the <code>textwrap</code> module</a></div></li>
+        href="https://docs.python.org/3/library/textwrap.html">reference
+        for the <code>textwrap</code> module</a></div></li>
     </ul>
 
-    <h2>Instructions</h2>
+    <h2>Assignment</h2>
     <p>Download this file: <a download href="quotes.txt">quotes.txt</a>
     and save it in the same folder where you will save your Python
     program.</p>
@@ -76,28 +76,18 @@ import textwrap</pre>
 
     <h3>Core Requirements</h3>
     <ol>
-        <li><div>Your program must read the quotes from the
-        <code>quotes.txt</code> file into a list and randomly choose one
-        of the quotes from the list.</div></li>
+        <li><div>Your program must call the <code>open</code> function
+        to open the <code>quotes.txt</code> file and call
+        <code>file.readlines</code> to read all the lines in the file
+        into a list.</div></li>
 
-        <li><div>Your program must wrap the words in the quote onto
-        multiple lines if the quote is longer than 70 characters and
-        then print the wrapped quote for the user to see.</div></li>
+        <li><div>Your program must call <code>random.choice</code> to
+        randomly choose one of the quotes from the list.</div></li>
 
-        <li><div>Your program must call the following functions:
-        <ul>
-            <li><div><code>open</code> - to open the
-            <code>quotes.txt</code> file.</div></li>
-            <li><div><code>file.readlines</code> - to read all the lines
-            in the file as a list</div></li>
-            <li><div><code>random.choice</code> - to randomly choose one
-            of the quotes</div></li>
-            <li><div><code>textwrap.wrap</code> - to wrap the words of
-            the chosen quote to 70 characters or fewer per
-            line</div></li>
-            <li><div><code>print</code> - to print the wrapped lines of
-            the quote</div></li>
-        </ul></div></li>
+        <li><div>Your program must call <code>textwrap.wrap</code> to
+        wrap the words of the chosen quote to 70 characters or fewer per
+        line and call <code>print</code> to print the wrapped lines of
+        the quote for the user to see.</div></li>
     </ol>
 
     <h3>Stretch Challenges</h3>
@@ -113,24 +103,29 @@ import textwrap</pre>
         <li><div>Write comments above the lines of code that were
         difficult for you to understand.</div></li>
 
-        <li><div>Change the call to the <code>textwrap.wrap</code>
-        function to wrap the words in the quote to 50 characters instead
-        of 70.</div></li>
-
         <li><div>Allow the user to enter a positive integer to choose
         how many quotes are chosen and printed.</div></li>
+
+        <li><div>Write a new program that reads the
+        <code>quotes.txt</code> file and then prints all of the names of
+        the authors, but just the names and not the quotes. Hint: notice
+        that the author's name appears at the end of each quote,
+        separated from the quote by a dash (-). However, notice also
+        that some quotes contain a dash. To find the location of the
+        last dash, use the <a target="_blank"
+        href="https://docs.python.org/3/library/stdtypes.html#str.rindex">rindex</a>
+        function.</div></li>
     </ol>
 
     <h2>Sample Run</h2>
 <pre class="console">&gt; python teach_solution.py
 How many quotes would you like? 2
 
-The way to right wrongs is to turn the light of
-truth upon them. -Ida B. Wells
+If you want to achieve excellence, you can get there today. As of this
+second, quit doing less-than-excellent work. -Thomas J. Watson
 
-How dare you settle for less when the world has
-made it so easy for you to be remarkable? -Seth
-Godin</pre>
+B is for believe--in yourself, in those around you, and in eternal
+principles. -Thomas S. Monson</pre>
 
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each step
