@@ -43,40 +43,128 @@
     href="https://docs.python.org/3/glossary.html#term-text-file">text
     file</a> for writing and write text to it, including text in
     languages other than English. You will also learn about the optional
-    arguments to the <code>open</code> function.</p>
+    parameters of the <code>open</code> function.</p>
 
     <h2>Helpful Documentation</h2>
     <ul>
-        <li><div>Built-in Python <a target="_blank"
-        href="https://docs.python.org/3/library/functions.html#open">open function</a></div></li>
-        <li><div><a target="_blank"
-        href="https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files">Reading
-        and Writing Files</a></div></li>
-
         <li><div><a target="_blank" href="https://home.unicode.org/basic-info/overview/">Unicode overview</a></div></li>
 
         <li><div>Python <a target="_blank" href="https://docs.python.org/3/library/codecs.html#encodings-and-unicode">encodings and Unicode</a></div></li>
 
         <li><div><a target="_blank" href="https://docs.python.org/3/library/codecs.html#standard-encodings">Standard encodings</a> in Python</div></li>
+
+        <li><div>Built-in Python <a target="_blank" href="https://docs.python.org/3/library/functions.html#open">open function</a></div></li>
+
+        <li><div><a target="_blank" href="https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files">Reading and Writing Files</a></div></li>
+
+        <li><div><a target="_blank" href="https://requests.readthedocs.io/en/master/user/quickstart/#make-a-request">Make a request</a> with the <code>requests</code> module</div></li>
+
+        <li><div><a target="_blank" href="https://tech.yandex.com/translate/doc/dg/concepts/about-docpage/">Developer's guide</a> for the Yandex translation service</div></li>
     </ul>
 
     <h2>Assignment</h2>
-    <p>Write a Python program that opens a file named <code>forgive.txt</code>
-    and writes these three strings to that file.</p>
+    <p>Write a Python program that reads text from a text file, uses the
+    <code>requests</code> module to send that text to an online machine
+    translation service, and then saves the translated text to another
+    text file.</p>
 
-<div class="pre"><pre class="python">english_matt_6_14 = "For if ye forgive men their trespasses, your heavenly Father will also forgive you\n"
-greek_matt_6_14 = "ἐὰν γὰρ ἀφῆτε τοῖς ἀνθρώποις τὰ παραπτώματα αὐτῶν, ἀφήσει καὶ ὑμῖν ὁ πατὴρ ὑμῶν ὁ οὐράνιος\n"
-deseret_3_nephi_13_14 = "𐐙𐐫𐑉, 𐐮𐑁 𐐷 𐑁𐐲𐑉𐑀𐐮𐑂 𐑋𐐯𐑌 𐑄𐐯𐑉 𐐻𐑉𐐯𐑅𐐹𐐰𐑅𐐮𐑆, 𐐷𐐫𐑉 𐐸𐐯𐑂𐐲𐑌𐑊𐐨 𐐙𐐱𐑄𐐲𐑉 𐐶𐐮𐑊 𐐫𐑊𐑅𐐬 𐑁𐐲𐑉𐑀𐐮𐑂 𐐷𐐭\n"</pre></div>
+    <p>Do the following:</p>
+    <ol>
+        <li><div>Start your program in a blank file and import the
+        <code>requests</code> module.</div></li>
+
+        <li><div>Write a function named <code>read_text_file</code> that
+        takes one parameter named <var>filename</var>. This function
+        must open a text file for reading, read all the text in the
+        file, and return that text. When writing the code to open the
+        file, be certain to use the named argument <var>mode</var> to
+        open the file for reading and use the named argument
+        <var>encoding</var> to open the file with the utf-8
+        encoding.</div></li>
+
+        <li><div>Write a function named <code>write_text_file</code>
+        that takes two parameters named <var>filename</var> and
+        <var>text</var>. This function must open a text file for writing
+        and write all the text to the file. When writing the code to
+        open the file, be certain to use the named argument
+        <var>mode</var> to open the file for writing and use the named
+        argument <var>encoding</var> to open the file with the utf-8
+        encoding.</div></li>
+
+        <li><div><p>Write a function named <code>test_io</code> that
+        takes no parameters. This function must call
+        <code>write_text_file</code> to write the following string to a
+        text file named "forgive.txt". Then <code>test_io</code> must
+        call <code>read_text_file</code> to read the contents of
+        <code>forgive.txt</code> and then print the text returned from
+        <code>read_text_file</code>.</p>
+
+<div class="pre"><pre class="python">matt_6_14 = \
+    """For if ye forgive men their trespasses,
+    your heavenly Father will also forgive you.
+    ἐὰν γὰρ ἀφῆτε τοῖς ἀνθρώποις τὰ παραπτώματα αὐτῶν,
+    ἀφήσει καὶ ὑμῖν ὁ πατὴρ ὑμῶν ὁ οὐράνιος.
+    𐐙𐐫𐑉, 𐐮𐑁 𐐷 𐑁𐐲𐑉𐑀𐐮𐑂 𐑋𐐯𐑌 𐑄𐐯𐑉 𐐻𐑉𐐯𐑅𐐹𐐰𐑅𐐮𐑆,
+    𐐷𐐫𐑉 𐐸𐐯𐑂𐐲𐑌𐑊𐐨 𐐙𐐱𐑄𐐲𐑉 𐐶𐐮𐑊 𐐫𐑊𐑅𐐬 𐑁𐐲𐑉𐑀𐐮𐑂 𐐷𐐭.
+    """</pre></div>
+
+        <p>Notice that the string includes characters from English,
+        Greek, and the Deseret alphabet. It is important that the test
+        string includes characters from other languages so that you can
+        verify that your <code>write_text_file</code> and
+        <code>read_text_file</code> functions are working
+        correctly.</p></div></li>
+
+        <li><div>At the bottom of your program, write a line of code to
+        call the test_io function. For example:
+<div class="pre"><pre class="python">test_io()</pre></div>
+        Then run your program and verify that your program correctly
+        prints the string from above by opening the
+        <code>forgive.txt</code> file in VS Code. All the characters in
+        <code>forgive.txt</code> should look the same as they look above
+        in this web page. After you have verified that your
+        <code>write_text_file</code> and <code>read_text_file</code>
+        functions are working correctly, delete the call to the
+        <code>test_io</code> function.</div></li>
+
+        <li><div>Write a function named <code>translate</code> that has
+        three parameters: <var>text</var>, <var>src_lang</var>, and
+        <var>targ_lan</var>. This function must use the
+        <code>post</code> function in the <code>requests</code> module
+        to send the text to the online machine translation service at
+        yandex.net and must return the translated text. Look in your
+        Canvas course for the API key that you will need in the post
+        request.</div></li>
+
+        <li><div>Write the <code>main</code> function to do the
+        following for these three files:
+        <a download href="sermon_en.txt">sermon_en.txt</a>,
+        <a download href="upward_en.txt">upward_en.txt</a>, and
+        <a download href="numsys_en.txt">numsys_en.txt</a>
+        <ol>
+            <li><div>Call <code>read_text_file</code> to read the text
+            in the file.</div></li>
+            <li><div>Call the <code>translate</code> function to
+            translate the text to another language. You choose the
+            language.</div></li>
+            <li><div>Call <code>write_text_file</code> to write the
+            translated text to another file.</div></li>
+        </ol></div></li>
+    </ol>
 
     <h3>Core Requirements</h3>
     <ol>
-        <li><div>Your program must correctly open a text file named
-        <code>forgive.txt</code> and save the English version of
-        Matthew 6:14 into it.</div></li>
-        <li><div>Your program must correctly save the Greek version
-        of Matthew 6:14 into <code>forgive.txt</code>.</div></li>
-        <li><div>Your program must correctly save the Deseret version
-        of 3 Nephi 13:14 into <code>forgive.txt</code>.</div></li>
+        <li><div>Your program must include the
+        <code>read_text_file</code>, <code>write_text_file</code>, and
+        <code>test_io</code> functions that work correctly as described
+        above.</div></li>
+
+        <li><div>Your program must include the <code>translate</code>
+        function that translates text as described above.</div></li>
+
+        <li><div>Your program must include the main function that reads
+        three text files, translates them, and writes them to different
+        files.</div></li>
     </ol>
 
     <h3>Stretch Challenges</h3>
@@ -88,12 +176,8 @@ deseret_3_nephi_13_14 = "𐐙𐐫𐑉, 𐐮𐑁 𐐷 𐑁𐐲𐑉𐑀𐐮𐑂 �
         you think would make your program better, easier for the user,
         more elegant, or more fun. Be creative.</div></li>
 
-        <li><div>Add code to your program so that it writes the text
-        of 3 Nephi 13:14 in another language besides English, Greek,
-        and Deseret.</div></li>
-
         <li><div>Add a feature to your program that allows the user to
-        choose which language will be written to the file.</div></li>
+        choose which language the text will be translated into.</div></li>
 
         <li><div>Write comments above the lines of code that were
         difficult for you to understand.</div></li>
@@ -103,12 +187,16 @@ deseret_3_nephi_13_14 = "𐐙𐐫𐑉, 𐐮𐑁 𐐷 𐑁𐐲𐑉𐑀𐐮𐑂 �
     <p>Verify that your program works correctly by following each step
     in this testing procedure:</p>
     <ol class="testing">
-        <li><div>Run your program. It should complete without errors
-        and should create a text file named
-        <code>forgive.txt</code>.</div></li>
-        <li><div>Open the <code>forgive.txt</code> file in VS Code.
-        All the characters in <code>forgive.txt</code> should look
-        the same as they look above in this web page.</div></li>
+        <li><div>After finishing step 5 above, run your program and
+        verify that your program correctly wrote the multi-language
+        string to the <code>forgive.txt</code> file. Open the
+        <code>forgive.txt</code> file in VS Code. All the characters in
+        <code>forgive.txt</code> should look the same as they look above
+        in this web page.</div></li>
+
+        <li><div>After finishing all seven steps above, run your program
+        and verify that it correctly translates the three text files and
+        writes the translated text to three other files.</div></li>
     </ol>
 
     <h2>Sample Solution</h2>
