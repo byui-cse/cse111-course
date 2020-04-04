@@ -19,31 +19,137 @@
     <h1>CSE 111 | Programming with Functions</h1>
 </header>
 <article>
-    <h1>11 Prepare: Handling Errors</h1>
+    <h1>11 Prepare: Programming with Objects</h1>
 
-    <p></p>
+    <h2>Concepts</h2>
+    <p>A <a target="_blank"
+    href="https://www.google.com/search?q=define+paradigm">paradigm</a>
+    is a way of thinking or a way of viewing the world. There are at
+    least four main paradigms for programming a computer: procedural,
+    declarative, functional, and object oriented. During CSE 110 and
+    111, you used or encountered the first three of these programming
+    paradigms. During this lesson, you will be exposed to the last.</p>
 
-    <p>Here are the Python programming concepts and topics that you
-    should learn this week.</p>
+    <h3>Procedural Programming</h3>
+    <p>Procedural programming is a way of programming that focuses on
+    the process or the steps to accomplish a task. For example, if we
+    had 100 numbers and wanted to know the average value of those 100
+    numbers, we could add the numbers and then divide by 100. This is
+    one process to compute the average of numbers: add them and divide
+    by the quantity of numbers. A Python procedural program for
+    computing the average looks like this:</p>
 
+<div class="pre"><pre class="python">numbers = [...]
+total = 0
+for x in number:
+    total += x
+average = total / len(numbers)</pre></div>
+
+    <p>Notice that with procedural programming, we must code the process
+    or the steps that are necessary to complete a task. Procedural
+    programming is the type of programming that you did most often in
+    CSE 110 and 111.</p>
+
+    <h3>Declarative Programming</h3>
+    <p>When we use declarative programming to program a computer, we
+    don't focus on the process or steps to accomplish a task, but rather
+    we focus on what we want from the task. Continuing the example of
+    the average, with declarative programming, we focus on exactly what
+    numbers we want the average of and then tell the computer to compute
+    that average for us. Many of the commands in <code>pandas</code> are
+    a form of declarative programming. For example, using
+    <code>pandas</code>, we could command the computer to compute the
+    average of the values in a column like this:</p>
+
+<div class="pre"><pre class="python">import pandas
+
+data = pandas.read_csv("water.csv")
+average = data["usage"].mean()</pre></div>
+
+    <p>Notice that with declarative programming, we don't write the
+    steps to compute the average because someone else already did that
+    for us. Instead, we focus on telling the computer what data we want
+    it to average: in this example the values in the "usage" column. The
+    term "declarative programming" means that we are stating or
+    declaring what we want the computer to do. We are not telling the
+    computer how to compute something. We are declaring what we want the
+    computer to do, and the computer determines how to do it and then
+    does it.</p>
+
+    <h3>Functional Programming</h3>
+    <p>When we use functional programming to program a computer, we
+    focus on the functions necessary to accomplish a task.
+    Mathematicians often find functional programming is natural for them
+    because they are accustomed to using functions while studying
+    mathematics. In functional programming, functions are so important
+    that we often pass functions into other functions. You did this in
+    lesson 9 when you passed a function into the pandas
+    <code>apply</code> function. Here is a functional programming
+    solution to computing the average in Python:</p>
+
+<div class="pre"><pre class="python">from functools import reduce
+
+def add(a, b):
+    """Return the sum of two numbers."""
+    return a + b
+
+numbers = [...]
+average = reduce(add, numbers) / len(numbers)</pre></div>
+
+    <p>Notice how this simple example uses three functions:
+    <code>reduce</code>, <code>add</code>, and <code>len</code>. Notice
+    also that the <code>add</code> function is passed into the
+    <code>reduce</code> function. Passing a function into a function is
+    the hallmark of functional programming.</p>
+
+    <h3>Object Oriented Programming</h3>
+    <p>With object oriented programming, we use objects to write a
+    program. An object is anything in the world that has these four
+    things:</p>
     <ol>
-        <li><div></div></li>
-
-        <li><div></div></li>
-
-        <li><div></div></li>
+        <li><div>identity (a name or identification)</div></li>
+        <li><div>data (also known as attributes)</div></li>
+        <li><div>behavior (also known as functions)</div></li>
+        <li><div>relationships to other objects</div></li>
     </ol>
 
-    <h2>Videos</h2>
-    <p>Watch these videos about error handling from Microsoft.</p>
-    <ul class="links">
-        <li><a target="_blank" href=""></a></li>
-    </ul>
+    <p>When we write an object oriented program we combine data and
+    functions together into objects. For example, if we were writing a
+    registration program used for students to register for courses at a
+    school, we would create Student objects and Course objects. Each
+    Student object would have data like given_name, family_name,
+    phone_number, etc. and would have functions like register_for, drop,
+    withdraw, etc. Each Course object would have data like course_code,
+    title, description, list_of_students, etc. and would have functions
+    like get_students, take_role, etc.</p>
+
+    <p>The <code>pandas</code> module uses object oriented programming
+    concepts as shown in the next code example that again computes the
+    average of a list of numbers.</p>
+
+<div class="pre"><pre class="python">import pandas
+
+data = pandas.read_csv("water.csv")
+column = data["usage"]
+name = column.name
+average = column.mean()
+print(name, average)</pre></div>
+
+    <p>The hallmark of object oriented programming is selecting
+    attributes and calling functions using the "dot" (.) operator. The
+    official name of the dot operator is "component selector", but
+    almost no one calls it that because the term dot is much easier to
+    say than component selector. Notice the code in the previous example
+    uses the dot operator (.) to call the read_csv function in the
+    pandas module, to retrieve the column's name, and to call the mean
+    function in the column.</p>
+
+    <p>Python includes many built-in and standard objects that we can
+    use to help us write programs. In fact, you have already used many
+    objects in your programs.</p>
 
     <h2>Documentation</h2>
-    <ul class="links">
-        <li><a target="_blank" href=""></a></li>
-    </ul>
+    <p></p>
 </article>
 <footer>
     <small>Copyright &copy; 2020, Brigham Young University - Idaho. All
