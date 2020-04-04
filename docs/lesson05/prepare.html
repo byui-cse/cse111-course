@@ -8,6 +8,9 @@
     <title>CSE 111 - Prepare</title>
     <link rel="icon" type="image/png" href="../site/oneCubed.png">
     <link rel="stylesheet" type="text/css" href="../site/style.css">
+    <style>
+        b { font-weight: bold; }
+    </style>
 </head>
 
 <body>
@@ -40,12 +43,13 @@
 
         <li><div>To write a function in Python, simply type code that
         matches this template:
-<pre class="python">def <var>function_name</var>(<var>param1</var>, <var>param2</var>, &hellip; <var>paramN</var>):
+
+<div class="pre"><pre class="python">def <var>function_name</var>(<var>param1</var>, <var>param2</var>, &hellip; <var>paramN</var>):
     <var>statement1</var>
     <var>statement2</var>
         &vellip;
     <var>statementN</var>
-    return <var>value</var></pre></div></li>
+    return <var>value</var></pre></div></div></li>
 
         <li><div>The first line of a function is called the
         <dfn>header</dfn> or <dfn>signature</dfn>, and it includes
@@ -57,7 +61,8 @@
         Here is the header for a function named <code>draw_circle</code>
         that takes three parameters named <code>x</code>,
         <code>y</code>, and <code>radius</code>:
-<pre class="python">def draw_circle(x, y, radius):</pre></div></li>
+
+<div class="pre"><pre class="python">def draw_circle(x, y, radius):</pre></div></div></li>
 
         <li><div>The function name must start with a letter or the
         underscore (_). The rest of the name must be made of letters,
@@ -89,44 +94,146 @@
 
         <p>Here is a function (both the header and body) that computes
         and returns the average of three numbers:</p>
-<pre class="python">def average(a, b, c):
+
+<div class="pre"><pre class="python">def average(a, b, c):
     """Computes and returns the average of three numbers."""
     total = a + b + c
     avg = total / 3
-    return avg</pre>
+    return avg</pre></div>
 
         <p>Here is a function that takes two parameters named
         <var>a</var> and <var>r</var> and computes and returns the value
         of this equation:
 &nbsp;<var>f</var>&#x202f;(<var>a</var>,<var>r</var>&#x202f;) = <var>a</var> &times; (1 + <var>r</var>&#x202f;).</p>
 
-<pre class="python">def formula(a, r):
+<div class="pre"><pre class="python">def formula(a, r):
     """Computes and returns the value of a * (1 + r)"""
     result = a * (1 + r)
-    return result</pre></div></li>
+    return result</pre></div></div></li>
 
-        <li><div>In all previous Python programs that we wrote in CSE
-        110 and 111, we wrote statements that were not in a function
+        <li><div>In all previous Python programs that you wrote in CSE
+        110 and 111, you wrote statements that were not in a function
         like this simple program:
-<pre class="python"># Get a value in miles and convert it to kilometers.
+
+<div class="pre"><pre class="python"># Get a value in miles and convert it to kilometers.
 miles = float(input("Please enter a distance in miles: "))
 km = miles * 1.60934
-print(f"{miles} miles is {km} kilometers")</pre>
-        However, writing statements outside of a function can lead to
+print(f"{miles} miles is {km} kilometers")</pre></div>
+
+        <p>However, writing statements outside of a function can lead to
         poor organization within a large program. Professional software
         developers write statements inside a function whenever possible.
         Beginning with this lesson, we will write nearly all statements
         inside a function. Also, each program will have a function named
         <code>main</code> which will contain the beginning statements of
-        the program. For example,
-<pre class="python">def main():
-    """Get a value in miles and convert it to kilometers."""
+        the program. In addition, we will have one or more functions
+        that perform calculations and other useful work and return a
+        value to the call point. For example:</p>
+
+        <img src="call.png" alt="A diagram showing a call to a function and a value returned from that function">
+<!--
+<div class="pre"><pre class="python">def main():
+    """Get a value in miles, convert it to kilometers,
+    and print the miles for the user to see.
+    """
     miles = float(input("Please enter a distance in miles: "))
-    km = miles * 1.60934
+    km = kilometers_from_miles(miles)
     print(f"{miles} miles is {km} kilometers")
 
-# Start this program by calling the main function.
-main()</pre></div></li>
+
+def kilometers_from_miles(miles):
+    """Convert a value in miles to kilometers
+    and return the kilometers value.
+    """
+    km = miles * 1.60934
+    return km
+
+
+# Start this program by
+# calling the main function.
+main()</pre></div>
+
+<div class="pre"><pre class="python">import math
+
+<b>def main()</b>:
+    """Get the length of each side of a triangle,
+    call the triangle_area function, and print
+    the area for the user to see.
+    """
+    print("This program computes the area of a triangle.")
+    print("Enter the length of each side:")
+    side1 = float(input())
+    side2 = float(input())
+    side3 = float(input())
+    <b>triarea = triangle_area(side1, side2, side3)</b>
+    print(f"The area is {triarea}")
+
+
+<b>def triangle_area(a, b, c)</b>:
+    """Compute and return the area of a
+    triangle with side lengths a, b, and c.
+    """
+    s = (a + b + c) / 2
+    area = math.sqrt(s * (s-a) * (s-b) * (s-c))
+    <b>return area</b>
+
+
+# Start this program by
+# calling the main function.
+<b>main()</b></pre></div>
+-->
+        <P>A computer will execute the statements in the previous
+        example in this order:</p>
+
+        <ol style="list-style-type:decimal">
+            <li><div>The statement at (1) is not inside of a function,
+            so the computer executes it when the program begins. This is
+            a call to the <code>main</code> function which causes the
+            computer to begin executing the statements inside of
+            <code>main</code> at (2).</div></li>
+            <li><div>The computer gets three numbers from the
+            user.</div></li>
+            <li><div>The statement at (3) is a call to the
+            <code>triangle_area</code> function.</div></li>
+            <li><div>The computer copies the values in the arguments
+            <var>side1</var>, <var>side2</var>, and <var>side3</var>
+            into the parameters <var>a</var>, <var>b</var>, and
+            <var>c</var>, respectively and then begins executing the
+            statements inside the <code>triangle_area</code> function at
+            (5).</div></li>
+            <li><div>The computer computes the area of a triangle.</div></li>
+            <li><div>The statement at (6) is a return statement which
+            causes the computer to stop executing the
+            <code>triangle_area</code> function, to return a value to
+            the call point at (3), and to resume executing statements at
+            (8) after the call point.</div></li>
+            <li><div>The computer returns the value in the
+            <var>area</var> variable to the call point (3). At the call
+            point, the returned value is stored in the
+            <var>triarea</var> variable.</div></li>
+            <li><div>The computer prints the value that is in the
+            <var>triarea</var> variable for the user to see. This is the
+            last statement in the <code>main</code> function, so after
+            executing it, the computer resumes executing the statements
+            after the call point (1) to main.</div></li>
+            <li><div>There are no more statements after the call to
+            <code>main</code>, so the program is finished.</div></li>
+        </ol></div></li>
+
+        <li><div>The most reusable functions are ones that take
+        parameters, perform calculations, and return a value but do not
+        perform user input and output. In the previous code example,
+        there are two functions: <code>main</code> and
+        <code>triangle_area</code>. The <code>main</code> function is
+        certainly useful in this program, but it is not resuable in
+        other programs because it gets user input and prints the result
+        fore the user to see. The <code>triangle_area</code> function is
+        very reusable in another program because it doesn't get user
+        input or print output. Instead it takes three parameters,
+        performs a calcuation, and returns a result to the calling
+        function. This second function is so reusable that it could be
+        included in a library of functions that compute the area and
+        volume of 2-D and 3-D geometric shapes.</div></li>
     </ol>
 
     <h2>Videos</h2>
