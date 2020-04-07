@@ -83,7 +83,7 @@
         two lists to test your program during this
         assignment.</div></li>
 
-    <li><div>Use this code to begin your Python program
+        <li><div>Use this code to begin your Python program
 <pre>import test_periods
 import weather_html
 
@@ -91,24 +91,12 @@ city_name = "Rexburg, Idaho"
 periods = test_periods.periods_that_start_with_a_day
 # periods = test_periods.periods_that_start_with_a_night</pre></div></li>
 
-    <li><div><p>Finish your program by writing code to call the four
-    functions from the <code>weather_html</code> module as necessary
-    to produce an HTML document in a five day vertical format. Your
-    program should also include if statements and loops as
-    necessary. Here are two sample reports in a five day vertical
-    format.</p>
-
-    <ol>
-        <li><div><a target="_blank" href="forecast5day.html">forecast5day.html</a></div></li>
-        <li><div><a target="_blank" href="forecast5night.html">forecast5night.html</a></div></li>
-    </ol>
-
-    <p>The first report is for a forecast that was retrieved early
-    in a morning and therefore begins with a day period. The second
-    report is for a forecast that was retrieved in an afternoon and
-    therefore begins with a night period. The reports that your
-    program creates should look like the sample
-    reports.</p></div></li>
+        <li><div>Finish your program by writing code to call the four
+        functions from the <code>weather_html</code> module as necessary
+        to produce an HTML document in a five day vertical format. Your
+        program should also include if statements as necessary and a
+        loop to iterate through the <code>periods</code>. See the
+        "Testing Procedure" section below for sample reports.</div></li>
     </ol>
 
     <h2>Testing Procedure</h2>
@@ -118,15 +106,23 @@ periods = test_periods.periods_that_start_with_a_day
     <ol>
         <li><div>Run your program and double click on the HTML file
         that you program produces. Double clicking the HTML file
-        should open it in a browser. Look at the document in the
-        browser and verify that it looks like the forecast5day.html
-        document.</div></li>
+        should open it in a browser. Look in the browser at the document
+        that your program produced and verify that it looks like this
+        sample <a target="_blank"
+        href="forecast5day.html">forecast5day.html</a> document. This
+        sample document came from the
+        <code>periods_that_start_with_a_day</code> list and therefore
+        begins with a day period.</div></li>
 
-        <li><div>Change your program to use the list
-        <code>periods_that_start_with_a_night</code> and then run
+        <li><div>Change your program to use the
+        <code>periods_that_start_with_a_night</code> list and then run
         your program again. Double click on the HTML file and verify
-        that the document changed and that it looks like the
-        forecast5night.html document.</div></li>
+        that the document that your program produced now looks like this
+        sample <a target="_blank"
+        href="forecast5night.html">forecast5night.html</a> document.
+        This sample document came from the
+        <code>periods_that_start_with_a_night</code> list and therefore
+        begins with a night period.</div></li>
     </ol>
 
     <h2>Submission</h2>
