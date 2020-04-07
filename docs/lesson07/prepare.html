@@ -73,13 +73,13 @@
         stores integers in binary in a way that exactly represents the
         integers. For example, a computer executing Python code stores
         the integer 23 as 00010111 in binary which is an exact
-        representation of 23. However, when executing Python code, a
-        computer approximates floating point numbers (numbers with
-        digits after the decimal place). For example, a computer stores
-        the floating point number 23.7 as
+        representation of decimal 23. However, when executing Python
+        code, a computer approximates floating point numbers (numbers
+        with digits after the decimal place). For example, a computer
+        stores the floating point number 23.7 as
         1000001101111011001100110011010 in binary. This binary number is
-        actually 23.700000762939453 which is an approximation to
-        23.7.</p>
+        actually 23.700000762939453 in decimal which is an approximation
+        to 23.7.</p>
 
         <p>Because computers approximate floating point numbers, we must
         be careful when comparing floating point numbers in our test
@@ -110,14 +110,15 @@
             and will possibly cause your function to fail or return an
             incorrect result.</div></li>
             <li><div>In a separate Python file, write a test function
-            that calls your program function and uses an assert
-            statement to <em>automatically</em> verify that the value
-            returned from your program function is correct.</div></li>
+            that calls your program function and uses an
+            <code>assert</code> statement to <em>automatically</em>
+            verify that the value returned from your program function is
+            correct.</div></li>
             <li><div>Use <code>pytest</code> to run the test
             function.</div></li>
             <li><div>Read the output of <code>pytest</code> and use that
-            output to help you find and fix mistakes in both your program
-            function and test function.</div></li>
+            output to help you find and fix mistakes in both your
+            program function and test function.</div></li>
         </ol></div></li>
     </ol>
 
@@ -154,8 +155,12 @@ def test_cels_from_fahr():
     assert cels_from_fahr(32) == approx(0, epsilon)
     assert cels_from_fahr(70) == approx(21.1, epsilon)</pre></div>
 
-    <p>Then we use <code>pytest</code> to run the test function like
-    this:</p>
+    <p>Notice that the test function <code>test_cels_from_fahr</code>
+    calls the program function <code>cels_from_fahr</code> four times:
+    once with a negative number, once with zero, and twice with positive
+    numbers. Notice also that the test function uses <code>assert</code>
+    and <code>approx</code>. After writing the test functioon, we use
+    <code>pytest</code> to run the test function like this:</p>
 
 <pre class="console">&gt; python -m pytest test_weather.py
 ========================= test session starts =========================

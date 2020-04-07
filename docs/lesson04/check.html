@@ -29,14 +29,14 @@
     commodity prices for wool and oranges.</p>
 
     <h2>Helpful Documentation</h2>
-    <p>The Python <a target="_blank"
-    href="https://docs.python.org/3/installing/index.html"><code>pip</code>
-    command</a> is a computer command that you will use to install
-    the <code>requests</code> module on your computer.</p>
+    <p><a target="_blank"
+    href="https://docs.python.org/3/installing/index.html"><code>pip</code></a>
+    is a standard Python module that you will use to install the
+    <code>requests</code> module on your computer.</p>
 
-    <p>The Python <a target="_blank"
+    <p>The <a target="_blank"
     href="https://requests.readthedocs.io#requests-http-for-humans"><code>requests</code> module</a>
-    contains functions to send http requests for data to a computer
+    contains functions to send HTTP requests for data to a computer
     server on the internet and to read the data that the server
     returns.</p>
 
@@ -61,8 +61,8 @@
         frame.
 <pre class="console">python -m pip install --user requests</pre></div></li>
 
-        <li><div>Download and save this
-        <a download href="commodities.py">python program</a> and then
+        <li><div>Download and save this Python program:
+        <a download href="commodities.py">commodities.py</a> and then
         open it in VS Code.</div></li>
 
         <li><div>Run the program that you downloaded in the previous
@@ -91,21 +91,22 @@ Wool; coarse; 23 micron; Australian Wool Exchange spot quote; US cents per kilog
         <li><div>Examine the <code>commodities.py</code> program in VS
         Code and note the following which will help you in the team
         activity and prove assignment for this week:
+
         <ol>
             <li><div>At line 1, the program imports parts of the
             standard Python <code>datetime</code> module.</div></li>
             <li><div>At line 2, the program imports the third-party
             <code>requests</code> module.</div></li>
-            <li><div>At lines 4 through 24, the program prepares an http
+            <li><div>At lines 4 through 24, the program prepares an HTTP
             request.</div></li>
             <li><div>At line 27, the program uses the requests module to
-            send the http request to a computer server at quandl.com.
-            Notice in the call to requests.get that the program is using
-            a named parameter, which coincidentally is named
-            <code>params</code>. Named parameters are optional. In this
-            program, the named parameter <code>params</code> causes the
-            quandl.com server to filter the data that it will send to
-            the program.</div></li>
+            send the HTTP request to a computer server at quandl.com.
+            Notice in the call to <code>requests.get</code> that the
+            program is using a named argument, which coincidentally is
+            named <code>params</code>. Named arguments are optional. In
+            this program, the named argument <code>params</code> causes
+            the quandl.com server to filter the data that it will send
+            to the program.</div></li>
             <li><div>At line 30, the program checks the status_code of
             the request. A status code of 200 means the request
             succeeded.</div></li>

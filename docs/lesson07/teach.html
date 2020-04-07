@@ -30,33 +30,36 @@
 
     <h2>Problem Statement</h2>
     <p>Writing and running test functions often helps a software
-    developer find mistakes in code. Use test functions and
-    <code>pytest</code> to find the mistakes in three previously written
-    functions. Then fix those mistakes so that the test functions
-    pass.</p>
+    developer find mistakes in code.</p>
 
     <h2>Assignment</h2>
-    <p>Download and save this <a download href="names.py">names.py</a>
-    Python file and then open it in VS Code. Notice that the downloaded
-    file contains three small functions named: <code>full_name</code>,
-    <code>given_name</code>, and <code>family_name</code>. Notice also
-    that each function has a documentation string that describes what
-    the function does. Read the documentation strings for all three
-    functions.</p>
+    <p>Write three test functions that test three previously written
+    functions. Use <code>pytest</code> to run the test functions and
+    find and fix the mistakes, if any, that are in three previously
+    written functions. Do the following:</p>
 
-    <p>The functions in the file that you downloaded
-    (<code>names.py</code>) may contain some mistakes. Write a Python
-    test program named <code>test_names.py</code> that tests the three
-    functions in <code>names.py</code>. Use <code>pytest</code> to run
-    the test program and use the output from <code>pytest</code> to help
-    you find and fix any mistakes in <code>names.py</code>.</p>
-
-    <p>Do the following:</p>
     <ol>
+        <li><div>Download this Python file: <a download
+        href="names.py">names.py</a> and save it in the same folder
+        where you will save your Python test program. Then open the
+        downloaded file in VS Code. Notice that the downloaded file
+        contains three small functions named: <code>full_name</code>,
+        <code>given_name</code>, and <code>family_name</code>. Notice also
+        that each function has a documentation string that describes what
+        the function does. Read the documentation strings for all three
+        functions.</div></li>
+
+        <li><div>The functions in the file that you downloaded
+        (<code>names.py</code>) may contain some mistakes. Write a
+        Python test program named <code>test_names.py</code> that tests
+        the three functions in <code>names.py</code>. Save your
+        <code>test_names.py</code> file in the same folder where you
+        saved the <code>names.py</code> file.</div></li>
+
         <li><div>At the top of your <code>test_names.py</code> file, add
         this statement to import the three functions that are in
         <code>names.py</code>:
-        <div class="pre"><pre class="python">from names import given_name, family_name, full_name</pre></div></div></li>
+<div class="pre"><pre class="python">from names import given_name, family_name, full_name</pre></div></div></li>
 
         <li><div>In <code>test_names.py</code> write a function named
         <code>test_full_name</code> that takes no parameters. Write
@@ -83,10 +86,11 @@
         to run your test program:
 <pre class="console">&gt; python -m pytest test_names.py</pre></div></li>
 
-        <li><div>Read the output from <code>pytest</code> and your test
-        program. Use the output to help you find and fix any errors that
-        are in the <code>full_name</code>, <code>given_name</code>, and
-        <code>family_name</code> functions.</div></li>
+        <li><div>Read the output from <code>pytest</code> and use the
+        output to help you find and fix any errors that are in your test
+        functions or the <code>full_name</code>,
+        <code>given_name</code>, and <code>family_name</code>
+        functions.</div></li>
 
         <li><div>Repeat steps 5 and 6 until you have found and fixed all
         the mistakes and your three test functions pass.</div></li>

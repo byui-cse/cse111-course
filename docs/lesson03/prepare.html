@@ -155,6 +155,7 @@ print(f"Hello {name}")</pre></div></div></li>
         writing about in this list item:
         divmod, pow, range, open, math.comb,
         math.perm, math.dist, math.remainder -->
+
         <dl class="function">
             <dt><code>round(number, ndigits)</code></dt>
             <dd>Return <var>number</var> rounded to
@@ -207,13 +208,10 @@ print(r)</pre></div>
         the <var>number</var> will be rounded to an
         integer.</div></li>
 
-        <li><div>A <dfn>named parameter</dfn> (also called a
-        <dfn>keyword parameter</dfn>) is an optional parameter that
-        you can use to pass optional data to a function. It is
-        called a named parameter because you must type the
-        parameter's name in order to use it. For example, here is an
-        excerpt from the documentation for the <code>print</code>
-        function:
+        <li><div>For some optional arguments, we must pass a <dfn>named
+        argument</dfn> which is an argument that is preceeded by the
+        name of its matching parameter. For example, here is an excerpt
+        from the documentation for the <code>print</code> function:
 
         <dl class="function">
             <dt><code>print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)</code></dt>
@@ -224,17 +222,18 @@ print(r)</pre></div>
             be given as keyword arguments.</dd>
         </dl>
 
-        Notice from the excerpt that the <code>print</code> function
-        can take many objects that will be printed. Optionally it
-        can take parameters named <var>sep</var>, <var>end</var>,
-        <var>file</var>, and <var>flush</var> which must be named
-        when they are used. For example, this code calls the
-        <code>print</code> function to print three words all
-        separated by a vertical bar (|).
-<pre class="python">x = "sun"
+        Notice from the excerpt that the <code>print</code> function can
+        take many objects that will be printed. Optionally it can take
+        parameters named <var>sep</var>, <var>end</var>,
+        <var>file</var>, and <var>flush</var> which must be named when
+        they are used. For example, this code calls the
+        <code>print</code> function to print three words all separated
+        by a vertical bar (|). Notice the named argument <var>sep</var>.
+
+<div class="pre"><pre class="python">x = "sun"
 y = "moon"
 z = "stars"
-print(x, y, z, sep="|")</pre></div></li>
+print(x, y, z, sep="|")</pre></div></div></li>
     </ol>
 
     <h2>Tutorial</h2>

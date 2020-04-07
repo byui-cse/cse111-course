@@ -82,6 +82,7 @@ f'''<!DOCTYPE HTML>
         <meta charset="utf-8">
         <title>U.S. National Weather Service Forecast</title>
         <style>
+            body { font-family: Tahoma, Helvetica, sans-serif; }
             th {{ padding-top: 1.5em; }}
             td {{ width: {col_width}%; vertical-align: top; }}
             td.img {{ text-align: center; }}
