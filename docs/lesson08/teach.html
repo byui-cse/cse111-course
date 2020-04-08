@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<!-- Copyright 2020, Brigham Young University - Idaho. All rights reserved. -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSE 111 - Team Activity</title>
+    <link rel="icon" type="image/png" href="../site/oneCubed.png">
+    <link rel="stylesheet" type="text/css" href="../site/style.css">
+</head>
+
+<body>
+<header>
+    <div class="logo">
+        <div class="upper">BYU</div>
+        <div class="lower">Idaho</div>
+    </div>
+    <h1>CSE 111 | Programming with Functions</h1>
+</header>
+<article>
+    <h1>08 Team Activity: Estimate Safety Improvements</h1>
+
+    <h2>Instructions</h2>
+    <p>Arrange a one hour synchronous meeting with your team for this
+    activity. Online students should coordinate a video-sharing meeting.
+    Campus students will use class time for this meeting. You should
+    prepare for this meeting by completing the preparation material and
+    the individual checkpoint assignment beforehand.</p>
+
+    <h2>Problem Statement</h2>
+    <p>Every year in the United States, thousands of people are killed
+    and millions more are injured in traffic accidents on the nation's
+    roads and highways. The U.S. National Highway Traffic Saftey
+    Administration (NHTSA) maintains <a target="_blank"
+    href="https://cdan.nhtsa.gov/tsftables/tsfar.htm">data about the
+    accidents</a>, including a list of factors contributing to each
+    accident.</a>
+
+    <p><a download href="crashes.csv">crashes.csv</a> is a CSV file that
+    contains summary data from the NHTSA about the accidents that
+    occurred on U.S. roads and highways during the years 2010 through
+    2017. <a download href="crashes.py">crashes.py</a> is a Python
+    program that uses the data to estimate how many lives would have
+    been saved and injuries avoided if drivers had stopped dangerous
+    behavior such as speeding and using cell phones while driving.
+    Unfortunately, <code>crashes.py</code> does not contain any code to
+    verify the input that the user enters while the program is running.
+    Add exception handling code to <code>crashes.py</code> to verify the
+    user's input and print helpful error messages when the user enters
+    incorrect input.</p>
+
+    <h2>Helpful Documentation</h2>
+    <ul>
+        <li><div><a target="_blank" href="https://docs.python.org/3/library/functions.html#open">open function</a>,
+        <a target="_blank" href="https://docs.python.org/3/library/exceptions.html#FileNotFoundError">FileNotFoundError</a>, and
+        <a target="_blank" href="https://docs.python.org/3/library/exceptions.html#PermissionError">PermissionError</a></div></li>
+
+        <li><div><a target="_blank" href="https://docs.python.org/3/library/functions.html#float">float function</a> and
+        <a target="_blank" href="https://docs.python.org/3/library/exceptions.html#ValueError">ValueError</a></div></li>
+
+        <li><div><a target="_blank"
+        href="https://docs.python.org/3/library/csv.html#examples">Code
+        examples</a> that use the csv module. See especially the example
+        titled "catching and reporting errors".</div></li>
+        <li><div><a target="_blank" href="https://docs.python.org/3/library/exceptions.html#KeyError">KeyError</a> and
+        <a target="_blank" href="https://docs.python.org/3/library/exceptions.html#ZeroDivisionError">ZeroDivisionError</a></div></li>
+    </ul>
+
+    <h2>Assignment</h2>
+    <p>Add exception handling code to crashes.py to verify the user's
+    input and print helpful error messages when the user enters
+    incorrect input.</p>
+
+    <p>Do the following:</p>
+    <ol>
+        <li><div>Download and save both
+        <a download href="crashes.csv">crashes.csv</a> and
+        <a download href="crashes.py">crashes.py</a> in the same
+        folder.</div></li>
+
+        <li><div>Open <code>crashes.csv</code> in VS Code or another
+        editor and notice that it contains ten columns and eight rows of
+        data regarding traffic accidents in the United
+        States.</div></li>
+
+        <li><div>Open <code>crashes.py</code> in VS Code and notice that
+        lines 18 and 19 contain code to ask the user for a filename and
+        then open that file. It is possible that when the computer
+        executes lines 18 and 19, the user may enter the name of a file
+        that does not exist or may enter the name of a file that the
+        user does not have permission to read. These two situations
+        cause the computer to raise a <code>FileNotFoundError</code> and
+        <code>PermissionError</code>, respectively.</div></li>
+
+        <li><div>Notice that line 23 of <code>crashes.py</code> contains
+        code to prompt the user for a number. It is possible that while
+        the computer is executing line 23, the user may enter text that
+        is not a number, for example: "4r0". This situation causes the
+        computer to raise a <code>ValueError</code>. It is also possible
+        that the user may enter a number that is too low or too high,
+        for example: -15 or 110. In this situation, the computer does
+        not raise an exception, but this situation is still a mistake
+        that the program should alert the user about.</div></li>
+
+        <li><div>Notice that lines 32 through 37 of
+        <code>crashes.py</code> contain code to process each line of the
+        CSV file. It is possible that the CSV file is formatted
+        incorrectly which would cause the computer to raise either
+        <code>csv.Error</code> or <code>KeyError</code>. It is also
+        possible that one of the rows in the CSV file contains zero (0)
+        in the "Fatal Crashes" column. This would cause the computer to
+        raise <code>ZeroDivisionError</code> at line 57 within the
+        <code>estimate_reduction</code> function.</div></li>
+
+        <li><div>Add exception handling code to handle
+        <code>FileNotFoundError</code> and <code>PermissionError</code>.
+        Adding this code may include writing and calling a separate
+        function that prompts the user for a filename and opens that
+        file.</div></li>
+
+        <li><div>Add exception handling code and other code to handle
+        <code>ValueError</code> and percentages that are less than 0 or
+        greater than 100. Adding this code may include writing and
+        calling a separate function that prompts the user for a number
+        and checks if the number is less than 0 or greater than
+        100.</div></li>
+    </ol>
+
+    <h3>Core Requirements</h3>
+    <ol>
+        <li><div>Add exception handling code that prints a useful error
+        message when the computer raises <code>FileNotFoundError</code>
+        or <code>PermissionError</code>. Your exception handling code
+        should allow the user to reenter the filename without restarting
+        the program.</div></li>
+
+        <li><div>Add exception handling code that prints a useful error
+        message when the computer raises <code>ValueError</code> while
+        it is converting the percentage entered by the user to a float.
+        Your exception handling code should allow the user to reenter
+        the percentage without restarting the program.</div></li>
+
+        <li><div>Add code that prints a useful error message when the
+        user enters a percentage that is less than 0 or greater than
+        100. Your code should allow the user to reenter the percentage
+        without restarting the program.</div></li>
+    </ol>
+
+    <h3>Stretch Challenges</h3>
+    <p>If your team finishes the core requirements in less than an
+    hour, complete one or more of these stretch challenges. Note that
+    the stretch challenges are optional.</p>
+    <ol>
+        <li><div>Add exception handling code around the loop that
+        processes each row in the CSV file. This code should handle
+        <code>csv.Error</code> and <code>KeyError</code> and should
+        print a useful error message that includes the filename and line
+        number of the line that is formatted incorrectly.</div></li>
+
+        <li><div>Add more exception handling code around the loop that
+        processes each row in the CSV file. This code should handle
+        <code>ZeroDivisionError</code> and should print a useful error
+        message that includes the filename and line number of the line
+        that contains zero (0) in the "Fatal Crashes" column.</div></li>
+
+        <li><div>Test <em>all</em> of your error handling code,
+        including the code that handles <code>ZeroDivisionError</code>
+        and <code>PermissionError</code>. To test
+        <code>ZeroDivisionError</code>, you could temporarilly change
+        one of the numbers in the "Fatal Crashes" column of
+        <code>crashes.csv</code> to zero. To test
+        <code>PermissionError</code>, you could create a CSV file or a
+        simple text file and then use File Explorer or Finder to change
+        the permissions on that file so that you don't have permission
+        to read that file.</li></div>
+    </ol>
+
+    <h2>Sample Run</h2>
+<pre class="console">&gt; python teach_solution.py
+Name of file that contains NHTSA data: <span class="input">crushes.vsc</span>
+[Errno 2] No such file or directory: 'crushes.vsc'
+Please choose a different file.
+Name of file that contains NHTSA data: <span class="input">unreadable.csv</span>
+[Errno 13] Permission denied: 'unreadable.csv'
+Please choose a different file.
+Name of file that contains NHTSA data: <span class="input">crashes.csv</span>
+
+Percent reduction of texting while driving [0, 100]: <span class="input">4r0</span>
+Error: could not convert string to float: '4r0'
+Percent reduction of texting while driving [0, 100]: <span class="input">-5</span>
+Error: -5.0 is too low. Please enter a different number.
+Percent reduction of texting while driving [0, 100]: <span class="input">110</span>
+Error: 110.0 is too high. Please enter a different number.
+Percent reduction of texting while driving [0, 100]: <span class="input">50</span>
+
+With a 50.0% reduction in using a cell phone while
+driving, approximately this number of injuries and
+deaths would have been prevented in the USA.
+
+Year, Injuries, Deaths
+2010, 15631, 230
+2011, 15811, 232
+2012, 16759, 240
+2013, 15738, 224
+2014, 15052, 211
+2015, 17006, 247
+2016, 19953, 246
+2017, 16077, 217</pre>
+
+    <h2>Testing Procedure</h2>
+    <p>Verify that your program works correctly by following each step
+    in this testing procedure:</p>
+    <ol class="testing">
+        <li><div>Run the <code>crashes.py</code> program and enter the
+        inputs shown in the "Sample Run" section above. Verify that the
+        exception handling code that you added prints error messages as
+        shown in the "Sample Run" section.</div></li>
+    </ol>
+
+    <h2>Sample Solution</h2>
+    <p>Please work diligently with your team for the one-hour meeting.
+    After the meeting is over, please compare your approach to the
+    sample solution. Please <strong>do not look at the sample
+    solution</strong> until you have either finished the program or
+    diligently worked for at least one hour. At the end of the hour, if
+    you are still struggling to complete the assignment, you may use the
+    sample solution to help you finish.</p>
+
+    <ul class="links">
+        <li>Sample solution:
+        <a download href="./teach_solution.py">teach_solution.py</a></li>
+    </ul>
+
+    <h2>Submission</h2>
+    <p>When you have finished the activity, please report your progress
+    via the associated I-Learn quiz. When asked about which of the
+    requirements you completed, feel free to include any work done
+    during the team meeting or after the meeting, including work done
+    with the help of the sample solution, if necessary. In short, report
+    on what you were able to accomplish, regardless of when you
+    completed it or if you needed help from the sample solution.</p>
+</article>
+<footer>
+    <small>Copyright &copy; 2020, Brigham Young University - Idaho. All
+    rights reserved.</small>
+</footer>
+</body>
+</html>

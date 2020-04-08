@@ -14,9 +14,14 @@ FATIGUE_KEY = "Fatal Crashes involving Fatigue or Illness"
 
 
 def main():
-    infile = get_input_file("Name of file that contains NHTSA data: ")
+    # Prompt the user for a filename and open that text file.
+    filename = input("Name of file that contains NHTSA data: ")
+    infile = open(filename, "rt")
+    print()
 
-    perc_reduc = get_float(0, 100, "Percent reduction of texting while driving [0, 100]: ")
+    # Prompt the user for a percentage.
+    perc_reduc = float(input("Percent reduction of texting while driving: "))
+    print()
 
     print(f"With a {perc_reduc}% reduction in using a cell phone while\n"+
         "driving, approximately this number of injuries and\n" +
@@ -24,53 +29,14 @@ def main():
     print()
 
     # Process each row in the CSV file.
-    try:
-        print("Year, Injuries, Deaths")
-        reader = csv.DictReader(infile)
-        for row in reader:
-            year = row[YEAR_KEY]
-            injur, fatal = estimate_reduction(row, PHONE_KEY, perc_reduc)
-            print(year, injur, fatal, sep=", ")
-    except ZeroDivisionError as ex:
-        print(f'Error: line {reader.line_num} of {infile.name} contains 0 in the "Fatal Crashes" column.')
-    except Exception as ex:
-        print(f"Error: line {reader.line_num} of {infile.name} is formatted incorrectly.")
+    print("Year, Injuries, Deaths")
+    reader = csv.DictReader(infile)
+    for row in reader:
+        year = row[YEAR_KEY]
+        injur, fatal = estimate_reduction(row, PHONE_KEY, perc_reduc)
+        print(year, injur, fatal, sep=", ")
 
     infile.close()
-
-
-def get_input_file(prompt):
-    """Prompt the user for a filename and
-    return a corresponding open text file.
-    """
-    infile = None
-    while infile == None:
-        filename = input(prompt)
-        try:
-            infile = open(filename, "rt")
-        except (FileNotFoundError, PermissionError) as ex:
-            print(ex)
-            print("Please choose a different file.")
-    print()
-    return infile
-
-
-def get_float(min, max, prompt):
-    """Prompt the user for a percentage
-    and return the percentage as a float.
-    """
-    num = None
-    while num == None:
-        try:
-            num = float(input(prompt))
-            if num < min or max < num:
-                direc = "low" if num < min else "high"
-                print(f"Error: {num} is too {direc}. Please enter a different number.")
-                num = None
-        except ValueError as ex:
-            print("Error:", ex)
-    print()
-    return num
 
 
 def estimate_reduction(row, behavior_key, perc_reduc):
