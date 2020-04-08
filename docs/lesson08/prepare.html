@@ -20,69 +20,134 @@
 </header>
 <article>
     <h1>08 Prepare: Handling Errors</h1>
+    <p>Errors and exceptional situations sometimes occur while a program
+    is running. Such errors include a file that does not exist, a
+    connection error from trying to connect to a server, data that
+    cannot be found on a server, and calculations that produce undefined
+    results. A well written program handles errors in a graceful manner
+    that may include adjusting to an error, printing an error message
+    for the user to see, and saving an error to a log file. During this
+    lesson, you will learn to write code that handles errors that may
+    occur while your Python program is running.</p>
 
-    <p></p>
+    <h2>Videos</h2>
+    <p>Watch these videos from Microsoft about error handling.</p>
+    <ul class="links">
+        <li><a target="_blank" href="https://channel9.msdn.com/Series/Intro-to-Python-Development/Python-for-Beginners-17-of-44-Error-Handling">Error Handling Concepts</a></li>
+        <li><a target="_blank" href="https://channel9.msdn.com/Series/Intro-to-Python-Development/Python-for-Beginners-18-of-44-Demo-Error-Handling">Error Handling Demo</a></li>
+    </ul>
 
+    <h2>Concepts</h2>
     <p>Here are the Python programming concepts and topics that you
     should learn this week.</p>
 
     <ol>
-        <li><div>While a program is running</div></li>
+        <li><div>An exception is a relatively rare exceptional event
+        that sometimes occurs while a Python program is running. In
+        Python, an error is a type of exception. There are many
+        different <a target="_blank"
+        href="https://docs.python.org/3/library/exceptions.html">built-in
+        exceptions</a> that may occur while a Python programming is
+        running.</div></li>
 
-        <li><div></div></li>
+        <li><div>When an exceptional event occurs, a Python function
+        raises an exception which may be handled by code at another
+        location in the executing Python program. The Python keyword to
+        raise an exception is <code>raise</code>.</div></li>
 
-        <li><div></div></li>
+        <li><div>The Python keywords to handle exceptions are
+        <code>try</code>, <code>except</code>, <code>else</code>, and
+        <code>finally</code>. The following example code contains the
+        outline of a complete try-except-else-finally block. Read the
+        code and its comments carefully to understand the correct syntax
+        and organization of a try-except-else-finally block.
 
-        <li><div></div></li>
+<div class="pre"><pre class="python"><em>try</em>:
+    # Write normal code here. This block must include
+    # code that falls into two groups:
+    # 1. Code that may cause an exception to be raised
+    # 2. Code that depends on the results from the code
+    #    in the first group
+<em>except ZeroDivisionError as ex:</em>
+    # Code that the computer executes if the code in the
+    # try block caused a ZeroDivisionError to be raised.
+<em>except OSError as ex:</em>
+    # Code that the computer executes if the code in
+    # the try block caused an OSError to be raised.
+<em>except ValueError as ex:</em>
+    # Code that the computer executes if the code in
+    # the try block caused a ValueError to be raised.
+<em>except (RuntimeError, TypeError, NameError) as ex:</em>
+    # Code that the computer executes if the code in the try
+    # block raised a RuntimeError, TypeError, or NameError.
+<em>except as ex:</em>
+    # Code that the computer executes if the code in the
+    # try block caused any excption to be raised that was
+    # not handled by one of the previous except blocks.
+<em>else:</em>
+    # Code that the computer executes after the code
+    # in the try block if the code in the try block
+    # did not raise any exceptions.
+<em>finally:</em>
+    # Code that is executed after all the other code in
+    # try, except, and else blocks regardless of whether
+    # an exception was raised or not.</pre></div></div></li>
+
+        <li><div>As shown in the example code above, when we want to
+        write code that will handle exceptions, we first write the
+        normal code that might cause an exception but does not handle
+        exceptions inside a <code>try</code> block. Then we write
+        <code>except</code> blocks to handle the exceptions. Each
+        <code>except</code> block may handle one type of exception such
+        as:
+<div class="pre"><pre class="python">except ValueError as ex:</pre></div>
+        Or each <code>except</code> block may handle several types of
+        exceptions, such as:
+<div class="pre"><pre class="python">except (RuntimeError, TypeError, NameError) as ex:</pre></div>
+        Or one except block may handle all possible types of exceptions
+        such as:
+<div class="pre"><pre class="python">except as ex:</pre></div>
+        We must order except blocks from most specific at the top to
+        least specific (most general) at the bottom.</div></li>
+
+        <li><div>As shown in the example code above, after all the
+        <code>except</code> blocks, we may write an optional
+        <code>else</code> block that the computer executes after the
+        code in the <code>try</code> block if the code in the
+        <code>try</code> block did not raise any exceptions.</div></li>
+
+        <li><div>As shown in the example code above, at the end of
+        exception handling code, we may write an optional
+        <code>finally</code> block. The <code>finally</code> block
+        contains code that the computer executes after all the other
+        code in the <code>try</code>, <code>except</code>, and
+        <code>else</code> blocks regardless of whether an exception was
+        raised or not. The code in the <code>finally</code> block
+        usually contains "clean up" code that frees resources that the
+        code in the <code>try</code> block used. For example, if the
+        code in the <code>try</code> block opens a file, the code in the
+        <code>finally</code> block could close that file.</div></li>
     </ol>
 
-    <h2>Videos</h2>
-    <p>Watch these videos about error handling from Microsoft.</p>
-    <ul class="links">
-        <li><a target="_blank" href="https://channel9.msdn.com/Series/Intro-to-Python-Development/Python-for-Beginners-17-of-44-Error-Handling">Error Handling Concepts</a></li>
-        <li><a target="_blank" href="https://channel9.msdn.com/Series/Intro-to-Python-Development/Python-for-Beginners-18-of-44-Demo-Error-Handling">Error Handling Demo</a></li>
-        <li><a target="_blank" href=""></a></li>
-    </ul>
-
     <h2>Documentation</h2>
+    <p>If the concepts above seem vague, these tutorials may clear some
+    confusion for you:</p>
+
     <ul class="links">
         <li><a target="_blank" href="https://realpython.com/python-exceptions/">Python Exceptions: An Introduction</a></li>
+        <li>Official Python <a target="_blank" href="https://docs.python.org/3/tutorial/errors.html">Errors and Exceptions tutorial</a></li>
         <li><a target="_blank" href="https://realpython.com/the-most-diabolical-python-antipattern/">The Most Diabolical Python Antipattern</a></li>
         <li><a target="_blank" href="https://realpython.com/python-traceback/">Understanding the Python Traceback</a></li>
     </ul>
 
-    <ul class="links">
-        <li>Official Python <a target="_blank" href="https://docs.python.org/3/tutorial/errors.html">Errors and Exceptions</a></li>
-        <li>Official Python <a target="_blank" href="https://docs.python.org/3/library/exceptions.html#bltin-exceptions">built-in exceptions</a></li>
-    </ul>
-<div><pre class="python">try:
-    # Normal code
-    # This block must include code that falls into two groups:
-    # 1. Code that may cause an exception to be raised
-    # 2. code that depends on the results from the code in the first group
-except ZeroDivisionError as err:
-    # Code that is executed if the code in the try block caused a
-    # ZeroDivisionError to be raised.
-except OSError as err:
-    # Code that is executed if the code in the try block caused an
-    # OSError to be raised.
-except ValueError as err:
-    # Code that is executed if the code in the try block caused a
-    # ValueError to be raised.
-except (RuntimeError, TypeError, NameError) as err:
-    # Code that is executed if the code in the try block caused a
-    # RuntimeError, TypeError, or NameError to be raised.
-except as err:
-    # Code that is executed if the code in the try block caused any
-    # excption to be raised that was not handled by one of the other
-    # except blocks.
-else:
-    # Code that is executed after the code in the try block if the code
-    # in the try block did not cause an exception to be raised.
-finally:
-    # Code that is executed after all the other code in try, except, and
-    # else blocks regardless of whether an exception was raised or not.</pre></div>
-
+    <p>The official Python <a target="_blank"
+    href="https://docs.python.org/3/library/exceptions.html#bltin-exceptions">built-in
+    exceptions reference</a> contains a list of all the built-in
+    exceptions. It also includes the <a target="_blank"
+    href="https://docs.python.org/3/library/exceptions.html#exception-hierarchy">class
+    hierarchy</a> for the built-in exceptions that is helpful for
+    ordering <code>except</code> blocks from most specific to most
+    general.</p>
 </article>
 <footer>
     <small>Copyright &copy; 2020, Brigham Young University - Idaho. All
