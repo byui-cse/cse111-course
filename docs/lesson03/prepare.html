@@ -42,32 +42,33 @@
         <code>len</code>, <code>range</code>, <code>int</code>,
         <code>float</code>, <code>str</code>, <code>abs</code>,
         <code>round</code>, <code>list</code>, <code>set</code>, and
-        <code>dict</code>. You can read about the built-in Python
-        functions at
-        <a target="_blank" href="https://docs.python.org/3/library/functions.html">docs.python.org/3/library/functions.html</a></div></li>
+        <code>dict</code>. You can read about the built-in functions in
+        the "<a target="_blank"
+        href="https://docs.python.org/3/library/functions.html">Built-in
+        Functions</a>" section of the official Python online
+        reference.</div></li>
 
         <li><div>A Python <dfn>module</dfn> is collection of related
         functions.</div></li>
 
-        <li><div>Python includes many standard modules which have
-        more functions, such as the <code>math</code> module which
-        includes the <code>floor</code>, <code>ceil</code>, and
-        <code>sqrt</code> functions and the <code>csv</code> module
-        which includes the <code>reader</code> and
-        <code>writer</code> functions. You can read more about the
-        Python modules at <a target="_blank"
-        href="https://docs.python.org/3/py-modindex.html">https://docs.python.org/3/py-modindex.html</a></div></li>
+        <li><div>Python includes many standard modules which have more
+        functions, such as the <code>math</code> module which includes
+        the <code>floor</code>, <code>ceil</code>, and <code>sqrt</code>
+        functions and the <code>csv</code> module which includes the
+        <code>reader</code> and <code>writer</code> functions. You can
+        read more about the standard modules in the <a target="_blank"
+        href="https://docs.python.org/3/py-modindex.html">Python Module
+        Index</a>.</div></li>
 
         <li><div>A programmer (you) can save lots of time by using
         existing functions.</div></li>
 
-        <li><div>A programmer uses a function by calling it (also
-        known as invoking it). To <dfn>call</dfn> (or
-        <dfn>invoke</dfn>) a function means to write code that
-        causes the computer to execute the code that is inside of
-        that function. During CSE 110, you often wrote code that
-        called the <code>input</code> and <code>print</code>
-        functions. For example:
+        <li><div>A programmer uses a function by calling it (also known
+        as invoking it). To <dfn>call</dfn> (or <dfn>invoke</dfn>) a
+        function means to write code that causes the computer to execute
+        the code that is inside of that function. During CSE 110, you
+        often wrote code that called the <code>input</code> and
+        <code>print</code> functions. For example:
 <div class="pre"><pre class="python">name = input("Please enter your name: ")
 print(f"Hello {name}")</pre></div></div></li>
 
@@ -81,9 +82,9 @@ print(f"Hello {name}")</pre></div></div></li>
             <li><div>what the function does</div></li>
         </ol>
         All of this information is normally available in online
-        documentation. For example, from the online Python
-        documentation about the <code>math</code> module, we read
-        this about the <code>sqrt</code> function:
+        documentation. For example, from the online Python documentation
+        about the <code>math</code> module, we read this about the
+        <code>sqrt</code> function:
 
         <dl class="function">
             <dt><code>math.sqrt(x)</code></dt>
@@ -96,65 +97,62 @@ print(f"Hello {name}")</pre></div></div></li>
             <code>math</code></div></li>
             <li><div>the name of the function is
             <code>sqrt</code></div></li>
-            <li><div>the function takes one parameter
-            named <var>x</var></div></li>
-            <li><div>the function computes and returns the square
-            root of a number</div></li>
+            <li><div>the function takes one parameter named
+            <var>x</var></div></li>
+            <li><div>the function computes and returns the square root
+            of a number</div></li>
         </ol></div></li>
 
         <li><div>A <dfn>parameter</dfn> is a piece of data that a
         function needs in order to complete its task. In the online
-        documentation for the <code>math</code> module, we see that
-        the
+        documentation for the <code>math</code> module, we see that the
         <a target="_blank" href="https://docs.python.org/3/library/math.html#math.sqrt"><code>math.sqrt</code></a>
         function has one parameter named <var>x</var> which is the
-        number that <code>math.sqrt</code> will compute the square
-        root of.
+        number that <code>math.sqrt</code> will compute the square root
+        of.
 
         <dl class="function">
             <dt><code>math.sqrt(x)</code></dt>
             <dd>Return the square root of <var>x</var>.</dd>
         </dl>
 
-        In order for the <code>math.sqrt</code> function to do its
-        job (compute the square root), a programmer must write code
-        to pass a number through the parameter <var>x</var> into
-        into the <code>math.sqrt</code> function. Here is a simple
-        example of passing a number to the <code>math.sqrt</code>
-        function:
-        <div class="pre"><pre class="python">r = math.sqrt(71)</pre></div>
+        In order for the <code>math.sqrt</code> function to do its job
+        (compute the square root), a programmer must write code to pass
+        a number through the parameter <var>x</var> into the
+        <code>math.sqrt</code> function. Here is a simple example of
+        passing a number to the <code>math.sqrt</code> function:
+<div class="pre"><pre class="python">r = math.sqrt(71)</pre></div>
 
-        In the above example, 71 will be passed through the
-        parameter <var>x</var> into the <code>math.sqrt</code>
-        function. The <code>math.sqrt</code> function will compute
-        the square root of 71 and return the computed value which
-        will then be stored in the variable <var>r</var>.</div></li>
+        In the above example, 71 will be passed through the parameter
+        <var>x</var> into the <code>math.sqrt</code> function. The
+        <code>math.sqrt</code> function will compute the square root of
+        71 and return the computed value which will then be stored in
+        the variable <var>r</var>.</div></li>
 
         <li><div>An <dfn>argument</dfn> is the value that is passed
-        through a parameter into a function. In other words,
-        parameters are listed in a function's header, and arguments
-        are listed in a call to a function. In this example code:
-        <div class="pre"><pre class="python">r = math.sqrt(71)</pre></div>
+        through a parameter into a function. In other words, parameters
+        are listed in a function's header, and arguments are listed in a
+        call to a function. In this example code:
+<div class="pre"><pre class="python">r = math.sqrt(71)</pre></div>
         71 is the argument that is passed into the
         <code>math.sqrt</code> function through its parameter
         <var>x</var>.
 
         When a function has more than one parameter and a programmer
-        writes code to call that function, the programmer usually
-        writes the arguments in the same order as the parameters.
-        Consider the built-in Python <code>round</code> function:
+        writes code to call that function, the programmer usually writes
+        the arguments in the same order as the parameters. Consider the
+        built-in Python <code>round</code> function:
 
         <!-- At this point in their computer programming education,
         most students are familiar with only a few functions. In
         addition, many of the students do not know enough math to
-        successfully pass college algebra. It was difficult to
-        choose a Python function with multiple parameters and a
-        purpose that most students would understand. I settled on
-        the round function even though its second parameter is
-        optional. Here are some other functions that I considered
-        writing about in this list item:
-        divmod, pow, range, open, math.comb,
-        math.perm, math.dist, math.remainder -->
+        successfully pass college algebra. It was difficult to choose a
+        Python function with multiple parameters and a purpose that most
+        students would understand. I settled on the round function even
+        though its second parameter is optional. Here are some other
+        functions that I considered writing about in this list item:
+        divmod, pow, range, open, math.comb, math.perm, math.dist,
+        math.remainder -->
 
         <dl class="function">
             <dt><code>round(number, ndigits)</code></dt>
@@ -165,9 +163,9 @@ print(f"Hello {name}")</pre></div></div></li>
             <var>number</var>.</dd>
         </dl>
 
-        Now consider this Python code that gets a number from a
-        user, rounds that number to two digits after the decimal,
-        and then prints the rounded number.
+        Now consider this Python code that gets a number from a user,
+        rounds that number to two digits after the decimal, and then
+        prints the rounded number.
 
 <div class="pre"><pre class="linenums">1
 2
@@ -204,14 +202,13 @@ print(r)</pre></div>
         </dl>
 
         From the description we read that the second argument is
-        optional. If the programmer doesn't pass a second argument,
-        the <var>number</var> will be rounded to an
-        integer.</div></li>
+        optional. If the programmer doesn't pass a second argument, the
+        <var>number</var> will be rounded to an integer.</div></li>
 
         <li><div>For some optional arguments, we must pass a <dfn>named
-        argument</dfn> which is an argument that is preceeded by the
-        name of its matching parameter. For example, here is an excerpt
-        from the documentation for the <code>print</code> function:
+        argument</dfn> which is an argument that is preceded by the name
+        of its matching parameter. For example, here is an excerpt from
+        the documentation for the <code>print</code> function:
 
         <dl class="function">
             <dt><code>print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)</code></dt>
