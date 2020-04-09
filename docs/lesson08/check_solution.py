@@ -19,7 +19,7 @@ def main():
         end = datetime.today()
         start = end - timedelta(days=13*30)
 
-        # Arguments that focus the http request for data.
+        # Arguments that focus the http data request.
         args = {
             "start_date" : start.strftime("%Y-%m-%d"),
             "end_date" : end.strftime("%Y-%m-%d"),

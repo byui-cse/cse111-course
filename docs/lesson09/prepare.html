@@ -44,10 +44,11 @@
 
     <h2>Concepts</h2>
     <p>Here are the Python programming concepts and topics that you
-    should learn this week.</p>
+    should learn during this lesson.</p>
 
     <ol>
-        <li><div><a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/overview.html"><code>pandas</code></a>
+        <li><div><a target="_blank"
+        href="https://pandas.pydata.org/pandas-docs/stable/getting_started/overview.html"><code>pandas</code></a>
         is a Python module that enables data analysis and includes
         functionality to read and write CSV files, retrieve, modify,
         store, sort, filter, and aggregate data, and draw charts. In
@@ -66,56 +67,99 @@
         structure and is composed of <code>Elements</code>. An
         <code>Element</code> is a single piece of data.</div></li>
 
-        <li><div><a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html"><code>pandas.read_csv</code></a>
+        <li><div><a target="_blank"
+        href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html"><code>pandas.read_csv</code></a>
         will read a CSV file and return a <code>DataFrame</code>.
         <code>read_csv</code> has a huge number of parameters most of
-        which are optional. The <code>filepath</code>,
-        <code>dtype</code>, and <code>parse_dates</code> parameters are
-        the most useful for the assignments you will complete in this
-        course.</div></li>
+        which are optional. The <var>filepath</var>, <var>dtype</var>,
+        and <var>parse_dates</var> parameters are the most useful for
+        the assignments you will complete in this course.</div></li>
 
-        <li><div><a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.dtypes.html"><code>pandas.DataFrame.dtypes</code></a>
+        <li><div><a target="_blank"
+        href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.dtypes.html"><code>DataFrame.dtypes</code></a>
         is an attribute of a DataFrame and contains a Series with the
         data type of each column in the DataFrame. You may want to print
-        <code>.dtype</code> after calling <code>read_csv()</code> so that
-        you can verify that the DataFrame was read correctly. For
+        <var>dtype</var> attribute after calling <code>read_csv()</code>
+        so that you can verify that the DataFrame was read correctly.
+        For example:
+<div class="pre"><pre class="python">import pandas as pd
+
+df = pd.read_csv("filename.csv")
+<em>print(df.dtype)</em></pre></div></div></li>
+
+        <li><div><a target="_blank"
+        href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.describe.html"><code>DataFrame.describe()</code></a>
+        is a function that returns several statistics that summarize the
+        data in a DataFrame. You may want to print the results of
+        <code>describe()</code> after calling <code>read_csv()</code>
+        to help you understand the data that is in the DataFrame. For
         example:
 <div class="pre"><pre class="python">import pandas as pd
 
-data = pd.read_csv("fuel_usage.csv")
-<em>print(data.dtype)</em></pre></div></div></li>
+df = pd.read_csv("filename.csv")
+<em>print(df.describe())</em></pre></div></div></li>
 
-        <li><div><a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.describe.html"><code>pandas.DataFrame.describe()</code></a>
-        is a function that returns several statistics that summarize the
-        data in a DataFrame. You may want to print the results of
-        <code>.describe()</code> after calling <code>read_csv()</code>
-        to help you understand the data that is in the
-        DataFrame. For example:
-<div class="pre"><pre class="python">import pandas as pd
-
-data = pd.read_csv("fuel_usage.csv")
-<em>print(data.describe())</em></pre></div></div></li>
-
-        <li><div>To <a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/03_subset_data.html#how-do-i-select-specific-columns-from-a-dataframe">select a column</a>
+        <li><div>To <a target="_blank"
+        href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/03_subset_data.html#how-do-i-select-specific-columns-from-a-dataframe">select a column</a>
         from a DataFrame write the column's name in square brackets. For
         example:
 <div class="pre"><pre class="python">import pandas as pd
 
-data = pd.read_csv("fuel_usage.csv")
-<em>column = data["col_name"]</em></pre></div></div></li>
+df = pd.read_csv("filename.csv")
+<em>column = df["col_name"]</em></pre></div></div></li>
 
-        <li><div>To <a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/03_subset_data.html#how-do-i-filter-specific-rows-from-a-dataframe">filter rows</a>
+        <li><div>To <a target="_blank"
+        href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/03_subset_data.html#how-do-i-filter-specific-rows-from-a-dataframe">filter rows</a>
         out of a DataFrame, write a comparison in square brackets. For
-        example:
+        example in the following code, <var>df</var> is a DataFrame that
+        contains all the rows in the CSV file <code>filename.csv</code>.
+        <var>filtered_data</var> is a DataFrame that contains all the
+        rows from <var>df</var> with a value in <var>col_name</var> that
+        is greater than <var>threshold</var>.
 <div class="pre"><pre class="python">import pandas as pd
 
-data = pd.read_csv("fuel_usage.csv")
-<em>filtered_data = data[data["col_name"] &gt; value]</em></pre></div></div></li>
+df = pd.read_csv("filename.csv")
+<em>filtered_data = df[df["col_name"] &gt; threshold]</em></pre></div></div></li>
 
-        <li><div>.drop_duplicates()</div></li>
-        <li><div>.unique()</div></li>
-        <li><div>.value_counts()</div></li>
-        <li><div>.sum(), .min(), .max()</div></li>
+        <li><div>To filter out duplicate rows, call the <a target="_blank"
+        href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.drop_duplicates.html">DataFrame.drop_duplicates()</a>
+        function. For example in the following code, <var>no_dups</var>
+        is a DataFrame that contains the same data as <var>df</var> but
+        with all duplicate rows removed.
+<div class="pre"><pre class="python">import pandas as pd
+
+df = pd.read_csv("filename.csv")
+<em>no_dups = df.drop_duplicates()</em></pre></div></div></li>
+
+        <li><div>The <a target="_blank"
+        href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.unique.html">Series.unique()</a>
+        function returns a list of unique values from a Series. This is
+        very helpful to get a list of unique values from a column. In
+        the following code, <var>unique_vals</var> is a list of the
+        unique values that appear in the column named
+        <var>col_name</var>.
+<div class="pre"><pre class="python">import pandas as pd
+
+df = pd.read_csv("filename.csv")
+column = df["col_name"]
+<em>unique_vals = column.unique()</em></pre></div></div></li>
+
+        <li><div>The <a target="_blank"
+        href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.value_counts.html">Series.value_counts()</a>
+        function counts the number of times that each unique value
+        occurs in a Series.</div></li>
+
+        <li><div>The <a target="_blank"
+        href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.sum.html">Series.sum()</a>
+        function computes the sum of all the values in a Series.</div></li>
+
+        <li><div>The <a target="_blank"
+        href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.min.html">Series.min()</a>
+        function finds the minimum value within a Series.</div></li>
+
+        <li><div>The <a target="_blank"
+        href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.min.html">Series.max()</a>
+        function finds the maximum value within a Series.</div></li>
     </ol>
 </article>
 <footer>
