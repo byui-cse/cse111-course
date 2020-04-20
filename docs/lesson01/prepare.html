@@ -44,8 +44,19 @@
         <li><div>It is possible to convert between many of the data
         types. For example, to convert from any data type to a string,
         we use the <code>str()</code> function. To convert from a string
-        to an integer, we use the <code>int()</code>
-        function.</div></li>
+        to an integer, we use the <code>int()</code> function. This is
+        especially helpful to convert user input, which is always a
+        string, from a string to a number. For example:
+<div class="pre"><pre class="python"># Get user input and convert it to an integer so
+# that the integer can be used in calculations.
+i = <em>int(</em>input("Please enter an integer: ")<em>)</em>
+
+# Get user input and convert it to a floating point
+# number so that the number can be used in calculations.
+f = <em>float(</em>input("Please enter a number: ")<em>)</em>
+
+x = i * f / 3 - 2
+print(x)</pre></div></div></li>
 
         <li><div>Python has many arithmetic operators including power
         (**), negation (-), multiplication (*), division (/), floor

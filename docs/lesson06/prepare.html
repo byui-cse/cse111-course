@@ -28,7 +28,7 @@
     writing and calling functions. These details will help you
     understand functions better and use them more effectively. These
     details include variable scope, default parameter values, optional
-    arguments, and how arguments are passed to functions.</p>
+    arguments, and the way arguments are passed to functions.</p>
 
     <h2>Variable Scope</h2>
     <p>The <dfn>scope</dfn> of a variable determines how long that
@@ -63,12 +63,12 @@
     with local scope) is defined inside a function, exists for as long
     as its containing function is executing, and can be used within its
     containing function but nowhere else. Parameters have local scope
-    scope because they are defined within a function, specifically
-    within a function’s header and exist for as long as their containing
-    function is executing. A global variable (a variable with global
-    scope) is defined outside of all functions, exists for as long as
-    its containing Python program is executing and can be used within
-    all functions in its containing Python program.</p>
+    because they are defined within a function, specifically within a
+    function’s header and exist for as long as their containing function
+    is executing. A global variable (a variable with global scope) is
+    defined outside of all functions, exists for as long as its
+    containing Python program is executing and can be used within all
+    functions in its containing Python program.</p>
 
     <table><thead>
         <tr><th colspan="3">Python Variable Scope</th></tr>
@@ -246,14 +246,14 @@ After changing y:  x 3  y 4</pre>
 
     Within the previous code,
     <ul>
-        <li><div>the statement on line 2 stores the value 3 into
-        the variable <var>x</var>.</div></li>
+        <li><div>the statement on line 2 stores the value 3 into the
+        variable <var>x</var>.</div></li>
         <li><div>Line 3 copies the value that is in the variable
         <var>x</var> into the variable <var>y</var>.</div></li>
         <li><div>Line 4 prints the values of <var>x</var> and
         <var>y</var> which are both 3.</div></li>
-        <li><div>Line 5 adds one to the value of <var>y</var>, making
-        its value 4 instead of 3.</div></li>
+        <li><div>Line 5 adds 1 to the value of <var>y</var>, making its
+        value 4 instead of 3.</div></li>
         <li><div>Line 6 prints the values of <var>x</var> and
         <var>y</var>. The value of <var>x</var> remained unchanged. The
         value of <var>y</var> was changed to 4.</div></li>
@@ -408,7 +408,7 @@ main()</span></pre></div>
         <li><div>Line 9 calls the <code>modify_args</code> function and
         passes <var>x</var> and <var>lx</var> to that function.</div></li>
         <li><div>Within the <code>modify_args</code> function, line 22
-        changes the value of the parameter <var>n</var> by adding one to
+        changes the value of the parameter <var>n</var> by adding 1 to
         it.</div></li>
         <li><div>Line 23 prints the values of <var>x</var> and
         <var>lx</var> after they were passed to the
@@ -429,14 +429,14 @@ After calling modify_args():  x 5  lx [7, -2, 4]</pre>
 
     <p>From the output of the third program, we can see that modifying
     an integer parameter changes the integer within the called function
-    only. However modifying a list parameter changes the list within the
-    called function and within the calling function. Why? Because when a
-    computer passes a boolean, integer, or float variable to a function,
-    the computer copies <em>the value</em> of that variable into the
-    parameter of the called function. However, when a computer passes a
-    list, set, or dictionary variable to a function, the computer copies
-    <em>the reference</em> so that the original variable and the
-    parameter both refer to the same value in memory.</p>
+    only. However, modifying a list parameter changes the list within
+    the called function and within the calling function. Why? Because
+    when a computer passes a boolean, integer, or float variable to a
+    function, the computer copies <em>the value</em> of that variable
+    into the parameter of the called function. However, when a computer
+    passes a list, set, or dictionary variable to a function, the
+    computer copies <em>the reference</em> so that the original variable
+    and the parameter both refer to the same value in memory.</p>
 </article>
 <footer>
     <small>Copyright &copy; 2020, Brigham Young University - Idaho. All
