@@ -25,41 +25,10 @@
     <p>Here are the Python programming concepts and topics from CSE 110
     that you should review during this lesson.</p>
     <ol>
-        <li><div>In Python, we use <code>if</code> statements to cause
-        the computer to make decisions. <code>if</code> statements are
-        also called <dfn>selection</dfn> because the computer selects
-        one group of statements to execute and skips the other group of
-        statements.</div></li>
-
-        <li><div>Each <code>if</code> statement may have an
-        <code>else</code> statement. We can combine <code>else</code>
-        and <code>if</code> into the keyword
-        <code>elif</code>.</div></li>
-
-        <li><div>There are six comparison operators that we can use in
-        an <code>if</code> statement: less than (&lt;), less than or
-        equal (&lt;=), greater than (&gt;=), greater than or equal
-        (&gt;=), equal to (==), and not equal to (!=). Python also
-        includes two membership operators: <code>in</code> and <code>not
-        in</code>.</div></li>
-
-        <li><div>Python includes two logic operators: <code>and</code>,
-        <code>or</code> that we can use to combine two comparisons.
-        Python also includes the logical <code>not</code>
-        operator.</div></li>
-
-        <li><div>We can cause a computer to repeat a group of statements
-        by writing <code>for</code> and <code>while</code> loops. A
-        <code>for</code> loop iterates over a range such as
-        <code>range(3, 10)</code> or a sequence such as a list. A
-        <code>while</code> loop is more flexible than a <code>for</code>
-        loop and repeats while some condition is true. A
-        <code>break</code> statement causes a loop to end
-        early.</div></li>
-
         <li><div>We can store several items in a Python tuple. Tuples
         are immutable, meaning after a tuple is created, it cannot be
-        changed.</div></li>
+        changed. Tuples are most useful for data such as geometric
+        points that contain x and y parts.</div></li>
 
         <li><div>We can store many items in a Python list. Lists are
         mutable, meaning they can be changed. We can add an item to a
@@ -77,16 +46,176 @@
         set doesn't allow duplicate items. Items in a set are
         unique.</div></li>
 
-        <li><div>We can also store many items in a Python dictionary.
+        <li><div><p>We can also store many items in a Python dictionary.
         Dictionaries are mutable, meaning they can be changed. In a
         dictionary, items are stored as key value pairs and we can
-        easily write code to find a value by its key.</div></li>
+        easily write code to find a value by its key.</p>
 
-        <li><div>Python has a module named <a target="_blank"
+        <p>The following example code creates one each of a tuple, list,
+        set, and dictionary:</p>
+
+<div class="pre"><pre class="python">
+# Get a point from the user.
+x = float(input("Enter the x value of a point: "))
+y = float(input("Enter the x value of a point: "))
+
+# Create a tuple.
+point = (x, y)
+
+# Create a list.
+samples = [2.5, -3.2, 2.1, 0.6, 2.1, 0.7]
+
+# Create a set.
+names = set("Smith", "Lopez", "Marsh", "Olsen", "Vasuik")
+
+# Create a dictionary.
+students = {
+    "60-701-3210": "Maria",
+    "14-021-4361": "Phillip",
+    "29-631-5425": "Ellen"
+}</pre></div></div></li>
+
+        <li><div>In Python, we use <code>if</code> statements to cause
+        the computer to make decisions. <code>if</code> statements are
+        also called <dfn>selection</dfn> because the computer selects
+        one group of statements to execute and skips the other group of
+        statements.</div></li>
+
+        <li><div>There are six comparison operators that we can use in
+        an <code>if</code> statement:
+        <table><thead>
+        </thead></tbody>
+            <tr><td>&lt;</td> <td>less than</td></tr>
+            <tr><td>&lt;=</td> <td>less than or equal</td></tr>
+            <tr><td>&gt;</td> <td>greater than</td></tr>
+            <tr><td>&gt;=</td> <td>greater than or equal</td></tr>
+            <tr><td>==</td> <td>equal to</td></tr>
+            <tr><td>!=</td> <td>not equal to</td></tr>
+        <tbody></table>
+        Here is example code that tests if a number is greater than 500.
+<div class="pre"><pre class="python">
+# Get an account balance as a number from the user.
+balance = float(input("Please enter the account balance: "))
+
+# If the balance is greater than 500, then
+# compute and add interest to the balance.
+if <em>balance &gt; 500</em>:
+    interest = balance * 0.03
+    balance += interest</pre></div>
+
+        If you have written programs in other programming languages such
+        as JavaScript, Java, or C++, you always used curly braces to
+        mark the start and end of the body of an <code>if</code>
+        statement. However, notice in the example code above that
+        <code>if</code> statements in Python do not use curly braces.
+        Instead, we type a colon (:) after the comparison of the
+        <code>if</code> statement and then indent all the statements
+        that are in the body of the <code>if</code> statement. The body
+        of the <code>if</code> statement ends with the first line of
+        code that is not indented. It may seem strange to not use curly
+        braces to mark the start and end of the body of an
+        <code>if</code> statement. However, the Python way forces us to
+        write code where the indentation matches the functionality or in
+        other words where the way we write the code matches the way that
+        the computer will execute the code.</div></li>
+
+        <li><div>Python also includes a membership operator:
+        <code>in</code>. We can use the <code>in</code> operator to
+        determine if a list, set, or dictionary contains a value. For
+        example:
+<div class="pre"><pre class="python">
+names = set("Smith", "Lopez", "Marsh", "Olsen", "Vasuik")
+
+family = input("Please enter your family name: ")
+if family <em>in</em> names:
+    print("Your family name is in the set.")</pre></div></div></li>
+
+        <li><div>Each <code>if</code> statement may have an
+        <code>else</code> statement. We can combine <code>else</code>
+        and <code>if</code> into the keyword <code>elif</code>. For
+        example:
+<div class="pre"><pre class="python">
+# Get the cost of an item from the user.
+cost = float(input("Please enter the cost: "))
+
+# Determine a discount rate based on the cost.
+<em>if</em> cost &lt; 100:
+    rate = 0.10
+<em>elif</em> cost &lt; 250:
+    rate = 0.15
+<em>elif</em> cost &lt; 400:
+    rate = 0.18
+<em>else</em>:
+    rate = 0.20
+
+# Compute the discount amount and the discounted cost.
+discount = cost * rate
+cost -= discount
+
+# Print the discounted cost for the user to see.
+print(f"After the discount, you will pay {cost}")</pre></div></div></li>
+
+        <li><div>Python includes two logic operators: <code>and</code>,
+        <code>or</code> that we can use to combine two comparisons.
+        Python also includes the logical <code>not</code>
+        operator. Notice in Python that the logical operators are
+        literally the words: <code>and</code>, <code>or</code>,
+        <code>not</code> and not symbols as in other programming
+        languages:
+<div class="pre"><pre class="python">
+if driver &gt;= 54 <em>or</em> (driver &gt;= 32 <em>and</em> passenger &gt;= 54):
+    message = "Enjoy the ride!"</pre></div></div></li>
+
+        <li><div>We can cause a computer to repeat a group of statements
+        by writing <code>for</code> and <code>while</code> loops. A
+        <code>for</code> loop iterates over a range such as
+        <code>range(3, 10)</code> or a sequence such as a list. A
+        <code>while</code> loop is more flexible than a <code>for</code>
+        loop and repeats while some condition is true.
+<div class="pre"><pre class="python">
+# Count from zero to ten by ones.
+for i in range(10):
+    print(i)
+
+# Count from zero to ten by twos.
+for i in range(0, 10, 2):
+    print(i)
+
+# Count from 100 down to 70 by three.
+for i in range(100, 70, -3):
+    print(i)
+
+# Print each value in a list.
+names = set("Smith", "Lopez", "Marsh", "Olsen", "Vasuik")
+for family in names:
+    print(family)</pre></div></div></li>
+
+        <li><div>A <code>break</code> statement causes a loop to end
+        early.
+<div class="pre"><pre class="python">
+# Get ten or fewer numbers from the user and add them
+# together. Notice that this loop uses underscore (_) as
+# the counting variable, which is a valid variable name.
+# Many programmers use underscore to indicate that the
+# variable will not be used within the body of the loop.
+sum = 0
+for _ in range(10):
+    n = float(input("Please enter a number: "))
+    if n == 0:
+        <em>break</em>
+    sum += n
+print(sum)
+</pre></div></div></li>
+
+
+        <li><div>Many computer systems import and export data in CSV
+        files. CSV is an acronym for comma separated values. A CSV file
+        is a plain text file that contains tabular data where each row
+        is on a separate line and each cell (column) is separated by a
+        comma. Python has a module named <a target="_blank"
         href="https://docs.python.org/3/library/csv.html"><code>csv</code></a>
         that includes functionality to read and write files that contain
-        data separated by commas. CSV is an acronym for comma separated
-        values.</div></li>
+        data separated by commas.</div></li>
     </ol>
 
     <h2>Videos</h2>
@@ -111,8 +240,7 @@
     from CSE 110.</p>
 
     <ul class="links">
-        <li><a target="_blank"
-        href="https://realpython.com/python-conditional-statements/">Conditional Statements in Python</a></li>
+        <li><a target="_blank" href="https://realpython.com/python-conditional-statements/">Conditional Statements in Python</a></li>
         <li><a target="_blank" href="https://realpython.com/courses/lists-tuples-python/">Lists and Tuples in Python</a></li>
         <li><a target="_blank" href="https://realpython.com/courses/dictionaries-python/">Dictionaries in Python</a></li>
         <li><a target="_blank" href="https://realpython.com/python-for-loop/">Python "for" Loops</a></li>
