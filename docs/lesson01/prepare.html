@@ -44,19 +44,12 @@
         <li><div>It is possible to convert between many of the data
         types. For example, to convert from any data type to a string,
         we use the <code>str()</code> function. To convert from a string
-        to an integer, we use the <code>int()</code> function. This is
-        especially helpful to convert user input, which is always a
-        string, from a string to a number. For example:
-<div class="pre"><pre class="python"># Get user input and convert it to an integer so
-# that the integer can be used in calculations.
-i = <em>int(</em>input("Please enter an integer: ")<em>)</em>
-
-# Get user input and convert it to a floating point
-# number so that the number can be used in calculations.
-f = <em>float(</em>input("Please enter a number: ")<em>)</em>
-
-x = i * f / 3 - 2
-print(x)</pre></div></div></li>
+        to an integer, we use the <code>int()</code> function, and to
+        convert from a string to a float, we use the
+        <code>float()</code> function. The <code>int()</code> and
+        <code>float()</code> functions are especially useful to convert
+        user input, which is always a string, from a string to a number.
+        See the example program below.</div></li>
 
         <li><div>Python has many arithmetic operators including power
         (**), negation (-), multiplication (*), division (/), floor
@@ -73,14 +66,41 @@ print(x)</pre></div></div></li>
             <tr><td>( )</td> <td>highest precedence</td></tr>
             <tr><td>**</td> <td></td></tr>
             <tr><td>- (negation)</td> <td></td></tr>
-            <tr><td>* / // %</td> <td></td></tr>
-            <tr><td>+ -</td> <td></td></tr>
+            <tr><td>* &nbsp; / &nbsp; // &nbsp; %</td> <td></td></tr>
+            <tr><td>+ &nbsp; -</td> <td></td></tr>
             <tr><td>=</td> <td>lowest precedence</td></tr>
         </tbody></table></div></li>
 
         <li><div>We use the <code>print()</code> function to display
         output to a user.</div></li>
     </ol>
+
+    <h2>Example</h2>
+<div class="pre"><pre class="python">
+# This program computes the length of a cable given the distance
+# it will span and the distance it will sag or dip in the middle.
+
+# Get user input and convert it from
+# strings to floating point numbers.
+span = float(input("Distance the cable must span in meters: "))
+dip = float(input("Distance the cable will sag in meters: "))
+
+# Use the numbers to compute the cable length.
+length = span + 8 * dip**2 / (3 * span)
+
+# Round the length to two places after the decimal point.
+length = round(length, 2)
+
+# Print the cable length in the
+# terminal window for the user to see.
+print(f"Length of cable in meters: {length}")
+</pre></div>
+
+    <h2>Sample Run</h2>
+<pre class="console">&gt; python cable.py
+Distance the cable must span in meters: <span class="input">500</span>
+Distance the cable will sag or dip in meters: <span class="input">20</span>
+Length of cable in meters: 502.13</pre>
 
     <h2>Videos</h2>
     <p>If any of the concepts or topics in the previous list seem
