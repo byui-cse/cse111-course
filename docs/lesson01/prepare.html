@@ -71,10 +71,40 @@
             <tr><td>=</td> <td>lowest precedence</td></tr>
         </tbody></table></div></li>
 
-        <li><div>We use the <code>print()</code> function to display
-        output to a user.</div></li>
+        <li><div><p>We use the <code>print()</code> function to display
+        output to a user.</p>
 
-        <li><div>We can store several items in a Python tuple. Tuples
+        <p>The following program gets input from the user, converts the
+        input to two numbers, computes the length of a cable from the
+        two numbers, rounds the length to two places after the decimal
+        point, and prints the rounded length for the user to see.</p>
+
+<div class="pre"><pre class="python">
+# This program computes the length of a cable given the distance
+# it will span and the distance it will sag or dip in the middle.
+
+# Get user input and convert it from
+# strings to floating point numbers.
+span = float(input("Distance the cable must span in meters: "))
+dip = float(input("Distance the cable will sag in meters: "))
+
+# Use the numbers to compute the cable length.
+length = span + 8 * dip**2 / (3 * span)
+
+# Round the length to two places after the decimal point.
+length = round(length, 2)
+
+# Print the cable length in the
+# terminal window for the user to see.
+print(f"Length of cable in meters: {length}")
+</pre></div>
+
+<pre class="console">&gt; python cable.py
+Distance the cable must span in meters: <span class="input">500</span>
+Distance the cable will sag or dip in meters: <span class="input">18.5</span>
+Length of cable in meters: 501.83</pre></div></li>
+
+        <li><div>We can store several values in a Python tuple. Tuples
         are immutable, meaning after a tuple is created, it cannot be
         changed. Tuples are most useful for data such as geometric
         points that contain x and y parts.</div></li>
@@ -125,33 +155,6 @@ students = {
 }</pre></div></div></li>
 
     </ol>
-
-    <h2>Example</h2>
-<div class="pre"><pre class="python">
-# This program computes the length of a cable given the distance
-# it will span and the distance it will sag or dip in the middle.
-
-# Get user input and convert it from
-# strings to floating point numbers.
-span = float(input("Distance the cable must span in meters: "))
-dip = float(input("Distance the cable will sag in meters: "))
-
-# Use the numbers to compute the cable length.
-length = span + 8 * dip**2 / (3 * span)
-
-# Round the length to two places after the decimal point.
-length = round(length, 2)
-
-# Print the cable length in the
-# terminal window for the user to see.
-print(f"Length of cable in meters: {length}")
-</pre></div>
-
-    <h2>Sample Run</h2>
-<pre class="console">&gt; python cable.py
-Distance the cable must span in meters: <span class="input">500</span>
-Distance the cable will sag or dip in meters: <span class="input">18.5</span>
-Length of cable in meters: 501.83</pre>
 
     <h2>Videos</h2>
     <p>If any of the concepts or topics in the previous list seem
