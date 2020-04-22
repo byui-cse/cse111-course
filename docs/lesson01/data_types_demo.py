@@ -27,17 +27,17 @@ print()
 message = "What a beautiful day!"
 quant = range(10)
 point = (-2, 1.4, 3)
-names = ["Jason", "Britania", "Anders", "Takuya"]
+samples = [2.5, -3.2, 2.1, 0.6, 2.1, 0.7]
 colors = {"red", "green", "blue"}
 students = {
-    "67-412-8350":"Alan Benson",
-    "76-420-1835":"Madison Silverlake",
-    "06-412-7583":"Samyukta Daniels"
+    "67-412-8350" : "Alan Benson",
+    "76-240-1835" : "Madison Silverlake",
+    "06-412-7583" : "Samyukta Daniels"
 }
 
 # Print the variable names, data types, and values.
 for key, value in {"message":message, "quant":quant, "point":point,
-        "names":names, "colors":colors, "students":students}.items():
+        "samples":samples, "colors":colors, "students":students}.items():
     print(key, type(value), len(value), value)
 
 # Print a blank line.
