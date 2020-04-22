@@ -16,3 +16,20 @@ meters and then computes and prints the time in seconds that it takes
 for that pendulum to swing back and forth.
 """
 
+# Import the math module so that
+# we can use math.pi and math.sqrt()
+import math
+
+# Get the length from the user and
+# convert it to a floating point number.
+n = float(input("Length of pendulum (meters): "))
+
+# Compute the time required for the
+# pendulum to swing back and forth.
+t = 2 * math.pi * math.sqrt(n / 9.81)
+
+# Round the time to two places after the decimal.
+t = round(t, 2)
+
+# Display the time for the user to see.
+print(f"Time (seconds): {t}")
