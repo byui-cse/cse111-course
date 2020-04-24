@@ -7,7 +7,7 @@ qcode = "ODA/PWOOLC_USD"
 
 # This is the uniform resource locator (URL)
 # where this program will send an http request.
-url = f"https://www.quandl.com/api/v3/datasets/{qcode}.json"
+endpoint = f"https://www.quandl.com/api/v3/datasets/{qcode}.json"
 
 # These are the start and end dates for the data request. The start date
 # will be about 13 months before today, and the end date will be today.
@@ -16,6 +16,10 @@ start = end - timedelta(days=13*30)
 
 # Arguments that focus the http data request.
 args = {
+    # The API key should remain private. Do not save
+    # it to a public repository or public web site.
+    "api_key" : "The API key is in your I-Learn course.",
+
     "start_date" : start.strftime("%Y-%m-%d"),
     "end_date" : end.strftime("%Y-%m-%d"),
     "collaspe" : "monthly",
@@ -23,7 +27,7 @@ args = {
 }
 
 # Request the commodities data from Quandl.
-response = requests.get(url, params=args)
+response = requests.get(endpoint, params=args)
 
 # Check the status code to see if the request succeeded.
 if response.status_code == 200:

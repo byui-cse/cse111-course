@@ -65,11 +65,17 @@
         <a download href="commodities.py">commodities.py</a> and then
         open it in VS Code.</div></li>
 
-        <li><div>Run the program that you downloaded in the previous
-        step by clicking the run icon (small green triangle) in the
-        upper right corner of VS Code. If your computer is connected to
-        the internet, the program should run successfully and print
-        prices for Australian wool similar to this:
+        <li><div>Notice at line 21 in the program that you downloaded,
+        there is a string, "The API key is in your I-Learn course." Look
+        in I-Learn in the page that corresponds to this activity and
+        copy the API key and then paste it on line 21 to replace the
+        string, "The API key is in your I-Learn course."</div></li>
+
+        <li><div>Run the program that you downloaded by clicking the run
+        icon (small green triangle) in the upper right corner of VS
+        Code. If your computer is connected to the internet, the program
+        should run successfully and print prices for Australian wool
+        similar to this:
 <pre class="console">ODA/PWOOLC_USD
 Wool; coarse; 23 micron; Australian Wool Exchange spot quote; US cents per kilogram
 2019-01-17 2020-01-31
@@ -99,7 +105,7 @@ Wool; coarse; 23 micron; Australian Wool Exchange spot quote; US cents per kilog
             <code>requests</code> module.</div></li>
             <li><div>At lines 4 through 24, the program prepares an HTTP
             request.</div></li>
-            <li><div>At line 27, the program uses the requests module to
+            <li><div>At line 30, the program uses the requests module to
             send the HTTP request to a computer server at quandl.com.
             Notice in the call to <code>requests.get</code> that the
             program is using a named argument, which coincidentally is
@@ -107,10 +113,10 @@ Wool; coarse; 23 micron; Australian Wool Exchange spot quote; US cents per kilog
             this program, the named argument <code>params</code> causes
             the quandl.com server to filter the data that it will send
             to the program.</div></li>
-            <li><div>At line 30, the program checks the status_code of
+            <li><div>At line 33, the program checks the status_code of
             the request. A status code of 200 means the request
             succeeded.</div></li>
-            <li><div>If the request succeeded, at line 33, the program
+            <li><div>If the request succeeded, at line 37, the program
             converts the data that came from the server from JSON data
             into a dictionary.</div></li>
             <li><div>At lines 34 through 39, the program prints the

@@ -49,17 +49,18 @@ def translate(text, src_lang, targ_lang):
     """Send text to an online machine translation
     service and return the translated text.
     """
-    end_point = "https://translate.yandex.net/api/v1.5/tr.json/translate"
+    endpoint = "https://translate.yandex.net/api/v1.5/tr.json/translate"
 
-    # The API key should remain private. Do not save
-    # it to a public repository or public web site.
-    api_key = "The API key is in your Canvas course."
+    args = {
+        # The API key should remain private. Do not save
+        # it to a public repository or public web site.
+        "key" : "The API key is in your I-Learn course.",
 
-    lang_pair = f"{src_lang}-{targ_lang}"
-    url = f"{end_point}?key={api_key}&lang={lang_pair}"
+        "lang" : f"{src_lang}-{targ_lang}"
+    }
 
     transl = ""
-    response = requests.post(url, data={"text":text})
+    response = requests.post(endpoint, params=args, data={"text":text})
     if response.status_code == 200:
         # If the request was successful, retrieve
         # the translated text from the response.

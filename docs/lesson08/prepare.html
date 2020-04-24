@@ -80,9 +80,13 @@
 <em>except (RuntimeError, TypeError, NameError) as ex:</em>
     # Code that the computer executes if the code in the try
     # block raised a RuntimeError, TypeError, or NameError.
-<em>except as ex:</em>
+<em>except Exception as ex:</em>
     # Code that the computer executes if the code in the
     # try block caused any exception to be raised that was
+    # not handled by one of the previous except blocks.
+<em>except:</em>
+    # Code that the computer executes if the code in the
+    # try block caused anything to be raised that was
     # not handled by one of the previous except blocks.
 <em>else:</em>
     # Code that the computer executes after the code
@@ -104,9 +108,14 @@
         Or each <code>except</code> block may handle several types of
         exceptions, such as:
 <div class="pre"><pre class="python">except (RuntimeError, TypeError, NameError) as ex:</pre></div>
-        Or one except block may handle all possible types of exceptions
+        Or one <code>except</code> block may handle all possible types of
+        exceptions such as:
+<div class="pre"><pre class="python">except Exception as ex:</pre></div>
+        Or a bare <code>except</code> block may handle anything that can
+        be raised, including <code>SystemExit</code>,
+        <code>KeyboardInterrupt</code> and <code>GeneratorExit</code>
         such as:
-<div class="pre"><pre class="python">except as ex:</pre></div>
+<div class="pre"><pre class="python">except:</pre></div>
         We must order except blocks from most specific at the top to
         least specific (most general) at the bottom.</div></li>
 

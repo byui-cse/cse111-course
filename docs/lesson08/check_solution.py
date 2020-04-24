@@ -7,11 +7,11 @@ def main():
     try:
         # qcode is short for Quandl Code and is the code that determines
         # what data will be downloaded from Quandl by the http request.
-        qcode = "ODA/PORANG_USD"
+        qcode = "ODA/PWOOLC_USD"
 
         # This is the uniform resource locator (URL)
         # where this program will send an http request.
-        url = f"https://www.quandl.com/api/v3/datasets/{qcode}.json"
+        endpoint = f"https://www.quandl.com/api/v3/datasets/{qcode}.json"
 
         # These are the start and end dates for the data request. The start
         # date will be about 13 months before today, and the end date will
@@ -21,6 +21,10 @@ def main():
 
         # Arguments that focus the http data request.
         args = {
+            # The API key should remain private. Do not save
+            # it to a public repository or public web site.
+            "api_key" : "The API key is in your I-Learn course.",
+
             "start_date" : start.strftime("%Y-%m-%d"),
             "end_date" : end.strftime("%Y-%m-%d"),
             "collaspe" : "monthly",
@@ -28,7 +32,7 @@ def main():
         }
 
         # Request the commodities data from Quandl.
-        response = requests.get(url, params=args)
+        response = requests.get(endpoint, params=args)
         response.raise_for_status()
 
         # Check the status code to see if the request succeeded.
@@ -48,15 +52,15 @@ def main():
             print(response.status_code)
 
     except ConnectionError as ex:
-        print("Connection error", ex, sep=": ")
+        print("Connection error: ", ex)
     except Timeout as ex:
-        print("Timeout", ex, sep=": ")
+        print("Timeout: ", ex)
     except TooManyRedirects as ex:
-        print("Too many redirects", ex, sep=": ")
+        print("Too many redirects: ", ex)
     except HTTPError as ex:
-        print("HTTP error", ex, sep=": ")
+        print("HTTP error: ", ex)
     except RequestException as ex:
-        print("Request exception", ex, sep=": ")
+        print("Request exception: ", ex)
     except Exception as ex:
         print(type(ex).__name__, ex, sep=": ")
 

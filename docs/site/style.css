@@ -114,7 +114,6 @@ article li {
 }
 
 article ol li {
-	color: #006ab9;
 	margin-bottom: 1em;
 }
 
@@ -145,6 +144,10 @@ article ul.links > li:before {
 	color: #006ab9;
 	content: "»";
 	margin-right: 0.25em;
+}
+
+article ul.links > li {
+	color: #040404;
 }
 
 article dl.function {

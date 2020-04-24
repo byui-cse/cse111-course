@@ -8,6 +8,9 @@
     <title>CSE 111 - Course Materials</title>
     <link rel="icon" type="image/png" href="site/oneCubed.png">
     <link rel="stylesheet" type="text/css" href="site/style.css">
+    <style>
+        tr > td:first-child { min-width: 10em; }
+    </style>
 </head>
 
 <body>
@@ -25,313 +28,239 @@
     consult I-Learn for the official list of materials, including
     quizzes and due dates.</p>
 
-    <ul>
-        <li><div>Overview
-        <ul>
-            <li><div><a href="overview/syllabus.html">Syllabus</a></div></li>
-        </ul></div></li>
+    <table><thead>
+        <tr><th>Lesson</th>
+            <th>Program</th>
+            <th>Domain Topics</th>
+            <th>Computing Topics</th></tr>
+    </thead><tbody>
+        <tr><th colspan="4"><br>Overview</th></tr>
+        <tr><td colspan="4"><a href="overview/syllabus.html">Syllabus</a></td></tr>
 
-        <li><div>Lesson 01 - Getting Started
-        <ul>
-            <li><div>Prepare your <a href="lesson01/dev_env.html">development environment</a></div></li>
-            <li><div><a href="lesson01/prepare.html">Prepare</a></div></li>
-            <li><div><a href="lesson01/check.html">Prepare: Checkpoint</a></div></li>
-            <li><div>No team activity during lesson 1</div></li>
-            <li><div><a href="lesson01/teach.html">Teach: Class Activity</a> (for campus sections)</div></li>
-            <li><div><a href="lesson01/prove.html">Prove: Assignment</a></div></li>
-        </ul></div></li>
+        <tr><th colspan="4"><br>Lesson 1 - Getting Started</th></tr>
+        <tr><td>Prepare your
+            <a href="lesson01/dev_env.html">development environment</a></td>
+            <td><a href="lesson01/sample.py">sample</a></td>
+            <td></td>
+            <td></td></tr>
 
-        <li><div>Lesson 02 - Python Review
-        <ul>
-            <li><div><a href="lesson02/prepare.html">Prepare</a></div></li>
-            <li><div><a href="lesson02/check.html">Prepare: Checkpoint</a></div></li>
-            <li><div><a href="lesson02/teach.html">Teach: Team Activity</a></div></li>
-            <li><div><a href="lesson02/prove.html">Prove: Assignment</a></div></li>
-        </ul></div></li>
+        <tr><td><a href="lesson01/prepare.html">Prepare</a></td>
+            <td><a href="lesson01/data_types_demo.py">data_types</a></td>
+            <td></td>
+            <td></td></tr>
 
-        <li><div>Lesson 03 - Calling Built-in and Standard Functions
-        <ul>
-            <li><div><a href="lesson03/prepare.html">Prepare</a></div></li>
-            <li><div><a href="lesson03/check.html">Prepare: Checkpoint</a></div></li>
-            <li><div><a href="lesson03/teach.html">Teach: Team Activity</a></div></li>
-            <li><div><a href="lesson03/prove.html">Prove: Milestone</a></div></li>
-        </ul></div></li>
+        <tr><td><a href="lesson01/check.html">Prepare: Checkpoint</a></td>
+            <td><a href="lesson01/check_solution.py">check</a></td>
+            <td>exercise heart rates</td>
+            <td>input, arithmetic, print</td></tr>
 
-        <li><div>Lesson 04 - Calling Third-Party Functions
-        <ul>
-            <li><div><a href="lesson04/prepare.html">Prepare</a></div></li>
-            <li><div><a href="lesson04/check.html">Prepare: Checkpoint</a></div></li>
-            <li><div><a href="lesson04/teach.html">Teach: Team Activity</a></div></li>
-            <li><div><a href="lesson04/prove.html">Prove: Assignment</a></div></li>
-        </ul></div></li>
+        <tr><td><a href="lesson01/teach.html">Teach: Class Activity</a>
+            (for campus sections)</td>
+            <td><a href="lesson01/teach_solution.py">teach</a></td>
+            <td>pendulum</td>
+            <td>input, arithmetic, round, print</td></tr>
 
-        <li><div>Lesson 05 - Writing Functions
-        <ul>
-            <li><div><a href="lesson05/prepare.html">Prepare</a></div></li>
-            <li><div><a href="lesson05/check.html">Prepare: Checkpoint</a></div></li>
-            <li><div><a href="lesson05/teach.html">Teach: Team Activity</a></div></li>
-            <li><div><a href="lesson05/prove.html">Prove: Milestone</a></div></li>
-        </ul></div></li>
+        <tr><td><a href="lesson01/prove.html">Prove: Assignment</a></td>
+            <td><a href="overview/prove.html">prove</a></td>
+            <td>tire volume</td>
+            <td>input, arithmetic, print</td></tr>
 
-        <li><div>Lesson 06 - Function Details
-        <ul>
-            <li><div><a href="lesson06/prepare.html">Prepare</a></div></li>
-            <li><div><a href="lesson06/check.html">Prepare: Checkpoint</a></div></li>
-            <li><div><a href="lesson06/teach.html">Teach: Team Activity</a></div></li>
-            <li><div><a href="lesson06/prove.html">Prove: Assignment</a></div></li>
-        </ul></div></li>
+        <tr><th colspan="4"><br>Lesson 02 - Python Review</th></tr>
+        <tr><td colspan="4"><a href="lesson02/prepare.html">Prepare</a></td></tr>
 
-        <li><div>Lesson 07 - Testing Code
-        <ul>
-            <li><div><a href="lesson07/prepare.html">Prepare</a></div></li>
-            <li><div><a href="lesson07/check.html">Prepare: Checkpoint</a></div></li>
-            <li><div><a href="lesson07/teach.html">Teach: Team Activity</a></div></li>
-            <li><div><a href="lesson07/prove.html">Prove: Milestone</a></div></li>
-        </ul></div></li>
+        <tr><td><a href="lesson02/check.html">Prepare: Checkpoint</a></td>
+            <td><a href="lesson02/check_solution.py">check</a></td>
+            <td>purchase discount</td>
+            <td>datetime, if, arithmetic print</td></tr>
 
-        <li><div>Lesson 08 - Error Handling
-        <ul>
-            <li><div><a href="lesson08/prepare.html">Prepare</a></div></li>
-            <li><div><a href="lesson08/check.html">Prepare: Checkpoint</a></div></li>
-            <li><div><a href="lesson08/teach.html">Teach: Team Activity</a></div></li>
-            <li><div><a href="lesson08/prove.html">Prove: Assignment</a></div></li>
-        </ul></div></li>
+        <tr><td><a href="lesson02/teach.html">Teach: Team Activity</a></td>
+            <td><a href="lesson02/teach_solution.py">teach</a></td>
+            <td>student IDs</td>
+            <td>csv module, dictionaries</td></tr>
 
-        <li><div>Lesson 09 - Data Analysis
-        <ul>
-            <li><div><a href="lesson09/prepare.html">Prepare</a></div></li>
-            <li><div><a href="lesson09/check.html">Prepare: Checkpoint</a></div></li>
-            <li><div><a href="lesson09/teach.html">Teach: Team Activity</a></div></li>
-            <li><div><a href="lesson09/prove.html">Prove: Milestone</a></div></li>
-        </ul></div></li>
+        <tr><td><a href="lesson02/prove.html">Prove: Assignment</a></td>
+            <td><a href="overview/prove.html">prove</a></td>
+            <td>product info</td>
+            <td>csv module, dictionaries</td></tr>
 
-        <li><div>Lesson 10 - Basic Charts
-        <ul>
-            <li><div><a href="lesson10/prepare.html">Prepare</a></div></li>
-            <li><div><a href="lesson10/check.html">Prepare: Checkpoint</a></div></li>
-            <li><div><a href="lesson10/teach.html">Teach: Team Activity</a></div></li>
-            <li><div><a href="lesson10/prove.html">Prove: Assignment</a></div></li>
-        </ul></div></li>
+        <tr><th colspan="4"><br>Lesson 03 - Calling Built-in and Standard Functions</th></tr>
+        <tr><td colspan="4"><a href="lesson03/prepare.html">Prepare</a></td></tr>
 
-        <li><div>Lesson 11 - Significant Python Program
-        <ul>
-            <li><div><a href="lesson11/prove.html">Prove: Milestone</a></div></li>
-        </ul></div></li>
+        <tr><td><a href="lesson03/check.html">Prepare: Checkpoint</a></td>
+            <td><a href="lesson03/check_solution.py">check</a></td>
+            <td>human height</td>
+            <td>lists, calling built-in functions, len, min, max, sum, round</td></tr>
 
-        <li><div>Lesson 12 - Significant Python Program
-        <ul>
-            <li><div><a href="lesson12/prove.html">Prove: Milestone</a></div></li>
-        </ul></div></li>
+        <tr><td><a href="lesson03/teach.html">Teach: Team Activity</a></td>
+            <td><a href="lesson03/teach_solution.py">teach</a></td>
+            <td>quotes</td>
+            <td>lists, random module, textwrap module</td></tr>
 
-        <li><div>Lesson 13 - Significant Python Program
-        <ul>
-            <li><div><a href="lesson13/prove.html">Prove: Assignment</a></div></li>
-        </ul></div></li>
+        <tr><td><a href="lesson03/prove.html">Prove: Milestone</a></td>
+            <td><a href="overview/prove.html">milestone</a></td>
+            <td>weather forecast</td>
+            <td>text based menu, weather_html module</td></tr>
 
-        <li><div>Lesson 14 - Conclusion</div></li>
-    </ul>
+        <tr><th colspan="4"><br>Lesson 04 - Calling Third-Party Functions</th></tr>
+        <tr><td colspan="4"><a href="lesson04/prepare.html">Prepare</a></td></tr>
+
+        <tr><td><a href="lesson04/check.html">Prepare: Checkpoint</a></td>
+            <td><a href="lesson04/commodities.py">check</a></td>
+            <td>commodities</td>
+            <td>pip, requests module, quandl.com</td></tr>
+
+        <tr><td><a href="lesson04/teach.html">Teach: Team Activity</a></td>
+            <td><a href="lesson04/teach_solution.py">teach</a></td>
+            <td>Star Wars</td>
+            <td>pip, requests module, swapi.co</td></tr>
+
+        <tr><td><a href="lesson04/prove.html">Prove: Assignment</a></td>
+            <td><a href="overview/prove.html">prove</a></td>
+            <td>weather forecast</td>
+            <td>latlong.net, dictionaries, requests module,
+            api.weather.gov, weather_html module</td></tr>
+
+        <tr><th colspan="4"><br>Lesson 05 - Writing Functions</th></tr>
+        <tr><td colspan="4"><a href="lesson05/prepare.html">Prepare</a></td></tr>
+
+        <tr><td><a href="lesson05/check.html">Prepare: Checkpoint</a></td>
+            <td><a href="lesson05/check_solution.py">check</a></td>
+            <td>fuel efficiency</td>
+            <td>writing functions, main function, csv module</td></tr>
+
+        <tr><td><a href="lesson05/teach.html">Teach: Team Activity</a></td>
+            <td><a href="lesson05/teach_solution.py">teach</a></td>
+            <td>fitness: body mass index, basal metabolic rate</td>
+            <td>writing functions, main function, csv module</td></tr>
+
+        <tr><td><a href="lesson05/prove.html">Prove: Milestone</a></td>
+            <td><a href="overview/prove.html">milestone</a></td>
+            <td>draw a scene</td>
+            <td>writing functions, tkinter</td></tr>
+
+        <tr><th colspan="4"><br>Lesson 06 - Function Details</th></tr>
+        <tr><td colspan="4"><a href="lesson06/prepare.html">Prepare</a></td></tr>
+
+        <tr><td><a href="lesson06/check.html">Prepare: Checkpoint</a></td>
+            <td><a href="lesson06/check_solution.py">check</a></td>
+            <td>pseudo random numbers</td>
+            <td>write a function with default parameter values, call a function with optional arguments</td></tr>
+
+        <tr><td><a href="lesson06/teach.html">Teach: Team Activity</a></td>
+            <td><a href="lesson06/teach_solution.py">teach</a></td>
+            <td>text translation</td>
+            <td>open, read, and write, requests module,
+            translate.yandex.net</td></tr>
+
+        <tr><td><a href="lesson06/prove.html">Prove: Assignment</a></td>
+            <td><a href="overview/prove.html">prove</a></td>
+            <td>complete the scene</td>
+            <td>writing functions, tkinter</td></tr>
+
+        <tr><th colspan="4"><br>Lesson 07 - Testing Code</th></tr>
+        <tr><td colspan="4"><a href="lesson07/prepare.html">Prepare</a></td></tr>
+
+        <tr><td><a href="lesson07/check.html">Prepare: Checkpoint</a></td>
+            <td><a href="lesson07/check_solution.py">check</a></td>
+            <td>test string functions</td>
+            <td>pytest, assert</td></tr>
+
+        <tr><td><a href="lesson07/teach.html">Teach: Team Activity</a></td>
+            <td><a href="lesson07/teach_solution.py">teach</a></td>
+            <td>test name functions</td>
+            <td>fix errors in functions, pytest, assert</td></tr>
+
+        <tr><td><a href="lesson07/prove.html">Prove: Milestone</a></td>
+            <td><a href="overview/prove.html">milestone</a></td>
+            <td>molar mass calculator, molecules, elements</td>
+            <td>iterating through a dictionary, pytest, assert</td></tr>
+
+        <tr><th colspan="4"><br>Lesson 08 - Error Handling</th></tr>
+        <tr><td colspan="4"><a href="lesson08/prepare.html">Prepare</a></td></tr>
+
+        <tr><td><a href="lesson08/check.html">Prepare: Checkpoint</a></td>
+            <td><a href="lesson08/check_solution.py">check</a></td>
+            <td>commodities</td>
+            <td>exception handling, requests module, quandl.com</td></tr>
+
+        <tr><td><a href="lesson08/teach.html">Teach: Team Activity</a></td>
+            <td><a href="lesson08/teach_solution.py">teach</a></td>
+            <td>vehicle accidents</td>
+            <td>exception handling, FileNotFoundError, PermissionError,
+            ValueError, csv.Error, KeyError, ZeroDivisionError</td></tr>
+
+        <tr><td><a href="lesson08/prove.html">Prove: Assignment</a></td>
+            <td><a href="overview/prove.html">prove</a></td>
+            <td>molar mass calculator, molecules, elements</td>
+            <td>exception handling, pytest.raises</td></tr>
+
+        <tr><th colspan="4"><br>Lesson 09 - Data Analysis</th></tr>
+        <tr><td colspan="4"><a href="lesson09/prepare.html">Prepare</a></td></tr>
+
+        <tr><td><a href="lesson09/check.html">Prepare: Checkpoint</a></td>
+            <td><a href="lesson09/check_solution.py">check</a></td>
+            <td>water meter readings</td>
+            <td>data analysis, pandas, read_csv, .dtype, .describe(),
+            filter rows</td></tr>
+
+        <tr><td><a href="lesson09/teach.html">Teach: Team Activity</a></td>
+            <td><a href="lesson09/teach_solution.py">teach</a></td>
+            <td>water meter readings</td>
+            <td>pandas, read_csv, select columns, drop_duplicates,
+            unique, value_counts, sum</td></tr>
+
+        <tr><td><a href="lesson09/prove.html">Prove: Milestone</a></td>
+            <td><a href="overview/prove.html">milestone</a></td>
+            <td>water meter readings</td>
+            <td></td></tr>
+
+        <tr><th colspan="4"><br>Lesson 10 - Basic Charts</th></tr>
+        <tr><td colspan="4"><a href="lesson10/prepare.html">Prepare</a></td></tr>
+
+        <tr><td><a href="lesson10/check.html">Prepare: Checkpoint</a></td>
+            <td><a href="lesson10/check_solution.py">check</a></td>
+            <td></td>
+            <td></td></tr>
+
+        <tr><td><a href="lesson10/teach.html">Teach: Team Activity</a></td>
+            <td><a href="lesson10/teach_solution.py">teach</a></td>
+            <td></td>
+            <td></td></tr>
+
+        <tr><td><a href="lesson10/prove.html">Prove: Assignment</a></td>
+            <td><a href="overview/prove.html">prove</a></td>
+            <td></td>
+            <td></td></tr>
+
+        <tr><th colspan="4"><br>Lesson 11 - Significant Python Program</th></tr>
+
+        <tr><td><a href="lesson11/prove.html">Prove: Milestone</a></td>
+            <td></td>
+            <td></td>
+            <td></td></tr>
+
+        <tr><th colspan="4"><br>Lesson 12 - Significant Python Program</th></tr>
+
+        <tr><td><a href="lesson12/prove.html">Prove: Milestone</a></td>
+            <td></td>
+            <td></td>
+            <td></td></tr>
+
+        <tr><th colspan="4"><br>Lesson 13 - Significant Python Program</th></tr>
+
+        <tr><td><a href="lesson13/prove.html">Prove: Assignment</a></td>
+            <td></td>
+            <td></td>
+            <td></td></tr>
+
+        <tr><th colspan="4"><br>Lesson 14 - Conclusion</th></tr>
+    </tbody></table>
 
     <h3>ToDo</h3>
     <ul>
         <li><div>functional programming, Lambdas, Map and Reduce</div></li>
         <li><div>Using Objects</div></li>
     </ul>
-
-    <h2>Program Index</h2>
-    <table><thead>
-        <tr><th>Program</th>
-            <th>Domain Topics</th>
-            <th>Computing Topics</th></tr>
-    </thead><tbody>
-        <tr><th colspan="3"><br>Lesson 1</th></tr>
-        <tr><td><a href="lesson01/check_solution.py">checkpoint</a></td>
-            <td>exercise heart rates</td>
-            <td>input, arithmetic, print</td></tr>
-
-        <tr><td><a href="lesson01/teach_solution.py">teach</a></td>
-            <td>pendulum</td>
-            <td>input, arithmetic, round, print</td></tr>
-
-        <tr><td><a href="lesson01/prove.html">prove</a></td>
-            <td>tire volume</td>
-            <td>input, arithmetic, print</td></tr>
-
-        <tr><th colspan="3"><br>Lesson 2</th></tr>
-        <tr><td><a href="lesson02/check_solution.py">checkpoint</a></td>
-            <td>purchase discount</td>
-            <td>datetime, if, arithmetic print</td></tr>
-
-        <tr><td><a href="lesson02/teach_solution.py">teach</a></td>
-            <td>student IDs</td>
-            <td>csv module, dictionaries</td></tr>
-
-        <tr><td><a href="lesson02/prove.html">prove</a></td>
-            <td>product info</td>
-            <td>csv module, dictionaries</td></tr>
-
-        <tr><th colspan="3"><br>Lesson 3</th></tr>
-        <tr><td><a href="lesson03/check_solution.py">checkpoint</a></td>
-            <td>human height</td>
-            <td>lists, calling built-in functions, len, min, max, sum, round</td></tr>
-
-        <tr><td><a href="lesson03/teach_solution.py">teach</a></td>
-            <td>quotes</td>
-            <td>lists, random module, textwrap module</td></tr>
-
-        <tr><td><a href="lesson03/prove.html">milestone</a></td>
-            <td>weather forecast</td>
-            <td>text based menu, weather_html module</td></tr>
-
-        <tr><th colspan="3"><br>Lesson 4</th></tr>
-        <tr><td><a href="lesson04/commodities.py">checkpoint</a></td>
-            <td>commodities</td>
-            <td>pip, requests module, quandl.com</td></tr>
-
-        <tr><td><a href="lesson04/teach_solution.py">teach</a></td>
-            <td>Star Wars</td>
-            <td>pip, requests module, swapi.co</td></tr>
-
-        <tr><td><a href="lesson04/prove.html">prove</a></td>
-            <td>weather forecast</td>
-            <td>latlong.net, dictionaries, requests module,
-            api.weather.gov, weather_html module</td></tr>
-
-        <tr><th colspan="3"><br>Lesson 5</th></tr>
-        <tr><td><a href="lesson05/check_solution.py">checkpoint</a></td>
-            <td>fuel efficiency</td>
-            <td>writing functions, main function, csv module</td></tr>
-
-        <tr><td><a href="lesson05/teach_solution.py">teach</a></td>
-            <td>fitness: body mass index, basal metabolic rate</td>
-            <td>writing functions, main function, csv module</td></tr>
-
-        <tr><td><a href="lesson05/prove.html">milestone</a></td>
-            <td>draw a scene</td>
-            <td>writing functions, tkinter</td></tr>
-
-        <tr><th colspan="3"><br>Lesson 6</th></tr>
-        <tr><td><a href="lesson06/check_solution.py">checkpoint</a></td>
-            <td>pseudo random numbers</td>
-            <td>write a function with default parameter values, call a function with optional arguments</td></tr>
-
-        <tr><td><a href="lesson06/teach_solution.py">teach</a></td>
-            <td>text translation</td>
-            <td>open, read, and write, requests module,
-            translate.yandex.net</td></tr>
-
-        <tr><td><a href="lesson06/prove.html">prove</a></td>
-            <td>complete the scene</td>
-            <td>writing functions, tkinter</td></tr>
-
-        <tr><th colspan="3"><br>Lesson 7</th></tr>
-        <tr><td><a href="lesson07/check_solution.py">checkpoint</a></td>
-            <td>test string functions</td>
-            <td>pytest, assert</td></tr>
-
-        <tr><td><a href="lesson07/teach_solution.py">teach</a></td>
-            <td>test name functions</td>
-            <td>fix errors in functions, pytest, assert</td></tr>
-
-        <tr><td><a href="lesson07/prove.html">milestone</a></td>
-            <td>molar mass calculator, molecules, elements</td>
-            <td>iterating through a dictionary, pytest, assert</td></tr>
-
-        <tr><th colspan="3"><br>Lesson 8</th></tr>
-        <tr><td><a href="lesson08/check_solution.py">checkpoint</a></td>
-            <td>commodities</td>
-            <td>exception handling, requests module, quandl.com</td></tr>
-
-        <tr><td><a href="lesson08/teach_solution.py">teach</a></td>
-            <td>vehicle accidents</td>
-            <td>exception handling, FileNotFoundError, PermissionError,
-            ValueError, csv.Error, KeyError, ZeroDivisionError</td></tr>
-
-        <tr><td><a href="lesson08/prove.html">prove</a></td>
-            <td>molar mass calculator, molecules, elements</td>
-            <td>exception handling, pytest.raises</td></tr>
-
-        <tr><th colspan="3"><br>Lesson 9</th></tr>
-        <tr><td><a href="lesson09/check_solution.py">checkpoint</a></td>
-			<td>water meter readings</td>
-			<td>data analysis, pandas, read_csv, .dtype, .describe(),
-            filter rows</td></tr>
-
-        <tr><td><a href="lesson09/teach_solution.py">teach</a></td>
-			<td>water meter readings</td>
-			<td>pandas, read_csv, select columns, drop_duplicates,
-            unique, value_counts, sum</td></tr>
-
-        <tr><td><a href="lesson09/prove.html">milestone</a></td>
-			<td>water meter readings</td>
-			<td></td></tr>
-
-
-        <tr><th colspan="3"><br>Lesson 10</th></tr>
-        <tr><td><a href="lesson10/check_solution.py">checkpoint</a></td>
-			<td></td>
-			<td></td></tr>
-
-        <tr><td><a href="lesson10/teach_solution.py">teach</a></td>
-			<td></td>
-			<td></td></tr>
-
-        <tr><td><a href="lesson10/prove.html">prove</a></td>
-			<td></td>
-			<td></td></tr>
-
-
-        <tr><th colspan="3"><br>Lesson 11</th></tr>
-        <tr><td><a href="lesson11/check_solution.py">checkpoint</a></td>
-			<td></td>
-			<td></td></tr>
-
-        <tr><td><a href="lesson11/teach_solution.py">teach</a></td>
-			<td></td>
-			<td></td></tr>
-
-        <tr><td><a href="lesson11/prove.html">milestone</a></td>
-			<td></td>
-			<td></td></tr>
-
-        <tr><th colspan="3"><br>Lesson 12</th></tr>
-        <tr><td><a href="lesson12/check_solution.py">checkpoint</a></td>
-			<td></td>
-			<td></td></tr>
-
-        <tr><td><a href="lesson12/teach_solution.py">teach</a></td>
-			<td></td>
-			<td></td></tr>
-
-        <tr><td><a href="lesson12/prove.html">prove</a></td>
-			<td></td>
-			<td></td></tr>
-
-        <tr><th colspan="3"><br>Lesson 13</th></tr>
-        <tr><td><a href="lesson13/check_solution.py">checkpoint</a></td>
-			<td></td>
-			<td></td></tr>
-
-        <tr><td><a href="lesson13/teach_solution.py">teach</a></td>
-			<td></td>
-			<td></td></tr>
-
-        <tr><td><a href="lesson13/prove.html">milestone</a></td>
-			<td></td>
-			<td></td></tr>
-
-        <tr><th colspan="3"><br>Lesson 14</th></tr>
-        <tr><td><a href="lesson14/check_solution.py">checkpoint</a></td>
-			<td></td>
-			<td></td></tr>
-
-        <tr><td><a href="lesson14/teach_solution.py">teach</a></td>
-			<td></td>
-			<td></td></tr>
-
-        <tr><td><a href="lesson14/prove.html">prove</a></td>
-			<td></td>
-			<td></td></tr>
-    </tbody></table>
 </article>
 <footer>
     <small>Copyright &copy; 2020, Brigham Young University - Idaho. All
