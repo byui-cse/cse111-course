@@ -122,7 +122,10 @@ if driver &gt;= 54 <em>or</em> (driver &gt;= 32 <em>and</em> passenger &gt;= 54)
         <code>for</code> loop iterates over a range such as
         <code>range(3, 10)</code> or a sequence such as a list. A
         <code>while</code> loop is more flexible than a <code>for</code>
-        loop and repeats while some condition is true.
+        loop and repeats while some condition is true. The next code
+        example shows four loops. Notice that just like <code>if</code>
+        statements, in Python the body of a loop starts and ends with
+        indentation.
 <div class="pre"><pre class="python">
 # Count from zero to ten by ones.
 for i in range(10):
@@ -136,8 +139,8 @@ for i in range(0, 10, 2):
 for i in range(100, 70, -3):
     print(i)
 
-# Print each value in a list.
-names = set("Smith", "Lopez", "Marsh", "Olsen", "Vasuik")
+# Print each value in a set.
+names = {"Smith", "Lopez", "Marsh", "Olsen", "Vasuik"}
 for family in names:
     print(family)</pre></div></div></li>
 
@@ -166,7 +169,8 @@ print(sum)
         stores information about some dental offices in Rexburg, Idaho.
         Notice that the first row of the file contains column headings,
         the next four rows contain information about four dental
-        offices, and that each row contains three columns.
+        offices, and that each row contains three columns separated by
+        commas.
 
 <div class="pre"><pre class="csv">
 Company Name,Address,Phone Number
@@ -186,12 +190,14 @@ Cornerstone Family Dental,44 S Center Street,208-356-4240
 <div class="pre"><pre class="python">
 import csv
 
-# Open a CSV file named dentists.csv.
-with open("dentists.csv", "rt") as csvf:
+# Open a file named dentists.csv and store a
+# reference to the opened file in a variable
+# named infile.
+with open("dentists.csv", "rt") as infile:
 
     # Use the csv module to create a reader
-    # object that will read from the CSV file.
-    reader = csv.reader(csvf)
+    # object that will read from the open file.
+    reader = csv.reader(infile)
 
     # Read each row one at a time and
     # print the contents of each row.
