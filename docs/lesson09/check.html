@@ -44,7 +44,7 @@
     checkpoints and assignments of this lesson and the next, you will
     write Python code that reads and processes a CSV file named
     water.csv that contains water meter readings for five years from
-    Rexburg.</p>
+    the City of Rexburg.</p>
 
     <h2>Assignment</h2>
     <p>Write a Python program with a main function that uses
@@ -75,13 +75,12 @@
 
         <li><div>Open the unzipped <code>water.csv</code> file in VS
         Code and examine it. Notice that each row in the file contains
-        six columns which are named: meterNumber, readDate,
+        seven columns which are named: meterNumber, meterSize, readDate,
         numberOfDays, usage, accountType, and numberOfDwellings. Notice
-        also that this file is large, containing 226,894 lines. In
+        also that this file is large, containing 246,832 lines. In
         Rexburg, each water meter is read about once a month. Each line
-        in the <code>water.csv</code> file, except for the first
-        line, holds the data from reading one water meter one
-        time.</div></li>
+        in the <code>water.csv</code> file, except for the first line,
+        holds the data from reading one water meter one time.</div></li>
 
         <li><div>Write a Python program with a <code>main</code>
         function that does the following in this order:
@@ -111,6 +110,7 @@
     <h2>Sample Run</h2>
 <pre class="console">&gt; python check_solution.py
 meterNumber                  object
+meterSize                   float64
 readDate             datetime64[ns]
 numberOfDays                  int32
 usage                         int32
@@ -118,43 +118,43 @@ accountType                  object
 numberOfDwellings             int32
 dtype: object
 
-        numberOfDays          usage  numberOfDwellings
-count  230547.000000  230547.000000      230547.000000
-mean       30.543364      37.953875           7.684242
-std         5.509826     288.758287          22.111602
-min         1.000000       0.000000           0.000000
-25%        28.000000       4.000000           1.000000
-50%        30.000000      10.000000           1.000000
-75%        33.000000      34.000000           1.000000
-max        98.000000   30926.000000         207.000000
+           meterSize   numberOfDays          usage  numberOfDwellings
+count  246831.000000  246831.000000  246831.000000      246831.000000
+mean        0.980450      30.458824      40.747062           7.041891
+std         0.575208       8.032404     409.529340          22.657194
+min         0.750000       1.000000       0.000000           0.000000
+25%         0.750000      28.000000       4.000000           1.000000
+50%         0.750000      31.000000      10.000000           1.000000
+75%         1.000000      33.000000      35.000000           1.000000
+max         8.000000    1276.000000  119670.000000         207.000000
 
-       meterNumber   readDate  ...        accountType  numberOfDwellings
-0            M1002 2010-01-15  ...          Residence                  1
-1            M1002 2010-02-15  ...          Residence                  1
-2            M1002 2010-03-15  ...          Residence                  1
-3            M1002 2010-04-14  ...          Residence                  1
-4            M1002 2010-05-17  ...          Residence                  1
-...            ...        ...  ...                ...                ...
-230542       M9998 2014-08-18  ...  Apartment Complex                  1
-230543       M9998 2014-09-15  ...  Apartment Complex                  1
-230544       M9998 2014-10-16  ...  Apartment Complex                  1
-230545       M9998 2014-11-15  ...  Apartment Complex                  1
-230546       M9998 2014-12-15  ...  Apartment Complex                  1
-[230547 rows x 6 columns]
+       meterNumber meterSize ... usage accountType numberOfDwellings
+0            M1000       1.5 ...     7  Apartments                 0
+1            M1000       1.5 ...     0  Apartments                 0
+2            M1000       1.5 ...    24  Apartments                 0
+3            M1000       1.5 ...    32  Apartments                 0
+4            M1000       1.5 ...     4  Apartments                 0
+...            ...       ... ...   ...         ...               ...
+246826       M9999       2.0 ...    57  Apartments               152
+246827       M9999       2.0 ...    58  Apartments               152
+246828       M9999       2.0 ...   165  Apartments               152
+246829       M9999       2.0 ...   155  Apartments               152
+246830       M9999       2.0 ...   155  Apartments               152
+[246831 rows x 7 columns]
 
-       meterNumber   readDate  ...  accountType  numberOfDwellings
-0            M1002 2010-01-15  ...    Residence                  1
-1            M1002 2010-02-15  ...    Residence                  1
-2            M1002 2010-03-15  ...    Residence                  1
-3            M1002 2010-04-14  ...    Residence                  1
-4            M1002 2010-05-17  ...    Residence                  1
-...            ...        ...  ...          ...                ...
-230482       M9995 2014-08-25  ...    Residence                  1
-230483       M9995 2014-09-16  ...    Residence                  1
-230484       M9995 2014-10-23  ...    Residence                  1
-230485       M9995 2014-11-15  ...    Residence                  1
-230486       M9995 2014-12-15  ...    Residence                  1
-[128638 rows x 6 columns]</pre>
+       meterNumber meterSize ... usage accountType numberOfDwellings
+91           M1002      0.75 ...    19   Residence                 3
+92           M1002      0.75 ...    19   Residence                 3
+93           M1002      0.75 ...    35   Residence                 3
+94           M1002      0.75 ...    15   Residence                 3
+95           M1002      0.75 ...    65   Residence                 3
+...            ...       ... ...   ...         ...               ...
+246785       M9998      0.75 ...    23   Residence                 1
+246786       M9998      0.75 ...    21   Residence                 1
+246787       M9998      0.75 ...     6   Residence                 1
+246788       M9998      0.75 ...     6   Residence                 1
+246789       M9998      0.75 ...     6   Residence                 1
+[139191 rows x 7 columns]</pre>
 
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each step

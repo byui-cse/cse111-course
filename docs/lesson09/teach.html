@@ -72,8 +72,8 @@
             <li><div>What is the total amount of water used?</div></li>
             <li><div>What is the total amount of water used by
             residences?</div></li>
-            <li><div>What is the total amount of water used by apartment
-            complexes?</div></li>
+            <li><div>What is the total amount of water used by
+            apartments?</div></li>
         </ol></div></li>
 
         <li><div>drop_duplicates and value_counts
@@ -88,7 +88,7 @@
 
         <li><div>filter between two dates
         <ol>
-            <li><div>What is the amount of water used in 2014?</div></li>
+            <li><div>What is the amount of water used in 2018?</div></li>
         </ol></div></li>
 
         <li><div>drop_duplicates and sum
@@ -107,41 +107,40 @@
 <pre class="console">&gt; python teach_solution.py
 
 Unique account types:
-17 ['Residence' 'Apartment Complex' 'Business' 'Town Homes' 'BYU-Idaho'
- 'Vacant' 'School' 'Church' 'City' 'Unknown' 'Out of Town' 'Trailer Court'
- 'Business with Apartment' 'Sprinklers' 'Free' 'Residence with Apartment'
+16 ['Apartments' 'Residence' 'School' 'Trailer Court' 'Out of Town'
+ 'Town Homes' 'Sprinklers' 'City' 'BYU-Idaho' 'Business' 'Church'
+ 'Vacant' 'Business with Apartment' 'Residence with Apartment' 'Free'
  'Airport Hanger']
 
 Unique meter numbers:
-4241 ['M1002' 'M1007' 'M1013' ... 'M9994' 'M9995' 'M9998']
+4826 ['M1000' 'M1001' 'M1002' ... 'M9997' 'M9998' 'M9999']
 
-Total water used: 8750152
-Total water used by residences: 2631210
-Total water used by apartment complexes: 2129887
+Total water used: 10057638
+Total water used by residences: 2852424
+Total water used by apartments: 2393855
 
 Account types:
-Residence                   2283
-Apartment Complex           1016
-Business                     571
+Residence                   2697
+Apartments                  1137
+Business                     556
 Town Homes                    93
-Out of Town                   49
-School                        45
-BYU-Idaho                     41
-Church                        40
-Trailer Court                 34
-City                          20
-Vacant                        15
-Sprinklers                    11
-Residence with Apartment       9
-Business with Apartment        8
-Unknown                        4
-Airport Hanger                 1
-Free                           1
+City                          58
+Out of Town                   51
+BYU-Idaho                     50
+School                        49
+Church                        38
+Trailer Court                 32
+Sprinklers                    18
+Business with Apartment       13
+Airport Hanger                12
+Residence with Apartment      12
+Vacant                         8
+Free                           2
 Name: accountType, dtype: int64
 
-Water used during 2014: 1652765
-Number of dwellings in 2014: 34418
-Average water used by each dwelling in 2014:  40.19</pre>
+Water used during 2018: 1999372
+Number of dwellings in 2018: 30925
+Average water used by each dwelling in 2018:  55.31</pre>
 
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each step

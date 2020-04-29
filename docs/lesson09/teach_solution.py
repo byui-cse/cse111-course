@@ -37,11 +37,11 @@ def main():
     water_used = residences["usage"].sum()
     print("Total water used by residences:", water_used)
 
-    # Filter the list to readings from apartment complexes and
-    # compute and print the total water used by apartment complexes.
-    complexes = data[data["accountType"] == "Apartment Complex"]
-    water_used = complexes["usage"].sum()
-    print("Total water used by apartment complexes:", water_used)
+    # Filter the list to readings from apartments and
+    # compute and print the total water used by apartments.
+    apartments = data[data["accountType"] == "Apartments"]
+    water_used = apartments["usage"].sum()
+    print("Total water used by apartments:", water_used)
     print()
 
     # Filter the data to one row per meter.
@@ -54,33 +54,33 @@ def main():
 
     # STRETCH CHALLENGES
 
-    # Filter the data to readings from 2014.
-    start = pd.to_datetime("2014-01-01")
-    end = pd.to_datetime("2014-12-31")
-    data2014 = data[(data["readDate"] >= start) & (data["readDate"] <= end)]
+    # Filter the data to readings from 2018.
+    start = pd.to_datetime("2018-01-01")
+    end = pd.to_datetime("2018-12-31")
+    data2018 = data[(data["readDate"] >= start) & (data["readDate"] <= end)]
 
-    # Compute and print the amount of water used in 2014.
-    water_used = data2014["usage"].sum()
-    print("Water used during 2014:", water_used)
+    # Compute and print the amount of water used in 2018.
+    water_used = data2018["usage"].sum()
+    print("Water used during 2018:", water_used)
 
-    # Filter the 2014 data to one row per meter.
+    # Filter the 2018 data to one row per meter.
     one_row_per_meter = \
-        data2014.drop_duplicates(subset=["meterNumber"], keep="last")
+        data2018.drop_duplicates(subset=["meterNumber"], keep="last")
 
     # Use the filtered data from above to compute the number of dwellings.
     number_of_dwells = one_row_per_meter["numberOfDwellings"].sum()
-    print("Number of dwellings in 2014:", number_of_dwells)
+    print("Number of dwellings in 2018:", number_of_dwells)
 
-    # Filter the 2014 data to readings for meters that serve dwellings.
-    reads_for_dwells = data2014[data2014["numberOfDwellings"] > 0]
+    # Filter the 2018 data to readings for meters that serve dwellings.
+    reads_for_dwells = data2018[data2018["numberOfDwellings"] > 0]
 
-    # Compute the total amount of water used during 2014 by dwellings.
+    # Compute the total amount of water used during 2018 by dwellings.
     total_for_dwells = reads_for_dwells["usage"].sum()
 
     # Compute and print the average amount
-    # of water used during 2014 by dwellings.
+    # of water used during 2018 by dwellings.
     avg_per_dwell = round(total_for_dwells / number_of_dwells, 2)
-    print("Average water used by each dwelling in 2014: ", avg_per_dwell)
+    print("Average water used by each dwelling in 2018: ", avg_per_dwell)
 
 
 main()

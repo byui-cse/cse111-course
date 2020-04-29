@@ -79,13 +79,15 @@
         href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.dtypes.html"><code>DataFrame.dtypes</code></a>
         is an attribute of a DataFrame and contains a Series with the
         data type of each column in the DataFrame. You may want to print
-        <var>dtype</var> attribute after calling <code>read_csv()</code>
-        so that you can verify that the DataFrame was read correctly.
-        For example:
+        <var>dtypes</var> attribute after calling
+        <code>read_csv()</code> so that you can verify that the
+        DataFrame was read correctly. For example in the following code,
+        <var>df</var> is a DataFrame that contains all the data that
+        <code>read_csv</code> read from <code>filename.csv</code>.
 <div class="pre"><pre class="python">import pandas as pd
 
 df = pd.read_csv("filename.csv")
-<em>print(df.dtype)</em></pre></div></div></li>
+<em>print(df.dtypes)</em></pre></div></div></li>
 
         <li><div><a target="_blank"
         href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.describe.html"><code>DataFrame.describe()</code></a>
@@ -112,7 +114,7 @@ df = pd.read_csv("filename.csv")
         href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/03_subset_data.html#how-do-i-filter-specific-rows-from-a-dataframe">filter rows</a>
         out of a DataFrame, write a comparison in square brackets. For
         example in the following code, <var>df</var> is a DataFrame that
-        contains all the rows in the CSV file <code>filename.csv</code>.
+        contains all the rows from the CSV file <code>filename.csv</code>.
         <var>filtered_data</var> is a DataFrame that contains all the
         rows from <var>df</var> with a value in <var>col_name</var> that
         is greater than <var>threshold</var>.
