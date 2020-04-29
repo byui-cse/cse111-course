@@ -47,7 +47,7 @@
         Python, an error is a type of exception. There are many
         different <a target="_blank"
         href="https://docs.python.org/3/library/exceptions.html">built-in
-        exceptions</a> that may occur while a Python programming is
+        exceptions</a> that may occur while a Python program is
         running.</div></li>
 
         <li><div>When an exceptional event occurs, a Python function
@@ -80,7 +80,7 @@
 <em>except (RuntimeError, TypeError, NameError) as ex:</em>
     # Code that the computer executes if the code in the try
     # block raised a RuntimeError, TypeError, or NameError.
-<em>except Exception as ex:</em>
+    <em>except Exception as ex:</em>
     # Code that the computer executes if the code in the
     # try block caused any exception to be raised that was
     # not handled by one of the previous except blocks.
@@ -108,22 +108,21 @@
         Or each <code>except</code> block may handle several types of
         exceptions, such as:
 <div class="pre"><pre class="python">except (RuntimeError, TypeError, NameError) as ex:</pre></div>
-        Or one <code>except</code> block may handle all possible types of
-        exceptions such as:
+Or one <code>except</code> block may handle all possible types of
+exceptions such as:
 <div class="pre"><pre class="python">except Exception as ex:</pre></div>
-        Or a bare <code>except</code> block may handle anything that can
-        be raised, including <code>SystemExit</code>,
-        <code>KeyboardInterrupt</code> and <code>GeneratorExit</code>
-        such as:
+Or a bare <code>except</code> block may handle anything that can
+be raised, including <code>SystemExit</code>,
+<code>KeyboardInterrupt</code> and <code>GeneratorExit</code>
+such as:
 <div class="pre"><pre class="python">except:</pre></div>
-        We must order except blocks from most specific at the top to
+We must order except blocks from most specific at the top to
         least specific (most general) at the bottom.</div></li>
 
-        <li><div>As shown in the example code above, after all the
+        <li><div>As shown in the example code above, following the
         <code>except</code> blocks, we may write an optional
-        <code>else</code> block that the computer executes after the
-        code in the <code>try</code> block if the code in the
-        <code>try</code> block did not raise any exceptions.</div></li>
+        <code>else</code> block which the computer will execute if the
+        <code>try</code> block does not raise any exceptions.</div></li>
 
         <li><div>As shown in the example code above, at the end of
         exception handling code, we may write an optional

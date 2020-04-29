@@ -24,37 +24,37 @@
     <h2>Overview</h2>
     <p>Prove that you can write a function that handles exceptions with
     <code>try</code> and <code>except</code> and that you can write a
-    test function that verifies that another function raises exceptions
-    when it is supposed to.</p>
+    test function to verify that another function raises exceptions when
+    it is supposed to.</p>
 
     <h2>Problem Statement</h2>
     <p>The molar mass of a substance is the mass in grams of 1 mole
-    (grams / mole) of the substance. In chemistry a molar mass
+    (grams / mole) of the substance. In chemistry, a molar mass
     calculator is a program that computes the molar mass of a substance.
     To use a molar mass calculator, a chemist enters the formula for a
     molecule such as H2O or C6H12O6. The calculator splits the formula
     into elements and for each element in the formula does the
     following:</p>
     <ol>
-        <li><div>sums the number of atoms of each element in the
-        formula</div></li>
-        <li><div>looks up the atomic mass of each element</div></li>
-        <li><div>multiplies the number of atoms by the atomic
-        mass</div></li>
-        <li><div>adds the product into the molar mass of the
-        molecule</div></li>
+        <li><div>Sums the number of atoms of each element in the
+        formula.</div></li>
+        <li><div>Looks up the atomic mass of each element.</div></li>
+        <li><div>Multiplies the number of atoms by the atomic
+        mass.</div></li>
+        <li><div>Adds the product into the molar mass of the
+        molecule.</div></li>
     </ol>
 
     <h2>Helpful Documentation</h2>
     <p>During the previous lesson, you learned that <code>pytest</code>
     allows you to use the standard Python <code>assert</code> command to
-    verify that a function returns the correct value. But, how can you
+    verify that a function returns the correct value. But how can you
     write a test to verify that a function raises an exception when it
-    is supposed to? Read  <a target="_blank"
-    href="https://docs.pytest.org/en/latest/assert.html">this
-    article</a>, specifically the section titled, "Assertions about
-    expected exceptions" to learn how to verify that a function raises
-    an exception.</p>
+    is supposed to? To learn how to verify that a function raises an
+    exception, read this article about <a target="_blank"
+    href="https://docs.pytest.org/en/latest/assert.html">writing and
+    reporting of assertions in tests</a>, specifically the section
+    titled, "Assertions about expected exceptions."</p>
 
     <p>During the previous activities in this lesson, your
     <code>except</code> code simply printed a message stating what type
@@ -101,7 +101,7 @@ except FormulaError as ex:
             <tr><td>(C2(NaCl)4H2)2C4Na</td> <td>{"C":8, "Na":9, "Cl":8, "H":4}</td></tr>
         </tbody></table>
 
-        <p>The following six chemical formulas all contains errors, and
+        <p>The following six chemical formulas all contain errors, and
         the <code>parse_formula</code> function should raise a
         <code>FormulaError</code> when it tries to parse them. Write
         code in the <code>test_parse</code> function to test that the
@@ -120,13 +120,13 @@ except FormulaError as ex:
         </tbody></table>
 
         <p>Recall that the code to test that a function raises an error
-        looks similar to this:
+        looks similar to this example:
 <div class="pre"><pre class="python">with pytest.raises(FormulaError):
     &lt;function_call_here(&lt;arguments_here&gt;)&gt;</pre></div></div></li>
 
         <li><div>From the terminal frame of VS Code, run the four test
-        functions and ensure that all four test functions pass. Here is
-        the command to run the tests:
+        functions and ensure that all four test functions pass. Use the
+        following command to run the tests:
         <pre class="console">python -m pytest test_chemistry.py</pre></div></li>
 
         <li><div>Using VS Code, open a new file and save it as
@@ -153,18 +153,16 @@ except FormulaError as ex:
             <li><div>Gets a mass in grams from the user.</div></li>
             <li><div>Divides the mass in grams by the molar mass which
             results in a value in moles.</div></li>
-            <li><div>Print the value in moles.</div></li>
+            <li><div>Prints the value in moles.</div></li>
         </ol></div></li>
 
         <li><div>Surround the code in <code>main</code> with
         <code>try</code> and <code>except</code>. There should be two
         <code>except</code> blocks, one to handle a
         <code>FormulaError</code> and one to handle a
-        <code>ValueError</code>.
-
-        and should print a suitable message
-        that tells the chemist that she entered an invalid chemical
-        formula.</div></li>
+        <code>ValueError</code>. Both <code>except</code> blocks should
+        print a suitable message that tells the chemist that she entered
+        a mistake.</div></li>
 
         <li><div>At the bottom of your <code>molar_mass.py</code> file,
         write a call to the <code>main</code> function just as you have
