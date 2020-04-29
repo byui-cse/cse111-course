@@ -28,7 +28,7 @@
     writing and calling functions. These details will help you
     understand functions better and use them more effectively. These
     details include variable scope, default parameter values, optional
-    arguments, and the way arguments are passed to functions.</p>
+    arguments, and how arguments are passed to functions.</p>
 
     <h2 id="varScope">Variable Scope</h2>
     <p>The <dfn>scope</dfn> of a variable determines how long that
@@ -89,7 +89,7 @@
             <td>In all functions of the Python program</td></tr>
     </tbody></table>
 
-    <p>The following Python code example contains variables with local,
+    <p>The following Python code example contains variables with local
     and global scope. The variable <var>nShapes</var> is global because
     it is defined outside of all functions. Because it is a global
     variable, the code in the body of all functions may use the variable
@@ -244,16 +244,16 @@ main()</span></pre></div>
 Before changing y: x 3  y 3
 After changing y:  x 3  y 4</pre>
 
-    Within the previous code,
+    Within the previous code:
     <ul>
-        <li><div>the statement on line 2 stores the value 3 into the
+        <li><div>The statement on line 2 stores the value 3 into the
         variable <var>x</var>.</div></li>
         <li><div>Line 3 copies the value that is in the variable
         <var>x</var> into the variable <var>y</var>.</div></li>
         <li><div>Line 4 prints the values of <var>x</var> and
         <var>y</var> which are both 3.</div></li>
-        <li><div>Line 5 adds 1 to the value of <var>y</var>, making its
-        value 4 instead of 3.</div></li>
+        <li><div>Line 5 adds one to the value of <var>y</var>, making
+        its value 4 instead of 3.</div></li>
         <li><div>Line 6 prints the values of <var>x</var> and
         <var>y</var>. The value of <var>x</var> remained unchanged. The
         value of <var>y</var> was changed to 4.</div></li>
@@ -286,7 +286,7 @@ After changing y:  x 3  y 4</pre>
 
 main()</span></pre></div>
 
-    Here is the output of the second program.
+    Here is the output of the second program:
 
 <pre class="console">&gt; python example2.py
 Before changing ly: lx [7, -2]  ly [7, -2]
@@ -294,9 +294,9 @@ After changing ly:  lx [7, -2, 5]  ly [7, -2, 5]</pre>
 
     From the output of this second program, we can see there is a big
     difference between the way a Python program assigns integers and the
-    way it assigns lists. Within the second program,
+    way it assigns lists. Within the second program:
     <ul>
-        <li><div>the statement on line 2 creates a list and stores a
+        <li><div>The statement on line 2 creates a list and stores a
         reference to that list in the variable <var>lx</var>.</div></li>
         <li><div>Line 3 copies the reference in the variable
         <var>lx</var> into the variable <var>ly</var>. Line 3 does not
@@ -396,9 +396,9 @@ After changing ly:  lx [7, -2, 5]  ly [7, -2, 5]</pre>
 # Call main to begin this program.
 main()</span></pre></div>
 
-    Within this third program,
+    Within this third program:
     <ul>
-        <li><div>the statement on line 3 assigns the value 5 to a
+        <li><div>The statement on line 3 assigns the value 5 to a
         variable named <var>x</var>.</div></li>
         <li><div>Line 4 assigns a list to a variable named
         <var>lx</var>.</div></li>
@@ -408,7 +408,7 @@ main()</span></pre></div>
         <li><div>Line 9 calls the <code>modify_args</code> function and
         passes <var>x</var> and <var>lx</var> to that function.</div></li>
         <li><div>Within the <code>modify_args</code> function, line 22
-        changes the value of the parameter <var>n</var> by adding 1 to
+        changes the value of the parameter <var>n</var> by adding one to
         it.</div></li>
         <li><div>Line 23 prints the values of <var>x</var> and
         <var>lx</var> after they were passed to the
