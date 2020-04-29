@@ -26,34 +26,33 @@
     third-party functions.</p>
 
     <h2>Problem Statement</h2>
-    <p>The weather affects people's lives for good and bad every
-    day. Because of the impact of the weather on people's lives, the
-    United States Federal Government sponsors the U.S. National
-    Weather Service which forecasts the weather throughout the
-    entire United States every day. These weather forecasts are
-    available for free as a web service on the internet. Write a
-    Python program that</p>
+    <p>The weather affects people's lives for good and bad every day.
+    Because of the impact of the weather on people's lives, the United
+    States Federal Government sponsors the U.S. National Weather Service
+    which forecasts the weather throughout the entire United States
+    every day. These weather forecasts are available for free as a web
+    service on the internet. Write a Python program to do the
+    following:</p>
 
     <ol>
-        <li><div>allows a user to select a city from a list of
-        cities</div></li>
-        <li><div>retrieves weather forecasts for the next seven days
-        and nights from the U.S. National Weather Service</div></li>
-        <li><div>writes the forecasts to an HTML file that a user
-        can view in a browser</div></li>
+        <li><div>Allow a user to select a city from a list of
+        cities.</div></li>
+        <li><div>Retrieve weather forecasts for the next seven days and
+        nights from the U.S. National Weather Service.</div></li>
+        <li><div>Write the forecasts to an HTML file that a user can
+        view in a browser.</div></li>
     </ol>
 
-    <p>During lesson 3, you wrote the part of this program that
-    writes a weather forecast to an HTML file. During this
-    assignment (lesson 4), you will add the code to prompt the user
-    for their desired city and to retrieve a forecast from the U.S.
-    Weather Service.</p>
+    <p>During lesson 3, you wrote the part of this program that writes a
+    weather forecast to an HTML file. During this assignment (lesson 4),
+    you will add the code to prompt the user for their desired city and
+    to retrieve a forecast from the U.S. Weather Service.</p>
 
     <h2>Helpful Documentation</h2>
-    <p>The website <a target="_blank"
-    href="https://www.latlong.net/">latlong.net</a> allows a user to
-    enter the name and state of a city in the U.S. and then displays
-    the latitude and longitude of that city.</p>
+    <p>The <a target="_blank"
+    href="https://www.latlong.net/">LatLong website</a> allows a user to
+    enter the name and state of a city in the U.S. and then displays the
+    latitude and longitude of that city.</p>
 
     <p>The Python <a target="_blank"
     href="https://requests.readthedocs.io#requests-http-for-humans"><code>requests</code> module</a>
@@ -63,25 +62,25 @@
 
     <p>The U.S. National Weather Service (NWS) maintains a
     <a target="_blank" href="https://api.weather.gov/">web service</a>
-    that returns weather forecasts for cities within the United
-    States. The <a target="_blank"
+    that returns weather forecasts for cities within the United States.
+    The <a target="_blank"
     href="https://www.weather.gov/documentation/services-web-api">official
     documentation</a> for the NWS web service lists the data that a
     program can retrieve.</p>
 
     <p>The Python <a target="_blank"
     href="../lesson03/weather_html.html"><code>weather_html</code> module</a>
-    was written at BYU-Idaho and accepts U.S. National Weather
-    Service forecasts and writes HTML to a file.</p>
+    was written at BYU-Idaho and accepts U.S. National Weather Service
+    forecasts and writes HTML to a file.</p>
 
     <h2>Assignment</h2>
     <p>Open your program from the prove assignment for the previous
     lesson and add the following to it:</p>
 
     <ol>
-        <li><div>A dictionary with at least five U.S. cities and
-        their corresponding latitude and longitude. A dictionary
-        with this structure would work well:
+        <li><div>A dictionary with at least five U.S. cities and their
+        corresponding latitude and longitude. A dictionary with this
+        structure would work well:
         <table><thead>
             <tr><th>Keys (string)</th> <th>Values (tuple)</th></tr>
         </thead><tbody>
@@ -92,9 +91,9 @@
         <li><div>Python code that allows a user to choose one of the
         cities in the dictionary.</div></li>
 
-        <li><div>Python code that uses the <code>requests</code>
-        module to retrieve the weather forecast for the city that
-        the user chose.</div></li>
+        <li><div>Python code that uses the <code>requests</code> module
+        to retrieve the weather forecast for the city that the user
+        chose.</div></li>
     </ol>
 
     <p>You should keep the code that you wrote during the previous
@@ -115,25 +114,25 @@ Phoenix, Arizona
 Forecast report written to PhoenixArizona.html</pre>
 
     <h2>Testing Procedure</h2>
-    <p>Verify that your program works correctly by following each
-    step in this testing procedure:</p>
+    <p>Verify that your program works correctly by following each step
+    in this testing procedure:</p>
 
     <ol>
-        <li><div>Run your program, choose one of the cities, verify
-        that your program wrote an HTML file to your computer's hard
-        drive, and double click on the HTML file that you program
-        produced. Double clicking the HTML file should open it in a
-        browser. Look at the document in the browser and verify that
-        it looks correct, including the correct city name and a
-        correctly formatted five day, vertical forecast.</div></li>
+        <li><div>Run your program, choose one of the cities, verify that
+        your program wrote an HTML file to your computer's hard drive,
+        and double click on the HTML file that you program produced.
+        Double clicking the HTML file should open it in a browser. Look
+        at the document in the browser and verify that it looks correct,
+        including the correct city name and a correctly formatted five
+        day, vertical forecast.</div></li>
 
-        <li><div>Repeat the above step for each of the four other
-        cities in your program.</div></li>
+        <li><div>Repeat the above step for each of the four other cities
+        in your program.</div></li>
 
-        <li><div>Repeat step 1 again for each of the five cities,
-        but do it at a different time of the day. For example, if
-        you first tested your program during the morning, then test
-        it again in the afternoon or vice versa.</div></li>
+        <li><div>Repeat step 1 again for each of the five cities, but do
+        it at a different time of the day. For example, if you first
+        tested your program during the morning, then test it again in
+        the afternoon or vice versa.</div></li>
     </ol>
 
     <h2>Submission</h2>
