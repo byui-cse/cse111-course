@@ -162,10 +162,50 @@ print(sum)
         files. CSV is an acronym for comma separated values. A CSV file
         is a plain text file that contains tabular data where each row
         is on a separate line and each cell (column) is separated by a
-        comma. Python has a module named <a target="_blank"
+        comma. The following example is the contents of a CSV file that
+        stores information about some dental offices in Rexburg, Idaho.
+        Notice that the first row of the file contains column headings,
+        the next four rows contain information about four dental
+        offices, and that each row contains three columns.
+
+<div class="pre"><pre class="csv">
+Company Name,Address,Phone Number
+Eagle Rock Dental Care,556 Trejo Suite C,208-359-2224
+Apple Tree Dental,33 Winn Drive Suite 2,208-359-1500
+Rockhouse Dentistry,106 E 1st N,208-356-5600
+Cornerstone Family Dental,44 S Center Street,208-356-4240
+</pre></div>
+
+        Python has a module named <a target="_blank"
         href="https://docs.python.org/3/library/csv.html"><code>csv</code></a>
         that includes functionality to read and write data from CSV
-        files.</div></li>
+        files. The following example Python code show how to open a CSV
+        file and use the <code>csv</code> module to read and print each
+        row.
+
+<div class="pre"><pre class="python">
+import csv
+
+# Open a CSV file named dentists.csv.
+with open("dentists.csv", "rt") as csvf:
+
+    # Use the csv module to create a reader
+    # object that will read from the CSV file.
+    reader = csv.reader(csvf)
+
+    # Read each row one at a time and
+    # print the contents of each row.
+    for row in reader:
+        company = row[0]
+        address = row[1]
+        phone = row[2]
+        print(company, address, phone)
+</pre></div>
+
+        You could use this example code in a program that you write, but
+        of course, you could modify the <code>for</code> loop in the
+        code to do much more than simply print the contents of each
+        row.</div></li>
     </ol>
 
     <h2>Videos</h2>
@@ -182,6 +222,7 @@ print(sum)
         <li><a target="_blank" href="https://www.youtube.com/watch?v=oYaGJBMoXok&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=21">Handling Multiple Conditions</a></li>
         <li><a target="_blank" href="https://www.youtube.com/watch?v=oYaGJBMoXok&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=23">Complex Conditions</a></li>
         <li><a target="_blank" href="https://www.youtube.com/watch?v=beA8IsY3mQs&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=25">Collections</a></li>
+        <li><a target="_blank" href="https://realpython.com/lessons/dictionary-python/">Dictionaries</a></li>
         <li><a target="_blank" href="https://www.youtube.com/watch?v=LrOAl8vUFHY&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=27">Loops</a></li>
     </ul>
 
