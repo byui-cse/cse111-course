@@ -92,18 +92,18 @@
             <li><div>Prints the DataFrame's <code>.dtype</code>
             attribute.</div></li>
 
-            <li><div>Calls the <code>.describe</code> function and
+            <li><div>Calls the <code>.describe()</code> function and
             prints the summary returned from
-            <code>.describe</code></div></li>
+            <code>.describe()</code></div></li>
 
-            <li><div>Calls the <code>print</code> function to print the
-            DataFrame.</div></li>
+            <li><div>Calls the <code>print()</code> function to print
+            the DataFrame.</div></li>
 
             <li><div>Filters the DataFrame to include residences
             only.</div></li>
 
-            <li><div>Calls the <code>print</code> function to print the
-            filtered DataFrame.</div></li>
+            <li><div>Calls the <code>print()</code> function to print
+            the filtered DataFrame.</div></li>
         </ol></div></li>
     </ol>
 
@@ -119,42 +119,42 @@ numberOfDwellings             int32
 dtype: object
 
            meterSize   numberOfDays          usage  numberOfDwellings
-count  246831.000000  246831.000000  246831.000000      246831.000000
-mean        0.980450      30.458824      40.747062           7.041891
-std         0.575208       8.032404     409.529340          22.657194
+count  246830.000000  246830.000000  246830.000000      246830.000000
+mean        0.980451      30.458814      40.733967           8.164542
+std         0.575209       8.032419     409.503802          23.633490
 min         0.750000       1.000000       0.000000           0.000000
 25%         0.750000      28.000000       4.000000           1.000000
 50%         0.750000      31.000000      10.000000           1.000000
 75%         1.000000      33.000000      35.000000           1.000000
 max         8.000000    1276.000000  119670.000000         207.000000
 
-       meterNumber meterSize ... usage accountType numberOfDwellings
-0            M1000       1.5 ...     7  Apartments                 0
-1            M1000       1.5 ...     0  Apartments                 0
-2            M1000       1.5 ...    24  Apartments                 0
-3            M1000       1.5 ...    32  Apartments                 0
-4            M1000       1.5 ...     4  Apartments                 0
-...            ...       ... ...   ...         ...               ...
-246826       M9999       2.0 ...    57  Apartments               152
-246827       M9999       2.0 ...    58  Apartments               152
-246828       M9999       2.0 ...   165  Apartments               152
-246829       M9999       2.0 ...   155  Apartments               152
-246830       M9999       2.0 ...   155  Apartments               152
-[246831 rows x 7 columns]
+      meterNumber meterSize  ...        accountType numberOfDwellings
+0           M1000      0.75  ...          Residence                 1
+1           M1000      0.75  ...          Residence                 1
+2           M1000      0.75  ...          Residence                 1
+3           M1000      0.75  ...          Residence                 1
+4           M1000      0.75  ...          Residence                 1
+...           ...       ...  ...                ...               ...
+246825      M9996      1.00  ...  Apartment Complex                 6
+246826      M9996      1.00  ...  Apartment Complex                 6
+246827      M9996      1.00  ...  Apartment Complex                 6
+246828      M9996      1.00  ...  Apartment Complex                 6
+246829      M9996      1.00  ...  Apartment Complex                 6
+[246830 rows x 7 columns]
 
-       meterNumber meterSize ... usage accountType numberOfDwellings
-91           M1002      0.75 ...    19   Residence                 3
-92           M1002      0.75 ...    19   Residence                 3
-93           M1002      0.75 ...    35   Residence                 3
-94           M1002      0.75 ...    15   Residence                 3
-95           M1002      0.75 ...    65   Residence                 3
-...            ...       ... ...   ...         ...               ...
-246785       M9998      0.75 ...    23   Residence                 1
-246786       M9998      0.75 ...    21   Residence                 1
-246787       M9998      0.75 ...     6   Residence                 1
-246788       M9998      0.75 ...     6   Residence                 1
-246789       M9998      0.75 ...     6   Residence                 1
-[139191 rows x 7 columns]</pre>
+       meterNumber  meterSize   readDate  ...  usage  accountType  ...
+0            M1000       0.75 2015-01-15  ...      4    Residence  ...
+1            M1000       0.75 2015-02-15  ...      4    Residence  ...
+2            M1000       0.75 2015-03-23  ...      0    Residence  ...
+3            M1000       0.75 2015-04-22  ...      7    Residence  ...
+4            M1000       0.75 2015-05-26  ...      9    Residence  ...
+...            ...        ...        ...  ...    ...          ...  ...
+246705       M9993       0.75 2019-01-15  ...      6    Residence  ...
+246706       M9993       0.75 2019-02-15  ...      6    Residence  ...
+246707       M9993       0.75 2019-03-15  ...      6    Residence  ...
+246708       M9993       0.75 2019-04-19  ...      1    Residence  ...
+246709       M9993       0.75 2019-05-01  ...      1    Residence  ...
+[139195 rows x 7 columns]</pre>
 
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each step

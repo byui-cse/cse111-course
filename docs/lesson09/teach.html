@@ -60,7 +60,7 @@
         <li><div>select and unique
         <ol>
             <li><div>For the data stored in water.csv, how many unique
-            account types are them? What are those unique account
+            account types are there? What are those unique account
             types?</div></li>
             <li><div>How many meters are listed in the file (not how
             many meter readings, how many unique
@@ -105,23 +105,22 @@
 
     <h2>Sample Run</h2>
 <pre class="console">&gt; python teach_solution.py
-
 Unique account types:
-16 ['Apartments' 'Residence' 'School' 'Trailer Court' 'Out of Town'
- 'Town Homes' 'Sprinklers' 'City' 'BYU-Idaho' 'Business' 'Church'
- 'Vacant' 'Business with Apartment' 'Residence with Apartment' 'Free'
- 'Airport Hanger']
+16 ['Residence' 'BYU-Idaho' 'Apartment Complex' 'Business'
+ 'Airport Hanger' 'Out of Town' 'Town Homes' 'City'
+ 'Trailer Court' 'Business with Apartment' 'Vacant' 'Church'
+ 'School' 'Residence with Apartment' 'Sprinklers' 'Free']
 
 Unique meter numbers:
-4826 ['M1000' 'M1001' 'M1002' ... 'M9997' 'M9998' 'M9999']
+4826 ['M1000' 'M1001' 'M1003' ... 'M9993' 'M9994' 'M9996']
 
-Total water used: 10057638
-Total water used by residences: 2852424
-Total water used by apartments: 2393855
+Total water used: 10054365
+Total water used by residences: 2849155
+Total water used by apartment complexes: 2393851
 
 Account types:
-Residence                   2697
-Apartments                  1137
+Residence                   2699
+Apartment Complex           1135
 Business                     556
 Town Homes                    93
 City                          58
@@ -139,8 +138,8 @@ Free                           2
 Name: accountType, dtype: int64
 
 Water used during 2018: 1999372
-Number of dwellings in 2018: 30925
-Average water used by each dwelling in 2018:  55.31</pre>
+Number of dwellings in 2018: 35608
+Average water used by each dwelling in 2018:  51.92</pre>
 
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each step

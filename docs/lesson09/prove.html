@@ -25,43 +25,81 @@
     <p>Prove that you can write a Python program that uses
     <code>pandas</code> to answer questions about a large dataset.</p>
 
-    <h2>Problem Statement</h2>
-    <p></p>
-
     <h2>Helpful Documentation</h2>
-    <p></p>
+    <ul>
+        <li><div>How to <a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/02_read_write.html#how-do-i-read-and-write-tabular-data">read and write</a> tabular data?</div></li>
+
+        <li><div>How to <a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/03_subset_data.html#how-do-i-filter-specific-rows-from-a-dataframe">filter specific rows</a> from a DataFrame?</div></li>
+
+        <li><div>How to <a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/05_add_columns.html#how-to-create-new-columns-derived-from-existing-columns">create new columns</a> derived from existing columns?</div></li>
+
+        <li><div>How to <a target="_blank" href="https://www.geeksforgeeks.org/python-pandas-series-dt-year/">extract the year</a> from a datetime column?</div></li>
+
+        <li><div>How to <a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/06_calculate_statistics.html#how-to-calculate-summary-statistics">calculate summary statistics</a>?</div></li>
+    </ul>
+
+    <!-- Reference documentation
+    <ul>
+        <li><div><a target="_blank" href=""></a></div></li>
+        <li><div>pandas <a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html"><code>read_csv</code></a> function</div></li>
+    </ul>
+    -->
 
     <h2>Assignment</h2>
     <p>During this lesson and the next lesson, you will write a Python
-    program that uses <code>pandas</code> to answer this question, "The
-    total amount of water used is increasing. Is the average amount of
-    water used per person also increasing?"</p>
+    program that uses <code>pandas</code> to analyze <a download
+    href="water.csv">water usage data</a> from the City of Rexburg to
+    answer these two questions:</p>
 
-    <ol>
-        <li><div>total water used for each year, 2015 - 2019</div></li>
-        <li><div>average water used for each business, 2015 - 2019</div></li>
-    </ol>
-    <ol>
-        <li><div>Average water used for each dwelling, 2015 - 2019</div></li>
-        <li><div>Three charts:
-        <ol>
-            <li><div>total by year</div></li>
-            <li><div>average for each business by year</div></li>
-            <li><div>average for each dwelling by year</div></li>
-        </ol></div></li>
-        <li><div></div></li>
-    </ol>
+    <ul>
+        <li><div>Is the total amount of water used in the City of
+        Rexburg increasing each year?</div></li>
+        <li><div>Is the average amount of water used per dwelling
+        increasing each year?</div></li>
+    </ul>
 
-    <p>Do the following:</p>
-    <ol>
-        <li><div></div></li>
-    </ol>
+    <p>If you examine closely the water usage data, you will see that
+    some water meters serve both a business and one or more apartments.
+    When analyzing data to answer the <em>second</em> question, your
+    program should exclude the water usage data for such meters because
+    there is no way to determine how much water went to the business and
+    how much went to the attached apartment. In fact, when answering the
+    <em>second</em> question, your program should use only the data for
+    apartment complexes, residences, town homes, and trailer courts.</p>
 
     <h2>Sample Run</h2>
 <pre class="console">&gt; python prove_solution.py
-</pre>
+
+Totals for all account types:
+      sumUsage
+year
+2015   1863804
+2016   1985262
+2017   1880506
+2018   1999372
+2019   2325421
+
+Totals for dwellings:
+      sumUsage  numDwellings  usagePerDwelling
+year
+2015   1108284       32181.9              34.4
+2016   1175975       32642.0              36.0
+2017   1084619       31533.2              34.4
+2018   1107399       33716.2              32.8
+2019   1117934       35919.1              31.1</pre>
 
     <h2>Testing Procedure</h2>
+    <p>Verify that your program works correctly by following each step
+    in this testing procedure:</p>
+    <ol class="testing">
+        <li><div>Run your program and verify that it prints the correct
+        results, rounded and formatted as shown in the sample run
+        above.</div></li>
+    </ol>
+
+    <h2>Ponder</h2>
+    <p>Examine the output of your program. What are the answers to the
+    two questions in the "Assignment" section?</p>
 
     <h2>Submission</h2>
     <p></p>

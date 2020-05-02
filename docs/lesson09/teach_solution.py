@@ -15,13 +15,13 @@ def main():
 
     # CORE REQUIREMENTS
 
-    # Print the list of unique account types.
+    # Print the data of unique account types.
     acct_types = data["accountType"].unique()
     print("Unique account types:")
     print(len(acct_types), acct_types)
     print()
 
-    # Print the list of unique meter numbers.
+    # Print the data of unique meter numbers.
     meters = data["meterNumber"].unique()
     print("Unique meter numbers:")
     print(len(meters), meters)
@@ -31,17 +31,17 @@ def main():
     total_water_used = data["usage"].sum()
     print("Total water used:", total_water_used)
 
-    # Filter the list to readings from residences and
+    # Filter the data to readings from residences and
     # compute and print the total water used by residences.
     residences = data[data["accountType"] == "Residence"]
     water_used = residences["usage"].sum()
     print("Total water used by residences:", water_used)
 
-    # Filter the list to readings from apartments and
+    # Filter the data to readings from apartments and
     # compute and print the total water used by apartments.
-    apartments = data[data["accountType"] == "Apartments"]
+    apartments = data[data["accountType"] == "Apartment Complex"]
     water_used = apartments["usage"].sum()
-    print("Total water used by apartments:", water_used)
+    print("Total water used by apartment complexes:", water_used)
     print()
 
     # Filter the data to one row per meter.
