@@ -37,29 +37,33 @@
     <ol>
         <li><div>Allow a user to select a city from a list of
         cities.</div></li>
-        <li><div>Retrieve weather forecast for the next seven days and
-        nights from the U.S. National Weather Service.</div></li>
+        <li><div>Retrieve the weather forecast for the selected city for
+        the next seven days and nights from the U.S. National Weather
+        Service.</div></li>
         <li><div>Write the forecast to an HTML file that a user can view
         in a browser.</div></li>
     </ol>
 
-    <p>During this assignment (lesson 3), you will write half of this
-    Python program. During this assignment, your program will not
+    <p>Your program will produce HTML files that look like this
+    <a target="_blank" href="forecast5day.html">HTML file</a></p>
+
+    <h2>Helpful Documentation</h2>
+    <p>The Python <code>weather_html</code> module was written at
+    BYU-Idaho and accepts U.S. National Weather Service forecasts as
+    input and writes HTML to a file. To prepare for this assignment,
+    read about the <a target="_blank"
+    href="weather_html.html"><code>weather_html</code> module</a> and
+    its functions.</p>
+
+    <h2>Assignment</h2>
+    <p>During this milestone (lesson 3), you will write half of this
+    Python program. During this milestone, your program will not
     retrieve the forecast from the U.S. Weather Service, but it will
     instead use two sample forecasts and write those forecasts to an
     HTML file. During lesson 4, you will add the code to prompt the user
     for their desired city and to retrieve a forecast from the U.S.
     Weather Service.</p>
 
-    <h2>Helpful Documentation</h2>
-    <p>The Python <code>weather_html</code> module was written at
-    BYU-Idaho and accepts U.S. National Weather Service forecasts and
-    writes HTML to a file. To prepare for this assignment, read about
-    the
-    <a target="_blank" href="weather_html.html"><code>weather_html</code> module</a>
-    and its functions.</p>
-
-    <h2>Assignment</h2>
     <p>Do the following:</p>
     <ol>
         <li><div>Download both of these files:
@@ -91,10 +95,11 @@ periods = test_periods.periods_that_start_with_a_day
 # periods = test_periods.periods_that_start_with_a_night</pre></div></li>
 
         <li><div>Finish your program by writing code to call the four
-        functions from the <code>weather_html</code> module as necessary
-        to produce an HTML document in a five day vertical format. Your
-        program should also include <code>if</code> statements as
-        necessary and a loop to iterate through the
+        functions from the <a target="_blank"
+        href="weather_html.html"><code>weather_html</code> module</a> as
+        necessary to produce an HTML document in a five day vertical
+        format. Your program should also include <code>if</code>
+        statements as necessary and a loop to iterate through the
         <code>periods</code>. See the "Testing Procedure" section below
         for sample reports.</div></li>
     </ol>
