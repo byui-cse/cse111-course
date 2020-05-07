@@ -1,28 +1,32 @@
 """Write U.S. National Weather Service forecasts to an HTML file
 
 To successfully use this module to write an HTML file, your code must
-first retrieve a weather forecast from the US National Weather Service.
-The weather service organizes a weather forecast into periods of time.
-Each period covers about 12 hours and is either a day, an afternoon, or
-a night.
+first retrieve a weather forecast from the U.S. National Weather
+Service. The weather service organizes a weather forecast into periods
+of time. Each period covers about 12 hours and is either a day, an
+afternoon, or a night. Each period is stored in a Python dictionary with
+these keys: number, name, startTime, endTime, isDaytime, temperature,
+temperatureUnit, temperatureTrend, windSpeed, windDirection, icon,
+shortForecast, and detailedForecast.
 
 After your code retrieves the periods, it should call these functions
 from this module:
 
-1. weather_html.create_report - must be called once before the other
+1. weather_html.create_document - must be called once before the other
 functions.
 2. weather_html.start_new_row - must be called once at the beginning of
-each desired row of periods.
+each desired row of periods in the document.
 3. weather_html.add_period - must be called once for each period in the
 current row.
-4. weather_html.write_report - must be called once after your code has
+4. weather_html.write_document - must be called once after your code has
 added all desired rows and periods.
 """
 
 import math
 
 
-# Option Constants
+# Option constants that are passed in a
+# list to the create_document function.
 PERIOD_NAME = "name"
 TEMPERATURE = "temperature"
 WIND = "wind"
@@ -31,17 +35,18 @@ SHORT_FORECAST = "shortForecast"
 DETAILED_FORECAST = "detailedForecast"
 
 
-def create_report(filename, locname,
-        options=[PERIOD_NAME, SHORT_FORECAST, TEMPERATURE]):
-    """Create and return a weather report that will be used for adding
-    rows and periods and then writing the report.
+def create_document(filename, locname,
+        options=[PERIOD_NAME, TEMPERATURE, SHORT_FORECAST]):
+    """Create and return a weather document that will be used for adding
+    rows and periods and then writing the document.
 
     param filename: path and name of the HTML file where this module
         will write the weather forecasts.
     param locname: name of the geographic location (city) where the
         forecasts apply.
-    param options: a list of weather forecast data that the user desires
-        to be written in a report.
+    param options: a list of options that the user wants written in
+        the document. The default is PERIOD_NAME, TEMPERATURE, and
+        SHORT_FORECAST.
     """
     return {
         "filename" : filename,
@@ -51,28 +56,38 @@ def create_report(filename, locname,
     }
 
 
-def start_new_row(report):
-    """Add one row to the weather report."""
-    report["rows"].append([])
+def start_new_row(document):
+    """Add one row to the weather document.
+
+    param document: The document to add the new row to.
+    """
+    document["rows"].append([])
 
 
-def add_period(report, period):
-    """Add one period to the current row in the weather report."""
-    report["rows"][-1].append(period)
+def add_period(document, period):
+    """Add one period to the current row in the weather document.
+
+    param document: The document to add the period to.
+    param period: A forecast for a period of time that came from the
+        U.S. National Weather Service. To make an empty cell in the
+        current row, call add_period with an empty dictionary {} as the
+        period.
+    """
+    document["rows"][-1].append(period)
 
 
-def write_report(report):
-    """Write the weather report to an HTML file."""
+def write_document(document):
+    """Write the weather document to an HTML file."""
 
     # Determine the maximum number of columns for all rows.
-    max_cols = max(len(row) for row in report["rows"])
+    max_cols = max(len(row) for row in document["rows"])
 
     # Compute the column width as a percentage and
     # round down to the nearest tenth of one percent.
     col_width = 100 / max_cols
     col_width = math.floor(col_width * 10) / 10
 
-    with open(report["filename"], "wt") as outfile:
+    with open(document["filename"], "wt") as outfile:
 
         # Write the HTML document head and start of the body.
         outfile.write(
@@ -90,13 +105,13 @@ f'''<!DOCTYPE HTML>
     </head>
     <body>
         <h2>U.S. National Weather Service Forecast</h2>
-        <h1>{report["location"]}</h1>
+        <h1>{document["location"]}</h1>
         <table>
 ''')
 
         # Write each of the rows.
-        options = report["options"]
-        for row in report["rows"]:
+        options = document["options"]
+        for row in document["rows"]:
             write_row(outfile, row, options, max_cols)
 
         # Write the end of the HTML document.

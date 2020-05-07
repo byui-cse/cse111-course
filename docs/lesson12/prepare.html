@@ -57,21 +57,28 @@ average = total / len(numbers)</pre></div>
     numbers we want the average of and then tell the computer to compute
     that average for us. Many of the commands in <code>pandas</code> are
     a form of declarative programming. For example, using
-    <code>pandas</code>, we could command the computer to compute the
-    average of the values in a column like this:</p>
+    <code>pandas</code>, we can command the computer to filter a
+    DataFrame or to remove columns from a DataFrame like this:</p>
 
 <div class="pre"><pre class="python">import pandas
 
+# Read a DataFrame from the water.csv file.
 data = pandas.read_csv("water.csv")
-average = data["usage"].mean()</pre></div>
 
-    <p>Notice that with declarative programming, we don't write the
-    steps to compute the average because someone else already did that
-    for us. Instead, we focus on telling the computer what data we want
-    it to average: in this example the values in the "usage" column. The
-    term "declarative programming" means that we are stating or
-    declaring what we want the computer to do. We are not telling the
-    computer how to compute something. We are declaring what we want the
+# Filter the DataFrame to only rows from residences.
+residence = data[data["accountType"] == "Residence"]
+
+# Remove all columns except meterNumber, readDate, and usage.
+residence = residence[["meterNumber", "readDate", "usage"]]</pre></div>
+
+    <p>Notice in the above example, that the code doesn't contain the
+    steps required to filter a DataFrame or remove columns because
+    someone else already wrote those steps. Instead, the code contains
+    commands that tell the computer what rows or columns we want to keep
+    in the data, and the computer executes the steps necessary to do
+    what we want. The term "declarative programming" means that we write
+    or declare what we want the computer to do. We do not tell the
+    computer how to compute something. We declare what we want the
     computer to do, and the computer determines how to do it and then
     does it.</p>
 
