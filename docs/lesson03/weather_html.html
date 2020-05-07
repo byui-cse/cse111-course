@@ -43,15 +43,17 @@
         <code>create_document</code> must be called once before
         calling the other functions in this module.</div>
         <ul>
-            <li><div>param <code>filename</code>: path and name of
+            <li><div>param <code>filename</code>: Path and name of
             the HTML file where this module will write the weather
-            forecast.</div></li>
-            <li><div>param <code>locname</code>: name of the
+            forecast document.</div></li>
+            <li><div>param <code>locname</code>: Name of the
             geographic location (city) where the forecast
-            apply.</div></li>
-            <li><div>param <code>options</code>: a list of options that
-            the user wants written in the document. The default is
-            PERIOD_NAME, TEMPERATURE, and SHORT_FORECAST.</div></li>
+            applies.</div></li>
+            <li><div>param <code>options</code>: A list of options that
+            the user wants written in the document. The possible options
+            are: PERIOD_NAME, TEMPERATURE, WIND, ICON, SHORT_FORECAST,
+            and DETAILED_FORECAST. The default list is PERIOD_NAME,
+            TEMPERATURE, and SHORT_FORECAST.</div></li>
         </ul></li>
 
         <li><div><code>weather_html.start_new_row(document)</code></div>
@@ -59,7 +61,7 @@
         <code>start_new_row</code> must be called once at the
         beginning of each desired row of periods.</div>
         <ul>
-            <li><div>param <code>document</code>: the document to add
+            <li><div>param <code>document</code>: The document to add
             the new row to</div></li>
         </ul></li>
 
@@ -72,8 +74,9 @@
             the period to.</div></li>
             <li><div>param <code>period</code>: A forecast for a period
             of time that came from the U.S. National Weather Service. To
-            make an empty cell in the current row, call add_period with
-            an empty dictionary {} as the period.</div></li>
+            make an empty cell in the current row, call
+            <code>add_period</code> with an empty dictionary
+            <code>{}</code> as the period.</div></li>
         </ul></div></li>
 
         <li><div><code>weather_html.write_document(document)</code></div>
@@ -81,7 +84,7 @@
         <code>write_document</code> must be called once, after your
         code has added all desired rows and periods.</div>
         <ul>
-            <li><div>param <code>document</code>: the document that will
+            <li><div>param <code>document</code>: The document that will
             be written to an HTML file.</div></li>
         </ul></div></li>
     </ol>

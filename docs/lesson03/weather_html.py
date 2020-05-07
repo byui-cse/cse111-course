@@ -40,12 +40,14 @@ def create_document(filename, locname,
     """Create and return a weather document that will be used for adding
     rows and periods and then writing the document.
 
-    param filename: path and name of the HTML file where this module
-        will write the weather forecasts.
-    param locname: name of the geographic location (city) where the
-        forecasts apply.
-    param options: a list of options that the user wants written in
-        the document. The default is PERIOD_NAME, TEMPERATURE, and
+    param filename: Path and name of the HTML file where this module
+        will write the weather forecast document.
+    param locname: Name of the geographic location (city) where the
+        forecast applies.
+    param options: A list of options that the user wants written in
+        the document. The possible options are: PERIOD_NAME,
+        TEMPERATURE, WIND, ICON, SHORT_FORECAST, and DETAILED_FORECAST.
+        The default list is PERIOD_NAME, TEMPERATURE, and
         SHORT_FORECAST.
     """
     return {
@@ -77,8 +79,10 @@ def add_period(document, period):
 
 
 def write_document(document):
-    """Write the weather document to an HTML file."""
+    """Write the weather document to an HTML file.
 
+    param document: The document that will be written to an HTML file.
+    """
     # Determine the maximum number of columns for all rows.
     max_cols = max(len(row) for row in document["rows"])
 
