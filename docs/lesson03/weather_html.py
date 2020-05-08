@@ -72,8 +72,8 @@ def add_period(document, period):
     param document: The document to add the period to.
     param period: A forecast for a period of time that came from the
         U.S. National Weather Service. To make an empty cell in the
-        current row, call add_period with an empty dictionary {} as the
-        period.
+        current row, call add_period with None or an empty dictionary {}
+        as the period.
     """
     document["rows"][-1].append(period)
 
@@ -181,7 +181,7 @@ def write_row(out, periods, options, max_cols):
         write_part = WRITERS[option]
 
         for period in periods:
-            if len(period) > 0:
+            if period and len(period) > 0:
                 # Call the writer function which will write to the
                 # HTML file a piece of data from a weather period.
                 write_part(out, period)
@@ -192,5 +192,5 @@ def write_row(out, periods, options, max_cols):
         for _ in range(empties):
             out.write(empty_cell)
 
-        # Write an closing </tr> tag to the HTML file.
+        # Write a closing </tr> tag to the HTML file.
         out.write(_tr)
