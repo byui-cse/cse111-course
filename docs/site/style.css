@@ -136,18 +136,11 @@ article li ul {
 }
 
 article ul.links {
-	list-style-type: none;
-}
-
-article ul.links > li:before {
-	font-size: 150%;
-	color: #006ab9;
-	content: "»";
-	margin-right: 0.25em;
+	list-style-type: "»";
 }
 
 article ul.links > li {
-	color: #040404;
+	padding-left: 0.3em;
 }
 
 article dl.function {
@@ -319,53 +312,6 @@ table > tbody > tr > th {
 	vertical-align: top;
 	text-align: left;
 	font-weight: bold;
-}
-
-.table-small {
-	font-size:small;
-	margin-bottom: 20px;
-}
-
-.table-small p {
-	font-size:small;
-}
-
-.table-small td {
-	border: 1px solid rgb(200,200,200);
-	padding: 3px;
-}
-
-.table-small thead {
-	text-align:center;
-	font-weight:bold;
-}
-
-.table-small ul {
-	list-style-position: inside;
-	margin-left: 10px;
-	padding-left: 0px;
-	text-indent: -10px;
-}
-
-.table-small li {
-	padding-left: 10px;
-}
-
-/* Instructor Tips */
-div.tips {
-	background-color: rgb(230, 230, 230);
-	margin-left: 20px;
-	margin-right: 10px;
-	margin-bottom: 10px;
-	padding: 10px;
-}
-
-div.tips p:first-child {
-	font-weight: bold;
-}
-
-div.tips p {
-	font-size: 80%;
 }
 
 footer {

@@ -20,30 +20,98 @@
 </header>
 <article>
     <h1>10 Prepare: Charts</h1>
-    <p></p>
+    <p>Data visualization is the graphical representation of data in
+    charts and graphs to help people visualize and understand data more
+    easily than they would by looking at tables of numbers. Data
+    visualization is closely related to and often comes after data
+    analysis. In other words, a data scientist will often perform data
+    analysis to process large data sets and then will employ data
+    visualization techniques to make charts and graphs from the
+    data.</p>
+
+    <p>The <code>pandas</code> module includes functions to draw
+    different types of charts. In <code>pandas</code>, charts are called
+    plots. Interestingly the plots are not actually drawn by
+    <code>pandas</code> but instead by another Python module named
+    <code>mathplotlib.pyplot</code>.</p>
 
     <h2>Concepts</h2>
     <p>Here are the Python programming concepts and topics that you
     should learn during this lesson.</p>
 
     <ol>
-        <li><div></div></li>
+        <li><div>We can use the functions that are part of the
+        <code>pandas</code> <code>DataFrame.plot</code> object to draw
+        different types of charts, including line, vertical bar,
+        horizontal bar, histogram, box, pie, and scatter.</div></li>
 
-        <li><div></div></li>
+        <li><div>Drawing a plot can be as simple as these three steps:
+        <ol>
+            <li><div>read the data</div></li>
+            <li><div>define the chart</div></li>
+            <li><div>draw the chart.</div></li>
+        </ol>
+        For example:
+<div class="pre"><pre class="linenums">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11</pre><pre class="python">
+import pandas as pd
+import matplotlib.pyplot as plt
 
-        <li><div></div></li>
+# Read a DataFrame from a CSV file.
+df = pd.read_csv("filename.csv")
+
+# Define a vertical bar chart from the DataFrame.
+df.plot.bar(x="col_name", y="col_name")
+
+# Draw and show all defined charts.
+plt.show()</pre></div>
+
+        In the above example, notice lines 2 and 11 which are easy to
+        forget but without them, the plots that your code defines will
+        not be shown on the computer's monitor.</div></li>
+
+        <li><div>Although drawing a plot can be very simple, a data
+        scientist may have to write significant amounts of code to
+        analyze and process the data before defining a chart. This is
+        the type of code that you learned to write in the previous
+        lesson of this course.</div></li>
+
+        <li><div>There are many options that you can use in your code to
+        modify the look and layout of a plot. Some of these options are
+        not available through the <code>pandas</code> functions but
+        instead are available through the <code>matplotlib.pyplot</code>
+        functions.</div></li>
     </ol>
 
-    <h2>Videos</h2>
-    <p>Watch these videos from Microsoft about .</p>
-    <ul class="links">
-        <li><a target="_blank" href=""></a></li>
-    </ul>
+    <h2>Examples</h2>
+    <p>Here are two plots that were drawn by <code>pandas</code> and
+    <code>matplotlib.pyplot</code>. Both plots show the exact same data,
+    first as a pie plot and then as a vertical bar plot. Although pie
+    plots are very popular, most data scientists don't use them because
+    they convey less information than a bar chart.</p>
+
+    <p><img src="pie.png"
+    alt="A pie plot that shows total water used in the City of Rexburg during the years 2015 through 2019"
+    title="A pie plot that shows total water used in the City of Rexburg during the years 2015 through 2019">
+    </p>
+
+    <p><img src="vbar.png"
+    alt="A vertical bar plot that shows the amount of water used in the City of Rexburg during the years 2015 through 2019"
+    title="A vertical bar plot that shows the amount of water used in the City of Rexburg during the years 2015 through 2019">
+    </p>
 
     <h2>Documentation</h2>
-    <ul class="links">
-        <li><a target="_blank" href=""></a></li>
-    </ul>
+    <p>The <code>pandas</code> "Getting Started Tutorials" contain a
+    helpful section about <a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/04_plotting.html">creating plots</a>.
 </article>
 <footer>
     <small>Copyright &copy; 2020, Brigham Young University - Idaho. All

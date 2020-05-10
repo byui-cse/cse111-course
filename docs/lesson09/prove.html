@@ -27,23 +27,16 @@
 
     <h2>Helpful Documentation</h2>
     <ul>
-        <li><div>How to <a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/02_read_write.html#how-do-i-read-and-write-tabular-data">read and write</a> tabular data?</div></li>
+        <li><div><a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/02_read_write.html">Read and write</a> tabular data</div></li>
 
-        <li><div>How to <a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/03_subset_data.html#how-do-i-filter-specific-rows-from-a-dataframe">filter specific rows</a> from a DataFrame?</div></li>
+        <li><div><a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/03_subset_data.html#how-do-i-filter-specific-rows-from-a-dataframe">Filter rows</a> from a DataFrame</div></li>
 
-        <li><div>How to <a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/05_add_columns.html#how-to-create-new-columns-derived-from-existing-columns">create new columns</a> derived from existing columns?</div></li>
+        <li><div><a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/05_add_columns.html">Create new columns</a> derived from existing columns</div></li>
 
-        <li><div>How to <a target="_blank" href="https://www.geeksforgeeks.org/python-pandas-series-dt-year/">extract the year</a> from a datetime column?</div></li>
+        <li><div><a target="_blank" href="https://www.geeksforgeeks.org/python-pandas-series-dt-year/">Extract the year</a> from a datetime column</div></li>
 
-        <li><div>How to <a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/06_calculate_statistics.html#how-to-calculate-summary-statistics">calculate summary statistics</a>?</div></li>
+        <li><div><a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/06_calculate_statistics.html">Calculate summary statistics</a></div></li>
     </ul>
-
-    <!-- Reference documentation
-    <ul>
-        <li><div><a target="_blank" href=""></a></div></li>
-        <li><div>pandas <a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html"><code>read_csv</code></a> function</div></li>
-    </ul>
-    -->
 
     <h2>Assignment</h2>
     <p>During this lesson and the next lesson, you will write a Python
@@ -58,19 +51,24 @@
         increasing each year?</div></li>
     </ul>
 
-    <p>If you examine closely the water usage data, you will see that
-    some water meters serve both a business and one or more apartments.
-    When analyzing data to answer the <em>second</em> question, your
-    program should exclude the water usage data for such meters because
-    there is no way to determine how much water went to the business and
-    how much went to the attached apartment. In fact, when answering the
-    <em>second</em> question, your program should use only the data for
-    apartment complexes, residences, town homes, and trailer courts.</p>
+    <p>Your program should compute actual numbers from the water meter
+    data that answer the two questions above. Your program should print
+    those numbers formatted nicely as shown in the sample run below.</p>
+
+    <p><b>Note</b>: If you examine closely the water data, you will see
+    that some water meters serve both a business and one or more
+    apartments. When analyzing data to answer the <em>second</em>
+    question, your program should exclude the water usage data for such
+    meters because there is no way to determine how much water went to
+    the business and how much went to the attached apartment. In fact,
+    when answering the <em>second</em> question, your program should use
+    only the data for apartment complexes, residences, town homes, and
+    trailer courts.</p>
 
     <h2>Sample Run</h2>
 <pre class="console">&gt; python prove_solution.py
 
-Totals for all account types:
+Totals for all account types (in 1000 gallons):
       sumUsage
 year
 2015   1863804
@@ -79,7 +77,7 @@ year
 2018   1999372
 2019   2325421
 
-Totals for dwellings:
+Average totals for dwellings (in 1000 gallons):
       sumUsage  numDwellings  usagePerDwelling
 year
 2015   1108284       32181.9              34.4
