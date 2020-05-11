@@ -4,7 +4,6 @@
 # pages of data. A single page of data at swapi.dev contains the data
 # for about ten planets.
 
-
 import requests
 
 
