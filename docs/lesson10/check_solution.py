@@ -1,5 +1,6 @@
-import matplotlib.pyplot as plot
+import matplotlib.pyplot as plt
 import pandas as pd
+
 
 def main():
     # Read the water.csv file and convert the
@@ -11,23 +12,23 @@ def main():
                 "accountType":"str", "numberOfDwellings":"int_"
             },
             parse_dates=["readDate"])
-    data["year"] = data["readDate"].dt.year
 
-    first = data[["accountType", "usage"]]
-    first = first.groupby("accountType").aggregate(sumUsage=("usage", "sum"))
-    first.plot()
+    # Convert the readDate column from a datetime64 to just a date.
+    data["readDate"] = data["readDate"].dt.date
 
-    second = data[["year", "usage"]]
-    second = second.groupby("year").aggregate(sumUsage=("usage", "sum"))
-    second.plot()
+    # Filter the data to meter #M4103 only.
+    metnum = "M4103"
+    m4103 = data[data["meterNumber"] == metnum]
 
-    third = data[["meterNumber", "usage", "accountType"]]
-    third = third[third["accountType"]
-                .isin(["Business", "Business with Apartment"])]
-    third = third.groupby("meterNumber").aggregate(sumUsage=("usage", "sum"))
-    third.plot()
+    # Define a vertical bar plot from the data for meter #M4103.
+    barplot = m4103.plot.bar(x="readDate", y="usage", legend=False)
+    barplot.set_title(f"Water Usage for Meter #{metnum}")
+    barplot.set_xlabel("")
+    barplot.set_ylabel("x1000 gallons")
+    plt.tight_layout()
 
-    plot.show()
+    # Show all defined plots.
+    plt.show()
 
 
 main()

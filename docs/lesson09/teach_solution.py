@@ -15,13 +15,13 @@ def main():
 
     # CORE REQUIREMENTS
 
-    # Print the data of unique account types.
+    # Print the unique account types.
     acct_types = data["accountType"].unique()
     print("Unique account types:")
     print(len(acct_types), acct_types)
     print()
 
-    # Print the data of unique meter numbers.
+    # Print the unique meter numbers.
     meters = data["meterNumber"].unique()
     print("Unique meter numbers:")
     print(len(meters), meters)
@@ -37,8 +37,8 @@ def main():
     water_used = residences["usage"].sum()
     print("Total water used by residences:", water_used)
 
-    # Filter the data to readings from apartments and
-    # compute and print the total water used by apartments.
+    # Filter the data to readings from apartment complexes and
+    # compute and print the total water used by apartment complexes.
     apartments = data[data["accountType"] == "Apartment Complex"]
     water_used = apartments["usage"].sum()
     print("Total water used by apartment complexes:", water_used)
@@ -78,9 +78,9 @@ def main():
     total_for_dwells = reads_for_dwells["usage"].sum()
 
     # Compute and print the average amount
-    # of water used during 2018 by dwellings.
+    # of water used during 2018 per dwelling.
     avg_per_dwell = round(total_for_dwells / number_of_dwells, 2)
-    print("Average water used by each dwelling in 2018: ", avg_per_dwell)
+    print("Average water used per dwelling in 2018: ", avg_per_dwell)
 
 
 main()
