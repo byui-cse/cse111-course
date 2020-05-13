@@ -80,13 +80,13 @@
 
     <ol>
         <li><div>A dictionary with at least five U.S. cities and their
-        corresponding latitude and longitude. A dictionary with this
-        structure would work well:
+        corresponding forecast URL. A dictionary with this structure
+        would work well:
         <table><thead>
-            <tr><th>Keys (string)</th> <th>Values (tuple)</th></tr>
+            <tr><th>Keys (string)</th> <th>Values (string)</th></tr>
         </thead><tbody>
-            <tr><td>"Dallas, Texas"</td> <td>(32.7782, -96.7951)</td></tr>
-            <tr><td>"Rexburg, Idaho"</td> <td>(43.82607, -111.783089)</td></tr>
+            <tr><td>"Dallas, Texas"</td> <td>https://api.weather.gov/points/32.7782,-96.7951/forecast</td></tr>
+            <tr><td>"Rexburg, Idaho"</td> <td>https://api.weather.gov/points/43.82607,-111.78309/forecast</td></tr>
         </tbody></table></div></li>
 
         <li><div>Python code that allows a user to choose one of the
