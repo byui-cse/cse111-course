@@ -22,10 +22,99 @@
     <h1>10 Team Activity: </h1>
 
     <h2>Instructions</h2>
-    <p></p>
+    <p>Arrange a one hour synchronous meeting with your team for this
+    activity. Online students should coordinate a video-sharing meeting.
+    Campus students will use class time for this meeting. You should
+    prepare for this meeting by completing the preparation material and
+    the individual checkpoint assignment beforehand.</p>
+
+    <h2>Helpful Documentation</h2>
+    <ul>
+        <li><div><a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/02_read_write.html">Read and write</a> tabular data</div></li>
+
+        <li><div><a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/03_subset_data.html#how-do-i-filter-specific-rows-from-a-dataframe">Filter rows</a> from a DataFrame</div></li>
+
+        <li><div><a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/05_add_columns.html">Create new columns</a> derived from existing columns</div></li>
+
+        <li><div><a target="_blank" href="https://www.geeksforgeeks.org/python-pandas-series-dt-year/">Extract the year</a> from a datetime column</div></li>
+
+        <li><div><a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/06_calculate_statistics.html">Calculate summary statistics</a></div></li>
+
+        <li><div>The <code>pandas</code> Getting Started Tutorials
+        contain a helpful <a target="_blank"
+        href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/04_plotting.html">short section about creating plots</a>.
+
+        <li><div>The <code>pandas</code> User Guide contains a
+        <a target="_blank"
+        href="https://pandas.pydata.org/pandas-docs/stable/user_guide/visualization.html">long section about creating plots</a>.</div></li>
+    </ul>
+
+    <h2>Assignment</h2>
+    <p>Prove that you can write a Python program that uses
+    <code>pandas</code> to answer questions about a large dataset.</p>
+
+    <p>During this lesson and the next lesson, you will write a Python
+    program that uses <code>pandas</code> to analyze <a download
+    href="water.csv">water usage data</a> from the City of Rexburg to
+    answer these two questions:</p>
+
+    <ul>
+        <li><div>Is the total amount of water used in the City of
+        Rexburg increasing each year?</div></li>
+        <li><div>Is the average amount of water used per dwelling
+        increasing each year?</div></li>
+    </ul>
+
+    <p>Your program should compute actual numbers from the water meter
+    data that answer the two questions above. Your program should print
+    those numbers formatted nicely as shown in the sample run below.</p>
+
+    <p><b>Note</b>: If you examine closely the water data, you will see
+    that some water meters serve both a business and one or more
+    apartments. When analyzing data to answer the <em>second</em>
+    question, your program should exclude the water usage data for such
+    meters because there is no way to determine how much water went to
+    the business and how much went to the attached apartment. In fact,
+    when answering the <em>second</em> question, your program should use
+    only the data for apartment complexes, residences, town homes, and
+    trailer courts.</p>
+
+    <h2>Sample Run</h2>
+<pre class="console">&gt; python prove_solution.py
+
+Total usage for all account types (in 1000 gallons):
+      sumUsage
+year
+2015   1863804
+2016   1985262
+2017   1880506
+2018   1999372
+2019   2325421
+
+Average total usage per dwelling (in 1000 gallons):
+      sumUsage  numDwellings  usagePerDwelling
+year
+2015   1108284       32181.9              34.4
+2016   1175975       32642.0              36.0
+2017   1084619       31533.2              34.4
+2018   1107399       33716.2              32.8
+2019   1117934       35919.1              31.1</pre>
+
+    <h2>Testing Procedure</h2>
+    <p>Verify that your program works correctly by following each step
+    in this testing procedure:</p>
+    <ol class="testing">
+        <li><div>Run your program and verify that it prints the correct
+        results, rounded and formatted as shown in the sample run
+        above.</div></li>
+    </ol>
+
+    <h2>Ponder</h2>
+    <p>Examine the output of your program. What are the answers to the
+    two questions in the "Assignment" section?</p>
+
 
     <h2>Problem Statement</h2>
-    <p></p>
 
     <h2>Helpful Documentation</h2>
     <p></p>

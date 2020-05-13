@@ -23,7 +23,7 @@
 
     <h2>Overview</h2>
     <p>Prove that you can write a Python program that uses
-    <code>pandas</code> to answer questions about a large dataset.</p>
+    <code>pandas</code> to read and analyze data.</p>
 
     <h2>Helpful Documentation</h2>
     <ul>
@@ -33,7 +33,12 @@
 
         <li><div><a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/05_add_columns.html">Create new columns</a> derived from existing columns</div></li>
 
-        <li><div><a target="_blank" href="https://www.geeksforgeeks.org/python-pandas-series-dt-year/">Extract the year</a> from a datetime column</div></li>
+        <li><div>Create a new column with the year and month from an
+        existing datetime column:
+        <a target="_blank" href="https://www.interviewqs.com/ddi_code_snippets/extract_month_year_pandas">tutorial</a>,
+        <a target="_blank" href="https://stackoverflow.com/questions/23840797/convert-a-column-of-timestamps-into-periods-in-pandas">stack overflow question</a>,
+        <a target="_blank"
+        href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.dt.to_period.html">official documentation</a></div></li>
 
         <li><div><a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/06_calculate_statistics.html">Calculate summary statistics</a></div></li>
     </ul>
@@ -41,63 +46,191 @@
     <h2>Assignment</h2>
     <p>During this lesson and the next lesson, you will write a Python
     program that uses <code>pandas</code> to analyze <a download
-    href="water.csv">water usage data</a> from the City of Rexburg to
-    answer these two questions:</p>
+    href="water.csv">water usage data</a> from the City of Rexburg. Your
+    program will allow a user to enter a water meter number, a start
+    year, and an end year and then display at least two charts to help the
+    user visualize the data for the given meter number. During this
+    prove milestone, you will write code to read the CSV file, get the
+    user input, and filter and prepare the data. During the next prove
+    assignment, you will write code to draw the charts.</p>
 
-    <ul>
-        <li><div>Is the total amount of water used in the City of
-        Rexburg increasing each year?</div></li>
-        <li><div>Is the average amount of water used per dwelling
-        increasing each year?</div></li>
-    </ul>
+    <p>Your program must be separated into functions where each function
+    performs one task only. Your program must contain at least the
+    following functions:</p>
 
-    <p>Your program should compute actual numbers from the water meter
-    data that answer the two questions above. Your program should print
-    those numbers formatted nicely as shown in the sample run below.</p>
+    <!--
+    Notice also that while reading the function description for the
+    <code>main</code> function, it may seem that <code>main</code>
+    violates the rule that each function must perform one task only.
+    However, <code>main</code> does perform one high-level task only.
+    Its task is to fulfill the requirements of the program by calling
+    the other functions.
+    -->
 
-    <p><b>Note</b>: If you examine closely the water data, you will see
-    that some water meters serve both a business and one or more
-    apartments. When analyzing data to answer the <em>second</em>
-    question, your program should exclude the water usage data for such
-    meters because there is no way to determine how much water went to
-    the business and how much went to the attached apartment. In fact,
-    when answering the <em>second</em> question, your program should use
-    only the data for apartment complexes, residences, town homes, and
-    trailer courts.</p>
+<div class="pre"><pre class="python">
+def main():
+    """Use pandas to read the CSV file. Get a meter number, a start
+    year, and an end year from the user. Use pandas to filter and
+    analyze the data. Use matplotlib.pyplot to draw charts to help the
+    user visualize the data.
+    """
+    pass
+
+
+def get_int(prompt, lower, upper):
+    """Get an integer from the user, validate that the integer is
+    between a lower and upper bound, and return the integer to the
+    calling function. If the user does not enter an integer between
+    lower and upper, inclusive, this function will prompt the user again
+    for an integer.
+
+    param prompt: A string to display to the user.
+    param lower: The lowest (smallest) integer that the user may enter.
+    param upper: The highest (largest) integer that the user may enter.
+    """
+    pass
+
+
+def insert_after(ls, existing, toinsert):
+    """Insert an element into a list after an existing element."""
+    pass
+
+
+def add_usage_median_column(data):
+    """Add to the DataFrame a column named medianUsage that
+    contains the median usage grouped by accountType and yearMonth.
+    """
+    data = add_year_month_column(data)
+    columns = data.columns.tolist()
+
+    # Find the median usage grouped by accountType and yearMonth.
+    medians = data.groupby(["accountType", "yearMonth"]) \
+            .aggregate(medianUsage=("usage", "median"))
+
+    # Change the index so that joining the
+    # medians with the original data will work.
+    data.set_index(["accountType", "yearMonth"], inplace=True)
+
+    # Join the original data and the medians.
+    joined = data.join(medians)
+
+    # The join sorts the data by the join key, which is a
+    # different order than the CSV file, so sort the rows by
+    # meterNumber and readDate like the CSV file, and then reset
+    # the index as if the data were just read from the CSV file.
+    joined.sort_values(["meterNumber", "readDate"], inplace=True)
+    joined.reset_index(drop=False, inplace=True)
+
+    # Reorder the columns to be similar to the CSV file.
+    insert_after(columns, "usage", "medianUsage")
+    joined = joined[columns]
+
+    return joined
+
+
+def add_year_month_column(data):
+    """Add to the DataFrame a column named yearMonth that
+    contains only the year and the month of the readDate.
+    """
+    pass
+
+
+def filter_for_meter(data, meter):
+    """Return a new DataFrame that contains only the rows
+    where the meterNumber equals the specified meter number.
+    """
+    pass
+
+
+def filter_between_dates(data, start, end):
+    """Return a new DataFrame that contains only the rows where
+    the readDate is between the specified start and end dates.
+    """
+    pass
+
+
+def show_meter_usage(indiv, meter):
+    """Define a vertical column plot that shows the year
+    and month on the x-axis and the usage on the y-axis.
+
+    param indiv: a DataFrame with at least these two
+        columns: yearMonth, usage, that is already
+        filtered to the rows for one meter number only.
+    param meter: the meter number for which indiv is filtered.
+    """
+    pass
+
+
+def show_comparison(indiv, meter):
+    """Define a line plot that shows the year and month on
+    the x-axis and the usage and median usage on the y-axis.
+
+    param indiv: a DataFrame with at least these three
+        columns: yearMonth, usage, medianUsage, that is already
+        filtered to the rows for one meter number only.
+    param meter: the meter number for which indiv is filtered.
+    """
+    pass</pre></div>
+
+    <p>Notice that all the functions in the above code, except
+    <code>add_usage_median_column</code>, are incomplete, and you need
+    to complete them. During this prove milestone, you should complete
+    <code>get_int</code>, <code>insert_after</code>,
+    <code>add_year_month_column</code>, <code>filter_for_meter</code>,
+    and <code>filter_between_dates</code>. You should also write code in
+    <code>main</code> to call your completed functions produce the
+    output shown in the "Sample Run" section. During the next prove
+    assignment, you should complete <code>show_meter_usage</code>,
+    <code>show_comparison</code> and any other functions that you
+    add.</p>
 
     <h2>Sample Run</h2>
 <pre class="console">&gt; python prove_solution.py
+Enter a meter number ('q' to quit): <span class="input">M4103</span>
+Enter a start year between 2015 and 2019, inclusive: <span class="input">2018</span>
+Enter an end year between 2018 and 2019, inclusive: <span class="input">2019</span>
 
-Total usage for all account types (in 1000 gallons):
-      sumUsage
-year
-2015   1863804
-2016   1985262
-2017   1880506
-2018   1999372
-2019   2325421
+Meter number: M4103
+      yearMonth  usage  medianUsage
+84126   2018-01      2          4.0
+84127   2018-02      2          4.0
+84128   2018-03      2          4.0
+84129   2018-04      1          4.0
+84130   2018-05      8         10.0
+84131   2018-06     16         19.0
+84132   2018-07     32         35.0
+84133   2018-08     50         42.0
+84134   2018-09     31         40.0
+84135   2018-10      8         20.0
+84136   2018-11      2          5.0
+84137   2018-12      2          4.0
+84138   2019-01      2          4.0
+84139   2019-02      2          4.0
+84140   2019-03      2          4.0
+84141   2019-04      6          5.0
+84142   2019-05      2         11.0
+84143   2019-06     13         20.0
+84144   2019-07     60         38.0
+84145   2019-08     41         44.0
+84146   2019-09     38         38.0
+84147   2019-10      2          7.0
+84148   2019-11      3          5.0
+84149   2019-12      3          5.0
 
-Average total usage per dwelling (in 1000 gallons):
-      sumUsage  numDwellings  usagePerDwelling
-year
-2015   1108284       32181.9              34.4
-2016   1175975       32642.0              36.0
-2017   1084619       31533.2              34.4
-2018   1107399       33716.2              32.8
-2019   1117934       35919.1              31.1</pre>
+Enter a meter number ('q' to quit): q</pre>
+
+    <p>If you would like to see two of the charts that your program
+    should draw at the end of next lesson, look at the
+    "<a target="_blank" href="../lesson10/prove.html#run">Sample
+    Run</a>" section of the next prove assignment.</p>
 
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each step
     in this testing procedure:</p>
     <ol class="testing">
-        <li><div>Run your program and verify that it prints the correct
-        results, rounded and formatted as shown in the sample run
-        above.</div></li>
+        <li><div>Run your program and ensure that your program's output
+        is the same as the sample run output.</div></li>
     </ol>
-
-    <h2>Ponder</h2>
-    <p>Examine the output of your program. What are the answers to the
-    two questions in the "Assignment" section?</p>
 
     <h2>Submission</h2>
     <p>On or before the due date, return to I-Learn and report your

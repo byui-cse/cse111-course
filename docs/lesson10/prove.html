@@ -19,32 +19,66 @@
     <h1>CSE 111 | Programming with Functions</h1>
 </header>
 <article>
-    <h1>10 Prove Assignment: </h1>
+    <h1>10 Prove Assignment: Data Visualization</h1>
 
     <h2>Overview</h2>
-    <p>Prove that you can</p>
-
-    <h2>Problem Statement</h2>
-    <p></p>
-    <ol>
-        <li><div></div></li>
-    </ol>
+    <p>Prove that you can write a Python program that uses
+    <code>pandas</code> to read and analyze data and draw plots to help
+    a user visualize trends in the data.</p>
 
     <h2>Helpful Documentation</h2>
-    <p></p>
     <ul>
-        <li><div></div></li>
+        <li><div>The <code>pandas</code> Getting Started Tutorials
+        contain a helpful <a target="_blank"
+        href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/04_plotting.html">short section about creating plots</a>.
+
+        <li><div>The <code>pandas</code> User Guide contains a
+        <a target="_blank"
+        href="https://pandas.pydata.org/pandas-docs/stable/user_guide/visualization.html">long section about creating plots</a>.</div></li>
     </ul>
 
     <h2>Assignment</h2>
-    <p></p>
+    <p>During this assignment, you will write and test the remaining
+    parts of the Python program that you began during the previous
+    <a target="_blank" href="../lesson09/prove.html">lesson's
+    milestone</a>. Do the following:</p>
+
     <ol>
-        <li><div></div></li>
+        <li><div>In the Python program that you begn in the previous
+        lesson's milestone, write the code for the
+        <code>show_meter_usage</code> and <code>show_comparison</code>
+        functions.</div></li>
+
+        <li><div>Add any additional functions that you would like to
+        write, including functions to draw additional plots.</div></li>
+
+        <li><div>Modify the code in the <code>main</code> function so
+        that your program allows a user to enter a water meter number, a
+        start year, and an end year and then displays at least two
+        charts to help the user visualize the data for the given meter
+        number.</div></li>
+
+        <li><div>Test your individual functions and program.</div></li>
     </ol>
 
-    <h2>Sample Runs</h2>
-<pre class="console">&gt; python
-</pre>
+    <h2 id="run">Sample Run</h2>
+<pre class="console">&gt; python prove_solution
+
+Enter a meter number ('q' to quit): <span class="input">M5211</span>
+Enter a start year between 2015 and 2019, inclusive: <span class="input">2018</span>
+Enter an end year between 2018 and 2019, inclusive: <span class="input">2019</span>
+
+Enter a meter number ('q' to quit): q</pre>
+
+    <p><img src="m5211.png"
+    alt="A vertical bar plot showing the water used by meter #M5211"
+    title="A vertical bar plot showing the water used by meter #M5211"></p>
+
+    <p><img src="m5211_median.png"
+    alt="A line plot showing the water used by meter #M5211 and the
+    median for water meters of the same account type as M5211"
+    title="A line plot showing the water used by meter #M5211 and the
+    median for water meters of the same account type as M5211"></p>
 
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each
@@ -55,7 +89,22 @@
     </ol>
 
     <h2>Submission</h2>
-    <p></p>
+    <p>To submit your program, return to I-Learn and do these two
+    things:</p>
+    <ol>
+        <li><div>Upload your program (the .py file) for feedback.</div></li>
+        <li><div>Add a submission comment that specifies the grading
+        category that best describes your program along with a one or
+        two sentence justification for your choice. The grading criteria
+        are:
+        <ul>
+            <li><div>1. Some attempt made</div></li>
+            <li><div>2. Developing but significantly deficient</div></li>
+            <li><div>3. Slightly deficient</div></li>
+            <li><div>4. Meets requirements</div></li>
+            <li><div>5. Exceeds requirements</div></li>
+        </ul></div></li>
+    </ol>
 </article>
 <footer>
     <small>Copyright &copy; 2020, Brigham Young University - Idaho. All
