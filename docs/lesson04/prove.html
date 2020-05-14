@@ -79,18 +79,18 @@
     the following to it:</p>
 
     <ol>
-        <li><div>A dictionary with at least five U.S. cities and their
-        corresponding forecast URL. A dictionary with this structure
-        would work well:
+        <li><div>A list of tuples with at least five U.S. cities and
+        their corresponding forecast URL. A list with tuples like
+        this would work well:
         <table><thead>
-            <tr><th>Keys (string)</th> <th>Values (string)</th></tr>
+            <tr><th>City Name</th> <th>URL</th></tr>
         </thead><tbody>
             <tr><td>"Dallas, Texas"</td> <td>https://api.weather.gov/points/32.7782,-96.7951/forecast</td></tr>
             <tr><td>"Rexburg, Idaho"</td> <td>https://api.weather.gov/points/43.82607,-111.78309/forecast</td></tr>
         </tbody></table></div></li>
 
         <li><div>Python code that allows a user to choose one of the
-        cities in the dictionary.</div></li>
+        cities in the list.</div></li>
 
         <li><div>Python code that uses the <code>requests</code> module
         to retrieve the weather forecast for the city that the user
@@ -133,7 +133,7 @@ Forecast document written to PhoenixArizona.html</pre>
         <li><div>Repeat step 1 again for each of the five cities, but do
         it at a different time of the day. For example, if you first
         tested your program during the morning, then test it again in
-        the afternoon or vice versa.</div></li>
+        the evening or vice versa.</div></li>
     </ol>
 
     <h2>Submission</h2>
