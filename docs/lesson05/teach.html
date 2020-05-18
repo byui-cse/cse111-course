@@ -60,18 +60,39 @@
     in VS Code and notice that it contains four columns: gender,
     birthdate, weight (in U.S. pounds), and height (in U.S. inches).</p>
 
-    <p>Write a Python program that reads the contents of the
-    <code>fitness.csv</code> file, converts weight from pounds to
-    kilograms, converts inches to centimeters, and calculates age, BMI,
-    and BMR.</p>
-
-    <p>Do the following:</p>
+    <p>Write a Python program that does the following:</p>
     <ol>
-        <li><div>Start your program by copying and pasting this code
-        into your program at the top of your Python file.
-<pre class="python">import csv
+        <li><div>Reads the contents of the <code>fitness.csv</code>
+        file.</div></li>
+        <li><div>Converts weight from pounds to kilograms (1 lb =
+        0.45359237 kg).</div></li>
+        <li><div>Converts inches to centimeters (1 in = 2.54 cm).</div></li>
+        <li><div>Calculates age, BMI, and BMR.</div></li>
+    </ol>
+
+    </p>Use the following design to write your program:</p>
+<div class="pre"><pre class="python">
+# Import necessary modules.
 from datetime import date, datetime
 import math
+
+
+def main():
+    # Print this header:
+    # Gender,Age (years) Weight (kg),Height (cm),BMI,BMR
+
+    # Open the fitness.csv file for reading.
+
+    # Use the csv module to get a reader object.
+
+    # Process each row in the csv file by doing the following:
+        # 1. Call the compute_age, kg_from_lb, cm_from_in,
+        #   body_mass_index, and basal_metabolic_rate
+        #   functions as necessary.
+        # 2. Print the gender, age in years, weight in
+        #   kilograms, height in centimeters, body mass
+        #   index, and basal metabolic rate.
+
 
 def compute_age(birth):
     """Compute and return a person's age in years.
@@ -83,65 +104,42 @@ def compute_age(birth):
     now = date.today()
     diff = now - birthdate
     years = math.floor(diff.days / 365.25)
-    return years</pre></div></li>
+    return years
 
-        <li><div>Write a function named <code>kg_from_lb</code> that
-        takes one parameter named <var>lb</var> and converts the value
-        in the parameter to kilograms and returns the kilogram
-        value. To find the necessary conversion factor, search for
-        "pounds to kilograms" through
-        <a target="_blank" href="https://google.com">Google</a>.</div></li>
 
-        <li><div>Write a function named <code>cm_from_in</code> that
-        takes one parameter named <var>inch</var> and converts the value
-        in the parameter from inches to centimeters and returns the
-        centimeter value. To find the necessary conversion factor,
-        search for "inches to centimeters" through
-        <a target="_blank" href="https://google.com">Google</a>.</div></li>
+def kg_from_lb(lb):
+    """Convert a mass in pounds to kilograms."""
+    pass
 
-        <li><div>Write a function named <code>body_mass_index</code>
-        that takes two parameters named <var>weight</var> and
-        <var>height</var>. This function must compute and return a
-        person's body mass index. Use the formula for BMI given in the
-        Problem Statement section of this document.</div></li>
 
-        <li><div>Write a function named <code>basal_metabolic_rate</code>
-        that takes four parameters named <var>gender</var>,
-        <var>weight</var>, <var>height</var>, and <var>age</var>. This
-        function must compute and return a person's basal metabolic
-        rate. Use the formulas for BMR given in the Problem Statement
-        section of this document.</div></li>
+def cm_from_in(inch):
+    """Convert a length in inches to centimeters."""
+    pass
 
-        <li><div>Write a function named <code>main</code> that takes no
-        parameters and does the following:
-        <ol>
-            <li><div>Print this header: "Gender, Age (years), Weight
-            (kg), Height (cm), BMI, BMR."</div></li>
-            <li><div>Open the <code>fitness.csv</code> file for
-            reading.</div></li>
-            <li><div>Use the <code>csv</code> module to get a reader
-            object.</div></li>
-            <li><div>Process each row in the csv file by doing the
-            following:
-            <ol>
-                <li><div>Call the <code>compute_age</code>,
-                <code>kg_from_lb</code>, <code>cm_from_in</code>,
-                <code>body_mass_index</code>, and
-                <code>basal_metabolic_rate</code> functions.</div></li>
-                <li><div>Print the gender, age in years, weight in
-                kilograms, height in centimeters, body mass index, and
-                basal metabolic rate as shown in the "Sample Run"
-                section below.</div></li>
-            </ol></div></li>
-        </ol></div></li>
 
-        <li><div>At the bottom of your program write a call to the
-        <code>main</code> function so that your program will start
-        executing when you run it.</div></li>
-    </ol>
+def body_mass_index(weight, height):
+    """Calculate and return a person's body mass
+    index (bmi). weight and height must be in
+    kilograms and centimeters, respectively.
+    """
+    pass
+
+
+def basal_metabolic_rate(gender, weight, height, age):
+    """Calculate and return a person's basal metabolic
+    rate (bmr). weight must be in kilograms, height
+    must be in centimeters, and age must be in years.
+    """
+    pass
+
+
+# Call the main function so that
+# this program will start executing.
+
+</pre></div>
 
     <h3>Core Requirements</h3>
-    <ol>
+    <ol class="long">
         <li><div>Your program contains five complete and correct
         functions named <code>compute_age</code>,
         <code>kg_from_lb</code>, <code>cm_from_in</code>,
@@ -169,7 +167,7 @@ def compute_age(birth):
     complete one or more of these stretch challenges. Note that the
     stretch challenges are optional.</p>
 
-    <ol>
+    <ol class="long">
         <li><div>Add something or change something in your program that
         you think would make your program better, easier for the user,
         more elegant, or more fun. Be creative.</div></li>
@@ -187,13 +185,13 @@ def compute_age(birth):
 
     <h2>Sample Run</h2>
 <pre class="console">&gt; python teach_solution.py
-Gender, Age (years), Weight (kg), Height (cm), BMI, BMR
-F, 30, 58.97, 157.5, 23.8, 1350.9
-F, 35, 61.23, 163.8, 22.8, 1369.7
-F, 39, 56.7, 161.3, 21.8, 1302.7
-M, 28, 63.5, 182.9, 19.0, 1657.9
-M, 35, 65.77, 176.5, 21.1, 1617.8
-M, 38, 70.31, 174.0, 23.2, 1649.6</pre>
+Gender,Age (years),Weight (kg),Height (cm),BMI,BMR
+F,30,58.97,157.5,23.8,1350.9
+F,35,61.23,163.8,22.8,1369.7
+F,39,56.7,161.3,21.8,1302.7
+M,28,63.5,182.9,19.0,1657.9
+M,35,65.77,176.5,21.1,1617.8
+M,38,70.31,174.0,23.2,1649.6</pre>
 
     <p>Note that the output of your program will not be the same for the
     Age and BMR columns because a computer printed the sample run before
