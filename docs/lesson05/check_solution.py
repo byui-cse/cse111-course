@@ -1,22 +1,9 @@
 import csv
 
 
-def miles_per_gallon(start, end, gallons):
-    """Compute and return the average miles that
-    a vehicle traveled per gallon of fuel."""
-    mpg = abs(end - start) / gallons
-    return mpg
-
-
-def lp100k_from_mpg(mpg):
-    """Convert miles per gallon to liters per 100 kilometers."""
-    lp100k = 235.215 / mpg
-    return lp100k
-
-
 def main():
     # Print headers for the three columns.
-    print("Date, Miles/Gallon, Liters/100 Km")
+    print("Date,Miles/Gallon,Liters/100 Km")
 
     # Open the CSV file fuel_usage.csv
     with open("fuel_usage.csv", "rt") as fuel:
@@ -52,7 +39,20 @@ def main():
                 lp100k = lp100k_from_mpg(mpg)
 
                 # Display the results for one row in the csv file.
-                print(date, round(mpg, 1), round(lp100k, 2), sep=", ")
+                print(date, round(mpg, 1), round(lp100k, 2), sep=",")
+
+
+def miles_per_gallon(start, end, gallons):
+    """Compute and return the average miles that
+    a vehicle traveled per gallon of fuel."""
+    mpg = abs(end - start) / gallons
+    return mpg
+
+
+def lp100k_from_mpg(mpg):
+    """Convert miles per gallon to liters per 100 kilometers."""
+    lp100k = 235.215 / mpg
+    return lp100k
 
 
 # Call the main function so that

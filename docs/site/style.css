@@ -101,24 +101,20 @@ article ol {
 	list-style-type: decimal;
 }
 
-article ol li ol li ol {
+article ol > li ol > li ol {
 	list-style-type: lower-roman;
 }
 
-article ol li ol {
+article ol > li ol {
 	list-style-type: lower-alpha;
+}
+
+article ol.long > li {
+	margin-bottom: 1em;
 }
 
 article li {
 	color: #006ab9;
-}
-
-article ol li {
-	margin-bottom: 1em;
-}
-
-article li li {
-	margin-bottom: 0em;
 }
 
 article li > div {

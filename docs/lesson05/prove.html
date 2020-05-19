@@ -124,22 +124,37 @@
 
 
 def main():
+    # Create the root Tk object.
     root = Tk()
+
+    # Create a Scene object which will call
+    # the __init__ function in the Scene class.
     scene = Scene()
+
     root.geometry("800x600")
     root.mainloop()
 
-class Scene(Frame):
-    def __init__(self):
-        super().__init__()
-        self.initUI()
 
-    def initUI(self):
+class Scene(Frame):
+    """A Scene object is a Frame that uses the tkinter library
+    to draw a somewhat realistic outdoor scene in the frame.
+    """
+
+    def __init__(self):
+        """Initialize a Scene object."""
+
+        # Call __init__ in the parent class.
+        super().__init__()
+
         self.master.title("Scene")
         self.pack(fill=BOTH, expand=1)
+
+        # Get a canvas object that will draw into this Scene object.
         canvas = Canvas(self)
-        draw_scene(canvas, 0, 0, 799, 599)
         canvas.pack(fill=BOTH, expand=1)
+
+        # Call the draw_scene function.
+        draw_scene(canvas, 0, 0, 799, 599)
 
 
 def draw_scene(canvas, left, top, right, bottom):
@@ -160,6 +175,8 @@ def draw_scene(canvas, left, top, right, bottom):
             outline="#404040", width=4, fill="#2040e0")
 
 
+# Call the main function so that
+# this program will start executing.
 main()</pre></div>
 
     <p>Save your new file as <code>scene.py</code> and run your new
@@ -185,7 +202,7 @@ main()</pre></div>
     <p>Verify that your program works correctly by following each
     step in this testing procedure:</p>
 
-    <ol>
+    <ol class="test">
         <li><div>Run your program and verify that it correctly opens a
         window and draws within that window an outdoor scene that
         contains at least the sky, clouds, and the ground.</div></li>

@@ -36,85 +36,83 @@
     liters per 100 kilometers.</p>
 
     <h2>Assignment</h2>
-    <p>Write a program that reads odometer values in miles and fuel
-    amounts in gallons from a CSV file and computes and outputs fuel
-    efficiency in both miles per gallon and liters per 100
-    kilometers.</p>
+    <p>Download this file: <a download
+    href="fuel_usage.csv">fuel_usage.csv</a> and save it in the same
+    folder where you will save your Python program. Open the file in VS
+    Code and notice that it contains four columns: date, start, end,
+    gallons.</p>
 
-    <p>Do the following:</p>
+    <p>Write a program that does the following:</p>
     <ol>
-        <li><div>Download this file: <a download
-        href="fuel_usage.csv">fuel_usage.csv</a> and save it in the same
-        folder where you will save your Python program.</div></li>
-
-        <li><div>At the top of your program import the <code>csv</code>
-        module.</div></li>
-
-        <li><div>Write a function named <code>miles_per_gallon</code>
-        that has this header:
-        <pre class="python">def miles_per_gallon(start, end, gallons):</pre>
-        <ol>
-            <li><div>The <var>start</var> parameter will contain an
-            odometer value.</div></li>
-            <li><div>The <var>end</var> parameter will contain another
-            odometer value that is larger than the start
-            value.</div></li>
-            <li><div>The <var>gallons</var> parameter will contain a
-            volume amount in U.S. gallons.</div></li>
-            <li><div>This small function must compute and return the
-            fuel efficiency in miles per gallon. The formula for miles
-            per gallon is the following:
-            <div class="blockExpr">mpg = <div>end - start<hr>gallons</div></div>
-            </div></li>
-        </ol></div></li>
-
-        <li><div>Write another function named
-        <code>lp100k_from_mpg</code> that has this header:
-        <pre class="python">def lp100k_from_mpg(mpg):</pre>
-        <ol>
-            <li><div>The <var>mpg</var> parameter will contain a fuel
-            efficiency value in miles per gallon.</div></li>
-            <li><div>This small function must convert the miles per
-            gallon to liters per 100 kilometers and return the converted
-            value. The formula for converting miles per gallon to liters
-            per 100 kilometers is the following:
-            <div class="blockExpr">lp100k = <div>235.215<hr>mpg</div></div>
-            </div></li>
-        </ol></div></li>
-
-        <li><div>Write another function named <code>main</code> with
-        this header:
-        <pre class="python">def main():</pre>
-        This function must do the following:
-        <ol>
-            <li><div>Print this header:
-            "Date, Miles/Gallon, Liters/100 Km"</div></li>
-            <li><div>Open the fuel_usage.csv file for reading.</div></li>
-            <li><div>Use the <code>csv</code> module to get a reader
-            object.</div></li>
-            <li><div>Process each row in the csv file by calling the
-            <code>miles_per_gallon</code> and
-            <code>lp100k_from_mpg</code> functions.</div></li>
-            <li><div>Print the date, miles per gallon, and liters per
-            100 kilometers as comma separated values.</div></li>
-        </ol></div></li>
-
-        <li><div>Write a call to the <code>main</code> function.</div></li>
+        <li><div>Reads odometer values in miles and fuel amounts in
+        gallons from a CSV file.</div></li>
+        <li><div>Computes and outputs fuel efficiency in both miles per
+        gallon and liters per 100 kilometers.</div></li>
     </ol>
+
+    <p>Use the following design to write your Python program:</p>
+
+<div class="pre"><pre class="python">
+# Import necessary modules.
+
+
+def main():
+    # Print this header: "Date,Miles/Gallon,Liters/100 Km"
+
+    # Open the fuel_usage.csv file for reading.
+
+    # Use the csv module to get a reader object.
+
+    # Process each row in the csv file by calling the
+    # miles_per_gallon and lp100k_from_mpg functions.
+
+    # Print the date, miles per gallon, and liters
+    # per 100 kilometers as comma separated values.
+    pass
+
+
+def miles_per_gallon(start, end, gallons):
+    """Compute and return fuel efficiency in miles per gallon.
+
+    param start: the starting odometer reading in miles
+    param end: the ending odometer reading in miles
+    param gallons: amount of fuel used in U.S. gallons
+    """
+    pass
+
+
+def lp100k_from_mpg(mpg):
+    """Convert miles per gallon to liters per
+    100 kilometers and return the converted value.
+
+    param mpg: a fuel efficiency value in miles per gallon
+    """
+    pass
+
+
+# Call the main function so that
+# this program will start executing.
+
+</pre></div>
+
+    <p>Use this formula in the <code>miles_per_gallon</code> function:
+    <div class="blockExpr">mpg = <div>end - start<hr>gallons</div></div>
+    and this formula in the <code>lp100k_from_mpg</code> function:
+    <div class="blockExpr">lp100k = <div>235.215<hr>mpg</div></div></p>
 
     <h2>Sample Run</h2>
 <pre class="console">&gt; python check_solution.py
-Date, Miles/Gallon, Liters/100 Km
-2019 Sep 2, 30.6, 7.69
-2019 Sep 9, 29.5, 7.96
-2019 Sep 16, 30.7, 7.66
-2019 Sep 23, 31.8, 7.4
-2019 Sep 30, 29.1, 8.07</pre>
+Date,Miles/Gallon,Liters/100 Km
+2019-Sep-2,30.6,7.69
+2019-Sep-9,29.5,7.96
+2019-Sep-16,30.7,7.66
+2019-Sep-23,31.8,7.4
+2019-Sep-30,29.1,8.07</pre>
 
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each step
     in this testing procedure:</p>
-    <ol>
+    <ol class="test">
         <li><div>Run your program using the input shown in the sample
         run section above. Ensure that your program's output matches the
         sample run output.</div></li>
