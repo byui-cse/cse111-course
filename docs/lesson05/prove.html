@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CSE 111 - Prove</title>
-    <link rel="icon" type="image/png" href="../site/oneCubed.png">
+    <link rel="icon" type="image/png" href="../site/icon.png">
     <link rel="stylesheet" type="text/css" href="../site/style.css">
 </head>
 
@@ -20,6 +20,7 @@
 </header>
 <article>
     <h1>05 Prove Milestone: Draw a Scene</h1>
+    &#x192;
 
     <h2>Overview</h2>
     <p>Prove that you can write and call functions by writing a program
@@ -85,7 +86,7 @@
 30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39
 40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49
 50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59
-60<br>61<br>62<br>63<br>64<br>65</pre>
+60<br>61<br>62<br>63<br>64<br>65<br>66</pre>
 <pre class="python">from tkinter import Tk, Canvas, Frame, BOTH
 
 
@@ -93,9 +94,9 @@ def main():
     # Create the root Tk object.
     root = Tk()
 
-    # Create a Scene object which will call
-    # the __init__ function in the Scene class.
-    scene = Scene()
+    # Create a Scene window. Creating an object
+    # calls the __init__ function in the class.
+    Scene()
 
     root.geometry("800x600")
     root.mainloop()
@@ -123,21 +124,22 @@ class Scene(Frame):
         draw_scene(canvas, 0, 0, 799, 599)
 
 
-def draw_scene(canvas, left, top, right, bottom):
-    """Draw a scene in the canvas. left, top, right, and bottom
-    contain the extent in pixels of the region where the scene
-    should be drawn.
+def draw_scene(canvas, scene_left, scene_top, scene_right, scene_bottom):
+    """Draw a scene in the canvas. scene_left, scene_top,
+    scene_right, and scene_bottom contain the extent in
+    pixels of the region where the scene should be drawn.
 
-    param left - left side of region; less than or equal to right
-    param top - top of the region; less than or equal to bottom
-    param right - right side of the region
-    param bottom - bottom of the region
+    param scene_left - left side of region; less than scene_right
+    param scene_top - top of the region; less than scene_bottom
+    param scene_right - right side of the region
+    param scene_bottom - bottom of the region
 
     The width and height of the region can be calculated like this:
-    width = right - left + 1
-    height = bottom - top + 1
+    scene_width = scene_right - scene_left + 1
+    scene_height = scene_bottom - scene_top + 1
     """
-    canvas.create_oval(left + 20, top + 40, right - 60, bottom - 80,
+    canvas.create_oval(scene_left + 20, scene_top + 40,
+            scene_right - 60, scene_bottom - 80,
             outline="#404040", width=4, fill="#2040e0")
 
     # Call your functions here, such as draw_sky, draw_ground,
@@ -158,18 +160,18 @@ main()</pre></div>
 
     <p><img src="oval.png" alt="A blue oval drawn by a Python program"></p>
 
-    <p>This oval was drawn by the code at lines 37 and 38. Delete lines
-    37 and 38 and begin writing your program. The purpose of this
+    <p>This oval was drawn by the code at lines 52 - 54. Delete lines
+    52 - 54 and begin writing your program. The purpose of this
     assignment is to prove that you can write and call functions.
     Therefore, your program must be divided into functions such as
     <code>draw_sky</code>, <code>draw_cloud</code>,
     <code>draw_ground</code>, <code>draw_bird</code>,
     <code>draw_grass_blade</code>, and <code>draw_insect</code>. The
-    header for the <code>draw_scene</code> function, which is shown in
-    the example code above, is a good example for the headers of all
-    your draw_* functions.</p>
+    header for the <code>draw_scene</code> function, which is shown on
+    line 38 in the example code above, is a good example for the headers
+    of all your draw_* functions.</p>
 
-    <p>As your write your program, be sure that it draws elements in the
+    <p>As you write your program, be sure that it draws elements in the
     order of farthest away to nearest. For example, you program should
     draw the blue sky first, then the ground, then clouds, then trees,
     then insects in the trees.</p>
