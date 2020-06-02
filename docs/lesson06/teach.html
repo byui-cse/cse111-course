@@ -127,14 +127,70 @@
         functions are working correctly, delete the call to the
         <code>test_io</code> function.</div></li>
 
-        <li><div>Write a function named <code>translate</code> that has
-        three parameters: <var>text</var>, <var>src_lang</var>, and
+        <li><div><p>Write a function named <code>translate</code> that
+        has three parameters: <var>text</var>, <var>src_lang</var>, and
         <var>targ_lang</var>. This function must use the
-        <code>post</code> function in the <code>requests</code> module
+        <a target="_blank" href="https://requests.readthedocs.io/en/v0.8.2/api/#requests.post"><code>post</code></a>
+        function in the <code>requests</code> module
         to send the text to the online machine translation service at
-        yandex.net and must return the translated text. Look in your
-        Canvas course for the API key that you will need in the post
-        request.</div></li>
+        <a target="_blank" href="https://tech.yandex.com/translate/doc/dg/reference/translate-docpage/">Yandex</a>
+        and must return the translated text. Look in your I-Learn course
+        for the API key that you will need in the post
+        request.</p>
+
+        <p>To understand what the call to <code>requests.post</code>
+        must include, consider the following excerpt from the Yandex
+        documentation:</p>
+        <blockquote>
+        <h3>Request syntax</h3>
+<pre>https://translate.yandex.net/api/v1.5/tr.json/translate
+ ? key=&lt;API key&gt;
+ &amp; text=&lt;text to translate&gt;
+ &amp; lang=&lt;translation direction&gt;
+ &amp; [format=&lt;text format&gt;]
+ &amp; [options=&lt;translation options&gt;]
+ &amp; [callback=&lt;name of the callback function&gt;]</pre>
+        </blockquote>
+        <p>In templates like this one from Yandex, parts that are in
+        square brackets are optional, so we don't need to worry about
+        the <code>format</code>, <code>options</code>, or <code>callback</code>
+        right now. Let's take the other parts and create a URL, complete
+        with parameters after the question mark:</p>
+
+        <p>https://translate.yandex.net/api/v1.5/tr.json/translate?key=API_key&amp;lang=en-pt&amp;text=Hello</p>
+
+        <p>Give it a try. Copy and paste the above URL into the address
+        bar of your browser. Replace "API_key" with the API key which
+        you can find in your I-Learn course. Then press enter. What is
+        the Yandex server's response? For me, it is this dictionary:</p>
+
+        <blockquote>{"code":200,"lang":"en-pt","text":["Olá"]}</blockquote>
+
+        <p>Examining the server's response, we see</p>
+        <ul>
+            <li><div>A status <code>code</code> of 200, which means
+            success.</div></li>
+            <li><div>A <code>lang</code> of en-pt, which means the
+            server translated from English to Portuguese.</div></li>
+            <li><div>Translated text inside a list: Olá is Portuguese
+            for Hello.</div></li>
+        </ul>
+
+        <p>What does all of this information mean for the call to
+        <code>requests.post</code>? The call must include a URL endpoint
+        and two dictionaries like this:</p>
+
+<div class="pre"><pre class="python">
+endpoint = "https://translate.yandex.net/api/v1.5/tr.json/translate"
+params_dict = {
+    "key" : "The API key is in your I-Learn course.",
+    "lang" : "en-pt"
+}
+data_dict = {
+    "text" : "Hello"
+}
+response = requests.post(endpoint, params=params_dict, data=data_dict)
+</pre></div></div></li>
 
         <li><div>Write the <code>main</code> function to do the
         following for these three files:
@@ -145,8 +201,10 @@
             <li><div>Call <code>read_text_file</code> to read the text
             in the file.</div></li>
             <li><div>Call the <code>translate</code> function to
-            translate the text to another language. You choose the
-            language.</div></li>
+            translate the text to another language. Choose the language
+            from the <a target="_blank" href="https://tech.yandex.com/translate/doc/dg/concepts/api-overview-docpage/">list
+            of languages</a> (follow the link and scroll down) that are
+            supported by Yandex.</div></li>
             <li><div>Call <code>write_text_file</code> to write the
             translated text to another file.</div></li>
         </ol></div></li>
