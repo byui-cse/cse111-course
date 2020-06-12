@@ -1,4 +1,6 @@
 from words import prefix, suffix
+import pytest
+
 
 def test_prefix():
     """Verify that the prefix function works correctly."""
@@ -24,3 +26,6 @@ def test_suffix():
     assert suffix("happy", "funny") == "y"
     assert suffix("tired", "fatigued") == "ed"
     assert suffix("swimming", "FLYING") == "ing"
+
+
+pytest.main(["check_solution.py"])

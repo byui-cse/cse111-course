@@ -141,28 +141,30 @@
     and a positive number, so we write this test function in a separate
     file named <code>test_weather.py</code>:</p>
 
-<div class="pre"><pre class="python">from pytest import approx
-from weather import cels_from_fahr
+<div class="pre"><pre class="python">from weather import cels_from_fahr
+from pytest import approx
+import pytest
 
 def test_cels_from_fahr():
     """Test the cels_from_fahr function by calling it and comparing
     the values it returns to the expected values. Notice this test
     function uses pytest.approx to compare floating point numbers.
     """
-    epsilon = 0.005
-    assert cels_from_fahr(-25) == approx(-31.7, epsilon)
-    assert cels_from_fahr(0) == approx(-17.8, epsilon)
-    assert cels_from_fahr(32) == approx(0, epsilon)
-    assert cels_from_fahr(70) == approx(21.1, epsilon)</pre></div>
+    assert cels_from_fahr(-25) == approx(-31.7)
+    assert cels_from_fahr(0) == approx(-17.8)
+    assert cels_from_fahr(32) == approx(0)
+    assert cels_from_fahr(70) == approx(21.1)
+
+pytest.main(["test_weather.py"])</pre></div>
 
     <p>Notice that the test function <code>test_cels_from_fahr</code>
     calls the program function <code>cels_from_fahr</code> four times:
     once with a negative number, once with zero, and twice with positive
     numbers. Notice also that the test function uses <code>assert</code>
     and <code>approx</code>. After writing the test function, we use
-    <code>pytest</code> to run the test function like this:</p>
+    <code>pytest</code> to run the test function:</p>
 
-<pre class="console">&gt; python -m pytest test_weather.py
+<pre class="console">&gt; python test_weather.py
 ========================= test session starts =========================
 platform win32 -- Python 3.7.6, pytest-5.4.1, py-1.8.1, pluggy-0.13.1
 rootdir: C:\Users\barzee\cse111\weather

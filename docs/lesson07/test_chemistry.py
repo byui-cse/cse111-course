@@ -1,6 +1,7 @@
 from chemistry import get_name, get_atomic_mass, parse_formula, molar_mass, FormulaError
-import math
+from pytest import approx
 import pytest
+import math
 
 
 def test_names():
@@ -23,7 +24,9 @@ def test_parse():
 
 def test_molar_mass():
     """Test the chemistry.molar_mass function."""
-    assert molar_mass(parse_formula("H2O")) == 18.01528
-    assert molar_mass(parse_formula("C6H6")) == 78.11184
-    assert math.isclose(molar_mass(parse_formula("PO4H2(CH2)12CH3")),
-            280.34072, rel_tol=1e-5)
+    assert molar_mass(parse_formula("H2O")) == approx(18.01528)
+    assert molar_mass(parse_formula("C6H6")) == approx(78.11184)
+    assert molar_mass(parse_formula("PO4H2(CH2)12CH3")) == approx(280.34072)
+
+
+pytest.main(["test_chemistry.py"])

@@ -191,27 +191,27 @@ def parse_formula(formula):
                         index += 1
                     else:
                         # Unknown symbol for an element
-                        raise FormulaError(formula, index)
+                        raise FormulaError("invalid formula:", formula, index)
                 quant, index = parse_quant(formula, index)
                 prev = get_quant(elems, symbol)
                 elems[symbol] = prev + quant
             elif ch == ")":
                 if level == 0:
                     # Mismatched close parenthesis
-                    raise FormulaError(formula, index)
+                    raise FormulaError("invalid formula:", formula, index)
                 level -= 1
                 index += 1
                 break
             else:
                 # Illegal character [^()0-9a-zA-Z] or digit not preceded
                 # by an element symbol or close parenthesis
-                raise FormulaError(formula, index)
+                raise FormulaError("invalid formula:", formula, index)
         if level > 0 and level >= start_level:
             # Mismatched open parenthesis
-            raise FormulaError(formula, start_index - 1)
+            raise FormulaError("invalid formula:", formula, start_index - 1)
         return elems, index
 
-    elems, index = parse_r(formula, 0, 0)
+    elems, _ = parse_r(formula, 0, 0)
     return elems
 
 

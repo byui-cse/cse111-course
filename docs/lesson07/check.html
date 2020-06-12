@@ -36,7 +36,6 @@
     may help you as you complete this lesson's assignments.</p>
     <ul>
         <li><div><a target="_blank" href="https://docs.pytest.org/en/latest/getting-started.html#create-your-first-test">Create your first test</a></div></li>
-        <li><div><a target="_blank" href="https://docs.pytest.org/en/latest/usage.html#calling-pytest-through-python-m-pytest">Calling pytest through <code>python -m pytest</code></a></div></li>
         <li><div><a target="_blank" href="https://docs.pytest.org/en/latest/reference.html#pytest-approx"><code>pytest.approx</code></a></div></li>
     </ul>
 
@@ -77,9 +76,10 @@
         name <code>test_words.py</code> in the same folder where you
         saved the downloaded <code>words.py</code> file.</div></li>
 
-        <li><div>Copy and paste this import statement at the top of the
-        <code>test_words.py</code> file:
-<div class="pre"><pre class="python">from words import prefix, suffix</pre></div></div></li>
+        <li><div>Copy and paste these import statements at the top of
+        the <code>test_words.py</code> file:
+<div class="pre"><pre class="python">from words import prefix, suffix
+import pytest</pre></div></div></li>
 
         <li><div>In <code>test_words.py</code> write a function named
         <code>test_prefix</code> that takes no parameters and contains
@@ -121,15 +121,16 @@
             <tr><td>"swimming"</td> <td>"FLYING"</td> <td>"ing"</td></tr>
         </tbody></table></div></li>
 
-        <li><div>Save your <code>test_words.py</code> file.</div></li>
+        <li><div>At the bottom of your <code>test_words.py</code> file,
+        write a call to the <code>pytest.main</code> function like this:
+<div class="pre"><pre class="python">pytest.main(["test_words.py"])</pre></div></div></li>
 
-        <li><div>In the terminal frame in VS Code, run your test
-        functions by copying, pasting, and executing this command:
-<pre class="console">python -m pytest test_words.py</pre></div></li>
+        <li><div>Save your <code>test_words.py</code> file and run it by
+        clicking the green run icon in VS Code.</div></li>
     </ol>
 
     <h2>Sample Run</h2>
-<pre class="console">&gt; python -m pytest check_solution.py
+<pre class="console">&gt; python check_solution.py
 ========================= test session starts =========================
 platform win32 -- Python 3.7.6, pytest-5.3.5, py-1.8.1, pluggy-0.13.1
 rootdir: C:\Users\barzee\cse111\lesson07

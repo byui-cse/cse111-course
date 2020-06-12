@@ -57,9 +57,10 @@
         saved the <code>names.py</code> file.</div></li>
 
         <li><div>At the top of your <code>test_names.py</code> file, add
-        this statement to import the three functions that are in
-        <code>names.py</code>:
-<div class="pre"><pre class="python">from names import given_name, family_name, full_name</pre></div></div></li>
+        these statements to import the three functions that are in
+        <code>names.py</code> and to import pytest:
+<div class="pre"><pre class="python">from names import given_name, family_name, full_name
+import pytest</pre></div></div></li>
 
         <li><div>In <code>test_names.py</code> write a function named
         <code>test_full_name</code> that takes no parameters. Write
@@ -82,9 +83,12 @@
         value returned from the <code>family_name</code>
         function.</div></li>
 
-        <li><div>Execute this command in the terminal frame of VS Code
-        to run your test program:
-<pre class="console">&gt; python -m pytest test_names.py</pre></div></li>
+        <li><div>At the bottom of your <code>test_names.py</code> file,
+        write a call to the <code>pytest.main</code> function like this:
+<div class="pre"><pre class="python">pytest.main(["test_names.py"])</pre></div></div></li>
+
+        <li><div>Save your <code>test_names.py</code> file and run it by
+        clicking the green run icon in VS Code.</div></li>
 
         <li><div>Read the output from <code>pytest</code> and use the
         output to help you find and fix any errors that are in your test
@@ -118,7 +122,7 @@
     </ol>
 
     <h2>Sample Run</h2>
-    <pre class="console">&gt; python -m pytest teach_solution.py
+    <pre class="console">&gt; python teach_solution.py
 ========================= test session starts =========================
 platform win32 -- Python 3.7.6, pytest-5.3.5, py-1.8.1, pluggy-0.13.1
 rootdir: C:\Users\barzee\cse111\lesson07
@@ -131,7 +135,7 @@ ___________________________ test_full_name ____________________________
 
     def test_full_name():
         """Verify that the full_name function returns correct results."""
->       assert full_name("Penelope", "Smith-Jones") == "Smith-Jones, Penelope"
+&gt;       assert full_name("Penelope", "Smith-Jones") == "Smith-Jones, Penelope"
 E    AssertionError: assert 'Smith-Jones,Penelope' == 'Smith-Jones, Penelope'
 E      - Smith-Jones,Penelope
 E      + Smith-Jones, Penelope
@@ -142,7 +146,7 @@ ___________________________ test_given_name ___________________________
 
     def test_given_name():
         """Verify that the given_name function returns correct results."""
->       assert given_name("Smith-Jones, Penelope") == "Penelope"
+&gt;       assert given_name("Smith-Jones, Penelope") == "Penelope"
 E    AssertionError: assert ' Penelope' == 'Penelope'
 E      -  Penelope
 E      ? -

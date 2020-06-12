@@ -1,4 +1,5 @@
 from names import given_name, family_name, full_name
+import pytest
 
 def test_full_name():
     """Verify that the full_name function returns correct results."""
@@ -20,3 +21,5 @@ def test_famliy_name():
     assert family_name("Washington, George") == "Washington"
     assert family_name("Ng, J") == "Ng"
     assert family_name(", ") == ""
+
+pytest.main(["teach_solution.py"])
