@@ -30,9 +30,10 @@ def insert_after(ls, existing, toinsert):
     pass
 
 
-def add_usage_median_column(data):
-    """Add to the DataFrame a column named medianUsage that
-    contains the median usage grouped by accountType and yearMonth.
+def add_median_usage_column(data):
+    """Add to the DataFrame a column named medianUsage
+    that contains the median usage grouped by accountType
+    and yearMonth and return the new DataFrame.
     """
     data = add_year_month_column(data)
     columns = data.columns.tolist()
@@ -59,12 +60,13 @@ def add_usage_median_column(data):
     insert_after(columns, "usage", "medianUsage")
     joined = joined[columns]
 
+    # Return the new DataFrame.
     return joined
 
 
 def add_year_month_column(data):
-    """Add to the DataFrame a column named yearMonth that
-    contains only the year and the month of the readDate.
+    """Add to the DataFrame a column named yearMonth that contains only
+    the year and the month of the readDate and return the new DataFrame.
     """
     pass
 

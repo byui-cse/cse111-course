@@ -38,22 +38,15 @@ df = pd.read_csv("filename.csv")
 
         <li><div>To extract parts of datetime values, use the
         <code>.dt</code> attribute and the <code>.to_period</code>
-        function.
+        function
         (<a target="_blank" href="https://www.interviewqs.com/ddi_code_snippets/extract_month_year_pandas">tutorial</a>,
         <a target="_blank" href="https://stackoverflow.com/questions/23840797/convert-a-column-of-timestamps-into-periods-in-pandas">stack overflow question</a>,
-        <a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.dt.to_period.html">official documentation</a>)
+        <a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.dt.to_period.html">official documentation</a>).
         For example:
 <div class="pre"><pre class="python">import pandas as pd
 
 df = pd.read_csv("filename.csv")
 <em>column = df["datetime_column"].dt.to_period("M")</em></pre></div></div></li>
-
-        <li><div>To <a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/06_calculate_statistics.html">calculate summary statistics</a>,
-        select a column and use the aggregate functions. For example:
-<div class="pre"><pre class="python">import pandas as pd
-
-df = pd.read_csv("filename.csv")
-<em>total = df["column_name"].sum()</em></pre></div></div></li>
     </ol>
 
     <h2>Assignment</h2>

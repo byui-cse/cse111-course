@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CSE 111 - Prepare</title>
-    <link rel="icon" type="image/png" href="../site/oneCubed.png">
+    <link rel="icon" type="image/png" href="../site/icon.png">
     <link rel="stylesheet" type="text/css" href="../site/style.css">
 </head>
 
@@ -42,14 +42,14 @@
     <ol class="long">
         <li><div>We can use the functions that are part of the
         <code>pandas</code> <code>DataFrame.plot</code> object to draw
-        different types of charts, including line, vertical bar,
+        different types of plots, including line, vertical bar,
         horizontal bar, histogram, box, pie, and scatter.</div></li>
 
         <li><div>Drawing a plot can be as simple as these three steps:
         <ol>
             <li><div>read the data</div></li>
-            <li><div>define the chart</div></li>
-            <li><div>draw the chart.</div></li>
+            <li><div>define the plot</div></li>
+            <li><div>draw the plot</div></li>
         </ol>
         For example:
 <div class="pre"><pre class="linenums">1
@@ -69,10 +69,10 @@ import matplotlib.pyplot as plt
 # Read a DataFrame from a CSV file.
 df = pd.read_csv("filename.csv")
 
-# Define a vertical bar chart from the DataFrame.
+# Define a vertical bar plot from the DataFrame.
 df.plot.bar(x="col_name", y="col_name")
 
-# Draw and show all defined charts.
+# Draw and show all defined plots.
 plt.show()</pre></div>
 
         In the above example, notice lines 2 and 11 which are easy to
@@ -81,9 +81,9 @@ plt.show()</pre></div>
 
         <li><div>Although drawing a plot can be very simple, a data
         scientist may have to write significant amounts of code to
-        analyze and process the data before defining a chart. This is
-        the type of code that you learned to write in the previous
-        lesson of this course.</div></li>
+        analyze and process the data before defining a plot. This
+        analysis code is the type of code that you learned to write in
+        the previous lesson of this course.</div></li>
 
         <li><div>There are many options that you can use in your code to
         modify the look and layout of a plot. Some of these options are
@@ -97,7 +97,7 @@ plt.show()</pre></div>
     <code>matplotlib.pyplot</code>. Both plots show the exact same data,
     first as a pie plot and then as a vertical bar plot. Although pie
     plots are very popular, most data scientists don't use them because
-    they convey less information than a bar chart.</p>
+    they convey less information than a bar plot.</p>
 
     <p><img src="pie.png"
     alt="A pie plot that shows total water used in the City of Rexburg during the years 2015 through 2019"
