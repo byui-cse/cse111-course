@@ -16,10 +16,8 @@ def main():
     # that contains the year of each reading.
     data["year"] = data["readDate"].dt.year
 
-    print()
     show_all_water_usage(data)
 
-    print()
     show_water_usage_per_dwelling(data)
 
     # Show all defined plots.
@@ -28,13 +26,14 @@ def main():
 
 def show_all_water_usage(data):
     # For each year, compute the total water usage.
-    grouped = data.groupby(["year"])
+    grouped = data.groupby("year")
     totals = grouped.aggregate(sumUsage=("usage", "sum"))
 
+    print()
     print("Total usage for all account types (in 1000 gallons):")
     print(totals)
 
-    barplot = totals.plot.bar(x="year", y="usage")
+    barplot = totals.plot.bar(y="sumUsage")
     plt.tight_layout()
 
 
@@ -64,10 +63,11 @@ def show_water_usage_per_dwelling(data):
     final["usagePerDwelling"] = final["sumUsage"] / final["numDwellings"]
 
     pd.options.display.float_format = "{:.1f}".format
+    print()
     print("Average total usage per dwelling (in 1000 gallons):")
     print(final)
 
-    barplot = totals.plot.bar(x="year", y="usagePerDwelling")
+    barplot = final.plot.bar(y="usagePerDwelling")
     plt.tight_layout()
 
 
