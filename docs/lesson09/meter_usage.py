@@ -2,12 +2,26 @@ import pandas as pd
 
 
 def main():
-    """
-    Use pandas to read the CSV file.
-    Get a meter number, a start year, and an end year from the user.
-    Use pandas to filter and analyze the data.
-    Use matplotlib.pyplot to draw charts to help the user visualize the data.
-    """
+    # Read the water.csv file and convert the
+    # readDate column from a string to a datetime64.
+
+    # Add a yearMonth and a medianUsage column to the DataFrame.
+
+    # Repeat as necessary.
+
+        # Get a meter number from the user.
+
+        # Get start and end years from the user.
+
+        # Convert the start and end years
+        # from integers to date strings.
+
+        # Filter the DataFrame to the meter number
+        # and years specifified by the user.
+
+        # Define two plots.
+
+        # Show all defined plots.
     pass
 
 
@@ -30,81 +44,79 @@ def insert_after(ls, existing, toinsert):
     pass
 
 
-def add_median_usage_column(data):
-    """Add to the DataFrame a column named medianUsage
-    that contains the median usage grouped by accountType
-    and yearMonth and return the new DataFrame.
+def add_median_usage_column(df):
+    """Add to the DataFrame a column named medianUsage that
+    contains the median usage grouped by accountType and yearMonth.
     """
-    data = add_year_month_column(data)
-    columns = data.columns.tolist()
+    df = add_year_month_column(df)
+    columns = df.columns.tolist()
 
     # Find the median usage grouped by accountType and yearMonth.
-    medians = data.groupby(["accountType", "yearMonth"]) \
+    median_df = df.groupby(["accountType", "yearMonth"]) \
             .aggregate(medianUsage=("usage", "median"))
 
-    # Change the index so that joining the
-    # medians with the original data will work.
-    data.set_index(["accountType", "yearMonth"], inplace=True)
+    # Change the index so that joining the median_df
+    # with the original data frame will work.
+    df.set_index(["accountType", "yearMonth"], inplace=True)
 
-    # Join the original data and the medians.
-    joined = data.join(medians)
+    # Join the original data frame and the median data frame.
+    joined_df = df.join(median_df)
 
-    # The join sorts the data by the join key, which is a
-    # different order than the CSV file, so sort the rows by
+    # The join sorts the data frame by the join key, which is
+    # a different order than the CSV file, so sort the rows by
     # meterNumber and readDate like the CSV file, and then reset
     # the index as if the data were just read from the CSV file.
-    joined.sort_values(["meterNumber", "readDate"], inplace=True)
-    joined.reset_index(drop=False, inplace=True)
+    joined_df.sort_values(["meterNumber", "readDate"], inplace=True)
+    joined_df.reset_index(drop=False, inplace=True)
 
     # Reorder the columns to be similar to the CSV file.
     insert_after(columns, "usage", "medianUsage")
-    joined = joined[columns]
+    joined_df = joined_df[columns]
 
-    # Return the new DataFrame.
-    return joined
+    return joined_df
 
 
-def add_year_month_column(data):
+def add_year_month_column(df):
     """Add to the DataFrame a column named yearMonth that contains only
     the year and the month of the readDate and return the new DataFrame.
     """
     pass
 
 
-def filter_for_meter(data, meter):
+def filter_for_meter(df, meter):
     """Return a new DataFrame that contains only the rows
-    where the meterNumber equals the specified meter number.
+    where the meterNumber equals the parameter meter.
     """
     pass
 
 
-def filter_between_dates(data, start, end):
+def filter_between_dates(df, start, end):
     """Return a new DataFrame that contains only the rows where
     the readDate is between the specified start and end dates.
     """
     pass
 
 
-def show_meter_usage(indiv, meter):
+def show_meter_usage(indiv_df, meter):
     """Define a vertical column plot that shows the year
     and month on the x-axis and the usage on the y-axis.
 
-    param indiv: a DataFrame with at least these two
+    param indiv_df: a DataFrame with at least these two
         columns: yearMonth, usage, that is already
         filtered to the rows for one meter number only.
-    param meter: the meter number for which indiv is filtered.
+    param meter: the meter number for which indiv_df is filtered.
     """
     pass
 
 
-def show_comparison(indiv, meter):
+def show_comparison(indiv_df, meter):
     """Define a line plot that shows the year and month on
     the x-axis and the usage and median usage on the y-axis.
 
-    param indiv: a DataFrame with at least these three
+    param indiv_df: a DataFrame with at least these three
         columns: yearMonth, usage, medianUsage, that is already
         filtered to the rows for one meter number only.
-    param meter: the meter number for which indiv is filtered.
+    param meter: the meter number for which indiv_df is filtered.
     """
     pass
 
