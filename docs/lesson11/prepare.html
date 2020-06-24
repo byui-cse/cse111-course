@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CSE 111 - Prepare</title>
-    <link rel="icon" type="image/png" href="../site/oneCubed.png">
+    <link rel="icon" type="image/png" href="../site/icon.png">
     <link rel="stylesheet" type="text/css" href="../site/style.css">
 </head>
 
@@ -19,30 +19,144 @@
     <h1>CSE 111 | Programming with Functions</h1>
 </header>
 <article>
-    <h1>11 Prepare: Lambdas, Map, and Reduce</h1>
-    <p></p>
+    <h1>11 Prepare: Functional Programming</h1>
+    <h1>Map, Filter, Reduce, and Lambdas</h1>
 
     <h2>Concepts</h2>
     <p>Here are the Python programming concepts and topics that you
     should learn this week.</p>
 
-    <ol>
-        <li><div>The Python programming language allows us to define
-        nested functions. A nested function is useful when </div></li>
+    <ol class="long">
+        <li><div>The Python programming language allows a programmer to
+        pass a function as a parameter into another function. One useful
+        example of passing a function to a function is processing the
+        elements in a list. Consider this example Python program
+        that converts a list of temperatures in Fahrenheit to Celsius.
+
+<div class="pre">
+<pre class="linenums">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9
+10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19
+20<br>21<br>22<br>23<br>24<br>25<br>26</pre>
+<pre class="python">def main():
+    fahr_temps = [72, 65, 71, 75, 82, 87, 68]
+
+    # Print the Fahrenheit temperatures.
+    print(f"Fahrenheit: {fahr_temps}")
+
+    # Convert each Fahrenheit temperature to Celsius and store
+    # the Celsius temperatures in a list named cels_temps.
+    cels_temps = []
+    <em>for fahr in fahr_temps:
+        cels = cels_from_fahr(fahr)
+        cels_temps.append(cels)</em>
+
+    # Print the Celsius temperatures.
+    print(f"Celsius: {cels_temps}")
+
+
+def cels_from_fahr(fahr):
+    """Convert a Fahrenheit temperature to
+    Celsius and return the Celsius temperature.
+    """
+    cels = (fahr - 32) * 5 / 9
+    return round(cels, 1)
+
+
+main()</pre></div>
+
+    <p>At lines&nbsp;10&nbsp;-&nbsp;12 in the example code above, there
+    is a for each loop that converts each Fahrenheit temperature to
+    Celsius and then appends the Celsius temperature into a new list.
+    Writing a for each loop like this is the traditional way to process
+    all the elements in a list. However, Python also includes a function
+    named <code>map</code> that will process all of the elements in a
+    list and return a new list that contains the results. The
+    <code>map</code> function contains a loop inside of it, so that when
+    a programmer uses the <code>map</code> function, he doesn't need to
+    write a loop. Consider this example program that performs the same
+    calculations as the previous example.</p>
+
+<div class="pre">
+<pre class="linenums">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9
+10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19
+20<br>21</pre>
+<pre class="python">def main():
+    fahr_temps = [72, 65, 71, 75, 82, 87, 68]
+
+    # Print the Fahrenheit temperatures.
+    print(f"Fahrenheit: {fahr_temps}")
+
+    # Convert each Fahrenheit temperature to Celsius and store
+    # the Celsius temperatures in a list named cels_temps.
+    cels_temps = list(<em>map(cels_from_fahr, fahr_temps)</em>)
+
+    # Print the Celsius temperatures.
+    print(f"Celsius: {cels_temps}")
+
+def cels_from_fahr(fahr):
+    """Convert a Fahrenheit temperature to
+    Celsius and return the Celsius temperature.
+    """
+    cels = (fahr - 32) * 5 / 9
+    return cels
+
+main()</pre></div>
+
+        <p>Notice that the second example (above), doesn't contain a for
+        each loop. Instead, at line&nbsp;9, it contains a call to the
+        <code>map</code> function. Remember that the <code>map</code>
+        function has a loop inside of it, so that the programmer who
+        calls <code>map</code>, doesn't have to write the loop. Notice
+        also at line&nbsp;9, that the first argument to the
+        <code>map</code> function is the name of the
+        <code>cels_from_fahr</code> function. In other words, at
+        line&nbsp;9, we are passing the <code>cels_from_fahr</code>
+        function into the <code>map</code> function, so that
+        <code>map</code> will call <code>cels_from_fahr</code> for each
+        element in the <var>fahr_temps</var> list.</p>
+
+        <p>The <code>map</code> function is just one example of passing
+        a function as an argument into a function. When writing a Python
+        program there are many other opportunities to pass a function
+        as an argument into another function.</div></li>
 
         <li><div>The Python programming language allows us to define
-        nested functions.</div></li>
+        nested functions. A nested function is useful when </div></li>
 
         <li><div>A Python <dfn>lambda function</dfn> is an anonymous
         function, meaning a function without a name. A lambda function
         is always a simple function because the Python language
         restricts a lambda to just one expression. The following example
-        must be a simple
-        function </div></li>
+         Consider yet one more example program that converts Fahrenheit
+         to Celsius.
+
+<div class="pre">
+<pre class="linenums">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9
+10<br>11<br>12<br>13<br>14<br>15<br>16</pre>
+<pre class="python">def main():
+    fahr_temps = [72, 65, 71, 75, 82, 87, 68]
+
+    # Print the Fahrenheit temperatures.
+    print(f"Fahrenheit: {fahr_temps}")
+
+    # Create a lambda function that converts a Fahrenheit
+    # temperature to Celsius and returns the Celsius temperature.
+    cels_from_fahr = <em>lambda fahr: round((fahr - 32) * 5 / 9, 1)</em>
+
+    # Convert each Fahrenheit temperature to Celsius and store
+    # the Celsius temperatures in a list named cels_temps.
+    cels_temps = list(<em>map(cels_from_fahr , fahr_temps)</em>)
+
+    # Print the Celsius temperatures.
+    print(f"Celsius: {cels_temps}")</pre></div>
+
+        <p></p>
+        </div></li>
 
         <li><div></div></li>
 
-        <li><div></div></li>
+        <div class="pre"><pre class="python">
+        </pre></div>
     </ol>
 
     <h2>Videos</h2>

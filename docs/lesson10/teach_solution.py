@@ -71,4 +71,6 @@ def show_water_usage_per_dwelling(data):
     plt.tight_layout()
 
 
+# Call the main function so that
+# this program will start executing.
 main()

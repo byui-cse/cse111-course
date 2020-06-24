@@ -23,4 +23,6 @@ def append_random_numbers(ls, n=1):
         ls.append(rounded)
 
 
+# Call the main function so that
+# this program will start executing.
 main()

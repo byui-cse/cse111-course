@@ -1,37 +1,42 @@
-import csv
+import pandas as pd
 from datetime import date, datetime
 
 
 def main():
-    # Read the CSV file into a list of lists.
-    player_list = []
-    with open("soccer.csv", "rt") as infile:
-        reader = csv.reader(infile)
-        for row in reader:
-            if reader.line_num == 1:
-                headings = row
-            else:
-                row[2] = strpdate(row[2])
-                player_list.append(row)
+    # Read the students.csv file and convert the
+    # readDate column from a string to a datetime64.
+    df = pd.read_csv("students.csv", parse_dates=["birthdate"])
 
-    # Create the cutoff date to be
-    # Aug 1 during the current year.
+    # Create the cutoff date to be Oct 1 during the current year.
     curr_year = date.today().year
-    cutoff = date(curr_year, 8, 1)
-    print(cutoff)
+    cutoff = date(curr_year, 10, 1)
 
-    age_at_cutoff(player_list, cutoff)
+    # Add a column named ageAtCutoff to the data frame. To create the
+    # data for the new column, call the apply function on the birthdate
+    # column. Pass the year_diff function to the apply function.
+    df["ageAtCutoff"] = df["birthdate"].apply(year_diff, args=(cutoff,))
 
-    print(year_diff(strpdate("2013-02-28"), strpdate("2016-02-29")))
-    print(year_diff(strpdate("2016-02-29"), strpdate("2019-02-28")))
-    print(year_diff(strpdate("2016-02-29"), strpdate("2019-03-01")))
+    # Group by the ageAtCutoff column and count
+    # the number of students in each age group.
+    counts = df[["givenName", "ageAtCutoff"]].groupby("ageAtCutoff").count()
+
+    # Change the name of the counted column from "givenName"
+    # to "numberOfStudents" which is more appropriate.
+    counts.rename({"givenName" : "numberOfStudents"},
+            axis="columns", inplace=True, errors="raise")
+
+    # Print the results on the console.
+    print(counts)
 
 
-def strpdate(s):
-    return datetime.strptime(s, "%Y-%m-%d").date()
+def year_diff(before: datetime, after: datetime) -> int:
+    """Compute and return the difference in years between two dates.
 
-
-def year_diff(before, after):
+    param before: a datetime object
+    param after: another datetime object
+    """
+    # Ensure that the date in before is
+    # earlier than or equal to the date in after.
     if before > after:
         swap = before
         before = after
@@ -44,10 +49,6 @@ def year_diff(before, after):
     return years
 
 
-def age_at_cutoff(player_list, cutoff):
-    for row in player_list:
-        birthday = row[2]
-        print(year_diff(birthday, cutoff))
-
-
+# Call the main function so that
+# this program will start executing.
 main()

@@ -64,4 +64,6 @@ def estimate_reduction(row, behavior_key, perc_reduc):
     return reduc_injur, reduc_fatal
 
 
+# Call the main function so that
+# this program will start executing.
 main()

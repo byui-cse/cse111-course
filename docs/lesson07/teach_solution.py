@@ -22,4 +22,6 @@ def test_famliy_name():
     assert family_name("Ng, J") == "Ng"
     assert family_name(", ") == ""
 
+# Call the main function that is part of pytest so that
+# the test functions in this file will start executing.
 pytest.main(["teach_solution.py"])

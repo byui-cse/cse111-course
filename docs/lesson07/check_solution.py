@@ -28,4 +28,6 @@ def test_suffix():
     assert suffix("swimming", "FLYING") == "ing"
 
 
+# Call the main function that is part of pytest so that
+# the test functions in this file will start executing.
 pytest.main(["check_solution.py"])

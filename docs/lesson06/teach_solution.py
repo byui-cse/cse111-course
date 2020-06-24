@@ -87,4 +87,6 @@ def main():
         write_text_file(outname, transl_text)
 
 
+# Call the main function so that
+# this program will start executing.
 main()

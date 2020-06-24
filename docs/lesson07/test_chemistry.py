@@ -29,4 +29,6 @@ def test_molar_mass():
     assert molar_mass(parse_formula("PO4H2(CH2)12CH3")) == approx(280.34072)
 
 
+# Call the main function that is part of pytest so that
+# the test functions in this file will start executing.
 pytest.main(["test_chemistry.py"])

@@ -82,4 +82,6 @@ def main():
     print("Average water used per dwelling in 2018: ", avg_per_dwell)
 
 
+# Call the main function so that
+# this program will start executing.
 main()

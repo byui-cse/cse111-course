@@ -30,4 +30,6 @@ def main():
     plt.show()
 
 
+# Call the main function so that
+# this program will start executing.
 main()

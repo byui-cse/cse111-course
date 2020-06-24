@@ -109,4 +109,6 @@ def show_comparison(indiv, meter):
     pass
 
 
+# Call the main function so that
+# this program will start executing.
 main()
