@@ -15,7 +15,7 @@ def main():
     # Convert the readDate column from a datetime64 to just a date.
     df["readDate"] = df["readDate"].dt.date
 
-    # Filter the data frame to meter #M4103 only.
+    # Filter the data frame to readings for meter #M4103 only.
     metnum = "M4103"
     filter = df["meterNumber"] == metnum
     m4103_df = df[filter]

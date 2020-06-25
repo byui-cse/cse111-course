@@ -55,12 +55,12 @@
     <a download href="water.csv">water usage data</a> from the City of
     Rexburg:</p>
 
-    <ul>
+    <ol>
         <li><div>Is the total amount of water used in the City of
         Rexburg increasing each year?</div></li>
         <li><div>Is the average amount of water used per dwelling
         increasing each year?</div></li>
-    </ul>
+    </ol>
 
     <p>Your program should compute actual numbers from the water meter
     data that answer the two questions above. Your program should print
@@ -77,6 +77,39 @@
     when answering the <em>second</em> question, your program should use
     only the data for apartment complexes, residences, town homes, and
     trailer courts.</p>
+
+    <h3>Core Requirements</h3>
+    <ol class="long">
+        <li><div>Your program must be split into at least three
+        functions:
+        <ol>
+            <li><div><code>main</code></div></li>
+            <li><div>A function that shows a plot to answer the first
+            question in this assigment.</div></li>
+            <li><div>A function that shows a plot to answer the second
+            question in this assigment.</div></li>
+        </ol></div></li>
+
+        <li><div>Your program must call <code>pd.read_csv</code> to read
+        the <code>water.csv</code> file into a DataFrame and must add to
+        the DataFrame a new column named "year" that contains only the
+        year part of the "readDate" column.</div></li>
+
+        <li><div>Your program must compute the sum of the water usage
+        grouped by year and must display a vertical bar chart that shows
+        total water usage in Rexburg by year.</div></li>
+    </ol>
+
+    <h3>Stretch Challenges</h3>
+    <p>If your team finishes the core requirements in less than an
+    hour, complete one or more of these stretch challenges. Note that
+    the stretch challenges are optional.</p>
+
+    <ol>
+        <li><div>Add code to filter, group, and aggregate the water
+        usage data and to display a vertical bar chart that answers the
+        second question of this assignment.</div></li>
+    </ol>
 
     <h2>Sample Run</h2>
 <pre class="console">&gt; python prove_solution.py
@@ -102,38 +135,20 @@ year
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each step
     in this testing procedure:</p>
-    <ol class="test">
+    <ol class="test long">
         <li><div>Run your program and verify that it prints the correct
         results, rounded and formatted as shown in the sample run
         above.</div></li>
+
+        <li><div>Examine the two vertical bar charts displayed by your
+        program and verify that the two charts show the same values as
+        the printed results.</div></li>
     </ol>
 
     <h2>Ponder</h2>
-    <p>Examine the output of your program. What are the answers to the
-    two questions in the "Assignment" section?</p>
-
-    <h2>Problem Statement</h2>
-
-    <h3>Core Requirements</h3>
-    <ol>
-        <li><div></div></li>
-    </ol>
-
-    <h3>Stretch Challenges</h3>
-    <p>If your team finishes the core requirements in less than an
-    hour, complete one or more of these stretch challenges. Note that
-    the stretch challenges are optional.</p>
-
-    <ol>
-        <li><div></div></li>
-    </ol>
-
-    <h2>Testing Procedure</h2>
-    <p>Verify that your program works correctly by following each step
-    in this testing procedure:</p>
-    <ol class="testing">
-        <li><div></div></li>
-    </ol>
+    <p>Examine the printed output and the plots displayed by your
+    program. What are the answers to the two questions in the
+    "Assignment" section?</p>
 
     <h2>Sample Solution</h2>
     <p>Please work diligently with your team for the one hour meeting.

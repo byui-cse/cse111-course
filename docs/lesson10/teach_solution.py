@@ -50,7 +50,8 @@ def show_water_usage_per_dwelling(df):
     interm_df = grouped.aggregate({"usage":"sum", "numberOfDwellings":"mean"})
 
     # Discard outliers: rows with numDwellings less than 1.
-    interm_df = interm_df[interm_df["numberOfDwellings"] >= 1]
+    filter = interm_df["numberOfDwellings"] >= 1
+    interm_df = interm_df[filter]
 
     # For each year, compute the total water
     # usage and the total number of dwellings.
