@@ -26,9 +26,7 @@ def add_area_code(phone):
     the area code "208-" at the beginning of the phone number. Return
     the phone number.
     """
-    if len(phone) < 12:
-        phone = "208-" + phone
-    return phone
+    pass
 
 
 # Call the main function so that

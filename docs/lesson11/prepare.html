@@ -20,24 +20,25 @@
 </header>
 <article>
     <h1>11 Prepare: Functional Programming</h1>
-    <h1>Map, Filter, Reduce, and Lambdas</h1>
 
     <h2>Concepts</h2>
     <p>Here are the Python programming concepts and topics that you
-    should learn this week.</p>
+    should learn during this lesson.</p>
 
     <ol class="long">
         <li><div>The Python programming language allows a programmer to
         pass a function as a parameter into another function. One useful
         example of passing a function to a function is processing the
-        elements in a list. Consider this example Python program
-        that converts a list of temperatures in Fahrenheit to Celsius.
+        elements in a list. Consider the program in example&nbsp;1 that
+        converts a list of temperatures in Fahrenheit to Celsius.
 
 <div class="pre">
 <pre class="linenums">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9
 10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19
-20<br>21<br>22<br>23<br>24<br>25<br>26</pre>
-<pre class="python">def main():
+20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28</pre>
+<pre class="python"># Example 1
+
+def main():
     fahr_temps = [72, 65, 71, 75, 82, 87, 68]
 
     # Print the Fahrenheit temperatures.
@@ -64,23 +65,26 @@ def cels_from_fahr(fahr):
 
 main()</pre></div>
 
-    <p>At lines&nbsp;10&nbsp;-&nbsp;12 in the example code above, there
-    is a for each loop that converts each Fahrenheit temperature to
-    Celsius and then appends the Celsius temperature into a new list.
-    Writing a for each loop like this is the traditional way to process
-    all the elements in a list. However, Python also includes a function
-    named <code>map</code> that will process all of the elements in a
-    list and return a new list that contains the results. The
-    <code>map</code> function contains a loop inside of it, so that when
-    a programmer uses the <code>map</code> function, he doesn't need to
-    write a loop. Consider this example program that performs the same
-    calculations as the previous example.</p>
+        <p>At lines&nbsp;12&nbsp;-&nbsp;14 in example&nbsp;1 above,
+        there is a for each loop that converts each Fahrenheit
+        temperature to Celsius and then appends the Celsius temperature
+        into a new list. Writing a for each loop like this is the
+        traditional way to process all the elements in a list. However,
+        Python also includes a function named <code>map</code> that will
+        process all of the elements in a list and return a new list that
+        contains the results. The <code>map</code> function contains a
+        loop inside of it, so that when a programmer calls the
+        <code>map</code> function, he doesn't need to write a loop.
+        Consider the program in example&nbsp;2 that produces the same
+        results as example&nbsp;1:</p>
 
 <div class="pre">
 <pre class="linenums">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9
 10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19
-20<br>21</pre>
-<pre class="python">def main():
+20<br>21<br>22<br>23</pre>
+<pre class="python"># Example 2
+
+def main():
     fahr_temps = [72, 65, 71, 75, 82, 87, 68]
 
     # Print the Fahrenheit temperatures.
@@ -98,76 +102,125 @@ def cels_from_fahr(fahr):
     Celsius and return the Celsius temperature.
     """
     cels = (fahr - 32) * 5 / 9
-    return cels
+    return round(cels, 1)
 
 main()</pre></div>
 
-        <p>Notice that the second example (above), doesn't contain a for
-        each loop. Instead, at line&nbsp;9, it contains a call to the
+        <p>Notice that example&nbsp;2, doesn't contain a for each loop.
+        Instead, at line&nbsp;11, it contains a call to the
         <code>map</code> function. Remember that the <code>map</code>
         function has a loop inside of it, so that the programmer who
         calls <code>map</code>, doesn't have to write the loop. Notice
-        also at line&nbsp;9, that the first argument to the
+        also at line&nbsp;11, that the first argument to the
         <code>map</code> function is the name of the
         <code>cels_from_fahr</code> function. In other words, at
-        line&nbsp;9, we are passing the <code>cels_from_fahr</code>
+        line&nbsp;11, we are passing the <code>cels_from_fahr</code>
         function into the <code>map</code> function, so that
         <code>map</code> will call <code>cels_from_fahr</code> for each
         element in the <var>fahr_temps</var> list.</p>
 
-        <p>The <code>map</code> function is just one example of passing
-        a function as an argument into a function. When writing a Python
-        program there are many other opportunities to pass a function
-        as an argument into another function.</div></li>
+        <p>Calling the <code>map</code> function is just one example of
+        passing a function as an argument into a function. When writing
+        a Python program there are many other opportunities to pass a
+        function as an argument into another function.</p></div></li>
 
-        <li><div>The Python programming language allows us to define
-        nested functions. A nested function is useful when </div></li>
-
-        <li><div>A Python <dfn>lambda function</dfn> is an anonymous
-        function, meaning a function without a name. A lambda function
-        is always a simple function because the Python language
-        restricts a lambda to just one expression. The following example
-         Consider yet one more example program that converts Fahrenheit
-         to Celsius.
+        <li><div>The Python programming language allows a programmer to
+        define nested functions. A <dfn>nested function</dfn> is a
+        function that is defined inside another function and is useful
+        when we wish to split a large function into smaller functions
+        and the smaller functions will be called by the containing
+        function only. The program in example&nbsp;3 produces the same
+        results as examples&nbsp;1&nbsp;and&nbsp;2 but uses a nested
+        function. Notice in example&nbsp;3 at
+        lines&nbsp;5&nbsp;-&nbsp;10 that the <code>cels_from_fahr</code>
+        function is nested inside the <code>main</code> function.
 
 <div class="pre">
 <pre class="linenums">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9
-10<br>11<br>12<br>13<br>14<br>15<br>16</pre>
-<pre class="python">def main():
+10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19
+20<br>21<br>22<br>23<br>24<br>25</pre>
+<pre class="python"># Example 3
+
+def main():
+
+    <em>def cels_from_fahr(fahr):
+        """Convert a Fahrenheit temperature to
+        Celsius and return the Celsius temperature.
+        """
+        cels = (fahr - 32) * 5 / 9
+        return round(cels, 1)</em>
+
     fahr_temps = [72, 65, 71, 75, 82, 87, 68]
 
     # Print the Fahrenheit temperatures.
     print(f"Fahrenheit: {fahr_temps}")
 
-    # Create a lambda function that converts a Fahrenheit
-    # temperature to Celsius and returns the Celsius temperature.
+    # Convert each Fahrenheit temperature to Celsius and store
+    # the Celsius temperatures in a list named cels_temps.
+    cels_temps = list(map(cels_from_fahr, fahr_temps))
+
+    # Print the Celsius temperatures.
+    print(f"Celsius: {cels_temps}")
+
+
+main()</pre></div></div></li>
+
+        <li><div>A Python <dfn>lambda function</dfn> is a small
+        anonymous function, meaning a function without a name. A lambda
+        function is always a small function because the Python language
+        restricts a lambda function to just one expression. Consider yet
+        one more example program that converts Fahrenheit temperatures
+        to Celsius:
+
+<div class="pre">
+<pre class="linenums">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9
+10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19</pre>
+<pre class="python"># Example 4
+
+def main():
+    fahr_temps = [72, 65, 71, 75, 82, 87, 68]
+
+    # Print the Fahrenheit temperatures.
+    print(f"Fahrenheit: {fahr_temps}")
+
+    # Create a lambda function that converts
+    # a Fahrenheit temperature to Celsius and
+    # returns the Celsius temperature.
     cels_from_fahr = <em>lambda fahr: round((fahr - 32) * 5 / 9, 1)</em>
 
     # Convert each Fahrenheit temperature to Celsius and store
     # the Celsius temperatures in a list named cels_temps.
-    cels_temps = list(<em>map(cels_from_fahr , fahr_temps)</em>)
+    cels_temps = list(map(cels_from_fahr, fahr_temps))
 
     # Print the Celsius temperatures.
     print(f"Celsius: {cels_temps}")</pre></div>
 
-        <p></p>
-        </div></li>
+        <p>Notice the lambda function on line&nbsp;12 of
+        example&nbsp;4. It takes one parameter named <var>fahr</var> and
+        computes the corresponding Celsius temperature.</p></div></li>
 
-        <li><div></div></li>
-
-        <div class="pre"><pre class="python">
-        </pre></div>
+        <li><div>The pandas <code>apply</code> function takes another
+        function as a parameter and calls the passed function for each
+        cell in a DataFrame or row or column.</div></li>
     </ol>
 
     <h2>Videos</h2>
-    <p>Watch these videos from Microsoft about.</p>
+    <p>If you wish to learn more about function programming in Python,
+    watch these videos by Dan Bader.</p>
+
     <ul class="links">
-        <li><div><a target="_blank" href=""></a></div></li>
+        <li><div>The <a target="_blank" href="https://youtu.be/xJCPpDlk9_w">Basics of Functional Programming</a> in Python</div></li>
+        <li><div>The Python <a target="_blank" href="https://youtu.be/fkjjqyfN51c"><code>filter</code></a> function</div></li>
+        <li><div>The Python <a target="_blank" href="https://youtu.be/powVeMYKCSw"><code>map</code></a> function</div></li>
+        <li><div>The Python <a target="_blank" href="https://youtu.be/ZrZ6vJGiE8I"><code>reduce</code></a> function</div></li>
     </ul>
 
     <h2>Documentation</h2>
     <ul class="links">
-        <li><div><a target="_blank" href=""></a></div></li>
+        <li><div>Python <a target="_blank" href="https://docs.python.org/3/library/functions.html#map"><code>map</code></a> function</div></li>
+        <li><div>Python <a target="_blank" href="https://docs.python.org/3/library/functions.html#filter"><code>filter</code></a> function</div></li>
+        <li><div>Python <a target="_blank" href="https://docs.python.org/3/library/functools.html#functools.reduce"><code>reduce</code></a> function</div></li>
+        <li><div>pandas <a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.apply.html"><code>apply</code></a> function</div></li>
     </ul>
 </article>
 <footer>

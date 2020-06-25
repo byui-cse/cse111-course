@@ -16,6 +16,25 @@ def main():
     # column. Pass the year_diff function to the apply function.
     df["ageAtCutoff"] = df["birthdate"].apply(year_diff, args=(cutoff,))
 
+    grades_dict = {
+        5 : "kindergarten",
+        6 : "first",
+        7 : "second",
+        8 : "third",
+        9 : "fourth",
+        10 : "fifth",
+        11 : "sixth",
+        12 : "seventh",
+        13 : "eighth",
+        14 : "freshman",
+        15 : "sophomore",
+        16 : "junior",
+        17 : "senior"
+    }
+    grade_from_age = lambda age: grades_dict[age]
+    df["grade"] = df["ageAtCutoff"].apply(grade_from_age)
+    print(df)
+
     # Group by the ageAtCutoff column and count
     # the number of students in each age group.
     counts = df[["givenName", "ageAtCutoff"]].groupby("ageAtCutoff").count()
