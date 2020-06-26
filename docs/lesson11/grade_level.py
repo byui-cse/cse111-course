@@ -26,21 +26,18 @@ def add_columns(df, cutoff):
     # Add a column named ageAtCutoff to the data frame. To create the
     # data for the new column, call the apply function on the birthdate
     # column. Pass the year_diff function to the apply function.
-    df["ageAtCutoff"] = df["birthdate"].apply(year_diff, args=(cutoff,))
+    pass
 
     # Create a lambda function that accepts a student's age
     # as a parameter and returns the student's grade level.
-    level_from_age = lambda age: level_dict[age]
+    pass
 
     # Add a column named gradeLevel to the data frame. To create the
     # data for the new column, call the apply function on the ageAtCutoff
     # column. Pass the level_from_age function to the apply function.
-    df["gradeLevel"] = df["ageAtCutoff"].apply(level_from_age)
+    pass
 
-    # Sort the data frame by age at cutoff, surname, and given name.
-    df.sort_values(["ageAtCutoff", "surname", "givenName"], inplace=True)
-
-    return df
+    return
 
 
 def year_diff(before: datetime, after: datetime) -> int:
@@ -71,23 +68,9 @@ def grade_level_counts(df):
     # Create a new data frame that contains the count of all students
     # in each grade level. In other words, group by the gradeLevel
     # column and count the number of students in each grade level.
-    grouped = df.groupby("gradeLevel")
-    counts = grouped["givenName"].count()
+    pass
 
-    # Change the name of the counted column from "givenName"
-    # to "numberOfStudents" which is more appropriate.
-    counts.rename("numberOfStudents", inplace=True)
-
-    # The groupby function orders the grade levels alphabetically
-    # which is not the order that a user wants to see them. Reorder
-    # the grade levels to be the same order as the level_dict.
-    counts = counts.reindex(level_dict.values(), copy=False)
-
-    # The reindex function may add rows which
-    # have no count, so drop those rows.
-    counts.dropna(inplace=True)
-
-    return counts
+    return
 
 
 # A dictionary to map from ageAtCutoff to gradeLevel.

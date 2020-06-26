@@ -19,30 +19,92 @@
     <h1>CSE 111 | Programming with Functions</h1>
 </header>
 <article>
-    <h1>11 Team Activity: </h1>
+    <h1>11 Team Activity: Student Grade Level</h1>
 
     <h2>Instructions</h2>
-    <p></p>
+    <p>Arrange a one hour synchronous meeting with your team for this
+    activity. Online students should coordinate a video-sharing meeting.
+    Campus students will use class time for this meeting. You should
+    prepare for this meeting by completing the preparation material and
+    the individual checkpoint assignment beforehand.</p>
 
     <h2>Problem Statement</h2>
-    <p></p>
+    <p>In the United States, minor students are required by law to
+    attend school. There are 13 grade levels for students: kindergarten,
+    first through eighth, freshman, sophomore, junior, and senior.
+    Usually students are assigned to a grade level based on their age on
+    a specific cutoff date, which is often October 1. Ages and grade
+    levels are shown in the following table:</p>
+
+    <table><thead>
+        <tr><th>Age<br>(years)</th> <th>Grade Level</th></tr>
+    </thead><tbody>
+        <tr><td class="number">5</td> <td>kindergarten</td></tr>
+        <tr><td class="number">6</td> <td>first</td></tr>
+        <tr><td class="number">7</td> <td>second</td></tr>
+        <tr><td class="number">8</td> <td>third</td></tr>
+        <tr><td class="number">9</td> <td>fourth</td></tr>
+        <tr><td class="number">10</td> <td>fifth</td></tr>
+        <tr><td class="number">11</td> <td>sixth</td></tr>
+        <tr><td class="number">12</td> <td>seventh</td></tr>
+        <tr><td class="number">13</td> <td>eighth</td></tr>
+        <tr><td class="number">14</td> <td>freshman</td></tr>
+        <tr><td class="number">15</td> <td>sophomore</td></tr>
+        <tr><td class="number">16</td> <td>junior</td></tr>
+        <tr><td class="number">17</td> <td>senior</td></tr>
+    <tbody></table>
+
+    <p>As an example, a student who is 7 years old on October 1 would be
+    assigned to second grade.</p>
 
     <h2>Helpful Documentation</h2>
-    <p></p>
     <ul>
-        <li><div><a target="_blank" href=""></a></div></li>
+        <li><div>Python <a target="_blank" href="https://docs.python.org/3/tutorial/controlflow.html#lambda-expressions">lambda functions</a></div></li>
+        <li><div><a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/05_add_columns.html">Add a new column</a> to a pandas DataFrame</div></li>
+        <li><div>pandas <a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.apply.html"><code>apply</code></a> function</div></li>
+        <li><div><a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/06_calculate_statistics.html#aggregating-statistics-grouped-by-category">Aggregating statistics</a> using the pandas <code>groupby</code> function</div></li>
     </ul>
 
     <h2>Assignment</h2>
-    <p></p>
+    <p>Do the following:</p>
 
-    <ol>
-        <li><div></div></li>
+    <ol class="long">
+        <li><div>Download these two files:
+        <a download href="students.csv">students.csv</a> and
+        <a download href="grade_level.py">grade_level.py</a>
+        and save them in the same folder.</div></li>
+
+        <li><div>Open the <code>students.csv</code> file in VS Code and
+        notice that it has six columns: givenName, surname, birthdate,
+        parentGivenName, parentSurname, phone. Your program will add two
+        more columns named ageAtCutoff and gradeLevel.</div></li>
+
+        <li><div>Open the <code>grade_level.py</code> file in VS Code.
+        Read the comments in the program and then complete the program
+        by replacing each <code>pass</code> statement with the correct
+        Python code.
     </ol>
 
     <h3>Core Requirements</h3>
-    <ol>
-        <li><div></div></li>
+    <ol class="long">
+        <li><div>Your finished grade_level.py program must contain at
+        least the following:
+        <ol>
+            <li><div>four regular functions named <code>main</code>,
+            <code>add_columns</code>, <code>year_diff</code>, and
+            <code>grade_level_counts</code></div></li>
+            <li><div>one lambda function</div></li>
+            <li><div>two calls to the pandas <code>apply</code>
+            function</div></li>
+        </ol></div></li>
+
+        <li><div>Your program must add to the original data frame two
+        columns named ageAtCutoff and gradeLevel and must print the data
+        frame.</div></li>
+
+        <li><div>Your program must create and print a new data frame
+        that contains a count of the number of students assigned to each
+        grade level.</div></li>
     </ol>
 
     <h3>Stretch Challenges</h3>
@@ -50,15 +112,49 @@
     hour, complete one or more of these stretch challenges. Note that
     the stretch challenges are optional.</p>
 
-    <ol>
-        <li><div></div></li>
+    <ol class="long">
+        <li><div>Before printing the students data frame, sort it by
+        ageAtCutoff, surname, and givenName.</div></li>
+
+        <li><div>Before printing the grade level counts data frame, sort
+        it by the normal ordering of grade levels which is shown in this
+        assignment in the table above.</div></li>
     </ol>
+
+    <h2>Sample Run</h2>
+<pre class="console">&gt; python teach_solution.py
+Cutoff date: 2020-10-01
+
+     givenName  surname  birthdate  ...  ageAtCutoff    gradeLevel
+11   Alexander  Bingham 2015-01-30  ...            5  kindergarten
+107     Joshua  Bingham 2015-05-22  ...            5  kindergarten
+152       Ryan   Bishop 2014-11-10  ...            5  kindergarten
+112     Bryson    Cheuk 2015-03-21  ...            5  kindergarten
+103   Giuliana    Child 2014-12-09  ...            5  kindergarten
+..         ...      ...        ...  ...          ...           ...
+116     Camdon    Radke 2009-01-31  ...           11         sixth
+82        Adam  Shelley 2009-03-14  ...           11         sixth
+36   Alexander     Sosa 2009-08-15  ...           11         sixth
+90      Lauren    Young 2009-06-18  ...           11         sixth
+146      Marco     Zeng 2009-06-25  ...           11         sixth
+[187 rows x 8 columns]
+
+gradeLevel
+kindergarten    18.0
+first           35.0
+second          28.0
+third           24.0
+fourth          28.0
+fifth           32.0
+sixth           22.0
+Name: numberOfStudents, dtype: float64</pre>
 
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each step
     in this testing procedure:</p>
     <ol class="test">
-        <li><div></div></li>
+        <li><div>Run your program. Ensure that your program's output
+        is similar to the sample run output.</div></li>
     </ol>
 
     <h2>Sample Solution</h2>
