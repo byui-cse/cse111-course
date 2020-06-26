@@ -29,8 +29,8 @@ def get_int(prompt, lower, upper):
     """Get an integer from the user, validate that the integer is
     between a lower and upper bound, and return the integer to the
     calling function. If the user does not enter an integer between
-    lower and upper, inclusive, this function will prompt the user again
-    for an integer.
+    lower and upper, inclusive, this function will prompt the user
+    again for an integer.
 
     param prompt: A string to display to the user.
     param lower: The lowest (smallest) integer that the user may enter.
@@ -47,6 +47,7 @@ def insert_after(ls, existing, toinsert):
 def add_median_usage_column(df):
     """Add to the DataFrame a column named medianUsage that
     contains the median usage grouped by accountType and yearMonth.
+    Return the new DataFrame.
     """
     df = add_year_month_column(df)
     columns = df.columns.tolist()
@@ -97,26 +98,26 @@ def filter_between_dates(df, start, end):
     pass
 
 
-def show_meter_usage(indiv_df, meter):
+def show_meter_usage(df, meter):
     """Define a vertical column plot that shows the year
     and month on the x-axis and the usage on the y-axis.
 
-    param indiv_df: a DataFrame with at least these two
+    param df: a DataFrame with at least these two
         columns: yearMonth, usage, that is already
         filtered to the rows for one meter number only.
-    param meter: the meter number for which indiv_df is filtered.
+    param meter: the meter number for which df is filtered.
     """
     pass
 
 
-def show_comparison(indiv_df, meter):
+def show_comparison(df, meter):
     """Define a line plot that shows the year and month on
     the x-axis and the usage and median usage on the y-axis.
 
-    param indiv_df: a DataFrame with at least these three
-        columns: yearMonth, usage, medianUsage, that is already
+    param df: a DataFrame with at least these three columns:
+        yearMonth, usage, medianUsage, that is already
         filtered to the rows for one meter number only.
-    param meter: the meter number for which indiv_df is filtered.
+    param meter: the meter number for which df is filtered.
     """
     pass
 

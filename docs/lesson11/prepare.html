@@ -20,6 +20,23 @@
 </header>
 <article>
     <h1>11 Prepare: Functional Programming</h1>
+    <p>A <a target="_blank"
+    href="https://www.google.com/search?q=define+paradigm"><dfn>paradigm</dfn></a>
+    is a way of thinking or a way of viewing the world. There are at
+    least four main paradigms for programming a computer: procedural
+    (sometimes called imperative), declarative, functional, and object
+    oriented. During previous lessons, you used procedural and
+    declarative programming. During this lesson, you will be introduced
+    to functional programming.</p>
+
+    <p>There are many concepts that are part of functional programming.
+    However, in this lesson you will focus on just three, namely:</p>
+    <ol>
+        <li><div>We can pass a function into another function.</div></li>
+        <li><div>A nested function is a function defined inside another
+        function.</div></li>
+        <li><div>A lambda function is a small anonymous function.</div></li>
+    </ol>
 
     <h2>Concepts</h2>
     <p>Here are the Python programming concepts and topics that you
@@ -28,9 +45,9 @@
     <ol class="long">
         <li><div>The Python programming language allows a programmer to
         pass a function as a parameter into another function. One useful
-        example of passing a function to a function is processing the
-        elements in a list. Consider the program in example&nbsp;1 that
-        converts a list of temperatures in Fahrenheit to Celsius.
+        example of this is processing the elements in a list. Consider
+        the program in example&nbsp;1 that converts a list of
+        temperatures in Fahrenheit to Celsius.
 
 <div class="pre">
 <pre class="linenums">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9
@@ -174,11 +191,11 @@ main()</pre></div></div></li>
         <li><div>A Python <dfn>lambda function</dfn> is a small
         anonymous function, meaning a function without a name. A lambda
         function is always a small function because the Python language
-        restricts a lambda function to just one expression. Consider
-        the program in example&nbsp;4 which is yet another example
-        program that converts Fahrenheit temperatures to Celsius. Notice
-        the lambda function on line&nbsp;12 of example&nbsp;4. It takes
-        one parameter named <var>fahr</var> and computes and returns the
+        restricts a lambda function to just one expression. Consider the
+        program in example&nbsp;4 which is yet another example program
+        that converts Fahrenheit temperatures to Celsius. Notice the
+        lambda function on line&nbsp;12 of example&nbsp;4. It takes one
+        parameter named <var>fahr</var> and computes and returns the
         corresponding Celsius temperature.
 
 <div class="pre">
@@ -206,7 +223,13 @@ def main():
     print(f"Celsius: {cels_temps}")
 
 
-main()</pre></div></div></li>
+main()</pre></div>
+
+        <p>In Python, every lambda function can be written as a regular
+        Python function. For example, the lambda function in
+        example&nbsp;4 can be rewritten as the
+        <code>cels_from_fahr</code> function in examples&nbsp;1,&nbsp;2,
+        and&nbsp;3.</p></div></li>
 
         <li><div>The pandas
         <a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.apply.html"><code>apply</code> function</a>

@@ -4,7 +4,7 @@ from datetime import date, datetime
 
 def main():
     # Read the students.csv file and convert the
-    # readDate column from a string to a datetime64.
+    # birthdate column from a string to a datetime64.
     df = pd.read_csv("students.csv", parse_dates=["birthdate"])
 
     # Create the cutoff date to be Oct 1 during the current year.
@@ -16,7 +16,7 @@ def main():
     # column. Pass the year_diff function to the apply function.
     df["ageAtCutoff"] = df["birthdate"].apply(year_diff, args=(cutoff,))
 
-    grades_dict = {
+    level_dict = {
         5 : "kindergarten",
         6 : "first",
         7 : "second",
@@ -31,18 +31,20 @@ def main():
         16 : "junior",
         17 : "senior"
     }
-    grade_from_age = lambda age: grades_dict[age]
-    df["grade"] = df["ageAtCutoff"].apply(grade_from_age)
+    level_from_age = lambda age: level_dict[age]
+    df["gradeLevel"] = df["ageAtCutoff"].apply(level_from_age)
     print(df)
 
-    # Group by the ageAtCutoff column and count
-    # the number of students in each age group.
-    counts = df[["givenName", "ageAtCutoff"]].groupby("ageAtCutoff").count()
+    # Group by the gradeLevel column and count the
+    # number of students in grade level age group.
+    grouped = df.groupby("gradeLevel")
+    counts = grouped["givenName"].count()
 
     # Change the name of the counted column from "givenName"
     # to "numberOfStudents" which is more appropriate.
-    counts.rename({"givenName" : "numberOfStudents"},
-            axis="columns", inplace=True, errors="raise")
+    counts.rename("numberOfStudents")
+
+    counts = counts.reindex(level_dict.values())
 
     # Print the results on the console.
     print(counts)
