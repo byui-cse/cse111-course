@@ -50,7 +50,7 @@ article {
 article h1 {
 	text-align: center;
 	font-size: 150%;
-	margin-bottom: 1em;
+	line-height: 1.5em;
 }
 
 article h2 {

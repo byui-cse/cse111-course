@@ -19,27 +19,73 @@
     <h1>CSE 111 | Programming with Functions</h1>
 </header>
 <article>
-    <h1>12 Checkpoint: </h1>
+    <h1>12 Checkpoint: Modifying a List with Object Oriented Programming</h1>
 
     <h2>Overview</h2>
     <p>Complete this individual checkpoint assignment to demonstrate
-    your ability to </p>
+    your ability to write object oriented code.</p>
 
     <h2>Problem Statement</h2>
-    <p></p>
+    <p>There are several types of commands that are commonly found in
+    object oriented code. Three of those types of commands are:</p>
+
+    <ol class="long">
+        <li><div>Creating objects; example:
+        <pre>obj = date.today()</pre></div></li>
+
+        <li><div>Accessing the attributes of an object using dot
+        notation; example:
+        <pre>y = obj.year</pre></div></li>
+
+        <li><div>Calling the methods of an object using dot
+        notation; example:
+        <pre>obj.replace(year=2025)</pre></div></li>
+    </ol>
+
+    <h2>Helpful Documentation</h2>
+    <ul>
+        <li><div>More <a target="_blank" href="https://docs.python.org/3/tutorial/datastructures.html#more-on-lists">about lists</a></div></li>
+    </ul>
 
     <h2>Assignment</h2>
-    <p></p>
+    <p>Write a small Python program that demonstrates object oriented
+    programming by modifying a list. Do the following:</p>
 
-    <ol>
-        <li><div></div></li>
+    <ol class="long">
+        <li><div>Open a new blank file in VS Code and save it as
+        <code>list_object.py</code></div></li>
 
-        <li><div></div></li>
+        <li><div>Copy and paste this code at the top of your
+        <code>list_object.py</code> program:
+<div class="pre"><pre class="python">def main():
+    fruit = ["pear", "banana", "apple", "mango"]
+    print(f"original: {fruit}")</pre></div></div></li>
+
+        <li><div>Add code to reverse the <var>fruit</var> array and
+        print the array.</div></li>
+
+        <li><div>Add code to append "orange" to the <var>fruit</var>
+        array and print the array.</div></li>
+
+        <li><div>Add code to insert "cherry" before "apple" in the
+        <var>fruit</var> array and print the array.</div></li>
+
+        <li><div>Add code to sort the <var>fruit</var> array and print
+        the array.</div></li>
+
+        <li><div>Add code to clear the <var>fruit</var> array and print
+        the array.</div></li>
     </ol>
 
     <h2>Sample Run</h2>
 <pre class="console">&gt; python check_solution.py
-</pre>
+original: ['pear', 'banana', 'apple', 'mango']
+reversed: ['mango', 'apple', 'banana', 'pear']
+append orange: ['mango', 'apple', 'banana', 'pear', 'orange']
+insert cherry: ['mango', 'cherry', 'apple', 'banana', 'pear', 'orange']
+remove banana: ['mango', 'cherry', 'apple', 'pear', 'orange']
+sorted: ['apple', 'cherry', 'mango', 'orange', 'pear']
+cleared: []</pre>
 
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each step
@@ -48,6 +94,14 @@
         <li><div>Run your program and ensure that your program's output
         is the same as the sample run output.</div></li>
     </ol>
+
+    <h2>Ponder</h2>
+    <p>After you finish your program, examine the code in
+    <code>main</code> and realize that you wrote object oriented code
+    when you used the <var>fruit</var> array and dot notation to call
+    the <code>reverse</code>, <code>append</code>, <code>insert</code>,
+    <code>remove</code>, <code>sort</code>, and <code>clear</code>
+    methods.</p>
 
     <h2>Sample Solution</h2>
     <p>When your program is finished, view the <a download
