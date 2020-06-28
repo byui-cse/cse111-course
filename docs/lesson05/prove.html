@@ -145,7 +145,7 @@ def draw_scene(canvas, scene_left, scene_top, scene_right, scene_bottom):
     # draw_snowman, draw_tree, draw_shrub, etc.
 
 
-# Add more functions here, like draw_sky, draw_ground,
+# Define more functions here, like draw_sky, draw_ground,
 # draw_cloud, draw_tree, draw_kite, draw_snowflake, etc.
 
 
@@ -168,7 +168,11 @@ main()</pre></div>
     <code>draw_grass_blade</code>, and <code>draw_insect</code>. The
     header for the <code>draw_scene</code> function, which is shown on
     line 38 in the example code above, is a good example for the headers
-    of all your draw_* functions.</p>
+    of all your draw_* functions. For example, if you write a
+    <code>draw_grass_blade</code> function in your program, you should
+    write its header like this:</p>
+
+<div class="pre"><pre class="python">def draw_grass_blade(canvas, blade_left, blade_top, blade_right, blade_bottom):</pre></div>
 
     <p>As you write your program, be sure that it draws elements in the
     order of farthest away to nearest. For example, you program should

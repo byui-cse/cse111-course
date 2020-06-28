@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CSE 111 - Prepare</title>
-    <link rel="icon" type="image/png" href="../site/oneCubed.png">
+    <link rel="icon" type="image/png" href="../site/icon.png">
     <link rel="stylesheet" type="text/css" href="../site/style.css">
 </head>
 
@@ -19,14 +19,15 @@
     <h1>CSE 111 | Programming with Functions</h1>
 </header>
 <article>
-    <h1>11 Prepare: Using Objects</h1>
+    <h1>12 Prepare: Using Objects</h1>
     <p>A <a target="_blank"
-    href="https://www.google.com/search?q=define+paradigm">paradigm</a>
+    href="https://www.google.com/search?q=define+paradigm"><dfn>paradigm</dfn></a>
     is a way of thinking or a way of viewing the world. There are at
-    least four main paradigms for programming a computer: procedural,
-    declarative, functional, and object oriented. During CSE 110 and
-    111, you used or encountered the first three of these programming
-    paradigms. During this lesson, you will be exposed to the last.</p>
+    least four main paradigms for programming a computer: procedural
+    (sometimes called imperative), declarative, functional, and object
+    oriented. During CSE 110 and 111, you used or encountered the first
+    three of these programming paradigms. During this lesson, you will
+    be exposed to the last.</p>
 
     <h2>Concepts</h2>
     <h3>Procedural Programming</h3>
@@ -38,9 +39,9 @@
     by the quantity of numbers. A Python procedural program for
     computing the average looks like this:</p>
 
-<div class="pre"><pre class="python">numbers = [...]
+<div class="pre"><pre class="python">numbers = [87, 95, 72, 92, 95, 88, 84]
 total = 0
-for x in number:
+for x in numbers:
     total += x
 average = total / len(numbers)</pre></div>
 
@@ -137,18 +138,18 @@ average = reduce(add, numbers) / len(numbers)</pre></div>
 
 data = pandas.read_csv("water.csv")
 column = data["usage"]
-name = column.name
 average = column.mean()
-print(name, average)</pre></div>
+print(column.name, average)</pre></div>
 
     <p>The hallmark of object oriented programming is selecting
-    attributes and calling functions using the "dot" (.) operator. The
-    official name of the dot operator is "component selector", but
-    almost no one calls it that because the term dot is much easier to
-    say than component selector. Notice the code in the previous example
-    uses the dot operator (.) to call the read_csv function in the
-    pandas module, to retrieve the column's name, and to call the mean
-    function in the column.</p>
+    attributes and calling functions using the dot (.) operator. The
+    official name of the <dfn>dot operator</dfn> is <dfn>component
+    selector</dfn> but almost no one calls it that because the term dot
+    is much easier to say than component selector. Notice in the
+    previous example, the code uses the dot operator (.) to call the
+    <code>read_csv</code> function in the pandas module, to call the
+    <code>mean</code> function on the column, and to retrieve the
+    column's name.</p>
 
     <p>Python includes many built-in and standard objects that we can
     use to help us write programs. In fact, you have already used many

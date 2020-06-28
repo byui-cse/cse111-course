@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<!-- Copyright 2020, Brigham Young University - Idaho. All rights reserved. -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSE 111 - Team Activity</title>
+    <link rel="icon" type="image/png" href="../site/icon.png">
+    <link rel="stylesheet" type="text/css" href="../site/style.css">
+</head>
+
+<body>
+<header>
+    <div class="logo">
+        <div class="upper">BYU</div>
+        <div class="lower">Idaho</div>
+    </div>
+    <h1>CSE 111 | Programming with Functions</h1>
+</header>
+<article>
+    <h1>12 Team Activity: Program with a GUI</h1>
+
+    <h2>Instructions</h2>
+    <p>Arrange a one hour synchronous meeting with your team for this
+    activity. Online students should coordinate a video-sharing meeting.
+    Campus students will use class time for this meeting. You should
+    prepare for this meeting by completing the preparation material and
+    the individual checkpoint assignment beforehand.</p>
+
+    <h2>Problem Statement</h2>
+    <p>Almost all of the programs that you have written for this course
+    receive input from and print to a console (also called terminal)
+    window. However, most users prefer to interact with a program
+    through a graphical user interface (GUI) that contains icons, text
+    fields, dropdown lists, buttons, etc. Within a GUI, the individual
+    components (icons, text fields, etc.) are called widgets. Most
+    libraries for creating GUIs use object oriented programming because
+    each widget is an object with attributes and methods.</p>
+
+    <h2>Helpful Documentation</h2>
+    <ul>
+        <li><div></div></li>
+    </ul>
+
+    <h2>Assignment</h2>
+    <p>Write a Python program that gets user input from GUI, performs a
+    simple calculation, and displays the result in a GUI. Do the
+    following:</p>
+
+    <ol class="long">
+        <li><div>Download these two Python files:
+        <a download href="heart_rate.py">heart_rate.py</a> and
+        <a download href="number_entry.py">number_entry.py</a>
+        and save them in the same folder where you will save your Python
+        program.</div></li>
+
+        <li><div>Open the <code>heart_rate.py</code> file in VS
+        Code and run it. Notice how running the program opens a GUI
+        where a user can enter his age and see heart rates for
+        exercising. Experiment with the GUI by entering different ages,
+        seeing the results, and clicking the "Clear" button.</div></li>
+
+        <li><div>Read the comments and examine the code in
+        <code>heart_rate.py</code>. Notice the following:
+        <ol>
+            <li><div>To create its GUI, the heart_rate program uses the
+            <code>tkinter</code> module which is imported at
+            line&nbsp;1.</div></li>
+
+            <li><div>The <code>main</code> function begins at
+            line&nbsp;5.</div></li>
+
+            <li><div><code>main</code> creates a <code>tk.TK</code> root
+            object named <var>app</var> and uses that object to create a
+            <code>HeartWindow</code> object.</div></li>
+
+            <li><div>Beginning at line&nbsp;21, the
+            <code>HeartWindow.__init__</code> function creates label,
+            text field, and button widgets and places them in a
+            grid.</div></li>
+
+            <li><div>Inside the <code>__init__</code> function, there
+            are two nested functions named <code>calc</code> and
+            <code>clear</code>. The <code>calc</code> function is called
+            each time the user enters a digit in the age text field. The
+            <code>clear</code> function is called each time the user
+            clicks the "Clear" button.</div></li>
+        </ol></div></li>
+
+        <li><div>Choose a simple calculation or formula for your program
+        to calculate. You could choose one of these:
+
+        <ul>
+            <li><div>Area of a circle: <div class="inlineExpr"><var>a</var> = &pi;<var>r</var><sup>2</sup></div></div></li>
+
+            <li><div>Swing time of a pendulum: <div class="inlineExpr"><var>t</var> = 2&pi; &radic; <div><hr><div><var>n</var><hr>9.81</div></div></div></div></li>
+
+            <li><div>Area of a rectangle: <div class="inlineExpr"><var>a</var> = <var>w</var><var>h</var></div></li>
+
+            <li><div>Volume of a tire: <div class="inlineExpr"><var>v</var> = <div>&pi; <var>w</var><sup>2</sup> <var>a</var> (<var>w</var><var>a</var> + 2,540 <var>d</var>)<hr>10,000,000</div></div></div></li>
+        </ul></div></li>
+
+        <li><div>Use the heart_rate.py program as a reference (you could
+        even copy it) and write a Python program with a GUI that
+        calculates the formula that you chose.</div></li>
+    </ol>
+
+    <h3>Core Requirements</h3>
+    <ol class="long">
+        <li><div></div></li>
+    </ol>
+
+    <h3>Stretch Challenges</h3>
+    <ol class="long">
+        <li><div></div></li>
+    </ol>
+
+    <h2>Testing Procedure</h2>
+    <p></p>
+
+    <h2>Sample Solution</h2>
+    <p>Please work diligently with your team for the one hour meeting.
+    After the meeting is over, please compare your approach to the
+    <a download href="teach_solution.py">sample solution</a>. Please
+    <strong>do not look at the sample solution</strong> until you have
+    either finished the program or diligently worked for at least one
+    hour. At the end of the hour, if you are still struggling to
+    complete the assignment, you may use the sample solution to help you
+    finish.</p>
+
+    <h2>Submission</h2>
+    <p>When you have finished the activity, please report your progress
+    via the associated I-Learn quiz. When asked about which of the
+    requirements you completed, feel free to include any work done
+    during the team meeting or after the meeting, including work done
+    with the help of the sample solution, if necessary. In short, report
+    on what you were able to accomplish, regardless of when you
+    completed it or if you needed help from the sample solution.</p>
+</article>
+<footer>
+    <small>Copyright &copy; 2020, Brigham Young University - Idaho. All
+    rights reserved.</small>
+</footer>
+</body>
+</html>
