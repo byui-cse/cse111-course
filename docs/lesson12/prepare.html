@@ -116,19 +116,19 @@ average = reduce(add, numbers) / len(numbers)</pre></div>
     <ol>
         <li><div>identity (a name or identification)</div></li>
         <li><div>data (also known as attributes)</div></li>
-        <li><div>behavior (also known as functions)</div></li>
+        <li><div>behavior (also known as methods or functions)</div></li>
         <li><div>relationships to other objects</div></li>
     </ol>
 
     <p>When we write an object oriented program we combine data and
     functions together into objects. For example, if we were writing a
     registration program used for students to register for courses at a
-    school, we would create Student objects and Course objects. Each
-    Student object would have data like given_name, family_name,
-    phone_number, etc. and would have functions like register_for, drop,
-    withdraw, etc. Each Course object would have data like course_code,
-    title, description, list_of_students, etc. and would have functions
-    like get_students, take_role, etc.</p>
+    school, we would write code to create Student objects and Course
+    objects. Each Student object would have data like given_name,
+    family_name, phone_number, etc. and would have methods like
+    register, enroll, drop, withdraw, etc. Each Course object would have
+    data like course_code, title, description, list_of_students, etc.
+    and would have methods like get_students, take_role, etc.</p>
 
     <p>The <code>pandas</code> module uses object oriented programming
     concepts as shown in the next code example that again computes the
@@ -136,24 +136,35 @@ average = reduce(add, numbers) / len(numbers)</pre></div>
 
 <div class="pre"><pre class="python">import pandas
 
-data = pandas.read_csv("water.csv")
-column = data["usage"]
-average = column.mean()
-print(column.name, average)</pre></div>
+# Read the data in a CSV file and create a pandas DataFrame object.
+df = <em>pandas.read_csv("water.csv")</em>
+
+# Extract a pandas Series object from the DataFrame object.
+column = df["usage"]
+
+# Call the mean method (function) that is in the column object.
+average = <em>column.mean()</em>
+
+# Print the column name attribute and the average.
+print(<em>column.name</em>, average)</pre></div>
 
     <p>The hallmark of object oriented programming is selecting
-    attributes and calling functions using the dot (.) operator. The
+    attributes and calling methods using the dot (.) operator. The
     official name of the <dfn>dot operator</dfn> is <dfn>component
     selector</dfn> but almost no one calls it that because the term dot
     is much easier to say than component selector. Notice in the
     previous example, the code uses the dot operator (.) to call the
-    <code>read_csv</code> function in the pandas module, to call the
-    <code>mean</code> function on the column, and to retrieve the
-    column's name.</p>
+    <code>read_csv</code> method in the pandas module, to call the
+    <code>mean</code> method on the column, and to retrieve the column's
+    <code>name</code> attribute.</p>
 
-    <p>Python includes many built-in and standard objects that we can
-    use to help us write programs. In fact, you have already used many
-    objects in your programs.</p>
+    <p>Python includes many built-in and standard objects that a
+    programmer can use to write programs. In fact, you have already used
+    many objects in your programs. In Python, tuples, lists, sets, and
+    dictionaries are all objects and have attributes and methods. For
+    example, lists have many methods: index, count, clear, insert,
+    append, remove, pop, extend, reverse, and copy. csv Readers and
+    Writers are also objects, as are pandas DataFrames and Series.</p>
 
     <h2>Documentation</h2>
 </article>

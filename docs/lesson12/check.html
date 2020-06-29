@@ -27,25 +27,29 @@
 
     <h2>Problem Statement</h2>
     <p>There are several types of commands that are commonly found in
-    object oriented code. Three of those types of commands are:</p>
+    object oriented programs. These types of commands are so common,
+    that a programmer must be able to recognize and write them. Three of
+    these types of commands are:</p>
 
     <ol class="long">
-        <li><div>Creating objects; example:
-        <pre>obj = date.today()</pre></div></li>
+        <li><div>Creating objects. For example:
+        <div class="pre"><pre class="python">obj = date.today()</pre></div></div></li>
 
         <li><div>Accessing the attributes of an object using dot
-        notation; example:
-        <pre>y = obj.year</pre></div></li>
+        notation. For example:
+        <div class="pre"><pre class="python">y = obj.year</pre></div></div></li>
 
         <li><div>Calling the methods of an object using dot
-        notation; example:
-        <pre>obj.replace(year=2025)</pre></div></li>
+        notation. For example:
+        <div class="pre"><pre class="python">obj.replace(year=2025)</pre></div></div></li>
     </ol>
 
     <h2>Helpful Documentation</h2>
-    <ul>
-        <li><div>More <a target="_blank" href="https://docs.python.org/3/tutorial/datastructures.html#more-on-lists">about lists</a></div></li>
-    </ul>
+    <p>In Python, lists are objects with attributes and methods, and a
+    programmer can modify the contents of a list by calling those
+    methods. The list methods are documented in this web page titled
+    "<a target="_blank" href="https://docs.python.org/3/tutorial/datastructures.html#more-on-lists">More
+    on Lists</a>."
 
     <h2>Assignment</h2>
     <p>Write a small Python program that demonstrates object oriented
@@ -56,25 +60,33 @@
         <code>list_object.py</code></div></li>
 
         <li><div>Copy and paste this code at the top of your
-        <code>list_object.py</code> program:
+        <code>list_object</code> program:
 <div class="pre"><pre class="python">def main():
+    # Create and print a list named fruit.
     fruit = ["pear", "banana", "apple", "mango"]
     print(f"original: {fruit}")</pre></div></div></li>
 
-        <li><div>Add code to reverse the <var>fruit</var> array and
-        print the array.</div></li>
+        <li><div>Add code to reverse and print the <var>fruit</var>
+        list.</div></li>
 
         <li><div>Add code to append "orange" to the <var>fruit</var>
-        array and print the array.</div></li>
+        list and print the list.</div></li>
 
-        <li><div>Add code to insert "cherry" before "apple" in the
-        <var>fruit</var> array and print the array.</div></li>
+        <li><div>Add code to find where "apple" is located in the
+        <var>fruit</var> list and insert "cherry" before "apple" in the
+        list and print the list.</div></li>
 
-        <li><div>Add code to sort the <var>fruit</var> array and print
-        the array.</div></li>
+        <li><div>Add code to remove "banana" from the <var>fruit</var>
+        list and print the list.</div></li>
 
-        <li><div>Add code to clear the <var>fruit</var> array and print
-        the array.</div></li>
+        <li><div>Add code to pop the last element from the fruit list
+        and print the popped element and the list.</div></li>
+
+        <li><div>Add code to sort and print the <var>fruit</var>
+        list.</div></li>
+
+        <li><div>Add code to clear and print the <var>fruit</var>
+        list.</div></li>
     </ol>
 
     <h2>Sample Run</h2>
@@ -84,7 +96,8 @@ reversed: ['mango', 'apple', 'banana', 'pear']
 append orange: ['mango', 'apple', 'banana', 'pear', 'orange']
 insert cherry: ['mango', 'cherry', 'apple', 'banana', 'pear', 'orange']
 remove banana: ['mango', 'cherry', 'apple', 'pear', 'orange']
-sorted: ['apple', 'cherry', 'mango', 'orange', 'pear']
+pop: orange ['mango', 'cherry', 'apple', 'pear']
+sorted: ['apple', 'cherry', 'mango', 'pear']
 cleared: []</pre>
 
     <h2>Testing Procedure</h2>
@@ -98,10 +111,10 @@ cleared: []</pre>
     <h2>Ponder</h2>
     <p>After you finish your program, examine the code in
     <code>main</code> and realize that you wrote object oriented code
-    when you used the <var>fruit</var> array and dot notation to call
+    when you used the <var>fruit</var> list and dot notation to call
     the <code>reverse</code>, <code>append</code>, <code>insert</code>,
-    <code>remove</code>, <code>sort</code>, and <code>clear</code>
-    methods.</p>
+    <code>remove</code>, <code>pop</code>, <code>sort</code>, and
+    <code>clear</code> methods.</p>
 
     <h2>Sample Solution</h2>
     <p>When your program is finished, view the <a download
