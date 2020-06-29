@@ -29,7 +29,8 @@ def add_columns(df, cutoff):
     df["ageAtCutoff"] = df["birthdate"].apply(year_diff, args=(cutoff,))
 
     # Create a lambda function that accepts a student's age
-    # as a parameter and returns the student's grade level.
+    # as a parameter and uses the level_dict dictionary to find and
+    # return the student's grade level.
     level_from_age = lambda age: level_dict[age]
 
     # Add a column named gradeLevel to the data frame. To create the
@@ -40,7 +41,27 @@ def add_columns(df, cutoff):
     # Sort the data frame by age at cutoff, surname, and given name.
     df.sort_values(["ageAtCutoff", "surname", "givenName"], inplace=True)
 
+    # Return the data frame that contains the two new columns.
     return df
+
+
+# A dictionary to map from ageAtCutoff to gradeLevel.
+level_dict = {
+# age : grade level
+    5 : "kindergarten",
+    6 : "first",
+    7 : "second",
+    8 : "third",
+    9 : "fourth",
+    10 : "fifth",
+    11 : "sixth",
+    12 : "seventh",
+    13 : "eighth",
+    14 : "freshman",
+    15 : "sophomore",
+    16 : "junior",
+    17 : "senior"
+}
 
 
 def year_diff(before: datetime, after: datetime) -> int:
@@ -68,18 +89,16 @@ def year_diff(before: datetime, after: datetime) -> int:
 
 
 def grade_level_counts(df):
-    # Create a new data frame that contains the count of all students
-    # in each grade level. In other words, group by the gradeLevel
-    # column and count the number of students in each grade level.
-    grouped = df.groupby("gradeLevel")
-    counts = grouped["givenName"].count()
+    """Create and return a new Series that contains
+    number of students in each grade level.
+    """
+    # Call pandas value_counts function to create a new Series named
+    # counts that contains the number of students in each grade level.
+    counts = df["gradeLevel"].value_counts(sort=False)
 
-    # Change the name of the counted column from "givenName"
-    # to "numberOfStudents" which is more appropriate.
-    counts.rename("numberOfStudents", inplace=True)
-
-    # The groupby function orders the grade levels alphabetically
-    # which is not the order that a user wants to see them. Reorder
+    # The value_counts function orders the grade levels in the
+    # order that they are found in the original data frame which is
+    # probably not the order that a user wants to see them. Reorder
     # the grade levels to be the same order as the level_dict.
     counts = counts.reindex(level_dict.values(), copy=False)
 
@@ -87,26 +106,12 @@ def grade_level_counts(df):
     # have no count, so drop those rows.
     counts.dropna(inplace=True)
 
+    # The reindex function may change the counts from
+    # integers to floats, so change them back to integers.
+    counts = counts.astype(int, copy=False)
+
+    # Return the counts Series.
     return counts
-
-
-# A dictionary to map from ageAtCutoff to gradeLevel.
-level_dict = {
-# age : grade level
-    5 : "kindergarten",
-    6 : "first",
-    7 : "second",
-    8 : "third",
-    9 : "fourth",
-    10 : "fifth",
-    11 : "sixth",
-    12 : "seventh",
-    13 : "eighth",
-    14 : "freshman",
-    15 : "sophomore",
-    16 : "junior",
-    17 : "senior"
-}
 
 
 # Call the main function so that

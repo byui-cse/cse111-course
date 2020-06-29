@@ -29,7 +29,8 @@ def add_columns(df, cutoff):
     pass
 
     # Create a lambda function that accepts a student's age
-    # as a parameter and returns the student's grade level.
+    # as a parameter and uses the level_dict dictionary to find and
+    # return the student's grade level.
     pass
 
     # Add a column named gradeLevel to the data frame. To create the
@@ -37,7 +38,27 @@ def add_columns(df, cutoff):
     # column. Pass the level_from_age function to the apply function.
     pass
 
+    # Return the data frame that contains the two new columns.
     return
+
+
+# A dictionary to map from ageAtCutoff to gradeLevel.
+level_dict = {
+# age : grade level
+    5 : "kindergarten",
+    6 : "first",
+    7 : "second",
+    8 : "third",
+    9 : "fourth",
+    10 : "fifth",
+    11 : "sixth",
+    12 : "seventh",
+    13 : "eighth",
+    14 : "freshman",
+    15 : "sophomore",
+    16 : "junior",
+    17 : "senior"
+}
 
 
 def year_diff(before: datetime, after: datetime) -> int:
@@ -65,31 +86,15 @@ def year_diff(before: datetime, after: datetime) -> int:
 
 
 def grade_level_counts(df):
-    # Create a new data frame that contains the count of all students
-    # in each grade level. In other words, group by the gradeLevel
-    # column and count the number of students in each grade level.
+    """Create and return a new Series that contains
+    number of students in each grade level.
+    """
+    # Call pandas value_counts function to create a new Series named
+    # counts that contains the number of students in each grade level.
     pass
 
+    # Return the counts Series.
     return
-
-
-# A dictionary to map from ageAtCutoff to gradeLevel.
-level_dict = {
-# age : grade level
-    5 : "kindergarten",
-    6 : "first",
-    7 : "second",
-    8 : "third",
-    9 : "fourth",
-    10 : "fifth",
-    11 : "sixth",
-    12 : "seventh",
-    13 : "eighth",
-    14 : "freshman",
-    15 : "sophomore",
-    16 : "junior",
-    17 : "senior"
-}
 
 
 # Call the main function so that
