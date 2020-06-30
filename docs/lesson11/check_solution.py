@@ -16,7 +16,7 @@ def main():
 
     # Write the data frame with the corrected phone
     # numbers to a new CSV file named students2.csv.
-    df.to_csv("students2.csv", mode="wt", line_terminator="\n")
+    df.to_csv("students2.csv", mode="wt", index=False, line_terminator="\n")
 
 
 def add_area_code(phone):

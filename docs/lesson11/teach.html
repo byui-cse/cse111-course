@@ -62,7 +62,7 @@
         <li><div>Python <a target="_blank" href="https://docs.python.org/3/tutorial/controlflow.html#lambda-expressions">lambda functions</a></div></li>
         <li><div><a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/05_add_columns.html">Add a new column</a> to a pandas DataFrame</div></li>
         <li><div>pandas <a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.apply.html"><code>apply</code></a> function</div></li>
-        <li><div><a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/06_calculate_statistics.html#aggregating-statistics-grouped-by-category">Aggregating statistics</a> using the pandas <code>groupby</code> function</div></li>
+        <li><div>pandas <a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.value_counts.html"><code>value_counts</code></a> function</div></li>
     </ul>
 
     <h2>Assignment</h2>
@@ -102,7 +102,7 @@
         columns named ageAtCutoff and gradeLevel and must print the data
         frame.</div></li>
 
-        <li><div>Your program must create and print a new data frame
+        <li><div>Your program must create and print a new pandas Series
         that contains a count of the number of students assigned to each
         grade level.</div></li>
     </ol>
@@ -116,8 +116,8 @@
         <li><div>Before printing the students data frame, sort it by
         ageAtCutoff, surname, and givenName.</div></li>
 
-        <li><div>Before printing the grade level counts data frame, sort
-        it by the normal ordering of grade levels which is shown in this
+        <li><div>Before printing the grade level counts series, sort it
+        by the normal ordering of grade levels which is shown in this
         assignment in the table above.</div></li>
     </ol>
 
@@ -139,15 +139,14 @@ Cutoff date: 2020-10-01
 146      Marco     Zeng 2009-06-25  ...           11         sixth
 [187 rows x 8 columns]
 
-gradeLevel
-kindergarten    18.0
-first           35.0
-second          28.0
-third           24.0
-fourth          28.0
-fifth           32.0
-sixth           22.0
-Name: numberOfStudents, dtype: float64</pre>
+kindergarten    18
+first           35
+second          28
+third           24
+fourth          28
+fifth           32
+sixth           22
+Name: gradeLevel, dtype: int32</pre>
 
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each step
