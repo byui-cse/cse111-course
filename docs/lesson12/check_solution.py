@@ -7,7 +7,7 @@ def main():
     fruit.reverse()
     print(f"reversed: {fruit}")
 
-    # Append "orange" to the fruit list and print the list.
+    # Append "orange" to the end of the fruit list and print the list.
     fruit.append("orange")
     print(f"append orange: {fruit}")
 

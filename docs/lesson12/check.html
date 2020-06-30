@@ -28,26 +28,15 @@
     <h2>Problem Statement</h2>
     <p>There are several types of commands that are commonly found in
     object oriented programs. These types of commands are so common,
-    that a programmer must be able to recognize and write them. Three of
-    these types of commands are:</p>
-
-    <ol class="long">
-        <li><div>Creating objects. For example:
-        <div class="pre"><pre class="python">obj = date.today()</pre></div></div></li>
-
-        <li><div>Accessing the attributes of an object using dot
-        notation. For example:
-        <div class="pre"><pre class="python">y = obj.year</pre></div></div></li>
-
-        <li><div>Calling the methods of an object using dot
-        notation. For example:
-        <div class="pre"><pre class="python">obj.replace(year=2025)</pre></div></div></li>
-    </ol>
+    that a programmer must be able to recognize and write them. One of
+    these types of commands is calling the methods of an object using
+    the dot operator. For example:
+    <div class="pre"><pre class="python">object.method(arg1, arg2, ...)</pre></div>
 
     <h2>Helpful Documentation</h2>
     <p>In Python, lists are objects with attributes and methods, and a
     programmer can modify the contents of a list by calling those
-    methods. The list methods are documented in this web page titled
+    methods. The list methods are documented in a web page titled
     "<a target="_blank" href="https://docs.python.org/3/tutorial/datastructures.html#more-on-lists">More
     on Lists</a>."
 
@@ -69,8 +58,8 @@
         <li><div>Add code to reverse and print the <var>fruit</var>
         list.</div></li>
 
-        <li><div>Add code to append "orange" to the <var>fruit</var>
-        list and print the list.</div></li>
+        <li><div>Add code to append "orange" to the end of the
+        <var>fruit</var> list and print the list.</div></li>
 
         <li><div>Add code to find where "apple" is located in the
         <var>fruit</var> list and insert "cherry" before "apple" in the
@@ -87,6 +76,9 @@
 
         <li><div>Add code to clear and print the <var>fruit</var>
         list.</div></li>
+
+        <li><div>At the bottom of your program add a call to the
+        <code>main</code> function.</div></li>
     </ol>
 
     <h2>Sample Run</h2>
@@ -111,7 +103,7 @@ cleared: []</pre>
     <h2>Ponder</h2>
     <p>After you finish your program, examine the code in
     <code>main</code> and realize that you wrote object oriented code
-    when you used the <var>fruit</var> list and dot notation to call
+    when you used the <var>fruit</var> list and the dot operator to call
     the <code>reverse</code>, <code>append</code>, <code>insert</code>,
     <code>remove</code>, <code>pop</code>, <code>sort</code>, and
     <code>clear</code> methods.</p>

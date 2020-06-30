@@ -20,14 +20,12 @@
 </header>
 <article>
     <h1>12 Prepare: Using Objects</h1>
-    <p>A <a target="_blank"
-    href="https://www.google.com/search?q=define+paradigm"><dfn>paradigm</dfn></a>
-    is a way of thinking or a way of viewing the world. There are at
-    least four main paradigms for programming a computer: procedural
-    (sometimes called imperative), declarative, functional, and object
-    oriented. During CSE 110 and 111, you used or encountered the first
-    three of these programming paradigms. During this lesson, you will
-    be exposed to the last.</p>
+    <p>A <dfn>paradigm</dfn> is a way of thinking or a way of viewing
+    the world. There are at least four main paradigms for programming a
+    computer: procedural declarative, functional, and object oriented.
+    During CSE 110 and 111, you used or encountered the first three of
+    these programming paradigms. During this lesson, you will be
+    introduced to the last.</p>
 
     <h2>Concepts</h2>
     <h3>Procedural Programming</h3>
@@ -56,21 +54,21 @@ average = total / len(numbers)</pre></div>
     we focus on what we want from the task. Continuing the example of
     the average, with declarative programming, we focus on exactly what
     numbers we want the average of and then tell the computer to compute
-    that average for us. Many of the commands in <code>pandas</code> are
-    a form of declarative programming. For example, using
+    that average for us. Many of the commands in the <code>pandas</code>
+    module are a form of declarative programming. For example, using
     <code>pandas</code>, we can command the computer to filter a
     DataFrame or to remove columns from a DataFrame like this:</p>
 
-<div class="pre"><pre class="python">import pandas
+<div class="pre"><pre class="python">import pandas as pd
 
 # Read a DataFrame from the water.csv file.
-data = pandas.read_csv("water.csv")
+df = pd.read_csv("water.csv")
 
 # Filter the DataFrame to only rows from residences.
-residence = data[data["accountType"] == "Residence"]
+residences = <em>df[df["accountType"] == "Residence"]</em>
 
 # Remove all columns except meterNumber, readDate, and usage.
-residence = residence[["meterNumber", "readDate", "usage"]]</pre></div>
+residences = <em>residences[["meterNumber", "readDate", "usage"]]</em></pre></div>
 
     <p>Notice in the above example, that the code doesn't contain the
     steps required to filter a DataFrame or remove columns because
@@ -90,24 +88,20 @@ residence = residence[["meterNumber", "readDate", "usage"]]</pre></div>
     because they are accustomed to using functions while studying
     mathematics. In functional programming, functions are so important
     that we often pass functions into other functions. You did this in
-    lesson 9 when you passed a function into the pandas
+    lesson&nbsp;11 when you passed a function into the pandas
     <code>apply</code> function. Here is a functional programming
     solution to computing the average in Python:</p>
 
 <div class="pre"><pre class="python">from functools import reduce
 
-def add(a, b):
-    """Return the sum of two numbers."""
-    return a + b
-
-numbers = [...]
-average = reduce(add, numbers) / len(numbers)</pre></div>
+numbers = [87, 95, 72, 92, 95, 88, 84]
+average = <em>reduce(lambda a, b: a + b, numbers)</em> / <em>len(numbers)</em></pre></div>
 
     <p>Notice how this simple example uses three functions:
-    <code>reduce</code>, <code>add</code>, and <code>len</code>. Notice
-    also that the <code>add</code> function is passed into the
-    <code>reduce</code> function. Passing a function into a function is
-    the hallmark of functional programming.</p>
+    <code>reduce</code>, a lambda function, and <code>len</code>. Notice
+    also that the lambda function is passed into the <code>reduce</code>
+    function. Passing a function into a function is one of the marks of
+    functional programming.</p>
 
     <h3>Object Oriented Programming</h3>
     <p>With object oriented programming, we use objects to write a
@@ -125,19 +119,19 @@ average = reduce(add, numbers) / len(numbers)</pre></div>
     registration program used for students to register for courses at a
     school, we would write code to create Student objects and Course
     objects. Each Student object would have data like given_name,
-    family_name, phone_number, etc. and would have methods like
+    family_name, phone_number, etc. and would have functions like
     register, enroll, drop, withdraw, etc. Each Course object would have
     data like course_code, title, description, list_of_students, etc.
-    and would have methods like get_students, take_role, etc.</p>
+    and would have functions like get_students, take_role, etc.</p>
 
     <p>The <code>pandas</code> module uses object oriented programming
     concepts as shown in the next code example that again computes the
     average of a list of numbers.</p>
 
-<div class="pre"><pre class="python">import pandas
+<div class="pre"><pre class="python">import pandas as pd
 
 # Read the data in a CSV file and create a pandas DataFrame object.
-df = <em>pandas.read_csv("water.csv")</em>
+df = <em>pd.read_csv("water.csv")</em>
 
 # Extract a pandas Series object from the DataFrame object.
 column = df["usage"]
@@ -148,11 +142,11 @@ average = <em>column.mean()</em>
 # Print the column name attribute and the average.
 print(<em>column.name</em>, average)</pre></div>
 
-    <p>The hallmark of object oriented programming is selecting
+    <p>One of the marks of object oriented programming is selecting
     attributes and calling methods using the dot (.) operator. The
     official name of the <dfn>dot operator</dfn> is <dfn>component
-    selector</dfn> but almost no one calls it that because the term dot
-    is much easier to say than component selector. Notice in the
+    selector</dfn>, but almost no one calls it that because the term
+    "dot" is much easier to say than "component selector". Notice in the
     previous example, the code uses the dot operator (.) to call the
     <code>read_csv</code> method in the pandas module, to call the
     <code>mean</code> method on the column, and to retrieve the column's
@@ -166,7 +160,23 @@ print(<em>column.name</em>, average)</pre></div>
     append, remove, pop, extend, reverse, and copy. csv Readers and
     Writers are also objects, as are pandas DataFrames and Series.</p>
 
-    <h2>Documentation</h2>
+    <p>There are several types of commands that are commonly found in
+    object oriented programs. These types of commands are so common,
+    that a programmer must be able to recognize and write them. Three of
+    these types of commands are:</p>
+
+    <ol class="long">
+        <li><div>Creating objects. For example:
+        <div class="pre"><pre class="python">obj = date.today()</pre></div></div></li>
+
+        <li><div>Accessing the attributes of an object using the dot
+        operator. For example:
+        <div class="pre"><pre class="python">y = obj.year</pre></div></div></li>
+
+        <li><div>Calling the methods of an object using the dot
+        operator. For example:
+        <div class="pre"><pre class="python">obj.replace(year=2025)</pre></div></div></li>
+    </ol>
 </article>
 <footer>
     <small>Copyright &copy; 2020, Brigham Young University - Idaho. All
