@@ -1,0 +1,22 @@
+Please take a few minutes to reflect on your experience in CSE 111 and
+think about the challenges, successess, and all that you've learned
+along the way.
+
+
+Now, please respond thoroughly (1 - 2 paragraphs for each question) to
+the following questions.
+
+1. Describe an experience you had this semester where you saw the power of
+functions.
+
+
+
+2. In your judgment, what is the value of test functions?
+
+
+
+3. Describe your process for troubleshooting and fixing a program that
+has a problem. What is one thing you can do to improve your process?
+
+
+

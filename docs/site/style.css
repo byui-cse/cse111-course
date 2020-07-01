@@ -193,12 +193,6 @@ article span.inlineExpr {
 	font-size: large;
 }
 
-article div.proposal {
-	margin: 0 1em;
-	border: 1px solid #ccc;
-	padding: 0 1em;
-}
-
 /* Code Highlighting */
 article code {
 	font-family: Menlo, Monaco, Consolas, monospace;
