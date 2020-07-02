@@ -81,7 +81,10 @@
         two numbers, rounds the length to two places after the decimal
         point, and prints the rounded length for the user to see.</p>
 
-<div class="pre"><pre class="python">
+<div class="pre">
+<pre class="linenums">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9
+10<br>11<br>12<br>13<br>14<br>15<br>16<br>17</pre>
+<pre class="python">
 # This program computes the length of a cable given the distance
 # it will span and the distance it will sag or dip in the middle.
 
@@ -97,7 +100,7 @@ length = span + 8 * dip**2 / (3 * span)
 length = round(length, 2)
 
 # Print the cable length in the
-# terminal window for the user to see.
+# console window for the user to see.
 print(f"Length of cable in meters: {length}")
 </pre></div>
 
@@ -105,6 +108,14 @@ print(f"Length of cable in meters: {length}")
 Distance the cable must span in meters: <span class="input">500</span>
 Distance the cable will sag or dip in meters: <span class="input">18.5</span>
 Length of cable in meters: 501.83</pre></div></li>
+
+        <p>The arithmetic that is written on line&nbsp;10 in the above
+        code example comes from a well known formula. Given the distance
+        that a cable must span and the vertical distance that the cable
+        will be allowed to sag or dip in the middle of the cable, the
+        formula for calculating the length of the cable is:</p>
+
+        <div class="blockExpr"><var>length</var> = <var>span</var> + <div>8 <var>dip</var><sup>2</sup><hr>3 <var>span</var></div></div>
 
         <li><div>We can store several values in a
         <a target="_blank" href="https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences">Python tuple</a>.
@@ -138,7 +149,9 @@ Length of cable in meters: 501.83</pre></div></li>
         easily write code to find a value by its key.</p>
 
         <p>The following example code creates one each of a tuple, list,
-        set, and dictionary:</p>
+        set, and dictionary. A good question to ask yourself while
+        reading this code example is "What are the characters that cause
+        the computer to create a tuple, list, set, or dictionary?"</p>
 
 <div class="pre"><pre class="python">
 # Get two numbers from the user.
@@ -146,20 +159,37 @@ x = float(input("Enter the x value of a point: "))
 y = float(input("Enter the y value of a point: "))
 
 # Create a tuple.
-point = (x, y)
+point = <em>(x, y)</em>
 
 # Create a list.
-samples = [2.5, -3.2, 2.1, 0.6, 2.1, 0.7]
+samples = <em>[2.5, -3.2, 2.1, 0.6, 2.1, 0.7]</em>
 
 # Create a set.
-colors = {"red", "green", "blue"}
+colors = <em>{"red", "green", "blue"}</em>
 
 # Create a dictionary.
-students = {
+students = <em>{
     "67-412-8350" : "Alan Benson",
     "76-240-1835" : "Madison Silverlake",
     "06-412-7583" : "Samyukta Daniels"
-}</pre></div></div></li>
+}</em></pre></div>
+
+        <p>Did you notice the characters that cause the computer to
+        create a tuple, list, set, or dictionary?</p>
+        <ul>
+            <li><div>A tuple normally begins and ends with parentheses
+            and always has commas separating the parts of the tuple. For
+            example: <code>(x, y)</code></div></li>
+            <li><div>A list always begins and ends with square brackets.
+            For example: <code>[2.5, -3.2, 2.1, 0.6]</code></div></li>
+            <li><div>A set always begins and ends with curly braces and
+            has only keys with no values. In other words in a set, there
+            are no key value pairs separated by the colon character. For
+            example: <code>{"red", "green", "blue"}</code></div></li>
+            <li><div>A dictionary begins and ends with curly braces and
+            contains key value pairs separated by the colon character.
+            For example: <code>{"67-412-8350" : "Alan Benson"}</code></div></li>
+        </div></li>
     </ol>
 
     <h2>Videos</h2>

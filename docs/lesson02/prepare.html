@@ -72,8 +72,8 @@ if <em>balance &gt; 500</em>:
 
         <li><div>Python also includes a <dfn>membership operator</dfn>:
         <code>in</code>. We can use the <code>in</code> operator to
-        determine if a list, set, or dictionary contains a value. For
-        example:
+        determine if a tuple, list, set, or dictionary contains a value.
+        For example:
 <div class="pre"><pre class="python">
 names = {"Smith", "Lopez", "Marsh", "Olsen", "Vasiuk"}
 
@@ -147,7 +147,10 @@ for family in names:
     print(family)</pre></div></div></li>
 
         <li><div>A <code>break</code> statement causes a loop to end
-        early.
+        early. In the next code example, there is a <code>for</code>
+        loop that asks the user to input ten numbers one at a time.
+        However, the loop will terminate early if the user enters a zero
+        (0).
 <div class="pre"><pre class="python">
 # Get ten or fewer numbers from the user and add them
 # together. Notice that this loop uses underscore (_) as
@@ -208,9 +211,8 @@ Cornerstone Family Dental,44 S Center Street,208-356-4240
         Python has a module named <a target="_blank"
         href="https://docs.python.org/3/library/csv.html"><code>csv</code></a>
         that includes functionality to read and write data from CSV
-        files. The following example Python code show how to open a CSV
-        file and use the <code>csv</code> module to read and print each
-        row.
+        files. The following example code shows how to open a CSV file
+        and use the <code>csv</code> module to read and print each row.
 
 <div class="pre"><pre class="python">
 import csv
