@@ -22,8 +22,8 @@ for key, value in {"a":a, "b":b, "c":c, "d":d, "e":e, "f":f, "g":g, "h":h,
 # Print a blank line.
 print()
 
-# Create five variables of different types. Create
-# one each of string, range, tuple, list, and set.
+# Create five variables of different types. Create one
+# each of string, range, tuple, list, set, and dictionary.
 message = "What a beautiful day!"
 quant = range(10)
 point = (-2, 1.4, 3)
