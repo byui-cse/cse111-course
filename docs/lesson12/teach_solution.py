@@ -25,19 +25,37 @@ class TireWindow(tk.Frame):
         # Call __init__ in the parent class.
         super().__init__(parent)
 
-        # Create labels for the text fields.
+        # Create labels for the text fields and the results.
         lblWidth = tk.Label(self, text="Width (mm):")
         lblRatio = tk.Label(self, text="Aspect Ratio:")
         lblDiam = tk.Label(self, text="Diameter (in):")
         lblVol = tk.Label(self, text="Volume (cubic cm):")
 
-        # Create a three text fields.
+        # Create three text fields.
         txtWidth = IntEntry(self, 1, 300, width=5)
         txtRatio = FloatEntry(self, 1, 90, width=5)
         txtDiam = FloatEntry(self, 1, 30, width=5)
 
         # Create a label to display the result.
         lblResult = tk.Label(self, width=8, anchor="w")
+
+        # Create the Clear button.
+        btnClear = tk.Button(self, text="Clear")
+
+        # Layout all the labels, text fields, and buttons in a grid.
+        lblWidth.grid( row=0, column=0, padx=3, pady=2, sticky="e")
+        txtWidth.grid( row=0, column=1, padx=3, pady=2, sticky="w")
+        lblRatio.grid( row=1, column=0, padx=3, pady=2, sticky="e")
+        txtRatio.grid( row=1, column=1, padx=3, pady=2, sticky="w")
+        lblDiam.grid(  row=2, column=0, padx=3, pady=2, sticky="e")
+        txtDiam.grid(  row=2, column=1, padx=3, pady=2, sticky="w")
+        lblVol.grid(   row=3, column=0, padx=3, pady=2, sticky="e")
+        lblResult.grid(row=3, column=1, padx=3, pady=2, sticky="w")
+        btnClear.grid( row=3, column=2, padx=3, pady=2)
+
+        self.master.title("Tire Volume")
+        self.grid(padx=3, pady=3)
+
 
         # This function is called each time the user releases a key.
         def calc(event):
@@ -60,15 +78,8 @@ class TireWindow(tk.Frame):
                 lblResult.configure(text="")
 
 
-        # Bind the calc function to the three text fields
-        # so that the calc function will be called when the
-        # user changes the text in the text fields.
-        txtWidth.bind("<KeyRelease>", calc)
-        txtRatio.bind("<KeyRelease>", calc)
-        txtDiam.bind("<KeyRelease>", calc)
-
         # This function is called each time
-        # the user presses the "Clear" button.
+        # the user clicks the "Clear" button.
         def clear():
             """Clear all the inputs and outputs."""
             txtWidth.clear()
@@ -77,24 +88,20 @@ class TireWindow(tk.Frame):
             lblResult.configure(text="")
             txtWidth.focus()
 
-        # Create the Clear button.
-        btnClear = tk.Button(self, text="Clear", command=clear)
 
-        # Layout all the labels, text fields, and buttons in a grid.
-        lblWidth.grid( row=0, column=0, padx=3, pady=2, sticky="e")
-        txtWidth.grid( row=0, column=1, padx=3, pady=2, sticky="w")
-        lblRatio.grid( row=1, column=0, padx=3, pady=2, sticky="e")
-        txtRatio.grid( row=1, column=1, padx=3, pady=2, sticky="w")
-        lblDiam.grid(  row=2, column=0, padx=3, pady=2, sticky="e")
-        txtDiam.grid(  row=2, column=1, padx=3, pady=2, sticky="w")
-        lblVol.grid(   row=3, column=0, padx=3, pady=2, sticky="e")
-        lblResult.grid(row=3, column=1, padx=3, pady=2, sticky="w")
-        btnClear.grid( row=3, column=2, padx=3, pady=2)
+        # Bind the calc function to the three text fields
+        # so that the calc function will be called when the
+        # user changes the text in the text fields.
+        txtWidth.bind("<KeyRelease>", calc)
+        txtRatio.bind("<KeyRelease>", calc)
+        txtDiam.bind("<KeyRelease>", calc)
 
-        self.master.title("Tire Volume")
-        self.grid(padx=3, pady=3)
+        # Bind the clear function to the clear button so
+        # that the clear function will be called when the
+        # user clicks the clear button.
+        btnClear.configure(command=clear)
 
-        # Give the age text field the keyboard focus.
+        # Give the keyboard focus to the width text field.
         txtWidth.focus()
 
 
