@@ -70,12 +70,12 @@ class TireWindow(tk.Frame):
                 v = (math.pi * w * w * a * (w * a + 2540 * d)) / 10_000_000
 
                 # Display the volume for the user to see.
-                lblResult.configure(text=str(round(v, 1)))
+                lblResult.config(text=str(round(v, 1)))
 
             except ValueError:
                 # When the user deletes all the digits in one
                 # of the text fields, clear the result labels.
-                lblResult.configure(text="")
+                lblResult.config(text="")
 
 
         # This function is called each time
@@ -85,7 +85,7 @@ class TireWindow(tk.Frame):
             txtWidth.clear()
             txtRatio.clear()
             txtDiam.clear()
-            lblResult.configure(text="")
+            lblResult.config(text="")
             txtWidth.focus()
 
 
@@ -99,7 +99,7 @@ class TireWindow(tk.Frame):
         # Bind the clear function to the clear button so
         # that the clear function will be called when the
         # user clicks the clear button.
-        btnClear.configure(command=clear)
+        btnClear.config(command=clear)
 
         # Give the keyboard focus to the width text field.
         txtWidth.focus()

@@ -31,6 +31,10 @@ class IntEntry(tk.Entry):
     def get(self):
         return int(super().get())
 
+    def set(self, n):
+        self.delete(0, tk.END)
+        self.insert(0, str(int(n)))
+
     def clear(self):
         self.delete(0, tk.END)
 
@@ -62,6 +66,10 @@ class FloatEntry(tk.Entry):
 
     def get(self):
         return float(super().get())
+
+    def set(self, n):
+        self.delete(0, tk.END)
+        self.insert(0, str(float(n)))
 
     def clear(self):
         self.delete(0, tk.END)

@@ -71,14 +71,14 @@ class HeartWindow(tk.Frame):
 
                 # Display the slowest and fastest benficial
                 # heart rates for the user to see.
-                lblSlow.configure(text=str(slow))
-                lblFast.configure(text=str(fast))
+                lblSlow.config(text=str(slow))
+                lblFast.config(text=str(fast))
 
             except ValueError:
                 # When the user deletes all the digits in the age
                 # text field, clear the slowest and fastest labels.
-                lblSlow.configure(text="")
-                lblFast.configure(text="")
+                lblSlow.config(text="")
+                lblFast.config(text="")
 
 
         # This function is called each time
@@ -86,8 +86,8 @@ class HeartWindow(tk.Frame):
         def clear():
             """Clear all the inputs and outputs."""
             txtAge.clear()
-            lblSlow.configure(text="")
-            lblFast.configure(text="")
+            lblSlow.config(text="")
+            lblFast.config(text="")
             txtAge.focus()
 
 
@@ -99,10 +99,11 @@ class HeartWindow(tk.Frame):
         # Bind the clear function to the clear button so
         # that the clear function will be called when the
         # user clicks the clear button.
-        btnClear.configure(command=clear)
+        btnClear.config(command=clear)
 
         # Give the keyboard focus to the age text field.
         txtAge.focus()
+        txtAge.set(2)
 
 
 # Call the main function so that
