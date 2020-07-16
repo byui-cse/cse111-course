@@ -1,18 +1,18 @@
 # Create variables of different data types.
-a = False
-b = "True"
-c = 15
-d = 7.6
-e = c + d
-f = "Her name is "
-g = "Isabella"
-h = f + g
-i = input("Please enter a number: ")
-j = input("Please enter another number: ")
-k = i + j
-m = float(input("Please enter a number: "))
-n = float(input("Please enter another number: "))
-p = m + n
+a = False   # boolean
+b = "True"  # string
+c = 15          # number
+d = 7.6         # number
+e = c + d       # number
+f = "Her name is "  # string
+g = "Isabella"      # string
+h = f + g           # string
+i = input("Please enter a number: ")        # string
+j = input("Please enter another number: ")  # string
+k = i + j                                   # string
+m = float(input("Please enter a number: "))         # number
+n = float(input("Please enter another number: "))   # number
+p = m + n                                           # number
 
 # Print the variable names, data types, and values.
 for key, value in {"a":a, "b":b, "c":c, "d":d, "e":e, "f":f, "g":g, "h":h,
@@ -51,14 +51,14 @@ codes = [
     "()", "(x)", "(x,)",
     "[]", "[x]", "[x,]",
     "{}", "{x}", "{x,}",
-    "{x:y}", "{x:y,}"
+    "{}", "{x:y}", "{x:y,}"
 ]
 values = [
-    '', "",
-    (), (x), (x,),
-    [], [x], [x,],
-    {}, {x}, {x,},
-    {x:y}, {x:y,}
+    '', "",             # string, string
+    (), (x), (x,),      # tuple, string!, tuple
+    [], [x], [x,],      # list, list, list
+    {}, {x}, {x,},      # dict!, set, set
+    {}, {x:y}, {x:y,}   # dict, dict, dict
 ]
 for i, code in enumerate(codes):
     value = values[i]

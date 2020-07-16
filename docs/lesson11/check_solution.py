@@ -7,7 +7,7 @@ def main():
     df = pd.read_csv("students.csv", parse_dates=["birthdate"])
 
     # Some of the phone numbers in the "phone" column do not
-    # start with the area code, so replace the "phone" column
+    # start with an area code, so replace the "phone" column
     # with a new "phone" column where every phone number starts
     # with an area code. To do this, call the pandas apply
     # function for the "phone" column and pass the add_area_code
@@ -24,7 +24,7 @@ def add_area_code(phone):
     and two dashes in this format: "ddd-ddd-dddd" where each d
     is a digit. If the length of the phone parameter is less
     than 12 characters, add the area code "208-" at the
-    beginning of the phone number. Return the phone number.
+    beginning of the phone number and return the phone number.
     """
     if len(phone) < 12:
         phone = "208-" + phone

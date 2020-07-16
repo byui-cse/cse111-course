@@ -85,7 +85,7 @@ class HeartWindow(tk.Frame):
         # the user presses the "Clear" button.
         def clear():
             """Clear all the inputs and outputs."""
-            txtAge.clear()
+            txtAge.delete(0, tk.END)
             lblSlow.config(text="")
             lblFast.config(text="")
             txtAge.focus()

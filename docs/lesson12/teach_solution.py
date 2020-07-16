@@ -82,9 +82,9 @@ class TireWindow(tk.Frame):
         # the user clicks the "Clear" button.
         def clear():
             """Clear all the inputs and outputs."""
-            txtWidth.clear()
-            txtRatio.clear()
-            txtDiam.clear()
+            txtWidth.delete(0, tk.END)
+            txtRatio.delete(0, tk.END)
+            txtDiam.delete(0, tk.END)
             lblResult.config(text="")
             txtWidth.focus()
 

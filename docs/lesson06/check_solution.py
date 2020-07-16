@@ -4,11 +4,13 @@ def main():
     randnums = [16.2, 75.1, 52.3]
     print(f"randnums {randnums}")
 
-    # Add one random number to the list randnums.
+    # Call the append_random_numbers function to
+    # add one random number to the randnums list.
     append_random_numbers(randnums)
     print(f"randnums {randnums}")
 
-    # Add three random numbers to the list randnums.
+    # Call the append_random_numbers function to add
+    # three random numbers to the randnums list.
     append_random_numbers(randnums, 3)
     print(f"randnums {randnums}")
 

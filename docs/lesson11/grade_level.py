@@ -7,8 +7,8 @@ def main():
     # birthdate column from a string to a datetime64.
     df = pd.read_csv("students.csv", parse_dates=["birthdate"])
 
-    # Create the cutoff date to be Oct 1 during the
-    # current year and print the cutoff date.
+    # Create the cutoff date to be Oct 1 during
+    # the current year and print the cutoff date.
     curr_year = date.today().year
     cutoff = date(curr_year, 10, 1)
     print(f"Cutoff date: {cutoff}")
@@ -29,8 +29,8 @@ def add_columns(df, cutoff):
     pass
 
     # Create a lambda function that accepts a student's age
-    # as a parameter and uses the level_dict dictionary to find and
-    # return the student's grade level.
+    # as a parameter and uses the level_dict dictionary to
+    # find and return the student's grade level.
     pass
 
     # Add a column named gradeLevel to the data frame. To create the

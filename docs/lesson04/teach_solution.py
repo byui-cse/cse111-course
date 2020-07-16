@@ -1,8 +1,8 @@
 # This file contains two different solutions to the team activity
 # assignment. The first solution retrieves the data about each planet
-# one at a time. The second solution retrieves the data about planets in
-# pages of data. A single page of data at swapi.dev contains the data
-# for about ten planets.
+# one at a time. The second solution retrieves the data about planets
+# in pages of data. A single page of data at swapi.dev contains the
+# data for about ten planets.
 
 import requests
 

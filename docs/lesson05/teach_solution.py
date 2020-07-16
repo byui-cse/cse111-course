@@ -8,25 +8,38 @@ def main():
     with open("fitness.csv", "rt") as fitness:
         reader = csv.reader(fitness)
         for row in reader:
+
+            # The first line of the CSV file contains headings
+            # and not fitness data, so this if statement
+            # will skip the first line of the CSV file.
             if reader.line_num > 1:
+
+                # From the current row, retrieve a
+                # person's gender from column 0.
                 gender = row[0]
 
-                # Convert from a string to a date and
-                # then compute a person's age in years.
+                # From the current row, retrieve a person's birthdate
+                # as a string. Call the compute_age function which
+                # convert the string to a date and then compute and
+                # return a person's age in years.
                 years = compute_age(row[1])
 
-                # Convert person's weight from pounds to kilograms
-                # and their height from inches to centimeters.
+                # From the current row, retrieve a person's weight
+                # in pounds and height in inches. Then convert the
+                # person's weight from pounds to kilograms and their
+                # height from inches to centimeters.
                 pounds = float(row[2])
                 inches = float(row[3])
                 kg = round(kg_from_lb(pounds), 2)
                 cm = round(cm_from_in(inches), 1)
 
-                # Compute the body mass index and basal metabolic rate.
+                # For the current row, compute the person's
+                # body mass index and basal metabolic rate.
                 bmi = round(body_mass_index(kg, cm), 1)
                 bmr = round(basal_metabolic_rate(gender, kg, cm, years), 1)
 
-                # Display the results for one row in the csv file.
+                # Display the results for the
+                # current row in the CSV file.
                 print(gender, years, kg, cm, bmi, bmr, sep=",")
 
 

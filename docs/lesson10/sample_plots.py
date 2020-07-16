@@ -16,11 +16,18 @@ def main():
 
     combine_account_types(df)
     sum_df = sum_usage_by_account_type(df)
+
+    # Call the show_usage_sum function which will define two plots.
     show_usage_sum(sum_df)
+
+    # Show all defined plots.
     plt.show()
 
 
 def combine_account_types(df):
+    """The water.csv file contains too many account types to be
+    shown neatly in a pie plot, so combine some of the account types.
+    """
     categories = {
         "Airport Hanger" : "Other",
         "Apartment Complex" : "Apt. Complex",
@@ -40,19 +47,24 @@ def combine_account_types(df):
         "Vacant" : "Other",
     }
 
-    # The water.csv file contains too many account types to be
-    # shown neatly in a pie plot, so use the Pandas DataFrame
-    # map function to combine some of the account types.
+    # Use the Pandas DataFrame.map function
+    # to combine some of the account types.
     df["accountType"] = df["accountType"].map(categories)
 
 
 def sum_usage_by_account_type(df):
+    """Create and return a new data frame that
+    contains total water usage by account type.
+    """
     grouped = df.groupby("accountType")
     sum_df = grouped["usage"].sum().reset_index()
     return sum_df
 
 
 def show_usage_sum(sum_df):
+    """Define a pie plot and a vertical bar plot
+    that both show total water usage by account type.
+    """
     colors = {
         "City":"gold", "School":"purple", "BYU-Idaho":"violet",
         "Apt. Complex":"pink",
@@ -63,8 +75,12 @@ def show_usage_sum(sum_df):
         "Other":"brown", "Church":"orange",
     }
 
+    # Create a dictionary that contains the
+    # desired order for the account types.
     order = colors.keys()
     order = dict(zip(order, range(len(order))))
+
+    # Get the colors that will be used in both plots.
     colors = colors.values()
 
     # Add a column named order that contains the desired sort order.

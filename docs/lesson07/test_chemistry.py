@@ -1,4 +1,5 @@
-from chemistry import get_name, get_atomic_mass, parse_formula, molar_mass, FormulaError
+from chemistry import get_name, get_atomic_mass, \
+        parse_formula, molar_mass, FormulaError
 from pytest import approx
 import pytest
 import math

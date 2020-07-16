@@ -97,20 +97,20 @@ def write_document(document):
         outfile.write(
 f'''<!DOCTYPE HTML>
 <html lang="en-us">
-    <head>
-        <meta charset="utf-8">
-        <title>U.S. National Weather Service Forecast</title>
-        <style>
-            body {{ font-family: Tahoma, Helvetica, sans-serif; }}
-            th {{ padding-top: 1.5em; }}
-            td {{ width: {col_width}%; vertical-align: top; }}
-            td.img {{ text-align: center; }}
-        </style>
-    </head>
-    <body>
-        <h2>U.S. National Weather Service Forecast</h2>
-        <h1>{document["location"]}</h1>
-        <table>
+\t<head>
+\t\t<meta charset="utf-8">
+\t\t<title>U.S. National Weather Service Forecast</title>
+\t\t<style>
+\t\t\tbody {{ font-family: Tahoma, Helvetica, sans-serif; }}
+\t\t\tth {{ padding-top: 1.5em; }}
+\t\t\ttd {{ width: {col_width}%; vertical-align: top; }}
+\t\t\ttd.img {{ text-align: center; }}
+\t\t</style>
+\t</head>
+\t<body>
+\t\t<h2>U.S. National Weather Service Forecast</h2>
+\t\t<h1>{document["location"]}</h1>
+\t\t<table>
 ''')
 
         # Write each of the rows.
@@ -120,8 +120,8 @@ f'''<!DOCTYPE HTML>
 
         # Write the end of the HTML document.
         outfile.write(
-'''     </table>
-    </body>
+'''\t\t</table>
+\t</body>
 </html>
 ''')
 

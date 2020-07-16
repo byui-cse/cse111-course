@@ -41,10 +41,6 @@ class IntEntry(tk.Entry):
         self.delete(0, tk.END)
         self.insert(0, str(int(n)))
 
-    def clear(self):
-        """Clear the integer, if any, that is in this IntEntry."""
-        self.delete(0, tk.END)
-
 
 class FloatEntry(tk.Entry):
     """An Entry widget that accepts only
@@ -83,7 +79,3 @@ class FloatEntry(tk.Entry):
         """Display the number n for the user to see."""
         self.delete(0, tk.END)
         self.insert(0, str(float(n)))
-
-    def clear(self):
-        """Clear the number, if any, that is in this FloatEntry."""
-        self.delete(0, tk.END)

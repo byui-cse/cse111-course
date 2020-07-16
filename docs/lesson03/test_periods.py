@@ -1,4 +1,4 @@
-# The forecast for Rexburg, Idaho on Tues, Feb 4, 2020
+# The weather forecast for Rexburg, Idaho on Tues, Feb 4, 2020
 periods_that_start_with_a_day = [
     {
         'number' : 1,
@@ -213,7 +213,7 @@ periods_that_start_with_a_day = [
 ]
 
 
-# The forecast for Rexburg, Idaho on Monday evening, Feb 3, 2020
+# The weather forecast for Rexburg, Idaho on Monday evening, Feb 3, 2020
 periods_that_start_with_a_night = [
     {
         'number' : 1,

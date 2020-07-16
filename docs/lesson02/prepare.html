@@ -217,21 +217,25 @@ Cornerstone Family Dental,44 S Center Street,208-356-4240
 <div class="pre"><pre class="python">
 import csv
 
-# Open a file named dentists.csv and store a
-# reference to the opened file in a variable
-# named infile.
+# Open a file named dentists.csv and store a reference
+# to the opened file in a variable named infile.
 with open("dentists.csv", "rt") as infile:
 
     # Use the csv module to create a reader
-    # object that will read from the open file.
+    # object that will read from the opened file.
     reader = csv.reader(infile)
 
-    # Read each row one at a time and
-    # print the contents of each row.
+    # Read each row one at a time as a list
+    # and print the contents of each row.
     for row in reader:
+
+        # For the current row, retrieve the
+        # values in columns 0, 1, and 2.
         company = row[0]
         address = row[1]
         phone = row[2]
+
+        # Print the values for the user to see.
         print(company, address, phone)
 </pre></div>
 

@@ -16,9 +16,9 @@ if subtotal > 50 and (weekday == 2 or weekday == 3):
     discount = round(subtotal * DISC_RATE, 2)
     subtotal -= discount
 
-# Compute the sales tax and total. Notice that we compute the sales tax
-# after computing the discount because the customer does not pay sales
-# tax on the full price but on the discounted price.
+# Compute the sales tax and total. Notice that we compute the sales
+# tax after computing the discount because the customer does not
+# pay sales tax on the full price but on the discounted price.
 sales_tax = round(subtotal * SALES_TAX_RATE, 2)
 total = round(subtotal + sales_tax, 2)
 

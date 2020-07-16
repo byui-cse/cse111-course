@@ -14,7 +14,12 @@ def main():
 
         # Process each row in the CSV file.
         for row in reader:
+
+            # The first line of the CSV file contains headings
+            # and not fuel usage data, so this if statement
+            # will skip the first line of the CSV file.
             if reader.line_num > 1:
+
                 # Get the date as a string from the csv file. Don't
                 # bother to convert the date from a string to a date
                 # object because the only thing this program will do

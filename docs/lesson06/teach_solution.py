@@ -2,7 +2,7 @@ import requests
 
 
 def read_text_file(pathname):
-    """Open, read, and return all the text from a text file."""
+    """Open a text file and read and return all the text from the file."""
     text = ""
     with open(pathname, mode="rt", encoding="utf-8", newline="\n") as inf:
         text = inf.read()

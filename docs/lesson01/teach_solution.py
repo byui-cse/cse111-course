@@ -24,8 +24,8 @@ import math
 # convert it to a floating point number.
 n = float(input("Length of pendulum (meters): "))
 
-# Compute the time required for the
-# pendulum to swing back and forth.
+# Compute the time in seconds required for
+# the pendulum to swing back and forth.
 t = 2 * math.pi * math.sqrt(n / 9.81)
 
 # Round the time to two places after the decimal.
