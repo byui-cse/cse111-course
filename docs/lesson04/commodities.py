@@ -31,10 +31,15 @@ response = requests.get(endpoint, params=args)
 
 # Check the status code to see if the request succeeded.
 if response.status_code == 200:
-    # If the request was succesful, print
-    # the data that Quandl returned to us.
+    # The request succeeded. Print the qcode so that
+    # the user knows which commodity the prices are for.
     print(qcode)
-    dataset = response.json()["dataset"]
+
+    # Convert the price data from JSON to a Python dictionary.
+    data_dict = response.json()
+
+    # Print the price data that Quandl returned to us.
+    dataset = data_dict["dataset"]
     print(dataset["name"])
     print(dataset["start_date"], dataset["end_date"])
     print(dataset["column_names"])
@@ -42,5 +47,5 @@ if response.status_code == 200:
     for datum in data:
         print(datum)
 else:
-    # If the request was not successful, print the status code.
-    print(response.status_code)
+    # The request failed, so print the status code.
+    print("Request failed with status code:", response.status_code)

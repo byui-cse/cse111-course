@@ -74,12 +74,12 @@ title="Part of the status bar of VS Code showing that Python 3.7.7 is installed.
         frame.
 <pre class="console">python -m pip install --user requests</pre></div></li>
 
-        <li><div>Notice at line 21 in the <code>commodities.py</code>
-        program that you downloaded, there is a string, "The API key is
-        in your I-Learn course." Look in I-Learn in the page that
-        corresponds to this activity and copy the API key and then paste
-        it on line 21 to replace the string, "The API key is in your
-        I-Learn course."</div></li>
+        <li><div>Notice at line&nbsp;21 in the
+        <code>commodities.py</code> program that you downloaded, there
+        is a string, "The API key is in your I-Learn course." Look in
+        I-Learn in the page that corresponds to this activity and copy
+        the API key and then paste it on line&nbsp;21 to replace the
+        string, "The API key is in your I-Learn course."</div></li>
 
         <li><div>Run the program that you downloaded by clicking the run
         icon (small green triangle) in the upper right corner of VS
@@ -109,28 +109,29 @@ Wool; coarse; 23 micron; Australian Wool Exchange spot quote; US cents per kilog
         activity and prove assignment for this lesson:
 
         <ol class="long">
-            <li><div>At line 1, the program imports parts of the
+            <li><div>At line&nbsp;1, the program imports parts of the
             standard Python <code>datetime</code> module.</div></li>
-            <li><div>At line 2, the program imports the third-party
+            <li><div>At line&nbsp;2, the program imports the third-party
             <code>requests</code> module.</div></li>
-            <li><div>At lines 4 through 24, the program prepares an HTTP
-            request.</div></li>
-            <li><div>At line 30, the program uses the requests module to
-            send the HTTP request to a computer server at quandl.com.
-            Notice in the call to <code>requests.get</code> that the
-            program is using a named argument, which coincidentally is
-            named <code>params</code>. Named arguments are optional. In
-            this program, the named argument <code>params</code> causes
-            the quandl.com server to filter the data that it will send
-            to the program.</div></li>
-            <li><div>At line 33, the program checks the status_code of
-            the request. A status code of 200 means the request
+            <li><div>At lines&nbsp;4 through&nbsp;27, the program
+            prepares an HTTP request.</div></li>
+            <li><div>At line&nbsp;30, the program uses the requests
+            module to send the HTTP request to a computer server at
+            quandl.com. Notice in the call to <code>requests.get</code>
+            that the program is using a named argument, which is named
+            <code>params</code>. Named arguments are optional. In this
+            program, the named argument <code>params</code> causes the
+            quandl.com server to filter the data that it will send to
+            the program.</div></li>
+            <li><div>At line&nbsp;33, the program checks the status_code
+            of the request. A status code of 200 means the request
             succeeded.</div></li>
-            <li><div>If the request succeeded, at line 37, the program
-            converts the data that came from the server from JSON data
-            into a dictionary.</div></li>
-            <li><div>At lines 34 through 39, the program prints the data
-            that was returned by quandl.com from the request.</div></li>
+            <li><div>If the request succeeded, at line&nbsp;39, the
+            program converts the data that came from the server from
+            JSON data into a dictionary.</div></li>
+            <li><div>At lines&nbsp;43 through&nbsp;48, the program
+            prints the data that was returned by quandl.com from the
+            request.</div></li>
             <li><div>Try to appreciate how simple this Python program is
             and how easy it is to retrieve data from a remote computer
             server using the <code>requests</code> module. In other
@@ -139,7 +140,7 @@ Wool; coarse; 23 micron; Australian Wool Exchange spot quote; US cents per kilog
             and difficult.</div></li>
         </ol></div></li>
 
-        <li><div>At line 6 of the program, change the <code>qcode</code>
+        <li><div>At line&nbsp;6 of the program, change the <code>qcode</code>
         variable from <code>"ODA/PWOOLC_USD"</code> to
         <code>"ODA/PORANG_USD"</code>. Then run the program again by
         clicking the run icon (small green triangle). The program should

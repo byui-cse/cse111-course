@@ -124,7 +124,16 @@ df = pd.read_csv("filename.csv")
 <div class="pre"><pre class="python">import pandas as pd
 
 df = pd.read_csv("filename.csv")
-<em>filtered_data = df[df["col_name"] &gt; threshold]</em></pre></div></div></li>
+<em>filtered_data = df[df["col_name"] &gt; threshold]</em></pre></div>
+
+        Unfortunately, it is easy to confuse the code that selects a
+        column (shown in the previous item) and the code that filters
+        rows (shown in this item) because both of them use a data frame
+        and square brackets such as: &nbsp;<code>df[ ]</code>. However,
+        the code to select a column contains only a string between the
+        square brackets. The code to filter rows contains a comparison
+        between the square brackets. Look closely at the example code in
+        the previous item and this item to see the difference.</div></li>
 
         <li><div>To filter out duplicate rows, call the <a target="_blank"
         href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.drop_duplicates.html">DataFrame.drop_duplicates()</a>

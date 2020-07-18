@@ -1,7 +1,7 @@
 import csv
 
-# Read the I-Numbers and names from the CSV file
-# and add them to a dictionary named students.
+# Create an empty dictionary that will store student
+# information with the I-Number number as the key.
 students = {}
 
 # Open a file named students.csv and store a reference
@@ -15,9 +15,9 @@ with open("students.csv", "rt") as infile:
     # Read each row one at a time as a list.
     for row in reader:
 
-        # This if statement will skip the first line of
-        # the CSV file because the first line contains
-        # headings and not a student's I-Number and name.
+        # The first line of the CSV file contains headings
+        # and not a student's I-Number and name, so this if
+        # statement will skip the first line of the CSV file.
         if reader.line_num > 1:
 
             # From the current row, add a student's
@@ -31,7 +31,6 @@ inum = str(input("Please enter an I-Number (xx-xxx-xxxx): "))
 # The I-Numbers are stored in the CSV file as digits only (without
 # any dashes), so we remove all dashes from the user's input.
 inum = inum.replace("-", "")
-
 
 # Determine if the user input is formatted correctly.
 if inum.isdigit():

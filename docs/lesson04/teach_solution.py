@@ -18,8 +18,8 @@ response = requests.get(url)
 
 # Check the status code to see if the request succeeded.
 if response.status_code == 200:
-    # If the request was succesful, convert the JSON data
-    # from the response into a dictionary named data.
+    # The request succeeded, so convert the JSON data from
+    # the response into a Python dictionary named data.
     data = response.json()
 
     # Get the number of planets from the dictionary.
@@ -60,16 +60,16 @@ if response.status_code == 200:
                 if percent > 0:
                     water += 1
         else:
-            # If the request was not successful, print the status code.
-            print(response.status_code)
+            # The request failed, so print the status code.
+            print("Request failed with status code:", response.status_code)
 
     # Print the total population and the number
     # of planets known to have surface water.
     print(f"Population {population}, Water {water}")
     print()
 else:
-    # If the request was not successful, print the status code.
-    print(response.status_code)
+    # The request failed, so print the status code.
+    print("Request failed with status code:", response.status_code)
 
 
 # SECOND SOLUTION: Get data about the planets
@@ -88,8 +88,8 @@ while url != "None":
 
     # Check the status code to see if the request succeeded.
     if response.status_code == 200:
-        # If the request was succesful, convert the JSON data
-        # from the response into a dictionary named data.
+        # The request succeeded, so convert the JSON data from
+        # the response into a Python dictionary named data.
         data = response.json()
 
         # For each planet, get the population (if known), and add it
@@ -114,8 +114,8 @@ while url != "None":
 
         url = str(data["next"]).strip()
     else:
-        # If the request was not successful, print the status code.
-        print(response.status_code)
+        # The request failed, so print the status code.
+        print("Request failed with status code:", response.status_code)
         url = "None"
 
 # Print the total population and the number
