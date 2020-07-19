@@ -205,7 +205,7 @@ article pre {
 	line-height: 1.1em;
 }
 
-article pre em {
+article code em, article pre em {
 	color: inherit;
 	font-weight: bold;
 	font-style: normal;

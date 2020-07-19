@@ -111,29 +111,49 @@ df = pd.read_csv("filename.csv")
 <div class="pre"><pre class="python">import pandas as pd
 
 df = pd.read_csv("filename.csv")
-<em>column = df["col_name"]</em></pre></div></div></li>
+<em>column = df["col_name"]</em></pre></div>
+        It is also possible select multiple columns by writing a list of
+        column names between the square brackets like this:
+<div class="pre"><pre class="python">import pandas as pd
+
+df = pd.read_csv("filename.csv")
+<em>smaller_df = df[["col_name1", "col_name2", "col_name3"]]</em></pre></div></div></li>
 
         <li><div>To <a target="_blank"
         href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/03_subset_data.html#how-do-i-filter-specific-rows-from-a-dataframe">filter rows</a>
         out of a DataFrame, write a comparison in square brackets. For
         example in the following code, <var>df</var> is a DataFrame that
         contains all the rows from the CSV file <code>filename.csv</code>.
-        <var>filtered_data</var> is a DataFrame that contains all the
-        rows from <var>df</var> with a value in <var>col_name</var> that
-        is greater than <var>threshold</var>.
+        <var>filtered_data</var> is a DataFrame that contains only some of
+        the rows from the CSV file because all the rows that don't
+        satisfy the comparison
+        <code><em>df["col_name"] &gt; threshold</em></code> have been
+        filtered out.
 <div class="pre"><pre class="python">import pandas as pd
 
 df = pd.read_csv("filename.csv")
 <em>filtered_data = df[df["col_name"] &gt; threshold]</em></pre></div>
+        It is possible to filter rows by two comparisons. However,
+        because of operator precedence in Python, we must add
+        parentheses around each comparison. In the next example,
+        <var>filtered_and</var> is a data frame that contains rows that
+        satisfy both of the comparisons, and <var>filtered_or</var> is a
+        data frame that contains rows that satisfy either or both
+        comparisons.
+<div class="pre"><pre class="python">import pandas as pd
 
+df = pd.read_csv("filename.csv")
+filtered_and = df[<em>(df["col_name"] &gt; threshold) &amp; (df["col_name2"] == value)</em>]
+filtered_or = df[<em>(df["col_name"] &gt; threshold) | (df["col_name2"] == value)</em>]</pre></div>
         Unfortunately, it is easy to confuse the code that selects a
-        column (shown in the previous item) and the code that filters
-        rows (shown in this item) because both of them use a data frame
-        and square brackets such as: &nbsp;<code>df[ ]</code>. However,
-        the code to select a column contains only a string between the
-        square brackets. The code to filter rows contains a comparison
-        between the square brackets. Look closely at the example code in
-        the previous item and this item to see the difference.</div></li>
+        column or columns (shown in the previous item) and the code that
+        filters rows (shown in this item) because both of them use a
+        data frame and square brackets such as:&nbsp;
+        <code>df[ ]</code>. However, look closely at the example code in
+        the previous item and this item to see the difference. The code
+        to select a column or columns contains only a string or list of
+        strings between the square brackets. The code to filter rows
+        contains a comparison between the square brackets.</div></li>
 
         <li><div>To filter out duplicate rows, call the <a target="_blank"
         href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.drop_duplicates.html">DataFrame.drop_duplicates()</a>
@@ -150,7 +170,7 @@ df = pd.read_csv("filename.csv")
         function returns a list of unique values from a Series. This is
         very helpful to get a list of unique values from a column. In
         the following code, <var>unique_vals</var> is a list of the
-        unique values that appear in the column named
+        unique values that appear in a column named
         <var>col_name</var>.
 <div class="pre"><pre class="python">import pandas as pd
 
@@ -160,8 +180,13 @@ column = df["col_name"]
 
         <li><div>The <a target="_blank"
         href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.value_counts.html">Series.value_counts()</a>
-        function counts the number of times that each unique value
-        occurs in a Series.</div></li>
+        function counts and returns the number of times that each unique
+        value occurs in a Series.
+<div class="pre"><pre class="python">import pandas as pd
+
+df = pd.read_csv("filename.csv")
+column = df["col_name"]
+<em>counts = column.value_counts()</em></pre></div></div></li>
 
         <li><div>The <code>pandas</code> module includes several
         functions that aggregate data, including the following:
