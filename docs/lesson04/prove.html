@@ -79,18 +79,18 @@
     the following to it:</p>
 
     <ol class="long">
-        <li><div>A list of tuples with at least five U.S. cities and
-        their corresponding forecast URL. A list with tuples like
-        this would work well:
+        <li><div>A dictionary with at least five U.S. cities and their
+        corresponding forecast URL. A dictionary like this would work
+        well:
         <table><thead>
-            <tr><th>City Name</th> <th>URL</th></tr>
+            <tr><th>City Name (keys)</th> <th>URL (values)</th></tr>
         </thead><tbody>
-            <tr><td>"Dallas, Texas"</td> <td>https://api.weather.gov/points/32.7782,-96.7951/forecast</td></tr>
-            <tr><td>"Rexburg, Idaho"</td> <td>https://api.weather.gov/points/43.82607,-111.78309/forecast</td></tr>
+            <tr><td>"Dallas, Texas"</td> <td>"https://api.weather.gov/gridpoints/FWD/88,103/forecast"</td></tr>
+            <tr><td>"Rexburg, Idaho"</td> <td>"https://api.weather.gov/gridpoints/PIH/125,88/forecast"</td></tr>
         </tbody></table></div></li>
 
         <li><div>Python code that allows a user to choose one of the
-        cities in the list.</div></li>
+        cities in the dictionary.</div></li>
 
         <li><div>Python code that uses the <code>requests</code> module
         to retrieve the weather forecast for the city that the user
@@ -101,6 +101,22 @@
     lesson to generate an HTML document. You should connect the code
     from step 3 above with the code that you wrote during the previous
     lesson to generate an HTML document.</p>
+
+    <h2>Forecast URLs</h2>
+    <p>To get the forecast URLs for five cities, do the following:</p>
+    <ol>
+        <li><div>Choose five cities.</div></li>
+        <li><div>Use <a target="_blank"
+        href="https://www.latlong.net/">latlng.net</a> or a similar
+        website to get the <strong>decimal</strong> latitude and
+        longitude for each of the five cities. A decimal latitude or
+        longitude is a floating point number and does not include
+        degrees (&deg;), minutes ('), seconds ("), or directions (N S E
+        W).</div></li>
+        <li><div>Download and run this Python program named <a download
+        href="grid_points.py">grid_points.py</a> which will convert each
+        latitude longitude pair into a forecast URL.</div></li>
+    </ol>
 
     <h2>Sample Run</h2>
 <pre class="console">&gt; python prove_solution.py
