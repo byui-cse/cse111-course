@@ -193,6 +193,34 @@ article span.inlineExpr {
 	font-size: large;
 }
 
+article div.expand div.title,
+article div.collaps div.title {
+	cursor: pointer;
+}
+
+article div.expand div.title:before,
+article div.collaps div.title:before {
+	margin-right: 0.25em;
+	font-size: x-large;
+	cursor: pointer;
+}
+
+article div.expand div.title:before {
+	content: "+";
+}
+
+article div.collaps div.title:before {
+	content: "-";
+}
+
+article div.expand div.pre {
+	display: none;
+}
+
+article div.collaps div.pre {
+	display: block;
+}
+
 /* Code Highlighting */
 article code {
 	font-family: Menlo, Monaco, Consolas, monospace;

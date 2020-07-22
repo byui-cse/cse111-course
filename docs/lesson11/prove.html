@@ -8,9 +8,35 @@
     <title>CSE 111 - Prove</title>
     <link rel="icon" type="image/png" href="../site/icon.png">
     <link rel="stylesheet" type="text/css" href="../site/style.css">
+
+    <script>
+    function addExpClick() {
+        let elems = document.getElementsByClassName('expand');
+        for (let e = 0;  e < elems.length;  ++e) {
+            let elem = elems[e];
+            let titles = elem.getElementsByClassName('title');
+            for (let t = 0;  t < titles.length;  ++t) {
+                let title = titles[t];
+                title.setAttribute('title', 'Click to expand');
+
+                title.addEventListener('click', function(event) {
+                    let target = event.target;
+                    let parent = target.parentElement;
+                    let clist = parent.classList;
+                    let data = clist.contains('expand') ?
+                    {title:'Click to collapse', remove:'expand', add:'collaps'}:
+                    {title:'Click to expand', remove:'collaps', add:'expand'};
+                    clist.remove(data.remove);
+                    clist.add(data.add);
+                    target.setAttribute('title', data.title);
+                });
+            }
+        }
+    }
+</script>
 </head>
 
-<body>
+<body onload="addExpClick()">
 <header>
     <div class="logo">
         <div class="upper">BYU</div>
@@ -107,7 +133,253 @@
     <h2>Testing Procedure</h2>
     <p>You should follow good coding practices by writing test functions
     and running them with <code>pytest</code> to verify that your
-    program functions works correctly.</p>
+    program functions works correctly. Many students believe that the
+    program functions they write cannot be tested with test functions
+    and pytest. Such claims are simply false. Here are just some of the
+    reasons that students have claimed make their program functions
+    untestable and example code that shows such claims are false.</p>
+
+    <h3>My function can't be tested because it:</h3>
+
+    <div class="expand">
+    <div class="title">Calculates numbers</div>
+    <div class="pre"><pre class="python">
+def pmt(amt, ar, y, ppy):
+    """Computes and returns the payment amount
+    for a loan with a fixed annual interest rate.
+    """
+    r = ar / ppy
+    n = y * ppy
+    p = amt * r / (1 - (1 + r) ** -n)
+    return round(p, 2)</pre></div>
+    <div class="pre"><pre class="python">
+def test_pmt():
+    """Verify that the pmt function works correctly."""
+    assert pmt(10_000, 0.07, 4, 12) == 239.46
+    assert pmt(80_000, 0.04, 15, 4) == 1779.56</pre></div></div>
+
+    <div class="expand">
+    <div class="title">Processes text instead of numbers</div>
+    <div class="pre"><pre class="python">
+def prefix(s1, s2):
+    """Return the prefix, if any, that appears in both s1 and s2. In
+    other words, return a string of the characters that appear at the
+    beginning of both s1 and s2. For example, if s1 is "inconceivable"
+    and s2 is "inconvenient", this function will return "incon".
+    """
+    s1 = s1.lower()
+    s2 = s2.lower()
+    i = 0
+    limit = min(len(s1), len(s2))
+    while i &lt; limit:
+        if s1[i] != s2[i]:
+            break
+        i += 1
+    return s1[0:i]</pre></div>
+    <div class="pre"><pre class="python">
+def test_prefix():
+    """Verify that the prefix function works correctly."""
+    assert prefix("", "") == ""
+    assert prefix("", "correct") == ""
+    assert prefix("clear", "") == ""
+    assert prefix("happy", "funny") == ""
+    assert prefix("cat", "catalog") == "cat"
+    assert prefix("dogmatic", "dog") == "dog"
+    assert prefix("jump", "joyous") == "j"
+    assert prefix("unwise", "ungrateful") == "un"
+    assert prefix("Disable", "dIstasteful") == "dis"</pre></div></div>
+
+    <div class="expand">
+    <div class="title">Gets user input from a terminal</div>
+    <div class="pre"><pre class="python">
+def get_int(prompt, min, max):
+    """Prompt the user for an integer, verify that it is
+    between min and max inclusive, and return the integer.
+    """
+    num = None
+    while num is None:
+        try:
+            text = input(prompt)
+            prospect = int(text)
+            if prospect &lt; min:
+                print(f"Invalid input: number must be {min} or greater.")
+            elif prospect &gt; max:
+                print(f"Invalid input: number must be {max} or less.")
+            else:
+                num = prospect
+        except ValueError as ex:
+            print(f"Invalid integer: {text}. Please try again.")
+    return num</pre></div>
+    <div class="pre"><pre class="python">
+from io import StringIO
+import re
+import sys
+
+
+def test_get_int(monkeypatch):
+    """Verify that the get_int function works correctly."""
+    stdin = StringIO("1r\n-3\n12\n8")
+    stdout = StringIO()
+    monkeypatch.setattr(sys, "stdin", stdin)
+    monkeypatch.setattr(sys, "stdout", stdout)
+
+    min = 1
+    max = 10
+    prompt = f"Enter an integer between {min} and {max}: "
+    num = get_int(prompt, min, max)
+
+    monkeypatch.undo()
+    pattern = prompt + "\\s*" + \
+            "Invalid integer: 1r\\. Please try again\\.\\s*" + \
+            prompt + "\\s*" + \
+            f"Invalid input: number must be {min} or greater\\.\\s*" + \
+            prompt + "\\s*" + \
+            f"Invalid input: number must be {max} or less\\.\\s*" + \
+            prompt + "\\s*"
+    output = stdout.getvalue()
+    assert re.compile(pattern).match(output) != None
+    assert num == 8</pre></div></div>
+
+    <div class="expand">
+    <div class="title">Gets user input from a GUI</div>
+    <div class="pre"><pre class="python">
+    </pre></div>
+    <div class="pre"><pre class="python">
+    </pre></div></div>
+
+    <div class="expand">
+    <div class="title">Gets data from a web server</div>
+    <div class="pre"><pre class="python">
+import requests
+import xmltodict
+
+def get_exch_rates():
+    """Retrieve and return currency exchange
+    rates from the European Central Bank.
+    """
+    rates_dict = {}
+    url = "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml"
+    response = requests.get(url)
+    response.raise_for_status()
+    xml = response.text
+    level0 = xmltodict.parse(xml)
+    level4 = level0["gesmes:Envelope"]["Cube"]["Cube"]["Cube"]
+    for pair in level4:
+        name = pair["@currency"]
+        rate = pair["@rate"]
+        rates_dict[name] = rate
+    return rates_dict</pre></div>
+    <div class="pre"><pre class="python">
+def test_exch_rates():
+    """Verify that the get_exch_rates function returns
+    a dictionary which contains at least USD and GBP.
+    """
+    rates = get_exch_rates()
+    assert isinstance(rates, dict)
+    assert 'USD' in rates
+    assert 'GBP' in rates</pre></div></div>
+
+    <div class="expand">
+    <div class="title">Writes to a file</div>
+    <div class="pre"><pre class="python">
+def write_file(filename, lines):
+    """Create a file and write lines of text to it.
+    param lines: a list of strings.
+    """
+    with open(filename, "wt") as outfile:
+        print(*lines, sep="\n", file=outfile)</pre></div>
+    <div class="pre"><pre class="python">
+def test_write_file():
+    """Verify that the write_file function works correctly."""
+    lines = [
+    "Beware of false prophets, who come to you in sheep's clothing,",
+    "but inwardly they are ravening wolves. Ye shall know them by",
+    "their fruits. Do men gather grapes of thorns, or figs of thistles?",
+    "Even so every good tree bringeth forth good fruit; but a corrupt",
+    "tree bringeth forth evil fruit. A good tree cannot bring forth",
+    "evil fruit, neither a corrupt tree bring forth good fruit. Every",
+    "tree that bringeth not forth good fruit is hewn down, and cast",
+    "into the fire. Wherefore, by their fruits ye shall know them."
+    ]
+    filename = "fruits.txt"
+    write_file(filename, lines)
+
+    # Verify that write_file correctly wrote the fruits.txt file.
+    with open(filename, "rt") as infile:
+        written = infile.readlines()
+
+    # Delete the fruits.txt file.
+    os.remove(filename)
+
+    # Remove newline characters from the end of each line.
+    rstrip = lambda line: line.rstrip()
+    written = list(map(rstrip, written))
+
+    assert lines == written</pre></div></div>
+
+    <div class="expand">
+    <div class="title">Reads from a file</div>
+    <div class="pre"><pre class="python">
+def read_file(filename):
+    """Reads and returns the contents
+    of a text file as a list of strings.
+    """
+    lines = None
+    with open(filename, "rt") as infile:
+        lines = infile.readlines()
+
+        # Remove newline characters from the end of each line.
+        rstrip = lambda line: line.rstrip()
+        lines = list(map(rstrip, lines))
+
+    return lines</pre></div>
+    <div class="pre"><pre class="python">
+def test_read_file():
+    """Verify that the read_file function works correctly."""
+    # Write a sample file with three lines
+    filename = "lines.txt"
+    lines = ["first", "second", "third"]
+    with open(filename, "wt") as outfile:
+        print(*lines, sep="\n", file=outfile)
+
+    # Call read_file to read the sample file.
+    read = read_file(filename)
+
+    # Delete the lines.txt file.
+    os.remove(filename)
+
+    # Verify that read_file read the file correctly.
+    assert read == lines</pre></div></div>
+
+    <div class="expand">
+    <div class="title">Uses pandas</div>
+    <div class="pre"><pre class="python">
+    </pre></div>
+    <div class="pre"><pre class="python">
+    </pre></div></div>
+
+    <div class="expand">
+    <div class="title">Doesn't use pandas</div>
+    <div class="pre"><pre class="python">
+    </pre></div>
+    <div class="pre"><pre class="python">
+    </pre></div></div>
+
+    <div class="expand">
+    <div class="title">Draws plots</div>
+    <div class="pre"><pre class="python">
+    </pre></div>
+    <div class="pre"><pre class="python">
+    </pre></div></div>
+
+    <div class="expand">
+    <div class="title">My code is so good that it doesn't need to be tested.</div>
+    <div class="pre">Good luck with that attitude, hot shot. In all
+    seriousness, how do you know your code is good? Besides, no matter
+    how good of a programmer you are, you still make mistakes. It is
+    better to find those mistakes yourself by writing and running tests
+    than it is to make users of your software find your
+    mistakes.</div></div>
 
     <h2>Submission</h2>
     <p>At the end of this lesson, you must complete this lesson's Prove:
