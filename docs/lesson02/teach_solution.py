@@ -12,17 +12,17 @@ with open("students.csv", "rt") as infile:
     # object that will read from the opened file.
     reader = csv.reader(infile, delimiter=",")
 
-    # Read each row one at a time as a list.
+    # The first line of the CSV file contains headings
+    # and not a student's I-Number and name, so this
+    # statement skips the first line of the CSV file.
+    next(reader)
+
+    # Read each row in the CSV file one at a time as a list.
     for row in reader:
 
-        # The first line of the CSV file contains headings
-        # and not a student's I-Number and name, so this if
-        # statement will skip the first line of the CSV file.
-        if reader.line_num > 1:
-
-            # From the current row, add a student's
-            # I-Number and name to the students dictionary.
-            students[row[0]] = row[1]
+        # From the current row, add a student's
+        # I-Number and name to the students dictionary.
+        students[row[0]] = row[1]
 
 
 # Get an I-Number from the user.

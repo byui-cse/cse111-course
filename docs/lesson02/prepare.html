@@ -70,19 +70,6 @@ if <em>balance &gt; 500</em>:
         other words where the way we write the code matches the way that
         the computer will execute the code.</div></li>
 
-        <li><div>Python also includes a <dfn>membership operator</dfn>:
-        <code>in</code>. We can use the <code>in</code> operator to
-        determine if a tuple, list, set, or dictionary contains a value.
-        For example:
-<div class="pre"><pre class="python">
-names = {"Smith", "Lopez", "Marsh", "Olsen", "Vasiuk"}
-
-family = input("Please enter your family name: ")
-if family <em>in</em> names:
-    print("Your family name is in the set.")
-else:
-    print("Your family name is NOT in the set.")</pre></div></div></li>
-
         <li><div>Each <code>if</code> statement may have an
         <code>else</code> statement. We can combine <code>else</code>
         and <code>if</code> into the keyword <code>elif</code>. For
@@ -108,6 +95,23 @@ cost -= discount
 # Print the discounted cost for the user to see.
 print(f"After the discount, you will pay {cost}")</pre></div></div></li>
 
+        <li><div>Python also includes a <dfn>membership operator</dfn>:
+        <code>in</code>. We can use the <code>in</code> operator to
+        determine if a tuple, list, set, or dictionary contains a value.
+        For example:
+<div class="pre"><pre class="python">
+# Create a set that contains family names.
+surnames = {"Smith", "Lopez", "Marsh", "Olsen", "Vasiuk"}
+
+# Get the users family name.
+family = input("Please enter your family name: ")
+
+# Determine if the user's family name is in the set of family names.
+if <em>family in surnames</em>:
+    print("Your family name is in the set.")
+else:
+    print("Your family name is NOT in the set.")</pre></div></div></li>
+
         <li><div>Python includes two <dfn>logic operators</dfn>:
         <code>and</code>, <code>or</code> that we can use to combine two
         comparisons. Python also includes the logical <code>not</code>
@@ -121,13 +125,13 @@ if driver &gt;= 54 <em>or</em> (driver &gt;= 32 <em>and</em> passenger &gt;= 54)
 
         <li><div>We can cause a computer to repeat a group of statements
         by writing <code>for</code> and <code>while</code> loops. A
-        <code>for</code> loop iterates over a range such as
+        <code>for</code> loop iterates over a range of numbers such as
         <code>range(3, 10)</code> or a sequence such as a list. A
         <code>while</code> loop is more flexible than a <code>for</code>
         loop and repeats while some condition is true. The next code
-        example shows four loops. Notice that just like <code>if</code>
-        statements, in Python the body of a loop starts and ends with
-        indentation.
+        example shows three loops that iterate over a range of numbers.
+        Notice that just like <code>if</code> statements, in Python the
+        body of a loop starts and ends with indentation.
 <div class="pre"><pre class="python">
 # Count from zero to ten by ones.
 for i in range(10):
@@ -139,12 +143,39 @@ for i in range(0, 10, 2):
 
 # Count from 100 down to 70 by three.
 for i in range(100, 70, -3):
-    print(i)
+    print(i)</pre></div>
+
+        The next code example contains three loops that iterate over the
+        elements in a list, set, and dictionary. The code in the body of
+        these example loops is very small and simply prints a value.
+        However, we can write as much code as we need in the body of a
+        loop to repeatedly perform all manner of complex computations.
+
+<div class="pre"><pre class="python">
+# Create a list.
+colors = ["red", "orange", "yellow", "green", "blue", "indigo"]
+
+# Create a set.
+names = {"Smith", "Lopez", "Marsh", "Olsen", "Vasuik"}
+
+# Create a dictionary.
+students = {
+    "67-412-8350" : "Alan Benson",
+    "76-240-1835" : "Madison Silverlake",
+    "06-412-7583" : "Samyukta Daniels"
+}
+
+# Print each value in a list.
+for color in colors:
+    print(color)
 
 # Print each value in a set.
-names = {"Smith", "Lopez", "Marsh", "Olsen", "Vasuik"}
 for family in names:
-    print(family)</pre></div></div></li>
+    print(family)
+
+# Print each key value pair in a dictionary.
+for inumber, name in students.items():
+    print(inumber, name)</pre></div></div></li>
 
         <li><div>A <code>break</code> statement causes a loop to end
         early. In the next code example, there is a <code>for</code>
@@ -224,6 +255,11 @@ with open("dentists.csv", "rt") as infile:
     # Use the csv module to create a reader
     # object that will read from the opened file.
     reader = csv.reader(infile)
+
+    # The first line of the CSV file contains headings
+    # and not information about a dental office, so this
+    # statement skips the first line of the CSV file.
+    next(reader)
 
     # Read each row one at a time as a list
     # and print the contents of each row.

@@ -4,30 +4,38 @@ from datetime import date, datetime
 
 
 def main():
+    # Print headers for the six columns.
     print("Gender,Age (years),Weight (kg),Height (cm),BMI,BMR")
+
+    # Open the CSV file fitness.csv
     with open("fitness.csv", "rt") as fitness:
+
+        # Use the standard csv module to get
+        # a reader object for the CSV file.
         reader = csv.reader(fitness)
+
+        # The first line of the CSV file contains headings
+        # and not fitness data, so this statement skips
+        # the first line of the CSV file.
+        next(reader)
+
+        # Process each row in the CSV file.
         for row in reader:
 
-            # The first line of the CSV file contains headings
-            # and not fitness data, so this if statement
-            # will skip the first line of the CSV file.
-            if reader.line_num > 1:
-
-                # From the current row, retrieve a
-                # person's gender from column 0.
+                # From the current row of the CSV file,
+                # retrieve a person's gender from column 0.
                 gender = row[0]
 
-                # From the current row, retrieve a person's birthdate
-                # as a string. Call the compute_age function which
-                # convert the string to a date and then compute and
-                # return a person's age in years.
+                # From the current row of the CSV file, retrieve a
+                # person's birthdate as a string. Call the compute_age
+                # function which convert the string to a date and then
+                # compute and return a person's age in years.
                 years = compute_age(row[1])
 
-                # From the current row, retrieve a person's weight
-                # in pounds and height in inches. Then convert the
-                # person's weight from pounds to kilograms and their
-                # height from inches to centimeters.
+                # From the current row of the CSV file, retrieve a
+                # person's weight in pounds and height in inches. Then
+                # convert the person's weight from pounds to kilograms
+                # and their height from inches to centimeters.
                 pounds = float(row[2])
                 inches = float(row[3])
                 kg = round(kg_from_lb(pounds), 2)
