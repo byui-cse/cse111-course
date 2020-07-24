@@ -1,6 +1,35 @@
 @import url("reset.css");
 @import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
 
+/*
+	light mode
+		background-color: #040404;
+		color: #fefefe;
+	dark mode
+		background-color: black;
+		color: #b8b8b8;
+	header
+		background-color: #006ab9;  BYU-Idaho blue
+		color: white;
+	h3
+		color: #006ab9;  BYU-Idaho blue
+	dfn
+		color: #ff4900;  orange red
+	strong
+		color: #ff4900;  orange red
+	li
+		color: #006ab9;  BYU-Idaho blue
+	expr hr
+		background-color: #505050;
+	pre.console span.input
+		background-color: green;
+		color: white;
+	pre.python hiScope, hiVarDef, hiVarUse, hiError
+		yellow, orange, yellow, red
+	borders and line numbers
+		color: #888;
+*/
+
 body {
 	font-family: "Open Sans", Arial, Helvetica, Verdana, sans-serif;
 	background-color: #fefefe;
@@ -12,7 +41,7 @@ body.dark {
 }
 
 header {
-	background-color: #326ba9;  /* BYU-Idaho Blue */
+	background-color: #006ab9;  /* BYU-Idaho blue */
 	color: white;
 }
 header div.logo {
@@ -30,7 +59,7 @@ header div.logo div.upper {
 	text-align: center;
 }
 header div.logo div.lower {
-	border-top: 1px solid white;
+	border-top: 1px solid;
 	font-weight: lighter;
 	letter-spacing: 0.08em;
 	text-align: center;
@@ -46,10 +75,11 @@ header h2 span {
 }
 header div.colorCtrls {
 	float: right;
-	margin: 1em 1em 0 0;
+	margin: 1em;
 }
 header div.colorCtrls {
 	cursor: pointer;
+	font-size: 125%;
 }
 
 /* Content */
@@ -77,7 +107,7 @@ article h2 {
 
 article h3 {
 	font-weight: bold;
-	color: #006ab9;
+	color: #006ab9;  /* BYU-Idaho blue */
 	margin: 1em 0 0.5em 0;
 }
 
@@ -87,22 +117,22 @@ article p {
 
 article blockquote {
 	margin: 1em 1em 1em 1em;
-	border-left: 0.12em solid #006ab9;
+	border-left: 0.12em solid #006ab9;  /* BYU-Idaho blue */
 	padding: 0 0 0 0.5em;
 }
 
 article em {
 	font-style: italic;
-	/*color: #666;*/
 }
 
 article strong {
 	font-weight: bold;
-	color: #cc0000;
+	font-style: italic;
+	color: #ff4900;  /* orange red */
 }
 
 article dfn {
-	color: #ff4900;
+	color: #ff4900;  /* orange red */
 }
 
 article var {
@@ -128,7 +158,7 @@ article ol.long > li {
 }
 
 article li {
-	color: #006ab9;
+	color: #006ab9;  /* BYU-Idaho blue */
 }
 
 article li > div {
@@ -158,7 +188,7 @@ article ul.links > li {
 
 article dl.function {
 	margin: 1em 1em 1em 1em;
-	border-left: 0.12em solid #006ab9;
+	border-left: 0.12em solid #006ab9;  /* BYU-Idaho blue */
 	padding: 0 0 0 0.5em;
 }
 
@@ -193,11 +223,9 @@ article div.inlineExpr div, article div.blockExpr div {
 
 article div.inlineExpr hr, article div.blockExpr hr {
 	margin: 0 auto;
-	border-top: 1px solid;
-	border-right: 0; border-bottom: 0; border-left: 0;
+	border-top: 1px solid; border-right: 0; border-bottom: 0; border-left: 0;
 	padding: 0;
 	height: 0;
-	background-color: #505050;
 }
 
 article div.blockExpr div.radic { display: block; }
@@ -251,19 +279,18 @@ article pre {
 }
 
 article code em, article pre em {
-	/*color: inherit;*/
 	font-weight: bold;
 	font-style: normal;
 }
 
 article pre.console {
 	margin: 1.5em auto;
-	border: 1px solid #ccc;
+	border: 1px solid #888;
 	padding: 0.25em 0.5em;
 }
 
 article pre.console span.input {
-	border: 1px solid #ccc;
+	border: 1px solid #888;
 	padding: 0 0.25em;
 	background-color: green;
 	color: white;
@@ -271,14 +298,14 @@ article pre.console span.input {
 
 article pre.python {
 	margin: 1.5em auto;
-	border: 1px solid #ccc;
+	border: 1px solid #888;
 	padding: 0.25em 0.5em;
 }
 
 article div.pre {
 	display: table;
 	margin: 1.5em auto 1.5em 0;
-	border: 1px solid #ccc;
+	border: 1px solid #888;
 	padding: 0.25em 0.5em;
 }
 
@@ -302,33 +329,6 @@ article pre.python span.hiScope  { background-color: yellow; }
 article pre.python span.hiVarDef { background-color: orange; }
 article pre.python span.hiVarUse { background-color: yellow; }
 article pre.python span.hiError  { background-color: red; }
-
-
-/* Images */
-img.screenshot {
-	display: block;
-	max-height: 60px;
-	margin: 0 auto 0.5em auto;
-}
-
-img.screenshot-large {
-	display: block;
-	max-height: 200px;
-	margin: 0 auto 0.5em auto;
-}
-
-.img-tutorial {
-	border: 0;
-	display:block;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-.img-center {
-	display:block;
-	margin-left: auto;
-	margin-right: auto;
-}
 
 /* Tables */
 article table {

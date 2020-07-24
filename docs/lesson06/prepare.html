@@ -9,18 +9,22 @@
     <link rel="icon" type="image/png" href="../site/icon.png">
     <link rel="stylesheet" type="text/css" href="../site/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="../site/color.js"></script>
     <script src="../site/scope.js"></script>
     <script src="../site/respel.js"></script>
 </head>
 
-<body onload="cse111.addScopeHandlers('ex1', 'ex2');
-    cse111.addVarHandlers('ex3', 'ex4', 'ex5', 'ex6', 'ex7')">
+<body onload="cse111.color.addSchemeHandlers();
+    cse111.scope.addScopeHandlers('ex1', 'ex2');
+    cse111.scope.addVarHandlers('ex3', 'ex4', 'ex5', 'ex6', 'ex7')">
 <header>
     <div class="logo">
         <div class="upper">BYU</div>
         <div class="lower">Idaho</div>
     </div>
-    <h1>CSE 111 | Programming with Functions</h1>
+    <div class="colorCtrls"><span name="dark">&#x263e;</span>
+        <span name="light">&#x263c;</span></div>
+    <h2>CSE 111 | <span>Programming with Functions</span></h2>
 </header>
 <article>
     <h1>06 Prepare: Function Details</h1>
@@ -66,19 +70,20 @@
 
     <table><thead>
         <tr><th colspan="3">Python Variable Scope</th></tr>
-        <tr><th></th> <th>Local</th> <th>Global</th></tr>
+        <tr><td></td> <th scope="col">Local</th>
+            <th scope="col">Global</th></tr>
     </thead><tbody>
-        <tr><th>Where to Define</th>
+        <tr><th scope="row">Where to Define</th>
             <td>Inside a function</td>
             <td>Outside of all functions</td></tr>
-        <tr><th>Owner</th>
+        <tr><th scope="row">Owner</th>
             <td>The function where the variable is defined</td>
             <td>The Python file where the variable is defined</td></tr>
-        <tr><th>Lifetime</th>
+        <tr><th scope="row">Lifetime</th>
             <td>Only as long as its containing function is
             executing</td>
             <td>As long as its containing program is executing</td></tr>
-        <tr><th>Where<br>Usable</th>
+        <tr><th scope="row">Where<br>Usable</th>
             <td>Only inside the function where it is defined</td>
             <td>In all functions of the Python program</td></tr>
     </tbody></table>

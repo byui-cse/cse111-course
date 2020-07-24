@@ -8,41 +8,20 @@
     <title>CSE 111 - Prove</title>
     <link rel="icon" type="image/png" href="../site/icon.png">
     <link rel="stylesheet" type="text/css" href="../site/style.css">
-
-    <script>
-    function addExpClick() {
-        let elems = document.getElementsByClassName('expand');
-        for (let e = 0;  e < elems.length;  ++e) {
-            let elem = elems[e];
-            let titles = elem.getElementsByClassName('title');
-            for (let t = 0;  t < titles.length;  ++t) {
-                let title = titles[t];
-                title.setAttribute('title', 'Click to expand');
-
-                title.addEventListener('click', function(event) {
-                    let target = event.target;
-                    let parent = target.parentElement;
-                    let clist = parent.classList;
-                    let data = clist.contains('expand') ?
-                    {title:'Click to collapse', remove:'expand', add:'collaps'}:
-                    {title:'Click to expand', remove:'collaps', add:'expand'};
-                    clist.remove(data.remove);
-                    clist.add(data.add);
-                    target.setAttribute('title', data.title);
-                });
-            }
-        }
-    }
-</script>
+    <script src="../site/color.js"></script>
+    <script src="../site/expand.js"></script>
 </head>
 
-<body onload="addExpClick()">
+<body onload="cse111.color.addSchemeHandlers();
+    cse111.expand.addExpandHandlers();">
 <header>
     <div class="logo">
         <div class="upper">BYU</div>
         <div class="lower">Idaho</div>
     </div>
-    <h1>CSE 111 | Programming with Functions</h1>
+    <div class="colorCtrls"><span name="dark">&#x263e;</span>
+        <span name="light">&#x263c;</span></div>
+    <h2>CSE 111 | <span>Programming with Functions</span></h2>
 </header>
 <article>
     <h1>11 Prove Milestone: Significant Python Program</h1>

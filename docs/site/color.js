@@ -9,9 +9,9 @@ cse111.color = {
 	addSchemeHandlers : function() {
 		let setScheme = function(off, on) {
 			localStorage.setItem('colorScheme', on);
-			let clss = document.body.classList;
-			clss.remove(off);
-			clss.add(on);
+			let clist = document.body.classList;
+			clist.remove(off);
+			clist.add(on);
 		};
 		let makeClosure = function(off, on) {
 			return function() { setScheme(off, on); };
@@ -36,14 +36,11 @@ cse111.color = {
 			}
 		}
 
-		let classList = document.body.classList;
-/*		classList.remove('dark');
-		classList.remove('light');
-		localStorage.removeItem('colorScheme'); */
+		let clist = document.body.classList;
 		let scheme = localStorage.getItem('colorScheme');
 		if (!scheme) {
-			scheme = (classList.contains('dark') ? 'dark' : 'light');
+			scheme = (clist.contains('dark') ? 'dark' : 'light');
 		}
-		classList.add(scheme);
+		clist.add(scheme);
 	}
 };
