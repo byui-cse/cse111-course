@@ -13,15 +13,18 @@
         tbody > tr > td { padding-top: 0.3em; }
         tbody > tr > td:first-child { min-width: 10em; }
     </style>
+    <script src="site/color.js"></script>
 </head>
 
-<body>
+<body onload="cse111.color.addSchemeHandlers()">
 <header>
     <div class="logo">
         <div class="upper">BYU</div>
         <div class="lower">Idaho</div>
     </div>
-    <h1>CSE 111 | Programming with Functions</h1>
+    <div class="colorCtrls"><span name="dark">&#x263e;</span>
+        <span name="light">&#x263c;</span></div>
+    <h2>CSE 111 | <span>Programming with Functions</span></h2>
 </header>
 <article>
     <h1>Course Materials</h1>
@@ -112,7 +115,7 @@
 
         <tr><td><a href="lesson04/teach.html">Teach: Team Activity</a></td>
             <td>Star Wars</td>
-            <td>pip, requests module, swapi.co</td>
+            <td>requests module, swapi.co</td>
             <td><a download href="lesson04/teach_solution.py">teach</a></td></tr>
 
         <tr><td><a href="lesson04/prove.html">Prove: Assignment</a></td>

@@ -1,6 +1,11 @@
+/* Copyright 2020 by Brigham Young University - Idaho. All rights reserved. */
 "use strict";
 
-let cse111 = {
+if (!window.hasOwnProperty("cse111")) {
+	window.cse111 = {};
+}
+
+cse111.scope = {
 	classes : {
 		def : 'varDef',
 		use : 'varUse',
@@ -55,8 +60,8 @@ let cse111 = {
 
 
 	showScope : function(event) {
-		const sels = cse111.selectors;
-		const clss = cse111.classes;
+		const sels = cse111.scope.selectors;
+		const clss = cse111.scope.classes;
 		// span holds a variable definition.
 		let span = $(event.target);
 		span.addClass(clss.hiDef);
@@ -64,8 +69,8 @@ let cse111 = {
 	},
 
 	hideScope : function(event) {
-		const sels = cse111.selectors;
-		const clss = cse111.classes;
+		const sels = cse111.scope.selectors;
+		const clss = cse111.scope.classes;
 		// span holds a variable definition.
 		let span = $(event.target);
 		span.removeClass(clss.hiDef);
@@ -74,12 +79,12 @@ let cse111 = {
 
 
 	showVars : function(event) {
-		const clss = cse111.classes;
+		const clss = cse111.scope.classes;
 		// span holds a variable definition or use.
 		let span = $(event.target);
-		let def = cse111.findDefinition(span);
+		let def = cse111.scope.findDefinition(span);
 		if (def.length > 0) {
-			let uses = cse111.findUses(def);
+			let uses = cse111.scope.findUses(def);
 			def.addClass(clss.hiDef);
 			uses.addClass(clss.hiUse);
 		}
@@ -89,12 +94,12 @@ let cse111 = {
 	},
 
 	hideVars : function(event) {
-		const clss = cse111.classes;
+		const clss = cse111.scope.classes;
 		// span holds a variable definition or use.
 		let span = $(event.target);
-		let def = cse111.findDefinition(span);
+		let def = cse111.scope.findDefinition(span);
 		if (def.length > 0) {
-			let uses = cse111.findUses(def);
+			let uses = cse111.scope.findUses(def);
 			def.removeClass(clss.hiDef);
 			uses.removeClass(clss.hiUse);
 		}

@@ -3,10 +3,16 @@
 
 body {
 	font-family: "Open Sans", Arial, Helvetica, Verdana, sans-serif;
+	background-color: #fefefe;
+	color: #040404;
+}
+body.dark {
+	background-color: black;
+	color: #b8b8b8;
 }
 
 header {
-	background-color: #326ba9;
+	background-color: #326ba9;  /* BYU-Idaho Blue */
 	color: white;
 }
 header div.logo {
@@ -29,11 +35,21 @@ header div.logo div.lower {
 	letter-spacing: 0.08em;
 	text-align: center;
 }
-header h1 {
+header h2 {
 	display: inline-block;
 	vertical-align: middle;
 	font-size: 150%;
 	font-weight: normal;
+}
+header h2 span {
+	white-space: nowrap;
+}
+header div.colorCtrls {
+	float: right;
+	margin: 1em 1em 0 0;
+}
+header div.colorCtrls {
+	cursor: pointer;
 }
 
 /* Content */
@@ -43,8 +59,6 @@ article {
 	padding: 1em;
 	font-size: 110%;
 	line-height: 120%;
-	background: #fefefe;
-	color: #040404;
 }
 
 article h1 {
@@ -58,7 +72,7 @@ article h2 {
 	font-weight: bold;
 	margin: 1.5em 0 0.25em 0;
 	padding-bottom: 0.25em;
-	border-bottom: 1px solid #040404;
+	border-bottom: 1px solid;
 }
 
 article h3 {
@@ -79,7 +93,7 @@ article blockquote {
 
 article em {
 	font-style: italic;
-	color: #666;
+	/*color: #666;*/
 }
 
 article strong {
@@ -120,6 +134,9 @@ article li {
 article li > div {
 	color: #040404;
 	margin-left: 0.25em;
+}
+body.dark article li > div {
+	color: #b8b8b8;
 }
 
 article ul {
@@ -234,7 +251,7 @@ article pre {
 }
 
 article code em, article pre em {
-	color: inherit;
+	/*color: inherit;*/
 	font-weight: bold;
 	font-style: normal;
 }
@@ -344,6 +361,4 @@ footer {
 	padding: 1em;
 	font-size: 90%;
 	line-height: 100%;
-	background: #fefefe;
-	color: #040404;
 }
