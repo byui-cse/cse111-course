@@ -7,13 +7,13 @@ if (!window.hasOwnProperty("cse111")) {
 
 cse111.expand = {
 	addExpandHandlers : function() {
-		let handler = function(event) {
+		let toggle = function(event) {
 			let target = event.target;
 			let parent = target.parentElement;
 			let clist = parent.classList;
 			let data = clist.contains('expand') ?
-				{title:'Click to collapse', remove:'expand', add:'collaps'}:
-				{title:'Click to expand', remove:'collaps', add:'expand'};
+				{title:'Collapse', remove:'expand', add:'collaps'} :
+				{title:'Expand', remove:'collaps', add:'expand'};
 			clist.remove(data.remove);
 			clist.add(data.add);
 			target.setAttribute('title', data.title);
@@ -25,8 +25,8 @@ cse111.expand = {
             let titles = elem.getElementsByClassName('title');
             for (let t = 0;  t < titles.length;  ++t) {
                 let title = titles[t];
-                title.setAttribute('title', 'Click to expand');
-                title.addEventListener('click', handler);
+                title.setAttribute('title', 'Expand');
+                title.addEventListener('click', toggle);
             }
         }
 	}
