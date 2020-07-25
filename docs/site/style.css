@@ -39,12 +39,12 @@ body.dark {
 }
 
 header {
+	padding: 0.5em 1.5em;
 	background-color: #0076b6;  /* BYU-Idaho blue */
 	color: white;
 }
 header div.logo {
 	display: inline-block;
-	margin: 0.5em 2em 0.5em 1.5em;
 	vertical-align: middle;
 	font-family: Georgia, Palatino, "Book Antiqua", serif;
 	text-transform: uppercase;
@@ -64,6 +64,7 @@ header div.logo div.lower {
 }
 header h2 {
 	display: inline-block;
+	margin: 0 0 0 1em;
 	vertical-align: middle;
 	font-size: 150%;
 	font-weight: normal;
@@ -74,7 +75,7 @@ header h2 span {
 header div.colorCtrl {
 	float: right;
 	cursor: pointer;
-	margin: 1em;
+	margin: 0.5em 0 0 1em;
 	font-size: 125%;
 }
 
