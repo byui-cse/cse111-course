@@ -46,7 +46,10 @@
             <tr><td>!=</td> <td>not equal to</td></tr>
         </tbody></table>
         Here is example code that tests if a number is greater than 500.
-<div class="pre"><pre class="python">
+<div class="pre">
+<pre class="linenums">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9
+10<br>11</pre>
+<pre class="python">
 # Get an account balance as a number from the user.
 balance = float(input("Please enter the account balance: "))
 
@@ -54,29 +57,38 @@ balance = float(input("Please enter the account balance: "))
 # compute and add interest to the balance.
 if <em>balance &gt; 500</em>:
     interest = balance * 0.03
-    balance += interest</pre></div>
+    balance += interest
 
-        If you have written programs in other programming languages such
-        as JavaScript, Java, or C++, you always used curly braces to
-        mark the start and end of the body of an <code>if</code>
+# Print the balance.
+print(balance)</pre></div>
+
+        <p>If you have written programs in other programming languages
+        such as JavaScript, Java, or C++, you always used curly braces
+        to mark the start and end of the body of an <code>if</code>
         statement. However, notice in the example code above that
         <code>if</code> statements in Python do not use curly braces.
         Instead, we type a colon (:) after the comparison of the
-        <code>if</code> statement and then indent all the statements
-        that are in the body of the <code>if</code> statement. The body
-        of the <code>if</code> statement ends with the first line of
-        code that is not indented. It may seem strange to not use curly
-        braces to mark the start and end of the body of an
-        <code>if</code> statement. However, the Python way forces us to
-        write code where the indentation matches the functionality or in
-        other words where the way we write the code matches the way that
-        the computer will execute the code.</div></li>
+        <code>if</code> statement as shown on line&nbsp;6 above. Then we
+        indent all the statements that are in the body of the
+        <code>if</code> statement as shown on lines&nbsp;7 and&nbsp;8.
+        The body of the <code>if</code> statement ends with the first
+        line of code that is not indented, like line&nbsp;11.</p>
+
+        <p>It may seem strange to not use curly braces to mark the start
+        and end of the body of an <code>if</code> statement. However,
+        the Python way forces us to write code where the indentation
+        matches the functionality or in other words, where the way we
+        indent the code matches the way that the computer will execute
+        the code.</p></div></li>
 
         <li><div>Each <code>if</code> statement may have an
         <code>else</code> statement. We can combine <code>else</code>
-        and <code>if</code> into the keyword <code>elif</code>. For
-        example:
-<div class="pre"><pre class="python">
+        and <code>if</code> into the keyword <code>elif</code> as shown
+        on lines&nbsp;7 and&nbsp;9 in the following example code.
+<div class="pre">
+<pre class="linenums">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9
+10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19</pre>
+<pre class="python">
 # Get the cost of an item from the user.
 cost = float(input("Please enter the cost: "))
 

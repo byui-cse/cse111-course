@@ -99,7 +99,7 @@ span = float(input("Distance the cable must span in meters: "))
 dip = float(input("Distance the cable will sag in meters: "))
 
 # Use the numbers to compute the cable length.
-length = span + 8 * dip**2 / (3 * span)
+length = span + (8 * dip**2) / (3 * span)
 
 # Round the length to two places after the decimal point.
 length = round(length, 2)
