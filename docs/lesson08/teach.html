@@ -157,15 +157,16 @@
     <ol class="long">
         <li><div>Add exception handling code around the loop that
         processes each row in the CSV file. This code should handle
-        <code>csv.Error</code> and <code>KeyError</code> and should
+        <code>csv.Error</code> and <code>KeyError</code>, and it should
         print a useful error message that includes the filename and line
         number of the line that is formatted incorrectly.</div></li>
 
         <li><div>Add more exception handling code around the loop that
         processes each row in the CSV file. This code should handle
-        <code>ZeroDivisionError</code> and should print a useful error
-        message that includes the filename and line number of the line
-        that contains zero (0) in the "Fatal Crashes" column.</div></li>
+        <code>ZeroDivisionError</code>, and it should print a useful
+        error message that includes the filename and line number of the
+        line that contains zero (0) in the "Fatal Crashes"
+        column.</div></li>
 
         <li><div>Test <em>all</em> of your error handling code,
         including the code that handles <code>ZeroDivisionError</code>

@@ -1,11 +1,11 @@
-"""Write U.S. National Weather Service forecasts to an HTML file
+"""Write US National Weather Service forecasts to an HTML file
 
 To successfully use this module to write an HTML file, your code must
-first retrieve a weather forecast from the U.S. National Weather
-Service. The weather service organizes a weather forecast into periods
-of time. Each period covers about 12 hours and is either a day, an
-afternoon, or a night. Each period is stored in a Python dictionary with
-these keys: number, name, startTime, endTime, isDaytime, temperature,
+first retrieve a weather forecast from the US National Weather Service.
+The weather service organizes a weather forecast into periods of time.
+Each period covers about 12 hours and is either a day, an afternoon, or
+a night. Each period is stored in a Python dictionary with these keys:
+number, name, startTime, endTime, isDaytime, temperature,
 temperatureUnit, temperatureTrend, windSpeed, windDirection, icon,
 shortForecast, and detailedForecast.
 
@@ -71,7 +71,7 @@ def add_period(document, period):
 
     param document: The document to add the period to.
     param period: A forecast for a period of time that came from the
-        U.S. National Weather Service. To make an empty cell in the
+        US National Weather Service. To make an empty cell in the
         current row, call add_period with None or an empty dictionary {}
         as the period.
     """
@@ -99,7 +99,7 @@ f'''<!DOCTYPE HTML>
 <html lang="en-us">
 \t<head>
 \t\t<meta charset="utf-8">
-\t\t<title>U.S. National Weather Service Forecast</title>
+\t\t<title>US National Weather Service Forecast</title>
 \t\t<style>
 \t\t\tbody {{ font-family: Tahoma, Helvetica, sans-serif; }}
 \t\t\tth {{ padding-top: 1.5em; }}
@@ -108,7 +108,7 @@ f'''<!DOCTYPE HTML>
 \t\t</style>
 \t</head>
 \t<body>
-\t\t<h2>U.S. National Weather Service Forecast</h2>
+\t\t<h2>US National Weather Service Forecast</h2>
 \t\t<h1>{document["location"]}</h1>
 \t\t<table>
 ''')
