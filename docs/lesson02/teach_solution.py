@@ -20,9 +20,12 @@ with open("students.csv", "rt") as infile:
     # Read each row in the CSV file one at a time as a list.
     for row in reader:
 
-        # From the current row, add a student's
-        # I-Number and name to the students dictionary.
-        students[row[0]] = row[1]
+		# Get a student's I-Number and name from the current row.
+		inum = row[0]
+		name = row[1]
+
+        # Add a student's I-Number and name to the students dictionary.
+        students[inum] = name
 
 
 # Get an I-Number from the user.
