@@ -63,7 +63,13 @@ def start_new_row(document):
 
     param document: The document to add the new row to.
     """
-    document["rows"].append([])
+    check_valid(document)
+    rows = document["rows"]
+    if len(rows) > 0:
+        curr_row = rows[-1]
+        if len(curr_row) == 0:
+            raise ValueError("cannot add a new row when the current row is empty.")
+    rows.append([])
 
 
 def add_period(document, period):
@@ -75,7 +81,15 @@ def add_period(document, period):
         current row, call add_period with None or an empty dictionary {}
         as the period.
     """
-    document["rows"][-1].append(period)
+    check_valid(document)
+    rows = document["rows"]
+    if len(rows) == 0:
+        raise ValueError("cannot add a period without a row.")
+    if type(period) is not dict:
+        raise TypeError("each period must be a dictionary.")
+
+    # Add the period to the current row.
+    rows[-1].append(period)
 
 
 def write_document(document):
@@ -83,8 +97,15 @@ def write_document(document):
 
     param document: The document that will be written to an HTML file.
     """
+    check_valid(document)
+    rows = document["rows"]
+    if len(rows) == 0:
+        raise ValueError("cannot write an empty document.")
+    
     # Determine the maximum number of columns for all rows.
-    max_cols = max(len(row) for row in document["rows"])
+    max_cols = max(len(row) for row in rows)
+    if max_cols == 0:
+        raise ValueError("cannot write an empty document.")
 
     # Compute the column width as a percentage and
     # round down to the nearest tenth of one percent.
@@ -99,7 +120,7 @@ f'''<!DOCTYPE HTML>
 <html lang="en-us">
 \t<head>
 \t\t<meta charset="utf-8">
-\t\t<title>US National Weather Service Forecast</title>
+\t\t<title>{document["location"]}</title>
 \t\t<style>
 \t\t\tbody {{ font-family: Tahoma, Helvetica, sans-serif; }}
 \t\t\tth {{ padding-top: 1.5em; }}
@@ -115,7 +136,7 @@ f'''<!DOCTYPE HTML>
 
         # Write each of the rows.
         options = document["options"]
-        for row in document["rows"]:
+        for row in rows:
             write_row(outfile, row, options, max_cols)
 
         # Write the end of the HTML document.
@@ -124,6 +145,15 @@ f'''<!DOCTYPE HTML>
 \t</body>
 </html>
 ''')
+
+
+def check_valid(document):
+    if not (type(document) is dict and
+            type(document["filename"]) is str and
+            type(document["location"]) is str and
+            type(document["options"]) is list and
+            type(document["rows"]) is list):
+        raise TypeError("invalid document.")
 
 
 # Writer functions that write various parts of a period to an HTML file.
@@ -168,6 +198,9 @@ WRITERS = {
 def write_row(out, periods, options, max_cols):
     """Write one row of periods to the HTML file."""
 
+    if len(periods) == 0:
+        raise ValueError("cannot write an empty row.")
+
     tr = "\t\t\t<tr>\n"
     _tr = "\t\t\t</tr>\n"
     empty_cell = "\t\t\t\t<td>&nbsp;</td>\n"
@@ -176,6 +209,10 @@ def write_row(out, periods, options, max_cols):
     for option in options:
         # Write an opening <tr> tag to the HTML file.
         out.write(tr)
+
+        # Write empty cells as needed.
+        for _ in range(empties):
+            out.write(empty_cell)
 
         # Find the writer function that corresponds to the current option.
         write_part = WRITERS[option]
@@ -187,10 +224,6 @@ def write_row(out, periods, options, max_cols):
                 write_part(out, period)
             else:
                 out.write(empty_cell)
-
-        # Write empty cells as needed.
-        for _ in range(empties):
-            out.write(empty_cell)
 
         # Write a closing </tr> tag to the HTML file.
         out.write(_tr)
