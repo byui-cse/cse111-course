@@ -7,6 +7,17 @@ with open("quotes.txt", "rt") as infile:
     # Read all the quotes in the file into a list.
     quotes = infile.readlines()
 
+# Below is alternative code that doesn't use a with block:
+#
+# infile = open("quotes.txt", "rt")
+# quotes = infile.readlines()
+# infile.close()
+#
+# Notice that this alternative code must include infile.close(). The
+# with block code above doesn't include calling the close function
+# because the with block automatically calls the close function when the
+# block ends.
+
 # Ask the user how many quotes she would like to see.
 quant = int(input("How many quotes would you like? "))
 

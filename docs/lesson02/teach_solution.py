@@ -48,7 +48,7 @@ elif len(inum) > 9:
 elif inum not in students:
     print("No such student")
 
-else
+else:
     # The user input is a valid I-Number and the I-Number
     # is in the dictionary. Retrieve the student name that
     # corresponds to the I-Number that the user entered.
