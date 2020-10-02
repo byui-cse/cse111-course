@@ -98,11 +98,13 @@
     temperature.</p>
 <div class="pre"><pre class="python">import weather_html
 
+city_name = "Rexburg, Idaho"
+
 # Get a forecast from the US Weather service or use a test forecast.
 periods = ...
 
 # Create a document that will show the period name and temperature.
-document = weather_html.create_document("forecast.html", "Rexburg, Idaho",
+document = weather_html.create_document("forecast.html", city_name,
     [weather_html.PERIOD_NAME, weather_html.TEMPERATURE])
 
 # Start a new row in the document.
@@ -113,6 +115,21 @@ weather_html.add_period(document, periods[0])
 
 # Add a second period from the forecast to the current row.
 weather_html.add_period(document, periods[1])
+
+# Add a third period from the forecast to the current row.
+weather_html.add_period(document, periods[2])
+
+# Start a second row in the document.
+weather_html.start_new_row(document)
+
+# Add a period from the forecast to the current row.
+weather_html.add_period(document, periods[3])
+
+# Add a second period from the forecast to the current row.
+weather_html.add_period(document, periods[4])
+
+# Add a third period from the forecast to the current row.
+weather_html.add_period(document, periods[5])
 
 # Finish the document and write it to the HTML file.
 weather_html.write_document(document)</pre></div>
