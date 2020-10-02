@@ -101,7 +101,7 @@ def write_document(document):
     rows = document["rows"]
     if len(rows) == 0:
         raise ValueError("cannot write an empty document.")
-    
+
     # Determine the maximum number of columns for all rows.
     max_cols = max(len(row) for row in rows)
     if max_cols == 0:
@@ -121,6 +121,7 @@ f'''<!DOCTYPE HTML>
 \t<head>
 \t\t<meta charset="utf-8">
 \t\t<title>{document["location"]}</title>
+\t\t<link rel="icon" type="image/x-icon" href="https://forecast.weather.gov/images/favicon.ico">
 \t\t<style>
 \t\t\tbody {{ font-family: Tahoma, Helvetica, sans-serif; }}
 \t\t\tth {{ padding-top: 1.5em; }}
