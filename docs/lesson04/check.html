@@ -114,10 +114,13 @@ Wool; coarse; 23 micron; Australian Wool Exchange spot quote; US cents per kilog
         <ol class="long">
             <li><div>At line&nbsp;1, the program imports parts of the
             standard Python <code>datetime</code> module.</div></li>
+
             <li><div>At line&nbsp;2, the program imports the third-party
             <code>requests</code> module.</div></li>
+
             <li><div>At lines&nbsp;4 through&nbsp;27, the program
             prepares an HTTP request.</div></li>
+
             <li><div>At line&nbsp;30, the program uses the requests
             module to send the HTTP request to a computer server at
             quandl.com. Notice in the call to <code>requests.get</code>
@@ -126,15 +129,19 @@ Wool; coarse; 23 micron; Australian Wool Exchange spot quote; US cents per kilog
             program, the named argument <code>params</code> causes the
             quandl.com server to filter the data that it will send to
             the program.</div></li>
-            <li><div>At line&nbsp;33, the program checks the status_code
-            of the request. A status code of 200 means the request
-            succeeded.</div></li>
+
+            <li><div>At line&nbsp;33, the program checks the
+            <code>status_code</code> of the request. A status code of
+            200 means the request succeeded.</div></li>
+
             <li><div>If the request succeeded, at line&nbsp;39, the
             program converts the data that came from the server from
-            JSON data into a dictionary.</div></li>
+            JSON data into a Python dictionary.</div></li>
+
             <li><div>At lines&nbsp;43 through&nbsp;48, the program
-            prints the data that was returned by quandl.com from the
+            prints the data that was returned by quandl.com for the
             request.</div></li>
+
             <li><div>Try to appreciate how simple this Python program is
             and how easy it is to retrieve data from a remote computer
             server using the <code>requests</code> module. In other
