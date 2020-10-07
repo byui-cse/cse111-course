@@ -21,109 +21,94 @@
     <h2>CSE 111 | <span>Programming with Functions</span></h2>
 </header>
 <article>
-    <h1>02 Prove: Product Information</h1>
+    <h1>02 Prove: Canadian Provinces and Territories</h1>
 
     <h2>Overview</h2>
-    <p>Prove that you can write a simple Python program that creates a
-    dictionary from a comma separated values (CSV) file and allows a
-    user to look up values in the dictionary.</p>
+    <p>Prove that you can write a Python program that reads a text file,
+    replaces abbreviations with full proper names, writes a text
+    file.</p>
 
     <h2>Problem Statement</h2>
-    <p>Some companies store and transfer data about suppliers, products,
-    customers, employees, and sales in CSV files. A common task that
-    employees must do is to look up information that is stored in CSV
-    files. Write a Python program that reads the rows of a CSV file into
-    a Python dictionary and then allows a user to look up information in
-    the dictionary.</p>
-
-    <h2>Helpful Documentation</h2>
-    <p>A CSV file is a text file that contains a list of data. Within
-    each row of a CSV file, the data items are separated by a character
-    which is usually a comma. The term "CSV" is an acronym for "comma
-    separated values." Python includes a module with functions for
-    processing CSV files. Read about the Python <code>csv</code> module
-    in the official Python documentation about the <a target="_blank"
-    href="https://docs.python.org/3/library/csv.html"><code>csv</code>
-    module</a>.</p>
-
-    <p>A Python dictionary is a collection of data that is stored in
-    pairs of keys and values. The keys are used to store and quickly
-    find the values. Read about Python dictionaries in the
-    official Python documentation about <a target="_blank"
-    href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">dictionaries</a>.</p>
+    <p>The nation of Canada has ten provinces and three territories. The
+    <code>locations.txt</code> file contains survey responses for a
+    question that asked Canadians where they lived. Unfortunately, the
+    creator of the survey allowed people to respond with the name or the
+    postal abbreviation of their home province or territory. Allowing
+    both names and abbreviations makes summarizing the data
+    difficult.</p>
 
     <h2>Assignment</h2>
-    <p>Download and save <a download
-    href="products.csv"><code>products.csv</code></a> in the same folder
-    where you will save your Python program. <code>products.csv</code>
-    is a CSV file that contains product information from a sales
-    company. After downloading and saving it, open
-    <code>products.csv</code> in VS Code. Notice that each row in the
-    products.csv file contains five columns: Product #, Name,
-    Description, Category, and Price.</p>
+    <p>Download the <a download
+    href="locations.txt"><code>locations.txt</code></a> file and save it
+    in the same folder where you will save your Python program. Open the
+    file in VS Code or another text editor and examine it. Notice that
+    each line in the file contains either a name or abbreviation of a
+    province or territory in Canada. Write a Python program that does
+    the following:</p>
 
-    <p>Write a Python program that does the following:</p>
     <ol class="long">
-        <li><div>Read the product information from
-        <code>products.csv</code> into a Python dictionary.</div></li>
+        <li><div>Opens the <code>locations.txt</code> file for
+        reading.</div></li>
 
-        <li><div>Prompt the user for a product number.</div></li>
+        <li><div>Opens a text file named <code>loc_names.txt</code> for
+        writing.</div></li>
 
-        <li><div>Write the prompt code inside of a loop so that if a
-        user enters an invalid product number, your program will print
-        an error message and prompt the user again.</div></li>
-
-        <li><div>All product numbers in products.csv are composed of
-        five decimal digits. Your program must verify that the user
-        entered a valid product number.</div>
+        <li><div>Reads each line from <code>locations.txt</code>. For
+        each line:
         <ol>
-            <li><div>If the user enters any character that is not a
-            decimal digit, your program must print "Invalid character in
-            product number" (without the quotes).</div></li>
-            <li><div>If the user enters fewer than five decimal digits,
-            your program must print "Invalid product number: too few
-            digits" (without the quotes).</div></li>
-            <li><div>If the user enters more than five decimal digits,
-            your program must print "Invalid product number: too many
-            digits" (without the quotes).</div></li>
-        </ol></li>
-
-        <li><div>Your program must look up the product number in the
-        dictionary and print the corresponding product name and price
-        separated by a comma and a space (", ").</div></li>
-
-        <li><div>Your program should not print the product description
-        and category.</div></li>
-
-        <li><div>If the user entered a valid product number (five
-        digits) that does not exist in products.csv, your program must
-        print "No such product" (without the quotes).</div></li>
+            <li><div>If the line contains an abbreviation, your program
+            must convert the abbreviation to the corresponding
+            name.</div></li>
+            <li><div>Write each name to the <code>loc_names.txt</code>
+            file.</div></li>
+        </ol></div></li>
     </ol>
 
-    <h2>Sample Run</h2>
-    <p>Here are two sample runs of the program.</p>
-<pre class="console">&gt; python prove_solution.py
-Please enter a product number: <span class="input">38500a</span>
-Invalid character in product number
-Please enter a product number: <span class="input">3850</span>
-Invalid product number: too few digits
-Please enter a product number: <span class="input">385001</span>
-Invalid product number: too many digits
-Please enter a product number: <span class="input">38501</span>
-No such product
+    <h2>Helpful Documentation</h2>
+    <p>To convert abbreviations to names, your program can use a
+    dictionary or a group of <code>if</code>, <code>elif</code>,
+    <code>else</code> statements inside the loop that reads each line
+    from <code>locations.txt</code>.</p>
 
-&gt; python prove_solution.py
-Please enter a product number: <span class="input">38500</span>
-Backpacking Tent, 205.99</pre>
+    <ul class="links">
+        <li><div><a target="_blank"
+        href="https://docs.python.org/3.8/tutorial/inputoutput.html#reading-and-writing-files">Reading and Writing Files</a></div></li>
+        <li><div><a target="_blank"
+        href="https://realpython.com/lessons/dictionary-python/">Dictionaries</a></div></li>
+    </ul>
+
+    <table><thead>
+        <tr><th colspan="2">Canadian Provinces and Territories</th></tr>
+        <tr><th>Abbreviation</th> <th>Name</th></tr>
+    </thead><tbody>
+        <tr><td class="center">AB</td> <td>Alberta</td></tr>
+        <tr><td class="center">BC</td> <td>British Columbia</td></tr>
+        <tr><td class="center">MB</td> <td>Manitoba</td></tr>
+        <tr><td class="center">NB</td> <td>New Brunswick</td></tr>
+        <tr><td class="center">NL</td> <td>Newfoundland and Labrador</td></tr>
+        <tr><td class="center">NS</td> <td>Nova Scotia</td></tr>
+        <tr><td class="center">NT</td> <td>Northwest Territories</td></tr>
+        <tr><td class="center">NU</td> <td>Nunavut</td></tr>
+        <tr><td class="center">ON</td> <td>Ontario</td></tr>
+        <tr><td class="center">PE</td> <td>Prince Edward Island</td></tr>
+        <tr><td class="center">QC</td> <td>Quebec</td></tr>
+        <tr><td class="center">SK</td> <td>Saskatchewan</td></tr>
+        <tr><td class="center">YT</td> <td>Yukon</td></tr>
+    </tbody></table>
 
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each
     step in this testing procedure:</p>
 
     <ol class="test">
-        <li><div>Run your program using the input shown in the
-        sample run section above. Ensure that your program's output
-        matches the sample run output.</div></li>
+        <li><div>Run your program.</div></li>
+        <li><div>Your program should create the
+        <code>loc_names.txt</code> file. Open the file in VS
+        Code.</div></li>
+        <li><div>Verify that <code>loc_names.txt</code> contains the
+        same data in the same order as <code>locations.txt</code> except
+        that each abbreviation has been replaced with the corresponding
+        proper name.</div></li>
     </ol>
 
     <h2>Submission</h2>

@@ -233,66 +233,6 @@ with open("contract.txt", "rt") as infile:
     # text from the file into a list.
     remain = infile.readlines()
 </pre></div></div></li>
-
-        <li><div>Many computer systems import and export data in CSV
-        files. CSV is an acronym for comma separated values. A CSV file
-        is a plain text file that contains tabular data where each row
-        is on a separate line and each cell (column) is separated by a
-        comma. The following example is the contents of a CSV file that
-        stores information about some dental offices in Rexburg, Idaho.
-        Notice that the first row of the file contains column headings,
-        the next four rows contain information about four dental
-        offices, and that each row contains three columns separated by
-        commas.
-
-<div class="pre"><pre class="csv">
-Company Name,Address,Phone Number
-Eagle Rock Dental Care,556 Trejo Suite C,208-359-2224
-Apple Tree Dental,33 Winn Drive Suite 2,208-359-1500
-Rockhouse Dentistry,106 E 1st N,208-356-5600
-Cornerstone Family Dental,44 S Center Street,208-356-4240
-</pre></div>
-
-        Python has a module named <a target="_blank"
-        href="https://docs.python.org/3/library/csv.html"><code>csv</code></a>
-        that includes functionality to read and write data from CSV
-        files. The following example code shows how to open a CSV file
-        and use the <code>csv</code> module to read and print each row.
-
-<div class="pre"><pre class="python">
-import csv
-
-# Open a file named dentists.csv and store a reference
-# to the opened file in a variable named infile.
-with open("dentists.csv", "rt") as infile:
-
-    # Use the csv module to create a reader
-    # object that will read from the opened file.
-    reader = csv.reader(infile)
-
-    # The first line of the CSV file contains headings
-    # and not information about a dental office, so this
-    # statement skips the first line of the CSV file.
-    next(reader)
-
-    # Read each row one at a time as a list
-    # and print the contents of each row.
-    for row in reader:
-
-        # For the current row, retrieve the
-        # values in columns 0, 1, and 2.
-        company = row[0]
-        address = row[1]
-        phone = row[2]
-
-        # Print the values for the user to see.
-        print(company, address, phone)
-</pre></div>
-
-        You could use this example code in a program that you write, but
-        of course, you could modify the <code>for</code> loop in the
-        code to do much more than simply print the contents of each
-        row.</div></li>
     </ol>
 
     <h2>Videos</h2>
@@ -308,7 +248,6 @@ with open("dentists.csv", "rt") as infile:
         <li><div><a target="_blank" href="https://www.youtube.com/watch?v=oYaGJBMoXok&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=21">Handling Multiple Conditions</a></div></li>
         <li><div><a target="_blank" href="https://www.youtube.com/watch?v=oYaGJBMoXok&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=23">Complex Conditions</a></div></li>
         <li><div><a target="_blank" href="https://www.youtube.com/watch?v=beA8IsY3mQs&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=25">Collections</a></div></li>
-        <li><div><a target="_blank" href="https://realpython.com/lessons/dictionary-python/">Dictionaries</a></div></li>
         <li><div><a target="_blank" href="https://www.youtube.com/watch?v=LrOAl8vUFHY&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=27">Loops</a></div></li>
     </ul>
 
@@ -319,10 +258,8 @@ with open("dentists.csv", "rt") as infile:
     <ul class="links">
         <li><div><a target="_blank" href="https://realpython.com/python-conditional-statements/">Conditional Statements in Python</a></div></li>
         <li><div><a target="_blank" href="https://realpython.com/courses/lists-tuples-python/">Lists and Tuples in Python</a></div></li>
-        <li><div><a target="_blank" href="https://realpython.com/courses/dictionaries-python/">Dictionaries in Python</a></div></li>
         <li><div><a target="_blank" href="https://realpython.com/python-for-loop/">Python "for" Loops</a></div></li>
         <li><div><a target="_blank" href="https://realpython.com/python-while-loop/">Python "while" Loops</a></div></li>
-        <li><div><a target="_blank" href="https://realpython.com/python-csv/">Reading and Writing CSV Files in Python</a></div></li>
     </ul>
 
     <p>You could also read some of the Python tutorials at

@@ -21,7 +21,7 @@
     <h2>CSE 111 | <span>Programming with Functions</span></h2>
 </header>
 <article>
-    <h1>02 Team Activity: Lookup Student Names</h1>
+    <h1>02 Team Activity: Average Response</h1>
 
     <h2>Instructions for Team Activities</h2>
     <p>Beginning with this lesson, each lesson will contain a team
@@ -46,130 +46,94 @@
     according to what you actually did.</p>
 
     <h2>Problem Statement</h2>
-    <p>A common task for many knowledge workers is to use a number, key,
-    or ID to look up information about a person. For example, a
-    knowledge worker may use a phone number or e-mail address as a key
-    to find (or look up) additional information about a customer. During
-    this activity, your team will write a Python program that uses a
-    student's I-Number to look up the student's name.</p>
+    <p>Many schools, businesses, and other institutions ask their
+    stakeholders to complete surveys. Some of the questions on the
+    surveys ask the stakeholders to rate some characteristic on a scale.
+    For example, BYU-Idaho asks its students this question, "What is
+    your overall rating of this course?" Students respond by selecting
+    one of these choices:</p>
+    <ol>
+        <li><div>Very Poor</div></li>
+        <li><div>Poor</div></li>
+        <li><div>Fair</div></li>
+        <li><div>Good</div></li>
+        <li><div>Very Good</div></li>
+        <li><div>Excellent</div></li>
+        <li><div>Exceptional</div></li>
+    </ol>
+
+    <p>The results of this question are summarized by assigning a number
+    from 1 (very poor) to 7 (exceptional) to each response and then
+    computing the average of those numbers. Courses that receive an
+    average overall rating less than 4 are improved by faculty members
+    and curriculum designers.</p>
 
     <h2>Helpful Documentation</h2>
-    <p>A CSV file is a text file that contains a list of data. Within
-    each row of a CSV file, the data items are separated by a character
-    which is usually a comma. The term "CSV" is an acronym for "comma
-    separated values." Python includes a module with functions for
-    processing CSV files. Read about the Python <code>csv</code> module
-    in the official Python documentation about the <a target="_blank"
-    href="https://docs.python.org/3/library/csv.html"><code>csv</code>
-    module</a>.</p>
-
-    <p>A Python dictionary is a collection of data that is stored in
-    pairs of keys and values. The keys are used to store and quickly
-    find the values. Read about Python dictionaries in the
-    official Python documentation about <a target="_blank"
-    href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">dictionaries</a>.</p>
+    <ul class="links">
+        <li><div><a target="_blank"
+        href="https://docs.python.org/3.8/tutorial/inputoutput.html#reading-and-writing-files">Reading and Writing Files</a></div></li>
+        <li><div><a target="_blank"
+        href="https://realpython.com/courses/lists-tuples-python/">Lists and Tuples</a></div></li>
+    </ul>
 
     <h2>Assignment</h2>
-    <p>Download the <a download
-    href="students.csv"><code>students.csv</code></a> file and
-    save it in the same folder where you will save your Python program.
-    Open the file in VS Code or another text editor and examine it.
-    Notice that the I-Numbers and names are separated by a comma. Notice
-    also that the I-Numbers are stored in the file without any dashes
-    between the digits.</p>
-
-    <p>Write a Python program that reads the contents of the
-    <code>students.csv</code> file and populates a Python dictionary
-    while reading the file. The dictionary uses student I-Numbers as the
-    keys and student names as the values. After your program populates
-    the dictionary from the file, your program must ask the user for an
-    I-Number. Your program will then find and print the corresponding
-    student's name. Recall that I-Numbers contain nine digits and are
-    often typed by users with dashes separating some of the digits like
-    this 62-560-1400. However, the I-Numbers in the
-    <code>students.csv</code> file don't contain dashes.</p>
+    <p>The <code>responses.txt</code> file contains the numeric rating
+    responses from one question on a survey. Download the <a download
+    href="responses.txt"><code>responses.txt</code></a> file and save it
+    in the same folder where you will save your Python program. Open the
+    file in VS Code or another text editor and examine it. Notice that
+    each line in the file contains one integer. Each integer represents
+    one person's response to one question.</p>
 
     <h3>Core Requirements</h3>
+    Write a program that does the following:
     <ol class="long">
-        <li><div>Your program must read the data in the
-        <code>students.csv</code> file and convert that data into a
-        Python dictionary with I-Numbers as the keys and names as the
-        values.</div></li>
-
-        <li><div>Your program must ask the user for an I-Number and must
-        display the student name that corresponds to the given
-        I-Number.</div></li>
-
-        <li><div>If a user enters an I-Number that doesn't exist in the
-        dictionary, your program must print the message, "No such
-        student" (without the quotes).</div></li>
+        <li><div>Opens the responses.txt file for reading.</div></li>
+        <li><div>Reads each response from the file and converts each
+        response from a string to a number and stores all responses in a
+        list of numbers.</div></li>
+        <li><div>Computes the average value of all the responses and
+        prints the number of responses and the average value of the
+        responses.</div></li>
     </ol>
+
+    <h2>Sample Run</h2>
+<pre class="console">&gt; python teach_solution.py
+responses.txt
+There are 25 responses with an average value of 4.0
+14 of the responses are greater than the average.</pre>
 
     <h3>Stretch Challenges</h3>
     <p>If your team finishes the core requirements in less than an hour,
     complete one or more of these stretch challenges. Note that the
     stretch challenges are optional.</p>
 
+    <p>What happens if a stakeholder doesn't answer a question on a
+    survye? What rating should be used for a non answer? Perhaps non
+    answers should be skipped and not computed in the average. In the
+    <code>responses.txt</code> file, several of the lines contain the
+    number -1. The -1 indicates that the stakeholder didn't answer the
+    question. Modify your program so that it does the following:</p>
     <ol class="long">
-        <li><div>Add something or change something in your program that
-        you think would make your program better, easier for the user,
-        more elegant, or more fun. Be creative.</div></li>
-
-        <li><div>Write comments above the lines of code that were
-        difficult for you to understand.</div></li>
-
-        <li><div>Add code to remove dashes from the I-Number that the
-        user enters. This will allow the user to enter I-Numbers with
-        dashes and still allow the computer to search in the
-        dictionary.</div></li>
-
-        <li><div>When a user enters an I-Number, your program should
-        ensure it is a valid I-Number.</div>
-        <ol>
-            <li><div>If there are too few digits in the I-Number, your
-            program should print, "Invalid I-Number: too few digits"
-            (without the quotes).</div></li>
-
-            <li><div>If there are too many digits in the I-Number, your
-            program should print, "Invalid I-Number: too many digits"
-            (without the quotes).</div></li>
-
-            <li><div>If the given I-Number contains any characters
-            besides digits and dashes, your program should output
-            "Invalid I-Number" (without the quotes).</div></li>
-
-            <li><div>Write a loop around the code that gets the user
-            input. If the user enters an invalid I-Number, the loop
-            should repeat so that the user is again prompted to enter an
-            I-Number.</div></li>
-        </ol></li>
+        <li><div>Ignores or skips all responses that are less than
+        zero (0).</div></li>
+        <li><div>Counts the number of responses that are greater than
+        the average response and prints that count.</div></li>
     </ol>
 
-    <h2>Sample Runs</h2>
+    <h2>Sample Run</h2>
 <pre class="console">&gt; python teach_solution.py
-Please enter an I-Number (xx-xxx-xxxx): <span class="input">55-123-4151</span>
-No such student
-
-&gt; python teach_solution.py
-Please enter an I-Number (xx-xxx-xxxx): <span class="input">75-176-6201</span>
-James Smith</pre>
+responses.txt
+There are 21 responses with an average value of 4.95
+14 of the responses are greater than the average.</pre>
 
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each step
     in this testing procedure:</p>
     <ol class="test long">
-        <li><div>Run your program using the input shown in the sample
-        run section above. Ensure that your program's output matches the
-        sample run output.</div></li>
-
-        <li><div>Run your program and give this I-Number as input:
-        <code>00-115-2306</code> (including the dashes). Many users will
-        want to enter I-Numbers with dashes. How should your program
-        handle the dashes?</div></li>
-
-        <li><div>Run your program and give an I-Number with too few
-        digits or too many digits. How should your program handle these
-        invalid I-Numbers?</div></li>
+        <li><div>Run your program. Ensure that your program's output
+        matches the sample run output for the Core Requirements or the
+        Stretch Challenges.</div></li>
     </ol>
 
     <h2>Sample Solution</h2>
