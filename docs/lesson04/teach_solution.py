@@ -52,11 +52,11 @@ if response.status_code == 200:
             # The population of some planets is unknown, so we must
             # check to see if the population is a number before
             # converting it to an integer and adding it to the total.
-            if text_pop.isnumeric():
+            if text_pop.isdecimal():
                 pop = int(text_pop)
                 population += pop
 
-            if text_water.isnumeric():
+            if text_water.isdecimal():
                 percent = int(text_water)
                 if percent > 0:
                     water += 1
@@ -104,11 +104,11 @@ while url != "None":
             # The population of some planets is unknown, so we must
             # check to see if the population is a number before
             # converting it to an integer and adding it to the total.
-            if text_pop.isnumeric():
+            if text_pop.isdecimal():
                 pop = int(text_pop)
                 population += pop
 
-            if text_water.isnumeric():
+            if text_water.isdecimal():
                 percent = int(text_water)
                 if percent > 0:
                     water += 1

@@ -158,10 +158,10 @@ def parse_formula(formula):
     """
     def parse_quant(formula, index):
         quant = 1
-        if index < len(formula) and formula[index].isdigit():
+        if index < len(formula) and formula[index].isdecimal():
             start = index
             index += 1
-            while index < len(formula) and formula[index].isdigit():
+            while index < len(formula) and formula[index].isdecimal():
                 index += 1
             quant = int(formula[start:index])
         return quant, index
@@ -203,8 +203,8 @@ def parse_formula(formula):
                 index += 1
                 break
             else:
-                # Illegal character [^()0-9a-zA-Z] or digit not preceded
-                # by an element symbol or close parenthesis
+                # Illegal character: [^()0-9a-zA-Z] or decimal digit not
+                # preceded by an element symbol or close parenthesis
                 raise FormulaError("invalid formula:", formula, index)
         if level > 0 and level >= start_level:
             # Mismatched open parenthesis

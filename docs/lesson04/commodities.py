@@ -14,7 +14,7 @@ endpoint = f"https://www.quandl.com/api/v3/datasets/{qcode}.json"
 end = datetime.today()
 start = end - timedelta(days=13*30)
 
-# Arguments that focus the http data request.
+# A dictionary of arguments that focus the http request.
 args = {
     # The API key should remain private. Do not save
     # it to a public repository or public web site.
