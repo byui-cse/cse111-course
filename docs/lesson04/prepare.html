@@ -35,6 +35,40 @@
     <p>Here are the Python programming concepts and topics that you
     should learn during this lesson:</p>
     <ol class="long">
+        <li><div>We can store many items in a
+        <a target="_blank" href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">Python dictionary</a>.
+        Dictionaries are mutable, meaning they can be changed. In a
+        dictionary, items are stored as key value pairs, and we can
+        easily write code to find a value by its key. To store a value
+        in an existing dictionary, write code that follows this
+        template:
+<div class="pre"><pre class="python">dictionary_name[key] = value</pre></div>
+        To lookup a key and retrieve its corresponding value, write code
+        that follows this template:
+<div class="pre"><pre class="python">value = dictionary_name[key]</pre></div>
+        The following code example creates a dictionary that contains
+        student IDs and names. Then it gets a student ID from the user
+        and looks up the student ID and prints the corresponding student
+        name.
+<div class="pre"><pre class="python">
+# Create a dictionary with student IDs as
+# the keys and student names as the values.
+students = {
+    "42-123-4736": "Benjamin Huish",
+    "61-315-0160": "Catherine Davis",
+    "10-450-1203": "Jorge Soares"
+}
+
+# Get a student ID from the user.
+id = input("Enter a student ID: ")
+
+# Lookup the student ID in the dictionary and
+# retrieve the corresponding student name.
+name = students[id]
+
+# Print the student name.
+print(name)</pre></div></div></li>
+
         <li><div>A <dfn>function</dfn> is a group of statements
         (computer commands) that together perform one task.</div></li>
 
@@ -77,7 +111,18 @@
         existing modules.</div></li>
     </ol>
 
+    <h2>Videos</h2>
+    <p>Watch this <a target="_blank"
+    href="https://realpython.com/lessons/dictionary-python/">video about
+    Python dictionaries</a>.</p>
+
     <h2>Documentation</h2>
+    <p>To learn about the dictionary methods <code>keys()</code>,
+    <code>values()</code>, and <code>items()</code>, read this tutorial
+    about <a target="_blank"
+    href="https://realpython.com/python-dicts/">Dictionaries in
+    Python</a>.</p>
+
     <p>To learn more about installing modules using the <code>pip</code>
     command, read the <a target="_blank"
     href="https://docs.python.org/3/installing/index.html#basic-usage">Basic
