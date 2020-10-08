@@ -38,6 +38,10 @@ if response.status_code == 200:
     # Convert the price data from JSON to a Python dictionary.
     data_dict = response.json()
 
+    # A useful learning and debugging strategy is to
+    # print the dictionary that came from the response.
+    #print(data_dict)
+
     # Print the price data that Quandl returned to us.
     dataset = data_dict["dataset"]
     print(dataset["name"])

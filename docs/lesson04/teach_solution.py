@@ -23,15 +23,19 @@ if response.status_code == 200:
     # the response into a Python dictionary named data.
     data = response.json()
 
+    # A useful learning and debugging strategy is to
+    # print the dictionary that came from the response.
+    #print(data)
+
     # Get the number of planets from the dictionary.
     count = int(data["count"])
 
     # For each planet, get the population (if known), and add it
     # to the total population of the known Star Wars universe.
-    population = 0
+    total_population = 0
 
     # Count the number of planets known to have surface water.
-    water = 0
+    have_water = 0
 
     # The planets are numbered from 1 to count, inclusive.
     # Retrieve the data about each planet one at a time.
@@ -45,6 +49,10 @@ if response.status_code == 200:
         if response.status_code == 200:
             planet = response.json()
 
+            # A useful learning and debugging strategy is to
+            # print the dictionary that came from the response.
+            #print(planet)
+
             text_pop = planet["population"]
             text_water = planet["surface_water"]
             print(planet["name"], "pop:", text_pop, "water:", text_water)
@@ -53,20 +61,20 @@ if response.status_code == 200:
             # check to see if the population is a number before
             # converting it to an integer and adding it to the total.
             if text_pop.isdecimal():
-                pop = int(text_pop)
-                population += pop
+                population = int(text_pop)
+                total_population += population
 
             if text_water.isdecimal():
                 percent = int(text_water)
                 if percent > 0:
-                    water += 1
+                    have_water += 1
         else:
             # The request failed, so print the status code.
             print("Request failed with status code:", response.status_code)
 
     # Print the total population and the number
     # of planets known to have surface water.
-    print(f"Population {population}, Water {water}")
+    print(f"Population {total_population}, Water {have_water}")
     print()
 else:
     # The request failed, so print the status code.
@@ -80,8 +88,8 @@ else:
 # where this program will send an http request.
 url = "http://swapi.dev/api/planets/"
 
-population = 0
-water = 0
+total_population = 0
+have_water = 0
 while url != "None":
     # Request a page of planet data from swapi.dev. Each page
     # contains the data for multiple (likely 10) planets.
@@ -92,6 +100,10 @@ while url != "None":
         # The request succeeded, so convert the JSON data from
         # the response into a Python dictionary named data.
         data = response.json()
+
+        # A useful learning and debugging strategy is to
+        # print the dictionary that came from the response.
+        #print(data)
 
         # For each planet, get the population (if known), and add it
         # to the total population of the known Star Wars universe.
@@ -105,13 +117,13 @@ while url != "None":
             # check to see if the population is a number before
             # converting it to an integer and adding it to the total.
             if text_pop.isdecimal():
-                pop = int(text_pop)
-                population += pop
+                population = int(text_pop)
+                total_population += population
 
             if text_water.isdecimal():
                 percent = int(text_water)
                 if percent > 0:
-                    water += 1
+                    have_water += 1
 
         url = str(data["next"]).strip()
     else:
@@ -121,5 +133,5 @@ while url != "None":
 
 # Print the total population and the number
 # of planets known to have surface water.
-print(f"Population {population}, Water {water}")
+print(f"Population {total_population}, Water {have_water}")
 print()
