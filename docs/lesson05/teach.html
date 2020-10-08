@@ -55,6 +55,16 @@
     <p>where <var>weight</var> is in kilograms and <var>height</var> is
     in centimeters.</p>
 
+    <h2>Helpful Documentation</h2>
+    <p>A CSV file is a text file that contains a list of data. Within
+    each row of a CSV file, the data items are separated by a character
+    which is usually a comma. The term "CSV" is an acronym for "comma
+    separated values." Python includes a module with functions for
+    processing CSV files. Read about the Python <code>csv</code> module
+    in the official Python documentation about the <a target="_blank"
+    href="https://docs.python.org/3/library/csv.html"><code>csv</code>
+    module</a>.</p>
+
     <h2>Assignment</h2>
     <p>Download the <a download href="fitness.csv">fitness.csv</a> file
     and save it in the same folder where you will save your Python
@@ -75,8 +85,9 @@
     <p>Use the following design to write your program:</p>
 <div class="pre"><pre class="python">
 # Import necessary modules.
-from datetime import date, datetime
+import csv
 import math
+from datetime import date, datetime
 
 
 def main():

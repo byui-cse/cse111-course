@@ -1,3 +1,4 @@
+# Import necessary modules.
 import csv
 
 
@@ -49,13 +50,18 @@ def main():
 
 def miles_per_gallon(start, end, gallons):
     """Compute and return the average miles that
-    a vehicle traveled per gallon of fuel."""
+    a vehicle traveled per gallon of fuel.
+    start and end are odometer readings in miles.
+    gallons is a fuel amount in U.S. gallons.
+    """
     mpg = abs(end - start) / gallons
     return mpg
 
 
 def lp100k_from_mpg(mpg):
-    """Convert miles per gallon to liters per 100 kilometers."""
+    """Convert miles per gallon to liters per 100
+    kilometers and return the converted value.
+    """
     lp100k = 235.215 / mpg
     return lp100k
 

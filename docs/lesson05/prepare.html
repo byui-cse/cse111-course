@@ -33,11 +33,11 @@
     <p>Here are the Python programming concepts and topics that you
     should learn during this lesson:</p>
     <ol class="long">
-        <li><div>A function is a group of statements (computer commands)
-        that together perform one task.</div></li>
+        <li><div>A <dfn>function</dfn> is a group of statements
+        (computer commands) that together perform one task.</div></li>
 
-        <li><div>A programmer (you) can save lots of time by
-        writing and calling your own functions.</div></li>
+        <li><div>A programmer (you) can save lots of time by writing and
+        calling your own functions.</div></li>
 
         <li><div>To write a function in Python, simply type code that
         matches this template:
@@ -50,7 +50,8 @@
     return <var>value</var></pre></div></div></li>
 
         <li><div>The first line of a function is called the
-        <dfn>header</dfn> or <dfn>signature</dfn>, and it includes the following:
+        <dfn>header</dfn> or <dfn>signature</dfn>, and it includes the
+        following:
         <ol>
             <li><div>the keyword <code>def</code></div></li>
             <li><div>the function name</div></li>
@@ -247,8 +248,73 @@ main()</pre></div>
     <p><strong>It is extremely important that you can write and call
     functions.</strong> After watching the above videos, if the concepts
     related to writing a function still seem confusing or vague to you,
-    read the concept list (above the videos) <strong>again</strong> and
-    then watch the videos <strong>again</strong>.</p>
+    read the list of concepts (above the videos) <strong>again</strong>
+    and then watch the videos <strong>again</strong>.</p>
+
+    <h2>Comma Separated Values</h2>
+    <p>Many computer systems import and export data in CSV files. CSV is
+    an acronym for comma separated values. A CSV file is a plain text
+    file that contains tabular data where each row is on a separate line
+    and each cell (column) is separated by a comma. The following
+    example is the contents of a CSV file that stores information about
+    some dental offices in Rexburg, Idaho. Notice that the first row of
+    the file contains column headings, the next four rows contain
+    information about four dental offices, and that each row contains
+    three columns separated by commas.</p>
+
+<div class="pre"><pre class="csv">
+Company Name,Address,Phone Number
+Eagle Rock Dental Care,556 Trejo Suite C,208-359-2224
+Apple Tree Dental,33 Winn Drive Suite 2,208-359-1500
+Rockhouse Dentistry,106 E 1st N,208-356-5600
+Cornerstone Family Dental,44 S Center Street,208-356-4240
+</pre></div>
+
+    <p>Python has a module named <a target="_blank"
+    href="https://docs.python.org/3/library/csv.html"><code>csv</code></a>
+    that includes functionality to read and write data from CSV files.
+    The following example code shows how to open a CSV file and use the
+    <code>csv</code> module to read and print each row.</p>
+
+<div class="pre"><pre class="python">
+import csv
+
+# Open a file named dentists.csv and store a reference
+# to the opened file in a variable named infile.
+with open("dentists.csv", "rt") as infile:
+
+    # Use the csv module to create a reader
+    # object that will read from the opened file.
+    reader = csv.reader(infile)
+
+    # The first line of the CSV file contains headings
+    # and not information about a dental office, so this
+    # statement skips the first line of the CSV file.
+    next(reader)
+
+    # Read each row one at a time as a list
+    # and print the contents of each row.
+    for row in reader:
+
+        # For the current row, retrieve the
+        # values in columns 0, 1, and 2.
+        company = row[0]
+        address = row[1]
+        phone = row[2]
+
+        # Print the values for the user to see.
+        print(company, address, phone)
+</pre></div>
+
+    <p>You could use this example code in a program that you write, but
+    of course, you could modify the <code>for</code> loop in the code to
+    do much more than simply print the contents of each row.</p>
+
+    <h2>Documentation</h2>
+    <ul class="links">
+        <li><div><a target="_blank" href="https://realpython.com/python-csv/">Reading and Writing CSV Files in Python</a></div></li>
+    </ul>
+
 </article>
 <footer>
     <small>Copyright &copy; 2020, Brigham Young University - Idaho. All
