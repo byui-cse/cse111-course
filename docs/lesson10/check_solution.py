@@ -16,13 +16,13 @@ def main():
     df["readDate"] = df["readDate"].dt.date
 
     # Filter the data frame to readings for meter #M4103 only.
-    metnum = "M4103"
-    filter = df["meterNumber"] == metnum
+    meternum = "M4103"
+    filter = df["meterNumber"] == meternum
     m4103_df = df[filter]
 
     # Define a vertical bar plot from the data frame for meter #M4103.
     barplot = m4103_df.plot.bar(x="readDate", y="usage", legend=False)
-    barplot.set_title(f"Water Usage for Meter #{metnum}")
+    barplot.set_title(f"Water Usage for Meter #{meternum}")
     barplot.set_xlabel("")
     barplot.set_ylabel("x1000 gallons")
     plt.tight_layout()

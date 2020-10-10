@@ -49,7 +49,7 @@
     should learn during this lesson.</p>
 
     <ol class="long">
-        <li>The <div><a target="_blank"
+        <li><div>The <a target="_blank"
         href="https://pandas.pydata.org/pandas-docs/stable/getting_started/overview.html"><code>pandas</code></a>
         module is a Python module that enables data analysis and
         includes functionality to read and write CSV files, retrieve,
@@ -124,21 +124,25 @@ df = pd.read_csv("filename.csv")
 
         <li><div>To <a target="_blank"
         href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/03_subset_data.html#how-do-i-filter-specific-rows-from-a-dataframe">filter rows</a>
-        out of a DataFrame, write a comparison in square brackets. For
-        example in the following code, <var>df</var> is a DataFrame that
-        contains all the rows from the CSV file <code>filename.csv</code>.
-        <var>filtered_data</var> is a DataFrame that contains only some of
-        the rows from the CSV file because all the rows that don't
-        satisfy the comparison
-        <code><em>df["col_name"] &gt; threshold</em></code> have been
-        filtered out.
+        out of a DataFrame, use a comparison to create a filter object.
+        Then use the filter object in square brackets to filter the
+        DataFrame. For example in the following code, <var>df</var> is a
+        DataFrame that contains all the rows from the CSV file
+        <code>filename.csv</code>, <var>filter</var> is a filter object,
+        and <var>filtered_data</var> is a DataFrame that contains only
+        some of the rows from the CSV file because all the rows that
+        don't satisfy the comparison
+        <code><em>df["col_name"] &gt; threshold</em></code>
+        have been filtered out.
 <div class="pre"><pre class="python">import pandas as pd
 
 df = pd.read_csv("filename.csv")
-<em>filtered_data = df[df["col_name"] &gt; threshold]</em></pre></div>
+<em>filter = df["col_name"] &gt; threshold
+filtered_data = df[filter]</em></pre></div>
         It is possible to filter rows by two comparisons. However,
         because of operator precedence in Python, we must add
         parentheses around each comparison. In the next example,
+        <var>andfilt</var> and <var>orfilt</var> are filter objects,
         <var>filtered_and</var> is a data frame that contains rows that
         satisfy both of the comparisons, and <var>filtered_or</var> is a
         data frame that contains rows that satisfy either or both
@@ -146,8 +150,10 @@ df = pd.read_csv("filename.csv")
 <div class="pre"><pre class="python">import pandas as pd
 
 df = pd.read_csv("filename.csv")
-filtered_and = df[<em>(df["col_name"] &gt; threshold) &amp; (df["col_name2"] == value)</em>]
-filtered_or = df[<em>(df["col_name"] &gt; threshold) | (df["col_name2"] == value)</em>]</pre></div>
+<em>andfilt = (df["col_name"] &gt; threshold) &amp; (df["col_name2"] == value)
+orfilt  = (df["col_name"] &gt; threshold) | (df["col_name2"] == value)</em>
+filtered_and = df[andfilt]
+filtered_or = df[orfilt]</pre></div>
         Unfortunately, it is easy to confuse the code that selects a
         column or columns (shown in the previous item) and the code that
         filters rows (shown in this item) because both of them use a
@@ -156,7 +162,7 @@ filtered_or = df[<em>(df["col_name"] &gt; threshold) | (df["col_name2"] == value
         the previous item and this item to see the difference. The code
         to select a column or columns contains only a string or list of
         strings between the square brackets. The code to filter rows
-        contains a comparison between the square brackets.</div></li>
+        contains a comparison to create the filter object.</div></li>
 
         <li><div>To filter out duplicate rows, call the <a target="_blank"
         href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.drop_duplicates.html">DataFrame.drop_duplicates()</a>

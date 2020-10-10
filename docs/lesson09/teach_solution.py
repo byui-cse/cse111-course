@@ -32,13 +32,15 @@ def main():
 
     # Filter the data frame to readings from residences and
     # compute and print the total water used by residences.
-    residences = df[df["accountType"] == "Residence"]
+    resfilter = df["accountType"] == "Residence"
+    residences = df[resfilter]
     water_used = residences["usage"].sum()
     print("Total water used by residences:", water_used)
 
     # Filter the data frame to readings from apartment complexes and
     # compute and print the total water used by apartment complexes.
-    apartments = df[df["accountType"] == "Apartment Complex"]
+    aptfilter = df["accountType"] == "Apartment Complex"
+    apartments = df[aptfilter]
     water_used = apartments["usage"].sum()
     print("Total water used by apartment complexes:", water_used)
     print()
@@ -56,15 +58,15 @@ def main():
     # Filter the data frame to readings from 2018.
     start = pd.to_datetime("2018-01-01")
     end = pd.to_datetime("2018-12-31")
-    df2018 = df[(df["readDate"] >= start) & (df["readDate"] <= end)]
+    filter2018 = (df["readDate"] >= start) & (df["readDate"] <= end)
+    df2018 = df[filter2018]
 
     # Compute and print the amount of water used in 2018.
     water_used = df2018["usage"].sum()
     print("Water used during 2018:", water_used)
 
     # Filter the 2018 data frame to one row per meter.
-    one_row_per_meter = \
-        df2018.drop_duplicates(subset=["meterNumber"], keep="last")
+    one_row_per_meter = df2018.drop_duplicates(subset=["meterNumber"], keep="last")
 
     # Use the filtered data frame from above
     # to compute the number of dwellings.
@@ -73,7 +75,8 @@ def main():
 
     # Filter the 2018 data frame to readings
     # for meters that serve dwellings.
-    reads_for_dwells = df2018[df2018["numberOfDwellings"] > 0]
+    dwelfilter = df2018["numberOfDwellings"] > 0
+    reads_for_dwells = df2018[dwelfilter]
 
     # Compute the total amount of water used during 2018 by dwellings.
     total_for_dwells = reads_for_dwells["usage"].sum()

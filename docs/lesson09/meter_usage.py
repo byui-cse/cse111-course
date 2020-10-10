@@ -30,7 +30,7 @@ def get_int(prompt, lower, upper):
     between a lower and upper bound, and return the integer to the
     calling function. If the user does not enter an integer between
     lower and upper, inclusive, this function will prompt the user
-    again for an integer.
+    repeatedly until the user enters an integer between lower and upper.
 
     param prompt: A string to display to the user.
     param lower: The lowest (smallest) integer that the user may enter.
@@ -39,8 +39,14 @@ def get_int(prompt, lower, upper):
     pass
 
 
-def insert_after(ls, existing, toinsert):
-    """Insert an element into a list after an existing element."""
+def insert_after(alist, existing, toinsert):
+    """Insert an element into a list after an existing element.
+
+    param alist: a Python list.
+    param existing: an element that exists in alist.
+    param toinsert: the element that this function will insert into
+        alist after the existing element.
+    """
     pass
 
 
