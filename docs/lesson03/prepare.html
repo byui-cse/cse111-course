@@ -21,236 +21,338 @@
     <h2>CSE 111 | <span>Programming with Functions</span></h2>
 </header>
 <article>
-    <h1>03 Prepare: Calling Functions</h1>
-
-    <p>Because most useful computer programs are very large,
-    programmers divide their programs into parts. Dividing a program
-    into parts makes it easier to write, debug, and understand the
-    program. A programmer can divide a Python program into modules,
-    classes, and functions. In this unit, you will learn how to use
-    existing functions, and in the next unit, you will learn how to
-    write your own functions.</p>
+    <h1>03 Prepare: Lists and Dictionaries</h1>
 
     <h2>Concepts</h2>
     <p>Here are the Python programming concepts and topics that you
     should learn during this lesson:</p>
-    <ol class="long">
-        <li><div>A <dfn>function</dfn> is a group of statements
-        (computer commands) that together perform one task.</div></li>
 
-        <li><div>Python includes many built-in functions such as:
-        <code>input</code>, <code>print</code>, <code>open</code>,
-        <code>len</code>, <code>range</code>, <code>int</code>,
-        <code>float</code>, <code>str</code>, <code>abs</code>,
-        <code>round</code>, <code>list</code>, <code>set</code>, and
-        <code>dict</code>. You can read about the built-in functions in
-        the <a target="_blank"
-        href="https://docs.python.org/3/library/functions.html">Built-in
-        Functions</a> section of the official Python online
-        reference.</div></li>
+    <h3>Lists</h3>
+    <p>Within a Python program, we can store many elements in a
+    <a target="_blank" href="https://docs.python.org/3/tutorial/datastructures.html#more-on-lists">list</a>.
+    Lists are mutable, meaning they can be changed after they are
+    created. Each element in a list is stored at a unique index. An
+    index is always an iteger, and the first index in a Python list is
+    always zero (0). The following diagram shows a list that contains
+    five words. The diagram shows both the elements and the indexes of
+    the list. Notice that each index is a unique integer, and that the
+    first index is zero.</p>
 
-        <li><div>A Python <dfn>module</dfn> is a collection of related
-        functions.</div></li>
+    <table class="list"><tbody>
+        <tr class="elems"><td class="label">elements</td>
+            <td>"yellow"</td> <td>"red"</td> <td>"green"</td>
+            <td>"yellow"</td> <td>"blue"</td></tr>
+        <tr><td class="label">indexes</td> <td>[0]</td> <td>[1]</td>
+            <td>[2]</td> <td>[3]</td> <td>[4]</td></tr>
+        <tr><td></td>
+            <td colspan="5">&larr; list length is 5 &rarr;</td></tr>
+    </tbody></table>
 
-        <li><div>Python includes many standard modules which have more
-        functions, such as the <code>math</code> module&mdash;which
-        includes the <code>floor</code>, <code>ceil</code>, and
-        <code>sqrt</code> functions and the <code>random</code>
-        module&mdash;which includes the <code>randint</code>,
-        <code>choice</code>, and <code>shuffle</code> functions. You can
-        read more about the standard modules in the official
-        documentation for the <a target="_blank"
-        href="https://docs.python.org/3/library/">Python Standard
-        Library</a>.</div></li>
+    <p>We can create a list by using square brackets ([ and ]). We can
+    add an item to a list using the <code>insert</code> and
+    <code>append</code> methods. We can find an item in a list using
+    <code>index</code>. We can determine the number of items in a list
+    using the <code>len</code> function. We can retrieve an item from a
+    list and replace an item in a list using square brackets ([ and ])
+    and an index. We can remove an item from a list using
+    <code>del</code>, <code>pop</code>, and <code>remove</code>. The
+    following code example shows how to create a list and add, find, and
+    remove items from a list.</p>
 
-        <li><div>A programmer (you) can save lots of time by using
-        existing functions.</div></li>
+<div class="pre"><pre class="python">
+# Create a list that contains five words.
+colors = ["yellow", "red", "green", "yellow", "blue"]
 
-        <li><div>A programmer uses a function by calling it (also known
-        as invoking it). To <dfn>call</dfn> (or <dfn>invoke</dfn>) a
-        function means to write code that causes the computer to execute
-        the code that is inside of that function. During CSE 110, you
-        often wrote code that called the <code>input</code> and
-        <code>print</code> functions. For example:
-<div class="pre"><pre class="python">name = input("Please enter your name: ")
-print(f"Hello {name}")</pre></div></div></li>
+# Print the entire colors list.
+print(colors)
 
-        <li><div>To correctly call a function you must know the
-        following:
-        <ol>
-            <li><div>The name of the module in which the function is
-            located</div></li>
-            <li><div>The name of the function</div></li>
-            <li><div>The parameters that the function takes</div></li>
-            <li><div>What the function does</div></li>
-        </ol>
-        All of this information is normally available in online
-        documentation. For example, from the online Python documentation
-        about the <code>math</code> module, we read this about the
-        <code>sqrt</code> function:
+# Print the element that is stored at index 2 in the colors list.
+print(colors[2])
 
-        <dl class="function">
-            <dt><code>math.sqrt(x)</code></dt>
-            <dd>Return the square root of <var>x</var>.</dd>
-        </dl>
 
-        From this short description, we know the following:
-        <ol>
-            <li><div>The name of the containing module is
-            <code>math</code></div></li>
-            <li><div>The name of the function is
-            <code>sqrt</code></div></li>
-            <li><div>The function takes one parameter named
-            <var>x</var></div></li>
-            <li><div>The function computes and returns the square root
-            of a number</div></li>
-        </ol></div></li>
+# Create an empty list that will hold fabric names.
+fabrics = []
 
-        <li><div>A <dfn>parameter</dfn> is a piece of data that a
-        function needs in order to complete its task. In the online
-        documentation for the <code>math</code> module, we see that the
-        <a target="_blank" href="https://docs.python.org/3/library/math.html#math.sqrt"><code>math.sqrt</code></a>
-        function has one parameter named <var>x</var> which is the
-        number that <code>math.sqrt</code> will compute the square root
-        of.
+# Add three elements at the end of the fabrics list.
+fabrics.append("velvet")
+fabrics.append("denim")
+fabrics.append("gingham")
 
-        <dl class="function">
-            <dt><code>math.sqrt(x)</code></dt>
-            <dd>Return the square root of <var>x</var>.</dd>
-        </dl>
+# Insert an element at the beginning of the fabrics list.
+fabrics.insert(0, "chiffon")
 
-        In order for the <code>math.sqrt</code> function to do its job
-        (compute the square root), a programmer must write code to pass
-        a number through the parameter <var>x</var> into the
-        <code>math.sqrt</code> function. Here is a simple example of
-        passing a number to the <code>math.sqrt</code> function:
-<div class="pre"><pre class="python">r = math.sqrt(71)</pre></div>
+# Get the index where velvet is stored in the fabrics list.
+i = fabrics.index("velvet")
 
-        In the above example, 71 will be passed through the parameter
-        <var>x</var> into the <code>math.sqrt</code> function. The
-        <code>math.sqrt</code> function will compute the square root of
-        71 and return the computed value which will then be stored in
-        the variable <var>r</var>.</div></li>
+# Replace velvet with taffeta.
+fabrics[i] = "taffeta"
 
-        <li><div>An <dfn>argument</dfn> is the value that is passed
-        through a parameter into a function. In other words, parameters
-        are listed in a function's header, and arguments are listed in a
-        call to a function. In this example code:
-<div class="pre"><pre class="python">r = math.sqrt(71)</pre></div>
-        71 is the argument that is passed into the
-        <code>math.sqrt</code> function through its parameter
-        <var>x</var>.
+# Remove the last element from the fabrics list.
+fabrics.pop()
 
-        When a function has more than one parameter and a programmer
-        writes code to call that function, the programmer usually writes
-        the arguments in the same order as the parameters. Consider the
-        built-in Python <code>round</code> function:
+# Remove taffeta from the fabrics list.
+fabrics.remove("taffeta")
 
-        <!-- At this point in their computer programming education,
-        most students are familiar with only a few functions. In
-        addition, many of the students do not know enough math to
-        successfully pass college algebra. It was difficult to choose a
-        Python function with multiple parameters and a purpose that most
-        students would understand. I settled on the round function even
-        though its second parameter is optional. Here are some other
-        functions that I considered writing about in this list item:
-        divmod, pow, range, open, math.comb, math.perm, math.dist,
-        math.remainder -->
+# Get the length of the fabrics list and print it.
+n = len(fabrics)
+print(f"The fabrics list contains {n} elements.")
+</pre></div>
 
-        <dl class="function">
-            <dt><code>round(number, ndigits)</code></dt>
-            <dd>Return <var>number</var> rounded to
-            <var>ndigits</var> precision after the decimal point. If
-            <var>ndigits</var> is omitted or is <code>None</code>,
-            <code>round</code> returns the nearest integer to
-            <var>number</var>.</dd>
-        </dl>
+    <h3>Dictionaries</h3>
+    <p>Within a Python program, we can store many items in a
+    <a target="_blank" href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">dictionary</a>.
+    Dictionaries are mutable, meaning they can be changed after they are
+    created. In a dictionary, items are stored as key value pairs. All
+    keys within a dictionary must be unique. In other words, no key can
+    appear more than once in a dictionary. Values within a dictionary do
+    not have to be unique. The following diagram shows a dictionary that
+    contains five items (five key value pairs) Notice that each of the
+    keys is unique.</p>
 
-        Now consider this Python code that gets a number from a user,
-        rounds that number to two digits after the decimal, and then
-        prints the rounded number.
+    <table class="dict"><thead>
+        <tr><th colspan="2">items</th> <th></th></tr>
+        <tr><th>keys</th> <th>values</th> <th></th></tr>
+    </thead><tbody>
+        <tr><td>42-039-4736</td> <td>Clint Huish</td>
+            <td class="center">&uarr;</td></tr>
+        <tr><td>61-315-0160</td> <td>Michelle Davis</td>
+            <td class="center">5</td></tr>
+        <tr><td>10-450-1203</td> <td>Jorge Soares</td>
+            <td class="center">items</td></tr>
+        <tr><td>75-421-2310</td> <td>Abdul Ali</td>
+            <td class="center"></td></tr>
+        <tr><td>07-103-5621</td> <td>Michelle Davis</td>
+            <td class="center">&darr;</td></tr>
+    </tbody></table>
 
-<div class="pre"><pre class="linenums">1
-2
-3</pre>
-<pre class="python">n = float(input("Please enter a number: "))
-r = round(n, 2)
-print(r)</pre></div>
+    <p>We can create a dictionary by using curly braces ({ and }). We
+    can add an item to a dictionary and look up an item in a dictionary
+    by using the square brackets ([ and ]) and a key. The following code
+    example shows how to create a dictionary and add and look up items
+    in a dictionary.</p>
 
-        In the previous example,
-        <ul>
-            <li><div>The code on line 1 calls both the
-            <code>input</code> and <code>float</code>
-            functions.</div></li>
-            <li><div>Line 2 calls the built-in <code>round</code>
-            function and passes two arguments. Notice that the order
-            of the arguments matches the order of the parameters.
-            Specifically the number to be rounded (<var>n</var>) is
-            the first argument and the number of digits after the
-            decimal point (2) is the second argument.</div></li>
-            <li><div>Line 3 prints the rounded number.</div></li>
-        </ul></div></li>
+<div class="pre"><pre class="linenums">
+1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9
+10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19
+20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29
+</pre><pre class="python">
+# Create a dictionary with student IDs as
+# the keys and student names as the values.
+students = {
+    "42-039-4736": "Clint Huish",
+    "61-315-0160": "Michelle Davis",
+    "10-450-1203": "Jorge Soares",
+    "75-421-2310": "Abdul Ali",
+    "07-103-5621": "Michelle Davis"
+}
 
-        <li id="optArgs"><div>When calling a function, some arguments
-        are optional. Again consider the description of the built-in
-        <code>round</code> function:
+# Add an item to the dictionary.
+students["81-298-9238"] = "Sama Patel"
 
-        <dl class="function">
-            <dt><code>round(number, ndigits)</code></dt>
-            <dd>Return <var>number</var> rounded to
-            <var>ndigits</var> precision after the decimal point. If
-            <var>ndigits</var> is omitted or is <code>None</code>,
-            <code>round</code> returns the nearest integer to
-            <var>number</var>.</dd>
-        </dl>
+# Get the number of items in the dictionary and print it.
+n = len(students)
+print(n)
 
-        From the description we read that the second argument is
-        optional. If the programmer doesn't pass a second argument, the
-        <var>number</var> will be rounded to an integer.</div></li>
+# Print the entire dictionary.
+print(students)
 
-        <li><div>For some optional arguments, we must pass a <dfn>named
-        argument</dfn> which is an argument that is preceded by the name
-        of its matching parameter. For example, here is an excerpt from
-        the documentation for the <code>print</code> function:
+# Get a student ID from the user.
+id = input("Enter a student ID: ")
 
-        <dl class="function">
-            <dt><code>print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)</code></dt>
-            <dd>Print objects to the text stream <var>file</var>,
-            separated by <var>sep</var> and followed by <var>end</var>.
-            <var>sep</var>, <var>end</var>, <var>file</var> and
-            <var>flush</var>, if present, must be given as named
-            arguments.</dd>
-        </dl>
+# Lookup the student ID in the dictionary and
+# retrieve the corresponding student name.
+<em>name = students[id]</em>
 
-        Notice from the excerpt that the <code>print</code> function can
-        take many objects that will be printed. Optionally, it can take
-        parameters named <var>sep</var>, <var>end</var>,
-        <var>file</var>, and <var>flush</var> which must be named when
-        they are used. For example, this code calls the
-        <code>print</code> function to print three words all separated
-        by a vertical bar (|). Notice the named argument <var>sep</var>.
+# Print the student name.
+print(name)</pre></div>
 
-<div class="pre"><pre class="python">x = "sun"
-y = "moon"
-z = "stars"
-print(x, y, z, sep="|")</pre></div></div></li>
-    </ol>
+    <p>Line&nbsp;12 in the previous code example, adds an item to
+    the dictionary. To add an item to an existing dictionary, write
+    code that follows this template:
+<div class="pre"><pre class="python">dictionary_name[key] = value</pre></div>
+    Notice that line&nbsp;12 follows this template.</p>
+
+    <p>Line&nbsp;26 in the previous code example, looks up a key and
+    retrieves its corresponding value from a dictionary. To look up
+    a key and retrieve its corresponding value, write code that
+    follows this template:
+<div class="pre"><pre class="python">value = dictionary_name[key]</pre></div>
+    Notice that line&nbsp;26 follows this template.</p>
+
+    <h3>Converting between Lists and Dictionaries</h3>
+    <p>It is possible to convert two lists into a dictionary by using
+    the built-in <code>zip</code> and <code>dict</code> functions. The
+    contents of the first list will become the keys in the dictionary,
+    and the contents of the second list will become the values. This
+    implies that the two lists must have the same length, and the
+    elements in the first list must be unique.</p>
+
+    <p>It is also possible to convert a dictionary into two lists by
+    using the <code>keys</code> and <code>values</code> methods and the
+    built-in <code>list</code> function. The following code example
+    starts with two lists, converts them into a dictionary, and then
+    converts the dictionary into two lists.</p>
+
+<div class="pre"><pre class="python">
+# Create a list that contains five student numbers.
+numbers = ["42-039-4736", "61-315-0160",
+        "10-450-1203", "75-421-2310", "07-103-5621"]
+
+# Create a list that contains five student names.
+names = ["Clint Huish", "Michelle Davis",
+        "Jorge Soares", "Abdul Ali", "Michelle Davis"]
+
+# Convert the numbers list and names list into a dictionary.
+<em>student_dict = dict(zip(numbers, names))</em>
+
+# Print the entire student dictionary.
+print(student_dict)
+
+# Convert the student dictionary into
+# two lists named keys and values.
+<em>keys = list(student_dict.keys())
+values = list(student_dict.values())</em>
+
+# Print both lists.
+print(keys)
+print(values)</pre></div>
+
+    <h3>Text Files</h3>
+    <p>The built-in
+    <a target="_blank" href="https://docs.python.org/3/library/functions.html#open"><code>open()</code></a>
+    function opens a file for reading or writing. The
+    <a target="_blank" href="https://docs.python.org/3/tutorial/inputoutput.html#methods-of-file-objects"><code>file.read()</code></a>
+    method reads characters or bytes from a file. The
+    <code>file.readline()</code> method reads one line of text from a
+    text file. The <code>file.readlines()</code> method reads all the
+    lines of text from a text file and returns the lines in a list. The
+    following code example uses the built-in <code>open</code> function
+    and <code>readlines</code> method to read the contents of a text
+    file into a list.</p>
+
+<div class="pre"><pre class="python">
+# Open the plants.txt file for reading.
+with <em>open("plants.txt", "rt")</em> as infile
+
+    # Read all the lines of the file into a list
+    # named plants. Each line of the file will be
+    # stored in its own element in the list.
+    <em>plants = infile.readlines()</em>
+
+    # Print the entire list.
+    print(plants)
+</pre></div>
+
+    <h3>Comma Separated Values</h3>
+    <p>Many computer systems import and export data in CSV files. CSV is
+    an acronym for comma separated values. A CSV file is a text file
+    that contains tabular data where each row is on a separate line and
+    each cell (column) is separated by a comma. The following example is
+    the contents of a CSV file that stores information about some dental
+    offices in Rexburg, Idaho. Notice that the first row of the file
+    contains column headings, the next four rows contain information
+    about four dental offices, and each row contains three columns
+    separated by commas.</p>
+
+<div class="pre"><pre class="csv">
+Company Name,Address,Phone Number
+Eagle Rock Dental Care,556 Trejo Suite C,208-359-2224
+Apple Tree Dental,33 Winn Drive Suite 2,208-359-1500
+Rockhouse Dentistry,106 E 1st N,208-356-5600
+Cornerstone Family Dental,44 S Center Street,208-356-4240
+</pre></div>
+
+    <p>Python has a module named <a target="_blank"
+    href="https://docs.python.org/3/library/csv.html"><code>csv</code></a>
+    that includes functionality to read and write data from CSV files.
+    The following example code shows how to open a CSV file and use the
+    <code>csv</code> module to read and print each row.</p>
+
+<div class="pre"><pre class="python">import csv
+
+# Open a file named dentists.csv and store a reference
+# to the opened file in a variable named infile.
+with open("dentists.csv", "rt") as infile:
+
+    # Use the csv module to create a reader
+    # object that will read from the opened file.
+    reader = csv.reader(infile)
+
+    # The first line of the CSV file contains headings
+    # and not information about a dental office, so this
+    # statement skips the first line of the CSV file.
+    next(reader)
+
+    # Read each row one at a time as a list.
+    for row in reader:
+
+        # For the current row, retrieve the
+        # values in columns 0, 1, and 2.
+        company = row[0]
+        address = row[1]
+        phone = row[2]
+
+        # Print the values for the user to see.
+        print(company, address, phone)</pre></div>
+
+    <p>You could use this example code in a program that you write, but
+    of course, you could modify the <code>for</code> loop in the code to
+    do much more than simply print the contents of each row. For
+    example, the next code sample shows how to read the contents of a
+    CSV file into a dictionary.</p>
+
+<div class="pre"><pre class="python">import csv
+
+# Create an empty dictionary that will
+# store the data from the CSV file.
+dentists = {}
+
+# Open a file named dentists.csv and store a reference
+# to the opened file in a variable named infile.
+with open("dentists.csv", "rt") as infile:
+
+    # Use the csv module to create a reader
+    # object that will read from the opened file.
+    reader = csv.reader(infile)
+
+    # The first line of the CSV file contains headings
+    # and not information about a dental office, so this
+    # statement skips the first line of the CSV file.
+    next(reader)
+
+    # Read each row one at a time as a list.
+    for row in reader:
+
+        # For the current row, retrieve the
+        # values in columns 0, 1, and 2.
+        company = row[0]
+        address = row[1]
+        phone = row[2]
+
+        # Store the data from the current row into the dentists
+        # dictionary. Use the phone number as the key. Create a
+        # list with the company name and address as the value.
+        dentists[phone] = [company, address]
+
+# Print the entire dentists dictionary.
+print(dentists)</pre></div>
+
+    <h2>Videos</h2>
+    <p>Watch these videos about lists and dictionaries in Python.</p>
+
+    <ul class="links">
+        <li><div><a target="_blank" href="https://www.youtube.com/watch?v=beA8IsY3mQs&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=25">Lists</a></div></li>
+        <li><div><a target="_blank" href="https://realpython.com/lessons/dictionary-python/">Dictionaries</a></div></li>
+    </ul>
 
     <h2>Documentation</h2>
-    <p>If you are uncertain about any of the concepts in the previous
-    list, you could reread the list. Also, you could read about the
-    same concepts in the Python <a target="_blank"
-    href="https://www.w3schools.com/python/python_functions.asp">functions
-    tutorial</a> at w3schools.</p>
+    <p>The following tutorials contain more information about lists,
+    dictionaries, and CSV files in Python.</p>
 
-    <p>You may find the following official Python references helpful as
-    you complete the assignments during this lesson.</p>
     <ul class="links">
-        <li><div><a target="_blank" href="https://docs.python.org/3/library/functions.html">Built-in functions</a></div></li>
-
-        <li><div>The <a target="_blank" href="https://docs.python.org/3/library/math.html"><code>math</code> module</a></div></li>
-
-        <li><div>The <a target="_blank" href="https://docs.python.org/3/library/csv.html"><code>csv</code> module</a></div></li>
+        <li><div><a target="_blank" href="https://realpython.com/courses/lists-tuples-python/">Lists and Tuples in Python</a></div></li>
+        <li><div><a target="_blank" href="https://realpython.com/python-dicts/">Dictionaries in Python</a>.</div></li>
+        <li><div><a target="_blank" href="https://realpython.com/python-csv/">Reading and Writing CSV Files in Python</a></div></li>
     </ul>
 </article>
 <footer>

@@ -346,16 +346,35 @@ td.number {
 	text-align: right;
 }
 
-table > thead > tr > th {
+article table > thead > tr > th {
 	vertical-align: bottom;
 	text-align: center;
 	font-weight: bold;
 }
 
-table > tbody > tr > th {
+article table > tbody > tr > th {
 	vertical-align: top;
 	text-align: left;
 	font-weight: bold;
+}
+
+td.center { text-align: center; }
+
+article table.list, article table.dict {
+	margin: 1em 0 1em auto;
+}
+
+article table.list > tbody > tr > td {
+	text-align: center;
+}
+
+article table.list > tbody > tr.elems > td {
+	border: 1px solid #707070;
+}
+
+article table.list > tbody > tr > td.label {
+	border: none;
+	text-align: right;
 }
 
 footer {
