@@ -57,6 +57,9 @@
         <li><div>Reference for <a target="_blank"
         href="https://effbot.org/tkinterbook/canvas.htm">tkinter
         Canvas</a> widget</div></li>
+
+        <li><div><a target="_blank" href="colors.png">Chart of named
+        colors</a> in tkinter</div></li>
     </ul>
 
     <h2>Assignment</h2>
@@ -97,9 +100,11 @@ def main():
 
     # Create a Scene window. Creating an object
     # calls the __init__ function in the class.
-    Scene()
+    width = 800
+    height = 600
+    Scene(width, height)
 
-    root.geometry("800x600")
+    root.geometry(f"{width}x{height}")
     root.mainloop()
 
 
@@ -108,7 +113,7 @@ class Scene(Frame):
     to draw a somewhat realistic outdoor scene in the frame.
     """
 
-    def __init__(self):
+    def __init__(self, width, height):
         """Initialize a Scene object."""
 
         # Call __init__ in the parent class.
@@ -122,7 +127,7 @@ class Scene(Frame):
         canvas.pack(fill=BOTH, expand=1)
 
         # Call the draw_scene function.
-        draw_scene(canvas, 0, 0, 799, 599)
+        draw_scene(canvas, 0, 0, width-1, height-1)
 
 
 def draw_scene(canvas, scene_left, scene_top, scene_right, scene_bottom):
@@ -135,16 +140,16 @@ def draw_scene(canvas, scene_left, scene_top, scene_right, scene_bottom):
     param scene_right - right side of the region
     param scene_bottom - bottom of the region
 
-    The width and height of the region can be calculated like this:
+    If needed, the width and height of the
+    region can be calculated like this:
     scene_width = scene_right - scene_left + 1
     scene_height = scene_bottom - scene_top + 1
     """
-    canvas.create_oval(scene_left + 20, scene_top + 40,
-            scene_right - 60, scene_bottom - 80,
-            outline="#404040", width=4, fill="#2040e0")
-
     # Call your functions here, such as draw_sky, draw_ground,
     # draw_snowman, draw_tree, draw_shrub, etc.
+    canvas.create_oval(scene_left, scene_top + 40,
+            scene_right - 60, scene_bottom,
+            outline="gray10", width=4, fill="blue")
 
 
 # Define more functions here, like draw_sky, draw_ground,
@@ -161,16 +166,16 @@ main()</pre></div>
 
     <p><img src="oval.png" alt="A blue oval drawn by a Python program"></p>
 
-    <p>This oval was drawn by the code at lines 52 - 54. Delete lines
-    52 - 54 and begin writing your program. The purpose of this
-    assignment is to prove that you can write and call functions.
-    Therefore, your program must be divided into functions such as
-    <code>draw_sky</code>, <code>draw_cloud</code>,
+    <p>This oval was drawn by the code at lines&nbsp;57&ndash;59. Delete
+    lines&nbsp;57&ndash;59 and begin writing your program. The purpose
+    of this assignment is to prove that you can write and call
+    functions. Therefore, your program must be divided into functions
+    such as <code>draw_sky</code>, <code>draw_cloud</code>,
     <code>draw_ground</code>, <code>draw_bird</code>,
     <code>draw_grass_blade</code>, and <code>draw_insect</code>. The
     header for the <code>draw_scene</code> function, which is shown on
-    line 38 in the example code above, is a good example for the headers
-    of all your draw_* functions. For example, if you write a
+    line&nbsp;40 in the example code above, is a good example for the
+    headers of all your draw_* functions. For example, if you write a
     <code>draw_grass_blade</code> function in your program, you should
     write its header like this:</p>
 
