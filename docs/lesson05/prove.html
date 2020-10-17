@@ -89,45 +89,31 @@
 20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29
 30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39
 40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49
-50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59
-60<br>61<br>62<br>63<br>64<br>65<br>66</pre>
-<pre class="python">from tkinter import Tk, Canvas, Frame, BOTH
+50<br>51<br>52<br>53<br>54<br>55</pre>
+<pre class="python">from tkinter import Tk, Frame, Canvas, BOTH
 
 
 def main():
-    # Create the root Tk object.
-    root = Tk()
-
-    # Create a Scene window. Creating an object
-    # calls the __init__ function in the class.
     width = 800
     height = 600
-    Scene(width, height)
 
+    # Create the root Tk object.
+    root = Tk()
     root.geometry(f"{width}x{height}")
+
+    # Create a Frame object.
+    frame = Frame()
+    frame.master.title("Scene")
+    frame.pack(fill=BOTH, expand=1)
+
+    # Create a canvas object that will draw into the frame.
+    canvas = Canvas(frame)
+    canvas.pack(fill=BOTH, expand=1)
+
+    # Call the draw_scene function.
+    draw_scene(canvas, 0, 0, width-1, height-1)
+
     root.mainloop()
-
-
-class Scene(Frame):
-    """A Scene object is a Frame that uses the tkinter library
-    to draw a somewhat realistic outdoor scene in the frame.
-    """
-
-    def __init__(self, width, height):
-        """Initialize a Scene object."""
-
-        # Call __init__ in the parent class.
-        super().__init__()
-
-        self.master.title("Scene")
-        self.pack(fill=BOTH, expand=1)
-
-        # Get a canvas object that will draw into this Scene object.
-        canvas = Canvas(self)
-        canvas.pack(fill=BOTH, expand=1)
-
-        # Call the draw_scene function.
-        draw_scene(canvas, 0, 0, width-1, height-1)
 
 
 def draw_scene(canvas, scene_left, scene_top, scene_right, scene_bottom):
@@ -166,15 +152,15 @@ main()</pre></div>
 
     <p><img src="oval.png" alt="A blue oval drawn by a Python program"></p>
 
-    <p>This oval was drawn by the code at lines&nbsp;57&ndash;59. Delete
-    lines&nbsp;57&ndash;59 and begin writing your program. The purpose
+    <p>This oval was drawn by the code at lines&nbsp;44&ndash;46. Delete
+    lines&nbsp;44&ndash;46 and begin writing your program. The purpose
     of this assignment is to prove that you can write and call
     functions. Therefore, your program must be divided into functions
     such as <code>draw_sky</code>, <code>draw_cloud</code>,
     <code>draw_ground</code>, <code>draw_bird</code>,
     <code>draw_grass_blade</code>, and <code>draw_insect</code>. The
     header for the <code>draw_scene</code> function, which is shown on
-    line&nbsp;40 in the example code above, is a good example for the
+    line&nbsp;27 in the example code above, is a good example for the
     headers of all your draw_* functions. For example, if you write a
     <code>draw_grass_blade</code> function in your program, you should
     write its header like this:</p>
