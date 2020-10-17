@@ -21,7 +21,7 @@
     <h2>CSE 111 | <span>Programming with Functions</span></h2>
 </header>
 <article>
-    <h1>04 Team Activity: Retrieve Star Wars Data from a Web Server</h1>
+    <h1>04 Team Activity: Randomly Chosen Quotes</h1>
 
     <h2>Instructions</h2>
     <p>Arrange a one hour synchronous meeting with your team for this
@@ -31,68 +31,67 @@
     the individual checkpoint assignment beforehand.</p>
 
     <h2>Problem Statement</h2>
-    <p>Star Wars is a series of movies about fictional characters and
-    events that lived and happened a long time ago in a galaxy far far
-    away. Because the movies are popular, there are many fan websites
-    that contain information about the movies. The Star Wars fan site,
-    <a target="_blank" href="https://swapi.dev">swapi.dev</a> maintains
-    a web service that contains lots of data gleaned from the movies and
-    books about the fictional characters and places that are part of the
-    Star Wars galaxy. During this activity, your team will write a
-    Python program that uses the <code>requests</code> module to
-    retrieve data from the swapi web service.</p>
+    <p>When working on a long task or completing a long term goal,
+    people sometimes find it difficult to stay motivated. Some people
+    find that inspiring quotes from others who accomplished similar
+    tasks help them to stay motivated. During this activity, your team
+    will write a Python program that prints a quote chosen randomly from
+    a file of quotes.</p>
 
     <h2>Helpful Documentation</h2>
-    <p>The <a target="_blank"
-    href="https://requests.readthedocs.io#requests-http-for-humans"><code>requests</code>
-    module</a> contains functions to send HTTP requests for data to a
-    computer server on the internet and to read the data that the server
-    returns.</p>
+    <p>The built-in <a target="_blank"
+    href="https://docs.python.org/3/library/functions.html#open"><code>open()</code></a>
+    function opens a file for reading or writing. The
+    <code>file.readlines()</code> method reads all the lines of text
+    from a text file and returns the lines in a list.</p>
 
-    <p>The Star Wars API (swapi) maintains lots of data about the
-    fictional Star Wars galaxy. The <a target="_blank"
-    href="https://swapi.dev/documentation">official documentation</a> for
-    swapi contains a tutorial, tools to experiment with swapi, and
-    reference content.</p>
+    <p>The Python <code>random</code> module contains functions to
+    generate pseudo random numbers and to make pseudo random choices.
+    Read about the <code>random</code> module in one of these
+    articles:</p>
+    <ul>
+        <li><div>Official Python <a target="_blank" href="https://docs.python.org/3/library/random.html">reference for the <code>random</code> module</a></div></li>
+        <li><div><a target="_blank" href="https://realpython.com/lessons/random-data-generation-python/">Lesson about <code>random</code></a> at Real Python</div></li>
+    </ul>
 
-    <p>A Python dictionary is a collection of data that is stored in
-    pairs of keys and values. The keys are used to store and quickly
-    find the values. Read about Python dictionaries in the
-    official Python documentation about <a target="_blank"
-    href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">dictionaries</a>.</p>
+    <p>The Python <code>textwrap</code> module contains functions to
+    format plain text. The module formats text by adding, removing, and
+    moving line breaks in the input text. Read about the
+    <code>textwrap</code> module in this article:</p>
+    <ul>
+        <li><div>Official Python <a target="_blank"
+        href="https://docs.python.org/3/library/textwrap.html">reference
+        for the <code>textwrap</code> module</a></div></li>
+    </ul>
 
     <h2>Assignment</h2>
-    <p>Open the <a target="_blank"
-    href="https://swapi.dev/documentation">Star Wars API documentation</a>
-    in your browser. From the documentation, you can read that this URL
-    <a target="_blank"
-    href="https://swapi.dev/api/planets">https://swapi.dev/api/planets</a>
-    will return data about all the planets in the Star Wars galaxy, and
-    this URL <a target="_blank"
-    href="https://swapi.dev/api/planets">https://swapi.dev/api/planets/{i}</a>,
-    where <var>{i}</var> is an integer, will return data about an
-    individual planet.</p>
+    <p>Download this file: <a download href="quotes.txt">quotes.txt</a>
+    and save it in the same folder where you will save your Python
+    program.</p>
 
-    <p>Use the <code>commodities.py</code> program, that you downloaded
-    during this lesson's checkpoint, as a reference, and write a Python
-    program to retrieve the population for each planet, then calculate
-    and display the total population of all planets in the Star Wars
-    galaxy.</p>
+    <p>Write a Python program that reads the contents of the
+    <code>quotes.txt</code> file into a list and then randomly chooses
+    one of the quotes and prints it for the user to see. Include these
+    two lines of code at the top of your program to import the functions
+    in the <code>random</code> and <code>textwrap</code> modules:</p>
+
+<pre class="python">import random
+import textwrap</pre>
 
     <h3>Core Requirements</h3>
     <ol class="long">
-        <li><div>Your program must use the <code>requests</code> module
-        to retrieve data from this URL: <a target="_blank"
-        href="https://swapi.dev/api/planets">https://swapi.dev/api/planets</a>
-        and then get the count of planets from that data.</div></li>
+        <li><div>Your program must call the <code>open</code> function
+        to open the <code>quotes.txt</code> file and call
+        <code>file.readlines</code> to read all the lines in the file
+        into a list.</div></li>
 
-        <li><div>Your program must contain a loop that repeats once for
-        each planet. Within that loop your program must use the
-        <code>requests</code> module to retrieve the data for each
-        planet and then get the population from that data and add that
-        population into a total population.</div></li>
+        <li><div>Your program must call <code>random.choice</code> to
+        randomly choose one of the quotes from the list.</div></li>
 
-        <li><div>Your program must print the total population.</div></li>
+        <li><div>Your program must call <code>textwrap.wrap</code> to
+        wrap the words of the chosen quote to 70 characters or fewer per
+        line and call <code>print</code> to print the wrapped lines of
+        the quote for the user to see.</div></li>
     </ol>
 
     <h3>Stretch Challenges</h3>
@@ -108,84 +107,42 @@
         <li><div>Write comments above the lines of code that were
         difficult for you to understand.</div></li>
 
-        <li><div>Change your program to count the number of planets that
-        are known to have surface water.</div></li>
+        <li><div>Allow the user to enter a positive integer to choose
+        how many quotes are chosen and printed.</div></li>
 
-        <li><div>Change your program to compute the average height for
-        all the characters in the swapi database.</div></li>
+        <li><div>Write a new program that reads the
+        <code>quotes.txt</code> file and then prints all of the names of
+        the authors, but just the names and not the quotes. Hint: notice
+        that the author's name appears at the end of each quote,
+        separated from the quote by a dash (-). However, notice also
+        that some quotes contain a dash. To find the location of the
+        last dash, use the <a target="_blank"
+        href="https://docs.python.org/3/library/stdtypes.html#str.rindex">rindex</a>
+        function.</div></li>
     </ol>
 
     <h2>Sample Run</h2>
 <pre class="console">&gt; python teach_solution.py
-Tatooine 200000
-Alderaan 2000000000
-Yavin IV 1000
-Hoth unknown
-Dagobah unknown
-Bespin 6000000
-Endor 30000000
-Naboo 4500000000
-Coruscant 1000000000000
-Kamino 1000000000
-Geonosis 100000000000
-Utapau 95000000
-Mustafar 20000
-Kashyyyk 45000000
-Polis Massa 1000000
-Mygeeto 19000000
-Felucia 8500000
-Cato Neimoidia 10000000
-Saleucami 1400000000
-Stewjon unknown
-Eriadu 22000000000
-Corellia 3000000000
-Rodia 1300000000
-Nal Hutta 7000000000
-Dantooine 1000
-Bestine IV 62000000
-Ord Mantell 4000000000
-unknown unknown
-Trandosha 42000000
-Socorro 300000000
-Mon Cala 27000000000
-Chandrila 1200000000
-Sullust 18500000000
-Toydaria 11000000
-Malastare 2000000000
-Dathomir 5200
-Ryloth 1500000000
-Aleen Minor unknown
-Vulpter 421000000
-Troiken unknown
-Tund 0
-Haruun Kal 705300
-Cerea 450000000
-Glee Anselm 500000000
-Iridonia unknown
-Tholoth unknown
-Iktotch unknown
-Quermia unknown
-Dorin unknown
-Champala 3500000000
-Mirial unknown
-Serenno unknown
-Concord Dawn unknown
-Zolan unknown
-Ojom 500000000
-Skako 500000000000
-Muunilinst 5000000000
-Shili unknown
-Kalee 4000000000
-Umbara unknown
-Total 1711401432500</pre>
+How many quotes would you like? 2
+
+If you want to achieve excellence, you can get there today. As of this
+second, quit doing less-than-excellent work. -Thomas J. Watson
+
+B is for believe--in yourself, in those around you, and in eternal
+principles. -Thomas S. Monson</pre>
 
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each step
     in this testing procedure:</p>
-    <ol class="test">
-        <li><div>Run your program. Ensure that your program's output
-        matches the sample run output, including the total population of
-        the planets.</div></li>
+    <ol class="test long">
+        <li><div>Run your program and verify that it outputs a quote (or
+        multiple quotes if you completed stretch challenge #4).</div></li>
+        <li><div>Run your program again and verify that it outputs a
+        different quote.</div></li>
+        <li><div>If the quotes that you program printed are short, run
+        your program again until it prints a long quote that wraps onto
+        two or more lines. Verify that each line contains no more than
+        70 characters.</div></li>
     </ol>
 
     <h2>Sample Solution</h2>
@@ -197,23 +154,6 @@ Total 1711401432500</pre>
     hour. At the end of the hour, if you are still struggling to
     complete the assignment, you may use the sample solution to help you
     finish.</p>
-
-    <h2>Warning</h2>
-    <p>With great power, comes great responsibility. Now that you know
-    how to use the <code>requests</code> module to retrieve data, you
-    have enough knowledge to launch a denial of service (DOS) attack
-    against a web server. If you write a program that quickly makes
-    thousands or millions of requests to a server, your program's
-    requests will overwhelm the server. Then other programs that are
-    making normal, legitimate requests will not be served because the
-    server is too busy with the flood of requests from your program.
-    This is a denial of service attack. Don't do this. Launching a DOS
-    attack, either purposefully or accidentally, will lead to your
-    computer's IP address being blocked on the server which means the
-    server will refuse to serve your computer. Launching a DOS attack is
-    rude, unethical, likely illegal, a violation of the BYU-Idaho honor
-    code, and not something that a disciple of Jesus Christ would
-    knowingly do.</p>
 
     <h2>Submission</h2>
     <p>When you have finished the activity, please report your progress

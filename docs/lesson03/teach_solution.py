@@ -1,42 +1,54 @@
-import random
-import textwrap
+import csv
 
-# Open the quotes.txt file.
-with open("quotes.txt", "rt") as infile:
+# Create an empty dictionary that will store student
+# information with the I-Number number as the key.
+students = {}
 
-    # Read all the quotes in the file into a list.
-    quotes = infile.readlines()
+# Open a file named students.csv and store a reference
+# to the opened file in a variable named infile.
+with open("students.csv", "rt") as infile:
 
-# Below is alternative code that doesn't use a with block:
-#
-# infile = open("quotes.txt", "rt")
-# quotes = infile.readlines()
-# infile.close()
-#
-# Notice that this alternative code must include infile.close(). The
-# with block code above doesn't include calling the close function
-# because the with block automatically calls the close function when the
-# block ends.
+    # Use the csv module to create a reader
+    # object that will read from the opened file.
+    reader = csv.reader(infile, delimiter=",")
 
-# Ask the user how many quotes she would like to see.
-quant = int(input("How many quotes would you like? "))
+    # The first line of the CSV file contains headings
+    # and not a student's I-Number and name, so this
+    # statement skips the first line of the CSV file.
+    next(reader)
 
-# Print the quotes requested by the user.
-for _ in range(quant):
-    # This for loop uses the underscore character (_) as a
-    # variable name. The underscore is the variable name that
-    # many programmers use when writing a counting loop that
-    # doesn't use the variable in the body of the loop.
+    # Read each row in the CSV file one at a time as a list.
+    for row in reader:
 
-    # Randomly choose one quote.
-    quote = random.choice(quotes)
+        # From the current row, add a student's
+        # I-Number and name to the students dictionary.
+        students[row[0]] = row[1]
 
-    # Wrap the words of the quote if it is a long quote.
-    wrapped = textwrap.wrap(quote, 70)
 
-    # Print a blank line.
-    print()
+# Get an I-Number from the user.
+inum = str(input("Please enter an I-Number (xx-xxx-xxxx): "))
 
-    # Print the wrapped quote.
-    for line in wrapped:
-        print(line)
+# The I-Numbers are stored in the CSV file as digits only (without
+# any dashes), so we remove all dashes from the user's input.
+inum = inum.replace("-", "")
+
+# Determine if the user input is formatted correctly.
+if inum.isdigit():
+    if len(inum) < 9:
+        print("Invalid I-Number: too few digits")
+    elif len(inum) > 9:
+        print("Invalid I-Number: too many digits")
+    else:
+        # The user input is a valid I-Number. Find
+        # the I-Number in the list of I-Numbers.
+        if inum in students:
+            # Retrieve the student name that corresponds
+            # to the I-Number that the user entered.
+            name = students[inum]
+
+            # Print the student name.
+            print(name)
+        else:
+            print("No such student")
+else:
+    print("Invalid character in I-Number")

@@ -21,7 +21,7 @@
     <h2>CSE 111 | <span>Programming with Functions</span></h2>
 </header>
 <article>
-    <h1>03 Team Activity: Randomly Chosen Quotes</h1>
+    <h1>03 Team Activity: Lookup Student Names</h1>
 
     <h2>Instructions</h2>
     <p>Arrange a one hour synchronous meeting with your team for this
@@ -31,67 +31,63 @@
     the individual checkpoint assignment beforehand.</p>
 
     <h2>Problem Statement</h2>
-    <p>When working on a long task or completing a long term goal,
-    people sometimes find it difficult to stay motivated. Some people
-    find that inspiring quotes from others who accomplished similar
-    tasks help them to stay motivated. During this activity, your team
-    will write a Python program that prints a quote chosen randomly from
-    a file of quotes.</p>
+    <p>A common task for many knowledge workers is to use a number, key,
+    or ID to look up information about a person. For example, a
+    knowledge worker may use a phone number or e-mail address as a key
+    to find (or look up) additional information about a customer. During
+    this activity, your team will write a Python program that uses a
+    student's I-Number to look up the student's name.</p>
 
     <h2>Helpful Documentation</h2>
-    <p>The built-in <a target="_blank"
-    href="https://docs.python.org/3/library/functions.html#open"><code>open()</code></a>
-    function opens a file for reading or writing. The
-    <code>file.readlines()</code> method reads all the lines of text
-    from a text file and returns the lines in a list.</p>
+    <p>A CSV file is a text file that contains a list of data. Within
+    each row of a CSV file, the data items are separated by a character
+    which is usually a comma. The term "CSV" is an acronym for "comma
+    separated values." Python includes a module with functions for
+    processing CSV files. Read about the Python <code>csv</code> module
+    in the official Python documentation about the <a target="_blank"
+    href="https://docs.python.org/3/library/csv.html"><code>csv</code>
+    module</a>.</p>
 
-    <p>The Python <code>random</code> module contains functions to
-    generate pseudo random numbers and to make pseudo random choices.
-    Read about the <code>random</code> module in one of these
-    articles:</p>
-    <ul>
-        <li><div>Official Python <a target="_blank" href="https://docs.python.org/3/library/random.html">reference for the <code>random</code> module</a></div></li>
-        <li><div><a target="_blank" href="https://realpython.com/lessons/random-data-generation-python/">Lesson about <code>random</code></a> at Real Python</div></li>
-    </ul>
-
-    <p>The Python <code>textwrap</code> module contains functions to
-    format plain text. The module formats text by adding, removing, and
-    moving line breaks in the input text. Read about the
-    <code>textwrap</code> module in this article:</p>
-    <ul>
-        <li><div>Official Python <a target="_blank"
-        href="https://docs.python.org/3/library/textwrap.html">reference
-        for the <code>textwrap</code> module</a></div></li>
-    </ul>
+    <p>A Python dictionary is a collection of data that is stored in
+    pairs of keys and values. The keys are used to store and quickly
+    find the values. Read about Python dictionaries in the
+    official Python documentation about <a target="_blank"
+    href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">dictionaries</a>.</p>
 
     <h2>Assignment</h2>
-    <p>Download this file: <a download href="quotes.txt">quotes.txt</a>
-    and save it in the same folder where you will save your Python
-    program.</p>
+    <p>Download the <a download
+    href="students.csv"><code>students.csv</code></a> file and
+    save it in the same folder where you will save your Python program.
+    Open the file in VS Code or another text editor and examine it.
+    Notice that the I-Numbers and names are separated by a comma. Notice
+    also that the I-Numbers are stored in the file without any dashes
+    between the digits.</p>
 
     <p>Write a Python program that reads the contents of the
-    <code>quotes.txt</code> file into a list and then randomly chooses
-    one of the quotes and prints it for the user to see. Include these
-    two lines of code at the top of your program to import the functions
-    in the <code>random</code> and <code>textwrap</code> modules:</p>
-
-<pre class="python">import random
-import textwrap</pre>
+    <code>students.csv</code> file and populates a Python dictionary
+    while reading the file. The dictionary uses student I-Numbers as the
+    keys and student names as the values. After your program populates
+    the dictionary from the file, your program must ask the user for an
+    I-Number. Your program will then find and print the corresponding
+    student's name. Recall that I-Numbers contain nine digits and are
+    often typed by users with dashes separating some of the digits like
+    this 62-560-1400. However, the I-Numbers in the
+    <code>students.csv</code> file don't contain dashes.</p>
 
     <h3>Core Requirements</h3>
     <ol class="long">
-        <li><div>Your program must call the <code>open</code> function
-        to open the <code>quotes.txt</code> file and call
-        <code>file.readlines</code> to read all the lines in the file
-        into a list.</div></li>
+        <li><div>Your program must read the data in the
+        <code>students.csv</code> file and convert that data into a
+        Python dictionary with I-Numbers as the keys and names as the
+        values.</div></li>
 
-        <li><div>Your program must call <code>random.choice</code> to
-        randomly choose one of the quotes from the list.</div></li>
+        <li><div>Your program must ask the user for an I-Number and must
+        display the student name that corresponds to the given
+        I-Number.</div></li>
 
-        <li><div>Your program must call <code>textwrap.wrap</code> to
-        wrap the words of the chosen quote to 70 characters or fewer per
-        line and call <code>print</code> to print the wrapped lines of
-        the quote for the user to see.</div></li>
+        <li><div>If a user enters an I-Number that doesn't exist in the
+        dictionary, your program must print the message, "No such
+        student" (without the quotes).</div></li>
     </ol>
 
     <h3>Stretch Challenges</h3>
@@ -107,42 +103,58 @@ import textwrap</pre>
         <li><div>Write comments above the lines of code that were
         difficult for you to understand.</div></li>
 
-        <li><div>Allow the user to enter a positive integer to choose
-        how many quotes are chosen and printed.</div></li>
+        <li><div>Add code to remove dashes from the I-Number that the
+        user enters. This will allow the user to enter I-Numbers with
+        dashes and still allow the computer to search in the
+        dictionary.</div></li>
 
-        <li><div>Write a new program that reads the
-        <code>quotes.txt</code> file and then prints all of the names of
-        the authors, but just the names and not the quotes. Hint: notice
-        that the author's name appears at the end of each quote,
-        separated from the quote by a dash (-). However, notice also
-        that some quotes contain a dash. To find the location of the
-        last dash, use the <a target="_blank"
-        href="https://docs.python.org/3/library/stdtypes.html#str.rindex">rindex</a>
-        function.</div></li>
+        <li><div>When a user enters an I-Number, your program should
+        ensure it is a valid I-Number.</div>
+        <ol>
+            <li><div>If there are too few digits in the I-Number, your
+            program should print, "Invalid I-Number: too few digits"
+            (without the quotes).</div></li>
+
+            <li><div>If there are too many digits in the I-Number, your
+            program should print, "Invalid I-Number: too many digits"
+            (without the quotes).</div></li>
+
+            <li><div>If the given I-Number contains any characters
+            besides digits and dashes, your program should output
+            "Invalid I-Number" (without the quotes).</div></li>
+
+            <li><div>Write a loop around the code that gets the user
+            input. If the user enters an invalid I-Number, the loop
+            should repeat so that the user is again prompted to enter an
+            I-Number.</div></li>
+        </ol></li>
     </ol>
 
-    <h2>Sample Run</h2>
+    <h2>Sample Runs</h2>
 <pre class="console">&gt; python teach_solution.py
-How many quotes would you like? 2
+Please enter an I-Number (xx-xxx-xxxx): <span class="input">55-123-4151</span>
+No such student
 
-If you want to achieve excellence, you can get there today. As of this
-second, quit doing less-than-excellent work. -Thomas J. Watson
-
-B is for believe--in yourself, in those around you, and in eternal
-principles. -Thomas S. Monson</pre>
+&gt; python teach_solution.py
+Please enter an I-Number (xx-xxx-xxxx): <span class="input">75-176-6201</span>
+James Smith</pre>
 
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each step
     in this testing procedure:</p>
     <ol class="test long">
-        <li><div>Run your program and verify that it outputs a quote (or
-        multiple quotes if you completed stretch challenge #4).</div></li>
-        <li><div>Run your program again and verify that it outputs a
-        different quote.</div></li>
-        <li><div>If the quotes that you program printed are short, run
-        your program again until it prints a long quote that wraps onto
-        two or more lines. Verify that each line contains no more than
-        70 characters.</div></li>
+        <li><div>Run your program using the input shown in the sample
+        run section above. Ensure that your program's output matches the
+        sample run output.</div></li>
+
+        <li><div>Run your program and give this I-Number as input:
+        <code>00-115-2306</code> (including the dashes). Many users will
+        want to enter I-Numbers with dashes. How should your program
+        handle the dashes?</div></li>
+
+        <li><div>Run your program and give an I-Number with too few
+        digits or too many digits. How should your program handle these
+        invalid I-Numbers?</div></li>
     </ol>
 
     <h2>Sample Solution</h2>
