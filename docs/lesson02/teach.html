@@ -21,7 +21,7 @@
     <h2>CSE 111 | <span>Programming with Functions</span></h2>
 </header>
 <article>
-    <h1>02 Team Activity: Average Response</h1>
+    <h1>02 Team Activity: Validate User Input</h1>
 
     <h2>Instructions for Team Activities</h2>
     <p>Beginning with this lesson, each lesson will contain a team
@@ -46,94 +46,135 @@
     according to what you actually did.</p>
 
     <h2>Problem Statement</h2>
-    <p>Many schools, businesses, and other institutions ask their
-    stakeholders to complete surveys. Some of the questions on the
-    surveys ask the stakeholders to rate some characteristic on a scale.
-    For example, BYU-Idaho asks its students this question, "What is
-    your overall rating of this course?" Students respond by selecting
-    one of these choices:</p>
-    <ol>
-        <li><div>Very Poor</div></li>
-        <li><div>Poor</div></li>
-        <li><div>Fair</div></li>
-        <li><div>Good</div></li>
-        <li><div>Very Good</div></li>
-        <li><div>Excellent</div></li>
-        <li><div>Exceptional</div></li>
-    </ol>
-
-    <p>The results of this question are summarized by assigning a number
-    from 1 (very poor) to 7 (exceptional) to each response and then
-    computing the average of those numbers. Courses that receive an
-    average overall rating less than 4 are improved by faculty members
-    and curriculum designers.</p>
+    <p>While entering input for a program, users ocassionally make
+    mistakes and enter invalid or incorrect input. A good program
+    recovers from user mistakes, informs users about mistakes in clear
+    polite language, and gives users an opportunity to correct their
+    mistakes.</p>
 
     <h2>Helpful Documentation</h2>
-    <ul class="links">
-        <li><div><a target="_blank"
-        href="https://docs.python.org/3.8/tutorial/inputoutput.html#reading-and-writing-files">Reading and Writing Files</a></div></li>
-        <li><div><a target="_blank"
-        href="https://realpython.com/courses/lists-tuples-python/">Lists and Tuples</a></div></li>
-    </ul>
+    <p>The built-in Python <a target="_blank" href="https://docs.python.org/3.8/library/functions.html#len"><code>len</code></a>
+    function returns the number of characters in a string.</p>
+
+    <p>The string <a target="_blank" href="https://docs.python.org/3.8/library/stdtypes.html#str.isdecimal"><code>isdecimal</code></a>
+    method checks the characters in a string to see if they are all
+    decimal digits or not.</p>
 
     <h2>Assignment</h2>
-    <p>The <code>responses.txt</code> file contains the numeric rating
-    responses from one question on a survey. Download the <a download
-    href="responses.txt"><code>responses.txt</code></a> file and save it
-    in the same folder where you will save your Python program. Open the
-    file in VS Code or another text editor and examine it. Notice that
-    each line in the file contains one integer. Each integer represents
-    one person's response to one question.</p>
+    <p>Start with the following Python program and add code that will
+    check the user input, and if the input is invalid, prompt the user
+    repeatedly until the input is valid. Notice in the following
+    program, all product numbers in the <code>products</code> dictionary
+    are composed of five decimal digits.</p>
+
+<div class="pre"><pre class="linenums">
+1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9
+11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19
+21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29
+</pre><pre class="python">
+# Create a dictionary that holds product numbers and names.
+products = {
+    38500: "Backpacking Tent",
+    27840: "Sit-Stand Desk",
+    37992: "Mouse",
+    24458: "Subwoofer",
+    38323: "USB Cable",
+    14392: "Monitor",
+    11103: "Sleeping Bag",
+    41023: "Cat-6 Network Cable",
+    40246: "HDMI Cable",
+    23047: "Keyboard",
+    20319: "Keyboard",
+    32061: "Mouse"
+}
+
+# Get a product number from the user.
+prod_num = input("Please enter a product number: ")
+
+# Convert the product number from a string to
+# an integer, so that this program can find the
+# product number in the products dictionary.
+prod_num = int(prod_num)
+
+# Find the corresponding product name and print it.
+prod_name = products[prod_num]
+print(f"{prod_num}: {prod_name}")</pre></div>
 
     <h3>Core Requirements</h3>
-    Write a program that does the following:
-    <ol class="long">
-        <li><div>Opens the responses.txt file for reading.</div></li>
-        <li><div>Reads each response from the file and converts each
-        response from a string to a number and stores all responses in a
-        list of numbers.</div></li>
-        <li><div>Computes the average value of all the responses and
-        prints the number of responses and the average value of the
-        responses.</div></li>
-    </ol>
+    <p>Do the following:</p>
 
-    <h2>Sample Run</h2>
-<pre class="console">&gt; python teach_solution.py
-responses.txt
-There are 25 responses with an average value of 4.0
-14 of the responses are greater than the average.</pre>
+    <ol class="long">
+        <li><div>Add a loop around the call to the <code>input</code>
+        function on line&nbsp;19, so that if a user enters an invalid
+        product number, your program will print an error message and
+        prompt the user again.</div></li>
+
+        <li><div>Within the loop and after the call to the
+        <code>input</code> function, add code that validates the user
+        input.
+        <ol>
+            <li><div>If the user enters any character that is not a
+            decimal digit, your program must print "Invalid character in
+            the product number" (without the quotes).</div></li>
+
+            <li><div>If the user enters fewer than five decimal digits,
+            your program must print "Invalid product number: too few
+            digits" (without the quotes).</div></li>
+
+            <li><div>If the user enters more than five decimal digits,
+            your program must print "Invalid product number: too many
+            digits" (without the quotes).</div></li>
+        </ol></li></div>
+
+        <li><div>If the user enters a valid product number (five decimal
+        digits), your program must continue and find the product number
+        in the products dictionary and print the corresponding product
+        name.</div></li>
+    </ol>
 
     <h3>Stretch Challenges</h3>
     <p>If your team finishes the core requirements in less than an hour,
     complete one or more of these stretch challenges. Note that the
     stretch challenges are optional.</p>
 
-    <p>What happens if a stakeholder doesn't answer a question on a
-    survye? What rating should be used for a non answer? Perhaps non
-    answers should be skipped and not computed in the average. In the
-    <code>responses.txt</code> file, several of the lines contain the
-    number -1. The -1 indicates that the stakeholder didn't answer the
-    question. Modify your program so that it does the following:</p>
-    <ol class="long">
-        <li><div>Ignores or skips all responses that are less than
-        zero (0).</div></li>
-        <li><div>Counts the number of responses that are greater than
-        the average response and prints that count.</div></li>
+    <ol>
+        <li><div>After the user input validation code and immediately
+        before the line of code that finds a product number in the
+        <code>products</code> dictionary, add code to your program that
+        uses an <code>if</code> statement with the Python
+        <code>in</code> operator to check if a product number is in the
+        <code>products</code> dictionary.
+        <ol>
+            <li><div>If the product number is not in the
+            <code>products</code> dictionary, your program must print
+            "No such product" (without the quotes).</div></li>
+            <li><div>Otherwise, your program must print the product
+            number and name.</div></li>
+        </ol></div></li>
     </ol>
 
     <h2>Sample Run</h2>
 <pre class="console">&gt; python teach_solution.py
-responses.txt
-There are 21 responses with an average value of 4.95
-14 of the responses are greater than the average.</pre>
+Please enter a product number: 1543a
+Invalid character in the product number
+Please enter a product number: 15
+Invalid product number: too few digits
+Please enter a product number: 1502983
+Invalid product number: too many digits
+Please enter a product number: 15432
+No such product: 15432
+
+&gt; python teach_solution.py
+Please enter a product number: 23047
+23047: Keyboard</pre>
 
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each step
     in this testing procedure:</p>
     <ol class="test long">
-        <li><div>Run your program. Ensure that your program's output
-        matches the sample run output for the Core Requirements or the
-        Stretch Challenges.</div></li>
+        <li><div>Run your program and enter the inputs shown in the
+        "Sample Run" section above. Ensure that your program's output
+        matches the sample run output.</div></li>
     </ol>
 
     <h2>Sample Solution</h2>

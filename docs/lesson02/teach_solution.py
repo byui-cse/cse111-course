@@ -1,37 +1,41 @@
-filename = "responses.txt"
-print(filename)
+# Create a dictionary that holds product numbers and names.
+products = {
+    38500: "Backpacking Tent",
+    27840: "Sit-Stand Desk",
+    37992: "Mouse",
+    24458: "Subwoofer",
+    38323: "USB Cable",
+    14392: "Monitor",
+    11103: "Sleeping Bag",
+    41023: "Cat-6 Network Cable",
+    40246: "HDMI Cable",
+    23047: "Keyboard",
+    20319: "Keyboard",
+    32061: "Mouse"
+}
 
-# Create an empty list that will hold the
-# responses that are read from the file.
-responses = []
+prod_num = ""
+while not (len(prod_num) == 5 and prod_num.isdecimal()):
+    # Get a product number from the user.
+    prod_num = input("Please enter a product number: ")
 
-# Open the responses.txt file.
-with open(filename, "rt") as textfile:
+    # Verify that the product number is valid.
+    if not prod_num.isdigit():
+        print("Invalid character in product number")
+    elif len(prod_num) < 5:
+        print("Invalid product number: too few digits")
+    elif len(prod_num) > 5:
+        print("Invalid product number: too many digits")
 
-    # Each line in the file contains one response which is a number.
-    for line in textfile:
-        # For each line in the file, convert
-        # the text from a string to a number.
-        response = float(line)
+# The user input is a valid product number. Convert the product
+# number from a string to an integer, so that this program can
+# find the product number in the products dictionary.
+prod_num = int(prod_num)
 
-        # Skip all responses that are less than zero.
-        if response >= 0:
-            # Store the number in the responses list.
-            responses.append(response)
-
-# Compute the quantity, sum, and average of the responses.
-quantity = len(responses)
-total = sum(responses)
-average = total / quantity
-
-# Display the average for the user to see.
-print(f"There are {quantity} responses with an average value of {round(average, 2)}")
-
-# Count how many responses are greater than the average.
-count = 0
-for response in responses:
-    if response > average:
-        count += 1
-
-# Display the number of responses that are greater than the average.
-print(f"{count} of the responses are greater than the average.")
+# Verify that the product number is in the products dictionary.
+if prod_num in products:
+    # Find the corresponding product name and print it.
+    prod_name = products[prod_num]
+    print(f"{prod_num}: {prod_name}")
+else:
+    print(f"No such product: {prod_num}")
