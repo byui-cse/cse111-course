@@ -50,17 +50,29 @@
     alt="A semi-realistic outdoor scene drawn by a Python program"></p>
 
     <h2>Helpful Documentation</h2>
-    <ul>
+    <ul class="long">
         <li><div>A tutorial about <a target="_blank"
         href="http://zetcode.com/tkinter/drawing/">drawing with
         tkinter</a></div></li>
 
-        <li><div>Reference for <a target="_blank"
-        href="https://effbot.org/tkinterbook/canvas.htm">tkinter
-        Canvas</a> widget</div></li>
+        <li><div>References for tkinter Canvas methods
+        <ul>
+			<li><div><a href="https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/create_arc.html">create_arc()</a></div></li>
+			<li><div><a href="https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/create_line.html">create_line()</a></div></li>
+			<li><div><a href="https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/create_oval.html">create_oval()</a></div></li>
+			<li><div><a href="https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/create_polygon.html">create_polygon()</a></div></li>
+			<li><div><a href="https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/create_rectangle.html">create_rectangle()</a></div></li>
+			<li><div><a href="https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/create_text.html">create_text()</a></div></li>
+        </ul></div></li>
 
         <li><div><a target="_blank" href="colors.png">Chart of named
         colors</a> in tkinter</div></li>
+    </ul>
+
+    <h2>Helpful Videos</h2>
+    <ul class="links">
+        <li><div><a target="_blank" href="https://youtu.be/MBKO2d_572o">Drawing with Functions, part 1</a></div></li>
+        <li><div><a target="_blank" href="https://youtu.be/TtZsqciApRk">Drawing with Functions, part 2</a></div></li>
     </ul>
 
     <h2>Assignment</h2>
@@ -160,11 +172,12 @@ main()</pre></div>
 
     <p><img src="oval.png" alt="A blue circle drawn by a Python program"></p>
 
-    <p>The circle was drawn because the <code>draw_scene</code> function
-    called the <code>draw_example_circle</code> function. The circle was
-    drawn by the code at lines&nbsp;55&ndash;56. Delete or comment-out
-    lines&nbsp;44&ndash;47 and lines&nbsp;52&ndash;56 and begin writing
-    your program.</p>
+    <p>The circle was drawn because at line&nbsp;47, the
+    <code>draw_scene</code> function called the
+    <code>draw_example_circle</code> function and at
+    lines&nbsp;55&ndash;56 the draw_example_circle function called the
+    create_oval method. Delete or comment-out lines&nbsp;44&ndash;47 and
+    lines&nbsp;52&ndash;56 and begin writing your program.</p>
 
     <p>The purpose of this assignment is to prove that you can write and
     call functions. Therefore, your program must be divided into
