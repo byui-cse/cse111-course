@@ -24,8 +24,9 @@
     <h1>05 Prove Milestone: Draw a Scene</h1>
 
     <h2>Overview</h2>
-    <p>Prove that you can write and call functions by writing a program
-    that draws an outdoor scene in a window.</p>
+    <p>Prove that you can write functions with parameters and call those
+    functions with arguments by writing a program that draws an outdoor
+    scene in a window.</p>
 
     <h2>Problem Statement</h2>
     <p>Most modern computer operating systems have graphical user
@@ -89,7 +90,8 @@
 20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29
 30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39
 40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49
-50<br>51<br>52<br>53<br>54<br>55</pre>
+50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59
+60<br>61</pre>
 <pre class="python">from tkinter import Tk, Frame, Canvas, BOTH
 
 
@@ -133,13 +135,19 @@ def draw_scene(canvas, scene_left, scene_top, scene_right, scene_bottom):
     """
     # Call your functions here, such as draw_sky, draw_ground,
     # draw_snowman, draw_tree, draw_shrub, etc.
-    canvas.create_oval(scene_left, scene_top + 40,
-            scene_right - 60, scene_bottom,
-            outline="gray10", width=4, fill="blue")
+    circle_left = scene_left + 500
+    circle_top = scene_top + 100
+    circle_diam = 150
+    draw_example_circle(canvas, circle_left, circle_top, circle_diam)
 
 
 # Define more functions here, like draw_sky, draw_ground,
 # draw_cloud, draw_tree, draw_kite, draw_snowflake, etc.
+def draw_example_circle(canvas, left, top, diameter):
+    right = left + diameter
+    bottom = top + diameter
+    canvas.create_oval(left, top, right, bottom,
+            outline="gray10", width=4, fill="blue")
 
 
 # Call the main function so that
@@ -148,21 +156,25 @@ main()</pre></div>
 
     <p>Save your new file as <code>scene.py</code> and run your new
     Python program. When you run it, it should open a window that
-    contains a blue oval like this:</p>
+    contains a blue circle like this:</p>
 
-    <p><img src="oval.png" alt="A blue oval drawn by a Python program"></p>
+    <p><img src="oval.png" alt="A blue circle drawn by a Python program"></p>
 
-    <p>This oval was drawn by the code at lines&nbsp;44&ndash;46. Delete
-    lines&nbsp;44&ndash;46 and begin writing your program. The purpose
-    of this assignment is to prove that you can write and call
-    functions. Therefore, your program must be divided into functions
-    such as <code>draw_sky</code>, <code>draw_cloud</code>,
+    <p>The circle was drawn because the <code>draw_scene</code> function
+    called the <code>draw_example_circle</code> function. The circle was
+    drawn by the code at lines&nbsp;55&ndash;56. Delete or comment-out
+    lines&nbsp;44&ndash;47 and lines&nbsp;52&ndash;56 and begin writing
+    your program.</p>
+
+    <p>The purpose of this assignment is to prove that you can write and
+    call functions. Therefore, your program must be divided into
+    functions such as <code>draw_sky</code>, <code>draw_cloud</code>,
     <code>draw_ground</code>, <code>draw_bird</code>,
     <code>draw_grass_blade</code>, and <code>draw_insect</code>. The
     header for the <code>draw_scene</code> function, which is shown on
     line&nbsp;27 in the example code above, is a good example for the
     headers of all your draw_* functions. For example, if you write a
-    <code>draw_grass_blade</code> function in your program, you should
+    <code>draw_grass_blade</code> function in your program, you could
     write its header like this:</p>
 
 <div class="pre"><pre class="python">def draw_grass_blade(canvas, blade_left, blade_top, blade_right, blade_bottom):</pre></div>
