@@ -177,6 +177,10 @@ article ul {
 	list-style-type: disc;
 }
 
+article ul.long > li {
+	margin-bottom: 1em;
+}
+
 article li ul {
 	list-style-type: circle;
 }
