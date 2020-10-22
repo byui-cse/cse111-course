@@ -119,7 +119,7 @@
 40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49
 50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59
 60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68<br>69
-70<br>71<br>72<br>73<br>74</pre>
+70<br>71<br>72<br>73<br>74<br>75<br>76<br>77<br>78</pre>
 <pre class="python">from tkinter import Tk, Frame, Canvas, BOTH
 
 
@@ -171,17 +171,21 @@ def draw_scene(canvas, scene_left, scene_top, scene_right, scene_bottom):
 
 # Define more functions here, like draw_sky, draw_ground,
 # draw_cloud, draw_tree, draw_kite, draw_snowflake, etc.
+
 def draw_pine_tree(canvas, peak_x, peak_y, height):
+    """Draw a single pine tree."""
     trunk_width = height / 10
     trunk_height = height / 8
     trunk_left = peak_x - trunk_width / 2
     trunk_right = peak_x + trunk_width / 2
     trunk_bottom = peak_y + height
+
     skirt_width = height / 2
     skirt_height = height - trunk_height
     skirt_left = peak_x - skirt_width / 2
     skirt_right = peak_x + skirt_width / 2
     skirt_bottom = peak_y + skirt_height
+
     canvas.create_rectangle(trunk_left, skirt_bottom,
             trunk_right, trunk_bottom,
             outline="gray20", width=1, fill="tan3")
@@ -201,13 +205,14 @@ main()</pre></div>
 
     <p><img src="oval.png" alt="A blue circle drawn by a Python program"></p>
 
-    <p>The pine tree was drawn because at line&nbsp;47, the
-    <code>draw_scene</code> function called the
-    <code>draw_pine_tree</code> function and at lines&nbsp;63&ndash;69
-    the <code>draw_pine_tree</code> function called the
-    <code>create_rectangle</code> and <code>create_polygon</code>
-    methods. Delete or comment-out lines&nbsp;44&ndash;47 and
-    lines&nbsp;52&ndash;69 and begin writing your program.</p>
+    <p>The pine tree was drawn because the code at line&nbsp;78 called
+    the <code>main</code> function. At line&nbsp;22, the
+    <code>main</code> function called the <code>draw_scene</code>
+    function. At line&nbsp;47, the <code>draw_scene</code> function
+    called the <code>draw_pine_tree</code> function and at
+    lines&nbsp;67&ndash;73 the <code>draw_pine_tree</code> function
+    called the <code>create_rectangle</code> and
+    <code>create_polygon</code> methods.</p>
 
     <p>The purpose of this assignment is to prove that you can write and
     call functions. Therefore, your program must be divided into
@@ -222,10 +227,12 @@ main()</pre></div>
 
 <div class="pre"><pre class="python">def draw_grass_blade(canvas, blade_left, blade_top, blade_right, blade_bottom):</pre></div>
 
-    <p>As you write your program, be sure that it draws elements in the
-    order of farthest away to nearest. For example, you program should
-    draw the blue sky first, then the ground, then clouds, then trees,
-    then insects in the trees.</p>
+    <p>Delete or comment-out lines&nbsp;44&ndash;47 and
+    lines&nbsp;53&ndash;73 and begin writing your program.As you write
+    your program, be sure that it draws elements in the order of
+    farthest away to nearest. For example, you program should draw the
+    blue sky first, then the ground, then clouds, then trees, then
+    insects in the trees.</p>
 
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each
