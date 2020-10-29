@@ -144,8 +144,8 @@ import pytest</pre></div></div></li>
     <h2>Sample Run</h2>
     <pre class="console">&gt; python teach_solution.py
 ========================= test session starts =========================
-platform win32 -- Python 3.7.6, pytest-5.3.5, py-1.8.1, pluggy-0.13.1
-rootdir: C:\Users\barzee\cse111\lesson07
+platform win32 -- Python 3.8.5, pytest-6.1.1, py-1.9.0, pluggy-0.13.1
+rootdir: C:\Users\rab29\cse111\before-dicts\docs\lesson07
 collected 3 items
 
 teach_solution.py FF.                                            [100%]
@@ -155,25 +155,24 @@ ___________________________ test_full_name ____________________________
 
     def test_full_name():
         """Verify that the full_name function returns correct results."""
-&gt;       assert full_name("Penelope", "Smith-Jones") == "Smith-Jones, Penelope"
-E    AssertionError: assert 'Smith-Jones,Penelope' == 'Smith-Jones, Penelope'
-E      - Smith-Jones,Penelope
-E      + Smith-Jones, Penelope
-E      ?             +
+&gt;       assert full_name("Penelope", "Smith-Jones") == "Smith-Jones; Penelope"
+E       AssertionError: assert 'Smith-Jones;Penelope' == 'Smith-Jones; Penelope'
+E         - Smith-Jones; Penelope
+E         ?             -
+E         + Smith-Jones;Penelope
 
-teach_solution.py:5: AssertionError
+teach_solution.py:6: AssertionError
 ___________________________ test_given_name ___________________________
 
     def test_given_name():
         """Verify that the given_name function returns correct results."""
-&gt;       assert given_name("Smith-Jones, Penelope") == "Penelope"
-E    AssertionError: assert ' Penelope' == 'Penelope'
-E      -  Penelope
-E      ? -
-E      + Penelope
+&gt;       assert given_name("Smith-Jones; Penelope") == "Penelope"
+E       AssertionError: assert 'mith-Jones; Penelope' == 'Penelope'
+E         - Penelope
+E         + mith-Jones; Penelope
 
-teach_solution.py:12: AssertionError
-===================== 2 failed, 1 passed in 0.08s =====================</pre>
+teach_solution.py:13: AssertionError
+===================== 2 failed, 1 passed in 0.13s =====================</pre>
 
     <h2>Testing Procedure</h2>
     <p>Repeat steps&nbsp;8 and&nbsp;9 above until you have found and
