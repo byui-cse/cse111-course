@@ -23,13 +23,6 @@ def test_parse():
     pass
 
 
-def test_molar_mass():
-    """Test the chemistry.molar_mass function."""
-    assert molar_mass(parse_formula("H2O")) == approx(18.01528)
-    assert molar_mass(parse_formula("C6H6")) == approx(78.11184)
-    assert molar_mass(parse_formula("PO4H2(CH2)12CH3")) == approx(280.34072)
-
-
 # Call the main function that is part of pytest so that
 # the test functions in this file will start executing.
 pytest.main(["test_chemistry.py"])

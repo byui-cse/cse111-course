@@ -226,5 +226,5 @@ def molar_mass(elem_dict):
     1.00794 * 2 + 15.9994 * 1
     18.01528
     """
-    # TODO: Write this function.
+    # TODO: Write this function during lesson 8.
     pass
