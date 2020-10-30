@@ -148,6 +148,9 @@ def get_atomic_mass(symbol):
 
 
 class FormulaError(ValueError):
+    """FormulaError is the type of error that
+    parse_formula will raise if a formula is invalid.
+    """
     pass
 
 def parse_formula(formula):
