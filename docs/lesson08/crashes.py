@@ -6,7 +6,7 @@ FATALITIES_KEY = "Fatalities"
 INJURIES_KEY = "Injuries"
 CRASHES_KEY = "Crashes"
 FATAL_CRASHES_KEY = "Fatal Crashes"
-DISTRACTION_KEY = "Distraction Affected Fatal Crashes"
+DISTRACT_KEY = "Distraction Affected Fatal Crashes"
 PHONE_KEY = "Fatal Crashes involving Cell Phone Use"
 SPEED_KEY = "Fatal Crashes involving Excessive Speed"
 DUI_KEY = "Fatal Crashes while Driving under the Influence"
@@ -16,27 +16,35 @@ FATIGUE_KEY = "Fatal Crashes involving Fatigue or Illness"
 def main():
     # Prompt the user for a filename and open that text file.
     filename = input("Name of file that contains NHTSA data: ")
-    infile = open(filename, "rt")
     print()
 
     # Prompt the user for a percentage.
     perc_reduc = float(input("Percent reduction of texting while driving: "))
     print()
 
-    print(f"With a {perc_reduc}% reduction in using a cell phone while\n"+
-        "driving, approximately this number of injuries and\n" +
-        "deaths would have been prevented in the USA.")
-    print()
+    # Open the text file that the user requested.
+    with open(filename, "rt") as infile:
+        print(f"With a {perc_reduc}% reduction in using a cell phone while\n"+
+            "driving, approximately this number of injuries and\n" +
+            "deaths would have been prevented in the USA.")
+        print()
+        print("Year, Injuries, Deaths")
 
-    # Process each row in the CSV file.
-    print("Year, Injuries, Deaths")
-    reader = csv.DictReader(infile)
-    for row in reader:
-        year = row[YEAR_KEY]
-        injur, fatal = estimate_reduction(row, PHONE_KEY, perc_reduc)
-        print(year, injur, fatal, sep=", ")
+        # Create a DictReader object to read each line from the CSV
+        # file. This code doesn't include the next(reader) command to
+        # skip the first line of the file because the DictReader object
+        # uses the column headers on the first line of the file.
+        reader = csv.DictReader(infile)
 
-    infile.close()
+        # Process each row in the CSV file.
+        for row in reader:
+            year = row[YEAR_KEY]
+
+            # Call the estimate_reduction function.
+            injur, fatal = estimate_reduction(row, PHONE_KEY, perc_reduc)
+
+            # Print the estimated reductions in injuries and fatalities.
+            print(year, injur, fatal, sep=", ")
 
 
 def estimate_reduction(row, behavior_key, perc_reduc):
