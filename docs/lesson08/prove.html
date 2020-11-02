@@ -69,44 +69,17 @@
 
     <h2>Assignment</h2>
     <p>During this lesson, you will write and test the remaining parts
-    of a molar mass calculator. Specifically, you will write two program
-    functions, write two test functions, run the tests, and test your
+    of a molar mass calculator. Specifically, you will add to an
+    existing test function, write one program function named
+    <code>main</code>, run the test functions, and also test your
     completed calculator by using it like a chemist.</p>
 
     <p>Do the following:</p>
     <ol class="long">
-        <li><div><p>At the bottom of the <code>chemistry.py</code> file
-        is an unfinished function named <code>molar_mass</code>. Read
-        the document string that describes what the function is supposed
-        to do. Delete the <code>pass</code> statement and then write the
-        Python code for the function.</p>
-
-        <p>Processing all the items in a Python dictionary is sometimes
-        called iterating through a dictionary. If you are uncertain how
-        to write code to process all the items in a dictionary, read
-        this article:
-        <a target="_blank" href="https://realpython.com/iterate-through-dictionary-python/">How to Iterate Through a Dictionary in Python</a>.
-        Within that article, the section titled,
-        <a target="_blank" href="https://realpython.com/iterate-through-dictionary-python/#iterating-through-items">Iterating Through <code>.items()</code></a>
-        is the most helpful for this assignment. The first code example in the
-        <a target="_blank" href="https://docs.python.org/3/tutorial/datastructures.html#looping-techniques">Looping Techniques</a>
-        section of the Python data structures tutorial may also be
-        helpful to you.</p></div></li>
-
-        <li><div>Add the following function near the bottom of the
-        <code>test_chemistry.py</code> file:
-<div class="pre"><pre class="python">
-def test_molar_mass():
-    """Test the chemistry.molar_mass function."""
-    assert molar_mass(parse_formula("H2O")) == approx(18.01528)
-    assert molar_mass(parse_formula("C6H6")) == approx(78.11184)
-    assert molar_mass(parse_formula("PO4H2(CH2)12CH3")) == approx(280.34072)
-</pre></div></div></li>
-
         <li><div><p>The following six chemical formulas all contain
         errors, and the <code>parse_formula</code> function should raise
         a <code>FormulaError</code> when it tries to parse them. In the
-        <code>test_chemistry.py</code> file, write code in the
+        <code>test_chemistry.py</code> file, add code in the
         <code>test_parse</code> function to test that the
         <code>parse_formula</code> function raises a
         <code>FormulaError</code> for each of them.</p>

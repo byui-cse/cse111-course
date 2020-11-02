@@ -65,9 +65,9 @@
     <h2>Assignment</h2>
     <p>During this lesson and the next lesson, you will write and test a
     molar mass calculator. During this lesson you will complete about
-    half of the task, including writing a function, writing two test
-    functions, running three test functions, and finding and fixing any
-    mistakes that cause test failures.</p>
+    half of the task by writing three test functions, running four test
+    functions, and finding and fixing any mistakes that cause test
+    failures.</p>
 
     <p>Do the following:</p>
     <ol class="long">
@@ -383,49 +383,62 @@
             <li><div>PO4H2(CH2)12CH3</div></li>
         </ul></div></li>
 
-        <li><div>Run the test functions that your wrote. Fix mistakes,
-        if there are any, in <code>get_name</code> and
-        <code>get_atomic_mass</code>.</div></li>
-    </ol>
+        <li><div>Run the four test functions. Fix mistakes, if there are
+        any, in the <code>init_periodic_table</code> function and in the
+        three test functions that you wrote: <code>test_names</code>,
+        <code>test_atomic_masses</code>, and <code>test_parse</code>.
+        There are no mistakes in the <code>parse_formula</code>,
+        <code>molar_mass</code>, and <code>test_molar_mass</code>
+        functions, so you shouldn't change those three
+        functions.</div></li> </ol>
 
     <h2>Sample Run</h2>
 <pre class="console">&gt; python test_chemistry.py
 ========================= test session starts =========================
 platform win32 -- Python 3.7.6, pytest-5.3.5, py-1.8.1, pluggy-0.13.1
 rootdir: C:\Users\barzee\cse111\lesson07
-collected 3 items
+collected 4 items
 
-test_chemistry.py ...                                            [100%]
+test_chemistry.py ....                                           [100%]
 
-========================== 3 passed in 0.20s ==========================</pre>
+========================== 4 passed in 0.20s ==========================</pre>
 
     <h2>Testing Procedure</h2>
     <p>Verify that the Python code in <code>chemistry.py</code> and
     <code>test_chemistry.py</code> works correctly by using
-    <code>pytest</code> to run the three test functions in
+    <code>pytest</code> to run the four test functions in
     <code>test_chemistry.py</code>.</p>
 
     <ol class="test long">
         <li><div>If <code>test_names</code> fails, carefully read the
         failure message from <code>pytest</code>. Ask yourself, "Given
         this failure message, which function is incorrect, the
-        <code>test_names</code> function or the <code>get_name</code>
+        <code>init_periodic_table</code> function, the
+        <code>get_name</code> function, or the <code>test_names</code>
         function?" Fix the function that has a mistake.</div></li>
 
         <li><div>If <code>test_atomic_masses</code> fails, carefully
         read the failure message from <code>pytest</code>. Ask yourself,
         "Given this failure message, which function is incorrect, the
-        <code>test_atomic_masses</code> function or the
-        <code>get_atomic_mass</code> function?" Fix the function that
+        <code>init_periodic_table</code> function, the
+        <code>get_atomic_mass</code> function, or the
+        <code>test_atomic_masses</code> function?" Fix the function that
         has a mistake.</div></li>
 
         <li><div>If <code>test_parse</code> fails, carefully read the
         failure message from <code>pytest</code> and fix the mistake in
         your <code>test_parse</code> function. In other words, we
-        believe there are no mistakes in <code>parse_formula</code> that
-        your <code>test_parse</code> function will find, so if
-        <code>test_parse</code> fails, the mistake is very likely in
-        <code>test_parse</code>.</div></li>
+        believe there are no mistakes in the <code>parse_formula</code>
+        function that your <code>test_parse</code> function will find,
+        so if <code>test_parse</code> fails, the mistake is very likely
+        in <code>test_parse</code>.</div></li>
+
+        <li><div>If <code>test_molar_mass</code> fails, the mistake is
+        almost certainly in the <code>init_periodic_table</code>
+        function, and you need to find that mistake and fix it. In other
+        words, we believe there are no mistakes in the
+        <code>molar_mass</code> and <code>test_molar_mass</code>
+        functions.</div></li>
     </ol>
 
     <h2>Submission</h2>
