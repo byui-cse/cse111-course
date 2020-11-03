@@ -14,42 +14,47 @@ FATIGUE_KEY = "Fatal Crashes involving Fatigue or Illness"
 
 
 def main():
-    # Prompt the user for a filename and open that text file.
-    infile = get_input_file("Name of file that contains NHTSA data: ")
-
-    # Prompt the user for a percentage.
-    perc_reduc = get_float(0, 100, "Percent reduction of texting while driving [0, 100]: ")
-
-    print(f"With a {perc_reduc}% reduction in using a cell phone while\n"+
-        "driving, approximately this number of injuries and\n" +
-        "deaths would have been prevented in the USA.")
-    print()
-    print("Year, Injuries, Deaths")
-
     try:
-        # Create a DictReader object to read each line from the CSV
-        # file. This code doesn't include the next(reader) command to
-        # skip the first line of the file because the DictReader object
-        # uses the column headers on the first line of the file.
-        reader = csv.DictReader(infile)
+        # Prompt the user for a filename and open that text file.
+        infile = get_input_file("Name of file that contains NHTSA data: ")
 
-        # Process each row in the CSV file.
-        for row in reader:
-            year = row[YEAR_KEY]
+        # Prompt the user for a percentage.
+        perc_reduc = get_float(0, 100, "Percent reduction of texting while driving [0, 100]: ")
 
-            # Call the estimate_reduction function.
-            injur, fatal = estimate_reduction(row, PHONE_KEY, perc_reduc)
+        print(f"With a {perc_reduc}% reduction in using a cell phone while",
+                "driving, approximately this number of injuries and",
+                "deaths would have been prevented in the USA.", sep="\n")
+        print()
+        print("Year, Injuries, Deaths")
 
-            # Print the estimated reductions in injuries and fatalities.
-            print(year, injur, fatal, sep=", ")
+        try:
+            # Create a DictReader object to read each line from the CSV
+            # file. This code doesn't include the next(reader) command to
+            # skip the first line of the file because the DictReader object
+            # uses the column headers on the first line of the file.
+            reader = csv.DictReader(infile)
 
-    except ZeroDivisionError as ex:
-        print(f'Error: line {reader.line_num} of {infile.name} contains 0 in the "Fatal Crashes" or "Cell Phone Use" column.')
+            # Process each row in the CSV file.
+            for row in reader:
+                year = row[YEAR_KEY]
+
+                # Call the estimate_reduction function.
+                injur, fatal = estimate_reduction(row, PHONE_KEY, perc_reduc)
+
+                # Print the estimated reductions in injuries and fatalities.
+                print(year, injur, fatal, sep=", ")
+        except (csv.Error, KeyError) as ex:
+            print(f"Error: line {reader.line_num} of {infile.name} is formatted incorrectly.")
+        except ZeroDivisionError as ex:
+            print(f'Error: line {reader.line_num} of {infile.name} contains 0 in the "Fatal Crashes" or "Cell Phone Use" column.')
+
     except Exception as ex:
-        print(f"Error: line {reader.line_num} of {infile.name} is formatted incorrectly.")
-
-    # Close the text file.
-    infile.close()
+        # An unknown error occurred.
+        print(type(ex).__name__, ex, sep=": ")
+    finally:
+        if infile is not None:
+            # Close the text file.
+            infile.close()
 
 
 def get_input_file(prompt):
@@ -77,10 +82,12 @@ def get_float(min, max, prompt):
         try:
             num = float(input(prompt))
             if num < min:
-                print(f"Error: {num} is too low. Please enter a different number.")
+                print(f"Error: {num} is too low.",
+                        "Please enter a different number.", sep="\n")
                 num = None
             elif num > max:
-                print(f"Error: {num} is too high. Please enter a different number.")
+                print(f"Error: {num} is too high.",
+                        "Please enter a different number.", sep="\n")
                 num = None
         except ValueError as ex:
             print("Error:", ex)

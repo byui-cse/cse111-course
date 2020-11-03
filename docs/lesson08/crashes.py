@@ -24,9 +24,9 @@ def main():
 
     # Open the text file that the user requested.
     with open(filename, "rt") as infile:
-        print(f"With a {perc_reduc}% reduction in using a cell phone while\n"+
-            "driving, approximately this number of injuries and\n" +
-            "deaths would have been prevented in the USA.")
+        print(f"With a {perc_reduc}% reduction in using a cell phone while",
+                "driving, approximately this number of injuries and",
+                "deaths would have been prevented in the USA.", sep="\n")
         print()
         print("Year, Injuries, Deaths")
 
