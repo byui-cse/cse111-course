@@ -16,13 +16,13 @@
 	h3
 		color: #0076b6;  BYU-Idaho blue
 	dfn
-		color: orangered;
+		color: coral;
 	strong
-		color: orangered;
+		color: coral;
 	li
 		color: #0076b6;  BYU-Idaho blue
 	pre.console span.input
-		background-color: green;
+		background-color: coral;
 		color: white;
 	pre.python hiScope, hiVarDef, hiVarUse, hiError
 		yellow, orange, yellow, red
@@ -131,11 +131,11 @@ article em {
 article strong {
 	font-weight: bold;
 	font-style: italic;
-	color: orangered;
+	color: coral;
 }
 
 article dfn {
-	color: orangered;
+	color: coral;
 }
 
 article var {
@@ -295,7 +295,7 @@ article pre.console {
 article pre.console span.input {
 	border: 1px solid #707070;
 	padding: 0 0.25em;
-	background-color: green;
+	background-color: coral;
 	color: white;
 }
 

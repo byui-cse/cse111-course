@@ -42,11 +42,10 @@
     <p>A CSV file is a text file that contains a list of data. Within
     each row of a CSV file, the data items are separated by a character
     which is usually a comma. The term "CSV" is an acronym for "comma
-    separated values." Python includes a module with functions for
-    processing CSV files. Read about the Python <code>csv</code> module
-    in the official Python documentation about the <a target="_blank"
-    href="https://docs.python.org/3/library/csv.html"><code>csv</code>
-    module</a>.</p>
+    separated values." Python includes a module named <code>csv</code>
+    with functions for processing CSV files. Read about the Python
+    <a target="_blank" href="https://docs.python.org/3/library/csv.html"><code>csv</code> module</a>
+    in the official Python documentation.</p>
 
     <p>A Python dictionary is a collection of data that is stored in
     pairs of keys and values. The keys are used to store and quickly
@@ -58,21 +57,29 @@
     <p>Download the <a download
     href="students.csv"><code>students.csv</code></a> file and
     save it in the same folder where you will save your Python program.
-    Open the file in VS Code or another text editor and examine it.
-    Notice that the I-Numbers and names are separated by a comma. Notice
-    also that the I-Numbers are stored in the file without any dashes
-    between the digits.</p>
+    Open the file in VS Code and examine it. Notice that the I-Numbers
+    and names in the file are separated by a comma. Notice also that the
+    I-Numbers are stored in the file without any dashes between the
+    digits.</p>
 
-    <p>Write a Python program that reads the contents of the
-    <code>students.csv</code> file and populates a Python dictionary
-    while reading the file. The dictionary uses student I-Numbers as the
-    keys and student names as the values. After your program populates
-    the dictionary from the file, your program must ask the user for an
-    I-Number. Your program will then find and print the corresponding
-    student's name. Recall that I-Numbers contain nine digits and are
-    often typed by users with dashes separating some of the digits like
-    this 62-560-1400. However, the I-Numbers in the
-    <code>students.csv</code> file don't contain dashes.</p>
+    <p>Write a Python program that does the following:</p>
+    <ol class="long">
+        <li><div>Opens the <code>students.csv</code> file for
+        reading.</div></li>
+
+        <li><div>Skips the first line of text in the file.</div></li>
+
+        <li><div>Reads the other lines of the file into a dictionary.
+        The program must store the student I-Numbers as keys and the
+        student names as values in the dictionary.</div></li>
+
+        <li><div>Prints the entire dictionary.</div></li>
+
+        <li><div>Gets an I-Number from the user.</div></li>
+
+        <li><div>Uses the I-Number to find the corresponding student
+        name in the dictionary and prints the name.</div></li>
+    </ol>
 
     <h3>Core Requirements</h3>
     <ol class="long">
@@ -105,8 +112,8 @@
 
         <li><div>Add code to remove dashes from the I-Number that the
         user enters. This will allow the user to enter I-Numbers with
-        dashes and still allow the computer to search in the
-        dictionary.</div></li>
+        dashes or without dashes and still allow the computer to search
+        in the dictionary.</div></li>
 
         <li><div>When a user enters an I-Number, your program should
         ensure it is a valid I-Number.</div>

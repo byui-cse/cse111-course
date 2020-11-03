@@ -21,65 +21,73 @@
     <h2>CSE 111 | <span>Programming with Functions</span></h2>
 </header>
 <article>
-    <h1>03 Checkpoint: Calling Built-in Functions</h1>
+    <h1>03 Checkpoint: Reading and Changing a List</h1>
 
     <h2>Overview</h2>
-    <p>Demonstrate your understanding of calling Python built-in
-    functions by completing the following individual checkpoint
-    assignment.</p>
-
-    <h2>Helpful Documentation</h2>
-    <p>You can read the official Python <a target="_blank"
-    href="https://docs.python.org/3/library/functions.html">Built-in
-    Functions</a> documentation to learn more.</p>
+    <p>Demonstrate your understanding of text files and lists by
+    completing the following individual checkpoint assignment.</p>
 
     <h2>Assignment</h2>
-    <p>Do the following:</p>
-    <ol class="long">
-        <li><div>In your text editor, open a new file for a Python
-        program.</div></li>
-        <li><div>Copy and paste this Python code that creates a list
-        into your program.
-<pre class="python">heights = [
-    1.72, 1.50, 1.96, 2.01, 1.75,
-    2.11, 1.60, 1.65, 2.05, 1.50,
-    1.80, 1.83, 2.05, 1.79, 1.84
-]</pre></div></li>
+    <p>Download the <a download
+    href="provinces.txt"><code>provinces.txt</code></a> file and save it
+    in the same folder where you will save your Python program. Open the
+    file in VS Code and examine it. Notice that the file contains a list
+    of names of Canadian Provinces. Notice also that the file contains
+    "AB" several times which is an abbreviation for Alberta. Write a
+    program that reads the contents of <code>provinces.txt</code> into a
+    list and that modifies the list.</p>
 
-        <li><div>Write Python code to call each of these built-in
-        functions and pass the list of heights to each function.
-        Store the value returned from each function in a different
-        variable.
-        <ol>
-            <li><div><code>len</code></div></li>
-            <li><div><code>min</code></div></li>
-            <li><div><code>max</code></div></li>
-            <li><div><code>sum</code></div></li>
-        </ol></div></li>
+    <p>Your program must do the following:</p>
+    <ol>
+        <li><div>Open the <code>provinces.txt</code> file for
+        reading.</div></li>
 
-        <li><div>Write code to call the <code>round</code> function
-        to round the value returned from the sum function to two
-        decimal places and store the result in a
-        variable.</div></li>
+        <li><div>Read the contents of the file into a list where each
+        line of text in the file is stored in a separate element in the
+        list.</div></li>
 
-        <li><div>Write code to print the value returned from each of
-        the functions.</div></li>
+        <li><div>Print the entire list.</div></li>
+
+        <li><div>Remove the first element from the list.</div></li>
+
+        <li><div>Remove the last element from the list.</div></li>
+
+        <li><div>Replace all occurrrences of "AB" in the list with
+        "Alberta".</div></li>
+
+        <li><div>Count the number of elements that are "Alberta" and
+        print that number.</div></li>
     </ol>
 
     <h2>Sample Run</h2>
 <pre class="console">&gt; python check_solution.py
-len: 15
-min: 1.5
-max: 2.11
-sum: 27.16</pre>
+['Alberta', 'Ontario', 'Prince Edward Island', 'Ontario', 'Quebec',
+'Saskatchewan', 'AB', 'Nova Scotia', 'Alberta',
+'Northwest Territories', 'Saskatchewan', 'Nunavut', 'Nova Scotia',
+'Prince Edward Island', 'Alberta', 'Nova Scotia',
+'Prince Edward Island', 'British Columbia', 'Nova Scotia',
+'Newfoundland and Labrador', 'Ontario', 'Ontario', 'Ontario',
+'Ontario', 'Saskatchewan', 'Nova Scotia', 'Prince Edward Island',
+'Saskatchewan', 'Newfoundland and Labrador', 'Ontario', 'Ontario',
+'Manitoba', 'British Columbia', 'Ontario', 'Alberta', 'Saskatchewan',
+'Ontario', 'Yukon', 'Ontario', 'New Brunswick', 'Manitoba',
+'British Columbia', 'Yukon', 'Newfoundland and Labrador', 'Manitoba',
+'British Columbia', 'Yukon', 'Ontario', 'Yukon', 'Ontario', 'AB',
+'Newfoundland and Labrador', 'Nova Scotia', 'Yukon',
+'Northwest Territories', 'Nunavut', 'Yukon', 'Nunavut', 'Ontario',
+'British Columbia', 'AB', 'Saskatchewan', 'Prince Edward Island',
+'Saskatchewan', 'Prince Edward Island', 'Alberta', 'Ontario',
+'Alberta', 'Manitoba', 'AB', 'British Columbia', 'Alberta']
+
+Alberta occurs 9 times in the modified list.</pre>
 
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each
     step in this testing procedure:</p>
     <ol class="test">
-        <li><div>Run your program using the input shown in the
-        sample run section above. Ensure that your program's output
-        matches the sample run output.</div></li>
+        <li><div>Run your program and ensure that your program's output
+        matches the sample run output. (Your program may wrap the
+        province names differently.)</div></li>
     </ol>
 
     <h2>Sample Solution</h2>

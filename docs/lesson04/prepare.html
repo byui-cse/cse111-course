@@ -58,8 +58,14 @@
         <code>ceil</code>, and <code>sqrt</code> functions and the
         <code>random</code> module&mdash;which includes the
         <code>randint</code>, <code>choice</code>, and
-        <code>shuffle</code> functions. You can read more about the
-        standard modules in the official documentation for the
+        <code>shuffle</code> functions. To use any code that is in a
+        standard module, you must first import the module into your
+        program. For example, if you wish to call the
+        <code>math.sqrt</code> function, you must first import the
+        <code>math</code> module like this:
+        <div class="pre"><pre class="python">import math</pre></div>
+        You can read more about the standard modules in the official
+        documentation for the
         <a target="_blank" href="https://docs.python.org/3/library/">Python
         Standard Library</a>.</div></li>
 
@@ -67,7 +73,9 @@
         standard Python modules. These additional modules are sometimes
         called <dfn>third-party modules</dfn> and are written and
         maintained by other people as a service to the Python community.
-        Third-party modules are usually available at no cost.</div></li>
+        Third-party modules are usually available at no cost. To use a
+        third-party module in your program, you must download, install,
+        and import it.</div></li>
 
         <li><div>The <a target="_blank" href="https://pypi.org/">Python
         package index</a> (pypi) is an online repository of software
@@ -115,13 +123,13 @@ print(f"Hello {name}")</pre></div></div></li>
         From this short description, we know the following:
         <ol>
             <li><div>The name of the containing module is
-            <code>math</code></div></li>
+            <code>math</code>.</div></li>
             <li><div>The name of the function is
-            <code>sqrt</code></div></li>
+            <code>sqrt</code>.</div></li>
             <li><div>The function takes one parameter named
-            <var>x</var></div></li>
+            <var>x</var>.</div></li>
             <li><div>The function computes and returns the square root
-            of a number</div></li>
+            of a number.</div></li>
         </ol></div></li>
 
         <li><div>A <dfn>parameter</dfn> is a piece of data that a

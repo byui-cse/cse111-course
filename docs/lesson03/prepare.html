@@ -21,7 +21,15 @@
     <h2>CSE 111 | <span>Programming with Functions</span></h2>
 </header>
 <article>
-    <h1>03 Prepare: Lists and Dictionaries</h1>
+    <h1>03 Prepare: Lists, Dictionaries, and Text Files</h1>
+
+    <h2>Videos</h2>
+    <p>Watch these videos about lists and dictionaries in Python.</p>
+
+    <ul class="links">
+        <li><div><a target="_blank" href="https://www.youtube.com/watch?v=beA8IsY3mQs&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=25">Lists</a></div></li>
+        <li><div><a target="_blank" href="https://realpython.com/lessons/dictionary-python/">Dictionaries</a></div></li>
+    </ul>
 
     <h2>Concepts</h2>
     <p>Here are the Python programming concepts and topics that you
@@ -32,7 +40,7 @@
     <a target="_blank" href="https://docs.python.org/3/tutorial/datastructures.html#more-on-lists">list</a>.
     Lists are mutable, meaning they can be changed after they are
     created. Each element in a list is stored at a unique index. An
-    index is always an iteger, and the first index in a Python list is
+    index is always an integer, and the first index in a Python list is
     always zero (0). The following diagram shows a list that contains
     five words. The diagram shows both the elements and the indexes of
     the list. Notice that each index is a unique integer, and that the
@@ -147,7 +155,7 @@ students = {
 }
 
 # Add an item to the dictionary.
-students["81-298-9238"] = "Sama Patel"
+<em>students["81-298-9238"] = "Sama Patel"</em>
 
 # Get the number of items in the dictionary and print it.
 n = len(students)
@@ -223,25 +231,27 @@ print(values)</pre></div>
     function opens a file for reading or writing. The
     <a target="_blank" href="https://docs.python.org/3/tutorial/inputoutput.html#methods-of-file-objects"><code>file.read()</code></a>
     method reads characters or bytes from a file. The
-    <code>file.readline()</code> method reads one line of text from a
-    text file. The <code>file.readlines()</code> method reads all the
-    lines of text from a text file and returns the lines in a list. The
-    following code example uses the built-in <code>open</code> function
-    and <code>readlines</code> method to read the contents of a text
-    file into a list.</p>
+    <a target="_blank" href="https://docs.python.org/3/library/stdtypes.html#str.splitlines"><code>string.splitlines()</code></a>
+    method breaks a string into a list of strings, breaking at line
+    boundaries. The following code example uses the built-in
+    <code>open</code> function and <code>read</code> and
+    <code>splitlines</code> methods to read the contents of a text file
+    into a list.</p>
 
 <div class="pre"><pre class="python">
 # Open the plants.txt file for reading.
-with <em>open("plants.txt", "rt")</em> as infile
+with <em>open("plants.txt", "rt")</em> as infile:
 
-    # Read all the lines of the file into a list
-    # named plants. Each line of the file will be
-    # stored in its own element in the list.
-    <em>plants = infile.readlines()</em>
+    # Read all the characters in the file into a string.
+    <em>string = infile.read()</em>
 
-    # Print the entire list.
-    print(plants)
-</pre></div>
+# Split the string into a list of strings named
+# plants. Each line of the plants.txt file will
+# be stored in its own element in the list.
+<em>plants = string.splitlines()</em>
+
+# Print the entire list.
+print(plants)</pre></div>
 
     <h3>Comma Separated Values</h3>
     <p>Many computer systems import and export data in CSV files. CSV is
@@ -278,7 +288,7 @@ with open("dentists.csv", "rt") as infile:
     # object that will read from the opened file.
     reader = csv.reader(infile)
 
-    # The first line of the CSV file contains headings
+    # The first line of the CSV file contains column headings
     # and not information about a dental office, so this
     # statement skips the first line of the CSV file.
     next(reader)
@@ -315,7 +325,7 @@ with open("dentists.csv", "rt") as infile:
     # object that will read from the opened file.
     reader = csv.reader(infile)
 
-    # The first line of the CSV file contains headings
+    # The first line of the CSV file contains column headings
     # and not information about a dental office, so this
     # statement skips the first line of the CSV file.
     next(reader)
@@ -336,14 +346,6 @@ with open("dentists.csv", "rt") as infile:
 
 # Print the entire dentists dictionary.
 print(dentists)</pre></div>
-
-    <h2>Videos</h2>
-    <p>Watch these videos about lists and dictionaries in Python.</p>
-
-    <ul class="links">
-        <li><div><a target="_blank" href="https://www.youtube.com/watch?v=beA8IsY3mQs&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=25">Lists</a></div></li>
-        <li><div><a target="_blank" href="https://realpython.com/lessons/dictionary-python/">Dictionaries</a></div></li>
-    </ul>
 
     <h2>Documentation</h2>
     <p>The following tutorials contain more information about lists,

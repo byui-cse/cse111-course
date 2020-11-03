@@ -23,6 +23,18 @@
 <article>
     <h1>02 Prepare: Review Python</h1>
 
+    <h2>Videos</h2>
+    <p>Watch these videos about <code>if</code> statements, logic,
+    lists, and loops in Python.</p>
+
+    <ul class="links">
+        <li><div><a target="_blank" href="https://www.youtube.com/watch?v=5pPKYWqkoek&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=19">Conditional Logic</a></div></li>
+        <li><div><a target="_blank" href="https://www.youtube.com/watch?v=oYaGJBMoXok&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=21">Handling Multiple Conditions</a></div></li>
+        <li><div><a target="_blank" href="https://www.youtube.com/watch?v=oYaGJBMoXok&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=23">Complex Conditions</a></div></li>
+        <li><div><a target="_blank" href="https://www.youtube.com/watch?v=beA8IsY3mQs&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=25">Collections</a></div></li>
+        <li><div><a target="_blank" href="https://www.youtube.com/watch?v=LrOAl8vUFHY&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=27">Loops</a></div></li>
+    </ul>
+
     <h2>Concepts</h2>
     <p>Here are the Python programming concepts and topics from CSE 110
     that you should review during this lesson.</p>
@@ -211,25 +223,10 @@ for _ in range(10):
 print(sum)</pre></div></div></li>
     </ol>
 
-    <h2>Videos</h2>
-    <p>If any of the concepts or topics in the previous list seem
-    unfamiliar to you, you should review them. To review the unfamiliar
-    concepts, you could rewatch some of the Microsoft
-
-    <a target="_blank" href="https://www.youtube.com/playlist?list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6">videos about Python</a>
-    that you watched for CSE 110:</p>
-
-    <ul class="links">
-        <li><div><a target="_blank" href="https://www.youtube.com/watch?v=5pPKYWqkoek&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=19">Conditional Logic</a></div></li>
-        <li><div><a target="_blank" href="https://www.youtube.com/watch?v=oYaGJBMoXok&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=21">Handling Multiple Conditions</a></div></li>
-        <li><div><a target="_blank" href="https://www.youtube.com/watch?v=oYaGJBMoXok&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=23">Complex Conditions</a></div></li>
-        <li><div><a target="_blank" href="https://www.youtube.com/watch?v=beA8IsY3mQs&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=25">Collections</a></div></li>
-        <li><div><a target="_blank" href="https://www.youtube.com/watch?v=LrOAl8vUFHY&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=27">Loops</a></div></li>
-    </ul>
-
     <h2>Documentation</h2>
-    <p>Reading these tutorials may help you recall programming concepts
-    from CSE 110.</p>
+    <p>If any of the concepts or topics in the previous list seem
+    unfamiliar to you, reading these tutorials may help you recall
+    these programming concepts from CSE 110.</p>
 
     <ul class="links">
         <li><div><a target="_blank" href="https://realpython.com/python-conditional-statements/">Conditional Statements in Python</a></div></li>
@@ -245,6 +242,79 @@ print(sum)</pre></div></div></li>
     <a target="_blank" href="https://library.byui.edu">online catalog</a>
     of the BYU-Idaho library and read one of the online books from
     the result set.</p>
+
+    <h2 id="example">Code Example</h2>
+    <p>The following code example uses <code>if</code> statements inside
+    of a <code>while</code> loop. The code asks the user to enter an
+    integer between a minimum and maximum and verifies that the integer
+    is between the minimum and maximum. If the user does not enter an
+    integer or enters an integer that is too small or too large, the
+    <code>while</code> loop causes the computer to repeatedly ask the
+    user to enter an integer until he enters one between the minimum and
+    maximum.</p>
+
+    <p>Line&nbsp;16 of the code example uses the
+    <a target="_blank" href="https://docs.python.org/3/library/stdtypes.html#str.isdecimal"><code>isdecimal()</code></a>
+    method to verify that the user entered only decimal digits. The
+    <code>isdecimal()</code> method returns True if a string contains at
+    least one character and all the characters in the string are decimal
+    digits. Otherwise, it returns False. The isdecimal method will
+    return False if a string contains any character that is not a
+    decimal digit, including the minus sign (-) and the decimal
+    separater (.). Unfortunately, this means the following code example
+    will allow a user to enter only non-negative integers and not
+    negative integers or floating point numbers.</p>
+
+<div class="pre"><pre class="linenums">
+1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9
+10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19
+20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29
+30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39
+40<br>41<br>42<br>43<br>44</pre><pre class="python">
+# Make a boolean variable that will change to
+# True after the user enters a valid integer.
+valid = False
+
+# The minimum and maximum integers that the user may enter.
+minimum = 20
+maximum = 40
+
+# Repeatedly ask the user to enter an integer until the
+# user enters one between minimum and maximum, inclusive.
+while not valid:
+    text = input(f"Enter an integer between {minimum} and {maximum}: ")
+
+    # Determine if all the characters that
+    # the user entered are decimal digits.
+    if <em>text.isdecimal()</em>:
+
+        # Convert the text that the user
+        # entered from a string to an integer.
+        integer = int(text)
+
+        # Determine if the integer entered by the
+        # user is between minimum and maximum, inclusive.
+        if integer &lt; minimum:
+            print(f"{integer} is too small. Please"
+                    " enter another positive integer.")
+        elif integer &gt; maximum:
+            print(f"{integer} is too large. Please"
+                    " enter another positive integer.")
+        else:
+            # If the computer gets to this line of code,
+            # the user entered an integer between minimum
+            # and maximum, so change the boolean variable
+            # to True so that the loop will stop repeating.
+            valid = True
+
+    else:
+        # The user entered at least one character that is not a decimal
+        # digit, so print a message asking the user to enter an integer.
+        print(f"'{text}' is not a positive integer."
+                " Please enter a positive integer.")
+
+# Use the integer in the program.
+print(integer)</pre></div>
 </article>
 <footer>
     <small>Copyright &copy; 2020, Brigham Young University - Idaho. All

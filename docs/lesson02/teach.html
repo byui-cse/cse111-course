@@ -53,83 +53,43 @@
     mistakes.</p>
 
     <h2>Helpful Documentation</h2>
-    <p>The built-in Python <a target="_blank" href="https://docs.python.org/3.8/library/functions.html#len"><code>len</code></a>
-    function returns the number of characters in a string.</p>
+    <p>The <a target="_blank" href="prepare.html#example">code
+    example</a> in this lesson's prepare content shows how to require a
+    user to enter an integer between a minimum and maximum value.</p>
 
-    <p>The string <a target="_blank" href="https://docs.python.org/3.8/library/stdtypes.html#str.isdecimal"><code>isdecimal</code></a>
-    method checks the characters in a string to see if they are all
-    decimal digits or not.</p>
+    <p>The <a target="_blank" href="https://docs.python.org/3/library/math.html#math.ceil">math.ceil()</a>
+    function rounds a number up to the nearest integer that is greater
+    than or equal to a number.</p>
 
     <h2>Assignment</h2>
-    <p>Start with the following Python program and add code that will
-    check the user input, and if the input is invalid, prompt the user
-    repeatedly until the input is valid. Notice in the following
-    program, all product numbers in the <code>products</code> dictionary
-    are composed of five decimal digits.</p>
-
-<div class="pre"><pre class="linenums">
-1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9
-11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19
-21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29
-</pre><pre class="python">
-# Create a dictionary that holds product numbers and names.
-products = {
-    38500: "Backpacking Tent",
-    27840: "Sit-Stand Desk",
-    37992: "Mouse",
-    24458: "Subwoofer",
-    38323: "USB Cable",
-    14392: "Monitor",
-    11103: "Sleeping Bag",
-    41023: "Cat-6 Network Cable",
-    40246: "HDMI Cable",
-    23047: "Keyboard",
-    20319: "Keyboard",
-    32061: "Mouse"
-}
-
-# Get a product number from the user.
-prod_num = input("Please enter a product number: ")
-
-# Convert the product number from a string to
-# an integer, so that this program can find the
-# product number in the products dictionary.
-prod_num = int(prod_num)
-
-# Find the corresponding product name and print it.
-prod_name = products[prod_num]
-print(f"{prod_num}: {prod_name}")</pre></div>
+    <p>A manufacturing company needs a program that will help its
+    employees pack manufactured items into boxes for shipping. Write a
+    Python program that asks the user for two integers: 1) the number of
+    items and 2) the items per box. Your program must require the user
+    to enter positive integers and then must compute and print the
+    number of boxes necessary to hold the items.</p>
 
     <h3>Core Requirements</h3>
-    <p>Do the following:</p>
+    <p>Your program must do the following:</p>
 
     <ol class="long">
-        <li><div>Add a loop around the call to the <code>input</code>
-        function on line&nbsp;19, so that if a user enters an invalid
-        product number, your program will print an error message and
-        prompt the user again.</div></li>
+        <li><div>Prompt the user for the number of <dfn>manufactured
+        items</dfn> and ensure that the user enters an integer greater
+        than 0. If the user enters anything that is not an integer
+        greater than 0, your program must repeatedly prompt the user to
+        enter another integer until he enters an integer greater than
+        zero.</div></li>
 
-        <li><div>Within the loop and after the call to the
-        <code>input</code> function, add code that validates the user
-        input.
-        <ol>
-            <li><div>If the user enters any character that is not a
-            decimal digit, your program must print "Invalid character in
-            the product number" (without the quotes).</div></li>
+        <li><div>Prompt the user for the number of <dfn>items</dfn> that
+        he will pack <dfn>per box</dfn> and ensure that the user enters
+        an integer greater than 0. If the user enters anything that is
+        not an integer greater than 0, your program must repeatedly
+        prompt the user to enter another integer until he enters an
+        integer greater than zero.</div></li>
 
-            <li><div>If the user enters fewer than five decimal digits,
-            your program must print "Invalid product number: too few
-            digits" (without the quotes).</div></li>
-
-            <li><div>If the user enters more than five decimal digits,
-            your program must print "Invalid product number: too many
-            digits" (without the quotes).</div></li>
-        </ol></li></div>
-
-        <li><div>If the user enters a valid product number (five decimal
-        digits), your program must continue and find the product number
-        in the products dictionary and print the corresponding product
-        name.</div></li>
+        <li><div>Compute and print the number of boxes required to hold
+        the items. This must be a whole number. Note that the last box
+        may be packed with fewer items than the other boxes.</div></li>
     </ol>
 
     <h3>Stretch Challenges</h3>
@@ -137,41 +97,40 @@ print(f"{prod_num}: {prod_name}")</pre></div>
     complete one or more of these stretch challenges. Note that the
     stretch challenges are optional.</p>
 
-    <ol>
-        <li><div>After the user input validation code and immediately
-        before the line of code that finds a product number in the
-        <code>products</code> dictionary, add code to your program that
-        uses an <code>if</code> statement with the Python
-        <code>in</code> operator to check if a product number is in the
-        <code>products</code> dictionary.
-        <ol>
-            <li><div>If the product number is not in the
-            <code>products</code> dictionary, your program must print
-            "No such product" (without the quotes).</div></li>
-            <li><div>Otherwise, your program must print the product
-            number and name.</div></li>
-        </ol></div></li>
+    <ol class="long">
+        <li><div>Review your code and ask yourself if any section of the
+        code seems similar to another section. Write down or record the
+        starting and ending line number of each similar section. Perhaps
+        one of the similar sections could be separated from the other
+        code and reused multiple times which would cause the program to
+        have fewer lines of code.</div></li>
+
+        <li><div>Discuss with your team how you could write code to
+        validate that a user correctly entered any number, including
+        negative integers and fractional numbers.</div></li>
     </ol>
 
     <h2>Sample Run</h2>
 <pre class="console">&gt; python teach_solution.py
-Please enter a product number: 1543a
-Invalid character in the product number
-Please enter a product number: 15
-Invalid product number: too few digits
-Please enter a product number: 1502983
-Invalid product number: too many digits
-Please enter a product number: 15432
-No such product: 15432
+Enter the number of items: <span class="input">hello</span>
+'hello' is not a positive integer. Please enter a positive integer.
+Enter the number of items: <span class="input">-3</span>
+'-3' is not a positive integer. Please enter a positive integer.
+Enter the number of items: <span class="input">25</span>
 
-&gt; python teach_solution.py
-Please enter a product number: 23047
-23047: Keyboard</pre>
+Enter the number of items per box: <span class="input">quit</span>
+'quit' is not a positive integer. Please enter a positive integer.
+Enter the number of items per box: <span class="input">-7</span>
+'-7' is not a positive integer. Please enter a positive integer.
+Enter the number of items per box: <span class="input">4</span>
+
+For 25 items, packing 4 items in each box, you will need 7 boxes.
+</pre>
 
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each step
     in this testing procedure:</p>
-    <ol class="test long">
+    <ol class="test">
         <li><div>Run your program and enter the inputs shown in the
         "Sample Run" section above. Ensure that your program's output
         matches the sample run output.</div></li>

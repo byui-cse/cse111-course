@@ -21,126 +21,77 @@
     <h2>CSE 111 | <span>Programming with Functions</span></h2>
 </header>
 <article>
-    <h1>08 Checkpoint: Commodities</h1>
+    <h1>08 Checkpoint: Run a Program that Handles Exceptions</h1>
 
     <h2>Overview</h2>
-    <p>Complete this individual checkpoint assignment to demonstrate
-    your ability to write code that handles errors that may occur while
-    your program is running.</p>
-
-    <h2>Helpful Documentation</h2>
-    <p>In the <a target="_blank"
-    href="https://requests.readthedocs.io/en/master/user/quickstart/#errors-and-exceptions">Error
-    and Exceptions</a> section of the <code>requests</code>
-    documentation, read the list of exceptions that the
-    <code>requests</code> module may raise.</p>
+    <p>Complete this individual checkpoint assignment to improve your
+    understanding of how exceptions are handled in a Python program.</p>
 
     <h2>Assignment</h2>
-    <p>Add error handling to the <code>commodities.py</code> program
-    from lesson 4 by doing the following:</p>
+    <p>Do the following:</p>
 
     <ol class="long">
-        <li><div>Download and save the <a download
-        href="../lesson04/commodities.py"><code>commodities.py</code></a>
+        <li><div>Download and save the
+        <a download href="get_line.py"><code>get_line.py</code></a>
         program and then open it in VS Code.</div></li>
 
-        <li><div>Copy the API key in I-Learn in the page that
-        corresponds to this activity and paste it in place of the
-        string, "The API key is in your I-Learn course."</div></li>
+        <li><div><code>get_line.py</code> is a simple program that asks
+        a user to input the name of a text file and a line number. Then
+        <code>get_line.py</code> prints the text that is in the text
+        file on the user requested line number.</div></li>
 
-        <li><div>Move all of the code except the import statements into
-        a function named <code>main</code>.
-        <ol>
-            <li><div>Use your mouse to select all of the code from line
-            4 to the end of the file.</div></li>
-            <li><div>Press the "Tab" key on your keyboard. This will
-            indent all of the code that you selected.</div></li>
-            <li><div>Click on line 3 to unselect all of the code. Then
-            press the "Enter" key which will add a new blank line.</div></li>
-            <li><div>On the new blank line, type the header for the main
-            function: <code>def main():</code></div></li>
-        </ol></div></li>
+        <li><div>Notice in <code>get_line.py</code>, the
+        <code>try</code> block at the beginning of the <code>main</code>
+        fuction. Notice also the four <code>except</code> blocks, each
+        handling a different type of exception.</div></li>
 
-        <li><div>At the very bottom of the file, add two blank
-        lines.</div></li>
-
-        <li><div>On the last blank line, type a call to the main
-        function: <code>main()</code></div></li>
-
-        <li><div>Move all of the code in the <code>main</code> function
-        into a <code>try</code> block.
-        <ol>
-            <li><div>Use your mouse to select again all of the code that
-            is in the <code>main</code> function.</div></li>
-            <li><div>Press the "Tab" key on your keyboard. This will
-            indent all of the code that you selected.</div></li>
-            <li><div>Immediately beneath the header for the
-            <code>main</code> function, add a blank line.</div></li>
-            <li><div>On the blank line, type a try header like this:
-            <div class="pre"><pre class="python">try:</pre></div></div></li>
-        </ol></div></li>
-
-        <li><div>At the bottom of the main function, add an
-        <code>exception</code> block for each of the five exceptions
-        that the <code>requests</code> module may raise. Also add an
-        exception block for a generic <code>Exception</code>.</div></li>
-
-        <li><div>Within each exception block, add a statement that
-        prints the name of the exception.</div></li>
-    </ol>
-
-    <h2>Testing Procedure</h2>
-    <p>Verify that your program works correctly by following each step
-    in this testing procedure:</p>
-    <ol class="test long">
-        <li><div>Run your program. If your program contains syntax
-        errors, fix the errors, so that your program runs correctly.
-        Your program should run without errors and print the price of
-        orange juice in the United States for the previous 13
-        months.</div></li>
-
-        <li><div>Disconnect your computer from the network by either
-        disconnecting the network cable or turning off your computer's
-        WiFi adapter.</div></li>
-
-        <li><div>With your computer disconnected from the network, run
-        your program again. Your program should print "Connection error"
-        to the console.</div></li>
+        <li><div>Run the <code>get_line.py</code> program five times and
+        enter the input shown in the Sample Run section below. For each
+        of the first four times that you run the program, find the lines
+        of code in <code>get_line.py</code> that handled the exception
+        that was raised.</div></li>
     </ol>
 
     <h2>Sample Run</h2>
-<pre class="console">&gt; python check_solution.py
-ODA/PORANG_USD
-Generic 1st 'JO' Future; USD/lb
-2019-02-27 2020-02-29
-['Date', 'Value']
-['2019-02-28', 1.1865]
-['2019-03-31', 1.2177142857143]
-['2019-04-30', 1.0843571428571]
-['2019-05-31', 0.98604545454545]
-['2019-06-30', 1.02725]
-['2019-07-31', 1.0149545454545]
-['2019-08-31', 0.99331818181818]
-['2019-09-30', 1.0063]
-['2019-10-31', 0.98436956521739]
-['2019-11-30', 0.9816]
-['2019-12-31', 0.97590476190476]
-['2020-01-31', 0.96909523809524]
-['2020-02-29', 0.97644736842105]
+<pre class="console">&gt; python get_line.py
+Enter the name of text file: <span class="input">notafile.csv</span>
+Enter a line number: <span class="input">25</span>
 
-(Disconnect the network now.)
+FileNotFoundError: [Errno 2] No such file or directory: 'notafile.csv'
+The file notafile.csv doesn't exist.
+Run the program again and enter the name of an existing file.
 
-&gt; python check_solution.py
-Connection error</pre>
+&gt; python get_line.py
+Enter the name of text file: <span class="input">fitness.csv</span>
+Enter a line number: <span class="input">hey</span>
 
-    <h2>Sample Solution</h2>
-    <p>When your program is finished, view the <a download
-    href="check_solution.py">sample solution</a> for this assignment to
-    compare your solution to that one. Before looking at the sample
-    solution, you should work to complete this checkpoint program first.
-    However, if you have worked on it for at least an hour and are still
-    having problems, feel free to use the sample solution to help you
-    finish your program.</p>
+ValueError: invalid literal for int() with base 10: 'hey'
+You entered an invalid integer for the line number.
+Run the program again and enter an integer for the line number.
+
+&gt; python get_line.py
+Enter the name of text file: <span class="input">fitness.csv</span>
+Enter a line number: <span class="input">-300</span>
+
+IndexError: list index out of range
+-300 is greater than the number of lines in ../lesson05/fitness.csv.
+There are only 7 lines in ../lesson05/fitness.csv.
+Run the program again and enter a line number between 1 and 7.
+
+&gt; python get_line.py
+Enter the name of text file: <span class="input">fitness.csv</span>
+Enter a line number: <span class="input">75</span>
+
+IndexError: list index out of range
+75 is greater than the number of lines in ../lesson05/fitness.csv.
+There are only 7 lines in ../lesson05/fitness.csv.
+Run the program again and enter a line number between 1 and 7.
+
+&gt; python get_line.py
+Enter the name of text file: <span class="input">fitness.csv</span>
+Enter a line number: <span class="input">4</span>
+
+F,1980-09-20,125,63.5</pre>
 
     <h2>Submission</h2>
     <p>When complete, report your progress in the associated I-Learn

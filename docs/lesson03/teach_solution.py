@@ -10,19 +10,24 @@ with open("students.csv", "rt") as infile:
 
     # Use the csv module to create a reader
     # object that will read from the opened file.
-    reader = csv.reader(infile, delimiter=",")
+    reader = csv.reader(infile)
 
-    # The first line of the CSV file contains headings
-    # and not a student's I-Number and name, so this
-    # statement skips the first line of the CSV file.
+    # The first line of the CSV file contains column headings
+    # and not a student's I-Number and name, so this statement
+    # skips the first line of the CSV file.
     next(reader)
 
     # Read each row in the CSV file one at a time as a list.
     for row in reader:
 
-        # From the current row, add a student's
-        # I-Number and name to the students dictionary.
-        students[row[0]] = row[1]
+        # For the current row, retrieve
+        # the values in columns 0 and 1.
+        inumber = row[0]
+        name = row[1]
+
+        # Add a student's I-Number and name
+        # to the students dictionary.
+        students[inumber] = name
 
 
 # Get an I-Number from the user.

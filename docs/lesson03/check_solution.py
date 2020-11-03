@@ -1,23 +1,34 @@
-# A list of people's height in meters.
-heights = [
-    1.72, 1.50, 1.96, 2.01, 1.75,
-    2.11, 1.60, 1.65, 2.05, 1.50,
-    1.80, 1.83, 2.05, 1.79, 1.84
-]
+# Open the provinces.txt text file for reading.
+with open("provinces.txt", "rt") as infile:
 
-# Call the len, min, max, and sum functions and
-# pass the list of heights to each function.
-n = len(heights)
-mn = min(heights)
-mx = max(heights)
-s = sum(heights)
+    # Read all the lines of the file into a list
+    # named provinces. Each line of the file will
+    # be stored in its own element in the list.
+    string = infile.read()
+    provinces = string.splitlines()
 
-# Round the result from the sum function
-# to two digits after the decimal.
-s = round(s, 2)
+# As a debugging aid, print the entire list.
+print(provinces)
+print()
 
-# Display the results for the user to see.
-print(f"len: {n}")
-print(f"min: {mn}")
-print(f"max: {mx}")
-print(f"sum: {s}")
+# Remove the first element from the list.
+provinces.pop(0)
+#print(provinces)
+
+# Remove the last element from the list.
+provinces.pop()
+#print(provinces)
+
+# Replace all occurrrences of "AB" with "Alberta".
+for i in range(len(provinces)):
+    if provinces[i] == "AB":
+        provinces[i] = "Alberta"
+#print(provinces)
+
+# Count the number of elements that are "Alberta"
+count = 0
+for province in provinces:
+    if province == "Alberta":
+        count += 1
+
+print(f"Alberta occurs {count} times in the modified list.")
