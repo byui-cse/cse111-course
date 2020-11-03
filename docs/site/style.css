@@ -346,6 +346,10 @@ td.number {
 	text-align: right;
 }
 
+article table.center {
+	margin: 1em auto;
+}
+
 article table > thead > tr > th {
 	vertical-align: bottom;
 	text-align: center;

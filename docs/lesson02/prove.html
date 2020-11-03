@@ -21,94 +21,81 @@
     <h2>CSE 111 | <span>Programming with Functions</span></h2>
 </header>
 <article>
-    <h1>02 Prove: Canadian Provinces and Territories</h1>
+    <h1>02 Prove: Validate User Input</h1>
 
     <h2>Overview</h2>
-    <p>Prove that you can write a Python program that reads a text file,
-    replaces abbreviations with full proper names, writes a text
-    file.</p>
+    <p>Prove that you can write a Python program that validates user
+    input and uses that input in calculations.</p>
 
     <h2>Problem Statement</h2>
-    <p>The nation of Canada has ten provinces and three territories. The
-    <code>locations.txt</code> file contains survey responses for a
-    question that asked Canadians where they lived. Unfortunately, the
-    creator of the survey allowed people to respond with the name or the
-    postal abbreviation of their home province or territory. Allowing
-    both names and abbreviations makes summarizing the data
-    difficult.</p>
-
-    <h2>Assignment</h2>
-    <p>Download the <a download
-    href="locations.txt"><code>locations.txt</code></a> file and save it
-    in the same folder where you will save your Python program. Open the
-    file in VS Code or another text editor and examine it. Notice that
-    each line in the file contains either a name or abbreviation of a
-    province or territory in Canada. Write a Python program that does
-    the following:</p>
-
-    <ol class="long">
-        <li><div>Opens the <code>locations.txt</code> file for
-        reading.</div></li>
-
-        <li><div>Opens a text file named <code>loc_names.txt</code> for
-        writing.</div></li>
-
-        <li><div>Reads each line from <code>locations.txt</code>. For
-        each line:
-        <ol>
-            <li><div>If the line contains an abbreviation, your program
-            must convert the abbreviation to the corresponding
-            name.</div></li>
-            <li><div>Write each name to the <code>loc_names.txt</code>
-            file.</div></li>
-        </ol></div></li>
-    </ol>
+    <p>While entering input for a program, users ocassionally make
+    mistakes and enter invalid or incorrect input. A good program
+    recovers from user mistakes, informs users about mistakes in clear
+    polite language, and gives users an opportunity to correct their
+    mistakes.</p>
 
     <h2>Helpful Documentation</h2>
-    <p>To convert abbreviations to names, your program can use a
-    dictionary or a group of <code>if</code>, <code>elif</code>,
-    <code>else</code> statements inside the loop that reads each line
-    from <code>locations.txt</code>.</p>
+    <p>The <a target="_blank" href="prepare.html#example">code
+    example</a> in this lesson's prepare content shows how to require a
+    user to enter an integer between a minimum and maximum value.</p>
 
-    <ul class="links">
-        <li><div><a target="_blank"
-        href="https://docs.python.org/3.8/tutorial/inputoutput.html#reading-and-writing-files">Reading and Writing Files</a></div></li>
-        <li><div><a target="_blank"
-        href="https://realpython.com/lessons/dictionary-python/">Dictionaries</a></div></li>
-    </ul>
+    <h2>Assignment</h2>
+    <p>The previous lesson's
+    <a target="_blank" href="../lesson01/prove.html">prove assignment</a>
+    required you to write a program that computes the approximate volume
+    of air inside a tire. Change the program that you wrote for the
+    previous lesson's prove assignment so that it validates all three of
+    the integers that the user enters while using the program. The
+    minimum and maximum for each of the three numbers are as
+    follows:</p>
 
-    <table><thead>
-        <tr><th colspan="2">Canadian Provinces and Territories</th></tr>
-        <tr><th>Abbreviation</th> <th>Name</th></tr>
+    <table class="center"><thead>
+        <tr><th>Quantity</th> <th>Minimum</th> <th>Maximum</th></tr>
     </thead><tbody>
-        <tr><td class="center">AB</td> <td>Alberta</td></tr>
-        <tr><td class="center">BC</td> <td>British Columbia</td></tr>
-        <tr><td class="center">MB</td> <td>Manitoba</td></tr>
-        <tr><td class="center">NB</td> <td>New Brunswick</td></tr>
-        <tr><td class="center">NL</td> <td>Newfoundland and Labrador</td></tr>
-        <tr><td class="center">NS</td> <td>Nova Scotia</td></tr>
-        <tr><td class="center">NT</td> <td>Northwest Territories</td></tr>
-        <tr><td class="center">NU</td> <td>Nunavut</td></tr>
-        <tr><td class="center">ON</td> <td>Ontario</td></tr>
-        <tr><td class="center">PE</td> <td>Prince Edward Island</td></tr>
-        <tr><td class="center">QC</td> <td>Quebec</td></tr>
-        <tr><td class="center">SK</td> <td>Saskatchewan</td></tr>
-        <tr><td class="center">YT</td> <td>Yukon</td></tr>
+        <tr><th>tire width</th>
+            <td class="number">180</td> <td class="number">400</td></tr>
+        <tr><th>aspect ratio</th>
+            <td class="number">45</td> <td class="number">70</td></tr>
+        <tr><th>wheel diameter</th>
+            <td class="number">12</td> <td class="number">28</td></tr>
     </tbody></table>
 
-    <h2>Testing Procedure</h2>
-    <p>Verify that your program works correctly by following each
-    step in this testing procedure:</p>
+    <h2>Sample Run</h2>
+<pre class="console">&gt; python prove_solution.py
+Enter the width of the tire in mm (ex 205): <span class="input">tire</span>
+'tire' is not a positive integer. Please enter a positive integer.
+Enter the width of the tire in mm (ex 205): <span class="input">60</span>
+60 is too small. Please enter a positive integer between 180 and 400.
+Enter the width of the tire in mm (ex 205): <span class="input">550</span>
+550 is too large. Please enter a positive integer between 180 and 400.
+Enter the width of the tire in mm (ex 205): <span class="input">205</span>
 
+Enter the aspect ratio of the tire (ex 60): <span class="input">aspect</span>
+'aspect' is not a positive integer. Please enter a positive integer.
+Enter the aspect ratio of the tire (ex 60): <span class="input">15</span>
+15 is too small. Please enter a positive integer between 45 and 70.
+Enter the aspect ratio of the tire (ex 60): <span class="input">90</span>
+90 is too large. Please enter a positive integer between 45 and 70.
+Enter the aspect ratio of the tire (ex 60): <span class="input">60</span>
+
+Enter the diameter of the tire in inches (ex 15): <span class="input">wheel</span>
+'wheel' is not a positive integer. Please enter a positive integer.
+Enter the diameter of the tire in inches (ex 15): <span class="input">10</span>
+10 is too small. Please enter a positive integer between 12 and 28.
+Enter the diameter of the tire in inches (ex 15): <span class="input">35</span>
+35 is too large. Please enter a positive integer between 12 and 28.
+Enter the diameter of the tire in inches (ex 15): <span class="input">15</span>
+
+The approximate volume is 39924.5 milliliters.
+</pre>
+
+    <h2>Testing Procedure</h2>
+    <p>Verify that your program works correctly by following each step
+    in this testing procedure:</p>
     <ol class="test">
-        <li><div>Run your program.</div></li>
-        <li><div>Your program should create the
-        <code>loc_names.txt</code> file. Open the file in VS
-        Code.</div></li>
-        <li><div>Verify that <code>loc_names.txt</code> contains the
-        same data in the same order as <code>locations.txt</code> except
-        that each abbreviation has been replaced with the corresponding
-        proper name.</div></li>
+        <li><div>Run your program and enter the inputs shown in the
+        "Sample Run" section above. Ensure that your program's output
+        matches the sample run output.</div></li>
     </ol>
 
     <h2>Submission</h2>
