@@ -35,7 +35,7 @@
     <p>Here are the Python programming concepts and topics that you
     should learn during this lesson:</p>
 
-    <h3>Lists</h3>
+    <h3 id="lists">Lists</h3>
     <p>Within a Python program, we can store many elements in a
     <a target="_blank" href="https://docs.python.org/3/tutorial/datastructures.html#more-on-lists">list</a>.
     Lists are mutable, meaning they can be changed after they are
@@ -106,7 +106,7 @@ n = len(fabrics)
 print(f"The fabrics list contains {n} elements.")
 </pre></div>
 
-    <h3>Dictionaries</h3>
+    <h3 id="dicts">Dictionaries</h3>
     <p>Within a Python program, we can store many items in a
     <a target="_blank" href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">dictionary</a>.
     Dictionaries are mutable, meaning they can be changed after they are
@@ -253,7 +253,7 @@ with <em>open("plants.txt", "rt")</em> as infile:
 # Print the entire list.
 print(plants)</pre></div>
 
-    <h3>Comma Separated Values</h3>
+    <h3 id="csvfiles">Comma Separated Values</h3>
     <p>Many computer systems import and export data in CSV files. CSV is
     an acronym for comma separated values. A CSV file is a text file
     that contains tabular data where each row is on a separate line and
@@ -315,7 +315,7 @@ with open("dentists.csv", "rt") as infile:
 
 # Create an empty dictionary that will
 # store the data from the CSV file.
-dentists = {}
+<em>dentists = {}</em>
 
 # Open a file named dentists.csv and store a reference
 # to the opened file in a variable named infile.
@@ -342,7 +342,7 @@ with open("dentists.csv", "rt") as infile:
         # Store the data from the current row into the dentists
         # dictionary. Use the phone number as the key. Create a
         # list with the company name and address as the value.
-        dentists[phone] = [company, address]
+        <em>dentists[phone] = [company, address]</em>
 
 # Print the entire dentists dictionary.
 print(dentists)</pre></div>

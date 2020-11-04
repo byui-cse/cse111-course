@@ -21,150 +21,96 @@
     <h2>CSE 111 | <span>Programming with Functions</span></h2>
 </header>
 <article>
-    <h1>04 Prove Assignment: Weather Forecast</h1>
+    <h1>04 Prove Assignment: Calling Functions</h1>
 
     <h2>Overview</h2>
-    <p>Prove that you can write a Python program that calls
-    third-party functions.</p>
+    <p>Prove that you can write a Python program that calls functions
+    and methods.</p>
 
     <h2>Problem Statement</h2>
-    <p>The weather affects people's lives for good and bad every day.
-    Because of the impact of the weather on people's lives, the United
-    States Federal Government sponsors the U.S. National Weather Service
-    which forecasts the weather throughout the entire United States
-    every day. These weather forecasts are available for free as a web
-    service on the internet. Write a Python program to do the
+    <p>A local grocery store subscribes to an online service that
+    enables their customers to order groceries online. After a customer
+    completes an order, the online service sends a CSV file to the
+    grocery store. The store needs you to write a program that reads the
+    CSV file and prints (to the terminal window) a receipt that lists
+    the purchased items and shows the subtotal, the sales tax amount,
+    and the total.</p>
+
+    <h2>Helpful Documentation</h2>
+    <p>The <a target="_blank" href="prepare.html">prepare</a> content
+    for this lesson includes lots of information about calling functions
+    and methods.</p>
+
+    <p>
+
+    <h2>Assignment</h2>
+    <p>During the prove assignment for lesson 3, you wrote the part of
+    this program that reads and processes two CSV files, one named
+    <code>products.csv</code> that contains a catalog of products and
+    one named <code>request.csv</code> that contains a customer's
+    order. During this assignment (lesson 4), you will add code to
+    finish printing a receipt. Specifically, your program must do the
     following:</p>
 
     <ol>
-        <li><div>Allow a user to select a city from a list of
-        cities.</div></li>
-        <li><div>Retrieve the weather forecast for the selected city for
-        the next seven days and nights from the U.S. National Weather
-        Service.</div></li>
-        <li><div>Write the forecast to an HTML file that a user can view
-        in a browser.</div></li>
+        <li><div>Print the store name at the top of the receipt.</div></li>
+        <li><div>Print the list of ordered items.</div></li>
+        <li><div>Sum and print the number of ordered items.</div></li>
+        <li><div>Sum and print the subtotal due.</div></li>
+        <li><div>Compute and print the sales tax amount. Use 6% as the
+        sales tax rate.</div></li>
+        <li><div>Compute and print the total amount due.</div></li>
+        <li><div>Print a thank you message.</div></li>
+        <li><div>Get the current date and time from your computer's
+        operating system and print the current date and time.</div></li>
     </ol>
 
-    <p>Your program will produce HTML files that look like this
-    <a target="_blank" href="../lesson03/forecast5day.html">HTML
-    file</a>.</p>
+    <p>To get the current date and time from your computer's operating
+    system, import the <code>datetime</code> module and add this code to
+    your program:</p>
 
-    <h2>Helpful Documentation</h2>
-    <p>The U.S. National Weather Service (NWS) maintains a
-    <a target="_blank" href="https://api.weather.gov/">web service</a>
-    that returns weather forecasts for cities within the United States.
-    The <a target="_blank"
-    href="https://www.weather.gov/documentation/services-web-api">official
-    documentation</a> for the NWS web service has a find text box where
-    you can type the name of a city and state in the United States and
-    get the corresponding latitude and longitude. The documentation also
-    lists the data that your program can retrieve.</p>
+<div class="pre"><pre class="python">
+# Get the current date and time from the operating system.
+now = datetime.datetime.now()
+</pre></div>
 
-    <p>The Python <a target="_blank"
-    href="https://requests.readthedocs.io#requests-http-for-humans"><code>requests</code> module</a>
-    contains functions to send http requests for data to a computer
-    server on the internet and to read the data that the server
-    returns.</p>
-
-    <p>A Python dictionary is a collection of data that is stored in
-    pairs of keys and values. The keys are used to store and quickly
-    find the values. Read about Python dictionaries in the
-    official Python documentation about <a target="_blank"
-    href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">dictionaries</a>.</p>
-
-    <p>The Python <a target="_blank"
-    href="../lesson03/weather_html.html"><code>weather_html</code> module</a>
-    was written at BYU-Idaho and accepts U.S. National Weather Service
-    forecasts and writes HTML to a file.</p>
-
-    <h2>Assignment</h2>
-    <p>During lesson 3, you wrote the part of this program that writes a
-    weather forecast to an HTML file. During this assignment (lesson 4),
-    you will add the code to prompt the user for their desired city and
-    to retrieve a forecast from the U.S. Weather Service. Open your
-    program from the prove assignment for the previous lesson and add
-    the following to it:</p>
-
-    <ol class="long">
-        <li><div>A dictionary with at least five U.S. cities and their
-        corresponding forecast URL. A dictionary like this would work
-        well:
-        <table><thead>
-            <tr><th>City Name (keys)</th> <th>URL (values)</th></tr>
-        </thead><tbody>
-            <tr><td>"Dallas, Texas"</td> <td>"https://api.weather.gov/gridpoints/FWD/88,103/forecast"</td></tr>
-            <tr><td>"Rexburg, Idaho"</td> <td>"https://api.weather.gov/gridpoints/PIH/125,88/forecast"</td></tr>
-        </tbody></table></div></li>
-
-        <li><div>Python code that allows a user to choose one of the
-        cities in the dictionary.</div></li>
-
-        <li><div>Python code that uses the <code>requests</code> module
-        to retrieve the weather forecast for the city that the user
-        chose.</div></li>
-    </ol>
-
-    <p>You should keep the code that you wrote during the previous
-    lesson to generate an HTML document. You should connect the code
-    from step 3 above with the code that you wrote during the previous
-    lesson to generate an HTML document.</p>
-
-    <h2>Forecast URLs</h2>
-    <p>To get the forecast URLs for five cities, do the following:</p>
-    <ol>
-        <li><div>Choose five cities.</div></li>
-        <li><div>Use <a target="_blank"
-        href="https://www.latlong.net/">latlng.net</a> or a similar
-        website to get the <strong>decimal</strong> latitude and
-        longitude for each of the five cities. A decimal latitude or
-        longitude is a floating point number and does not include
-        degrees (&deg;), minutes ('), seconds ("), or directions (N S E
-        W).</div></li>
-        <li><div>Download and run this Python program named <a download
-        href="grid_points.py"><code>grid_points.py</code></a> which will
-        convert each latitude longitude pair into a forecast URL.
-        It might interest you to learn that this
-        <code>grid_points</code> program uses the <code>requests</code>
-        module and a part of the US NWS web service that your program
-        will use. However, the <code>grid_points</code> program requests
-        different data than your program will request. Don't open and
-        look at the <code>grid_points</code> program because it is top
-        secret.</div></li>
-    </ol>
+    <p>After the computer executes the above code, the variable
+    <var>now</var> will hold the current date and time. You can then add
+    code to call the
+    <a target="_blank" href="https://docs.python.org/3/library/datetime.html#datetime.date.strftime"><code>strftime</code></a>
+    method which will format the date and time into a string which your
+    program can print.</p>
 
     <h2>Sample Run</h2>
-<pre class="console">&gt; python prove_solution.py
-Choose a city:
-[1] Dallas, Texas
-[2] Phoenix, Arizona
-[3] Rexburg, Idaho
-[4] Salt Lake City, Utah
-[5] San Diego, California
-Enter 1 - 5: <span class="input">2</span>
-Phoenix, Arizona
-Forecast document written to PhoenixArizona.html</pre>
+<pre class="console">&gt; python receipt.py
+Inkom Emporium
+
+1 gallon milk: 2 @ 2.85
+32 oz granola: 1 @ 3.21
+1 cup yogurt: 4 @ 0.75
+twix candy bar: 2 @ 0.85
+
+Number of Items: 9
+Subtotal: 13.61
+Sales Tax: 0.82
+Total: 14.43
+
+Thank you for shopping at the Inkom Emporium.
+Wed Nov  4 05:10:30 2020</pre>
 
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each step
     in this testing procedure:</p>
 
     <ol class="test long">
-        <li><div>Run your program, choose one of the cities, verify that
-        your program wrote an HTML file to your computer's hard drive,
-        and double click on the HTML file that your program produced.
-        Double clicking the HTML file should open it in a browser. Look
-        at the document in the browser and verify that it looks correct,
-        including the correct city name and a correctly formatted five
-        day, vertical forecast.</div></li>
+        <li><div>Run your program and verify that it computes the
+        number of items, subtotal, sales tax, and total as shown in the
+        "Sample Run" section above.</div></li>
 
-        <li><div>Repeat the above step for each of the four other cities
-        in your program.</div></li>
-
-        <li><div>Repeat step 1 again for each of the five cities, but do
-        it at a different time of the day. For example, if you first
-        tested your program during the morning, then test it again in
-        the evening or vice versa.</div></li>
+        <li><div>Verify that your program prints a receipt formatted
+        exactly like the one shown in the "Sample Run" section above,
+        except the last line with the date and time will have a
+        different value and may be formatted differently.</div></li>
     </ol>
 
     <h2>Submission</h2>

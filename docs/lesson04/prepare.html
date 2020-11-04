@@ -60,7 +60,7 @@
         <code>randint</code>, <code>choice</code>, and
         <code>shuffle</code> functions. To use any code that is in a
         standard module, you must first import the module into your
-        program. For example, if you wish to call the
+        program. For example, if you wish to use the
         <code>math.sqrt</code> function, you must first import the
         <code>math</code> module like this:
         <div class="pre"><pre class="python">import math</pre></div>
@@ -69,34 +69,14 @@
         <a target="_blank" href="https://docs.python.org/3/library/">Python
         Standard Library</a>.</div></li>
 
-        <li><div>There are many modules that are not part of the
-        standard Python modules. These additional modules are sometimes
-        called <dfn>third-party modules</dfn> and are written and
-        maintained by other people as a service to the Python community.
-        Third-party modules are usually available at no cost. To use a
-        third-party module in your program, you must download, install,
-        and import it.</div></li>
-
-        <li><div>The <a target="_blank" href="https://pypi.org/">Python
-        package index</a> (pypi) is an online repository of software
-        that contains more than 200,000 software packages, each of which
-        contains one or more third-party Python modules.</div></li>
-
-        <li><div><a target="_blank"
-        href="https://docs.python.org/3/installing/index.html"><code>pip</code></a>
-        is a standard Python module that you can use to download and
-        install third-party modules. During this course, you will use
-        <code>pip</code> to download and install several third-party
-        modules.</div></li>
-
         <li><div>A programmer (you) can save lots of time by using
         existing modules and functions.</div></li>
 
         <li><div>A programmer uses a function by calling it (also known
         as invoking it). To <dfn>call</dfn> (or <dfn>invoke</dfn>) a
         function means to write code that causes the computer to execute
-        the code that is inside of that function. During CSE 110, you
-        often wrote code that called the <code>input</code> and
+        the code that is inside of that function. During CSE 110 and
+        111, you often wrote code that called the <code>input</code> and
         <code>print</code> functions. For example:
 <div class="pre"><pre class="python">name = input("Please enter your name: ")
 print(f"Hello {name}")</pre></div></div></li>
@@ -105,11 +85,16 @@ print(f"Hello {name}")</pre></div></div></li>
         following:
         <ol>
             <li><div>The name of the module in which the function is
-            located</div></li>
+            located *</div></li>
             <li><div>The name of the function</div></li>
             <li><div>The parameters that the function takes</div></li>
             <li><div>What the function does</div></li>
         </ol>
+        <ul class="note"><li>The built-in functions, such as
+        <code>input</code>, <code>round</code>, <code>len</code>, and
+        <code>print</code> are not located in any module. They are
+        always available.</li></ul>
+
         All of this information is normally available in online
         documentation. For example, from the online Python documentation
         about the <code>math</code> module, we read this about the
@@ -136,7 +121,7 @@ print(f"Hello {name}")</pre></div></div></li>
         function needs in order to complete its task. In the online
         documentation for the <code>math</code> module, we see that the
         <a target="_blank" href="https://docs.python.org/3/library/math.html#math.sqrt"><code>math.sqrt</code></a>
-        function has one parameter named <var>x</var> which is the
+        function has one parameter named <var>x</var>, which is the
         number that <code>math.sqrt</code> will compute the square root
         of.
 
@@ -155,8 +140,8 @@ print(f"Hello {name}")</pre></div></div></li>
         In the above example, 71 will be passed through the parameter
         <var>x</var> into the <code>math.sqrt</code> function. The
         <code>math.sqrt</code> function will compute the square root of
-        71 and return the computed value which will then be stored in
-        the variable <var>r</var>.</div></li>
+        71 and return the computed value that will then be stored in the
+        variable <var>r</var>.</div></li>
 
         <li><div>An <dfn>argument</dfn> is the value that is passed
         through a parameter into a function. In other words, parameters
@@ -196,9 +181,7 @@ print(f"Hello {name}")</pre></div></div></li>
         rounds that number to two digits after the decimal, and then
         prints the rounded number.
 
-<div class="pre"><pre class="linenums">1
-2
-3</pre>
+<div class="pre"><pre class="linenums">1<br>2<br>3</pre>
 <pre class="python">n = float(input("Please enter a number: "))
 r = round(n, 2)
 print(r)</pre></div>
@@ -216,6 +199,66 @@ print(r)</pre></div>
             decimal point (2) is the second argument.</div></li>
             <li><div>Line 3 prints the rounded number.</div></li>
         </ul></div></li>
+
+        <li><div><p>Most of the previous information in this prepare
+        content can be summarized in these two statements.</p>
+
+        <p>To call a built-in function, write code that follows this
+        template:</p>
+<div class="pre"><pre class="python"><var>variable_name</var> = <var>function_name</var>(<var>arg1</var>, <var>arg2</var>, &hellip; <var>argN</var>)</pre></div>
+
+        <p>To call a function from a module, import the module and write
+        code that follows this template:</p>
+<div class="pre"><pre class="python"><var>variable_name</var> = <var>module_name</var>.<var>function_name</var>(<var>arg1</var>, <var>arg2</var>, &hellip; <var>argN</var>)</pre></div>
+        </div></li>
+
+        <li><div><p>Python is an object oriented language and includes
+        many classes and objects. A <dfn>method</dfn> is a function that
+        belongs to a class or object. Even though classes and objects
+        are not part of this course (CSE 111), calling a method in
+        Python is so common and so easy that you should know how to do
+        it. A method is a function, so calling a method is similar to
+        calling a function. The difference is that to call a method we
+        must type the name of the object and a period (.) in front of
+        the method name as shown in this template:</p>
+
+<div class="pre"><pre class="python"><var>variable_name</var> = <var>object_name</var>.<var>method_name</var>(<var>arg1</var>, <var>arg2</var>, &hellip; <var>argN</var>)</pre></div>
+
+        <p>Consider the following example code that gets a string of
+        text from a user and prints the number of characters in the
+        string and prints the string in all upper case characters.</p>
+
+<div class="pre"><pre class="linenums">
+1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9
+11<br>12<br>13<br>14<br>15</pre><pre class="python">
+# Get a string of text from the user.
+text1 = input("Enter a motivational quote: ")
+
+# Call the built-in len function to get
+# the number of characters in the text.
+length = <em>len(text1)</em>
+
+# Call the string upper method to convert
+# the quote to upper case characters.
+text2 = <em>text1.upper()</em>
+
+# Call the built-in print function to print the length of the
+# text and the text in all upper case for the user to see.
+print(length, text2)</pre></div>
+
+        <p>Notice the code on line&nbsp;6 calls the built-in
+        <code>len</code> function and the code on line&nbsp;11 calls the
+        string <code>upper</code> method. Compare the function call in
+        line&nbsp;6 to the method call in line&nbsp;11. To call the
+        <code>len</code> function, we type the name of the function
+        followed by a list of arguments. To call the <code>upper</code>
+        method, we type the name of the object (<code>text1</code>) and
+        a period before the method name and then a list of
+        arguments.</p>
+
+        <p>A method can receive arguments just like a function can.
+        However, in the previous example, there are no arguments passed
+        to the <code>upper</code> method.</p></div></li>
 
         <li id="optArgs"><div>When calling a function, some arguments
         are optional. Again consider the description of the built-in
@@ -235,9 +278,9 @@ print(r)</pre></div>
         <var>number</var> will be rounded to an integer.</div></li>
 
         <li><div>For some optional arguments, we must pass a <dfn>named
-        argument</dfn> which is an argument that is preceded by the name
-        of its matching parameter. For example, here is an excerpt from
-        the documentation for the <code>print</code> function:
+        argument</dfn>, which is an argument that is preceded by the
+        name of its matching parameter. For example, here is an excerpt
+        from the documentation for the <code>print</code> function:
 
         <dl class="function">
             <dt><code>print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)</code></dt>
@@ -251,7 +294,7 @@ print(r)</pre></div>
         Notice from the excerpt that the <code>print</code> function can
         take many objects that will be printed. Optionally, it can take
         parameters named <var>sep</var>, <var>end</var>,
-        <var>file</var>, and <var>flush</var> which must be named when
+        <var>file</var>, and <var>flush</var> that must be named when
         they are used. For example, this code calls the
         <code>print</code> function to print three words all separated
         by a vertical bar (|). Notice the named argument <var>sep</var>.
@@ -275,14 +318,7 @@ print(x, y, z, sep="|")</pre></div></div></li>
         <li><div><a target="_blank" href="https://docs.python.org/3/library/functions.html">Built-in functions</a></div></li>
 
         <li><div>The <a target="_blank" href="https://docs.python.org/3/library/math.html"><code>math</code> module</a></div></li>
-
-        <li><div>The <a target="_blank" href="https://docs.python.org/3/library/csv.html"><code>csv</code> module</a></div></li>
     </ul>
-
-    <p>To learn more about installing modules using the <code>pip</code>
-    command, read the <a target="_blank"
-    href="https://docs.python.org/3/installing/index.html#basic-usage">Basic
-    usage</a> section of the official <code>pip</code> reference.</p>
 </article>
 <footer>
     <small>Copyright &copy; 2020, Brigham Young University - Idaho. All

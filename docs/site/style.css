@@ -189,6 +189,14 @@ article ul.links > li {
 	padding-left: 0.3em;
 }
 
+article ul.note {
+	list-style-type: "*";
+}
+
+article ul.note > li {
+	padding-left: 0.4em;
+	color: #0076b6;
+}
 article dl.function {
 	margin: 1em 1em 1em 1em;
 	border-left: 0.12em solid #0076b6;  /* BYU-Idaho blue */
