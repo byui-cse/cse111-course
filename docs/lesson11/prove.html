@@ -12,7 +12,8 @@
     <script src="../site/expand.js"></script>
 </head>
 
-<body onload="cse111.color.addSchemeHandler()">
+<body onload="cse111.color.addSchemeHandler();
+cse111.expand.addExpandHandlers()">
 <header>
     <div class="colorCtrl">&nbsp;</div>
     <div class="logo">
@@ -264,6 +265,8 @@ def write_file(filename, lines):
     with open(filename, "wt") as outfile:
         print(*lines, sep="\n", file=outfile)</pre></div>
     <div class="pre"><pre class="python">
+import os
+
 def test_write_file():
     """Verify that the write_file function works correctly."""
     lines = [
@@ -277,19 +280,22 @@ def test_write_file():
     "into the fire. Wherefore, by their fruits ye shall know them."
     ]
     filename = "fruits.txt"
+
+    # Call the write_file function to write a file named fruits.txt.
     write_file(filename, lines)
 
-    # Verify that write_file correctly wrote the fruits.txt file.
+    # Read the contents of the fruits.txt file.
     with open(filename, "rt") as infile:
         written = infile.readlines()
 
     # Delete the fruits.txt file.
     os.remove(filename)
 
-    # Remove newline characters from the end of each line.
-    rstrip = lambda line: line.rstrip()
+    # Remove newline characters from the end of each line of text.
+    rstrip = lambda text: text.rstrip()
     written = list(map(rstrip, written))
 
+    # Verify that write_file correctly wrote the fruits.txt file.
     assert lines == written</pre></div></div>
 
     <div class="expand">
@@ -309,6 +315,8 @@ def read_file(filename):
 
     return lines</pre></div>
     <div class="pre"><pre class="python">
+import os
+
 def test_read_file():
     """Verify that the read_file function works correctly."""
     # Write a sample file with three lines
