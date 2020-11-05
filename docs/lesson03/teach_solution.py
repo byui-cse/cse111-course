@@ -6,7 +6,7 @@ students = {}
 
 # Open a file named students.csv and store a reference
 # to the opened file in a variable named infile.
-with open("students.csv", "rt") as infile:
+with open("pupils.csv", "rt") as infile:
 
     # Use the csv module to create a reader
     # object that will read from the opened file.

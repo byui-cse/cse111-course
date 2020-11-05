@@ -61,41 +61,36 @@
     </ul>
 
     <h2>Assignment</h2>
-    <p>Write a Python program that writes to and reads from a text
-    file. Your program must correctly write and read characters from
-    several different languages.</p>
+    <p>Write a Python program named <code>text_file.py</code> with three
+    functions named <code>write_text_file</code>,
+    <code>read_text_file</code>, and <code>main</code> as follows:</p>
 
-    <p>Do the following:</p>
     <ol class="long">
-        <li><div>Start your program in a blank file and import the
-        <code>requests</code> module.</div></li>
-
-        <li><div>Write a function named <code>write_text_file</code>
-        that takes two parameters named <var>filename</var> and
-        <var>text</var>. This function must do the following:
+        <li><div><code>write_text_file</code>
         <ol>
-            <li><div>Open a text file for writing with the utf-8
-            encoding.</div></li>
-            <li><div>Write all the text to the file.</div></li>
+            <li><div>Has two parameters named <var>filename</var> and
+            <var>text</var></div></li>
+            <li><div>Opens the text file named <var>filename</var> for
+            writing with the utf-8 encoding.</div></li>
+            <li><div>Writes all the text to the file.</div></li>
         </ol></div></li>
 
-        <li><div>Write a function named <code>read_text_file</code> that
-        takes one parameter named <var>filename</var>. This function
-        must do the following:
+        <li><div><code>read_text_file</code>
         <ol>
-            <li><div>Open a text file for reading with the utf-8
+            <li><div>Has one parameter named
+            <var>filename</var>.</div></li>
+            <li><div>Opens a text file for reading with the utf-8
             encoding.</div></li>
-            <li><div>Read all the text in the file into a
+            <li><div>Reads all the text in the file into a
             string.</div></li>
             <li><div>Return the string.</div></li>
-        </ol></div></li>
+       </ol></div></li>
 
-        <li><div><p>Write a function named <code>main</code> that
-        takes no parameters. This function must do the following:</p>
-        <ol class="long">
-            <li><div>Call <code>write_text_file</code> to write the
-            following string to a text file named
-            "forgive.txt".
+        <li><div><code>main</code>
+        <ol>
+            <li><div>Has no parameters.</div></li>
+            <li><div>Calls <code>write_text_file</code> to write the
+            following string to a file named "forgive.txt".
 <div class="pre"><pre class="python">verse = """For if ye forgive men their trespasses,
 your Heavenly Father will also forgive you.
 ἐὰν γὰρ ἀφῆτε τοῖς ἀνθρώποις τὰ παραπτώματα αὐτῶν,
@@ -103,26 +98,25 @@ your Heavenly Father will also forgive you.
 𐐙𐐫𐑉, 𐐮𐑁 𐐷 𐑁𐐲𐑉𐑀𐐮𐑂 𐑋𐐯𐑌 𐑄𐐯𐑉 𐐻𐑉𐐯𐑅𐐹𐐰𐑅𐐮𐑆,
 𐐷𐐫𐑉 𐐸𐐯𐑂𐐲𐑌𐑊𐐨 𐐙𐐱𐑄𐐲𐑉 𐐶𐐮𐑊 𐐫𐑊𐑅𐐬 𐑁𐐲𐑉𐑀𐐮𐑂 𐐷𐐭."""</pre></div></div></li>
 
-            <li><div>Call <code>read_text_file</code> to read the
+            <li><div>Calls <code>read_text_file</code> to read the
             contents of <code>forgive.txt</code>.</div></li>
-            <li><div>Print the text returned from
+            <li><div>Prints the text returned from
             <code>read_text_file</code>.</div></li>
         </ol>
 
         <p>Notice that the string includes characters from English,
         Greek, and the Deseret alphabet. It is important that the test
-        string includes characters from other languages so that you can
-        verify that your <code>write_text_file</code> and
-        <code>read_text_file</code> functions are working
+        string includes characters from other languages besides English
+        so that you can verify that your <code>write_text_file</code>
+        and <code>read_text_file</code> functions are working
         correctly.</p></div></li>
 
         <li><div>At the bottom of your program, write a line of code to
-        call the <code>main</code> function. For example:
-<div class="pre"><pre class="python">main()</pre></div>
-        Then run your program and verify that your program correctly
-        writes and reads the string from above. All the characters in
-        <code>forgive.txt</code> should look the same as they look above
-        in this web page.</div></li>
+        call the <code>main</code> function. Then run your program and
+        verify that your program correctly writes and reads the
+        <var>verse</var> string from above. All the characters in
+        <code>forgive.txt</code> should look the same as they look in
+        this web page.</div></li>
     </ol>
 
     <h3>Core Requirements</h3>

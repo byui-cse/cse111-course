@@ -44,11 +44,28 @@
     online Python documentation.</p>
 
     <h2>Assignment</h2>
-    <p>Write a program with two functions named <code>main</code> and
-    <code>append_random_numbers</code> as follows:</p>
+    <p>Write a Python program named <code>random_numbers.py</code> with
+    two functions named <code>append_random_numbers</code> and
+    <code>main</code> as follows:</p>
 
     <ol class="long">
-        <li><div><code>main()</code>
+        <li><div><code>append_random_numbers</code>
+        <ol>
+            <li><div>Has two parameters: a list named
+            <var>numbers_list</var> and an integer named
+            <var>quantity</var>. The parameter <var>quantity</var> has a
+            default value of 1</div></li>
+            <li><div>Computes <var>quantity</var> pseudo random numbers
+            by calling the <code>random.uniform</code>
+            function.</div></li>
+            <li><div>Rounds the <var>quantity</var> pseudo random
+            numbers to one digit after the decimal.</div></li>
+            <li><div>Appends the <var>quantity</var> pseudo random
+            numbers onto the end of the <var>numbers_list</var>
+            list.</div></li>
+        </ol></div></li>
+
+        <li><div><code>main</code>
         <ol>
             <li><div>Has no parameters</div></li>
             <li><div>Creates a list named <var>randnums</var> like this:
@@ -64,21 +81,9 @@
             <li><div>Prints <var>randnums</var></div></li>
         </ol></div></li>
 
-        <li><div><code>append_random_numbers()</code>
-        <ol>
-            <li><div>Has two parameters: a list named <var>ls</var>
-            and an integer named <var>n</var> ; the parameter
-            <var>n</var> has a default value of 1</div></li>
-            <li><div>Computes <var>n</var> pseudo random numbers by
-            calling the <code>random.uniform</code> function.</div></li>
-            <li><div>Rounds the <var>n</var> pseudo random numbers to
-            one digit after the decimal.</div></li>
-            <li><div>Appends the <var>n</var> pseudo random numbers onto
-            the end of the <var>ls</var> list</div></li>
-        </ol></div></li>
-
-        <li><div>Call <code>main()</code> to begin executing your
-        program</div></li>
+        <li><div>At the bottom of your program, write a line of code to
+        call the <code>main</code> function. Then run your program and
+        verify that your program works correctly.</div></li>
     </ol>
 
     <h2>Sample Run</h2>
