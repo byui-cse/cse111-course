@@ -38,12 +38,12 @@
         <li><div><code>get_line.py</code> is a simple program that asks
         a user to input the name of a text file and a line number. Then
         <code>get_line.py</code> prints the text that is in the text
-        file on the user requested line number.</div></li>
+        file on the requested line number.</div></li>
 
-        <li><div>Notice in <code>get_line.py</code>, the
-        <code>try</code> block at the beginning of the <code>main</code>
-        fuction. Notice also the four <code>except</code> blocks, each
-        handling a different type of exception.</div></li>
+        <li><div>Notice in <code>get_line.py</code>, the <code>try</code>
+        block on line&nbsp;8 and the four <code>except</code> blocks,
+        each handling a different type of exception, on
+        lines&nbsp;26&ndash;55.</div></li>
 
         <li><div>Run the <code>get_line.py</code> program five times and
         enter the input shown in the Sample Run section below. For each
@@ -56,7 +56,6 @@
 <pre class="console">&gt; python get_line.py
 Enter the name of text file: <span class="input">notafile.csv</span>
 Enter a line number: <span class="input">25</span>
-
 FileNotFoundError: [Errno 2] No such file or directory: 'notafile.csv'
 The file notafile.csv doesn't exist.
 Run the program again and enter the name of an existing file.
@@ -64,7 +63,6 @@ Run the program again and enter the name of an existing file.
 &gt; python get_line.py
 Enter the name of text file: <span class="input">fitness.csv</span>
 Enter a line number: <span class="input">hey</span>
-
 ValueError: invalid literal for int() with base 10: 'hey'
 You entered an invalid integer for the line number.
 Run the program again and enter an integer for the line number.
@@ -72,7 +70,6 @@ Run the program again and enter an integer for the line number.
 &gt; python get_line.py
 Enter the name of text file: <span class="input">fitness.csv</span>
 Enter a line number: <span class="input">-300</span>
-
 IndexError: list index out of range
 -300 is greater than the number of lines in ../lesson05/fitness.csv.
 There are only 7 lines in ../lesson05/fitness.csv.
@@ -81,7 +78,6 @@ Run the program again and enter a line number between 1 and 7.
 &gt; python get_line.py
 Enter the name of text file: <span class="input">fitness.csv</span>
 Enter a line number: <span class="input">75</span>
-
 IndexError: list index out of range
 75 is greater than the number of lines in ../lesson05/fitness.csv.
 There are only 7 lines in ../lesson05/fitness.csv.
@@ -90,7 +86,6 @@ Run the program again and enter a line number between 1 and 7.
 &gt; python get_line.py
 Enter the name of text file: <span class="input">fitness.csv</span>
 Enter a line number: <span class="input">4</span>
-
 F,1980-09-20,125,63.5</pre>
 
     <h2>Submission</h2>
