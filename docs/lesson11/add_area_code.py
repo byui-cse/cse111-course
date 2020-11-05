@@ -19,16 +19,19 @@ def main():
     df.to_csv("students2.csv", mode="wt", index=False, line_terminator="\n")
 
 
-def add_area_code(phone):
+def add_area_code(phone: str) -> str:
     """Phone numbers in the U.S. are often stored as ten digits
     and two dashes in this format: "ddd-ddd-dddd" where each d
     is a digit. If the length of the phone parameter is less
     than 12 characters, add the area code "208-" at the
     beginning of the phone number and return the phone number.
+
+    param phone: a string of digits formatted as "ddd-dddd" or "ddd-ddd-dddd"
     """
     pass
 
 
 # Call the main function so that
 # this program will start executing.
-main()
+if __name__ == "__main__":
+    main()

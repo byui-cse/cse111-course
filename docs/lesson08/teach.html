@@ -87,32 +87,34 @@
         States.</div></li>
 
         <li><div>Open <code>crashes.py</code> in VS Code and notice that
-        lines 18 and 19 contain code to ask the user for a filename and
-        then open that file. It is possible that when the computer
-        executes lines 18 and 19, the user may enter the name of a file
-        that does not exist or may enter the name of a file that the
-        user does not have permission to read. These two situations
-        cause the computer to raise a <code>FileNotFoundError</code> and
-        <code>PermissionError</code>, respectively.</div></li>
+        lines&nbsp;18 and&nbsp;19 contain code to ask the user for a
+        filename and then open that file. It is possible that when the
+        computer executes lines&nbsp;18 and&nbsp;19, the user may enter
+        the name of a file that does not exist or may enter the name of
+        a file that the user does not have permission to read. These two
+        situations cause the computer to raise a
+        <code>FileNotFoundError</code> and <code>PermissionError</code>,
+        respectively.</div></li>
 
-        <li><div>Notice that line 23 of <code>crashes.py</code> contains
-        code to prompt the user for a number. It is possible that while
-        the computer is executing line 23, the user may enter text that
-        is not a number, for example: "4r0". This situation causes the
-        computer to raise a <code>ValueError</code>. It is also possible
-        that the user may enter a number that is too low or too high,
-        for example: -15 or 110. In this situation, the computer does
-        not raise an exception, but this situation is still a mistake
-        that the program should alert the user about.</div></li>
+        <li><div>Notice that line&nbsp;22 of <code>crashes.py</code>
+        contains code to prompt the user for a number. It is possible
+        that while the computer is executing line&nbsp;22, the user may
+        enter text that is not a number, for example: "4r0". This
+        situation causes the computer to raise a
+        <code>ValueError</code>. It is also possible that the user may
+        enter a number that is too low or too high, for example: -15 or
+        110. In this situation, the computer does not raise an
+        exception, but this situation is still a mistake that the
+        program should alert the user about.</div></li>
 
-        <li><div>Notice that lines 32 through 37 of
+        <li><div>Notice that lines&nbsp;40 through&nbsp;47 of
         <code>crashes.py</code> contain code to process each line of the
         CSV file. It is possible that the CSV file is formatted
         incorrectly which would cause the computer to raise either
         <code>csv.Error</code> or <code>KeyError</code>. It is also
         possible that one of the rows in the CSV file contains zero (0)
         in the "Fatal Crashes" column. This would cause the computer to
-        raise <code>ZeroDivisionError</code> at line 57 within the
+        raise <code>ZeroDivisionError</code> at line&nbsp;65 within the
         <code>estimate_reduction</code> function.</div></li>
 
         <li><div>Add exception handling code to handle
@@ -224,13 +226,16 @@ Year, Injuries, Deaths
 
     <h2>Sample Solution</h2>
     <p>Please work diligently with your team for the one hour meeting.
-    After the meeting is over, please compare your approach to the
-    <a download href="teach_solution.py">sample solution</a>. Please
-    <strong>do not look at the sample solution</strong> until you have
-    either finished the program or diligently worked for at least one
-    hour. At the end of the hour, if you are still struggling to
-    complete the assignment, you may use the sample solution to help you
-    finish.</p>
+    After the meeting is over, please compare your approach to this
+    <a download href="teach_solution1.py">first sample solution</a> or
+    to this
+    <a download href="teach_solution2.py">second sample solution</a>
+    which is better organized because it is split into two more
+    functions than the first solution. Please <strong>do not look at the
+    sample solutions</strong> until you have either finished the program
+    or diligently worked for at least one hour. At the end of the hour,
+    if you are still struggling to complete the assignment, you may use
+    the sample solution to help you finish.</p>
 
     <h2>Submission</h2>
     <p>When you have finished the activity, please report your progress

@@ -1,3 +1,6 @@
+"""This module contains two classes, IntEntry and FloatEntry,
+that allow a user to enter an integer or a floating point number.
+"""
 import tkinter as tk
 
 

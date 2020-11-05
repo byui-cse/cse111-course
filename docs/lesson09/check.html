@@ -21,7 +21,7 @@
     <h2>CSE 111 | <span>Programming with Functions</span></h2>
 </header>
 <article>
-    <h1>09 Checkpoint: Water Meter Readings</h1>
+    <h1>09 Checkpoint: Data Analysis</h1>
 
     <h2>Overview</h2>
     <p>Complete this individual checkpoint assignment to demonstrate
@@ -48,17 +48,21 @@
     water.csv that contains water meter readings for five years from
     the City of Rexburg.</p>
 
+    <h2>Helpful Documentation</h2>
+    <p>The <a target="_blank" href="prepare.html">prepare</a> content
+    for this lesson includes example code for the tasks in this
+    checkpoint. Additionally, the prepare content contains links to the
+    official <code>pandas</code> tutorials.</p>
+
     <h2>Assignment</h2>
     <p>Write a Python program with a main function that uses
     <code>pandas</code> to read a CSV file into a <code>DataFrame</code>
     and to manipulate and print the data. Do the following:</p>
 
     <ol class="long">
-        <li><div>Open VS Code and open a Python file (.py) so that VS
-        Code enables the Python extension.</div></li>
-
-        <li><div>Open the VS Code terminal frame: on the menu bar for VS
-        Code, click "Terminal" and then "New Terminal."</div></li>
+        <li><div>Open VS Code. Then open the VS Code terminal frame by
+        clicking "Terminal" on the menu bar and then clicking "New
+        Terminal".</div></li>
 
         <li><div>Upgrade pip, setuptools, and wheel by executing this
         command:
@@ -72,21 +76,28 @@
 
         <li><div>Install the <code>numpy</code>, matplotlib, and pandas
         modules:
-<pre class="console">python -m pip install --user numpy matplotlib pandas</pre>
-        <ul class="note"><li>If your computer is running the Mac OS, you
-        must use the <code>python3</code> command instead of the
-        <code>python</code> command. In other words, after you copy and
-        paste the above command, but before you press the enter key,
-        change <code>python</code> to <code>python3</code>.</li></ul>
+<pre class="console">python -m pip install --user numpy==1.19.3 matplotlib pandas</pre>
+        <ul class="note">
+        <li>If your computer is running the Mac OS, you must use the
+        <code>python3</code> command instead of the <code>python</code>
+        command. In other words, after you copy and paste the above
+        command, but before you press the enter key, change
+        <code>python</code> to <code>python3</code>.</li>
+        <li>2020-11-4 The above command must specify the version of
+        numpy (1.19.3) until Microsoft fixes a bug in the
+        <code>fmod</code> function in the standard C++ library. See this
+        <a target="_blank" href="https://tinyurl.com/y3dm3h86">article</a>
+        for more details.</li>
+        </ul>
         </div></li>
 
-        <li><div>Download and save this <a download
-        href="water.zip">water.zip</a> file.</div></li>
+        <li><div>Download and save this
+        <a download href="water.zip">water.zip</a> file.</div></li>
 
         <li><div>Unzip the file (extract all) into the same folder where
         you will save your Python program. This will unzip the file
-        <code>water.csv</code> This file contains water meter
-        readings for several years from the City of Rexburg,
+        <code>water.csv</code>. This file contains water meter readings
+        for five years from the City of Rexburg,
         Idaho.</div></li>
 
         <li><div>Open the unzipped <code>water.csv</code> file in VS

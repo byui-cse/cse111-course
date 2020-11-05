@@ -99,4 +99,5 @@ def grade_level_counts(df):
 
 # Call the main function so that
 # this program will start executing.
-main()
+if __name__ == "__main__":
+    main()

@@ -103,7 +103,6 @@ class HeartWindow(tk.Frame):
 
         # Give the keyboard focus to the age text field.
         txtAge.focus()
-        txtAge.set(2)
 
 
 # Call the main function so that
