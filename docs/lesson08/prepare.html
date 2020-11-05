@@ -79,9 +79,9 @@
 <em>except ValueError as ex:</em>
     # Code that the computer executes if the code in
     # the try block caused a ValueError to be raised.
-<em>except (RuntimeError, TypeError, NameError) as ex:</em>
+<em>except (TypeError, KeyError, NameError) as ex:</em>
     # Code that the computer executes if the code in the try
-    # block raised a RuntimeError, TypeError, or NameError.
+    # block raised a TypeError, KeyError, or NameError.
 <em>except Exception as ex:</em>
     # Code that the computer executes if the code in the
     # try block caused any exception to be raised that was
@@ -100,16 +100,16 @@
     # an exception was raised or not.</pre></div></div></li>
 
         <li><div>As shown in the example code above, when we want to
-        write code that will handle exceptions, we first write the
-        normal code that might cause an exception but does not handle
-        exceptions inside a <code>try</code> block. Then we write
-        <code>except</code> blocks to handle the exceptions. Each
-        <code>except</code> block may handle one type of exception such
-        as:
+        write code that will handle exceptions, we first write a
+        <code>try</code> block, and we put into that <code>try</code>
+        block the normal code that might cause an exception.
+        Then we write <code>except</code> blocks to handle the
+        exceptions. Each <code>except</code> block may handle one type
+        of exception such as:
 <div class="pre"><pre class="python">except ValueError as ex:</pre></div>
         Or each <code>except</code> block may handle several types of
         exceptions, such as:
-<div class="pre"><pre class="python">except (RuntimeError, TypeError, NameError) as ex:</pre></div>
+<div class="pre"><pre class="python">except (TypeError, KeyError, NameError) as ex:</pre></div>
 Or one <code>except</code> block may handle all possible types of
 exceptions such as:
 <div class="pre"><pre class="python">except Exception as ex:</pre></div>
@@ -129,7 +129,7 @@ We must order except blocks from most specific at the top to
         <code>try</code> and <code>except</code>, and professional
         programmers almost never do it.</div></li>
 
-        <li><div>As shown in the example code above, at the end of
+        <li><div>As shown in the example code above, at the end of the
         exception handling code, we may write an optional
         <code>finally</code> block. The <code>finally</code> block
         contains code that the computer executes after all the other
@@ -155,7 +155,7 @@ We must order except blocks from most specific at the top to
 
     <p>The official Python <a target="_blank"
     href="https://docs.python.org/3/library/exceptions.html#bltin-exceptions">built-in
-    exceptions reference</a> contains a list of all the built-in
+    exceptions</a> reference contains a list of all the built-in
     exceptions. It also includes the <a target="_blank"
     href="https://docs.python.org/3/library/exceptions.html#exception-hierarchy">class
     hierarchy</a> for the built-in exceptions that is helpful for

@@ -22,33 +22,32 @@ def main():
         # Process each row in the CSV file.
         for row in reader:
 
-                # From the current row of the CSV file,
-                # retrieve a person's gender from column 0.
-                gender = row[0]
+            # From the current row of the CSV file,
+            # retrieve a person's gender from column 0.
+            gender = row[0]
 
-                # From the current row of the CSV file, retrieve a
-                # person's birthdate as a string. Call the compute_age
-                # function which convert the string to a date and then
-                # compute and return a person's age in years.
-                years = compute_age(row[1])
+            # From the current row of the CSV file, retrieve a
+            # person's birthdate as a string. Call the compute_age
+            # function which convert the string to a date and then
+            # compute and return a person's age in years.
+            years = compute_age(row[1])
 
-                # From the current row of the CSV file, retrieve a
-                # person's weight in pounds and height in inches. Then
-                # convert the person's weight from pounds to kilograms
-                # and their height from inches to centimeters.
-                pounds = float(row[2])
-                inches = float(row[3])
-                kg = round(kg_from_lb(pounds), 2)
-                cm = round(cm_from_in(inches), 1)
+            # From the current row of the CSV file, retrieve a
+            # person's weight in pounds and height in inches. Then
+            # convert the person's weight from pounds to kilograms
+            # and their height from inches to centimeters.
+            pounds = float(row[2])
+            inches = float(row[3])
+            kg = round(kg_from_lb(pounds), 2)
+            cm = round(cm_from_in(inches), 1)
 
-                # For the current row, compute the person's
-                # body mass index and basal metabolic rate.
-                bmi = round(body_mass_index(kg, cm), 1)
-                bmr = round(basal_metabolic_rate(gender, kg, cm, years), 1)
+            # For the current row, compute the person's
+            # body mass index and basal metabolic rate.
+            bmi = round(body_mass_index(kg, cm), 1)
+            bmr = round(basal_metabolic_rate(gender, kg, cm, years), 1)
 
-                # Display the results for the
-                # current row in the CSV file.
-                print(gender, years, kg, cm, bmi, bmr, sep=",")
+            # Display the results for the current row in the CSV file.
+            print(gender, years, kg, cm, bmi, bmr, sep=",")
 
 
 def compute_age(birth):
@@ -65,12 +64,17 @@ def compute_age(birth):
 
 
 def kg_from_lb(lb):
-    """Convert a mass in pounds to kilograms."""
+    """Convert a mass in pounds to kilograms.
+    param lb: a mass in US pounds
+    """
     kg = lb * 0.45359237
     return kg
 
+
 def cm_from_in(inch):
-    """Convert a length in inches to centimeters."""
+    """Convert a length in inches to centimeters.
+    param inch: a length in inches
+    """
     cm = inch * 2.54
     return cm
 

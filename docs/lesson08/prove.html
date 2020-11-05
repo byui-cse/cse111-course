@@ -32,11 +32,11 @@
     <h2>Problem Statement</h2>
     <p>The molar mass of a substance is the mass in grams of one mole
     (grams / mole) of the substance. In chemistry, a molar mass
-    calculator is a program that computes the molar mass of a substance.
-    To use a molar mass calculator, a chemist enters the formula for a
-    molecule such as H2O or C6H12O6. The calculator splits the formula
-    into elements and for each element in the formula does the
-    following:</p>
+    calculator is a program that calculates the molar mass of a
+    substance. To use a molar mass calculator, a chemist enters the
+    formula for a molecule such as H2O or C6H12O6. The calculator splits
+    the formula into elements and for each element in the formula does
+    the following:</p>
     <ol>
         <li><div>Sums the number of atoms of each element in the
         formula.</div></li>
@@ -46,6 +46,15 @@
         <li><div>Adds the product into the molar mass of the
         molecule.</div></li>
     </ol>
+
+    <p>All people, including chemists, occasionally make mistakes.
+    Sometimes, when using a molar mass calculator, a chemist will
+    mistype a formula for a molecule. For example, a chemist may
+    accidentally type "2HO" instead of "H2O" or "Cx6H12O6" insted of
+    "C6H12O6". When a person makes a mistake while using a program, a
+    good program will inform the person about the mistake and possibly
+    suggest how to fix the mistake. A molar mass calculator should
+    inform a chemist when the chemist mistypes a molecular formula.</p>
 
     <h2>Helpful Documentation</h2>
     <p>During the previous lesson, you learned that <code>pytest</code>
@@ -58,56 +67,20 @@
     reporting of assertions in tests</a>, specifically the section
     titled, "Assertions about expected exceptions."</p>
 
-    <p>During the previous activities in this lesson, your
-    <code>except</code> code simply printed a message stating what type
-    of exception was raised. In this assignment, your
-    <code>except</code> code could use information stored inside the
-    <code>FormulaError</code> to help the chemist know what she typed
-    incorrectly. To access the information stored inside an exception,
-    use the <code>ex.args</code> list. For example:</p>
-
-<div class="pre"><pre class="python">try:
-    &hellip;
-except FormulaError as ex:
-    # The FormulaError includes information inside its args list.
-    # ex.args[0] contains the message "invalid formula"
-    # ex.args[1] contains the incorrect formula
-    # ex.args[2] contains the index of the first mistake in the formula
-    print(ex.args[0])</pre></div>
-
     <h2>Assignment</h2>
     <p>During this lesson, you will write and test the remaining parts
-    of a molar mass calculator. Specifically, you will write another
-    test function, run the tests, write the main function for your molar
-    mass calculator, and test your completed calculator by using it like
-    a chemist.</p>
+    of a molar mass calculator. Specifically, you will add to an
+    existing test function, write one program function named
+    <code>main</code>, run the test functions, and also test your
+    completed calculator by using it like a chemist.</p>
 
     <p>Do the following:</p>
     <ol class="long">
-        <li><div><p>Open the <code>test_chemistry.py</code> file from
-        the previous lesson. Near the bottom of the file is a test
-        function named <code>test_parse</code>. Delete the
-        <code>pass</code> statement and write the code for this function
-        so that it adequately tests the
-        <code>chemistry.parse_formula</code> function. The following
-        table lists four chemical formulas and the dictionaries that the
-        <code>parse_formula</code> function should return. Use these
-        formulas and dictionaries in <code>assert</code> statements to
-        test the <code>parse_formula</code> function.</p>
-
-        <table><thead>
-            <tr><th>Formula</th> <th>Dictionary</th></tr>
-        </thead><tbody>
-            <tr><td>H2O</td> <td>{"H":2, "O":1}</td></tr>
-            <tr><td>C6H6</td> <td>{"C":6, "H":6}</td></tr>
-            <tr><td>PO4H2(CH2)12CH3</td> <td>{"P":1, "O":4, "H":29, "C":13}</td></tr>
-            <tr><td>(C2(NaCl)4H2)2C4Na</td> <td>{"C":8, "Na":9, "Cl":8, "H":4}</td></tr>
-        </tbody></table>
-
-        <p>The following six chemical formulas all contain errors, and
-        the <code>parse_formula</code> function should raise a
-        <code>FormulaError</code> when it tries to parse them. Write
-        code in the <code>test_parse</code> function to test that the
+        <li><div><p>The following six chemical formulas all contain
+        errors, and the <code>parse_formula</code> function should raise
+        a <code>FormulaError</code> when it tries to parse them. In the
+        <code>test_chemistry.py</code> file, add code in the
+        <code>test_parse</code> function to test that the
         <code>parse_formula</code> function raises a
         <code>FormulaError</code> for each of them.</p>
 
@@ -138,9 +111,9 @@ with pytest.raises(&lt;ExceptionType&gt;):
 with pytest.raises(FormulaError):
     parse_formula("H2L4")</pre></div></div></li>
 
-        <li><div>Click the green run icon in VS Code to run the four
-        test functions and ensure that all four test functions
-        pass.</div></li>
+        <li><div>Run the four test functions in
+        <code>test_chemistry.py</code> and ensure that all four test
+        functions pass.</div></li>
 
         <li><div>Using VS Code, open a new file and save it as
         <code>molar_mass.py</code> in the same folder that you saved
@@ -159,8 +132,8 @@ with pytest.raises(FormulaError):
             user.</div></li>
             <li><div>Calls <code>chemistry.parse_formula</code> to
             convert the formula to a dictionary.</div></li>
-            <li><div>Calls <code>chemistry.molar_mass</code> to compute
-            the molar mass of the molecule.</div></li>
+            <li><div>Calls <code>chemistry.molar_mass</code> to
+            calculate the molar mass of the molecule.</div></li>
             <li><div>Rounds the molar mass to five digits after the
             decimal point and prints the rounded molar mass.</div></li>
             <li><div>Gets a mass in grams from the user.</div></li>
@@ -169,13 +142,30 @@ with pytest.raises(FormulaError):
             <li><div>Prints the value in moles.</div></li>
         </ol></div></li>
 
-        <li><div>Surround the code in <code>main</code> with
+        <li><div><p>Surround the code in <code>main</code> with
         <code>try</code> and <code>except</code>. There should be two
         <code>except</code> blocks, one to handle a
         <code>FormulaError</code> and one to handle a
         <code>ValueError</code>. Both <code>except</code> blocks should
         print a suitable message that tells the chemist that she entered
-        a mistake.</div></li>
+        a mistake.
+
+        <p>During the previous activities in this lesson, your
+        <code>except</code> code simply printed a message stating what
+        type of exception was raised. In this assignment, your
+        <code>except</code> code could use information stored inside the
+        <code>FormulaError</code> to help the chemist know what she
+        typed incorrectly. To access the information stored inside an
+        exception, use the <code>ex.args</code> list. For example:</p>
+
+<div class="pre"><pre class="python">try:
+    &hellip;
+except FormulaError as ex:
+    # The FormulaError includes information inside its args list.
+    # ex.args[0] contains the message "invalid formula"
+    # ex.args[1] contains the incorrect formula
+    # ex.args[2] contains the index of the first mistake in the formula
+    print(ex.args[0])</pre></div></div></li>
 
         <li><div>At the bottom of your <code>molar_mass.py</code> file,
         write a call to the <code>main</code> function just as you have
@@ -204,7 +194,16 @@ Mass in grams of the substance: <span class="input">5.04</span>
     step in this testing procedure:</p>
 
     <ol class="test">
-        <li><div></div></li>
+        <li><div>Run all four tests in <code>test_chemistry.py</code>
+        and ensure that all four of them pass. If
+        <code>test_molar_mass</code> fails, review and debug the code
+        that you wrote in the <code>molar_mass</code> function in the
+        <code>chemistry.py</code> file.</div></li>
+
+        <li><div>Run your finished program by running the
+        <code>molar_mass.py</code> file. Enter the user input shown in
+        the Sample Runs section above. Ensure that your program prints
+        correct output.</div></li>
     </ol>
 
     <h2>Submission</h2>

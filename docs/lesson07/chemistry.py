@@ -148,6 +148,9 @@ def get_atomic_mass(symbol):
 
 
 class FormulaError(ValueError):
+    """FormulaError is the type of error that
+    parse_formula will raise if a formula is invalid.
+    """
     pass
 
 def parse_formula(formula):
@@ -172,7 +175,7 @@ def parse_formula(formula):
     def parse_r(formula, index, level):
         start_index = index
         start_level = level
-        elems = {}
+        elems = {}  # A dictionary that holds symbol quantity pairs
         while index < len(formula):
             ch = formula[index]
             if ch == "(":
@@ -215,16 +218,27 @@ def parse_formula(formula):
     return elems
 
 
-def molar_mass(elem_dict):
-    """Compute and return the total molar mass of all
-    the elements listed in elem_dict. Each item in
-    elem_dict is a tuple in the form: (symbol, quantity).
+def molar_mass(symbol_quantity_dict):
+    """Compute and return the total molar mass of all the
+    elements listed in symbol_quantity_dict. Each item in
+    symbol_quantity_dict is a tuple in the form: (symbol, quantity).
 
-    As an example, if elem_dict is {"H":2, "O":1},
+    As an example, if symbol_quantity_dict is {"H":2, "O":1},
     this function will calculate and return
     atomic_mass("H") * 2 + atomic_mass("O") * 1
     1.00794 * 2 + 15.9994 * 1
     18.01528
     """
-    # TODO: Write this function.
-    pass
+    total_mass = 0
+
+    # For each item in the dictionary:
+    #   Split the item into symbol and quantity (key and value).
+    #   Get the atomic mass for the symbol.
+    #   Multiply the atomic mass by the quantity.
+    #   Add the product into the total mass.
+    for symbol, quantity in symbol_quantity_dict.items():
+        atomic_mass = get_atomic_mass(symbol)
+        total_mass += atomic_mass * quantity
+
+    # Return the total mass.
+    return total_mass

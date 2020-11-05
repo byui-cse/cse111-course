@@ -24,8 +24,9 @@
     <h1>05 Prove Milestone: Draw a Scene</h1>
 
     <h2>Overview</h2>
-    <p>Prove that you can write and call functions by writing a program
-    that draws an outdoor scene in a window.</p>
+    <p>Prove that you can write functions with parameters and call those
+    functions with arguments by writing a program that draws an outdoor
+    scene in a window.</p>
 
     <h2>Problem Statement</h2>
     <p>Most modern computer operating systems have graphical user
@@ -49,14 +50,29 @@
     alt="A semi-realistic outdoor scene drawn by a Python program"></p>
 
     <h2>Helpful Documentation</h2>
-    <ul>
+    <ul class="long">
         <li><div>A tutorial about <a target="_blank"
         href="http://zetcode.com/tkinter/drawing/">drawing with
         tkinter</a></div></li>
 
-        <li><div>Reference for <a target="_blank"
-        href="https://effbot.org/tkinterbook/canvas.htm">tkinter
-        Canvas</a> widget</div></li>
+        <li><div>References for tkinter Canvas methods
+        <ul>
+            <li><div><a target="_blank" href="https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/create_arc.html">create_arc()</a></div></li>
+            <li><div><a target="_blank" href="https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/create_line.html">create_line()</a></div></li>
+            <li><div><a target="_blank" href="https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/create_oval.html">create_oval()</a></div></li>
+            <li><div><a target="_blank" href="https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/create_polygon.html">create_polygon()</a></div></li>
+            <li><div><a target="_blank" href="https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/create_rectangle.html">create_rectangle()</a></div></li>
+            <li><div><a target="_blank" href="https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/create_text.html">create_text()</a></div></li>
+        </ul></div></li>
+
+        <li><div><a target="_blank" href="colors.png">Chart of named
+        colors</a> in tkinter</div></li>
+    </ul>
+
+    <h2>Helpful Videos</h2>
+    <ul class="links">
+        <li><div><a target="_blank" href="https://youtu.be/MBKO2d_572o">Drawing with Functions, part 1</a></div></li>
+        <li><div><a target="_blank" href="https://youtu.be/TtZsqciApRk">Drawing with Functions, part 2</a></div></li>
     </ul>
 
     <h2>Assignment</h2>
@@ -76,6 +92,21 @@
     <code>draw_leaf</code> that your program repeatedly calls to draw
     all the leaves on a tree.</p>
 
+    <p>The goal of this assignment is not to train you to become a
+    world-famous cloud artist. Instead, the goal is to teach you how to
+    apply the following principles to a real programming problem:</p>
+    <ol>
+        <li><div>Writing a function</div></li>
+        <li><div>Deciding what needs to be a parameter in a function
+        definition</div></li>
+        <li><div>Calling a function with different argument values to
+        produce different results</div></li>
+        <li><div>Understanding how to separate the parts of a function
+        that should stay the same and the parts that depend on
+        parameters, in order to make the function as reusable as
+        possible.</div></li>
+    </ol>
+
     <p>Begin your program by copying and pasting the following code into
     a new file named <code>scene.py</code>. This beginning code imports
     several parts of the <code>tkinter</code> library and creates a
@@ -87,42 +118,32 @@
 30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39
 40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49
 50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59
-60<br>61<br>62<br>63<br>64<br>65<br>66</pre>
-<pre class="python">from tkinter import Tk, Canvas, Frame, BOTH
+60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68<br>69
+70<br>71<br>72<br>73<br>74<br>75<br>76<br>77<br>78</pre>
+<pre class="python">from tkinter import Tk, Frame, Canvas, BOTH
 
 
 def main():
+    width = 800
+    height = 600
+
     # Create the root Tk object.
     root = Tk()
+    root.geometry(f"{width}x{height}")
 
-    # Create a Scene window. Creating an object
-    # calls the __init__ function in the class.
-    Scene()
+    # Create a Frame object.
+    frame = Frame()
+    frame.master.title("Scene")
+    frame.pack(fill=BOTH, expand=1)
 
-    root.geometry("800x600")
+    # Create a canvas object that will draw into the frame.
+    canvas = Canvas(frame)
+    canvas.pack(fill=BOTH, expand=1)
+
+    # Call the draw_scene function.
+    draw_scene(canvas, 0, 0, width-1, height-1)
+
     root.mainloop()
-
-
-class Scene(Frame):
-    """A Scene object is a Frame that uses the tkinter library
-    to draw a somewhat realistic outdoor scene in the frame.
-    """
-
-    def __init__(self):
-        """Initialize a Scene object."""
-
-        # Call __init__ in the parent class.
-        super().__init__()
-
-        self.master.title("Scene")
-        self.pack(fill=BOTH, expand=1)
-
-        # Get a canvas object that will draw into this Scene object.
-        canvas = Canvas(self)
-        canvas.pack(fill=BOTH, expand=1)
-
-        # Call the draw_scene function.
-        draw_scene(canvas, 0, 0, 799, 599)
 
 
 def draw_scene(canvas, scene_left, scene_top, scene_right, scene_bottom):
@@ -130,25 +151,48 @@ def draw_scene(canvas, scene_left, scene_top, scene_right, scene_bottom):
     scene_right, and scene_bottom contain the extent in
     pixels of the region where the scene should be drawn.
 
-    param scene_left - left side of region; less than scene_right
+    param scene_left - left side of the region; less than scene_right
     param scene_top - top of the region; less than scene_bottom
     param scene_right - right side of the region
     param scene_bottom - bottom of the region
 
-    The width and height of the region can be calculated like this:
+    If needed, the width and height of the
+    region can be calculated like this:
     scene_width = scene_right - scene_left + 1
     scene_height = scene_bottom - scene_top + 1
     """
-    canvas.create_oval(scene_left + 20, scene_top + 40,
-            scene_right - 60, scene_bottom - 80,
-            outline="#404040", width=4, fill="#2040e0")
-
     # Call your functions here, such as draw_sky, draw_ground,
     # draw_snowman, draw_tree, draw_shrub, etc.
+    tree_left = scene_left + 500
+    tree_top = scene_top + 100
+    tree_height = 150
+    draw_pine_tree(canvas, tree_left, tree_top, tree_height)
 
 
 # Define more functions here, like draw_sky, draw_ground,
 # draw_cloud, draw_tree, draw_kite, draw_snowflake, etc.
+
+def draw_pine_tree(canvas, peak_x, peak_y, height):
+    """Draw a single pine tree."""
+    trunk_width = height / 10
+    trunk_height = height / 8
+    trunk_left = peak_x - trunk_width / 2
+    trunk_right = peak_x + trunk_width / 2
+    trunk_bottom = peak_y + height
+
+    skirt_width = height / 2
+    skirt_height = height - trunk_height
+    skirt_left = peak_x - skirt_width / 2
+    skirt_right = peak_x + skirt_width / 2
+    skirt_bottom = peak_y + skirt_height
+
+    canvas.create_rectangle(trunk_left, skirt_bottom,
+            trunk_right, trunk_bottom,
+            outline="gray20", width=1, fill="tan3")
+    canvas.create_polygon(peak_x, peak_y,
+            skirt_right, skirt_bottom,
+            skirt_left, skirt_bottom,
+            outline="gray20", width=1, fill="dark green")
 
 
 # Call the main function so that
@@ -157,29 +201,38 @@ main()</pre></div>
 
     <p>Save your new file as <code>scene.py</code> and run your new
     Python program. When you run it, it should open a window that
-    contains a blue oval like this:</p>
+    contains a single pine tree like this:</p>
 
-    <p><img src="oval.png" alt="A blue oval drawn by a Python program"></p>
+    <p><img src="oval.png" alt="A blue circle drawn by a Python program"></p>
 
-    <p>This oval was drawn by the code at lines 52 - 54. Delete lines
-    52 - 54 and begin writing your program. The purpose of this
-    assignment is to prove that you can write and call functions.
-    Therefore, your program must be divided into functions such as
-    <code>draw_sky</code>, <code>draw_cloud</code>,
+    <p>The pine tree was drawn because the code at line&nbsp;78 called
+    the <code>main</code> function. At line&nbsp;22, the
+    <code>main</code> function called the <code>draw_scene</code>
+    function. At line&nbsp;47, the <code>draw_scene</code> function
+    called the <code>draw_pine_tree</code> function and at
+    lines&nbsp;67&ndash;73 the <code>draw_pine_tree</code> function
+    called the <code>create_rectangle</code> and
+    <code>create_polygon</code> methods.</p>
+
+    <p>The purpose of this assignment is to prove that you can write and
+    call functions. Therefore, your program must be divided into
+    functions such as <code>draw_sky</code>, <code>draw_cloud</code>,
     <code>draw_ground</code>, <code>draw_bird</code>,
     <code>draw_grass_blade</code>, and <code>draw_insect</code>. The
-    header for the <code>draw_scene</code> function, which is shown on
-    line 38 in the example code above, is a good example for the headers
-    of all your draw_* functions. For example, if you write a
-    <code>draw_grass_blade</code> function in your program, you should
+    headers for the <code>draw_scene</code> and
+    <code>draw_pine_tree</code> functions are good examples for the
+    headers of all your draw_* functions. For example, if you write a
+    <code>draw_grass_blade</code> function in your program, you could
     write its header like this:</p>
 
 <div class="pre"><pre class="python">def draw_grass_blade(canvas, blade_left, blade_top, blade_right, blade_bottom):</pre></div>
 
-    <p>As you write your program, be sure that it draws elements in the
-    order of farthest away to nearest. For example, you program should
-    draw the blue sky first, then the ground, then clouds, then trees,
-    then insects in the trees.</p>
+    <p>Delete or comment-out lines&nbsp;44&ndash;47 and
+    lines&nbsp;53&ndash;73 and begin writing your program.As you write
+    your program, be sure that it draws elements in the order of
+    farthest away to nearest. For example, you program should draw the
+    blue sky first, then the ground, then clouds, then trees, then
+    insects in the trees.</p>
 
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each

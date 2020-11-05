@@ -82,9 +82,11 @@
         <li><div>Calculates age, BMI, and BMR.</div></li>
     </ol>
 
-    <p>Use the following design to write your program:</p>
-<div class="pre"><pre class="python">
-# Import necessary modules.
+    <p>Use the following design to write your program. Write code for
+    each function that contains the keyword <code>pass</code>. Then
+    delete the keyword <code>pass</code>.</p>
+
+<div class="pre"><pre class="python"># Import necessary modules.
 import csv
 import math
 from datetime import date, datetime
@@ -92,19 +94,19 @@ from datetime import date, datetime
 
 def main():
     # Print this header:
-    # Gender,Age (years) Weight (kg),Height (cm),BMI,BMR
+    # Gender,Age (years),Weight (kg),Height (cm),BMI,BMR
 
     # Open the fitness.csv file for reading.
 
-    # Use the csv module to get a reader object.
+        # Use the csv module to get a reader object.
 
-    # Process each row in the csv file by doing the following:
-        # 1. Call the compute_age, kg_from_lb, cm_from_in,
-        #   body_mass_index, and basal_metabolic_rate
-        #   functions as necessary.
-        # 2. Print the gender, age in years, weight in
-        #   kilograms, height in centimeters, body mass
-        #   index, and basal metabolic rate.
+        # Process each row in the csv file by doing the following:
+            # 1. Call the compute_age, kg_from_lb, cm_from_in,
+            #    body_mass_index, and basal_metabolic_rate
+            #    functions as necessary.
+            # 2. Print the gender, age in years, weight in
+            #    kilograms, height in centimeters, body mass
+            #    index, and basal metabolic rate.
     pass
 
 
@@ -122,12 +124,16 @@ def compute_age(birth):
 
 
 def kg_from_lb(lb):
-    """Convert a mass in pounds to kilograms."""
+    """Convert a mass in US pounds to kilograms.
+    param lb: a mass in US pounds
+    """
     pass
 
 
 def cm_from_in(inch):
-    """Convert a length in inches to centimeters."""
+    """Convert a length in inches to centimeters.
+    param inch: a length in inches
+    """
     pass
 
 
@@ -186,15 +192,12 @@ def basal_metabolic_rate(gender, weight, height, age):
         you think would make your program better, easier for the user,
         more elegant, or more fun. Be creative.</div></li>
 
-        <li><div>Write a document string for each of these four
-        functions: <code>kg_from_lb</code>, <code>cm_from_in</code>,
-        <code>body_mass_index</code>, <code>basal_metabolic_rate</code>.
-        Use the document string in the compute_age function as an
-        example.</div></li>
-
         <li><div>Write comments above the lines of code in
         <code>main</code> that were difficult for you to
         understand.</div></li>
+
+        <li><div>Modify your program to print the height values in
+        meters instead of centimeters.</div></li>
     </ol>
 
     <h2>Sample Run</h2>

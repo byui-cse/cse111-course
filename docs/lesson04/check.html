@@ -21,7 +21,7 @@
     <h2>CSE 111 | <span>Programming with Functions</span></h2>
 </header>
 <article>
-    <h1>04 Checkpoint: Calling Built-in Functions</h1>
+    <h1>04 Checkpoint: Calling Functions</h1>
 
     <h2>Overview</h2>
     <p>Demonstrate your understanding of calling Python built-in
@@ -29,25 +29,25 @@
     following individual checkpoint assignment.</p>
 
     <h2>Helpful Documentation</h2>
-    <p>To learn more, you can read about the Python
-    <a target="_blank" href="https://docs.python.org/3/library/functions.html">Built-in Functions</a>
-    and the
-    <a target="_blank" href="https://docs.python.org/3.8/library/statistics.html#module-statistics">statistics standard module</a>
-    in the official Python documentation.</p>
+    <ul class="links">
+        <li><div><a target="_blank" href="https://docs.python.org/3/library/functions.html">Built-in Functions</a></div></li>
+        <li><div><a target="_blank" href="https://docs.python.org/3/library/statistics.html#module-statistics">statistics standard module</a></div></li>
+    </ul>
 
     <h2>Assignment</h2>
     <p>Do the following:</p>
     <ol class="long">
-        <li><div>In your text editor, open a new file for a Python
+        <li><div>In VS Code, open a new file for a Python
         program.</div></li>
 
-        <li><div>At the top of your program, import the
-        <code>statistics</code> module which is a Python standard
-        module.</div></li>
+        <li><div>Copy and paste the following Python code into your
+        program. The code imports the <code>statistics</code> module,
+        which is a Python standard module, and creates a list named
+        <var>heights</var>.
 
-        <li><div>Copy and paste this Python code that creates a list
-        into your program.
-<div class="pre"><pre class="python">heights = [
+<div class="pre"><pre class="python">import statistics
+
+heights = [
     1.72, 1.50, 1.96, 2.01, 1.75,
     2.11, 1.60, 1.65, 2.05, 1.50,
     1.80, 1.83, 2.05, 1.79, 1.84
@@ -74,9 +74,9 @@
             <li><div><code>mode</code></div></li>
         </ol></div></li>
 
-        <li><div>Write code to call the built-int <code>round</code>
+        <li><div>Write code to call the built-in <code>round</code>
         function to round the value returned from the <code>sum</code>
-        function to and the <code>mean</code> function two digits after
+        function and the <code>mean</code> function to two digits after
         the decimal place and store the result in a variable.</div></li>
 
         <li><div>Write code to print the value returned from each of
