@@ -14,10 +14,14 @@ def main():
     print(f"Cutoff date: {cutoff}")
     print()
 
+    # Call the add_columns function and print
+    # the data frame with the two new columns.
     df = add_columns(df, cutoff)
     print(df)
     print()
 
+    # Call the grade_level_counts function
+    # and print the new counts data frame.
     counts = grade_level_counts(df)
     print(counts)
 
@@ -73,9 +77,10 @@ def year_diff(before: datetime, after: datetime) -> int:
     # Ensure that the date in before is earlier
     # than or equal to the date in after.
     if before > after:
-        swap = before
-        before = after
-        after = swap
+        before, after = after, before
+        #swap = before
+        #before = after
+        #after = swap
 
     # Compute the difference between the two dates in years.
     years = after.year - before.year
@@ -116,4 +121,5 @@ def grade_level_counts(df):
 
 # Call the main function so that
 # this program will start executing.
-main()
+if __name__ == "__main__":
+    main()
