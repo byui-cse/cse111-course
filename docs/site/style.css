@@ -300,7 +300,7 @@ article code em, article pre em {
 }
 
 article pre.console {
-	margin: 1.5em auto;
+	margin: 1em auto;
 	border: 1px solid #707070;
 	padding: 0.25em 0.5em;
 }
@@ -312,33 +312,36 @@ article pre.console span.input {
 	color: white;
 }
 
-article pre.python {
-	margin: 1.5em auto;
-	border: 1px solid #707070;
-	padding: 0.25em 0.5em;
-}
-
 article div.pre {
 	display: table;
-	margin: 1.5em auto 1.5em 0;
+	margin: 1em auto 1em 0;
 	border: 1px solid #707070;
 	padding: 0.25em 0.5em;
 }
 
-article div.pre pre {
+article div.pre > pre {
 	display: table-cell;
 	margin: 0;
 	border: 0;
 	padding: 0;
 }
 
-article div.pre pre.linenums {
+article div.pre > pre.linenums {
 	padding-right: 1.5em;
 	text-align: right;
 	color: #707070;
 }
 
-article div.pre pre.python {
+article div.pre > pre.arrows {
+	padding-right: 1.5em;
+}
+
+article div.pre > pre.arrows > span {
+	visibility: hidden;
+	color: coral;
+}
+
+article div.pre > pre.python {
 }
 
 article pre.python span.hiScope  { background-color: yellow; }

@@ -78,13 +78,9 @@
     <ol class="long">
         <li><div><p>The following six chemical formulas all contain
         errors, and the <code>parse_formula</code> function should raise
-        a <code>FormulaError</code> when it tries to parse them. In the
-        <code>test_chemistry.py</code> file, add code in the
-        <code>test_parse</code> function to test that the
-        <code>parse_formula</code> function raises a
-        <code>FormulaError</code> for each of them.</p>
+        a <code>FormulaError</code> when it tries to parse them.
 
-        <table><thead>
+        <table class="center"><thead>
             <tr><th>Formula</th></tr>
         </thead><tbody>
             <tr><td>L</td></tr>
@@ -97,19 +93,26 @@
 
         <p>Recall from the official
         <a target="_blank" href="https://docs.pytest.org/en/latest/assert.html#assertraises">documentation about pytest</a>
-        that the code to test that a function raises an error looks
-        similar to this example:
-<div class="pre"><pre class="python">import pytest
+        that the code to test that a function raises an error does not
+        need a <code>try</code> block but instead looks similar to this
+        template:</p>
 
+<div class="pre"><pre class="python">
 with pytest.raises(&lt;ExceptionType&gt;):
     &lt;function_call_here(&lt;arguments_here&gt;)&gt;</pre></div>
 
-        For example, to test that <code>parse_formula</code> raises an
-        <code>FormulaError</code>, you could write this Python code:
-<div class="pre"><pre class="python">import pytest
+        <p>For example, to test that <code>parse_formula</code> raises
+        a <code>FormulaError</code>, you could write this Python code:</p>
 
+<div class="pre"><pre class="python">
 with pytest.raises(FormulaError):
     parse_formula("H2L4")</pre></div></div></li>
+
+        <p>In the <code>test_chemistry.py</code> file, add code in the
+        <code>test_parse</code> function to verify that the
+        <code>parse_formula</code> function raises a
+        <code>FormulaError</code> for each of the invalid formulas
+        listed above.</p>
 
         <li><div>Run the four test functions in
         <code>test_chemistry.py</code> and ensure that all four test
