@@ -1,6 +1,7 @@
 import csv
 
 
+# These constants hold the names of the columns in crashes.csv.
 YEAR_KEY = "Year"
 FATALITIES_KEY = "Fatalities"
 INJURIES_KEY = "Injuries"
@@ -19,34 +20,12 @@ def main():
         infile = get_input_file("Name of file that contains NHTSA data: ")
 
         # Prompt the user for a percentage.
-        perc_reduc = get_float(0, 100, "Percent reduction of texting while driving [0, 100]: ")
+        perc_reduc = get_float(0, 100,
+                "Percent reduction of texting while driving [0, 100]: ")
 
-        print(f"With a {perc_reduc}% reduction in using a cell phone while",
-                "driving, approximately this number of injuries and",
-                "deaths would have been prevented in the USA.", sep="\n")
-        print()
-        print("Year, Injuries, Deaths")
-
-        try:
-            # Create a DictReader object to read each line from the CSV
-            # file. This code doesn't include the next(reader) command to
-            # skip the first line of the file because the DictReader object
-            # uses the column headers on the first line of the file.
-            reader = csv.DictReader(infile)
-
-            # Process each row in the CSV file.
-            for row in reader:
-                year = row[YEAR_KEY]
-
-                # Call the estimate_reduction function.
-                injur, fatal = estimate_reduction(row, PHONE_KEY, perc_reduc)
-
-                # Print the estimated reductions in injuries and fatalities.
-                print(year, injur, fatal, sep=", ")
-        except (csv.Error, KeyError) as ex:
-            print(f"Error: line {reader.line_num} of {infile.name} is formatted incorrectly.")
-        except ZeroDivisionError as ex:
-            print(f'Error: line {reader.line_num} of {infile.name} contains 0 in the "Fatal Crashes" or "Cell Phone Use" column.')
+        # Call the process_csv_file function so that
+        # it will process each row in the CSV file.
+        process_csv_file(infile, perc_reduc)
 
     except Exception as ex:
         # An unknown error occurred.
@@ -93,6 +72,44 @@ def get_float(min, max, prompt):
             print("Error:", ex)
     print()
     return num
+
+
+def process_csv_file(infile, perc_reduc):
+    """Process each row in the CSV file.
+
+    Params:
+        infile: an open CSV file
+        perc_reduc: a number between 0 and 100
+    """
+    try:
+        print(f"With a {perc_reduc}% reduction in using a cell phone while",
+                "driving, approximately this number of injuries and",
+                "deaths would have been prevented in the USA.", sep="\n")
+        print()
+        print("Year, Injuries, Deaths")
+
+        # Create a DictReader object to read each line from the CSV
+        # file. This code doesn't include the next(reader) command to
+        # skip the first line of the file because the DictReader object
+        # uses the column headers on the first line of the file.
+        reader = csv.DictReader(infile)
+
+        # Process each row in the CSV file.
+        for row in reader:
+            year = row[YEAR_KEY]
+
+            # Call the estimate_reduction function.
+            injur, fatal = estimate_reduction(row, PHONE_KEY, perc_reduc)
+
+            # Print the estimated reductions in injuries and fatalities.
+            print(year, injur, fatal, sep=", ")
+
+    except (csv.Error, KeyError) as ex:
+        print(f"Error: line {reader.line_num} of {infile.name} is"
+                " formatted incorrectly.")
+    except ZeroDivisionError as ex:
+        print(f"Error: line {reader.line_num} of {infile.name} contains"
+                " 0 in the 'Fatal Crashes' or 'Cell Phone Use' column.")
 
 
 def estimate_reduction(row, behavior_key, perc_reduc):

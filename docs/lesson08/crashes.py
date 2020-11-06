@@ -18,33 +18,36 @@ def main():
     filename = input("Name of file that contains NHTSA data: ")
     print()
 
+    # Open the text file that the user requested.
+    infile = open(filename, "rt")
+
     # Prompt the user for a percentage.
     perc_reduc = float(input("Percent reduction of texting while driving: "))
     print()
 
-    # Open the text file that the user requested.
-    with open(filename, "rt") as infile:
-        print(f"With a {perc_reduc}% reduction in using a cell phone while",
-                "driving, approximately this number of injuries and",
-                "deaths would have been prevented in the USA.", sep="\n")
-        print()
-        print("Year, Injuries, Deaths")
+    print(f"With a {perc_reduc}% reduction in using a cell phone while",
+            "driving, approximately this number of injuries and",
+            "deaths would have been prevented in the USA.", sep="\n")
+    print()
+    print("Year, Injuries, Deaths")
 
-        # Create a DictReader object to read each line from the CSV
-        # file. This code doesn't include the next(reader) command to
-        # skip the first line of the file because the DictReader object
-        # uses the column headers on the first line of the file.
-        reader = csv.DictReader(infile)
+    # Create a DictReader object to read each line from the CSV
+    # file. This code doesn't include the next(reader) command to
+    # skip the first line of the file because the DictReader object
+    # uses the column headers on the first line of the file.
+    reader = csv.DictReader(infile)
 
-        # Process each row in the CSV file.
-        for row in reader:
-            year = row[YEAR_KEY]
+    # Process each row in the CSV file.
+    for row in reader:
+        year = row[YEAR_KEY]
 
-            # Call the estimate_reduction function.
-            injur, fatal = estimate_reduction(row, PHONE_KEY, perc_reduc)
+        # Call the estimate_reduction function.
+        injur, fatal = estimate_reduction(row, PHONE_KEY, perc_reduc)
 
-            # Print the estimated reductions in injuries and fatalities.
-            print(year, injur, fatal, sep=", ")
+        # Print the estimated reductions in injuries and fatalities.
+        print(year, injur, fatal, sep=", ")
+
+    infile.close()
 
 
 def estimate_reduction(row, behavior_key, perc_reduc):

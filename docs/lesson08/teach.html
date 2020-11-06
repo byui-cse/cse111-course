@@ -65,10 +65,10 @@
     </ul>
 
     <h2>Assignment</h2>
-    <p>Unfortunately, <code>crashes.py</code> does not contain any
-    code to verify the input that the user enters while the program is
+    <p>Unfortunately, <code>crashes.py</code> does not contain any code
+    to validate the input that the user enters while the program is
     running. Add exception handling code to <code>crashes.py</code> to
-    verify the user's input and print helpful error messages when the
+    validate the user's input and print helpful error messages when the
     user enters incorrect input.</p>
 
     <p>Do the following:</p>
@@ -154,18 +154,19 @@
     the stretch challenges are optional.</p>
 
     <ol class="long">
-        <li><div>Add exception handling code around the loop that
-        processes each row in the CSV file. This code should handle
-        <code>csv.Error</code> and <code>KeyError</code>, and it should
-        print a useful error message that includes the filename and line
-        number of the line that is formatted incorrectly.</div></li>
+        <li><div>Add exception handling code to handle
+        <code>csv.Error</code> and <code>KeyError</code> that might be
+        raised by the <code>csv</code> module. This exception handling
+        code should print a useful error message that includes the
+        filename and line number of the line that is formatted
+        incorrectly.</div></li>
 
-        <li><div>Add more exception handling code around the loop that
-        processes each row in the CSV file. This code should handle
-        <code>ZeroDivisionError</code>, and it should print a useful
-        error message that includes the filename and line number of the
-        line that contains zero (0) in the "Fatal Crashes"
-        column.</div></li>
+        <li><div>Add exception handling code to handle
+        <code>ZeroDivisionError</code> that might be raised by the
+        <code>estimate_reduction</code> function. This exception
+        handling code should print a useful error message that includes
+        the filename and line number of the line that contains zero (0)
+        in the "Fatal Crashes" column.</div></li>
 
         <li><div>Test <em>all</em> of your error handling code,
         including the code that handles <code>ZeroDivisionError</code>
@@ -227,7 +228,7 @@ Year, Injuries, Deaths
     <a download href="teach_solution1.py">first sample solution</a> or
     to this
     <a download href="teach_solution2.py">second sample solution</a>
-    which is better organized because it is split into two more
+    which is better organized because it is split into three more
     functions than the first solution. Please <strong>do not look at the
     sample solutions</strong> until you have either finished the program
     or diligently worked for at least one hour. At the end of the hour,
