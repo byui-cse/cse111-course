@@ -37,6 +37,12 @@ def main():
 
 
 def unique(df, column_name, heading):
+    """Print all the unique values in a column.
+
+    param df - the data frame that contains the column
+    param column_name - name of the column to get the unique values from
+    param heading - the heading that will be printed before the unique values
+    """
     unique_values = df[column_name].unique()
     print(heading)
     print(len(unique_values), unique_values)
