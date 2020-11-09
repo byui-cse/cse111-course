@@ -3,27 +3,31 @@ from datetime import date, datetime
 
 
 def main():
-    # Read the students.csv file and convert the
-    # birthdate column from a string to a datetime64.
-    df = pd.read_csv("students.csv", parse_dates=["birthdate"])
+    try:
+        # Read the students.csv file and convert the
+        # birthdate column from a string to a datetime64.
+        df = pd.read_csv("students.csv", parse_dates=["birthdate"])
 
-    # Create the cutoff date to be Oct 1 during
-    # the current year and print the cutoff date.
-    curr_year = date.today().year
-    cutoff = date(curr_year, 10, 1)
-    print(f"Cutoff date: {cutoff}")
-    print()
+        # Create the cutoff date to be Oct 1 during
+        # the current year and print the cutoff date.
+        curr_year = date.today().year
+        cutoff = date(curr_year, 10, 1)
+        print(f"Cutoff date: {cutoff}")
+        print()
 
-    # Call the add_columns function and print
-    # the data frame with the two new columns.
-    df = add_columns(df, cutoff)
-    print(df)
-    print()
+        # Call the add_columns function and print
+        # the data frame with the two new columns.
+        df = add_columns(df, cutoff)
+        print(df)
+        print()
 
-    # Call the grade_level_counts function
-    # and print the new counts data frame.
-    counts = grade_level_counts(df)
-    print(counts)
+        # Call the grade_level_counts function
+        # and print the new counts data frame.
+        counts = grade_level_counts(df)
+        print(counts)
+
+    except RuntimeError as ex:
+        print(type(ex).__name__, ex, sep=": ")
 
 
 def add_columns(df, cutoff):

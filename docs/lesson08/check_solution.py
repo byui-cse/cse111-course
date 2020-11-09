@@ -61,7 +61,14 @@ def main():
         print("HTTP error: ", ex)
     except RequestException as ex:
         print("Request exception: ", ex)
-    except Exception as ex:
+    except RuntimeError as ex:
+        # RuntimeError is probably the most general type of exception
+        # that you want to handle in a Python program. Exception is
+        # more general than RuntimeError. However, Exception includes
+        # SyntaxError, and you probably don't want to handle
+        # SyntaxError. Instead, you want your program to crash for
+        # SyntaxError and print the line number where the SyntaxError
+        # occurred.
         print(type(ex).__name__, ex, sep=": ")
 
 

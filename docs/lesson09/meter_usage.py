@@ -2,27 +2,31 @@ import pandas as pd
 
 
 def main():
-    # Read the water.csv file and convert the
-    # readDate column from a string to a datetime64.
+    try:
+        # Read the water.csv file and convert the
+        # readDate column from a string to a datetime64.
 
-    # Add a yearMonth and a medianUsage column to the DataFrame.
+        # Add a yearMonth and a medianUsage column to the DataFrame.
 
-    # Repeat as necessary.
+        # Repeat as necessary.
 
-        # Get a meter number from the user.
+            # Get a meter number from the user.
 
-        # Get start and end years from the user.
+            # Get start and end years from the user.
 
-        # Convert the start and end years
-        # from integers to date strings.
+            # Convert the start and end years
+            # from integers to date strings.
 
-        # Filter the DataFrame to the meter number
-        # and years specifified by the user.
+            # Filter the DataFrame to the meter number
+            # and years specifified by the user.
 
-        # Define two plots.
+            # Define two plots.
 
-        # Show all defined plots.
-    pass
+            # Show all defined plots.
+        pass
+
+    except RuntimeError as ex:
+        print(type(ex).__name__, ex, sep=": ")
 
 
 def get_int(prompt, lower, upper):
