@@ -1,71 +1,55 @@
-# Import necessary modules.
-import csv
+# 1. The sqrt() function is in the math module,
+# so import that first.
+import math
 
 
-def main():
-    # Print headers for the three columns.
-    print("Date,Miles/Gallon,Liters/100 Km")
-
-    # Open the CSV file fuel_usage.csv
-    with open("fuel_usage.csv", "rt") as fuel:
-
-        # Use the standard csv module to get
-        # a reader object for the CSV file.
-        reader = csv.reader(fuel)
-
-        # The first line of the CSV file contains headings
-        # and not fuel usage data, so this statement skips
-        # the first line of the CSV file.
-        next(reader)
-
-        # Process each row in the CSV file.
-        for row in reader:
-
-            # From the current row of the CSV file, get the
-            # date as a string. Don't bother to convert the
-            # date from a string to a date object because the
-            # only thing this program will do with the date is
-            # print it, and a string works great for printing.
-            date = row[0]
-
-            # From the current row of the CSV file, get
-            # starting and ending odometer readings.
-            start = float(row[1])
-            end = float(row[2])
-
-            # From the current row of the CSV file, get
-            # the number of gallons of fuel used.
-            gallons = float(row[3])
-
-            # Call the miles_per_gallon function.
-            mpg = miles_per_gallon(start, end, gallons)
-
-            # Call the lp100k_from_mpg function to convert the
-            # miles per gallon to liters per 100 kilometers.
-            lp100k = lp100k_from_mpg(mpg)
-
-            # Display the results for one row in the csv file.
-            print(date, round(mpg, 1), round(lp100k, 2), sep=",")
+# 2. Define the calculate_euclidean function here. It will  
+# need parameters for each of the coordinates (4 in total),
+#  and should return the Euclidean distance.
+def calculate_euclidean(ax, ay, bx, by):
+	x_component = (ax - bx) ** 2
+	y_component = (ay - by) ** 2
+	
+	distance = math.sqrt(x_component + y_component)
+	return distance
 
 
-def miles_per_gallon(start, end, gallons):
-    """Compute and return the average miles that
-    a vehicle traveled per gallon of fuel.
-    start and end are odometer readings in miles.
-    gallons is a fuel amount in U.S. gallons.
-    """
-    mpg = abs(end - start) / gallons
-    return mpg
+# 3. Define the calculate_manhattan function here. It will
+# also need four parameters and should return the Manhattan 
+# distance.
+def calculate_manhattan(ax, ay, bx, by):
+	x_component = abs(ax - bx)
+	y_component = abs(ay - by)
+	
+	distance = x_component + y_component
+	return distance
 
 
-def lp100k_from_mpg(mpg):
-    """Convert miles per gallon to liters per 100
-    kilometers and return the converted value.
-    """
-    lp100k = 235.215 / mpg
-    return lp100k
+# 4. Define your display_results function here. It will need
+# two parameters, one for each distance you wish to display.
+# It does not need to return anything.
+def display_results(euclidean, manhattan):
+	print()
+	print(f"The Euclidean Distance between A and B is: {euclidean:.2f}")
+	print(f"The Manhattan Distance between A and B is: {manhattan:.2f}")
 
 
-# Call the main function so that
-# this program will start executing.
-main()
+# 5. Now that your functions are defined, get the input 
+# values from the user, making sure to convert them to floats.
+ax = float( input("Enter A's x coordinate: ") )
+ay = float( input("Enter A's y coordinate: ") )
+
+bx = float( input("Enter B's x coordinate: ") )
+by = float( input("Enter B's y coordinate: ") )
+
+
+# 6. Call each of your distance functions, passing the input 
+# values as arguments. Make sure to store the results of each 
+# function in variables.
+euclidean_distance = calculate_euclidean(ax, ay, bx, by)
+manhattan_distance = calculate_manhattan(ax, ay, bx, by)
+
+
+# 7. Call the display_results function, passing as arguments  
+# the two variables you're using to store your distances.
+display_results(euclidean_distance, manhattan_distance)

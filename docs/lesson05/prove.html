@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CSE 111 - Prove</title>
     <link rel="icon" type="image/png" href="../site/icon.png">
+    <link rel="stylesheet" type="text/css" href="../site/lib/highlight/styles/monokai-sublime.min.css">
     <link rel="stylesheet" type="text/css" href="../site/style.css">
     <script src="../site/color.js"></script>
 </head>
@@ -46,30 +47,32 @@
     draws a semi-realistic scene in a graphical window similar to this
     scene:</p>
 
-    <p><img src="scene.png"
+    <p><img class='figure' src="scene.png"
     alt="A semi-realistic outdoor scene drawn by a Python program"></p>
 
     <h2>Helpful Videos</h2>
+    <p>The following videos walk through two examples of using functions to draw with tkinter:</p>
+
     <ul class="links">
-        <li><div><a target="_blank" href="https://youtu.be/MBKO2d_572o">Drawing with Functions, part 1</a></div></li>
-        <li><div><a target="_blank" href="https://youtu.be/TtZsqciApRk">Drawing with Functions, part 2</a></div></li>
+        <li><p><a target="_blank" href="https://youtu.be/MBKO2d_572o">Drawing with Functions, part 1</a></p></li>
+        <li><p><a target="_blank" href="https://youtu.be/TtZsqciApRk">Drawing with Functions, part 2</a></p></li>
     </ul>
 
     <h2>Helpful Documentation</h2>
     <ul class="long">
-        <li><div>A tutorial about <a target="_blank"
+        <li><p>A tutorial about <a target="_blank"
         href="http://zetcode.com/tkinter/drawing/">drawing with
-        tkinter</a></div></li>
+        tkinter</a></p></li>
 
-        <li><div>References for tkinter Canvas methods
+        <li><p>References for tkinter Canvas methods:</p>
         <ul>
-            <li><div><a target="_blank" href="https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/create_arc.html">create_arc()</a></div></li>
-            <li><div><a target="_blank" href="https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/create_line.html">create_line()</a></div></li>
-            <li><div><a target="_blank" href="https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/create_oval.html">create_oval()</a></div></li>
-            <li><div><a target="_blank" href="https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/create_polygon.html">create_polygon()</a></div></li>
-            <li><div><a target="_blank" href="https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/create_rectangle.html">create_rectangle()</a></div></li>
-            <li><div><a target="_blank" href="https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/create_text.html">create_text()</a></div></li>
-        </ul></div></li>
+            <li><p><a target="_blank" href="https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/create_arc.html">create_arc()</a></p></li>
+            <li><p><a target="_blank" href="https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/create_line.html">create_line()</a></p></li>
+            <li><p><a target="_blank" href="https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/create_oval.html">create_oval()</a></p></li>
+            <li><p><a target="_blank" href="https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/create_polygon.html">create_polygon()</a></p></li>
+            <li><p><a target="_blank" href="https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/create_rectangle.html">create_rectangle()</a></p></li>
+            <li><p><a target="_blank" href="https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/create_text.html">create_text()</a></p></li>
+        </ul></p></li>
 
         <li><div><a target="_blank" href="colors.png">Chart of named
         colors</a> in tkinter</div></li>
@@ -96,15 +99,15 @@
     world-famous cloud artist. Instead, the goal is to teach you how to
     apply the following principles to a real programming problem:</p>
     <ol>
-        <li><div>Writing a function</div></li>
-        <li><div>Deciding what needs to be a parameter in a function
-        definition</div></li>
-        <li><div>Calling a function with different argument values to
-        produce different results</div></li>
-        <li><div>Understanding how to separate the parts of a function
+        <li><p>Writing a function</p></li>
+        <li><p>Deciding what needs to be a parameter in a function
+        definition</p></li>
+        <li><p>Calling a function with different argument values to
+        produce different results</p></li>
+        <li><p>Understanding how to separate the parts of a function
         that should stay the same and the parts that depend on
         parameters, in order to make the function as reusable as
-        possible.</div></li>
+        possible.</p></li>
     </ol>
 
     <p>Begin your program by copying and pasting the following code into
@@ -112,16 +115,7 @@
     several parts of the <code>tkinter</code> library and creates a
     window and a canvas that your program can draw to.</p>
 
-<div class="pre"><pre class="linenums">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9
-10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19
-20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29
-30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39
-40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49
-50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59
-60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68<br>69
-70<br>71<br>72<br>73<br>74<br>75<br>76<br>77<br>78</pre>
-<pre class="python">from tkinter import Tk, Frame, Canvas, BOTH
-
+<pre><code class="python">from tkinter import Tk, Frame, Canvas, BOTH
 
 def main():
     width = 800
@@ -163,56 +157,19 @@ def draw_scene(canvas, scene_left, scene_top, scene_right, scene_bottom):
     """
     # Call your functions here, such as draw_sky, draw_ground,
     # draw_snowman, draw_tree, draw_shrub, etc.
-    tree_left = scene_left + 500
-    tree_top = scene_top + 100
-    tree_height = 150
-    draw_pine_tree(canvas, tree_left, tree_top, tree_height)
 
 
 # Define more functions here, like draw_sky, draw_ground,
 # draw_cloud, draw_tree, draw_kite, draw_snowflake, etc.
 
-def draw_pine_tree(canvas, peak_x, peak_y, height):
-    """Draw a single pine tree."""
-    trunk_width = height / 10
-    trunk_height = height / 8
-    trunk_left = peak_x - trunk_width / 2
-    trunk_right = peak_x + trunk_width / 2
-    trunk_bottom = peak_y + height
-
-    skirt_width = height / 2
-    skirt_height = height - trunk_height
-    skirt_left = peak_x - skirt_width / 2
-    skirt_right = peak_x + skirt_width / 2
-    skirt_bottom = peak_y + skirt_height
-
-    canvas.create_rectangle(trunk_left, skirt_bottom,
-            trunk_right, trunk_bottom,
-            outline="gray20", width=1, fill="tan3")
-    canvas.create_polygon(peak_x, peak_y,
-            skirt_right, skirt_bottom,
-            skirt_left, skirt_bottom,
-            outline="gray20", width=1, fill="dark green")
-
 
 # Call the main function so that
 # this program will start executing.
-main()</pre></div>
+main()</pre></code>
 
     <p>Save your new file as <code>scene.py</code> and run your new
-    Python program. When you run it, it should open a window that
-    contains a single pine tree like this:</p>
+    Python program. When you run it, you should see a blank white canvas appear.</p>
 
-    <p><img src="oval.png" alt="A blue circle drawn by a Python program"></p>
-
-    <p>The pine tree was drawn because the code at line&nbsp;78 called
-    the <code>main</code> function. At line&nbsp;22, the
-    <code>main</code> function called the <code>draw_scene</code>
-    function. At line&nbsp;47, the <code>draw_scene</code> function
-    called the <code>draw_pine_tree</code> function and at
-    lines&nbsp;67&ndash;73 the <code>draw_pine_tree</code> function
-    called the <code>create_rectangle</code> and
-    <code>create_polygon</code> methods.</p>
 
     <p>The purpose of this assignment is to prove that you can write and
     call functions. Therefore, your program must be divided into
@@ -225,14 +182,12 @@ main()</pre></div>
     <code>draw_grass_blade</code> function in your program, you could
     write its header like this:</p>
 
-<div class="pre"><pre class="python">def draw_grass_blade(canvas, blade_left, blade_top, blade_right, blade_bottom):</pre></div>
+<pre><code class="python">def draw_grass_blade(canvas, blade_left, blade_top, blade_right, blade_bottom):</code></pre>
 
-    <p>Delete or comment-out lines&nbsp;44&ndash;47 and
-    lines&nbsp;53&ndash;73 and begin writing your program.As you write
-    your program, be sure that it draws elements in the order of
-    farthest away to nearest. For example, you program should draw the
-    blue sky first, then the ground, then clouds, then trees, then
-    insects in the trees.</p>
+    <h2>Example</h2>
+
+    <p>For example, <a href='./tree_example.py'>this code</a> draws the following image:</p>
+    <p><img src="tree.png" class="figure" alt="A pine tree drawn by a Python program"></p>
 
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each
@@ -252,5 +207,8 @@ main()</pre></div>
     <small>Copyright &copy; 2020, Brigham Young University - Idaho. All
     rights reserved.</small>
 </footer>
+<script src="../site/lib/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
 </body>
 </html>
