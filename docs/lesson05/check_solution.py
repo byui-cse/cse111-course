@@ -3,20 +3,20 @@ import csv
 
 
 def main():
-    # Print headers for the three columns.
-    print("Date,Miles/Gallon,Liters/100 Km")
-
     # Open the CSV file fuel_usage.csv
-    with open("fuel_usage.csv", "rt") as fuel:
+    with open("fuel_usage.csv", "rt") as usage_file:
 
         # Use the standard csv module to get
         # a reader object for the CSV file.
-        reader = csv.reader(fuel)
+        reader = csv.reader(usage_file)
 
         # The first line of the CSV file contains headings
         # and not fuel usage data, so this statement skips
         # the first line of the CSV file.
         next(reader)
+
+        # Print headers for the three columns.
+        print("Date,Miles/Gallon,Liters/100 Km")
 
         # Process each row in the CSV file.
         for row in reader:
@@ -49,8 +49,8 @@ def main():
 
 
 def miles_per_gallon(start, end, gallons):
-    """Compute and return the average miles that
-    a vehicle traveled per gallon of fuel.
+    """Compute and return the average number of miles
+    that a vehicle traveled per gallon of fuel.
     start and end are odometer readings in miles.
     gallons is a fuel amount in U.S. gallons.
     """

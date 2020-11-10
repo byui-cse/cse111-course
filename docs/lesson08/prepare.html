@@ -142,6 +142,201 @@ We must order except blocks from most specific at the top to
         <code>finally</code> block could close that file.</div></li>
     </ol>
 
+    <h2>Example - Validating User Input</h2>
+    <p>An example program that validates user input by handling
+    exceptions is shown below. Notice there are two <code>try</code>
+    blocks in the program: one at line&nbsp;2 in the <code>main</code>
+    function and another at line&nbsp;40 in the <code>get_float</code>
+    function.</p>
+
+    <p>The <code>try</code> block at line&nbsp;40 is part of a loop that
+    validates user input in the <code>get_float</code> function. Notice
+    at line&nbsp;49 that the <code>except</code> block handles
+    <a target="_blank" href="https://docs.python.org/3/library/exceptions.html#ValueError"><code>ValueError</code></a>
+    which is the type of exception that the
+    <a target="_blank" href="https://docs.python.org/3/library/functions.html#float"><code>float</code></a>
+    function raises when it tries to convert text to a number but the
+    text contains characters that are not numeric.</p>
+
+    <p>The <code>try</code> block at line&nbsp;2 includes all the
+    regular code in the <code>main</code> function. The except block at
+    line&nbsp;18 will handle all types of runtime exceptions.
+    <code>RuntimeError</code> is probably the most general type of
+    exception that we want to handle in a Python program.
+    <code>Exception</code> is more general than
+    <code>RuntimeError</code>. However, <code>Exception</code> includes
+    <code>SyntaxError</code>, and we don't want to handle
+    <code>SyntaxError</code>. Instead, we want our program to crash for
+    a syntax error and print the line number where the syntax error
+    occurred. This is because syntax errors are caused by a programmer
+    mistyping code and not by bad user input or missing files. We want a
+    programmer to find and fix all syntax errors in a program long
+    before the program is given to users.</p>
+
+<div class="pre"><pre class="linenums">
+1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9
+10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19
+20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29
+30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39
+40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49
+50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59
+</pre><pre class="python">
+def main():
+    <em>try:</em>
+        gender = input("Enter your gender (M or F): ")
+
+        weight = get_float("Enter your weight in kilograms: ", 1, 500)
+        height = get_float("Enter your height in centimeters: ", 1, 300)
+        age = get_float("Enter your age in years: ", 16, 120)
+
+        bmr = basal_metabolic_rate(gender, weight, height, age)
+        print(f"Your basal metabolic rate is {bmr} calories per day.")
+
+    <em>except RuntimeError as ex:</em>
+        print(type(ex).__name__, ex, sep=": ")
+
+
+def get_float(prompt, lower, upper):
+    """Get a number from the user, validate that the number is
+    between a lower and upper bound, and return the number to the
+    calling function. If the user does not enter a number between
+    lower and upper inclusive, this function will prompt the user
+    repeatedly until the user enters a number between lower and upper.
+
+    param prompt: A string to display to the user.
+    param lower: The lowest (smallest) number that the user may enter.
+    param upper: The highest (largest) number that the user may enter.
+    """
+    while True:
+        <em>try:</em>
+            text = input(prompt)
+            number = float(text)
+            if number &lt; lower:
+                print(f"{number} is too low.")
+            elif number &gt; upper:
+                print(f"{number} is too high.")
+            else:
+                break
+        <em>except ValueError:</em>
+            print(f"{text} is not a number.")
+        print(f"Please enter a number between"
+                f" {lower} and {upper}, inclusive.")
+
+    return number
+
+
+def basal_metabolic_rate(gender, weight, height, age):
+    """Calculate and return a person's basal metabolic rate (bmr)
+    in calories per day. weight must be in kilograms, height must
+    be in centimeters, and age must be in years.
+    """
+    if gender.upper() == "F":
+        bmr = 447.593 + 9.247 * weight + 3.098 * height - 4.330 * age
+    else:
+        bmr = 88.362 + 13.397 * weight + 4.799 * height - 5.677 * age
+    return bmr
+
+
+# Call the main function so that
+# this program will start executing.
+main()</pre></div>
+
+    <h2>Example - Reading from a File</h2>
+    <p>The example program shown below handles exceptions that might
+    occur when the program opens and reads from a file. This program
+    contains only one <code>try</code> block, which begins at
+    line&nbsp;4 and includes all the regular code in the main function.
+    This one try block has four <code>except</code> blocks at
+    lines&nbsp;40, 44,&nbsp;48, and&nbsp;52.</p>
+
+    <p>Each of the <code>except</code> blocks handles a different type
+    of exception. The first three <code>except</code> blocks handle
+    specific exceptions: <code>FileNotFoundError</code>,
+    <code>PermissionError</code>, and <code>ZeroDivisionError</code>.
+    The last <code>except</code> block handles
+    <code>RuntimeError</code>, which is a general exception.
+    <code>RuntimeError</code> is probably the most general type of
+    exception that we want to handle in a Python program. The
+    description above the first example program explains why.</p>
+
+<div class="pre"><pre class="linenums">
+1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9
+10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19
+20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29
+30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39
+40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49
+50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59
+60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68
+</pre><pre class="python">
+import csv
+
+
+def main():
+    <em>try:</em>
+        # Open the fuel_usage.csv file.
+        filename = "fuel_usage.csv"
+        with open(filename, "rt") as usage_file:
+
+            # Use the standard csv module to get
+            # a reader object for the CSV file.
+            reader = csv.reader(usage_file)
+
+            # The first line of the CSV file contains headings
+            # and not fuel usage data, so this statement skips
+            # the first line of the CSV file.
+            next(reader)
+
+            # Print headers for the three columns.
+            print("Date,Start,End,Gallons,Miles/Gallon")
+
+            # Process each row in the CSV file.
+            for row in reader:
+
+                # From the current row of the CSV file, get
+                # the date, the starting and ending odometer
+                # readings, and the number of gallons used.
+                date = row[0]
+                start = float(row[1])
+                end = float(row[2])
+                gallons = float(row[3])
+
+                # Call the miles_per_gallon function.
+                mpg = miles_per_gallon(start, end, gallons)
+
+                # Display the results for one row.
+                mpg = round(mpg, 1)
+                print(date, start, end, gallons, mpg, sep=",")
+
+    <em>except FileNotFoundError as ex:</em>
+        print(f"Error: cannot open {filename}"
+                " because it doesn't exist.")
+
+    <em>except PermissionError as ex:</em>
+        print(f"Error: cannot read from {filename}"
+                " because you don't have permission.")
+
+    <em>except ZeroDivisionError as ex:</em>
+        print(f"Error: {filename} contains a"
+                " zero in the gallons column.")
+
+    <em>except RuntimeError as ex:</em>
+        print(type(ex).__name__, ex, sep=": ")
+
+
+def miles_per_gallon(start, end, gallons):
+    """Compute and return the average number of miles
+    that a vehicle traveled per gallon of fuel.
+    start and end are odometer readings in miles.
+    gallons is a fuel amount in U.S. gallons.
+    """
+    mpg = abs(end - start) / gallons
+    return mpg
+
+
+# Call the main function so that
+# this program will start executing.
+main()</pre></div>
+
     <h2>Documentation</h2>
     <p>If the concepts above seem vague, these tutorials may clear some
     confusion for you:</p>
