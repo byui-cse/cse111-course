@@ -107,11 +107,18 @@ article h2 {
 article h3 {
 	font-weight: bold;
 	color: #0076b6;  /* BYU-Idaho blue */
-	margin: 1em 0 0.5em 0;
+	margin: 1.75em 0 0.5em 0;
 }
 
 article p {
 	margin: 0 0 1em 0;
+	line-height: 1.4;
+}
+
+article img.figure {
+	display: block;
+	margin: 1em auto;
+	border: 1px solid #999;
 }
 
 article blockquote {
@@ -162,6 +169,16 @@ article ol.long > li {
 
 article li {
 	color: #0076b6;  /* BYU-Idaho blue */
+}
+
+article li p {
+	color: #040404;
+	margin: 0 0 0.25em 0;
+	
+}
+
+body.dark article li p {
+	color: #b8b8b8;
 }
 
 article li > div {
@@ -283,11 +300,20 @@ article div.collaps div.pre {
 }
 
 /* Code Highlighting */
-article code {
-	font-family: Menlo, Monaco, Consolas, monospace;
-	white-space: nowrap;
+article code.hljs {
+	line-height: 1.4em;
+	padding: 15px;
+	margin: 15px 0 10px 0;
+	font-size: 12px;
 }
 
+article code.hljs .user-input {
+	text-decoration: underline;
+}
+
+article code {
+	font-family: Menlo, Monaco, Consolas, monospace;
+}
 
 article pre {
 	font-family: Menlo, Monaco, Consolas, monospace;
@@ -300,7 +326,7 @@ article code em, article pre em {
 }
 
 article pre.console {
-	margin: 1em auto;
+	margin: 1.5em auto;
 	border: 1px solid #707070;
 	padding: 0.25em 0.5em;
 }
@@ -314,7 +340,7 @@ article pre.console span.input {
 
 article div.pre {
 	display: table;
-	margin: 1em auto 1em 0;
+	margin: 1.5em auto 1.5em 0;
 	border: 1px solid #707070;
 	padding: 0.25em 0.5em;
 }

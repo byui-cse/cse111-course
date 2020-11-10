@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CSE 111 - Prepare</title>
     <link rel="icon" type="image/png" href="../site/icon.png">
+    <link rel="stylesheet" type="text/css" href="../site/lib/highlight/styles/monokai-sublime.min.css">
     <link rel="stylesheet" type="text/css" href="../site/style.css">
     <script src="../site/color.js"></script>
 </head>
@@ -22,238 +23,227 @@
 </header>
 <article>
     <h1>05 Prepare: Writing Functions</h1>
-    <p>Because most useful computer programs are very large, programmers
-    divide their programs into parts. Dividing a program into parts
-    makes it easier to write, debug, and understand the program. A
-    programmer can divide a Python program into modules, classes, and
-    functions. In this unit, you will learn how to write your own
-    functions.</p>
 
-    <h2>Videos</h2>
-    <p>Watch the following videos from Microsoft about writing functions:</p>
-    <ul class="links">
-        <li><div><a target="_blank" href="https://www.youtube.com/watch?v=nrCAxXfRU28&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=29">Introducing Functions</a></div></li>
-        <li><div><a target="_blank" href="https://www.youtube.com/watch?v=C9ZEGqGHXms&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=30">Demo: Functions</a></div></li>
-        <li><div><a target="_blank" href="https://www.youtube.com/watch?v=sKW-zdYZNX4&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=31">Parameterized Functions</a></div></li>
-        <li><div><a target="_blank" href="https://www.youtube.com/watch?v=LtKAXFRtxhQ&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=32">Demo: Parameterized Functions</a></div></li>
-    </ul>
-
-    <h2>Concepts</h2>
-    <p>Here are the Python programming concepts and topics that you
-    should learn during this lesson:</p>
-    <ol class="long">
-        <li><div>A <dfn>function</dfn> is a group of statements
-        (computer commands) that together perform one task.</div></li>
-
-        <li><div>A programmer (you) can save lots of time by writing and
-        calling your own functions.</div></li>
-
-        <li><div>To write a function in Python, simply type code that
-        matches this template:
-
-<div class="pre"><pre class="python">def <var>function_name</var>(<var>param1</var>, <var>param2</var>, &hellip; <var>paramN</var>):
-    <var>statement1</var>
-    <var>statement2</var>
-        &vellip;
-    <var>statementN</var>
-    return <var>value</var></pre></div></div></li>
-
-        <li><div>The first line of a function is called the
-        <dfn>header</dfn> or <dfn>signature</dfn>, and it includes the
-        following:
-        <ol>
-            <li><div>the keyword <code>def</code></div></li>
-            <li><div>the function name</div></li>
-            <li><div>the parameter list</div></li>
-        </ol>
-        Here is the header for a function named <code>draw_circle</code>
-        that takes three parameters named <code>x</code>,
-        <code>y</code>, and <code>radius</code>:
-
-<div class="pre"><pre class="python">def draw_circle(x, y, radius):</pre></div></div></li>
-
-        <li><div>The function name must start with a letter or the
-        underscore (_). The rest of the name must be made of letters,
-        digits (0–9), or the underscore. A function name cannot include
-        spaces or other punctuation. A function name should be
-        meaningful and should describe curtly what the function
-        does.</div></li>
-
-        <li><div>The parameter list contains data stored in variables
-        that the function needs to complete its task. A
-        <dfn>parameter</dfn> is a variable whose value comes from
-        outside the function. One way to get input into a function is to
-        ask the user for input by calling the built-in Python
-        <code>input</code> function. Another way to get input into a
-        function is through the function's parameters. Getting input
-        through parameters is much more flexible than asking the user
-        for input because the input through parameters can come from the
-        user or a file on a hard drive or the network or a sensor or
-        even another function.</div></li>
-
-        <li><div><p>The statements inside a function are called the
-        <dfn>body</dfn> of the function. A function may contain as many
-        statements as you wish to write inside of it. However, it is a
-        good idea to limit functions to less than a page (60 lines)
-        long. To <dfn>return</dfn> a result from a function so that the
-        result can be used somewhere else in your program, simply type
-        the keyword <code>return</code> followed by whatever value you
-        want returned to the calling function.</p>
-
-        <p>Here is a function (both the header and body) that computes
-        and returns the average of three numbers:</p>
-
-<div class="pre"><pre class="python">def average(a, b, c):
-    """Computes and returns the average of three numbers."""
-    total = a + b + c
-    avg = total / 3
-    return avg</pre></div>
-
-        <p>Here is a function that takes two parameters named
-        <var>a</var> and <var>r</var> and computes and returns the value
-        of this equation:
-&nbsp;<var>f</var>&#x202f;(<var>a</var>,<var>r</var>&#x202f;) = <var>a</var> &times; (1 + <var>r</var>&#x202f;).</p>
-
-<div class="pre"><pre class="python">def formula(a, r):
-    """Computes and returns the value of a * (1 + r)"""
-    result = a * (1 + r)
-    return result</pre></div></div></li>
-
-        <li><div>In all previous Python programs that you wrote in CSE
-        110 and 111, you wrote statements that were not in a function
-        like this simple program:
-
-<div class="pre"><pre class="python"># Get a value in miles and convert it to kilometers.
-miles = float(input("Please enter a distance in miles: "))
-km = miles * 1.60934
-print(f"{miles} miles is {km} kilometers")</pre></div>
-
-        <p>However, writing statements outside of a function can lead to
-        poor organization within a large program. Professional software
-        developers write statements inside a function whenever possible.
-        Beginning with this lesson, we will write nearly all statements
-        inside a function. Also, each program will have a function named
-        <code>main</code> which will contain the beginning statements of
-        the program. In addition, we will have one or more functions
-        that perform calculations and other useful work and return a
-        value to the call point. For example:</p>
-
-        <img src="call.png" alt="A diagram showing a call to a function and a value returned from that function">
-<!--
-<div class="pre"><pre class="python">def main():
-    """Get a value in miles, convert it to kilometers,
-    and print the miles for the user to see.
-    """
-    miles = float(input("Please enter a distance in miles: "))
-    km = kilometers_from_miles(miles)
-    print(f"{miles} miles is {km} kilometers")
+    <p>Throughout your programming experience, you've been using <dfn>functions</dfn>. A function is a group of statements that together perform one task.</p>
 
 
-def kilometers_from_miles(miles):
-    """Convert a value in miles to kilometers
-    and return the kilometers value.
-    """
-    km = miles * 1.60934
-    return km
+    <h2>Types of Functions</h2>
+    <p>Broadly speaking, there are four types of functions you'll come across in python:</p>
 
-
-# Start this program by
-# calling the main function.
-main()</pre></div>
-
-<div class="pre"><pre class="python">import math
-
-<b>def main()</b>:
-    """Get the length of each side of a triangle,
-    call the triangle_area function, and print
-    the area for the user to see.
-    """
-    print("This program computes the area of a triangle.")
-    print("Enter the length of each side:")
-    side1 = float(input())
-    side2 = float(input())
-    side3 = float(input())
-    <b>triarea = triangle_area(side1, side2, side3)</b>
-    print(f"The area is {triarea}")
-
-
-<b>def triangle_area(a, b, c)</b>:
-    """Compute and return the area of a
-    triangle with side lengths a, b, and c.
-    """
-    s = (a + b + c) / 2
-    area = math.sqrt(s * (s-a) * (s-b) * (s-c))
-    <b>return area</b>
-
-
-# Start this program by
-# calling the main function.
-<b>main()</b></pre></div>
--->
-
-        <p>A computer will execute the statements in the previous
-        example in this order:</p>
-
-        <ol>
-            <li><div>The statement at (1) is not inside of a function,
-            so the computer executes it when the program begins. This is
-            a call to the <code>main</code> function which causes the
-            computer to begin executing the statements inside of
-            <code>main</code> at (2).</div></li>
-            <li><div>The computer gets three numbers from the
-            user.</div></li>
-            <li><div>The statement at (3) is a call to the
-            <code>triangle_area</code> function.</div></li>
-            <li><div>The computer copies the values in the arguments
-            <var>side1</var>, <var>side2</var>, and <var>side3</var>
-            into the parameters <var>a</var>, <var>b</var>, and
-            <var>c</var>, respectively and then begins executing the
-            statements inside the <code>triangle_area</code> function at
-            (5).</div></li>
-            <li><div>The computer computes the area of a triangle.</div></li>
-            <li><div>The statement at (6) is a return statement which
-            causes the computer to stop executing the
-            <code>triangle_area</code> function, to return a value to
-            the call point at (3), and to resume executing statements at
-            (8) after the call point.</div></li>
-            <li><div>The computer returns the value in the
-            <var>area</var> variable to the call point (3). At the call
-            point, the returned value is stored in the
-            <var>triarea</var> variable.</div></li>
-            <li><div>The computer prints the value that is in the
-            <var>triarea</var> variable for the user to see. This is the
-            last statement in the <code>main</code> function, so after
-            executing it, the computer resumes executing the statements
-            after the call point (1) to main.</div></li>
-            <li><div>There are no more statements after the call to
-            <code>main</code>, so the program is finished.</div></li>
-        </ol></div></li>
-
-        <li><div>The most reusable functions are ones that take
-        parameters, perform calculations, and return a value but do not
-        perform user input and output. In the previous code example,
-        there are two functions: <code>main</code> and
-        <code>triangle_area</code>. The <code>main</code> function is
-        certainly useful in this program, but it is not reusable in
-        other programs because it gets user input and prints the result
-        for the user to see. The <code>triangle_area</code> function is
-        very reusable in another program because it doesn't get user
-        input or print output. Instead it takes three parameters,
-        performs a calculation, and returns a result to the calling
-        function. This second function is so reusable that it could be
-        included in a library of functions that compute the area and
-        volume of 2-D and 3-D geometric shapes.</div></li>
+    <ol>
+        <li><p>Built-in functions</p></li>
+        <li><p>Standard library functions</p></li>
+        <li><p>Third-party functions</p></li>
+        <li><p>User defined functions</p></li>
     </ol>
 
-    <p><strong>It is extremely important that you can write and call
-    functions.</strong> After watching the above videos, if the concepts
-    related to writing a function still seem confusing or vague to you,
-    watch the videos and read the list of concepts
-    <strong>again</strong>.</p>
+    <p>Regardless of what kind of functions you're using, they are <dfn>called</dfn> by using their name followed by a set of <code>()</code>'s.</p><p>Note that sometimes people refer to calling a function as <dfn>invoking</dfn> the function or <dfn>executing</dfn> the function.</p>
+
+    <h3>1. Built-in Functions</h3>
+    <p>Python includes many <a href="https://docs.python.org/3/library/functions.html">built-in functions</a>. Some examples of built-in functions you've been using include:</p>
+
+    <ul>
+        <li><p><code>print()</code> - A function that displays output to the user.</p></li>
+        <li><p><code>input()</code> - A function that gets input from the user.</p></li>
+        <li><p><code>int()</code> - A function that converts a value to an integer.</p></li>
+        <li><p><code>float()</code> - A function that converts a value to a float.</p></li>
+    </ul>
+
+    <p>These are called "built-in" functions because you don't have to import any modules to use them. They are just part of the Python language.</p>
+
+    <pre><code class='python'># Calling some built-in functions
+print("Hello!")
+age = input("What's your name? ")
+nextYear = int(age) + 1</code></pre>
+
+    <h3>2. Standard Library Functions</h3>
+    <p>You've also used a number of <dfn>standard library functions</dfn>. These are functions that come with Python, but require you to import a library or module to use. Grouping similar functions together in a library, helps to keep things organized.</p>
+    <p>Some examples you've used include:</p>
+
+    <ul>
+        <li><p><code>math.round()</code> - A function in the math module that rounds a number.</p></li>
+        <li><p><code>string.upper()</code> - A function that converts a string to uppercase.</p></li>
+        <li><p><code>list.append()</code> - A function that adds an item to a list.</p></li>
+        <li><p><code>random.randint()</code> - A function that gives you a random number.</p></li>
+    </ul>
+
+    <p>Notice that some of these functions are called by using the module name where the function is defined. Such as the <code>round()</code> function:</p>
+
+    <pre><code class='python'>import math
+
+# Round the number to 2 decimal places by 
+# calling the round() function in the math module.
+answer = math.round(1.2312344, 2)</code></pre>
+
+    <p>Sometimes a function will belong to a particular data type.</p>
+    <p>For example, the string data type contains a number of functions. When a variable contains a string, you can access its functions, using this syntax: <code>variable.functionName()</code>.</p>
+    <p>Functions that belong to a particular data type are often referred to as <dfn>methods</dfn>. Methods tend to act directly on the object they belong to. For example the <code>string.upper()</code> method returns the uppercase equivalent of whatever string it's attached to:</p>
+
+<pre><code class='python'>choice = input("What would you like to do? ")
+
+# Call the upper() method attached to the string contained
+# in the choice variable, in order to convert that string to
+# uppercase.
+if choice.upper() == "LEARN":
+    print("That's a good choice.")</code></pre>
+
+    <h3>3. Third-party Functions</h3>
+    <p>Sometimes, you'll want your code to do something that isn't easily accomplished using only the built-in or standard library functions. In those cases, programmers often install third party modules (sometimes called "libraries"), in order to use additional functions that others have written.</p>
+    <p>For example, the <a href="https://pillow.readthedocs.io/en/stable/">Pillow</a> module is a module you may have used in CSE 110. This module provides several functions for working with images.</p>
+    <p>These libraries are usually installed using the <code>pip</code> tool. Once a library is installed, you can import it and use its functions just like any standard library function.</p>
+
+    <h3>4. User-defined Functions</h3>
+
+    <p>Often, programmers will write their own functions. Creating these <dfn>user-defined functions</dfn> provides several advantages:</p>
+
+    <ul>
+        <li><p>It makes your code more reusable.</p></li>
+        <li><p>It makes your code easier to understand and debug.</p></li>
+        <li><p>It makes it easier for you to make changes or add capabilities to your code.</p></li>
+    </ul>
+
+    <p>In this unit, you'll learn how to create your own user-defined functions in Python.</p>
+
+    <h2>Defining a Function</h2>
+    <p>All function definitions start with the keyword <dfn>def</dfn> (which stands for "define"), followed by the name of the function.</p>
+    <p>Function definitions always end with a set of <code>()</code>'s, followed by a <code>:</code>.</p><p>You could read the following line of code as, "Define a function called sayHello."</p>
+
+<pre><code class='python'>def sayHello():</code></pre>
+
+    <p>Just like with other block level statements you've seen, such as <code>if</code>, <code>else</code>, and <code>for</code>, (all of which also use <code>:</code>'s), the statements inside the <dfn>body</dfn> of a function are indented:</p>
+
+<pre><code class='python'># Define a function called "sayHello"
+def sayHello():
+    # This is the "body" of the function.
+    # When the sayHello function is "called", this is
+    # the code that will execute:
+    print("Hello!")
+    print("Hope you have a good day!")</code></pre>
+
+    <p>The concept of <dfn>defining</dfn> a function is important to remember. When we define a function, we're essentially saying:</p>
+
+    <blockquote><p>Okay python, you know what functions like <code>print</code> and <code>input</code> mean, but I'm going to teach you a new function called <code>sayHello</code>. Whenever you see that function written down, I want you to execute the following statements...</p></blockquote>
+
+    <h2>Calling a Function</h2>
+
+    <p>You've been <dfn>calling</dfn> functions since you wrote your first <code>print()</code> statement. Calling user-defined functions works the same way. Once you've defined a function, you can call it using the function name followed by a set of <code>()</code>'s:</p>
+
+<pre><code class='python'># Define the function
+def sayHello():
+    print("Hello")
+    print("Hope you have a good day!")
+
+# Call the function
+sayHello()</code></pre>
+
+    <h2>Function Parameters</h2>
+    <p>Just as with other functions you've used, user-defined functions can make use of parameters.</p>
+    <p>When you define a function, you specify its parameters inside of the <code>()</code>'s.</p><p>The code inside the body of the function can use those parameters like any other variable:</p>
+
+<pre><code class='python'># Define a function that uses parameters.
+
+# Whatever argument is passed to the function 
+# when it is called, will be stored in the "numbers" 
+# parameter, and will be accessible within the 
+# body of the function.
+def printAverage(numbers):
+    total = 0
+    for number in numbers:
+        total += number
+
+    average = total / len(numbers)
+    print(f"The average is: {average}")</code></pre>
+
+    <p>Calling a user defined function that requires parameters works exactly like other functions you've used:</p>
+
+<pre><code class='python'>scores = [100, 90, 85, 84, 99]
+
+# Call the printAverage function and pass the scores
+# list as an argument. 
+printAverage(scores)
+</code></pre>
+
+    <h2>Function Return Values</h2>
+    <p>Many functions you've used in the past <dfn>return</dfn> a value. When a function returns a value, we usually store that value in a variable to use later.</p>
+
+    <p>Here's a new version of the <code>printAverage</code> function that returns the average rather than printing it. Having a function return a value, instead of printing it, makes our functions more reusable.</p>
+
+    <p>In the example below, notice that we changed the name of the function to <code>calculateAverage</code> instead of <code>printAverage</code>.</p>
+    <p>Functions should always be named so that it's obvious what they do. Well-named functions almost always start with a verb.</p>
+
+<pre><code class='python'># Define a function that uses parameters.
+def calculateAverage(numbers):
+    total = 0
+    for number in numbers:
+        total += number
+
+    average = total / len(numbers)
+
+    # The value we return will be available 
+    # wherever the function was called from.
+    return average
+
+
+# Call the function and store its return value
+# in a variable to use later.
+scores = [100, 90, 85, 84, 99]
+finalGrade = calculateAverage(scores)
+
+if finalGrade >= 93:
+    print("You got an A 🤩")
+else:
+    print("You did not get an A 😞")
+</code></pre>
+
+    <p>While it's usually a good practice, you don't <em>have</em> to store the return value of a function in a variable. Sometimes you'll see it used directly like in the following examples:</p>
+
+<pre><code class='python'>scores = [100, 90, 85, 84, 99]
+
+# Call the function and immediately print its return value:
+print("The average is: ")
+print( calculateAverage(scores) )
+
+# Here we hold on to the return value just long enough to 
+# ask the question in the if statement:
+if calculateAverage(scores) >= 93:
+    print("You got an A 🤩")
+else:
+    print("You did not get an A 😞")
+</code></pre>
+
+    <p>Notice that in the above example, we're calling the function twice. Once when we want to print the average, and again when we want to see if got an A or not. Every time you call a function, the code inside the function body is executed.</p>
+    <p>In this case, since our argument is the same list of scores both times, the result will be the same in both cases. So it would be faster to save the result in a variable and reuse the variable instead:</p>
+
+<pre><code class='python'>scores = [100, 90, 85, 84, 99]
+
+# Call the function and store the result so 
+# we can use it later.
+finalGrade = calculateAverage(scores)
+
+print("The average is: ")
+print(finalGrade)
+
+if finalGrade >= 93:
+    print("You got an A 🤩")
+else:
+    print("You did not get an A 😞")
+</code></pre>
+
+    <h2>Videos</h2>
+    <p>You might also find the following videos about writing functions to be helpful:</p>
+    <ul class="links">
+        <li><p><a target="_blank" href="https://www.youtube.com/watch?v=nrCAxXfRU28&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=29">Introducing Functions</a></p></li>
+        <li><p><a target="_blank" href="https://www.youtube.com/watch?v=C9ZEGqGHXms&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=30">Demo: Functions</a></p></li>
+        <li><p><a target="_blank" href="https://www.youtube.com/watch?v=sKW-zdYZNX4&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=31">Parameterized Functions</a></p></li>
+        <li><p><a target="_blank" href="https://www.youtube.com/watch?v=LtKAXFRtxhQ&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=32">Demo: Parameterized Functions</a></p></li>
+    </ul>
+
 </article>
 <footer>
     <small>Copyright &copy; 2020, Brigham Young University - Idaho. All
     rights reserved.</small>
 </footer>
+<script src="../site/lib/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 </body>
 </html>

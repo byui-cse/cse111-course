@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CSE 111 - Team Activity</title>
     <link rel="icon" type="image/png" href="../site/icon.png">
+    <link rel="stylesheet" type="text/css" href="../site/lib/highlight/styles/monokai-sublime.min.css">
     <link rel="stylesheet" type="text/css" href="../site/style.css">
     <script src="../site/color.js"></script>
 </head>
@@ -42,7 +43,7 @@
     that may lead to health problems. However, BMI is not diagnostic of
     the body fatness or health of an individual." The formula for
     computing BMI is</p>
-    <div class="blockExpr">bmi = <div>10000 weight<hr>height<sup>2</sup></div></div>
+    <div class="blockExpr">bmi = <div>10000&#x202f;weight<hr>height<sup>2</sup></div></div>
     <p>where <var>weight</var> is in kilograms and <var>height</var> is
     in centimeters.</p>
 
@@ -50,8 +51,8 @@
     required to keep your body functioning at rest. BMR is different for
     women and men and changes with age. The revised Harris-Benedict
     formulas for computing BMR are</p>
-    <div class="blockExpr">(women) bmr = 447.593 + 9.247 weight + 3.098 height - 4.330 age</div>
-    <div class="blockExpr">(men) bmr = 88.362 + 13.397 weight + 4.799 height - 5.677 age</div>
+    <div class="blockExpr">(women) bmr = 447.593 + 9.247&#x202f;weight + 3.098&#x202f;height - 4.330&#x202f;age</div>
+    <div class="blockExpr">(men) bmr = 88.362 + 13.397&#x202f;weight + 4.799&#x202f;height - 5.677&#x202f;age</div>
     <p>where <var>weight</var> is in kilograms and <var>height</var> is
     in centimeters.</p>
 
@@ -72,8 +73,7 @@
     columns: gender, birthdate, weight (in U.S. pounds), and height (in
     U.S. inches).</p>
 
-    <p>Write a Python program named <code>fitness.py</code> that does
-    the following:</p>
+    <p>Write a Python program that does the following:</p>
     <ol>
         <li><div>Reads the contents of the <code>fitness.csv</code>
         file.</div></li>
@@ -87,7 +87,7 @@
     each function that contains the keyword <code>pass</code>. Then
     delete the keyword <code>pass</code>.</p>
 
-<div class="pre"><pre class="python"># Import necessary modules.
+<pre><code class="python"># Import necessary modules.
 import csv
 import math
 from datetime import date, datetime
@@ -157,7 +157,7 @@ def basal_metabolic_rate(gender, weight, height, age):
 # Call the main function so that
 # this program will start executing.
 
-</pre></div>
+</code></pre>
 
     <h3>Core Requirements</h3>
     <ol class="long">
@@ -202,14 +202,14 @@ def basal_metabolic_rate(gender, weight, height, age):
     </ol>
 
     <h2>Sample Run</h2>
-<pre class="console">&gt; python teach_solution.py
+<pre><code class="console">&gt; python teach_solution.py
 Gender,Age (years),Weight (kg),Height (cm),BMI,BMR
 F,30,58.97,157.5,23.8,1350.9
 F,35,61.23,163.8,22.8,1369.7
 F,39,56.7,161.3,21.8,1302.7
 M,28,63.5,182.9,19.0,1657.9
 M,35,65.77,176.5,21.1,1617.8
-M,38,70.31,174.0,23.2,1649.6</pre>
+M,38,70.31,174.0,23.2,1649.6</pre></code>
 
     <p>Note that the output of your program will not be the same for the
     Age and BMR columns because a computer printed the sample run before
@@ -249,5 +249,7 @@ M,38,70.31,174.0,23.2,1649.6</pre>
     <small>Copyright &copy; 2020, Brigham Young University - Idaho. All
     rights reserved.</small>
 </footer>
+<script src="../site/lib/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 </body>
 </html>
