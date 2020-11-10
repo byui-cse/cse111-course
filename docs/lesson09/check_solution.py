@@ -25,8 +25,8 @@ def main():
 
         # Filter the data frame to residences
         # only and print the filtered data frame.
-        filter = (data["accountType"] == "Residence")
-        filtered_df = data[filter]
+        filter = (df["accountType"] == "Residence")
+        filtered_df = df[filter]
         print(filtered_df)
 
     except RuntimeError as ex:
