@@ -2,30 +2,54 @@ import pandas as pd
 
 
 def main():
-    # Read the water.csv file and convert the
-    # readDate column from a string to a datetime64.
-    df = pd.read_csv("water.csv",
-            dtype={"meterNumber":"str", "meterSize":"float32",
-                "readDate":"str", "numberOfDays":"int_", "usage":"int_",
-                "accountType":"str", "numberOfDwellings":"int_"
-            },
-            parse_dates=["readDate"])
+    try:
+        # Read the water.csv file and convert the
+        # readDate column from a string to a datetime64.
+        df = pd.read_csv("water.csv",
+                dtype={"meterNumber":"str", "meterSize":"float32",
+                    "readDate":"str", "numberOfDays":"int_", "usage":"int_",
+                    "accountType":"str", "numberOfDwellings":"int_"
+                },
+                parse_dates=["readDate"])
+        print()
+
+
+        # CORE REQUIREMENTS
+
+        unique(df, "accountType", "Unique account types:")
+        unique(df, "meterNumber", "Unique meter numbers:")
+
+        sum_water_used_by_account_type(df)
+
+        count_meters_by_account_type(df)
+
+
+        # STRETCH CHALLENGES
+
+        sum_water_used_between_dates(df,
+                "2018-01-01", "2018-12-31",
+                "Water used during 2018:")
+
+        average_water_used_per_dwelling(df)
+
+    except RuntimeError as ex:
+        print(type(ex).__name__, ex, sep=": ")
+
+
+def unique(df, column_name, heading):
+    """Print all the unique values in a column.
+
+    param df - the data frame that contains the column
+    param column_name - name of the column to get the unique values from
+    param heading - the heading that will be printed before the unique values
+    """
+    unique_values = df[column_name].unique()
+    print(heading)
+    print(len(unique_values), unique_values)
     print()
 
-    # CORE REQUIREMENTS
 
-    # Print the unique account types.
-    acct_types = df["accountType"].unique()
-    print("Unique account types:")
-    print(len(acct_types), acct_types)
-    print()
-
-    # Print the unique meter numbers.
-    meters = df["meterNumber"].unique()
-    print("Unique meter numbers:")
-    print(len(meters), meters)
-    print()
-
+def sum_water_used_by_account_type(df):
     # Compute and print the total amount of water used.
     total_water_used = df["usage"].sum()
     print("Total water used:", total_water_used)
@@ -45,6 +69,8 @@ def main():
     print("Total water used by apartment complexes:", water_used)
     print()
 
+
+def count_meters_by_account_type(df):
     # Filter the data frame to one row per meter.
     one_row_per_meter = df.drop_duplicates(subset=["meterNumber"])
 
@@ -53,17 +79,25 @@ def main():
     print(one_row_per_meter["accountType"].value_counts())
     print()
 
-    # STRETCH CHALLENGES
 
-    # Filter the data frame to readings from 2018.
+def sum_water_used_between_dates(df, start, end, heading):
+    # Filter the data frame to readings between start and end.
+    start = pd.to_datetime(start)
+    end = pd.to_datetime(end)
+    filter = (df["readDate"] >= start) & (df["readDate"] <= end)
+    filtered_df = df[filter]
+
+    # Compute and print the amount of water used.
+    water_used = filtered_df["usage"].sum()
+    print(heading, water_used)
+
+
+def average_water_used_per_dwelling(df):
+    # Filter the data frame to readings in 2018.
     start = pd.to_datetime("2018-01-01")
     end = pd.to_datetime("2018-12-31")
-    filter2018 = (df["readDate"] >= start) & (df["readDate"] <= end)
-    df2018 = df[filter2018]
-
-    # Compute and print the amount of water used in 2018.
-    water_used = df2018["usage"].sum()
-    print("Water used during 2018:", water_used)
+    filter = (df["readDate"] >= start) & (df["readDate"] <= end)
+    df2018 = df[filter]
 
     # Filter the 2018 data frame to one row per meter.
     one_row_per_meter = df2018.drop_duplicates(subset=["meterNumber"], keep="last")

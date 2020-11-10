@@ -4,16 +4,20 @@ from number_entry import IntEntry, FloatEntry
 
 
 def main():
-    # Create the root Tk object.
-    app = tk.Tk()
+    try:
+        # Create the root Tk object.
+        app = tk.Tk()
 
-    # Create a TireWindow object which will call
-    # the __init__ function in the TireWindow class.
-    TireWindow(app)
+        # Create a TireWindow object which will call
+        # the __init__ function in the TireWindow class.
+        TireWindow(app)
 
-    # Start the tkinter loop that processes user events
-    # such as key presses and mouse button clicks.
-    app.mainloop()
+        # Start the tkinter loop that processes user events
+        # such as key presses and mouse button clicks.
+        app.mainloop()
+
+    except RuntimeError as ex:
+        print(type(ex).__name__, ex, sep=": ")
 
 
 class TireWindow(tk.Frame):

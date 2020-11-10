@@ -39,9 +39,9 @@
     accidents</a>, including a list of factors contributing to each
     accident.</p>
 
-    <p>The CSV file <code>crashes.csv</code> contains summary data from
-    the NHTSA about the accidents that occurred on U.S. roads and
-    highways during the years 2010 through 2017. <code>crashes.py</code>
+    <p>The CSV file <code>accidents.csv</code> contains summary data
+    from the NHTSA about the accidents that occurred on U.S. roads and
+    highways during the years 2010 through 2017. <code>accidents.py</code>
     is a Python program that uses the data to estimate how many lives
     would have been saved and injuries avoided if drivers had stopped
     dangerous behavior such as speeding and using cell phones while
@@ -65,8 +65,8 @@
     </ul>
 
     <h2>Assignment</h2>
-    <p>Unfortunately, <code>crashes.py</code> does not contain any code
-    to validate the input that the user enters while the program is
+    <p>Unfortunately, <code>accidents.py</code> does not contain any
+    code to validate the input that the user enters while the program is
     running. Add exception handling code to <code>crashes.py</code> to
     validate the user's input and print helpful error messages when the
     user enters incorrect input.</p>
@@ -74,18 +74,18 @@
     <p>Do the following:</p>
     <ol class="long">
         <li><div>Download and save both
-        <a download href="crashes.csv"><code>crashes.csv</code></a> and
-        <a download href="crashes.py"><code>crashes.py</code></a> in the
-        same folder.</div></li>
+        <a download href="accidents.csv"><code>accidents.csv</code></a> and
+        <a download href="accidents.py"><code>accidents.py</code></a> in
+        the same folder.</div></li>
 
-        <li><div>Open <code>crashes.csv</code> in VS Code or another
+        <li><div>Open <code>accidents.csv</code> in VS Code or another
         editor and notice that it contains ten columns and eight rows of
         data regarding traffic accidents in the United
         States.</div></li>
 
-        <li><div>Open <code>crashes.py</code> in VS Code and notice that
-        lines&nbsp;18 and&nbsp;19 contain code to ask the user for a
-        filename and then open that file. It is possible that when the
+        <li><div>Open <code>accidents.py</code> in VS Code and notice
+        that lines&nbsp;18 and&nbsp;19 contain code to ask the user for
+        a filename and then open that file. It is possible that when the
         computer executes lines&nbsp;18 and&nbsp;19, the user may enter
         the name of a file that does not exist or may enter the name of
         a file that the user does not have permission to read. These two
@@ -93,7 +93,7 @@
         <code>FileNotFoundError</code> and <code>PermissionError</code>,
         respectively.</div></li>
 
-        <li><div>Notice that line&nbsp;22 of <code>crashes.py</code>
+        <li><div>Notice that line&nbsp;22 of <code>accidents.py</code>
         contains code to prompt the user for a number. It is possible
         that while the computer is executing line&nbsp;22, the user may
         enter text that is not a number, for example: "4r0". This
@@ -105,8 +105,8 @@
         program should alert the user about.</div></li>
 
         <li><div>Notice that lines&nbsp;40 through&nbsp;47 of
-        <code>crashes.py</code> contain code to process each line of the
-        CSV file. It is possible that the CSV file is formatted
+        <code>accidents.py</code> contain code to process each line of
+        the CSV file. It is possible that the CSV file is formatted
         incorrectly which would cause the computer to raise either
         <code>csv.Error</code> or <code>KeyError</code>. It is also
         possible that one of the rows in the CSV file contains zero (0)
@@ -173,7 +173,7 @@
         and <code>PermissionError</code>. To test
         <code>ZeroDivisionError</code>, you could temporarily change
         one of the numbers in the "Fatal Crashes" column of
-        <code>crashes.csv</code> to zero. To test
+        <code>accidents.csv</code> to zero. To test
         <code>PermissionError</code>, you could create a CSV file or a
         simple text file and then use File Explorer or Finder to change
         the permissions on that file so that you don't have permission
@@ -182,13 +182,13 @@
 
     <h2>Sample Run</h2>
 <pre class="console">&gt; python teach_solution.py
-Name of file that contains NHTSA data: <span class="input">crushes.vsc</span>
-[Errno 2] No such file or directory: 'crushes.vsc'
+Name of file that contains NHTSA data: <span class="input">dentiaccs.vsc</span>
+[Errno 2] No such file or directory: 'dentiaccs.vsc'
 Please choose a different file.
 Name of file that contains NHTSA data: <span class="input">unreadable.csv</span>
 [Errno 13] Permission denied: 'unreadable.csv'
 Please choose a different file.
-Name of file that contains NHTSA data: <span class="input">crashes.csv</span>
+Name of file that contains NHTSA data: <span class="input">accidents.csv</span>
 
 Percent reduction of texting while driving [0, 100]: <span class="input">4r0</span>
 Error: could not convert string to float: '4r0'
@@ -216,7 +216,7 @@ Year, Injuries, Deaths
     <p>Verify that your program works correctly by following each step
     in this testing procedure:</p>
     <ol class="test">
-        <li><div>Run the <code>crashes.py</code> program and enter the
+        <li><div>Run the <code>accidents.py</code> program and enter the
         inputs shown in the "Sample Run" section above. Verify that the
         exception handling code that you added prints error messages as
         shown in the "Sample Run" section.</div></li>

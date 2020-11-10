@@ -4,24 +4,28 @@ import pandas as pd
 
 
 def main():
-    # Read the water.csv file and convert the
-    # readDate column from a string to a datetime64.
-    df = pd.read_csv("../lesson09/water.csv",
-            dtype={"meterNumber":"str",
-                "readDate":"str", "numberOfDays":"int_",
-                "reading":"int_", "usage":"int_",
-                "accountType":"str", "numberOfDwellings":"int_"
-            },
-            parse_dates=["readDate"])
+    try:
+        # Read the water.csv file and convert the
+        # readDate column from a string to a datetime64.
+        df = pd.read_csv("../lesson09/water.csv",
+                dtype={"meterNumber":"str",
+                    "readDate":"str", "numberOfDays":"int_",
+                    "reading":"int_", "usage":"int_",
+                    "accountType":"str", "numberOfDwellings":"int_"
+                },
+                parse_dates=["readDate"])
 
-    combine_account_types(df)
-    sum_df = sum_usage_by_account_type(df)
+        combine_account_types(df)
+        sum_df = sum_usage_by_account_type(df)
 
-    # Call the show_usage_sum function which will define two plots.
-    show_usage_sum(sum_df)
+        # Call the show_usage_sum function which will define two plots.
+        show_usage_sum(sum_df)
 
-    # Show all defined plots.
-    plt.show()
+        # Show all defined plots.
+        plt.show()
+
+    except RuntimeError as ex:
+        print(type(ex).__name__, ex, sep=": ")
 
 
 def combine_account_types(df):
