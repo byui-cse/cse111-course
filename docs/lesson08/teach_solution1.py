@@ -72,8 +72,14 @@ def main():
     except ZeroDivisionError as ex:
         print(f"Error: line {reader.line_num} of {infile.name} contains"
                 " 0 in the 'Fatal Crashes' or 'Cell Phone Use' column.")
-    except Exception as ex:
-        # An unknown error occurred.
+    except RuntimeError as ex:
+        # RuntimeError is probably the most general type of exception
+        # that you want to handle in a Python program. Exception is
+        # more general than RuntimeError. However, Exception includes
+        # SyntaxError, and you probably don't want to handle
+        # SyntaxError. Instead, you want your program to crash for
+        # SyntaxError and print the line number where the SyntaxError
+        # occurred.
         print(type(ex).__name__, ex, sep=": ")
     finally:
         if infile is not None:

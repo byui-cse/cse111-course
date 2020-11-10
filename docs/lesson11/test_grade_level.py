@@ -1,4 +1,4 @@
-from grade_level import level_dict, year_diff, add_columns, grade_level_counts
+from grade_level import year_diff, add_columns, grade_level_counts
 import collections
 from datetime import date
 import pandas as pd
@@ -96,6 +96,25 @@ def test_grade_level_counts():
     counter = dict(collections.Counter(df["ageAtCutoff"].to_list()))
     counter = dict((level_dict[age], count) for age, count in counter.items())
     assert levels == counter
+
+
+# A dictionary to map from ageAtCutoff to gradeLevel.
+level_dict = {
+# age : grade level
+    5 : "kindergarten",
+    6 : "first",
+    7 : "second",
+    8 : "third",
+    9 : "fourth",
+    10 : "fifth",
+    11 : "sixth",
+    12 : "seventh",
+    13 : "eighth",
+    14 : "freshman",
+    15 : "sophomore",
+    16 : "junior",
+    17 : "senior"
+}
 
 
 pytest.main(["test_grade_level.py"])

@@ -3,25 +3,29 @@ import matplotlib.pyplot as plt
 
 
 def main():
-    # Read the water.csv file and convert the
-    # readDate column from a string to a datetime64.
-    df = pd.read_csv("../lesson09/water.csv",
-            dtype={"meterNumber":"str", "meterSize":"float32",
-                "readDate":"str", "numberOfDays":"int_", "usage":"int_",
-                "accountType":"str", "numberOfDwellings":"int_"
-            },
-            parse_dates=["readDate"])
+    try:
+        # Read the water.csv file and convert the
+        # readDate column from a string to a datetime64.
+        df = pd.read_csv("../lesson09/water.csv",
+                dtype={"meterNumber":"str", "meterSize":"float32",
+                    "readDate":"str", "numberOfDays":"int_", "usage":"int_",
+                    "accountType":"str", "numberOfDwellings":"int_"
+                },
+                parse_dates=["readDate"])
 
-    # Add to the DataFrame a year column that
-    # contains the year from each readDate.
-    df["year"] = df["readDate"].dt.year
+        # Add to the DataFrame a year column that
+        # contains the year from each readDate.
+        df["year"] = df["readDate"].dt.year
 
-    show_all_water_usage(df)
+        show_all_water_usage(df)
 
-    show_water_usage_per_dwelling(df)
+        show_water_usage_per_dwelling(df)
 
-    # Show all defined plots.
-    plt.show()
+        # Show all defined plots.
+        plt.show()
+
+    except RuntimeError as ex:
+        print(type(ex).__name__, ex, sep=": ")
 
 
 def show_all_water_usage(df):
