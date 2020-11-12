@@ -8,13 +8,16 @@
     <title>CSE 111 - Prepare</title>
     <link rel="icon" type="image/png" href="../site/icon.png">
     <link rel="stylesheet" type="text/css" href="../site/style.css">
+    <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="../site/color.js"></script>
     <script src="../site/scope.js"></script>
     <script src="../site/respel.js"></script>
+    <script src="../site/linenums.js"></script>
+    <script src="../site/hljs/highlight.pack.js"></script>
 </head>
 
-<body onload="cse111.color.addSchemeHandler();
+<body
     cse111.scope.addScopeHandlers('ex1', 'ex2');
     cse111.scope.addVarHandlers('ex3', 'ex4', 'ex5', 'ex6', 'ex7')">
 <header>
@@ -45,8 +48,7 @@
     <var>x</var> is defined inside the function <code>main</code> and
     therefore has local scope.</p>
 
-<div class="pre">
-<pre class="linenums">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8</pre>
+<div class="pre"><pre class="linenums"></pre>
 <pre class="python" id="ex1"><span data-scope="global"># g is a global variable because it
 # is defined outside of all functions.
 <span class="varDef">g</span> = 25
@@ -98,8 +100,7 @@
     and <var>length</var> have local scope and the variable named
     <var>area</var> has local scope.</p>
 
-<div class="pre">
-<pre class="linenums">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</pre>
+<div class="pre"><pre class="linenums"></pre>
 <pre class="python" id="ex2"><span data-scope="global"><span class="varDef">nShapes</span> = 0
 
 <span data-scope="square">def square_area(<span class="varDef">length</span>):
@@ -132,9 +133,7 @@
     another function. The local variables from <code>main</code> cannot
     be used inside <code>circle_area</code>.</p>
 
-<div class="pre">
-<pre class="linenums">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9
-10<br>11<br>12<br>13<br>14<br>15</pre>
+<div class="pre"><pre class="linenums"></pre>
 <pre class="python" id="ex3"><span data-scope="global">import <span class="varDef">math</span>
 
 <span data-scope="main">def main():
@@ -158,9 +157,7 @@
     corresponding parameter gets its default value. Consider this
     example Python code:</p>
 
-<div class="pre">
-<pre class="linenums">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9
-10<br>11<br>12<br>13</pre>
+<div class="pre"><pre class="linenums"></pre>
 <pre class="python" id="ex4"><span data-scope="global">import <span class="varDef">math</span>
 
 <span data-scope="main">def main():
@@ -191,8 +188,7 @@ main()</span></pre></div>
     <p>In Python, variables are processed differently based on their
     data type. For example, here is a small Python program that contains
     two integer variables named <var>x</var> and <var>y</var>.</p>
-<div class="pre">
-<pre class="linenums">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8</pre>
+<div class="pre"><pre class="linenums"></pre>
 <pre class="python" id="ex5"><span data-scope="global"><span data-scope="main">def main():
     <span class="varDef">x</span> = 3
     <span class="varDef">y</span> = <span class="varUse">x</span>
@@ -232,8 +228,7 @@ After changing y:  x 3  y 4</pre>
     second program is similar to the first program, but it processes
     lists instead of integers.</p>
 
-<div class="pre">
-<pre class="linenums">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8</pre>
+<div class="pre"><pre class="linenums"></pre>
 <pre class="python" id="ex6"><span data-scope="global"><span data-scope="main">def main():
     <span class="varDef">lx</span> = [7, -2]
     <span class="varDef">ly</span> = <span class="varUse">lx</span>
@@ -294,10 +289,7 @@ After changing ly:  lx [7, -2, 5]  ly [7, -2, 5]</pre>
     arguments into functions. Consider this Python program with two
     functions named <code>main</code> and <code>modify_args</code>.</p>
 
-<div class="pre">
-<pre class="linenums">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9
-10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19
-20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29</pre>
+<div class="pre"><pre class="linenums"></pre>
 <pre class="python" id="ex7"><span data-scope="global"><span data-scope="main">def main():
     print("main()")
     <span class="varDef">x</span> = 5
