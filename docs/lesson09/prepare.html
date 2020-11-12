@@ -8,10 +8,12 @@
     <title>CSE 111 - Prepare</title>
     <link rel="icon" type="image/png" href="../site/icon.png">
     <link rel="stylesheet" type="text/css" href="../site/style.css">
+    <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
     <script src="../site/color.js"></script>
+    <script src="../site/hljs/highlight.pack.js"></script>
 </head>
 
-<body onload="cse111.color.addSchemeHandler()">
+<body>
 <header>
     <div class="colorCtrl">&nbsp;</div>
     <div class="logo">
@@ -120,7 +122,8 @@ df = pd.read_csv("filename.csv")
 <div class="pre"><pre class="python">import pandas as pd
 
 df = pd.read_csv("filename.csv")
-<em>smaller_df = df[["col_name1", "col_name2", "col_name3"]]</em></pre></div></div></li>
+<em>column_names = ["col_name1", "col_name2", "col_name3"]
+smaller_df = df[column_names]</em></pre></div></div></li>
 
         <li><div>To <a target="_blank"
         href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/03_subset_data.html#how-do-i-filter-specific-rows-from-a-dataframe">filter rows</a>

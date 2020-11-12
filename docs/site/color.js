@@ -6,10 +6,7 @@
  *
  * 1. Import this file:  <script src="../site/color.js"></script>
  *
- * 2. Call cse111.color.addSchemeHandler in the body onload event:
- *    <body onload="cse111.color.addSchemeHandler()">
- *
- * 3. Contain at least one div with class="colorCtrl":
+ * 2. Contain at least one div with class="colorCtrl":
  *    <div class="colorCtrl">&nbsp;</div>
  *    This div will contain the moon or sun symbol that the user will
  *    click to toggle dark and light modes.
@@ -76,3 +73,5 @@ cse111.color = {
 		}
 	}
 };
+
+window.addEventListener("DOMContentLoaded", cse111.color.addSchemeHandler);

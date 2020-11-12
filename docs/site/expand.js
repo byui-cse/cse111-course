@@ -31,3 +31,5 @@ cse111.expand = {
         }
 	}
 };
+
+window.addEventListener("DOMContentLoaded", cse111.expand.addExpandHandlers);

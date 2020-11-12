@@ -1,0 +1,73 @@
+.hljs-addition { color: red; }
+.hljs-attr { color: red; }
+.hljs-attribute { color: red; }
+.hljs-builtin-name { color: red; }
+.hljs-bullet { color: red; }
+.hljs-class { color: red; }
+.hljs-code { color: red; }
+.hljs-constructor { color: red; }
+.hljs-deletion { color: red; }
+.hljs-doctag { color: red; }
+.hljs-emphasis { color: red; }
+.hljs-formula { color: red; }
+.hljs-link { color: red; }
+.hljs-link_label { color: red; }
+.hljs-meta { color: red; }
+.hljs-meta-keyword { color: red; }
+.hljs-meta-string { color: red; }
+.hljs-module { color: red; }
+.hljs-module-access { color: red; }
+.hljs-name { color: red; }
+.hljs-pattern-match { color: red; }
+.hljs-quote { color: red; }
+.hljs-regexp { color: red; }
+.hljs-section { color: red; }
+.hljs-selector-attr { color: red; }
+.hljs-selector-class { color: red; }
+.hljs-selector-id { color: red; }
+.hljs-selector-pseudo { color: red; }
+.hljs-selector-tag { color: red; }
+.hljs-strong { color: red; }
+.hljs-stronge { color: red; }
+.hljs-symbol { color: red; }
+.hljs-tag { color: red; }
+.hljs-template-tag { color: red; }
+.hljs-template-variable { color: red; }
+.hljs-type { color: red; }
+.hljs-typing { color: red; }
+.hljs-variable { color: red; }
+
+
+/* Light */
+.hljs { }
+
+.hljs-number  { color: #098658; }
+.hljs-literal { color: #0000ff; }
+.hljs-string  { color: #a31515; }
+.hljs-subst   { color: #040404; }
+
+.hljs-comment { color: #008000; }
+
+.hljs-keyword  { color: #af00d8; }
+.hljs-built_in { color: #267f99; }
+
+.hljs-function { }
+.hljs-title    { color: #795e26; }
+.hljs-params   { color: #001080; }
+
+/* Dark */
+body.dark .hljs { color: var(--dark-color); }
+
+body.dark .hljs-number  { color: #b5cea8;  /* green yellow */ }
+body.dark .hljs-literal { color: #569cd6;  /* medium blue */ }
+body.dark .hljs-string  { color: #ce9178;  /* pumpkin */ }
+body.dark .hljs-subst   { color: #b8b8b8;  /* light gray */ }
+
+body.dark .hljs-comment { color: #6a9955;  /* mint green */ }
+
+body.dark .hljs-keyword  { color: #c586c0;  /* pink */ }
+body.dark .hljs-built_in { color: #dcdc8b;  /* light yellow */ }
+
+body.dark .hljs-function { }
+body.dark .hljs-title    { color: #dcdc8b;  /* light yellow */ }
+body.dark .hljs-params   { color: #9cdcfe;  /* light blue */ }
