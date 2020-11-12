@@ -229,15 +229,28 @@ article div.blockExpr hr {
 	height: 0;
 }
 
-article div.blockExpr div.radic { display: block; }
-article div.blockExpr div.sum { font-size: small; }
-article div.blockExpr div.sum > div { display: block; }
-
-article span.inlineExpr {
-	white-space: nowrap;
-	font-family: "Palatino Linotype", Palatino, Garamond, serif;
-	font-size: large;
+article div.inlineExpr span.abs:before,
+article div.blockExpr span.abs:before {
+	font-size: xx-large;
+	vertical-align:
+	middle; content: '\7c';
 }
+
+article div.inlineExpr span.rad:before,
+article div.blockExpr span.rad:before {
+	font-size: xx-large;
+	vertical-align:
+	middle; content: '\221a';
+}
+
+article div.inlineExpr sup,
+article div.inlineExpr sub,
+article div.blockExpr sup,
+article div.blockExpr sub {
+	margin-left: 0.12em;
+	font-size: small;
+}
+
 
 article div.expand div.title,
 article div.collaps div.title {
