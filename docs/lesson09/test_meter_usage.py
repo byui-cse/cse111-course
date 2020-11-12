@@ -28,8 +28,8 @@ def test_add_year_month_column():
     for cell in df["yearMonth"]:
         year = cell.year
         month = cell.month
-        assert 2015 <= cell.year <= 2019
-        assert 1 <= cell.month <= 12
+        assert 2015 <= year <= 2019
+        assert 1 <= month <= 12
 
 
 def test_filter_for_meter():
