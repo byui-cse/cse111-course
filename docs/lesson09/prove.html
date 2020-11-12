@@ -76,14 +76,11 @@ df = pd.read_csv("filename.csv")
     href="meter_usage.py"><code>meter_usage.py</code></a> and save it in
     the same folder where you previously saved the
     <code>water.csv</code> file. Open the <code>meter_usage.py</code>
-    file in VS Code. Notice that all the functions in the
-    <code>meter_usage.py</code> file, except
-    <code>add_usage_median_column</code>, are incomplete, and you need
-    to complete them. During this prove milestone, you should
-    complete these functions:</p>
+    file in VS Code. Notice that the only function that is complete is
+    <code>add_usage_median_column</code>. All the other functions are
+    incomplete, and you need to complete them. During this prove
+    milestone, you should complete these functions:</p>
     <ul>
-        <li><div><code>get_int</code></div></li>
-        <li><div><code>insert_after</code></div></li>
         <li><div><code>add_year_month_column</code></div></li>
         <li><div><code>filter_for_meter</code></div></li>
         <li><div><code>filter_between_dates</code></div></li>
@@ -93,6 +90,8 @@ df = pd.read_csv("filename.csv")
     section. During the next prove assignment, you should complete these
     functions:</p>
     <ul>
+        <li><div><code>get_int</code></div></li>
+        <li><div><code>insert_after</code></div></li>
         <li><div><code>show_meter_usage</code></div></li>
         <li><div><code>show_comparison</code></div></li>
         <li><div>any other functions that you add</div></li>
@@ -150,10 +149,10 @@ Enter a meter number ('q' to quit): q</pre>
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each step
     in this testing procedure:</p>
+
     <ol class="test long">
         <li><div>Download, examine, and run this Python file named
-        <a download
-        href="test_meter_usage.py"><code>test_meter_usage.py</code></a>
+        <a download href="test_meter_usage.py"><code>test_meter_usage.py</code></a>
         that contains <code>pytest</code> test functions. Verify that
         all the test functions pass. If they don't pass, fix the
         mistakes in your code until they do pass.</div></li>
