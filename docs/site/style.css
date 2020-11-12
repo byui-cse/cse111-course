@@ -318,15 +318,6 @@ article div.pre > pre.linenums {
 	color: var(--border);
 }
 
-article div.pre > pre.arrows {
-	padding-right: 1.5em;
-}
-
-article div.pre > pre.arrows > span {
-	visibility: hidden;
-	color: coral;
-}
-
 article div.pre > pre.python {
 }
 
