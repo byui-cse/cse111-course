@@ -1,48 +1,31 @@
 @import url("reset.css");
 @import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
 
-/*
-	Colors Used in this Style Sheet
+:root {
+	--byui-blue: #0076b6;
 
-	light mode
-		background-color: #040404;
-		color: #fefefe;
-	dark mode
-		background-color: black;
-		color: #b8b8b8;
-	header
-		background-color: #0076b6;  BYU-Idaho blue
-		color: white;
-	h3
-		color: #0076b6;  BYU-Idaho blue
-	dfn
-		color: coral;
-	strong
-		color: coral;
-	li
-		color: #0076b6;  BYU-Idaho blue
-	pre.console span.input
-		background-color: coral;
-		color: white;
-	pre.python hiScope, hiVarDef, hiVarUse, hiError
-		yellow, orange, yellow, red
-	borders and line numbers
-		color: #707070;
-*/
+	--light-bkgrnd: #fefefe;
+	--light-color: #040404;
+
+	--dark-bkgrnd: black;
+	--dark-color: #b8b8b8;
+
+	--border: #707070;
+}
 
 body {
 	font-family: "Open Sans", Arial, Helvetica, Verdana, sans-serif;
-	background-color: #fefefe;
-	color: #040404;
+	background-color: var(--light-bkgrnd);
+	color: var(--light-color);
 }
 body.dark {
-	background-color: black;
-	color: #b8b8b8;
+	background-color: var(--dark-bkgrnd);
+	color: var(--dark-color);
 }
 
 header {
 	padding: 0.5em 1.5em;
-	background-color: #0076b6;  /* BYU-Idaho blue */
+	background-color: var(--byui-blue);
 	color: white;
 }
 header div.logo {
@@ -106,7 +89,7 @@ article h2 {
 
 article h3 {
 	font-weight: bold;
-	color: #0076b6;  /* BYU-Idaho blue */
+	color: var(--byui-blue);
 	margin: 1em 0 0.5em 0;
 }
 
@@ -116,11 +99,11 @@ article p {
 
 article blockquote {
 	margin: 1em 1em 1em 1em;
-	border-left: 0.12em solid #0076b6;  /* BYU-Idaho blue */
+	border-left: 0.12em solid var(--byui-blue);
 	padding: 0 0 0 0.5em;
 }
 
-article a:link { color: #0076b6;  /* BYU-Idaho blue */ }
+article a:link { color: var(--byui-blue); }
 article a:visited { color: purple; }
 article a:active { color: red; }
 
@@ -161,15 +144,15 @@ article ol.long > li {
 }
 
 article li {
-	color: #0076b6;  /* BYU-Idaho blue */
+	color: var(--byui-blue);
 }
 
 article li > div {
-	color: #040404;
+	color: var(--light-color);
 	margin-left: 0.25em;
 }
 body.dark article li > div {
-	color: #b8b8b8;
+	color: var(--dark-color);
 }
 
 article ul {
@@ -199,12 +182,12 @@ article ul.note {
 
 article ul.note > li {
 	padding-left: 0.4em;
-	color: #0076b6;
+	color: var(--byui-blue);
 }
 
 article dl.function {
 	margin: 1em 1em 1em 1em;
-	border-left: 0.12em solid #0076b6;  /* BYU-Idaho blue */
+	border-left: 0.12em solid var(--byui-blue);
 	padding: 0 0 0 0.5em;
 }
 
@@ -231,13 +214,15 @@ article div.blockExpr {
 	font-size: large;
 }
 
-article div.inlineExpr div, article div.blockExpr div {
+article div.inlineExpr div,
+article div.blockExpr div {
 	display: inline-block;
 	vertical-align: middle;
 	text-align: center;
 }
 
-article div.inlineExpr hr, article div.blockExpr hr {
+article div.inlineExpr hr,
+article div.blockExpr hr {
 	margin: 0 auto;
 	border-top: 1px solid; border-right: 0; border-bottom: 0; border-left: 0;
 	padding: 0;
@@ -294,19 +279,20 @@ article pre {
 	line-height: 1.1em;
 }
 
-article code em, article pre em {
+article pre em,
+article code em {
 	font-weight: bold;
 	font-style: normal;
 }
 
 article pre.console {
 	margin: 1em auto;
-	border: 1px solid #707070;
+	border: 1px solid var(--border);
 	padding: 0.25em 0.5em;
 }
 
 article pre.console span.input {
-	border: 1px solid #707070;
+	border: 1px solid var(--border);
 	padding: 0 0.25em;
 	background-color: coral;
 	color: white;
@@ -315,7 +301,7 @@ article pre.console span.input {
 article div.pre {
 	display: table;
 	margin: 1em auto 1em 0;
-	border: 1px solid #707070;
+	border: 1px solid var(--border);
 	padding: 0.25em 0.5em;
 }
 
@@ -329,7 +315,7 @@ article div.pre > pre {
 article div.pre > pre.linenums {
 	padding-right: 1.5em;
 	text-align: right;
-	color: #707070;
+	color: var(--border);
 }
 
 article div.pre > pre.arrows {
@@ -354,13 +340,13 @@ article table {
 	margin-bottom: 1em;
 }
 
-th, td {
+article th,
+article td {
 	padding: 0.1em 0.25em;
 }
 
-td.number {
-	text-align: right;
-}
+article td.center { text-align: center; }
+article td.number { text-align: right; }
 
 article table.center {
 	margin: 1em auto;
@@ -378,14 +364,12 @@ article table > tbody > tr > th {
 	font-weight: bold;
 }
 
-td.center { text-align: center; }
-
 article table.list > tbody > tr > td {
 	text-align: center;
 }
 
 article table.list > tbody > tr.elems > td {
-	border: 1px solid #707070;
+	border: 1px solid var(--border);
 }
 
 article table.list > tbody > tr > td.label {
