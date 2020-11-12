@@ -21,12 +21,9 @@ def test_insert_after():
     correctly inserts elements into a list.
     """
     test_cases = [
-        ([], "b", "a", ["a"]),
         (["a"], "a", "b", ["a", "b"]),
-        (["a"], "b", "c", ["a", "c"]),
         (["a", "c"], "a", "b", ["a", "b", "c"]),
-        (["a", "b"], "b", "d", ["a", "b", "d"]),
-        (["a", "b"], "c", "e", ["a", "b", "e"])
+        (["a", "b"], "b", "d", ["a", "b", "d"])
     ]
     for test_case in test_cases:
         alist = test_case[0]
