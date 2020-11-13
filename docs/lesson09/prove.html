@@ -79,67 +79,23 @@ df = pd.read_csv("filename.csv")
     file in VS Code. Notice that the only function that is complete is
     <code>add_usage_median_column</code>. All the other functions are
     incomplete, and you need to complete them. During this prove
-    milestone, you should complete these functions:</p>
+    milestone, you should complete these three functions:</p>
     <ul>
         <li><div><code>add_year_month_column</code></div></li>
         <li><div><code>filter_for_meter</code></div></li>
         <li><div><code>filter_between_dates</code></div></li>
     </ul>
-    <p>You should also write code in <code>main</code> to call your
-    completed functions to produce the output shown in the "Sample Run"
-    section. During the next prove assignment, you should complete these
+
+    <p>During the next prove assignment, you should complete these
     functions:</p>
     <ul>
+        <li><div><code>main</code></div></li>
         <li><div><code>get_int</code></div></li>
         <li><div><code>insert_after</code></div></li>
         <li><div><code>show_meter_usage</code></div></li>
         <li><div><code>show_comparison</code></div></li>
         <li><div>any other functions that you add</div></li>
     </ul>
-
-    <!--
-    Notice also that while reading the function description for the
-    <code>main</code> function, it may seem that <code>main</code>
-    violates the rule that each function must perform one task only.
-    However, <code>main</code> does perform one high-level task only.
-    Its task is to fulfill the requirements of the program by calling
-    the other functions.
-    -->
-
-    <h2>Sample Run</h2>
-<pre class="console">&gt; python prove_solution.py
-Enter a meter number ('q' to quit): <span class="input">M4103</span>
-Enter a start year between 2015 and 2019, inclusive: <span class="input">2018</span>
-Enter an end year between 2018 and 2019, inclusive: <span class="input">2019</span>
-
-Meter number: M4103
-      yearMonth  usage  medianUsage
-84126   2018-01      2          4.0
-84127   2018-02      2          4.0
-84128   2018-03      2          4.0
-84129   2018-04      1          4.0
-84130   2018-05      8         10.0
-84131   2018-06     16         19.0
-84132   2018-07     32         35.0
-84133   2018-08     50         42.0
-84134   2018-09     31         40.0
-84135   2018-10      8         20.0
-84136   2018-11      2          5.0
-84137   2018-12      2          4.0
-84138   2019-01      2          4.0
-84139   2019-02      2          4.0
-84140   2019-03      2          4.0
-84141   2019-04      6          5.0
-84142   2019-05      2         11.0
-84143   2019-06     13         20.0
-84144   2019-07     60         38.0
-84145   2019-08     41         44.0
-84146   2019-09     38         38.0
-84147   2019-10      2          7.0
-84148   2019-11      3          5.0
-84149   2019-12      3          5.0
-
-Enter a meter number ('q' to quit): q</pre>
 
     <p>If you would like to see two of the charts that your program
     should draw at the end of next lesson, look at the
@@ -156,10 +112,18 @@ Enter a meter number ('q' to quit): q</pre>
         that contains <code>pytest</code> test functions. Verify that
         all the test functions pass. If they don't pass, fix the
         mistakes in your code until they do pass.</div></li>
-
-        <li><div>Run your program and ensure that your program's output
-        is the same as the sample run output.</div></li>
     </ol>
+
+    <h2>Sample Run</h2>
+<pre class="console">&gt; python test_meter_usage.py
+========================= test session starts =========================
+platform win32 -- Python 3.8.5, pytest-6.1.1, py-1.9.0, pluggy-0.13.1
+rootdir: C:\Users\rab29\cse111\cse111-course\docs\lesson09
+collected 3 items
+
+test_meter_usage.py ...                                          [100%]
+
+========================== 3 passed in 2.06s ==========================</pre>
 
     <h2>Submission</h2>
     <p>On or before the due date, return to I-Learn and report your
