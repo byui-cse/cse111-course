@@ -132,7 +132,7 @@ smaller_df = df[column_names]</em></pre></div></div></li>
         DataFrame. For example in the following code, <var>df</var> is a
         DataFrame that contains all the rows from the CSV file
         <code>filename.csv</code>, <var>filter</var> is a filter object,
-        and <var>filtered_data</var> is a DataFrame that contains only
+        and <var>filtered_df</var> is a DataFrame that contains only
         some of the rows from the CSV file because all the rows that
         don't satisfy the comparison
         <code><em>df["col_name"] &gt; threshold</em></code>
@@ -141,22 +141,22 @@ smaller_df = df[column_names]</em></pre></div></div></li>
 
 df = pd.read_csv("filename.csv")
 <em>filter = df["col_name"] &gt; threshold
-filtered_data = df[filter]</em></pre></div>
+filtered_df = df[filter]</em></pre></div>
         It is possible to filter rows by two comparisons. However,
         because of operator precedence in Python, we must add
         parentheses around each comparison. In the next example,
         <var>andfilt</var> and <var>orfilt</var> are filter objects,
-        <var>filtered_and</var> is a data frame that contains rows that
-        satisfy both of the comparisons, and <var>filtered_or</var> is a
-        data frame that contains rows that satisfy either or both
-        comparisons.
+        <var>filtered_and_df</var> is a data frame that contains rows
+        that satisfy both of the comparisons, and
+        <var>filtered_or_df</var> is a data frame that contains rows
+        that satisfy either or both comparisons.
 <div class="pre"><pre class="python">import pandas as pd
 
 df = pd.read_csv("filename.csv")
 <em>andfilt = (df["col_name"] &gt; threshold) &amp; (df["col_name2"] == value)
 orfilt  = (df["col_name"] &gt; threshold) | (df["col_name2"] == value)</em>
-filtered_and = df[andfilt]
-filtered_or = df[orfilt]</pre></div>
+filtered_and_df = df[andfilt]
+filtered_or_df = df[orfilt]</pre></div>
         Unfortunately, it is easy to confuse the code that selects a
         column or columns (shown in the previous item) and the code that
         filters rows (shown in this item) because both of them use a
@@ -169,13 +169,13 @@ filtered_or = df[orfilt]</pre></div>
 
         <li><div>To filter out duplicate rows, call the <a target="_blank"
         href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.drop_duplicates.html">DataFrame.drop_duplicates()</a>
-        function. For example in the following code, <var>no_dups</var>
+        function. For example in the following code, <var>no_dups_df</var>
         is a DataFrame that contains the same data as <var>df</var> but
         with all duplicate rows removed.
 <div class="pre"><pre class="python">import pandas as pd
 
 df = pd.read_csv("filename.csv")
-<em>no_dups = df.drop_duplicates()</em></pre></div></div></li>
+<em>no_dups_df = df.drop_duplicates()</em></pre></div></div></li>
 
         <li><div>The <a target="_blank"
         href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.unique.html">Series.unique()</a>
