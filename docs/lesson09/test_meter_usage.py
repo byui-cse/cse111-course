@@ -30,9 +30,9 @@ def test_insert_after():
         alist = test_case[0]
         existing = test_case[1]
         toinsert = test_case[2]
-        result = test_case[3]
-        assert insert_after(alist, existing, toinsert) == None
-        assert alist == result
+        expected = test_case[3]
+        result = insert_after(alist, existing, toinsert)
+        assert result == expected
 
 
 def test_add_year_month_column():
