@@ -103,7 +103,7 @@ import pytest</pre></div></div></li>
 
         <li><div>At the bottom of your <code>test_names.py</code> file,
         write a call to the <code>pytest.main</code> function like this:
-<div class="pre"><pre class="python">pytest.main(["test_names.py"])</pre></div></div></li>
+<div class="pre"><pre class="python">pytest.main(["-v", "--tb=no", "test_names.py"])</pre></div></div></li>
 
         <li><div>Save your <code>test_names.py</code> file and run it by
         clicking the green run icon in VS Code.</div></li>

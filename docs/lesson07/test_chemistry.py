@@ -37,4 +37,4 @@ def test_molar_mass():
 
 # Call the main function that is part of pytest so that
 # the test functions in this file will start executing.
-pytest.main(["test_chemistry.py"])
+pytest.main(["-v", "--tb=no", "test_chemistry.py"])

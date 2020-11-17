@@ -9,4 +9,4 @@ def test_add_area_code():
     for original, expected in test_cases:
         assert add_area_code(original) == expected
 
-pytest.main(["test_add_area_code.py"])
+pytest.main(["-v", "--tb=no", "test_add_area_code.py"])

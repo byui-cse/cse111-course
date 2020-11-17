@@ -78,4 +78,4 @@ def test_filter_between_dates():
         assert start <= cell <= end
 
 
-pytest.main(["test_meter_usage.py"])
+pytest.main(["-v", "--tb=no", "test_meter_usage.py"])

@@ -168,7 +168,7 @@ def test_cels_from_fahr():
     assert cels_from_fahr(32) == approx(0)
     assert cels_from_fahr(70) == approx(21.1)
 
-pytest.main(["test_weather.py"])</pre></div>
+pytest.main(["-v", "--tb=no", "test_weather.py"])</pre></div>
 
     <p>Notice that the test function <code>test_cels_from_fahr</code>
     calls the program function <code>cels_from_fahr</code> four times:

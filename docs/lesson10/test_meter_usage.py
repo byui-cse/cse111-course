@@ -34,4 +34,4 @@ def test_insert_after():
         assert result == expected
 
 
-pytest.main(["test_meter_usage.py"])
+pytest.main(["-v", "--tb=no", "test_meter_usage.py"])
