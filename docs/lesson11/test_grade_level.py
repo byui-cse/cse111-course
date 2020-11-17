@@ -117,4 +117,4 @@ level_dict = {
 }
 
 
-pytest.main(["test_grade_level.py"])
+pytest.main(["-v", "--tb=no", "test_grade_level.py"])
