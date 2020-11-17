@@ -39,33 +39,45 @@
     should learn during this lesson:</p>
     <ol class="long">
         <li><div>A <dfn>function</dfn> is a group of statements
-        (computer commands) that together perform one task.</div></li>
+        (computer commands) that together perform one task. Broadly
+        speaking, there are four types of functions in Python which are:
+        <ol>
+            <li><div>Built-in functions</div></li>
+            <li><div>Standard library functions</div></li>
+            <li><div>Third-party functions</div></li>
+            <li><div>User defined functions</div></li>
+        </ol>
+        In this lesson, you'll learn how to use (call) the first two
+        types of functions. In lessons 7 and 9, you'll learn how to
+        install third-party modules and use third-party functions. In
+        the next lesson, you'll learn how to write and call user defined
+        functions.</div></li>
 
         <li><div>Python includes many <dfn>built-in functions</dfn> such
         as: <code>input</code>, <code>print</code>, <code>open</code>,
         <code>len</code>, <code>range</code>, <code>int</code>,
         <code>float</code>, <code>str</code>, <code>abs</code>,
         <code>round</code>, <code>list</code>, <code>set</code>, and
-        <code>dict</code>. You can read about the built-in functions in
-        the <a target="_blank"
+        <code>dict</code>. These are called built-in functions because
+        you don't have to import any module to use them. They are simply
+        a built-in part of the Python language. In CSE 110 and 111, you
+        already used many of the built-in functions. You can read about
+        the built-in functions in the <a target="_blank"
         href="https://docs.python.org/3/library/functions.html">Built-in
         Functions</a> section of the official Python online
         reference.</div></li>
 
         <li><div>A Python <dfn>module</dfn> is collection of related
-        functions.</div></li>
-
-        <li><div>Python includes many <dfn>standard modules</dfn> which
-        have more functions, such as the <code>math</code>
+        functions. The Python <dfn>standard library</dfn> includes many
+        modules which have more functions, such as the <code>math</code>
         module&mdash;which includes the <code>floor</code>,
         <code>ceil</code>, and <code>sqrt</code> functions and the
         <code>random</code> module&mdash;which includes the
         <code>randint</code>, <code>choice</code>, and
         <code>shuffle</code> functions. To use any code that is in a
-        standard module, you must first import the module into your
-        program. For example, if you wish to use the
-        <code>math.sqrt</code> function, you must first import the
-        <code>math</code> module like this:
+        module, you must first import the module into your program. For
+        example, if you wish to use the <code>math.sqrt</code> function,
+        you must first import the <code>math</code> module like this:
 <div class="pre"><pre class="python">import math</pre></div>
         You can read more about the standard modules in the official
         documentation for the
@@ -78,8 +90,11 @@
         <li><div>A programmer uses a function by calling it (also known
         as invoking it). To <dfn>call</dfn> (or <dfn>invoke</dfn>) a
         function means to write code that causes the computer to execute
-        the code that is inside of that function. During CSE 110 and
-        111, you often wrote code that called the <code>input</code> and
+        the code that is inside of that function. Regardless of the type
+        of function (built-in, standard, third-party, or user defined),
+        they are all called by writing their name followed by a set of
+        parentheses ( ). During CSE 110 and 111, you often wrote code
+        that called the built-in <code>input</code> and
         <code>print</code> functions. For example:
 <div class="pre"><pre class="python">name = input("Please enter your name: ")
 print(f"Hello {name}")</pre></div>
@@ -135,8 +150,8 @@ print(f"Hello {name}")</pre></div>
         </dl>
 
         In order for the <code>math.sqrt</code> function to do its job
-        (compute the square root), a programmer must write code to pass
-        a number through the parameter <var>x</var> into the
+        (compute the square root), you must write code to pass a number
+        through the parameter <var>x</var> into the
         <code>math.sqrt</code> function. Here is a simple example of
         passing a number to the <code>math.sqrt</code> function:
 <div class="pre"><pre class="python">r = math.sqrt(71)</pre></div>
@@ -149,8 +164,8 @@ print(f"Hello {name}")</pre></div>
 
         <li><div>An <dfn>argument</dfn> is the value that is passed
         through a parameter into a function. In other words, parameters
-        are listed in a function's header, and arguments are listed in a
-        call to a function. In this example code:
+        are listed in a function's documentation, and arguments are
+        listed in a call to a function. In this example code:
 <div class="pre"><pre class="python">r = math.sqrt(71)</pre></div>
         71 is the argument that is passed into the
         <code>math.sqrt</code> function through its parameter
@@ -159,7 +174,7 @@ print(f"Hello {name}")</pre></div>
         When a function has more than one parameter and a programmer
         writes code to call that function, the programmer usually writes
         the arguments in the same order as the parameters. Consider the
-        built-in Python <code>round</code> function:
+        built-in <code>round</code> function:
 
         <!-- At this point in their computer programming education,
         most students are familiar with only a few functions. In
@@ -193,28 +208,17 @@ print(r)</pre></div>
         In the previous example,
         <ul>
             <li><div>The code on line 1 calls both the
-            <code>input</code> and <code>float</code>
+            <code>input</code> and <code>float</code> built-in
             functions.</div></li>
             <li><div>Line 2 calls the built-in <code>round</code>
-            function and passes two arguments. Notice that the order
-            of the arguments matches the order of the parameters.
-            Specifically the number to be rounded (<var>n</var>) is
-            the first argument and the number of digits after the
-            decimal point (2) is the second argument.</div></li>
-            <li><div>Line 3 prints the rounded number.</div></li>
+            function and passes two arguments. Notice that the order of
+            the arguments matches the order of the parameters.
+            Specifically the number to be rounded (<var>n</var>) is the
+            first argument and the number of digits after the decimal
+            point (2) is the second argument.</div></li>
+            <li><div>Line 3 calls the built-in <code>print</code>
+            function to print the rounded number.</div></li>
         </ul></div></li>
-
-        <li><div><p>Most of the previous information in this prepare
-        content can be summarized in these two statements.</p>
-
-        <p>To call a built-in function, write code that follows this
-        template:</p>
-<div class="pre"><pre class="python"><var>variable_name</var> = <var>function_name</var>(<var>arg1</var>, <var>arg2</var>, &hellip; <var>argN</var>)</pre></div>
-
-        <p>To call a function from a module, import the module and write
-        code that follows this template:</p>
-<div class="pre"><pre class="python"><var>variable_name</var> = <var>module_name</var>.<var>function_name</var>(<var>arg1</var>, <var>arg2</var>, &hellip; <var>argN</var>)</pre></div>
-        </div></li>
 
         <li><div><p>Python is an object oriented language and includes
         many classes and objects. A <dfn>method</dfn> is a function that
@@ -224,9 +228,7 @@ print(r)</pre></div>
         it. A method is a function, so calling a method is similar to
         calling a function. The difference is that to call a method we
         must type the name of the object and a period (.) in front of
-        the method name as shown in this template:</p>
-
-<div class="pre"><pre class="python"><var>variable_name</var> = <var>object_name</var>.<var>method_name</var>(<var>arg1</var>, <var>arg2</var>, &hellip; <var>argN</var>)</pre></div>
+        the method name.</p>
 
         <p>Consider the following example code that gets a string of
         text from a user and prints the number of characters in the
@@ -245,8 +247,9 @@ length = <em>len(text1)</em>
 # the quote to upper case characters.
 text2 = <em>text1.upper()</em>
 
-# Call the built-in print function to print the length of the
-# text and the text in all upper case for the user to see.
+# Call the built-in print function to print
+# the length of the text and the text in all
+# upper case for the user to see.
 print(length, text2)</pre></div>
 
         <p>Notice the code on line&nbsp;6 calls the built-in
@@ -263,9 +266,27 @@ print(length, text2)</pre></div>
         However, in the previous example, there are no arguments passed
         to the <code>upper</code> method.</p></div></li>
 
-        <li id="optArgs"><div>When calling a function, some arguments
-        are optional. Again consider the description of the built-in
-        <code>round</code> function:
+        <li><div><p>Most of the previous information in this prepare
+        content can be summarized in these three statements.</p>
+
+        <p>To call a built-in function, write code that follows this
+        template:</p>
+<div class="pre"><pre class="python"><var>variable_name</var> = <var>function_name</var>(<var>arg1</var>, <var>arg2</var>, &hellip; <var>argN</var>)</pre></div>
+
+        <p>To call a function from a module, import the module and write
+        code that follows this template:</p>
+<div class="pre"><pre class="python">
+import <var>module_name</var>
+
+<var>variable_name</var> = <var>module_name</var>.<var>function_name</var>(<var>arg1</var>, <var>arg2</var>, &hellip; <var>argN</var>)</pre></div>
+
+        <p>To call a method, write code that follows this template:</p>
+<div class="pre"><pre class="python"><var>variable_name</var> = <var>object_name</var>.<var>method_name</var>(<var>arg1</var>, <var>arg2</var>, &hellip; <var>argN</var>)</pre></div>
+        </div></li>
+
+        <li id="optArgs"><div>When calling a function or method, some
+        arguments are optional. Again consider the description of the
+        built-in <code>round</code> function:
 
         <dl class="function">
             <dt><code>round(number, ndigits)</code></dt>
@@ -305,23 +326,15 @@ print(length, text2)</pre></div>
 <div class="pre"><pre class="python">x = "sun"
 y = "moon"
 z = "stars"
-print(x, y, z, sep="|")</pre></div></div></li>
+print(x, y, z, sep="|", flush=True)</pre></div></div></li>
     </ol>
 
-    <h2>Documentation</h2>
+    <h2>Tutorial</h2>
     <p>If you are uncertain about any of the concepts in the previous
     list, you could reread the list. Also, you could read about the
     same concepts in the Python <a target="_blank"
     href="https://www.w3schools.com/python/python_functions.asp">functions
     tutorial</a> at w3schools.</p>
-
-    <p>You may find the following official Python references helpful as
-    you complete the assignments during this lesson.</p>
-    <ul class="links">
-        <li><div><a target="_blank" href="https://docs.python.org/3/library/functions.html">Built-in functions</a></div></li>
-
-        <li><div>The <a target="_blank" href="https://docs.python.org/3/library/math.html"><code>math</code> module</a></div></li>
-    </ul>
 </article>
 <footer>
     <small>Copyright &copy; 2020, Brigham Young University - Idaho. All

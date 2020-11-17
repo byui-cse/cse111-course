@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="../site/style.css">
     <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
     <script src="../site/color.js"></script>
+    <script src="../site/linenums.js"></script>
     <script src="../site/hljs/highlight.pack.js"></script>
 </head>
 
@@ -28,8 +29,8 @@
     divide their programs into parts. Dividing a program into parts
     makes it easier to write, debug, and understand the program. A
     programmer can divide a Python program into modules, classes, and
-    functions. In this unit, you will learn how to write your own
-    functions.</p>
+    functions. In this lesson and the next, you will learn how to write
+    your own functions.</p>
 
     <h2>Videos</h2>
     <p>Watch the following videos from Microsoft about writing functions:</p>
@@ -44,14 +45,41 @@
     <p>Here are the Python programming concepts and topics that you
     should learn during this lesson:</p>
     <ol class="long">
-        <li><div>A <dfn>function</dfn> is a group of statements
-        (computer commands) that together perform one task.</div></li>
+        <li><div>A <dfn>function</dfn> is a group of statements that
+        together perform one task. Broadly speaking, there are four
+        types of functions in Python which are:
+        <ol>
+            <li><div>Built-in functions</div></li>
+            <li><div>Standard library functions</div></li>
+            <li><div>Third-party functions</div></li>
+            <li><div>User defined functions</div></li>
+        </ol>
+        In the previous lesson, you learned how to call the first two
+        types of functions. In lessons 7 and 9, you'll learn how to
+        install third-party modules and call third-party functions. In
+        this lesson, you'll learn how to write and call user defined
+        functions.</div></li>
 
-        <li><div>A programmer (you) can save lots of time by writing and
-        calling your own functions.</div></li>
+        <li><div>A <dfn>user-defined function</dfn> is a function
+        that is not a built-in function, a standard function, or a
+        third-party function. A user-defined function is written as part
+        of a program by a programmer like yourself. For some students
+        the term "user-defined function" is confusing because the user
+        of a program does not define the function. Instead, the
+        programmer (you) define user-defined functions. Perhaps a more
+        correct term is programmer-defined function. Writing
+        user-defined functions has several advantages, including:
+        <ol>
+            <li><div>User-defined functions make your code more
+            reusable.</div></li>
+            <li><div>User-defined functions make your code easier to
+            understand and debug.</div></li>
+            <li><div>User-defined functions make your code easier to
+            change or add capabilities.</div></li>
+        </ol></div></li>
 
-        <li><div>To write a function in Python, simply type code that
-        matches this template:
+        <li><div>To write a user-defined function in Python, simply type
+        code that matches this template:
 
 <div class="pre"><pre class="python">def <var>function_name</var>(<var>param1</var>, <var>param2</var>, &hellip; <var>paramN</var>):
     <var>statement1</var>
@@ -64,22 +92,28 @@
         <dfn>header</dfn> or <dfn>signature</dfn>, and it includes the
         following:
         <ol>
-            <li><div>the keyword <code>def</code></div></li>
+            <li><div>the keyword <code>def</code> (which is an
+            abbreviation for "define")</div></li>
             <li><div>the function name</div></li>
-            <li><div>the parameter list</div></li>
+            <li><div>the parameter list (with the parameters separated
+            by commas)</div></li>
         </ol>
         Here is the header for a function named <code>draw_circle</code>
         that takes three parameters named <code>x</code>,
         <code>y</code>, and <code>radius</code>:
 
-<div class="pre"><pre class="python">def draw_circle(x, y, radius):</pre></div></div></li>
+<div class="pre"><pre class="python">def draw_circle(x, y, radius):</pre></div>
 
-        <li><div>The function name must start with a letter or the
-        underscore (_). The rest of the name must be made of letters,
-        digits (0–9), or the underscore. A function name cannot include
-        spaces or other punctuation. A function name should be
-        meaningful and should describe curtly what the function
-        does.</div></li>
+        You could read the previous line of code as, "Define a function
+        named <code>draw_circle</code> that takes three
+        parameters."</div></li>
+
+        <li><div>The <dfn>function name</dfn> must start with a letter
+        or the underscore (_). The rest of the name must be made of
+        letters, digits (0–9), or the underscore. A function name cannot
+        include spaces or other punctuation. A function name should be
+        meaningful and should describe curtly what the function does.
+        Well-named functions almost always start with a verb.</div></li>
 
         <li><div>The parameter list contains data stored in variables
         that the function needs to complete its task. A
@@ -94,36 +128,77 @@
         even another function.</div></li>
 
         <li><div><p>The statements inside a function are called the
-        <dfn>body</dfn> of the function. A function may contain as many
-        statements as you wish to write inside of it. However, it is a
-        good idea to limit functions to less than a page (60 lines)
-        long. To <dfn>return</dfn> a result from a function so that the
-        result can be used somewhere else in your program, simply type
-        the keyword <code>return</code> followed by whatever value you
-        want returned to the calling function.</p>
+        <dfn>body</dfn> of the function. Just like other block
+        statements, such as <code>if</code>, <code>else</code>,
+        <code>while</code>, and <code>for</code>, all of which end with
+        a colon (:), you must indent the statements inside the body of a
+        function. The body of a function may contain as many statements
+        as you wish to write inside of it. However, it is a good idea to
+        limit functions to less than a page (60 lines) long.</p>
 
-        <p>Here is a function (both the header and body) that computes
-        and returns the average of three numbers:</p>
+        <p>Here is a function named <code>print_average</code> that
+        accepts a list of numbers as a parameter and computes and prints
+        the average value of the numbers in the list.</p>
 
-<div class="pre"><pre class="python">def average(a, b, c):
-    """Computes and returns the average of three numbers."""
-    total = a + b + c
-    avg = total / 3
-    return avg</pre></div>
+<div class="pre"><pre class="python">
+# Define a function that accepts one parameter.
+#
+# Whatever argument is passed to this function
+# when it is called, will be stored in the
+# "numbers"  parameter, and will be accessible
+# within the body of this function.
+def print_average(numbers):
+    """Compute and print the average of the
+    numbers stored in the numbers list.
 
-        <p>Here is a function that takes two parameters named
-        <var>a</var> and <var>r</var> and computes and returns the value
-        of this equation:
-&nbsp;<var>f</var>&#x202f;(<var>a</var>,<var>r</var>&#x202f;) = <var>a</var> &times; (1 + <var>r</var>&#x202f;).</p>
+    param numbers: A list of numbers
+    return: Nothing
+    """
+    total = 0
+    for number in numbers:
+        total += number
 
-<div class="pre"><pre class="python">def formula(a, r):
-    """Computes and returns the value of a * (1 + r)"""
-    result = a * (1 + r)
-    return result</pre></div></div></li>
+    average = total / len(numbers)
+    print(f"The average is: {average}")</pre></div></div></li>
+
+        <li><div><p>Many functions that you've used in the past
+        <dfn>return</dfn> a result. When a function returns a result, we
+        usually store that result in a variable to use later. To return
+        a result from a function, simply type the keyword
+        <code>return</code> followed by whatever result you want
+        returned to the calling function.</p>
+
+        <p>Here is a new version of the <code>print_average</code>
+        function that returns the average rather than printing it.
+        Having a function return a value, instead of printing it, makes
+        a function more reusable. In the next example, notice that we
+        changed the name of the function to
+        <code>calculate_average</code> instead of
+        <code>print_average</code>.</p>
+
+<div class="pre"><pre class="python">
+# Define a function that accepts one parameter.
+def calculate_average(numbers):
+    """Compute and return the average of the
+    numbers stored in the numbers list.
+
+    param numbers: A list of numbers
+    return: The average value of the numbers
+    """
+    total = 0
+    for number in numbers:
+        total += number
+
+    average = total / len(numbers)
+
+    # The returned result will be available
+    # wherever this function was called.
+    return average</pre></div></div></li>
 
         <li><div>In all previous Python programs that you wrote in CSE
         110 and 111, you wrote statements that were not in a function
-        like this simple program:
+        like this simple program where the statements are not inside the
+        body of a function:
 
 <div class="pre"><pre class="python"># Get a value in miles and convert it to kilometers.
 miles = float(input("Please enter a distance in miles: "))
@@ -138,31 +213,112 @@ print(f"{miles} miles is {km} kilometers")</pre></div>
         <code>main</code> which will contain the beginning statements of
         the program. In addition, we will have one or more functions
         that perform calculations and other useful work and return a
-        value to the call point. For example:</p>
+        value to the call point. For example, here is a complete program
+        that has a <code>main</code> function that calls the
+        <code>calculate_average</code> function:</p>
 
-        <img src="call.png" alt="A diagram showing a call to a function and a value returned from that function">
-<!--
-<div class="pre"><pre class="python">def main():
-    """Get a value in miles, convert it to kilometers,
-    and print the miles for the user to see.
+<div class="pre"><pre class="python">
+# Define a function that accepts one parameter.
+def calculate_average(numbers):
+    """Compute and return the average of the
+    numbers stored in the numbers list.
+
+    param numbers: A list of numbers
+    return: The average value of the numbers
     """
-    miles = float(input("Please enter a distance in miles: "))
-    km = kilometers_from_miles(miles)
-    print(f"{miles} miles is {km} kilometers")
+    total = 0
+    for number in numbers:
+        total += number
+
+    average = total / len(numbers)
+
+    # The returned result will be available
+    # wherever this function was called.
+    return average
 
 
-def kilometers_from_miles(miles):
-    """Convert a value in miles to kilometers
-    and return the kilometers value.
-    """
-    km = miles * 1.60934
-    return km
+# Define the main function.
+def main():
+    # Create a list of numbers.
+    scores = [100, 90, 85, 84, 99]
+
+    # Call the calculate_average function and store
+    # its return value in a variable to use later.
+    final_grade = calculate_average(scores)
+
+    if final_grade &gt;= 93:
+        print("You got an A 🤩")
+    else:
+        print("You did not get an A 😞")
 
 
 # Start this program by
 # calling the main function.
-main()</pre></div>
+main()</pre></div></div></li>
 
+        <li><div>While it's usually a good practice, you don't
+        <em>have</em> to store the return value of a function in a
+        variable. Sometimes you'll see it used directly like in the
+        following example:
+
+<div class="pre"><pre class="linenums"></pre>
+<pre class="python"># Define the main function.
+def main():
+    # Create a list of numbers.
+    scores = [100, 90, 85, 84, 99]
+
+    # Call the calculate_average function and
+    # immediately print its return value.
+    print("The average is: ")
+    print( calculate_average(scores) )
+
+    # Call the calclulate_average function again
+    # and use its return value in an if statement.
+    if calculate_average(scores) &gt;= 93:
+        print("You got an A 🤩")
+    else:
+        print("You did not get an A 😞")</pre></div>
+
+        <p>Notice in the above example, we called the
+        <code>calculate_average</code> function twice, once at
+        line&nbsp;9 to print the average and again at line&nbsp;13 to
+        see if the student earned an A or not. Every time we call a
+        function, the code inside the function body is executed. In the
+        previous example, because the argument is the same list of
+        scores at both lines&nbsp;9 and&nbsp;13, the result will be the
+        same in both cases. So it would be faster to save the result in
+        a variable and reuse the variable instead, as shown in this
+        example:</p>
+
+<div class="pre"><pre class="linenums"></pre>
+<pre class="python"># Define the main function.
+def main():
+    # Create a list of numbers.
+    scores = [100, 90, 85, 84, 99]
+
+    # Call the calculate_average function and store
+    # its return value in a variable to use later.
+    <em>final_grade</em> = calculate_average(scores)
+
+    print(f"The average is: {<em>final_grade</em>}")
+
+    if <em>final_grade</em> &gt;= 93:
+        print("You got an A 🤩")
+    else:
+        print("You did not get an A 😞")</pre></div></div></li>
+
+        <li><div><p>Some students have trouble visualizing what happens
+        when the computer calls (executes) a function. The following
+        code example is a complete program that includes several
+        function calls. The green arrows in the example code show how
+        the computer executes statements in one location and then jumps
+        to execute statements in another location. The blue arrows show
+        how data flows from arguments into parameters and from a
+        returned result to a variable. The circled numbers show the
+        order in which the events happen in the computer.</p>
+
+        <img src="call.png" alt="A diagram showing a call to a function and a value returned from that function">
+<!--
 <div class="pre"><pre class="python">import math
 
 <b>def main()</b>:
@@ -195,7 +351,6 @@ main()</pre></div>
 
         <p>A computer will execute the statements in the previous
         example in this order:</p>
-
         <ol>
             <li><div>The statement at (1) is not inside of a function,
             so the computer executes it when the program begins. This is
@@ -231,10 +386,10 @@ main()</pre></div>
             <code>main</code>, so the program is finished.</div></li>
         </ol></div></li>
 
-        <li><div>The most reusable functions are ones that take
-        parameters, perform calculations, and return a value but do not
-        perform user input and output. In the previous code example,
-        there are two functions: <code>main</code> and
+        <li><div>The most <dfn>reusable functions</dfn> are ones that
+        take parameters, perform calculations, and return a value but
+        <em>do not perform user input and output</em>. In the previous
+        code example, there are two functions: <code>main</code> and
         <code>triangle_area</code>. The <code>main</code> function is
         certainly useful in this program, but it is not reusable in
         other programs because it gets user input and prints the result

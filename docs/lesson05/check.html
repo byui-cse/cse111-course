@@ -35,108 +35,89 @@
     as a way to track the health of the vehicle. If the fuel efficiency
     of a vehicle suddenly drops, there is probably something wrong with
     the engine or drive train of the vehicle. In the United States, fuel
-    efficiency for gasoline powered vehicles is computed as miles per
-    gallon. In most other countries, fuel efficiency is computed as
+    efficiency for gasoline powered vehicles is calculated as miles per
+    gallon. In most other countries, fuel efficiency is calculated as
     liters per 100 kilometers.</p>
 
     <p>The formula for computing fuel efficiency in miles per gallon
     is the following:</p>
     <div class="blockExpr"><var>mpg</var> = <div><var>end</var> &minus; <var>start</var><hr><var>gallons</var></div></div>
     <p>where <var>start</var> and <var>end</var> are both odometer
-    readings in miles and <var>gallons</var> is a fuel amount in U.S.
+    values in miles and <var>gallons</var> is a fuel amount in U.S.
     gallons.</p>
 
     <p>The formula for converting miles per gallon to liters per 100
     kilometers is the following:</p>
     <div class="blockExpr"><var>lp100k</var> = <div>235.215<hr><var>mpg</var></div></div>
 
-    <h2>Helpful Documentation</h2>
-    <p>A CSV file is a text file that contains a list of data. Within
-    each row of a CSV file, the data items are separated by a character
-    which is usually a comma. The term "CSV" is an acronym for "comma
-    separated values." Python includes a module with functions for
-    processing CSV files. Read about the Python <code>csv</code> module
-    in the official Python documentation about the <a target="_blank"
-    href="https://docs.python.org/3/library/csv.html"><code>csv</code>
-    module</a>.</p>
-
     <h2>Assignment</h2>
-    <p>Download the <a download href="fuel_usage.csv">fuel_usage.csv</a>
-    file and save it in the same folder where you will save your Python
-    program. Open the file in VS Code and notice that it contains four
-    columns: Date, Start, End, and Usage (in U.S. gallons).</p>
-
     <p>Write a Python program named <code>fuel_usage.py</code> that
-    reads odometer values in miles and fuel amounts in gallons from a
-    CSV file and computes and outputs fuel efficiency in both miles per
-    gallon and liters per 100 kilometers. To start your program, copy
-    and paste the following code into your program and use it as a
-    design as you write your program.</p>
+    asks the user for three numbers:</p>
+    <ol>
+        <li><div>A starting odometer value in miles</div></li>
+        <li><div>An ending odometer value in miles</div></li>
+        <li><div>A amount of fuel in gallons</div></li>
+    </ol>
 
-<div class="pre"><pre class="python"># Import necessary modules.
-import csv
+    <p>Your program must calculate and print fuel efficiency in both
+    miles per gallon and liters per 100 kilometers. Your program must
+    have three functions named as follows:</p>
+    <ol>
+        <li><div><code>main</code></div></li>
+        <li><div><code>miles_per_gallon</code></div></li>
+        <li><div><code>lp100k_from_mpg</code></div></li>
+    </ol>
 
+    <p>All user input and printing must be in the <code>main</code>
+    function. In other words, the <code>miles_per_gallon</code> and
+    <code>lp100k_from_mpg</code> functions must not call the the
+    <code>input</code> or <code>print</code> functions. To start your
+    program, copy and paste the following code into your program and use
+    it as a design as you write your program.</p>
 
+<div class="pre"><pre class="python">
 def main():
-    # Print headers for the three columns.
-    print("Date,Miles/Gallon,Liters/100 Km")
+    # Get an odometer value in U.S. miles from the user.
 
-    # Open the CSV file fuel_usage.csv
-    with open("fuel_usage.csv", "rt") as infile:
+    # Get another odometer value in U.S. miles from the user.
 
-        # Use the standard csv module to get
-        # a reader object for the CSV file.
-        reader = csv.reader(infile)
+    # Get a fuel amount in U.S. gallons from the user.
 
-        # The first line of the CSV file contains headings
-        # and not fuel usage data, so this statement skips
-        # the first line of the CSV file.
-        next(reader)
+    # Call the miles_per_gallon function and store
+    # the result in a variable named mpg.
 
-        # Process each row in the CSV file.
-        for row in reader:
+    # Call the lp100k_from_mpg function to convert the
+    # miles per gallon to liters per 100 kilometers and
+    # store the result in a variable named lp100k.
 
-            # From the current row of the CSV file, get the
-            # date as a string. Don't bother to convert the
-            # date from a string to a date object because the
-            # only thing this program will do with the date is
-            # print it, and a string works great for printing.
-            date = row[0]
+    # Round the miles per gallon to one digit after the decimal.
 
-            # From the current row of the CSV file, get
-            # starting and ending odometer readings.
-            start = float(row[1])
-            end = float(row[2])
+    # Round the liters per 100 km to two digits after the decimal.
 
-            # From the current row of the CSV file, get
-            # the number of gallons of fuel used.
-            gallons = float(row[3])
-
-            # Call the miles_per_gallon function.
-            mpg = miles_per_gallon(start, end, gallons)
-
-            # Call the lp100k_from_mpg function to convert the
-            # miles per gallon to liters per 100 kilometers.
-            lp100k = lp100k_from_mpg(mpg)
-
-            # Display the results for one row in the csv file.
-            print(date, round(mpg, 1), round(lp100k, 2), sep=",")
+    # Display the results for the user to see.
+    pass
 
 
 def miles_per_gallon(start, end, gallons):
-    """Compute and return the average miles that
-    a vehicle traveled per gallon of fuel.
-    start and end are odometer readings in miles.
-    gallons is a fuel amount in U.S. gallons.
+    """Compute and return the average number of miles
+    that a vehicle traveled per gallon of fuel.
+
+    param start: An odometer value in miles.
+    param end: Another odometer value in miles.
+    param gallons: A fuel amount in U.S. gallons.
+    return: Fuel efficiency in miles per gallon.
     """
-    pass
+    return
 
 
 def lp100k_from_mpg(mpg):
     """Convert miles per gallon to liters per 100
     kilometers and return the converted value.
+
+    param mpg: A value in miles per gallon
+    return: The converted value in liters per 100km.
     """
-    pass
+    return
 
 
 # Call the main function so that
@@ -145,12 +126,11 @@ main()</pre></div>
 
     <h2>Sample Run</h2>
 <pre class="console">&gt; python check_solution.py
-Date, Miles/Gallon, Liters/100 Km
-2019 Sep 2, 30.6, 7.69
-2019 Sep 9, 29.5, 7.96
-2019 Sep 16, 30.7, 7.66
-2019 Sep 23, 31.8, 7.4
-2019 Sep 30, 29.1, 8.07</pre>
+Enter the first odometer reading (in miles): <span class="input">30462</span>
+Enter the second odometer reading (in miles): <span class="input">30810</span>
+Enter the amount of fuel used (in gallons): <span class="input">11.2</span>
+31.1 miles per gallon
+7.57 liters per 100 kilometers</pre>
 
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each step
