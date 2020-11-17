@@ -44,14 +44,16 @@ cse111.scope = {
 			pre.find(sels.def)
 				.each(function(index, elem) {
 					let span = $(elem);
-					span.attr(attrs.def, span.text());
+					let text = span.text();
+					span.attr(attrs.def, text);
 				})
 				.mouseover(this.showVars)
 				.mouseout(this.hideVars);
 			pre.find(sels.use)
 				.each(function(index, elem) {
 					let span = $(elem);
-					span.attr(attrs.use, span.text());
+					let text = span.text();
+					span.attr(attrs.use, text);
 				})
 				.mouseover(this.showVars)
 				.mouseout(this.hideVars);
@@ -109,16 +111,17 @@ cse111.scope = {
 	},
 
 
-	/** Finds and returns the variable definition
-	 * for the variable that is inside span. */
+	/** Finds and returns the variable definition for the variable
+	 * that is inside span. span contains a definition or a use. */
 	findDefinition : function(span) {
 		const attrs = this.attributes;
 		const sels = this.selectors;
-		let def;
-		if (span.attr(attrs.def)) {
-			def = span;
+		let def = span.closest('.varDef');
+		if (def.length > 0) {
+			def = def.first();
 		}
 		else {
+			span = span.closest('.varUse');
 			const name = span.attr(attrs.use);
 			const selDef = '[' + attrs.def + '="' + name + '"]';
 			let scope = span;
@@ -141,6 +144,8 @@ cse111.scope = {
 	/** Finds and returns a list of spans that contain
 	 * a use of the variable that is defined in def. */
 	findUses : function(def) {
+		def = def.closest('.varDef');
+
 		const attrs = this.attributes;
 		const sels = this.selectors;
 		let name = def.attr(attrs.def);

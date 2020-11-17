@@ -17,8 +17,7 @@
     <script src="../site/hljs/highlight.pack.js"></script>
 </head>
 
-<body
-    cse111.scope.addScopeHandlers('ex1', 'ex2');
+<body onload="cse111.scope.addScopeHandlers('ex1', 'ex2');
     cse111.scope.addVarHandlers('ex3', 'ex4', 'ex5', 'ex6', 'ex7')">
 <header>
     <div class="colorCtrl">&nbsp;</div>
@@ -104,12 +103,12 @@
 <pre class="python" id="ex2"><span data-scope="global"><span class="varDef">nShapes</span> = 0
 
 <span data-scope="square">def square_area(<span class="varDef">length</span>):
-    <span class="varDef">area</span> = length * length
-    return area</span>
+    <span class="varDef">area</span> = <span class="varUse">length</span> * <span class="varUse">length</span>
+    return <span class="varUse">area</span></span>
 
 <span data-scope="rect">def rectangle_area(<span class="varDef">width</span>, <span class="varDef">length</span>):
-    <span class="varDef">area</span> = width * length
-    return area</span></span></pre></div>
+    <span class="varDef">area</span> = <span class="varUse">width</span> * <span class="varUse">length</span>
+    return <span class="varUse">area</span></span></span></pre></div>
 
     <p>Because local variables are visible only within the function
     where they are defined, a programmer can define two variables with
@@ -161,28 +160,33 @@
 <pre class="python" id="ex4"><span data-scope="global">import <span class="varDef">math</span>
 
 <span data-scope="main">def main():
+    # Call the arc_length function with only one argument
+    # even though the arc_length function has two parameters.
     <em><span class="varDef">length</span> = arc_length(25)</em>
     print(<span class="varUse">length</span>)</span>
 
+# Define a function with two parameters. The
+# second parameter has a default value of 1.
 <span data-scope="arc_length">def arc_length(<span class="varDef">degrees</span>, <em><span class="varDef">radius</span>=1</em>):
     """Compute and return the length of an arc of a circle."""
     <span class="varDef">circum</span> = 2 * <span class="varUse">math</span>.pi * <span class="varUse">radius</span>
-    <span class="varDef">len</span> = <span class="varUse">circum</span> * <span class="varUse">degrees</span> / 360
-    return <span class="varUse">len</span></span>
+    <span class="varDef">length</span> = <span class="varUse">circum</span> * <span class="varUse">degrees</span> / 360
+    return <span class="varUse">length</span></span>
 
 main()</span></pre></div>
 
-    <p>Notice at line 7 in the header for the <code>arc_length</code>
-    function, that the parameter <var>degrees</var> does not have a
-    default value but the parameter <var>radius</var> has a default
-    value of 1. This means that when a programmer calls the
-    <code>arc_length</code> function, the programmer must pass a value
-    for degrees but is not required to pass a value for radius. At line
-    4, the programmer called the <code>arc_length</code> function and
-    passed 25 for the <var>degrees</var> parameter but did not pass a
-    value for the <var>radius</var>, so during that call to
-    <code>arc_length</code>, the value of <var>radius</var> will be the
-    default value from line 7 which is 1.</p>
+    <p>Notice at line&nbsp;11 in the header for the
+    <code>arc_length</code> function, that the parameter
+    <var>degrees</var> does not have a default value but the parameter
+    <var>radius</var> has a default value of 1. This means that when a
+    programmer calls the <code>arc_length</code> function, the
+    programmer must pass a value for degrees but is not required to pass
+    a value for radius. At line&nbsp;6, the programmer called the
+    <code>arc_length</code> function and passed 25 for the
+    <var>degrees</var> parameter but did not pass a value for the
+    <var>radius</var>, so during that call to <code>arc_length</code>,
+    the value of <var>radius</var> will be the default value from
+    line&nbsp;11 which is 1.</p>
 
     <h2 id="passByRef">Passing Values and References</h2>
     <p>In Python, variables are processed differently based on their
