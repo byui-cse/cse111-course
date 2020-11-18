@@ -44,7 +44,7 @@
 <div class="pre"><pre class="python">import pandas as pd
 
 df = pd.read_csv("filename.csv")
-<em>df["new_column_name"] = df["existing_column_name"] * 3</em></pre></div></div></li>
+<em>df["new_column_name"] = 3 * df["existing_column_name"] + 1</em></pre></div></div></li>
 
         <li><div>To extract parts of datetime values, use the
         <code>.dt</code> attribute and the <code>.to_period</code>
@@ -57,6 +57,48 @@ df = pd.read_csv("filename.csv")
 
 df = pd.read_csv("filename.csv")
 <em>column = df["datetime_column"].dt.to_period("M")</em></pre></div></div></li>
+
+        <li><div><p>Grouping and aggregating data is an advanced data
+        analysis operation that can summarize many rows into just a few
+        rows. To <a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/06_calculate_statistics.html#aggregating-statistics-grouped-by-category">group and aggregate data</a>,
+        use the <code>.groupby</code> and <code>.aggregate</code>
+        methods as shown in this template:</p>
+<div class="pre"><pre class="python">import pandas as pd
+
+df = pd.read_csv("filename.csv")
+group = df.groupby("existing_column_to_group_by")
+grouped_df = group.aggregate(
+        new_column_name=("existing_column_to_summarize", "function"))</pre></div>
+        <p>For example, the following code computes the sum of water
+        usage grouped by account type.</p>
+<div class="pre"><pre class="python">import pandas as pd
+
+df = pd.read_csv("water.csv", parse_dates=["readDate"])
+group = df.groupby("accountType")
+grouped_df = group.aggregate(sumUsage=("usage", "sum"))
+print(grouped_df)</pre></div>
+        <p>And produces the following DataFrame. Notice that the 246,830
+        rows from the <code>water.csv</code> file are grouped and
+        summarized into just 16 rows.</p>
+<pre class="console">
+                          sumUsage
+accountType
+Airport Hanger                 833
+Apartment Complex          2393851
+BYU-Idaho                  1463713
+Business                   1975252
+Business with Apartment      23297
+Church                      270953
+City                        264437
+Free                          1648
+Out of Town                 111530
+Residence                  2849155
+Residence with Apartment     11143
+School                      262725
+Sprinklers                   59386
+Town Homes                  215182
+Trailer Court               136023
+Vacant                       15237</pre></div></li>
     </ol>
 
     <h2>Assignment</h2>
