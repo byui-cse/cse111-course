@@ -54,13 +54,13 @@
         <ol>
             <li><div>read the data</div></li>
             <li><div>define the plot</div></li>
-            <li><div>draw the plot</div></li>
+            <li><div>draw (show) the plot</div></li>
         </ol>
         For example:
 <div class="pre"><pre class="linenums"></pre>
 <pre class="python">
 import pandas as pd
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as pyplot
 
 # Read a DataFrame from a CSV file.
 df = pd.read_csv("filename.csv")
@@ -69,7 +69,7 @@ df = pd.read_csv("filename.csv")
 df.plot.bar(x="column_name_1", y="column_name_2")
 
 # Draw and show all defined plots.
-plt.show()</pre></div>
+pyplot.show()</pre></div>
 
         In the above example, lines 2 and 11 are easy to forget but
         without them, the plots that your code defines will not be shown

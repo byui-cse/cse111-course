@@ -68,8 +68,8 @@ def add_median_usage_column(df):
     columns = df.columns.tolist()
 
     # Find the median usage grouped by accountType and yearMonth.
-    median_df = df.groupby(["accountType", "yearMonth"]) \
-            .aggregate(medianUsage=("usage", "median"))
+    group = df.groupby(["accountType", "yearMonth"])
+    median_df = group.aggregate(medianUsage=("usage", "median"))
 
     # Change the index so that joining the median_df
     # with the original data frame will work.

@@ -1,5 +1,5 @@
-import matplotlib.pyplot as plt
-import matplotlib.ticker as tkr
+import matplotlib.pyplot as pyplot
+import matplotlib.ticker as ticker
 import pandas as pd
 
 
@@ -22,7 +22,7 @@ def main():
         show_usage_sum(sum_df)
 
         # Show all defined plots.
-        plt.show()
+        pyplot.show()
 
     except RuntimeError as ex:
         print(type(ex).__name__, ex, sep=": ")
@@ -60,8 +60,8 @@ def sum_usage_by_account_type(df):
     """Create and return a new data frame that
     contains total water usage by account type.
     """
-    grouped = df.groupby("accountType")
-    sum_df = grouped["usage"].sum().reset_index()
+    group = df.groupby("accountType")
+    sum_df = group.aggregate(sumUsage=("usage", "sum")).reset_index()
     return sum_df
 
 
@@ -94,26 +94,28 @@ def show_usage_sum(sum_df):
     sum_df.sort_values("order", inplace=True)
 
     # Keep only the accountType and usage columns.
-    sum_df = sum_df[["accountType", "usage"]]
+    columns = ["accountType", "sumUsage"]
+    sum_df = sum_df[columns]
 
     # Make the accountType column be the index.
     sum_df.set_index("accountType", inplace=True)
 
+    # Print the data frame so we can verify that it's correct.
     print(sum_df)
 
     # Define a pie plot.
     title = "Water Usage 2015 - 2019"
-    sum_df.plot.pie(y="usage", colors=colors,
-            title=title, label="", legend=False)
-    plt.tight_layout()
+    sum_df.plot.pie(y="sumUsage", colors=colors,
+            title=title, label="", legend=None)
+    pyplot.tight_layout()
 
     # Define a vertical bar plot.
-    bar = sum_df.plot.bar(y="usage", color=colors, title=title, legend=False)
-    bar.xaxis.set_label_text("")
-    bar.yaxis.set_label_text("x1000 gallons")
-    fmtr = tkr.FuncFormatter(lambda val, pos: f"{val:,.0f}")
+    bar = sum_df.plot.bar(y="sumUsage", color=colors, title=title, legend=None)
+    bar.set_xlabel("")
+    bar.set_ylabel("x1000 gallons")
+    fmtr = ticker.FuncFormatter(lambda val, pos: f"{val:,.0f}")
     bar.yaxis.set_major_formatter(fmtr)
-    plt.tight_layout()
+    pyplot.tight_layout()
 
 
 # Call the main function so that
