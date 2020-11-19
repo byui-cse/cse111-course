@@ -21,7 +21,7 @@
     <h2>CSE 111 | <span>Programming with Functions</span></h2>
 </header>
 <article>
-    <h1>03 Prove Milestone: Dictionaries</h1>
+    <h1>03 Prove Milestone: Using Dictionaries</h1>
 
     <h2>Overview</h2>
     <p>Prove that you can write a Python program that reads CSV files
@@ -40,19 +40,18 @@
     <p>The prepare content for this lesson includes a section about
     <a target="_blank" href="prepare.html#dicts">using dictionaries</a>
     and a section about
-    <a target="_blank" href="prepare.html#csvfiles">reading CSV files</a>.</p>
+    <a target="_blank" href="prepare.html#csvFiles">reading CSV files</a>.</p>
 
     <h2>Assignment</h2>
     <p>During this milestone (lesson 3), you will write half of this
-    Python program. During this milestone, your finished program will
-    read and process two CSV files as follows:</p>
-
-    <ol>
-        <li><div><code>products.csv</code> which is a catalog of
+    Python program. Specifically, by the end of this milestone, your
+    program will read and process two CSV files as follows:</p>
+    <ul>
+        <li><div>The <code>products.csv</code> file is a catalog of
             all the products that the grocery store sells.</div></li>
-        <li><div><code>request.csv</code> which contains the items
+        <li><div>The <code>request.csv</code> file contains the items
             ordered by a customer.</div></li>
-    </ol>
+    </ul>
 
     <p>Do the following:</p>
     <ol class="long">
@@ -83,7 +82,7 @@
         Each item in the <code>products</code> dictionary must have a
         product number as the key and a list with the product name and
         price as the value. This organization is shown in the following
-        table and again in the example print.</p>
+        table.</p>
 
         <table class="center"><thead>
             <tr><th colspan="2">Products</th></tr>
@@ -95,22 +94,14 @@
             <tr><td>"W231"</td> <td>["32 oz granola", 3.21]</td></tr>
             <tr><td>"W112"</td> <td>["wheat bread", 2.55]</td></tr>
             <tr><td>"C013"</td> <td>["twix candy bar", 0.85]</td></tr>
-        <tbody></table>
-
-<pre class="console">Products
-{'D150': ['1 gallon milk', 2.85],
-'D083': ['1 cup yogurt', 0.75],
-'P143': ['1 lb baby carrots', 1.39],
-'W231': ['32 oz granola', 3.21],
-'W112': ['wheat bread', 2.55],
-'C013': ['twix candy bar', 0.85]}</pre></div></li>
+        <tbody></table></div></li>
 
         <li><div>In your <code>receipt.py</code> program, after the code
         that populates the <code>products</code> dictionary, write a
         line of code to print the entire <code>products</code>
         dictionary. Run your program and verify that your printed
-        dictionary contains the same data as the one in the previous
-        step.</div></li>
+        dictionary contains the same data as shown in the previous
+        table.</div></li>
 
         <li><div>Open the <code>request.csv</code> file in VS Code and
         examine it. Notice that each row contains only two values, a
@@ -140,7 +131,7 @@ Products
 'W112': ['wheat bread', 2.55],
 'C013': ['twix candy bar', 0.85]}
 
-Requested items
+Requested Items
 1 gallon milk: 2 @ 2.85
 32 oz granola: 1 @ 3.21
 1 cup yogurt: 4 @ 0.75
