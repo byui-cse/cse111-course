@@ -32,54 +32,38 @@
     <h2>Helpful Documentation</h2>
     <ol class="long">
         <li><div>The <a target="_blank" href="prepare.html">prepare</a>
-        content for this lesson includes example code for some of the
-        tasks in this assignment. Additionally, the prepare content
-        contains links to the official <code>pandas</code>
-        tutorials.</div></li>
+        content for this lesson includes example code for the tasks in
+        this assignment. Additionally, the prepare content contains
+        links to the official <code>pandas</code> tutorials.</div></li>
 
-        <li><div>To <a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/05_add_columns.html">create a new column</a>
-        derived from existing columns, use the [] brackets with the new
-        column name on the left side of the assignment operator (=). For
-        example:
-<div class="pre"><pre class="python">import pandas as pd
-
-df = pd.read_csv("filename.csv")
-<em>df["new_column_name"] = 3 * df["existing_column_name"] + 1</em></pre></div></div></li>
-
-        <li><div>To extract parts of datetime values, use the
-        <code>.dt</code> attribute and the <code>.to_period</code>
-        method
-        (<a target="_blank" href="https://www.interviewqs.com/ddi_code_snippets/extract_month_year_pandas">tutorial</a>,
-        <a target="_blank" href="https://stackoverflow.com/questions/23840797/convert-a-column-of-timestamps-into-periods-in-pandas">stack overflow question</a>,
-        <a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.dt.to_period.html">official documentation</a>).
-        For example:
-<div class="pre"><pre class="python">import pandas as pd
-
-df = pd.read_csv("filename.csv")
-<em>column = df["datetime_column"].dt.to_period("M")</em></pre></div></div></li>
-
-        <li><div><p>Grouping and aggregating data is an advanced data
+        <li><div>Grouping and aggregating data is an advanced data
         analysis operation that can summarize many rows into just a few
-        rows. To <a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/06_calculate_statistics.html#aggregating-statistics-grouped-by-category">group and aggregate data</a>,
+        rows. To
+        <a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/06_calculate_statistics.html#aggregating-statistics-grouped-by-category">group and aggregate data</a>,
         use the <code>.groupby</code> and <code>.aggregate</code>
-        methods as shown in this template:</p>
+        methods as shown in this template:
+
 <div class="pre"><pre class="python">import pandas as pd
 
 df = pd.read_csv("filename.csv")
 group = df.groupby("existing_column_to_group_by")
 grouped_df = group.aggregate(
         new_column_name=("existing_column_to_summarize", "function"))</pre></div>
-        <p>For example, the following code computes the sum of water
-        usage grouped by account type.</p>
+
+        For example, the following code computes the sum of water usage
+        grouped by account type.
+
 <div class="pre"><pre class="python">import pandas as pd
 
 df = pd.read_csv("water.csv", parse_dates=["readDate"])
 group = df.groupby("accountType")
 grouped_df = group.aggregate(sumUsage=("usage", "sum"))
 print(grouped_df)</pre></div>
-        <p>And produces the following DataFrame. Notice that the 246,830
+
+        And produces the following DataFrame. Notice that the 246,830
         rows from the <code>water.csv</code> file are grouped and
-        summarized into just 16 rows.</p>
+        summarized into just 16 rows.
+
 <pre class="console">
                           sumUsage
 accountType

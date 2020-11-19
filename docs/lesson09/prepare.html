@@ -110,14 +110,14 @@ df = pd.read_csv("filename.csv")
 <em>print(df.describe())</em></pre></div></div></li>
 
         <li><div>To <a target="_blank"
-        href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/03_subset_data.html#how-do-i-select-specific-columns-from-a-dataframe">select a column</a>
-        from a DataFrame write the column's name in square brackets. For
-        example:
+        href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/03_subset_data.html#how-do-i-select-specific-columns-from-a-dataframe">extract a column</a>
+        from a DataFrame write the column's name in square brackets [].
+        For example:
 <div class="pre"><pre class="python">import pandas as pd
 
 df = pd.read_csv("filename.csv")
-<em>column = df["col_name"]</em></pre></div>
-        It is also possible select multiple columns by writing a list of
+<em>column = df["column_name"]</em></pre></div>
+        It is also possible extract multiple columns by writing a list of
         column names between the square brackets like this:
 <div class="pre"><pre class="python">import pandas as pd
 
@@ -140,7 +140,7 @@ smaller_df = df[column_names]</em></pre></div></div></li>
 <div class="pre"><pre class="python">import pandas as pd
 
 df = pd.read_csv("filename.csv")
-<em>filter = df["col_name"] &gt; threshold
+<em>filter = (df["col_name"] &gt; threshold)
 filtered_df = df[filter]</em></pre></div>
         It is possible to filter rows by two comparisons. However,
         because of operator precedence in Python, we must add
@@ -165,7 +165,7 @@ filtered_or_df = df[orfilt]</pre></div>
         the previous item and this item to see the difference. The code
         to select a column or columns contains only a string or list of
         strings between the square brackets. The code to filter rows
-        contains a comparison to create the filter object.</div></li>
+        contains a filter object between the square brackets.</div></li>
 
         <li><div>To filter out duplicate rows, call the <a target="_blank"
         href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.drop_duplicates.html">DataFrame.drop_duplicates()</a>
@@ -200,6 +200,27 @@ df = pd.read_csv("filename.csv")
 column = df["col_name"]
 <em>counts = column.value_counts()</em></pre></div></div></li>
 
+        <li><div>To <a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/05_add_columns.html">create a new column</a>
+        derived from existing columns, use square brackets [] with the
+        new column name on the left side of the assignment operator (=).
+        For example:
+<div class="pre"><pre class="python">import pandas as pd
+
+df = pd.read_csv("filename.csv")
+<em>df["new_column_name"] = 3 * df["existing_column_name"] + 1</em></pre></div></div></li>
+
+        <li><div>To extract parts of datetime values, use the
+        <code>.dt</code> attribute and the <code>.to_period</code>
+        method
+        (<a target="_blank" href="https://www.interviewqs.com/ddi_code_snippets/extract_month_year_pandas">tutorial</a>,
+        <a target="_blank" href="https://stackoverflow.com/questions/23840797/convert-a-column-of-timestamps-into-periods-in-pandas">stack overflow question</a>,
+        <a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.dt.to_period.html">official documentation</a>).
+        For example:
+<div class="pre"><pre class="python">import pandas as pd
+
+df = pd.read_csv("filename.csv")
+<em>column = df["datetime_column"].dt.to_period("M")</em></pre></div></div></li>
+
         <li><div>The <code>pandas</code> module includes several
         functions that aggregate data, including the following:
         <ol>
@@ -213,6 +234,18 @@ column = df["col_name"]
             <li><div>The <a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.min.html">Series.max()</a>
             function finds the maximum value within a Series.</div></li>
         </ol></div></li>
+
+        <li><div>Grouping and aggregating data is an advanced data
+        analysis operation that can summarize many rows into just a few
+        rows. To <a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/06_calculate_statistics.html#aggregating-statistics-grouped-by-category">group and aggregate data</a>,
+        use the <code>.groupby</code> and <code>.aggregate</code>
+        methods as shown in this template:
+<div class="pre"><pre class="python">import pandas as pd
+
+df = pd.read_csv("filename.csv")
+group = df.groupby("existing_column_to_group_by")
+grouped_df = group.aggregate(
+        new_column_name=("existing_column_to_summarize", "function"))</pre></div>
     </ol>
 </article>
 <footer>
