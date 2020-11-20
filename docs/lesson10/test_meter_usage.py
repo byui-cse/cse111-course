@@ -16,22 +16,4 @@ def test_get_int(monkeypatch):
     assert get_int("Please enter an integer: ", -5, 5) == 2
 
 
-def test_insert_after():
-    """Verify that the insert after function
-    correctly inserts elements into a list.
-    """
-    test_cases = [
-        (["a"], "a", "b", ["a", "b"]),
-        (["a", "c"], "a", "b", ["a", "b", "c"]),
-        (["a", "b"], "b", "d", ["a", "b", "d"])
-    ]
-    for test_case in test_cases:
-        alist = test_case[0]
-        existing = test_case[1]
-        toinsert = test_case[2]
-        expected = test_case[3]
-        result = insert_after(alist, existing, toinsert)
-        assert result == expected
-
-
 pytest.main(["-v", "--tb=no", "test_meter_usage.py"])

@@ -14,8 +14,7 @@ def main():
 
             # Get a start year and an end year from the user.
 
-            # Convert the start and end years
-            # from integers to date strings.
+            # Convert the start and end years from integers to dates.
 
             # Filter the DataFrame to the meter number
             # and years specifified by the user.
@@ -45,18 +44,6 @@ def get_int(prompt, lower, upper):
     return
 
 
-def insert_after(alist, existing, toinsert):
-    """Insert an element into a list after an existing element.
-
-    param alist: a Python list.
-    param existing: an element that exists in alist.
-    param toinsert: the element that this function will insert into
-        alist after the existing element.
-    return: alist
-    """
-    return
-
-
 def add_median_usage_column(df):
     """Add to a DataFrame a column named medianUsage that contains
     the median usage grouped by accountType and yearMonth.
@@ -65,30 +52,14 @@ def add_median_usage_column(df):
     return: A new DataFrame.
     """
     df = add_year_month_column(df)
-    columns = df.columns.tolist()
 
     # Find the median usage grouped by accountType and yearMonth.
-    group = df.groupby(["accountType", "yearMonth"])
+    columns = ["accountType", "yearMonth"]
+    group = df.groupby(columns)
     median_df = group.aggregate(medianUsage=("usage", "median"))
 
-    # Change the index so that joining the median_df
-    # with the original data frame will work.
-    df.set_index(["accountType", "yearMonth"], inplace=True)
-
     # Join the original data frame and the median data frame.
-    joined_df = df.join(median_df)
-
-    # The join sorts the data frame by the join key, which is
-    # a different order than the CSV file, so sort the rows by
-    # meterNumber and readDate like the CSV file, and then reset
-    # the index as if the data were just read from the CSV file.
-    joined_df.sort_values(["meterNumber", "readDate"], inplace=True)
-    joined_df.reset_index(drop=False, inplace=True)
-
-    # Reorder the columns to be similar to the CSV file.
-    insert_after(columns, "usage", "medianUsage")
-    joined_df = joined_df[columns]
-
+    joined_df = df.join(median_df, on=columns)
     return joined_df
 
 
@@ -130,11 +101,11 @@ def filter_between_dates(df, start, end):
     return
 
 
-def show_meter_usage(df, meter_number):
+def show_meter_usage(indiv_df, meter_number):
     """Define a vertical column plot that shows the year
     and month on the x-axis and the usage on the y-axis.
 
-    param df: A DataFrame with at least two columns: yearMonth and
+    param indiv_df: A DataFrame with at least two columns: yearMonth and
         usage. The DataFrame must already be filtered to the rows for
         only one meter number before it is passed into this function.
     param meter_number: The meter number for which df is already filtered.
@@ -143,11 +114,11 @@ def show_meter_usage(df, meter_number):
     pass
 
 
-def show_comparison(df, meter_number):
+def show_comparison(indiv_df, meter_number):
     """Define a line plot that shows the year and month on
     the x-axis and the usage and median usage on the y-axis.
 
-    param df: A DataFrame with at least three columns: yearMonth, usage,
+    param indiv_df: A DataFrame with at least three columns: yearMonth, usage
         and medianUsage. The DataFrame must already be filtered to the rows
         for only one meter number before it is passed into this function.
     param meter_number: The meter number for which df is already filtered.

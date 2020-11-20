@@ -137,7 +137,7 @@
 
 <span data-scope="main">def main():
     <em><span class="varDef">radius</span></em> = float(input("Enter the radius of a circle: "))
-    <span class="varDef">area</span> = <span data-funcUse="">circle_area</span>()
+    <span class="varDef">area</span> = circle_area()
     print(<span class="varUse">area</span>)</span>
 
 <span data-scope="circle_area">def circle_area():
@@ -147,7 +147,7 @@
     <span class="varDef">area</span> = <span class="varUse">math</span>.pi * <em><span class="varUse">radius</span></em> * <em><span class="varUse">radius</span></em>
     return <span class="varUse">area</span></span>
 
-<span data-funcUse="">main</span>()</span></pre></div>
+main()</span></pre></div>
 
     <h2 id="defaultParams">Default Parameter Values and Optional Arguments</h2>
     <p>Python allows function parameters to have default values. If a
@@ -162,12 +162,12 @@
 <span data-scope="main">def main():
     # Call the arc_length function with only one argument
     # even though the arc_length function has two parameters.
-    <em><span class="varDef">length</span> = arc_length(25)</em>
+    <em><span class="varDef">length</span> = arc_length(4.7)</em>
     print(<span class="varUse">length</span>)</span>
 
 # Define a function with two parameters. The
-# second parameter has a default value of 1.
-<span data-scope="arc_length">def arc_length(<span class="varDef">degrees</span>, <em><span class="varDef">radius</span>=1</em>):
+# second parameter has a default value of 360.
+<span data-scope="arc_length">def arc_length(<span class="varDef">radius</span>, <em><span class="varDef">degrees</span>=360</em>):
     """Compute and return the length of an arc of a circle."""
     <span class="varDef">circum</span> = 2 * <span class="varUse">math</span>.pi * <span class="varUse">radius</span>
     <span class="varDef">length</span> = <span class="varUse">circum</span> * <span class="varUse">degrees</span> / 360
@@ -177,16 +177,16 @@ main()</span></pre></div>
 
     <p>Notice at line&nbsp;11 in the header for the
     <code>arc_length</code> function, that the parameter
-    <var>degrees</var> does not have a default value but the parameter
-    <var>radius</var> has a default value of 1. This means that when a
-    programmer calls the <code>arc_length</code> function, the
-    programmer must pass a value for degrees but is not required to pass
-    a value for radius. At line&nbsp;6, the programmer called the
-    <code>arc_length</code> function and passed 25 for the
-    <var>degrees</var> parameter but did not pass a value for the
-    <var>radius</var>, so during that call to <code>arc_length</code>,
-    the value of <var>radius</var> will be the default value from
-    line&nbsp;11 which is 1.</p>
+    <var>radius</var> does not have a default value but the parameter
+    <var>degrees</var> has a default value of 360. This means that when
+    a programmer calls the <code>arc_length</code> function, the
+    programmer must pass a value for <var>radius</var> but is not
+    required to pass a value for <var>degrees</var>. At line&nbsp;6, the
+    programmer called the <code>arc_length</code> function and passed
+    4.7 for the <var>radius</var> parameter but did not pass a value for
+    the <var>degrees</var>, so during that call to
+    <code>arc_length</code>, the value of <var>degrees</var> will be the
+    default value from line&nbsp;11 which is 360.</p>
 
     <h2 id="passByRef">Passing Values and References</h2>
     <p>In Python, variables are processed differently based on their
@@ -205,7 +205,7 @@ main()</span></pre></div>
     The previous code will print this:
 <pre class="console">&gt; python example1.py
 Before changing y: x 3  y 3
-After changing y:  x 3  y 4</pre>
+After changing y:  <em>x 3  y 4</em></pre>
 
     Within the previous code:
     <ul>
@@ -245,10 +245,10 @@ main()</span></pre></div>
     Here is the output of the second program:
 
 <pre class="console">&gt; python example2.py
-Before changing ly: lx [7, -2]  ly [7, -2]
-After changing ly:  lx [7, -2, 5]  ly [7, -2, 5]</pre>
+Before changing ly: <em>lx [7, -2]</em>  ly [7, -2]
+After changing ly:  <em>lx [7, -2, 5]</em>  ly [7, -2, 5]</pre>
 
-    From the output of this second program, we can see there is a big
+    From the output of this second program, we see there is a big
     difference between the way a Python program assigns integers and the
     way it assigns lists. Within the second program:
     <ul>
@@ -307,18 +307,18 @@ After changing ly:  lx [7, -2, 5]  ly [7, -2, 5]</pre>
     print(f"After calling modify_args():  x {<span class="varUse">x</span>}  lx {<span class="varUse">lx</span>}")</span>
 
 
-<span data-scope="modify_args">def modify_args(<span class="varDef">n</span>, <span class="varDef">ls</span>):
+<span data-scope="modify_args">def modify_args(<span class="varDef">n</span>, <span class="varDef">alist</span>):
     """Demonstrate that the computer passes a value
     for integers and passes a reference for lists.
     """
-    print("   modify_args(n, ls)")
-    print(f"   Before changing n and ls: n {<span class="varUse">n</span>}  ls {<span class="varUse">ls</span>}")
+    print("   modify_args(n, alist)")
+    print(f"   Before changing n and alist: n {<span class="varUse">n</span>}  alist {<span class="varUse">alist</span>}")
 
     # Change the values of both parameters.
     <span class="varUse">n</span> += 1
-    <span class="varUse">ls</span>.append(4)
+    <span class="varUse">alist</span>.append(4)
 
-    print(f"   After changing n and ls:  n {<span class="varUse">n</span>}  ls {<span class="varUse">ls</span>}")</span>
+    print(f"   After changing n and alist:  n {<span class="varUse">n</span>}  alist {<span class="varUse">alist</span>}")</span>
 
 
 # Call main to begin this program.
@@ -349,14 +349,14 @@ main()</span></pre></div>
 
 <pre class="console">&gt; python example3.py
 main()
-    Before calling modify_args(): x 5  lx [7, -2]
-        modify_args(n, ls)
-    Before changing n and ls: n 5  ls [7, -2]
-    After changing n and ls:  n 6  ls [7, -2, 4]
-After calling modify_args():  x 5  lx [7, -2, 4]</pre>
+Before calling modify_args(): x 5  <em>lx [7, -2]</em>
+    modify_args(n, alist)
+    Before changing n and alist: n 5  alist [7, -2]
+    After changing n and alist:  n 6  alist [7, -2, 4]
+After calling modify_args():  x 5  <em>lx [7, -2, 4]</em></pre>
 
-    <p>From the output of the third program, we can see that modifying
-    an integer parameter changes the integer within the called function
+    <p>From the output of the third program, we see that modifying an
+    integer parameter changes the integer within the called function
     only. However, modifying a list parameter changes the list within
     the called function and within the calling function. Why? Because
     when a computer passes a boolean, integer, or float variable to a

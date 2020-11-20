@@ -6,12 +6,7 @@ import pytest
 def test_add_year_month_column():
     # Read the water.csv file and convert the
     # readDate column from a string to a datetime64.
-    df = pd.read_csv("water.csv",
-            dtype={"meterNumber":"str", "meterSize":"float32",
-                "readDate":"str", "numberOfDays":"int_", "usage":"int_",
-                "accountType":"str", "numberOfDwellings":"int_"
-            },
-            parse_dates=["readDate"])
+    df = pd.read_csv("water.csv", parse_dates=["readDate"])
     assert len(df) == 246830
 
     # Ensure that the data frame doesn't have a column named yearMonth.
@@ -35,12 +30,7 @@ def test_add_year_month_column():
 def test_filter_for_meter():
     # Read the water.csv file and convert the
     # readDate column from a string to a datetime64.
-    df = pd.read_csv("water.csv",
-            dtype={"meterNumber":"str", "meterSize":"float32",
-                "readDate":"str", "numberOfDays":"int_", "usage":"int_",
-                "accountType":"str", "numberOfDwellings":"int_"
-            },
-            parse_dates=["readDate"])
+    df = pd.read_csv("water.csv", parse_dates=["readDate"])
     assert len(df) == 246830
 
     # Call the filter_for_meter function.
@@ -58,12 +48,7 @@ def test_filter_for_meter():
 def test_filter_between_dates():
     # Read the water.csv file and convert the
     # readDate column from a string to a datetime64.
-    df = pd.read_csv("water.csv",
-            dtype={"meterNumber":"str", "meterSize":"float32",
-                "readDate":"str", "numberOfDays":"int_", "usage":"int_",
-                "accountType":"str", "numberOfDwellings":"int_"
-            },
-            parse_dates=["readDate"])
+    df = pd.read_csv("water.csv", parse_dates=["readDate"])
     assert len(df) == 246830
 
     # Call the filter_between_dates function.

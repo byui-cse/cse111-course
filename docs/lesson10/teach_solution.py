@@ -6,12 +6,7 @@ def main():
     try:
         # Read the water.csv file and convert the
         # readDate column from a string to a datetime64.
-        df = pd.read_csv("../lesson09/water.csv",
-                dtype={"meterNumber":"str", "meterSize":"float32",
-                    "readDate":"str", "numberOfDays":"int_", "usage":"int_",
-                    "accountType":"str", "numberOfDwellings":"int_"
-                },
-                parse_dates=["readDate"])
+        df = pd.read_csv("../lesson09/water.csv", parse_dates=["readDate"])
 
         # Add to the DataFrame a year column that
         # contains the year from each readDate.
@@ -47,14 +42,17 @@ def show_all_water_usage(df):
 def show_water_usage_per_dwelling(df):
     # Filter the data frame to apartment complexes,
     # residences, trailer courts, and town homes only.
-    types = ["Apartment Complex", "Residence", "Trailer Court", "Town Homes"]
-    filter = df["accountType"].isin(types)
+    filter = (df["accountType"] == "Apartment Complex") | \
+            (df["accountType"] == "Residence") | \
+            (df["accountType"] == "Trailer Court") | \
+            (df["accountType"] == "Town Homes")
     df = df[filter]
 
     # For each meterNumber, compute the total water
     # usage and the number of dwellings grouped by year.
     group = df.groupby(["meterNumber", "year"])
-    interm_df = group.aggregate({"usage":"sum", "numberOfDwellings":"mean"})
+    interm_df = group.aggregate(usage=("usage", "sum"),
+            numberOfDwellings=("numberOfDwellings", "mean"))
 
     # Discard outliers: rows with numDwellings less than 1.
     filter = (interm_df["numberOfDwellings"] >= 1)
@@ -63,10 +61,11 @@ def show_water_usage_per_dwelling(df):
     # For each year, compute the total water
     # usage and the total number of dwellings.
     group = interm_df.groupby("year")
-    final_df = group.aggregate({"usage":"sum", "numberOfDwellings":"sum"})
+    final_df = group.aggregate(sumUsage=("usage", "sum"),
+            sumDwellings=("numberOfDwellings", "sum"))
 
     # Add a computed column that is sumUsage / numDwellings.
-    final_df["usagePerDwelling"] = final_df["usage"] / final_df["numberOfDwellings"]
+    final_df["usagePerDwelling"] = final_df["sumUsage"] / final_df["sumDwellings"]
 
     pd.options.display.float_format = "{:.1f}".format
     print()

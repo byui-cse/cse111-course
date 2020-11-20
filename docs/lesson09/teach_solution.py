@@ -5,12 +5,7 @@ def main():
     try:
         # Read the water.csv file and convert the
         # readDate column from a string to a datetime64.
-        df = pd.read_csv("water.csv",
-                dtype={"meterNumber":"str", "meterSize":"float32",
-                    "readDate":"str", "numberOfDays":"int_", "usage":"int_",
-                    "accountType":"str", "numberOfDwellings":"int_"
-                },
-                parse_dates=["readDate"])
+        df = pd.read_csv("water.csv", parse_dates=["readDate"])
         print()
 
 
