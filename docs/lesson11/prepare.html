@@ -185,15 +185,15 @@ def main():
 
 main()</pre></div></div></li>
 
-        <li><div>A Python <dfn>lambda function</dfn> is a small
-        anonymous function, meaning a function without a name. A lambda
-        function is always a small function because the Python language
-        restricts a lambda function to just one expression. Consider the
-        program in example&nbsp;4 which is yet another example program
-        that converts Fahrenheit temperatures to Celsius. Notice the
-        lambda function on line&nbsp;12 of example&nbsp;4. It takes one
-        parameter named <var>fahr</var> and computes and returns the
-        corresponding Celsius temperature.
+        <li id="lambda"><div>A Python <dfn>lambda function</dfn> is a
+        small anonymous function, meaning a function without a name. A
+        lambda function is always a small function because the Python
+        language restricts a lambda function to just one expression.
+        Consider the program in example&nbsp;4 which is yet another
+        example program that converts Fahrenheit temperatures to
+        Celsius. Notice the lambda function on line&nbsp;12 of
+        example&nbsp;4. It takes one parameter named <var>fahr</var> and
+        computes and returns the corresponding Celsius temperature.
 
 <div class="pre"><pre class="linenums"></pre>
 <pre class="python"># Example 4
@@ -225,7 +225,7 @@ main()</pre></div>
         <code>cels_from_fahr</code> function in examples&nbsp;1,&nbsp;2,
         and&nbsp;3.</p></div></li>
 
-        <li><div>The pandas
+        <li id="apply"><div>The pandas
         <a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.apply.html"><code>apply</code> function</a>
         also takes another function as a parameter and calls the passed
         function for each cell in a DataFrame or row or column. Consider
