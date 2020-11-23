@@ -1,5 +1,5 @@
 import pandas as pd
-from datetime import date, datetime
+from datetime import date
 
 
 def main():
@@ -33,21 +33,21 @@ def main():
 def add_columns(df, cutoff):
     # Add a column named ageAtCutoff to the data frame. To create the
     # data for the new column, call the apply function on the birthdate
-    # column. Pass the year_diff function to the apply function.
+    # column. Pass the year_diff function and the args named parameter
+    # to the apply function.
     df["ageAtCutoff"] = df["birthdate"].apply(year_diff, args=(cutoff,))
 
-    # Create a lambda function that accepts a student's age
-    # as a parameter and uses the level_dict dictionary to
-    # find and return the student's grade level.
+    # Create a lambda function and store it in a variable named
+    # level_from_age. The lambda function must accept a student's
+    # age as a parameter and use the level_dict dictionary to find
+    # and return the student's grade level.
     level_from_age = lambda age: level_dict[age]
 
-    # Add a column named gradeLevel to the data frame. To create the
-    # data for the new column, call the apply function on the ageAtCutoff
-    # column. Pass the level_from_age function to the apply function.
+    # Add a column named gradeLevel to the data frame. To create
+    # the data for the new column, call the apply function on the
+    # ageAtCutoff column. Pass the level_from_age lambda function
+    # to the apply function.
     df["gradeLevel"] = df["ageAtCutoff"].apply(level_from_age)
-
-    # Sort the data frame by age at cutoff, surname, and given name.
-    df.sort_values(["ageAtCutoff", "surname", "givenName"], inplace=True)
 
     # Return the data frame that contains the two new columns.
     return df
@@ -72,19 +72,17 @@ level_dict = {
 }
 
 
-def year_diff(before: datetime, after: datetime) -> int:
+def year_diff(before, after):
     """Compute and return the difference in years between two dates.
 
     param before: a datetime object
     param after: another datetime object
+    return: an integer
     """
     # Ensure that the date in before is earlier
     # than or equal to the date in after.
     if before > after:
         before, after = after, before
-        #swap = before
-        #before = after
-        #after = swap
 
     # Compute the difference between the two dates in years.
     years = after.year - before.year

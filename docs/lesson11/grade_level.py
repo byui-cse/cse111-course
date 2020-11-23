@@ -1,5 +1,5 @@
 import pandas as pd
-from datetime import date, datetime
+from datetime import date
 
 
 def main():
@@ -15,10 +15,14 @@ def main():
         print(f"Cutoff date: {cutoff}")
         print()
 
+        # Call the add_columns function and print
+        # the data frame with the two new columns.
         df = add_columns(df, cutoff)
         print(df)
         print()
 
+        # Call the grade_level_counts function
+        # and print the new counts data frame.
         counts = grade_level_counts(df)
         print(counts)
 
@@ -29,17 +33,20 @@ def main():
 def add_columns(df, cutoff):
     # Add a column named ageAtCutoff to the data frame. To create the
     # data for the new column, call the apply function on the birthdate
-    # column. Pass the year_diff function to the apply function.
+    # column. Pass the year_diff function and the args named parameter
+    # to the apply function.
     pass
 
-    # Create a lambda function that accepts a student's age
-    # as a parameter and uses the level_dict dictionary to
-    # find and return the student's grade level.
+    # Create a lambda function and store it in a variable named
+    # level_from_age. The lambda function must accept a student's
+    # age as a parameter and use the level_dict dictionary to find
+    # and return the student's grade level.
     pass
 
-    # Add a column named gradeLevel to the data frame. To create the
-    # data for the new column, call the apply function on the ageAtCutoff
-    # column. Pass the level_from_age function to the apply function.
+    # Add a column named gradeLevel to the data frame. To create
+    # the data for the new column, call the apply function on the
+    # ageAtCutoff column. Pass the level_from_age lambda function
+    # to the apply function.
     pass
 
     # Return the data frame that contains the two new columns.
@@ -65,18 +72,17 @@ level_dict = {
 }
 
 
-def year_diff(before: datetime, after: datetime) -> int:
+def year_diff(before, after):
     """Compute and return the difference in years between two dates.
 
     param before: a datetime object
     param after: another datetime object
+    return: an integer
     """
-    # Ensure that the date in before is earlier
-    # than or equal to the date in after.
+    # Ensure that the date stored in before is earlier
+    # than or equal to the date stored in after.
     if before > after:
-        swap = before
-        before = after
-        after = swap
+        before, after = after, before
 
     # Compute the difference between the two dates in years.
     years = after.year - before.year
@@ -91,7 +97,7 @@ def year_diff(before: datetime, after: datetime) -> int:
 
 def grade_level_counts(df):
     """Create and return a new Series that contains
-    number of students in each grade level.
+    the number of students in each grade level.
     """
     # Call pandas value_counts function to create a new Series named
     # counts that contains the number of students in each grade level.
