@@ -23,7 +23,7 @@ def main():
         print(type(ex).__name__, ex, sep=": ")
 
 
-def add_area_code(phone: str) -> str:
+def add_area_code(phone):
     """Phone numbers in the U.S. are often stored as ten digits and two
     dashes in this format: "ddd-ddd-dddd" where each d is a digit. If
     the length of the phone parameter is less than 12 characters, add
@@ -31,6 +31,7 @@ def add_area_code(phone: str) -> str:
     the phone number.
 
     param phone: a string of digits formatted as "ddd-dddd" or "ddd-ddd-dddd"
+    return: a string of digits formated as "ddd-ddd-dddd"
     """
     if len(phone) < 12:
         phone = "208-" + phone
