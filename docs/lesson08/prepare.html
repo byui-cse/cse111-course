@@ -152,15 +152,6 @@ We must order except blocks from most specific at the top to
     function and another at line&nbsp;40 in the <code>get_float</code>
     function.</p>
 
-    <p>The <code>try</code> block at line&nbsp;40 is part of a loop that
-    validates user input in the <code>get_float</code> function. Notice
-    at line&nbsp;49 that the <code>except</code> block handles
-    <a target="_blank" href="https://docs.python.org/3/library/exceptions.html#ValueError"><code>ValueError</code></a>
-    which is the type of exception that the
-    <a target="_blank" href="https://docs.python.org/3/library/functions.html#float"><code>float</code></a>
-    function raises when it tries to convert text to a number but the
-    text contains characters that are not numeric.</p>
-
     <p>The <code>try</code> block at line&nbsp;2 includes all the
     regular code in the <code>main</code> function. The except block at
     line&nbsp;18 will handle all types of runtime exceptions.
@@ -175,6 +166,15 @@ We must order except blocks from most specific at the top to
     mistyping code and not by bad user input or missing files. We want a
     programmer to find and fix all syntax errors in a program long
     before the program is given to users.</p>
+
+    <p>The <code>try</code> block at line&nbsp;40 is part of a loop that
+    validates user input in the <code>get_float</code> function. Notice
+    at line&nbsp;49 that the <code>except</code> block handles
+    <a target="_blank" href="https://docs.python.org/3/library/exceptions.html#ValueError"><code>ValueError</code></a>
+    which is the type of exception that the
+    <a target="_blank" href="https://docs.python.org/3/library/functions.html#float"><code>float</code></a>
+    function raises when it tries to convert text to a number but the
+    text contains characters that are not numeric.</p>
 
 <div class="pre"><pre class="linenums"></pre>
 <pre class="python">

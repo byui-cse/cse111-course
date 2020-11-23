@@ -66,7 +66,7 @@ import matplotlib.pyplot as pyplot
 df = pd.read_csv("filename.csv")
 
 # Define a vertical bar plot from the DataFrame.
-df.plot.bar(x="column_name_1", y="column_name_2")
+df.plot(kind="bar", x="column_name_1", y="column_name_2")
 
 # Draw and show all defined plots.
 pyplot.show()</pre></div>

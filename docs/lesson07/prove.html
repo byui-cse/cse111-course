@@ -50,17 +50,12 @@
     molar mass calculator, you can watch this Khan Academy video:
     <a target="_blank" href="https://www.khanacademy.org/science/chemistry/atomic-structure-and-properties/introduction-to-compounds/v/worked-example-calculating-molar-mass-and-number-of-moles">Calculating molar mass and number of moles</a>.</p>
 
-    <p>You can read about <code>pytest</code> in the official
-    <a target="_blank"
-    href="https://docs.pytest.org/en/latest/getting-started.html">online
-    documentation</a>. However, not all of the official documentation
-    about <code>pytest</code> applies to your tasks in CSE 111. The
-    following parts of that documentation are the most applicable and
-    may help you as you complete this lesson's assignments.</p>
-    <ul>
-        <li><div><a target="_blank" href="https://docs.pytest.org/en/latest/getting-started.html#create-your-first-test">Create your first test</a></div></li>
-        <li><div><a target="_blank" href="https://docs.pytest.org/en/latest/reference.html#pytest-approx"><code>pytest.approx</code></a></div></li>
-    </ul>
+    <p>The <a target="_blank" href="prepare.html">prepare</a> content
+    for this lesson explains how to use <code>pytest</code>,
+    <code>assert</code>, and <code>approx</code> to automatically verify
+    that functions are correct. It also contains an
+    <a target="_blank" href="prepare.html#ex">example test function</a>
+    and links to additional documentation about <code>pytest</code>.</p>
 
     <h2>Assignment</h2>
     <p>During this lesson and the next lesson, you will write and test a
@@ -395,13 +390,16 @@
     <h2>Sample Run</h2>
 <pre class="console">&gt; python test_chemistry.py
 ========================= test session starts =========================
-platform win32 -- Python 3.7.6, pytest-5.3.5, py-1.8.1, pluggy-0.13.1
-rootdir: C:\Users\barzee\cse111\lesson07
+platform win32 -- Python 3.8.5, pytest-6.1.1, py-1.9.0, pluggy-0.13.1
+rootdir: C:\Users\cse111\lesson07
 collected 4 items
 
-test_chemistry.py ....                                           [100%]
+test_chemistry.py::test_names <span class="pass">PASSED                             [ 25%]</span>
+test_chemistry.py::test_atomic_masses <span class="pass">PASSED                     [ 50%]</span>
+test_chemistry.py::test_parse <span class="pass">PASSED                             [ 75%]</span>
+test_chemistry.py::test_molar_mass <span class="pass">PASSED                        [100%]</span>
 
-========================== 4 passed in 0.20s ==========================</pre>
+<span class="pass">========================== 4 passed in 0.20s ==========================</span></pre>
 
     <h2>Testing Procedure</h2>
     <p>Verify that the Python code in <code>chemistry.py</code> and

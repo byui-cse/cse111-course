@@ -197,57 +197,70 @@ article dl.function dd {
 }
 
 /* Mathematical Formulas */
-article div.inlineExpr {
+article div.expr {
+	white-space: nowrap;
+	vertical-align: middle;
+	text-align: center;
+	font-family: "Palatino Linotype", Palatino, Garamond, serif;
+	font-size: large;
+}
+
+article div.expr.inline {
 	display: inline-block;
 	margin: 0 0.5em;
-	white-space: nowrap;
-	vertical-align: middle;
-	text-align: center;
-	font-family: "Palatino Linotype", Palatino, Garamond, serif;
-	font-size: large;
-}
-article div.blockExpr {
-	margin: 1em 0;
-	white-space: nowrap;
-	vertical-align: middle;
-	text-align: center;
-	font-family: "Palatino Linotype", Palatino, Garamond, serif;
-	font-size: large;
 }
 
-article div.inlineExpr div,
-article div.blockExpr div {
+article div.expr.block {
+	margin: 1em 0;
+}
+
+article div.expr div {
 	display: inline-block;
 	vertical-align: middle;
 	text-align: center;
 }
 
-article div.inlineExpr hr,
-article div.blockExpr hr {
+article div.expr hr {
 	margin: 0 auto;
 	border-top: 1px solid; border-right: 0; border-bottom: 0; border-left: 0;
 	padding: 0;
 	height: 0;
 }
 
-article div.inlineExpr span.abs:before,
-article div.blockExpr span.abs:before {
-	font-size: xx-large;
-	vertical-align:
-	middle; content: '\7c';
+article div.expr hr.fract {
+	margin: 0.2em auto 0 auto;
 }
 
-article div.inlineExpr span.rad:before,
-article div.blockExpr span.rad:before {
+article div.expr span.abs:before {
 	font-size: xx-large;
-	vertical-align:
-	middle; content: '\221a';
+	font-weight: 100;
+	vertical-align: middle;
+	content: '\7c';
 }
 
-article div.inlineExpr sup,
-article div.inlineExpr sub,
-article div.blockExpr sup,
-article div.blockExpr sub {
+article div.expr span.rad:before {
+	font-size: xx-large;
+	font-weight: 100;
+	vertical-align: middle;
+	content: '\221a';
+}
+
+article div.expr span.sum:before {
+	display: block;
+	margin-bottom: 0.2em;
+	vertical-align: middle;
+	font-size: xx-large;
+	font-weight: 100;
+	content: '\2211';
+}
+
+article div.expr span.index {
+	display: block;
+	font-size: small;
+}
+
+article div.expr sup,
+article div.expr sub {
 	margin-left: 0.12em;
 	font-size: small;
 }
@@ -310,6 +323,14 @@ article pre.console span.input {
 	padding: 0 0.25em;
 	background-color: coral;
 	color: white;
+}
+
+article pre.console span.pass {
+	color: green;
+}
+
+article pre.console span.fail {
+	color: red;
 }
 
 article div.pre {

@@ -8,7 +8,9 @@
     <title>CSE 111 - Prove</title>
     <link rel="icon" type="image/png" href="../site/icon.png">
     <link rel="stylesheet" type="text/css" href="../site/style.css">
+    <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
     <script src="../site/color.js"></script>
+    <script src="../site/hljs/highlight.pack.js"></script>
 </head>
 
 <body>
@@ -29,7 +31,22 @@
     a user visualize trends in the data.</p>
 
     <h2>Helpful Documentation</h2>
-    <ul>
+    <ul class="long">
+        <li><div>In previous programs in this course, you wrote code
+        that called the <code>int</code> and <code>float</code>
+        functions to convert user input from a string to a number. Dates
+        are similar to numbers. In order to filter the rows in a
+        DataFrame with a user entered date, a program must first convert
+        the user input from a string to a date. One way to convert a
+        string to a date is to use the pandas
+        <a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.to_datetime.html"><code>to_datetime</code></a>
+        function as shown in this code example:
+<div class="pre"><pre class="python">import pandas as pd
+
+year = input("Please enter a year (ex: 2021) ")
+text = f"{year}-01-01"
+<em>date = pd.to_datetime(text)</em></pre></div></div></li>
+
         <li><div>The <code>pandas</code> Getting Started Tutorials
         contain a helpful <a target="_blank"
         href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/04_plotting.html">short section about creating plots</a>.</div></li>
@@ -37,6 +54,32 @@
         <li><div>The <code>pandas</code> User Guide contains a
         <a target="_blank"
         href="https://pandas.pydata.org/pandas-docs/stable/user_guide/visualization.html">long section about creating plots</a>.</div></li>
+
+        <li><div>The prepare content, checkpoint, and team activity in
+        this lesson taught you how to define a plot with just one series
+        (column) plotted on the y-axis. For example:
+<div class="pre"><pre class="python">import pandas as pd
+import matplotlib.pyplot as pyplot
+
+# Read a DataFrame from a CSV file.
+df = pd.read_csv("filename.csv")
+
+# Define a vertical bar plot from the DataFrame.
+df.plot(kind="bar", x="column_name_1", y="column_name_2")
+
+# Draw and show all defined plots.
+pyplot.show()</pre></div>
+
+        Sometimes we want a plot to show the values from two columns on
+        the y-axis like Figure&nbsp;2 in the Sample Run section below.
+        To define a plot with more than one column plotted on the
+        y-axis, pass a list instead of a single string as the
+        <var>y</var> named parameter to the pandas
+        <a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.plot.html"><code>plot</code></a>
+        function. For example:
+<div class="pre"><pre class="python"># Define a vertical bar plot from the DataFrame.
+df.plot(kind="bar", x="column_name_1",
+        <em>y=["column_name_2", "column_name_3"]</em>)</pre></div></div></li>
     </ul>
 
     <h2>Assignment</h2>
@@ -48,8 +91,8 @@
     <ol class="long">
         <li><div>In the Python program that you began in the previous
         lesson's milestone, write the code for the <code>get_int</code>,
-        <code>insert_after</code>, and <code>show_meter_usage</code> and
-        <code>show_comparison</code> functions.</div></li>
+        <code>show_meter_usage</code>, and <code>show_comparison</code>
+        functions.</div></li>
 
         <li><div>Add any additional functions that you would like to
         write, including functions to draw additional plots.</div></li>

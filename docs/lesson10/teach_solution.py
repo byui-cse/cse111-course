@@ -32,7 +32,7 @@ def show_all_water_usage(df):
     print("Total water usage by year (in 1000 gallons):")
     print(total_df)
 
-    barplot = total_df.plot.bar(y="sumUsage",
+    barplot = total_df.plot(kind="bar", y="sumUsage",
             title="Total Water Usage by Year", legend=None)
     barplot.set_xlabel("")
     barplot.set_ylabel("x1000 gallons")
@@ -72,7 +72,7 @@ def show_water_usage_per_dwelling(df):
     print("Average usage per dwelling (in 1000 gallons):")
     print(final_df)
 
-    barplot = final_df.plot.bar(y="usagePerDwelling",
+    barplot = final_df.plot(kind="bar", y="usagePerDwelling",
             title="Average Usage per Dwelling", legend=None)
     barplot.set_xlabel("")
     barplot.set_ylabel("x1000 gallons")

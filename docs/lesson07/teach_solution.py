@@ -24,4 +24,4 @@ def test_given_name():
 
 # Call the main function that is part of pytest so that
 # the test functions in this file will start executing.
-pytest.main(["teach_solution.py"])
+pytest.main(["-v", "--tb=no", "teach_solution.py"])

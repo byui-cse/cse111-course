@@ -99,12 +99,13 @@ def show_usage_sum(sum_df):
 
     # Define a pie plot.
     title = "Water Usage 2015 - 2019"
-    sum_df.plot.pie(y="sumUsage", colors=colors,
+    sum_df.plot(kind="pie", y="sumUsage", colors=colors,
             title=title, label="", legend=None)
     pyplot.tight_layout()
 
     # Define a vertical bar plot.
-    bar = sum_df.plot.bar(y="sumUsage", color=colors, title=title, legend=None)
+    bar = sum_df.plot(kind="bar", y="sumUsage", color=colors,
+            title=title, legend=None)
     bar.set_xlabel("")
     bar.set_ylabel("x1000 gallons")
     fmtr = ticker.FuncFormatter(lambda val, pos: f"{val:,.0f}")

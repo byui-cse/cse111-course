@@ -33,21 +33,16 @@
     the individual checkpoint assignment beforehand.</p>
 
     <h2>Problem Statement</h2>
-    <p>Writing and running test functions often helps a software
+    <p>Writing and running test functions often help a software
     developer find mistakes in code.</p>
 
     <h2>Helpful Documentation</h2>
-    <p>You can read about <code>pytest</code> in the official
-    <a target="_blank"
-    href="https://docs.pytest.org/en/latest/getting-started.html">online
-    documentation</a>. However, not all of the official documentation
-    about <code>pytest</code> applies to your tasks in CSE 111. The
-    following parts of that documentation are the most applicable and
-    may help you as you complete this lesson's assignments.</p>
-    <ul>
-        <li><div><a target="_blank" href="https://docs.pytest.org/en/latest/getting-started.html#create-your-first-test">Create your first test</a></div></li>
-        <li><div><a target="_blank" href="https://docs.pytest.org/en/latest/reference.html#pytest-approx"><code>pytest.approx</code></a></div></li>
-    </ul>
+    <p>The <a target="_blank" href="prepare.html">prepare</a> content
+    for this lesson explains how to use <code>pytest</code>,
+    <code>assert</code>, and <code>approx</code> to automatically verify
+    that functions are correct. It also contains an
+    <a target="_blank" href="prepare.html#ex">example test function</a>
+    and links to additional documentation about <code>pytest</code>.</p>
 
     <h2>Assignment</h2>
     <p>Write three test functions that test three previously written
@@ -103,7 +98,11 @@ import pytest</pre></div></div></li>
 
         <li><div>At the bottom of your <code>test_names.py</code> file,
         write a call to the <code>pytest.main</code> function like this:
-<div class="pre"><pre class="python">pytest.main(["-v", "--tb=no", "test_names.py"])</pre></div></div></li>
+<div class="pre"><pre class="python">
+# Call the main function that is part of pytest so that
+# the test functions in this file will start executing.
+pytest.main(["-v", "--tb=no", "test_names.py"])
+</pre></div></div></li>
 
         <li><div>Save your <code>test_names.py</code> file and run it by
         clicking the green run icon in VS Code.</div></li>
@@ -148,34 +147,19 @@ import pytest</pre></div></div></li>
     <pre class="console">&gt; python teach_solution.py
 ========================= test session starts =========================
 platform win32 -- Python 3.8.5, pytest-6.1.1, py-1.9.0, pluggy-0.13.1
-rootdir: C:\Users\rab29\cse111\before-dicts\docs\lesson07
+rootdir: C:\Users\cse111\lesson07
 collected 3 items
 
-teach_solution.py FF.                                            [100%]
+teach_solution.py::test_full_name <span class="fail">FAILED                         [ 33%]</span>
+teach_solution.py::test_famliy_name <span class="pass">PASSED                       [ 66%]</span>
+teach_solution.py::test_given_name <span class="fail">FAILED                        [100%]</span>
 
-============================== FAILURES ===============================
-___________________________ test_full_name ____________________________
-
-    def test_full_name():
-        """Verify that the full_name function returns correct results."""
-&gt;       assert full_name("Penelope", "Smith-Jones") == "Smith-Jones; Penelope"
-E       AssertionError: assert 'Smith-Jones;Penelope' == 'Smith-Jones; Penelope'
-E         - Smith-Jones; Penelope
-E         ?             -
-E         + Smith-Jones;Penelope
-
-teach_solution.py:6: AssertionError
-___________________________ test_given_name ___________________________
-
-    def test_given_name():
-        """Verify that the given_name function returns correct results."""
-&gt;       assert given_name("Smith-Jones; Penelope") == "Penelope"
-E       AssertionError: assert 'mith-Jones; Penelope' == 'Penelope'
-E         - Penelope
-E         + mith-Jones; Penelope
-
-teach_solution.py:13: AssertionError
-===================== 2 failed, 1 passed in 0.13s =====================</pre>
+======================= short test summary info =======================
+FAILED teach_solution.py::test_full_name - AssertionError:
+    assert 'Smith-Jones;Penelope' == 'Smith-Jones; Penelope'
+FAILED teach_solution.py::test_given_name - AssertionError:
+    assert 'mith-Jones; Penelope' == 'Penelope'
+<span class="fail">===================== 2 failed</span>, <span class="pass">1 passed</span> <span class="fail">in 0.14s =====================</span></pre>
 
     <h2>Testing Procedure</h2>
     <p>Repeat steps&nbsp;8 and&nbsp;9 above until you have found and

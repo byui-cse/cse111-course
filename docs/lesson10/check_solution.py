@@ -17,7 +17,7 @@ def main():
         m4103_df = df[filter]
 
         # Define a vertical bar plot from the data frame for meter #M4103.
-        barplot = m4103_df.plot.bar(x="readDate", y="usage",
+        barplot = m4103_df.plot(kind="bar", x="readDate", y="usage",
                 title=f"Water Usage for Meter #{meternum}", legend=None)
         #barplot.set_title(f"Water Usage for Meter #{meternum}")
         barplot.set_xlabel("")

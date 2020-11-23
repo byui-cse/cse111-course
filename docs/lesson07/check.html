@@ -31,27 +31,20 @@
     functions and using <code>pytest</code>.</p>
 
     <h2>Helpful Documentation</h2>
-    <p>To learn about installing modules using the <code>pip</code>
-    command, read the <a target="_blank"
+    <p>If you wish to learn about installing modules using the
+    <code>pip</code> command, read the <a target="_blank"
     href="https://docs.python.org/3/installing/index.html#basic-usage">Basic
     usage</a> section of the official <code>pip</code> reference.</p>
 
-    <p>You can read about <code>pytest</code> in the official
-    <a target="_blank"
-    href="https://docs.pytest.org/en/latest/getting-started.html">online
-    documentation</a>. However, not all of the official documentation
-    about <code>pytest</code> applies to your tasks in CSE 111. The
-    following parts of that documentation are the most applicable and
-    may help you as you complete this lesson's assignments.</p>
-    <ul>
-        <li><div><a target="_blank" href="https://docs.pytest.org/en/latest/getting-started.html#create-your-first-test">Create your first test</a></div></li>
-        <li><div><a target="_blank" href="https://docs.pytest.org/en/latest/reference.html#pytest-approx"><code>pytest.approx</code></a></div></li>
-    </ul>
+    <p>The <a target="_blank" href="prepare.html">prepare</a> content
+    for this lesson explains how to use <code>pytest</code>,
+    <code>assert</code>, and <code>approx</code> to automatically verify
+    that functions are correct. It also contains an
+    <a target="_blank" href="prepare.html#ex">example test function</a>
+    and links to additional documentation about <code>pytest</code>.</p>
 
     <h2>Assignment</h2>
-    <p>Write two test functions and run them with
-    <code>pytest</code>.</p>
-
+    <p>Write two test functions and run them with <code>pytest</code>.</p>
 
     <p>Do the following:</p>
     <ol class="long">
@@ -146,7 +139,11 @@ import pytest</pre></div></div></li>
 
         <li><div>At the bottom of your <code>test_words.py</code> file,
         write a call to the <code>pytest.main</code> function like this:
-<div class="pre"><pre class="python">pytest.main(["-v", "--tb=no", "test_words.py"])</pre></div></div></li>
+<div class="pre"><pre class="python">
+# Call the main function that is part of pytest so that
+# the test functions in this file will start executing.
+pytest.main(["-v", "--tb=no", "test_words.py"])
+</pre></div></div></li>
 
         <li><div>Save your <code>test_words.py</code> file and run it by
         clicking the green run icon in VS Code.</div></li>
@@ -155,13 +152,14 @@ import pytest</pre></div></div></li>
     <h2>Sample Run</h2>
 <pre class="console">&gt; python check_solution.py
 ========================= test session starts =========================
-platform win32 -- Python 3.7.6, pytest-5.3.5, py-1.8.1, pluggy-0.13.1
-rootdir: C:\Users\barzee\cse111\lesson07
+platform win32 -- Python 3.8.5, pytest-6.1.1, py-1.9.0, pluggy-0.13.1
+rootdir: C:\Users\cse111\lesson07
 collected 2 items
 
-check_solution.py ..                                             [100%]
+check_solution.py::test_prefix <span class="pass">PASSED                            [ 50%]</span>
+check_solution.py::test_suffix <span class="pass">PASSED                            [100%]</span>
 
-========================== 2 passed in 0.02s ==========================</pre>
+<span class="pass">========================== 2 passed in 0.09s ==========================</span></pre>
 
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each step

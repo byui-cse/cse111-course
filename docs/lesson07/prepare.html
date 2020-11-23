@@ -45,22 +45,14 @@
         <em>automatically</em> verify that the program's functions are
         correct.</div></li>
 
-        <li><div><p><a target="_blank"
-        href="https://docs.pytest.org/en/latest/reference.html"><code>pytest</code></a>
+        <li><div><a target="_blank" href="https://docs.pytest.org/en/latest/reference.html"><code>pytest</code></a>
         is a Python module that makes it easy to write and run test
         functions. There are other Python testing modules besides
         <code>pytest</code>, but <code>pytest</code> seems to be the
         easiest. <code>pytest</code> is not a standard Python module. It
         is a third-party module. This means that when you installed
         Python on your computer, <code>pytest</code> was not installed,
-        and you will need to install pytest in order to use it.</p>
-
-        <p><a target="_blank" href="https://docs.python.org/3/installing/index.html"><code>pip</code></a>
-        is a standard Python module that you can use to download and
-        install third-party modules. During the checkpoint of this
-        lesson, you will use <code>pip</code> to download and install
-        <code>pytest</code>, so that you can use <code>pytest</code> in
-        your test code.</p></div></li>
+        and you will need to install pytest in order to use it.</div></li>
 
         <li><div><code>pytest</code> allows us to write simple test
         functions that use the built-in Python <a target="_blank"
@@ -133,9 +125,16 @@
             output to help you find and fix mistakes in both your
             program function and test function.</div></li>
         </ol></div></li>
+
+        <li><div><a target="_blank" href="https://docs.python.org/3/installing/index.html"><code>pip</code></a>
+        is a standard Python module that you can use to download and
+        install third-party modules. During the checkpoint of this
+        lesson, you will use <code>pip</code> to download and install
+        <code>pytest</code>, so that you can use <code>pytest</code> in
+        your test code.</div></li>
     </ol>
 
-    <h2>Example</h2>
+    <h2 id="ex">Example</h2>
     <p>Here is a simple function named <code>cels_from_fahr</code> that
     converts a temperature in Fahrenheit to Celsius and that is part of
     a larger Python program in a file named <code>weather.py</code>:</p>
@@ -163,11 +162,13 @@ def test_cels_from_fahr():
     the values it returns to the expected values. Notice this test
     function uses pytest.approx to compare floating point numbers.
     """
-    assert cels_from_fahr(-25) == approx(-31.7)
-    assert cels_from_fahr(0) == approx(-17.8)
+    assert cels_from_fahr(-25) == approx(-31.76667)
+    assert cels_from_fahr(0) == approx(-17.77778)
     assert cels_from_fahr(32) == approx(0)
-    assert cels_from_fahr(70) == approx(21.1)
+    assert cels_from_fahr(70) == approx(21.1111)
 
+# Call the main function that is part of pytest so that
+# the test functions in this file will start executing.
 pytest.main(["-v", "--tb=no", "test_weather.py"])</pre></div>
 
     <p>Notice that the test function <code>test_cels_from_fahr</code>
@@ -179,21 +180,34 @@ pytest.main(["-v", "--tb=no", "test_weather.py"])</pre></div>
 
 <pre class="console">&gt; python test_weather.py
 ========================= test session starts =========================
-platform win32 -- Python 3.7.6, pytest-5.4.1, py-1.8.1, pluggy-0.13.1
-rootdir: C:\Users\barzee\cse111\weather
+platform win32 -- Python 3.8.5, pytest-6.1.1, py-1.9.0, pluggy-0.13.1
+rootdir: C:\Users\cse111\lesson07
 collected 1 item
 
-test_weather.py .                                                [100%]
+test_weather.py::test_cels_from_fahr <span class="pass">PASSED                      [100%]</span>
 
-========================== 1 passed in 0.02s ==========================</pre>
+<span class="pass">========================== 1 passed in 0.10s ==========================</span></pre>
 
     <p><code>pytest</code> runs the <code>test_cels_from_fahr</code>
     function which calls the <code>cels_from_fahr</code> function four
-    times and verifies that <code>cels_from_fahr</code> returned the
+    times and verifies that <code>cels_from_fahr</code> returns the
     correct value each time. We can see from the output of
     <code>pytest</code>, "[100%] and 1 passed", that the
     <code>cels_from_fahr</code> function return the expected (correct)
     result all four times.</p>
+
+    <h2>Documentation</h2>
+    <p>The official online documentation for <code>pytest</code>
+    contains much more information about using <code>pytest</code>. The
+    following pages are the most applicable to CSE 111:</p>
+
+    <ul class="links">
+        <li><div><a target="_blank" href="https://docs.pytest.org/en/latest/getting-started.html#create-your-first-test">Create your first test</a></div></li>
+        <li><div><a target="_blank" href="https://docs.pytest.org/en/latest/assert.html#asserting-with-the-assert-statement"><code>assert</code></a></div></li>
+        <li><div><a target="_blank" href="https://docs.pytest.org/en/latest/reference.html#pytest-approx"><code>pytest.approx</code></a></div></li>
+        <li><div><a target="_blank" href="https://docs.pytest.org/en/latest/usage.html#calling-pytest-from-python-code"><code>pytest.main</code></a></div></li>
+        <li><div>Assert that an <a target="_blank" href="https://docs.pytest.org/en/latest/getting-started.html#assert-that-a-certain-exception-is-raised">exception is raised</a> (taught in the next lesson)</div></li>
+    </ul>
 </article>
 <footer>
     <small>Copyright &copy; 2020, Brigham Young University - Idaho. All
