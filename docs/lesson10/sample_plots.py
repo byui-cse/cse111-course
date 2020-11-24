@@ -101,6 +101,12 @@ def show_usage_sum(sum_df):
     title = "Water Usage 2015 - 2019"
     sum_df.plot(kind="pie", y="sumUsage", colors=colors,
             title=title, label="", legend=None)
+
+    # Call the pyplot.tight_layout function, which will format the
+    # previously defined plot so that all of its parts are spaced
+    # nicely. Strangely, pyplot.tight_layout must be called multiple
+    # times, once for each defined plot, but pyplot.show needs to be
+    # called only once.
     pyplot.tight_layout()
 
     # Define a vertical bar plot.
@@ -110,6 +116,12 @@ def show_usage_sum(sum_df):
     bar.set_ylabel("x1000 gallons")
     fmtr = ticker.FuncFormatter(lambda val, pos: f"{val:,.0f}")
     bar.yaxis.set_major_formatter(fmtr)
+
+    # Call the pyplot.tight_layout function, which will format the
+    # previously defined plot so that all of its parts are spaced
+    # nicely. Strangely, pyplot.tight_layout must be called multiple
+    # times, once for each defined plot, but pyplot.show needs to be
+    # called only once.
     pyplot.tight_layout()
 
 

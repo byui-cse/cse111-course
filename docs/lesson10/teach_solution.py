@@ -36,6 +36,12 @@ def show_all_water_usage(df):
             title="Total Water Usage by Year", legend=None)
     barplot.set_xlabel("")
     barplot.set_ylabel("x1000 gallons")
+
+    # Call the pyplot.tight_layout function, which will format the
+    # previously defined plot so that all of its parts are spaced
+    # nicely. Strangely, pyplot.tight_layout must be called multiple
+    # times, once for each defined plot, but pyplot.show needs to be
+    # called only once.
     pyplot.tight_layout()
 
 
@@ -76,6 +82,12 @@ def show_water_usage_per_dwelling(df):
             title="Average Usage per Dwelling", legend=None)
     barplot.set_xlabel("")
     barplot.set_ylabel("x1000 gallons")
+
+    # Call the pyplot.tight_layout function, which will format the
+    # previously defined plot so that all of its parts are spaced
+    # nicely. Strangely, pyplot.tight_layout must be called multiple
+    # times, once for each defined plot, but pyplot.show needs to be
+    # called only once.
     pyplot.tight_layout()
 
 
