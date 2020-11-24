@@ -7,6 +7,10 @@ def main():
         # birthdate column from a string to a datetime64.
         df = pd.read_csv("students.csv", parse_dates=["birthdate"])
 
+        # Print the DataFrame which will show that some
+        # of the phone numbers don't have area codes.
+        print(df)
+
         # Some of the phone numbers in the "phone" column do not start
         # with an area code, so replace the "phone" column with a new
         # "phone" column where every phone number starts with an area
@@ -15,9 +19,8 @@ def main():
         # argument to the apply function.
         pass
 
-        # Write the data frame with the corrected phone
-        # numbers to a new CSV file named students2.csv.
-        df.to_csv("students2.csv", mode="wt", index=False, line_terminator="\n")
+        # Print the DataFrame with the corrected phone numbers.
+        print(df)
 
     except RuntimeError as ex:
         print(type(ex).__name__, ex, sep=": ")
