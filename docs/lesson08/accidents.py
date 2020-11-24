@@ -1,6 +1,7 @@
 import csv
 
 
+# Column names from the accidents.csv file.
 YEAR_KEY = "Year"
 FATALITIES_KEY = "Fatalities"
 INJURIES_KEY = "Injuries"
@@ -34,7 +35,7 @@ def main():
     # Create a DictReader object to read each line from the CSV
     # file. This code doesn't include the next(reader) command to
     # skip the first line of the file because the DictReader object
-    # uses the column headers on the first line of the file.
+    # uses the column headers.
     reader = csv.DictReader(infile)
 
     # Process each row in the CSV file.

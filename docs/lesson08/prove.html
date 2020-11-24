@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="../site/style.css">
     <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
     <script src="../site/color.js"></script>
+    <script src="../site/linenums.js"></script>
     <script src="../site/hljs/highlight.pack.js"></script>
 </head>
 
@@ -59,15 +60,50 @@
     inform a chemist when the chemist mistypes a molecular formula.</p>
 
     <h2>Helpful Documentation</h2>
-    <p>During the previous lesson, you learned that <code>pytest</code>
-    allows you to use the standard Python <code>assert</code> command to
-    verify that a function returns the correct value. But how can you
-    write a test to verify that a function raises an exception when it
-    is supposed to? To learn how to verify that a function raises an
-    exception, read this article about <a target="_blank"
-    href="https://docs.pytest.org/en/latest/assert.html">writing and
-    reporting of assertions in tests</a>, specifically the section
-    titled, "Assertions about expected exceptions."</p>
+    <ul class="long">
+
+        <li><div><p>During the previous lesson, you learned that
+        <code>pytest</code> allows you to use the standard Python
+        <code>assert</code> command to verify that a function returns
+        the correct value. But how can you write a test to verify that a
+        function raises an exception when it is supposed to? To learn
+        how to verify that a function raises an exception, read the
+        "<a target="_blank" href="https://docs.pytest.org/en/latest/assert.html#assertraises">Assertions about expected exceptions</a>"
+        section of the office <code>pytest</code> documentation.</p>
+
+        <p>From the "Assertions about expected exceptions" section, we
+        learn that the code to test that a function raises an error does
+        not need a <code>try</code> block but instead looks similar to
+        this template:</p>
+
+<div class="pre"><pre class="python">
+with pytest.raises(&lt;ExceptionType&gt;):
+    &lt;function_call_here(&lt;arguments_here&gt;)&gt;</pre></div>
+
+        <p>For example, to test that the <code>parse_formula</code>
+        function raises a <code>FormulaError</code>, you could write
+        this Python code:</p>
+
+<div class="pre"><pre class="linenums"></pre>
+<pre class="python">import pytest
+from chemistry import parse_formula, FormulaError
+
+def test_parse_formula_2():
+    with pytest.raises(FormulaError):
+        parse_formula("H2L4")</pre></div>
+
+        <p>In the previous example, the <code>with</code> block at
+        lines&nbsp;5&ndash;6 expects the <code>parse_formula</code>
+        function to raise an exception. Therefore, if the
+        <code>parse_formula</code> function raises an exception, the
+        test will pass. If the <code>parse_formula</code> function
+        doesn't raise an exception, the test will fail.</p></div></li>
+
+        <li><div>The <a target="_blank" href="prepare.html">prepare</a>
+        content for this lesson explains how to wrap <code>try</code>
+        and <code>except</code> around a normal block of
+        code.</div></li>
+    </ul>
 
     <h2>Assignment</h2>
     <p>During this lesson, you will write and test the remaining parts
@@ -80,7 +116,11 @@
     <ol class="long">
         <li><div><p>The following six chemical formulas all contain
         errors, and the <code>parse_formula</code> function should raise
-        a <code>FormulaError</code> when it tries to parse them.
+        a <code>FormulaError</code> when it tries to parse them. In the
+        <code>test_chemistry.py</code> file, add code in the
+        <code>test_parse</code> function to verify that the
+        <code>parse_formula</code> function raises a
+        <code>FormulaError</code> for each of them.</p>
 
         <table class="center"><thead>
             <tr><th>Formula</th></tr>
@@ -91,30 +131,7 @@
             <tr><td>-H</td></tr>
             <tr><td>(H2O</td></tr>
             <tr><td>H2)O3</td></tr>
-        </tbody></table>
-
-        <p>Recall from the official
-        <a target="_blank" href="https://docs.pytest.org/en/latest/assert.html#assertraises">documentation about pytest</a>
-        that the code to test that a function raises an error does not
-        need a <code>try</code> block but instead looks similar to this
-        template:</p>
-
-<div class="pre"><pre class="python">
-with pytest.raises(&lt;ExceptionType&gt;):
-    &lt;function_call_here(&lt;arguments_here&gt;)&gt;</pre></div>
-
-        <p>For example, to test that <code>parse_formula</code> raises
-        a <code>FormulaError</code>, you could write this Python code:</p>
-
-<div class="pre"><pre class="python">
-with pytest.raises(FormulaError):
-    parse_formula("H2L4")</pre></div></div></li>
-
-        <p>In the <code>test_chemistry.py</code> file, add code in the
-        <code>test_parse</code> function to verify that the
-        <code>parse_formula</code> function raises a
-        <code>FormulaError</code> for each of the invalid formulas
-        listed above.</p>
+        </tbody></table></div></li>
 
         <li><div>Run the four test functions in
         <code>test_chemistry.py</code> and ensure that all four test

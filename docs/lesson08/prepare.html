@@ -145,7 +145,7 @@ We must order except blocks from most specific at the top to
         <code>finally</code> block could close that file.</div></li>
     </ol>
 
-    <h2>Example - Validating User Input</h2>
+    <h2 id="validate">Example - Validating User Input</h2>
     <p>An example program that validates user input by handling
     exceptions is shown below. Notice there are two <code>try</code>
     blocks in the program: one at line&nbsp;2 in the <code>main</code>
@@ -167,9 +167,9 @@ We must order except blocks from most specific at the top to
     programmer to find and fix all syntax errors in a program long
     before the program is given to users.</p>
 
-    <p>The <code>try</code> block at line&nbsp;40 is part of a loop that
+    <p>The <code>try</code> block at line&nbsp;26 is part of a loop that
     validates user input in the <code>get_float</code> function. Notice
-    at line&nbsp;49 that the <code>except</code> block handles
+    at line&nbsp;30 that the <code>except</code> block handles
     <a target="_blank" href="https://docs.python.org/3/library/exceptions.html#ValueError"><code>ValueError</code></a>
     which is the type of exception that the
     <a target="_blank" href="https://docs.python.org/3/library/functions.html#float"><code>float</code></a>
@@ -182,9 +182,9 @@ def main():
     <em>try:</em>
         gender = input("Enter your gender (M or F): ")
 
-        weight = get_float("Enter your weight in kilograms: ", 1, 500)
-        height = get_float("Enter your height in centimeters: ", 1, 300)
-        age = get_float("Enter your age in years: ", 16, 120)
+        weight = get_float("Enter your weight in kilograms: ")
+        height = get_float("Enter your height in centimeters: ")
+        age = get_float("Enter your age in years: ")
 
         bmr = basal_metabolic_rate(gender, weight, height, age)
         print(f"Your basal metabolic rate is {bmr} calories per day.")
@@ -193,31 +193,23 @@ def main():
         print(type(ex).__name__, ex, sep=": ")
 
 
-def get_float(prompt, lower, upper):
-    """Get a number from the user, validate that the number is
-    between a lower and upper bound, and return the number to the
-    calling function. If the user does not enter a number between
-    lower and upper inclusive, this function will prompt the user
-    repeatedly until the user enters a number between lower and upper.
+def get_float(prompt):
+    """Get a number from the user, validate that the user entered
+    a number and not some other text, and return the number. If
+    the user enters an invalid number, this function will prompt
+    the user repeatedly until the user enters a valid number.
 
     param prompt: A string to display to the user.
-    param lower: The lowest (smallest) number that the user may enter.
-    param upper: The highest (largest) number that the user may enter.
+    return: The number entered by the user.
     """
     while True:
         <em>try:</em>
             text = input(prompt)
             number = float(text)
-            if number &lt; lower:
-                print(f"{number} is too low.")
-            elif number &gt; upper:
-                print(f"{number} is too high.")
-            else:
-                break
+            break
         <em>except ValueError:</em>
             print(f"{text} is not a number.")
-        print(f"Please enter a number between"
-                f" {lower} and {upper}, inclusive.")
+            print("Please enter a number.")
 
     return number
 
