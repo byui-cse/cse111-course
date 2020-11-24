@@ -319,10 +319,29 @@ article pre.console {
 }
 
 article pre.console span.input {
+	position: relative;
 	border: 1px solid var(--border);
 	padding: 0 0.25em;
 	background-color: coral;
 	color: white;
+}
+
+/* Tooltip for user input spans inside the console pre elements. */
+article pre.console span.input:before {
+	display: none;
+	position: absolute;
+	top: 70%;
+	left: -5em;
+	border: 1px solid var(--border);
+	background-color: var(--light-bkgrnd);
+	color: var(--light-color);
+	font-size: small;
+	padding: 0.1em 0.3em;
+	content: "User input";
+}
+article pre.console span.input:hover:before {
+	display: block;
+	z-index: 50;
 }
 
 article pre.console span.pass {
