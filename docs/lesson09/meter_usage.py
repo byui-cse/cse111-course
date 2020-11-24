@@ -49,7 +49,7 @@ def add_median_usage_column(df):
     the median usage grouped by accountType and yearMonth.
 
     param df: The DataFrame that this function will add a column to.
-    return: A new DataFrame.
+    return: A new DataFrame that contains a medianUsage column.
     """
     df = add_year_month_column(df)
 
@@ -68,7 +68,7 @@ def add_year_month_column(df):
     the year and the month of the readDate and return the new DataFrame.
 
     param df: The DataFrame that this function will add a column to.
-    return: A new DataFrame.
+    return: The DataFrame that contains a yearMonth column.
     """
     return
 
@@ -80,7 +80,7 @@ def filter_for_meter(df, meter_number):
     param df: The DataFrame that this function will filter.
     param meter_number: df will be filtered so that all the rows in the
         new DataFrame will have this meter number.
-    return: A new DataFrame.
+    return: A new DataFrame that contains rows for meter_number only.
     """
     return
 
@@ -90,13 +90,14 @@ def filter_between_dates(df, start, end):
     readDate column is between the specified start and end dates.
 
     param df: The DataFrame that this function will filter.
-    param start: A string in the form "YYYY-MM-DD". df will be filtered
-        so that all the rows in the new DataFrame have a readDate
-        greater than or equal to this date.
-    param end: A string in the form "YYYY-MM-DD". df will be filtered
-        so that all the rows in the new DataFrame have a readDate less
-        than or equal to this date.
-    return: A new DataFrame.
+    param start: A date object. This function will filter df so that all
+        the rows in the new DataFrame have a readDate greater than or
+        equal to this date.
+    param end: A date object. This function will filter df so that all
+        the rows in the new DataFrame have a readDate less than or equal
+        to this date.
+    return: A new DataFrame that contains only rows where the readDate
+        is between start and end inclusive.
     """
     return
 

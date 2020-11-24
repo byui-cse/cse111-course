@@ -92,14 +92,13 @@
             formula.</div></li>
         </ol></div></li>
 
-        <li><div><p>Near the middle of the
-        <code>test_chemistry.py</code> file there are two unfinished
-        functions named <code>test_names</code> and
-        <code>test_atomic_masses</code>. Write code for
-        <code>test_names</code> so that it tests the
-        <code>get_name</code> function and write code for
+        <li><div><p>Near the top of the <code>test_chemistry.py</code>
+        file there are two unfinished functions named
+        <code>test_names</code> and <code>test_atomic_masses</code>.
+        Write code for <code>test_names</code> so that it tests the
+        <code>chemistry.get_name</code> function and write code for
         <code>test_atomic_masses</code> so that it tests the
-        <code>get_atomic_mass</code> function.</p>
+        <code>chemistry.get_atomic_mass</code> function.</p>
 
         <p>There are 118 known elements. The names and the atomic masses
         of all 118 must be tested by the code that you write in
@@ -364,13 +363,14 @@
             </tbody></table>
         </div></div></li>
 
-        <li><div>Near the middle of the <code>test_chemistry.py</code>
+        <li><div>Near the bottom of the <code>test_chemistry.py</code>
         file there is an unfinished function named
         <code>test_parse</code>. Write the <code>test_parse</code>
-        function so that it tests the <code>parse_formula</code>
-        function. Use the following molecular formulas and any others
-        you want to add in <code>assert</code> statements inside
-        <code>test_parse</code>:
+        function so that it tests the
+        <code>chemistry.parse_formula</code> function. Use the following
+        molecular formulas and any others you want to add in
+        <code>assert</code> statements inside the
+        <code>test_parse</code> function:
         <ul>
             <li><div>O3</div></li>
             <li><div>H2O</div></li>
@@ -378,14 +378,33 @@
             <li><div>PO4H2(CH2)12CH3</div></li>
         </ul></div></li>
 
+        <li><div>Near the bottom of the <code>test_chemistry.py</code>
+        file there is an unfinished function named
+        <code>test_molar_mass</code>. Write the
+        <code>test_molar_mass</code> function so that it tests the
+        <code>chemistry.molar_mass</code> function. Use the following
+        molecular formulas and their approximate molar masses in
+        <code>assert</code> statements inside the
+        <code>test_molar_mass</code> function:
+        <table class="center"><thead>
+            <tr><th>Formula</th> <th>Approximate<br>Molar Mass</th></tr>
+        </thead><tbody>
+            <tr><td>H2O</td> <td>18.01528</td></tr>
+            <tr><td>C6H6</td> <td>78.11184</td></tr>
+            <tr><td>PO4H2(CH2)12CH3</td> <td>280.34072</td></tr>
+        </tbody></table></div></li>
+
         <li><div>Run the four test functions. Fix mistakes, if there are
-        any, in the <code>init_periodic_table</code> function and in the
-        three test functions that you wrote: <code>test_names</code>,
-        <code>test_atomic_masses</code>, and <code>test_parse</code>.
-        There are no mistakes in the <code>parse_formula</code>,
-        <code>molar_mass</code>, and <code>test_molar_mass</code>
-        functions, so you shouldn't change those three
-        functions.</div></li> </ol>
+        any, in the <code>chemistry.init_periodic_table</code> function
+        and in the four test functions that you wrote:
+        <code>test_names</code>, <code>test_atomic_masses</code>,
+        <code>test_parse</code>, and <code>test_molar_mass</code>.
+        There are no mistakes in the
+        <code>get_name</code>, <code>get_atomic_mass</code>,
+        <code>parse_formula</code>, and <code>molar_mass</code>
+        functions, so you shouldn't change those four
+        functions.</div></li>
+    </ol>
 
     <h2>Sample Run</h2>
 <pre class="console">&gt; python test_chemistry.py
