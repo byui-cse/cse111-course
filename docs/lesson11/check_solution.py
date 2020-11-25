@@ -15,9 +15,8 @@ def main():
         # argument to the apply function.
         df["phone"] = df["phone"].apply(add_area_code)
 
-        # Write the data frame with the corrected phone
-        # numbers to a new CSV file named students2.csv.
-        df.to_csv("students2.csv", mode="wt", index=False, line_terminator="\n")
+        # Print the DataFrame with the corrected phone numbers.
+        print(df)
 
     except RuntimeError as ex:
         print(type(ex).__name__, ex, sep=": ")
