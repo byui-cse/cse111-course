@@ -2,6 +2,25 @@ import pandas as pd
 from datetime import date
 
 
+# A dictionary to map from ageAtCutoff to gradeLevel.
+level_dict = {
+# age : grade level
+    5 : "kindergarten",
+    6 : "first",
+    7 : "second",
+    8 : "third",
+    9 : "fourth",
+    10 : "fifth",
+    11 : "sixth",
+    12 : "seventh",
+    13 : "eighth",
+    14 : "freshman",
+    15 : "sophomore",
+    16 : "junior",
+    17 : "senior"
+}
+
+
 def main():
     try:
         # Read the students.csv file and convert the
@@ -31,6 +50,14 @@ def main():
 
 
 def add_columns(df, cutoff):
+    """Add two columns named "ageAtCutoff" and "gradeLevel" to a
+    DataFrame and return the DataFrame with the new columns.
+
+    param df: The DataFrame to add two columns to
+    param cutoff: A date to use when computing the values in the
+        ageAtCutoff column.
+    return: The DataFrame with the two new columns.
+    """
     # Add a column named ageAtCutoff to the data frame. To create the
     # data for the new column, call the apply function on the birthdate
     # column. Pass the year_diff function and the args named parameter
@@ -53,23 +80,16 @@ def add_columns(df, cutoff):
     return
 
 
-# A dictionary to map from ageAtCutoff to gradeLevel.
-level_dict = {
-# age : grade level
-    5 : "kindergarten",
-    6 : "first",
-    7 : "second",
-    8 : "third",
-    9 : "fourth",
-    10 : "fifth",
-    11 : "sixth",
-    12 : "seventh",
-    13 : "eighth",
-    14 : "freshman",
-    15 : "sophomore",
-    16 : "junior",
-    17 : "senior"
-}
+def grade_level_counts(df):
+    """Create and return a new Series that contains
+    the number of students in each grade level.
+    """
+    # Call pandas value_counts function to create a new Series named
+    # counts that contains the number of students in each grade level.
+    pass
+
+    # Return the counts Series.
+    return
 
 
 def year_diff(before, after):
@@ -93,18 +113,6 @@ def year_diff(before, after):
         years -= 1
 
     return years
-
-
-def grade_level_counts(df):
-    """Create and return a new Series that contains
-    the number of students in each grade level.
-    """
-    # Call pandas value_counts function to create a new Series named
-    # counts that contains the number of students in each grade level.
-    pass
-
-    # Return the counts Series.
-    return
 
 
 # Call the main function so that
