@@ -2,6 +2,25 @@ import pandas as pd
 from datetime import date
 
 
+# A dictionary to map from ageAtCutoff to gradeLevel.
+level_dict = {
+# age : grade level
+    5 : "kindergarten",
+    6 : "first",
+    7 : "second",
+    8 : "third",
+    9 : "fourth",
+    10 : "fifth",
+    11 : "sixth",
+    12 : "seventh",
+    13 : "eighth",
+    14 : "freshman",
+    15 : "sophomore",
+    16 : "junior",
+    17 : "senior"
+}
+
+
 def main():
     try:
         # Read the students.csv file and convert the
@@ -31,6 +50,14 @@ def main():
 
 
 def add_columns(df, cutoff):
+    """Add two columns named "ageAtCutoff" and "gradeLevel" to a
+    DataFrame and return the DataFrame with the new columns.
+
+    param df: The DataFrame to add two columns to
+    param cutoff: A date to use when computing the values in the
+        ageAtCutoff column.
+    return: The DataFrame with the two new columns.
+    """
     # Add a column named ageAtCutoff to the data frame. To create the
     # data for the new column, call the apply function on the birthdate
     # column. Pass the year_diff function and the args named parameter
@@ -51,48 +78,6 @@ def add_columns(df, cutoff):
 
     # Return the data frame that contains the two new columns.
     return df
-
-
-# A dictionary to map from ageAtCutoff to gradeLevel.
-level_dict = {
-# age : grade level
-    5 : "kindergarten",
-    6 : "first",
-    7 : "second",
-    8 : "third",
-    9 : "fourth",
-    10 : "fifth",
-    11 : "sixth",
-    12 : "seventh",
-    13 : "eighth",
-    14 : "freshman",
-    15 : "sophomore",
-    16 : "junior",
-    17 : "senior"
-}
-
-
-def year_diff(before, after):
-    """Compute and return the difference in years between two dates.
-
-    param before: a datetime object
-    param after: another datetime object
-    return: an integer
-    """
-    # Ensure that the date in before is earlier
-    # than or equal to the date in after.
-    if before > after:
-        before, after = after, before
-
-    # Compute the difference between the two dates in years.
-    years = after.year - before.year
-
-    # If necessary, subtract one from the difference.
-    if before.month > after.month or \
-        (before.month == after.month and before.day > after.day):
-        years -= 1
-
-    return years
 
 
 def grade_level_counts(df):
@@ -119,6 +104,29 @@ def grade_level_counts(df):
 
     # Return the counts Series.
     return counts
+
+
+def year_diff(before, after):
+    """Compute and return the difference in years between two dates.
+
+    param before: a datetime object
+    param after: another datetime object
+    return: an integer
+    """
+    # Ensure that the date in before is earlier
+    # than or equal to the date in after.
+    if before > after:
+        before, after = after, before
+
+    # Compute the difference between the two dates in years.
+    years = after.year - before.year
+
+    # If necessary, subtract one from the difference.
+    if before.month > after.month or \
+        (before.month == after.month and before.day > after.day):
+        years -= 1
+
+    return years
 
 
 # Call the main function so that
