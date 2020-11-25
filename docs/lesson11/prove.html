@@ -60,9 +60,9 @@
 
     <ol class="long">
         <li><div>A program that uses <code>pandas</code> to process a
-        dataset like the water meter reading dataset and produces charts
+        data set like the water meter reading data set and produces charts
         that help people to visualize information about the
-        dataset.</div></li>
+        data set.</div></li>
 
         <li><div>A program with a complete graphical user interface
         (GUI), including windows, frames, labels, text fields, and
@@ -223,38 +223,6 @@ def test_get_int(monkeypatch):
     </pre></div>
     <div class="pre"><pre class="python">
     </pre></div></div>
-
-    <div class="expand">
-    <div class="title">Gets data from a web server</div>
-    <div class="pre"><pre class="python">
-import requests
-import xmltodict
-
-def get_exch_rates():
-    """Retrieve and return currency exchange
-    rates from the European Central Bank.
-    """
-    rates_dict = {}
-    url = "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml"
-    response = requests.get(url)
-    response.raise_for_status()
-    xml = response.text
-    level0 = xmltodict.parse(xml)
-    level4 = level0["gesmes:Envelope"]["Cube"]["Cube"]["Cube"]
-    for pair in level4:
-        name = pair["@currency"]
-        rate = pair["@rate"]
-        rates_dict[name] = rate
-    return rates_dict</pre></div>
-    <div class="pre"><pre class="python">
-def test_exch_rates():
-    """Verify that the get_exch_rates function returns
-    a dictionary which contains at least USD and GBP.
-    """
-    rates = get_exch_rates()
-    assert isinstance(rates, dict)
-    assert 'USD' in rates
-    assert 'GBP' in rates</pre></div></div>
 
     <div class="expand">
     <div class="title">Writes to a file</div>
