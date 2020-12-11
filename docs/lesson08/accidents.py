@@ -56,13 +56,14 @@ def estimate_reduction(row, behavior_key, perc_reduc):
     not have occurred on U.S. roads and highways if drivers had reduced
     a dangerous behavior by a given percentage.
 
-    Params:
+    Parameters
         row: a CSV row of data from the U.S. National Highway Traffic
             Safety Administration (NHTSA)
         behavior_key: heading from the CSV file for the dangerous
             behavior that drivers could reduce
         perc_reduc: percent that drivers could reduce a dangerous
             behavior
+    Return: The number of injuries and deaths that may have been prevented
     """
     behavior = int(row[behavior_key])
     fatal_crashes = int(row[FATAL_CRASHES_KEY])

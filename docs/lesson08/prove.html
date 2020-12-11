@@ -81,23 +81,25 @@ with pytest.raises(&lt;ExceptionType&gt;):
     &lt;function_call_here(&lt;arguments_here&gt;)&gt;</pre></div>
 
         <p>For example, to test that the <code>parse_formula</code>
-        function raises a <code>FormulaError</code>, you could write
-        this Python code:</p>
+        function raises a <code>FormulaError</code> for an invalid
+        molecular formula, you could write this Python code:</p>
 
 <div class="pre"><pre class="linenums"></pre>
-<pre class="python">import pytest
+<pre class="python" id="ex1">
+import pytest
 from chemistry import parse_formula, FormulaError
 
-def test_parse_formula_2():
+def test_parse_formula():
     with pytest.raises(FormulaError):
         parse_formula("H2L4")</pre></div>
 
         <p>In the previous example, the <code>with</code> block at
-        lines&nbsp;5&ndash;6 expects the <code>parse_formula</code>
-        function to raise an exception. Therefore, if the
-        <code>parse_formula</code> function raises an exception, the
-        test will pass. If the <code>parse_formula</code> function
-        doesn't raise an exception, the test will fail.</p></div></li>
+        <span class="cross" data-ref="ex1">lines&nbsp;5&ndash;6</span>
+        expects the <code>parse_formula</code> function to raise an
+        exception. Therefore, if the <code>parse_formula</code> function
+        raises an exception, the test will pass. If the
+        <code>parse_formula</code> function doesn't raise an exception,
+        the test will fail.</p></div></li>
 
         <li><div>The <a target="_blank" href="prepare.html">prepare</a>
         content for this lesson explains how to wrap <code>try</code>
@@ -117,9 +119,9 @@ def test_parse_formula_2():
         <li><div><p>The following six chemical formulas all contain
         errors, and the <code>parse_formula</code> function should raise
         a <code>FormulaError</code> when it tries to parse them. In the
-        <code>test_chemistry.py</code> file, add code in the
-        <code>test_parse</code> function to verify that the
-        <code>parse_formula</code> function raises a
+        <code>test_chemistry.py</code> file from the previous lesson,
+        add code in the <code>test_parse</code> function to verify that
+        the <code>parse_formula</code> function raises a
         <code>FormulaError</code> for each of them.</p>
 
         <table class="center"><thead>
@@ -137,17 +139,8 @@ def test_parse_formula_2():
         <code>test_chemistry.py</code> and ensure that all four test
         functions pass.</div></li>
 
-        <li><div>Using VS Code, open a new file and save it as
-        <code>molar_mass.py</code> in the same folder that you saved
-        <code>chemistry.py</code> and <code>test_chemistry.py</code>
-        during the previous lesson.</div></li>
-
-        <li><div>At the top of the new <code>molar_mass.py</code> file,
-        import <code>parse_formula</code>, <code>molar_mass</code>, and
-        <code>FormulaError</code> from the <code>chemistry</code>
-        module.</div></li>
-
-        <li><div>In the new <code>molar_mass.py</code> file, write a
+        <li><div>Using VS Code, open the <code>chemistry.py</code> file
+        from the previous lesson and at the bottom of the file, write a
         function named <code>main</code> that does the following:
         <ol>
             <li><div>Gets a formula for a molecule from the
@@ -177,10 +170,12 @@ def test_parse_formula_2():
         type of exception was raised. In this assignment, your
         <code>except</code> code could use information stored inside the
         <code>FormulaError</code> to help the chemist know what she
-        typed incorrectly. To access the information stored inside an
-        exception, use the <code>ex.args</code> list. For example:</p>
+        typed incorrectly as shown in the sample run section below. To
+        access the information stored inside an exception, use the
+        <code>ex.args</code> list. For example:</p>
 
-<div class="pre"><pre class="python">try:
+<div class="pre"><pre class="python" id="ex2">
+try:
     &hellip;
 except FormulaError as ex:
     # The FormulaError includes information inside its args list.
@@ -189,9 +184,29 @@ except FormulaError as ex:
     # ex.args[2] contains the index of the first mistake in the formula
     print(ex.args[0])</pre></div></div></li>
 
-        <li><div>At the bottom of your <code>molar_mass.py</code> file,
-        write a call to the <code>main</code> function just as you have
-        done in previous programs.</div></li>
+        <li><div>At the bottom of your <code>chemistry.py</code> file,
+        add this code to call the <code>main</code> function when your
+        program is executed.
+<div class="pre"><pre class="python" id="ex3">
+# If this file was executed like this:
+# python chemistry.py
+# then call the main function. However, if this file
+# was simply imported, then skip the call to main.
+if __name__ == "__main__":
+    main()</pre></div>
+
+        <p>In previous lessons, the code that you wrote to call the
+        <code>main</code> function did not include an <code>if</code>
+        statement. However, if we use <code>pytest</code> to test the
+        functions in a program, then the test file (e.g.
+        <code>test_chemistry.py</code>) must import the functions that
+        are in the program file (e.g. <code>chemistry.py</code>). When
+        Python imports a file, it will execute all code that is not
+        inside a function which includes the call to <code>main</code>.
+        In other words, if we don't include the if statement when
+        calling main in a program and then import the program functions
+        into a test file, Python will execute our program instead of
+        correctly executing the test functions.</p></div></li>
     </ol>
 
     <h2>Sample Runs</h2>

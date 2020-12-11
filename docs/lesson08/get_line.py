@@ -6,15 +6,18 @@ and prints the text from that line of the file.
 
 def main():
     try:
-        # Get a filename and line number from the user.
+        # Get a filename from the user.
         filename = input("Enter the name of text file: ")
-        linenum = int(input("Enter a line number: "))
 
         # Open the text file for reading.
         with open(filename, "rt") as infile:
 
             # Read all the lines of the text file into a list.
-            lines = infile.readlines()
+            string = infile.read()
+            lines = string.splitlines()
+
+        # Get a line number from the user.
+        linenum = int(input("Enter a line number: "))
 
         # Get the line that the user requested from the list.
         line = lines[linenum - 1]
@@ -40,13 +43,16 @@ def main():
         print("Run the program again and enter an integer for the line number.")
 
     except IndexError as ex:
-        # This code will be executed if the user enters a
-        # valid integer for the line number, but the integer
-        # is greater than the number of lines in the file.
+        # This code will be executed if the user enters a valid integer
+        # for the line number, but the integer is negative or the
+        # integer is greater than the number of lines in the file.
         print()
         print(type(ex).__name__, ex, sep=": ")
-        print(f"{linenum} is greater than the number of lines in {filename}.")
-        print(f"There are only {len(lines)} lines in {filename}.")
+        if linenum < 0:
+            print(f"{linenum} is a negative integer.")
+        else:
+            print(f"{linenum} is greater than the number of lines in {filename}.")
+            print(f"There are only {len(lines)} lines in {filename}.")
         print(f"Run the program again and enter a line number between 1 and {len(lines)}.")
 
     except Exception as ex:

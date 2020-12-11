@@ -25,6 +25,8 @@
 </header>
 <article>
     <h1>03 Prepare: Lists, Dictionaries, and Text Files</h1>
+    <p>In this lesson, you will learn how to store and retrieve data
+    from Python lists and dictionaries.</p>
 
     <h2>Videos</h2>
     <p>Watch these videos about lists and dictionaries in Python.</p>
@@ -59,26 +61,27 @@
             <td colspan="5">&larr; list length is 5 &rarr;</td></tr>
     </tbody></table>
 
-    <p>We can create a list by using square brackets ([ and ]). We can
-    add an item to a list using the <code>insert</code> and
-    <code>append</code> methods. We can find an item in a list using
-    <code>index</code>. We can determine the number of items in a list
-    using the <code>len</code> function. We can retrieve an item from a
-    list and replace an item in a list using square brackets ([ and ])
-    and an index. We can remove an item from a list using
-    <code>del</code>, <code>pop</code>, and <code>remove</code>. The
-    following code example shows how to create a list and add, find, and
-    remove items from a list.</p>
+    <p>In a Python program, we can create a list by using square
+    brackets ([ and ]). We can add an item to a list by using the
+    <code>insert</code> and <code>append</code> methods. We can find an
+    item in a list using the <code>index</code> method. We can determine
+    the number of items in a list by using the <code>len</code>
+    function. We can retrieve an item from a list and replace an item in
+    a list using square brackets ([ and ]) and an index. We can remove
+    an item from a list using <code>del</code>, <code>pop</code>, and
+    <code>remove</code>. The following code example shows how to create
+    a list and add, find, and remove items from a list.</p>
 
-<div class="pre"><pre class="python">
+<div class="pre"><pre class="python" id="ex1">
 # Create a list that contains five words.
 colors = ["yellow", "red", "green", "yellow", "blue"]
 
+# Print the element that is stored
+# at index 2 in the colors list.
+print(colors[2])
+
 # Print the entire colors list.
 print(colors)
-
-# Print the element that is stored at index 2 in the colors list.
-print(colors[2])
 
 
 # Create an empty list that will hold fabric names.
@@ -107,6 +110,12 @@ fabrics.remove("taffeta")
 # Get the length of the fabrics list and print it.
 n = len(fabrics)
 print(f"The fabrics list contains {n} elements.")
+
+# Use a for loop to print each element in the list. Of
+# course, the code in the body of a loop can do much
+# more with each element than simply print print it.
+for element in fabrics:
+    print(element)
 </pre></div>
 
     <h3 id="dicts">Dictionaries</h3>
@@ -143,7 +152,7 @@ print(f"The fabrics list contains {n} elements.")
     in a dictionary.</p>
 
 <div class="pre"><pre class="linenums"></pre>
-<pre class="python">
+<pre class="python" id="ex2">
 # Create a dictionary with student IDs as
 # the keys and student names as the values.
 students = {
@@ -174,18 +183,21 @@ id = input("Enter a student ID: ")
 # Print the student name.
 print(name)</pre></div>
 
-    <p>Line&nbsp;12 in the previous code example, adds an item to
-    the dictionary. To add an item to an existing dictionary, write
-    code that follows this template:</p>
+    <p><span class="cross" data-ref="ex2">Line&nbsp;12</span> in the
+    previous code example, adds an item to the dictionary. To add an
+    item to an existing dictionary, write code that follows this
+    template:</p>
 <div class="pre"><pre class="python">dictionary_name[key] = value</pre></div>
-    <p>Notice that line&nbsp;12 follows this template.</p>
+    <p>Notice that <span class="cross" data-ref="ex2">line&nbsp;12</span>
+    follows this template.</p>
 
-    <p>Line&nbsp;26 in the previous code example, looks up a key and
-    retrieves its corresponding value from a dictionary. To look up
-    a key and retrieve its corresponding value, write code that
-    follows this template:</p>
+    <p><span class="cross" data-ref="ex2">Line&nbsp;26</span> in the
+    previous code example, looks up a key and retrieves its
+    corresponding value from a dictionary. To look up a key and retrieve
+    its corresponding value, write code that follows this template:</p>
 <div class="pre"><pre class="python">value = dictionary_name[key]</pre></div>
-    <p>Notice that line&nbsp;26 follows this template.</p>
+    <p>Notice that <span class="cross" data-ref="ex2">line&nbsp;26</span>
+    follows this template.</p>
 
     <h3>Converting between Lists and Dictionaries</h3>
     <p>It is possible to convert two lists into a dictionary by using
@@ -201,7 +213,7 @@ print(name)</pre></div>
     starts with two lists, converts them into a dictionary, and then
     converts the dictionary into two lists.</p>
 
-<div class="pre"><pre class="python">
+<div class="pre"><pre class="python" id="ex3">
 # Create a list that contains five student numbers.
 numbers = ["42-039-4736", "61-315-0160",
         "10-450-1203", "75-421-2310", "07-103-5621"]
@@ -238,7 +250,7 @@ print(values)</pre></div>
     <code>splitlines</code> methods to read the contents of a text file
     into a list.</p>
 
-<div class="pre"><pre class="python">
+<div class="pre"><pre class="python" id="ex4">
 # Open the plants.txt file for reading.
 with <em>open("plants.txt", "rt")</em> as infile:
 
@@ -278,7 +290,8 @@ Cornerstone Family Dental,44 S Center Street,208-356-4240
     The following example code shows how to open a CSV file and use the
     <code>csv</code> module to read and print each row.</p>
 
-<div class="pre"><pre class="python">import csv
+<div class="pre"><pre class="python" id="ex5">
+import csv
 
 # Open a file named dentists.csv and store a reference
 # to the opened file in a variable named infile.
@@ -311,7 +324,8 @@ with open("dentists.csv", "rt") as infile:
     example, the next code sample shows how to read the contents of a
     CSV file into a dictionary.</p>
 
-<div class="pre"><pre class="python">import csv
+<div class="pre"><pre class="python" id="ex6">
+import csv
 
 # Create an empty dictionary that will
 # store the data from the CSV file.

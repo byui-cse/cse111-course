@@ -43,7 +43,7 @@
         <li><div>Open <code>get_line.py</code> in VS Code and notice the
         <code>try</code> block on line&nbsp;8 and the four
         <code>except</code> blocks, each handling a different type of
-        exception, on lines&nbsp;26&ndash;55.</div></li>
+        exception, on lines&nbsp;29&ndash;61.</div></li>
 
         <li><div>Run the <code>get_line.py</code> program five times and
         enter the input shown in the Sample Run section below. For each
@@ -55,7 +55,6 @@
     <h2>Sample Run</h2>
 <pre class="console">&gt; python get_line.py
 Enter the name of text file: <span class="input">notafile.csv</span>
-Enter a line number: <span class="input">25</span>
 FileNotFoundError: [Errno 2] No such file or directory: 'notafile.csv'
 The file notafile.csv doesn't exist.
 Run the program again and enter the name of an existing file.
@@ -71,8 +70,7 @@ Run the program again and enter an integer for the line number.
 Enter the name of text file: <span class="input">accidents.csv</span>
 Enter a line number: <span class="input">-300</span>
 IndexError: list index out of range
--300 is greater than the number of lines in accidents.csv.
-There are only 7 lines in accidents.csv.
+-300 is is a negative integer.
 Run the program again and enter a line number between 1 and 7.
 
 &gt; python get_line.py

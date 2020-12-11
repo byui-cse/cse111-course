@@ -7,7 +7,7 @@ if (!window.hasOwnProperty("cse111")) {
 
 cse111.expand = {
 	addExpandHandlers : function() {
-		let toggle = function(event) {
+		const toggle = function(event) {
 			let target = event.target;
 			let parent = target.parentElement;
 			let clist = parent.classList;
@@ -19,7 +19,7 @@ cse111.expand = {
 			target.setAttribute('title', data.title);
 		};
 
-        let elems = document.getElementsByClassName('expand');
+        const elems = document.getElementsByClassName('expand');
         for (let e = 0;  e < elems.length;  ++e) {
             let elem = elems[e];
             let titles = elem.getElementsByClassName('title');

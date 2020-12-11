@@ -1,3 +1,12 @@
+"""
+A common task for many knowledge workers is to use a number, key, or ID
+to look up information about a person. For example, a knowledge worker
+may use a phone number or e-mail address as a key to find (or look up)
+additional information about a customer. During this activity, your team
+will write a Python program that uses a student's I-Number to look up
+the student's name.
+"""
+
 import csv
 
 # Create an empty dictionary that will store student

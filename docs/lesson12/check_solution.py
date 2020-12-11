@@ -39,4 +39,9 @@ def main():
         print(type(ex).__name__, ex, sep=": ")
 
 
-main()
+# If this file was executed like this:
+# python check_solution.py
+# then call the main function. However, if this file
+# was simply imported, then skip the call to main.
+if __name__ == "__main__":
+    main()

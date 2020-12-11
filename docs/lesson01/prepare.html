@@ -10,8 +10,8 @@
     <link rel="stylesheet" type="text/css" href="../site/style.css">
     <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
     <script src="../site/color.js"></script>
-    <script src="../site/linenums.js"></script>
     <script src="../site/hljs/highlight.pack.js"></script>
+    <script src="../site/linenums.js"></script>
 </head>
 
 <body>
@@ -24,26 +24,36 @@
     <h2>CSE 111 | <span>Programming with Functions</span></h2>
 </header>
 <article>
+    <!--
+    <audio controls>
+        <source src="prepare.mp3" type="audio/mpeg">
+    </audio>
+    -->
     <h1>01 Prepare: Review Python</h1>
+    <p>During lessons 1 and 2 of CSE 111, you will review programming
+    concepts that you learned in CSE 110.
 
     <h2>Concepts</h2>
     <p>Here is a list of the Python programming concepts and topics from
     CSE 110 that you should review during this lesson.</p>
 
     <ol class="long">
-        <li><div>We use the <a target="_blank" href="https://docs.python.org/3/library/functions.html#input"><code>input()</code></a>
-        function to prompt a user for input.</div></li>
+        <li><div>A <dfn>variable</dfn> is a location in a computer's
+        memory where a program stores a value. A variable has a name, a
+        data type, and a value. In Python, the value and data type of a
+        variable may change while the computer is executing a
+        program.</div></li>
 
         <li><div>In Python, we assign a value to a variable by using the
         assignment operator, which is the equals symbol (=).</div></li>
 
-        <li><div>Python has several data types including
-        <code>str</code>, <code>bool</code>, <code>int</code>,
-        <code>float</code>, <code>complex</code>, <code>tuple</code>,
-        <code>list</code>, <code>set</code>, <code>dict</code>,
-        <code>function</code>, and <code>type</code>.
-        <a download href="data_types_demo.py">This program</a>
-        demonstrates many of the Python data types.</div></li>
+        <li><div>Python has many data types including <code>str</code>,
+        <code>bool</code>, <code>int</code>, <code>float</code>,
+        <code>complex</code>, <code>tuple</code>, <code>list</code>,
+        <code>set</code>, <code>dict</code>, <code>function</code>, and
+        <code>type</code>. <a download href="data_types_demo.py">This
+        program</a> demonstrates many of the Python data
+        types.</div></li>
 
         <li><div>It is possible to convert between many of the data
         types. For example, to convert from any data type to a string,
@@ -57,6 +67,9 @@
         always a string, from a string to a number. See the example
         program below.</div></li>
 
+        <li><div>We use the <a target="_blank" href="https://docs.python.org/3/library/functions.html#input"><code>input()</code></a>
+        function to prompt a user for input.</div></li>
+
         <li><div>Python has many arithmetic operators including power
         (**), negation (-), multiplication (*), division (/), floor
         division (//), modulo (%), addition (+), and subtraction
@@ -66,14 +79,14 @@
         more than one operator, the operators are executed according to
         the order of operations. This table shows the precedence for the
         arithmetic operators.</p>
-        <table><thead>
+        <table class="center"><thead>
             <tr><th>Operators</th> <th>Description</th> <th>Precedence</th></tr>
         </thead><tbody>
             <tr><td>( )</td> <td>parentheses</td> <td>highest</td></tr>
             <tr><td>**</td> <td>exponentiation (power)</td> <td></td></tr>
             <tr><td>-</td> <td>negation</td> <td></td></tr>
             <tr><td>* &nbsp;/ &nbsp;// &nbsp;%</td>
-                <td>multiplication, division, floor division, remainder</td>
+                <td>multiplication, division, floor division, modulo</td>
                 <td></td></tr>
             <tr><td>+ &nbsp;-</td> <td>addition, subtraction</td>
                 <td></td></tr>
@@ -90,7 +103,7 @@
         point, and prints the rounded length for the user to see.</p>
 
 <div class="pre"><pre class="linenums"></pre>
-<pre class="python">
+<pre class="python" id="ex1">
 # This program computes the length of a cable given the distance
 # it will span and the distance it will sag or dip in the middle.
 
@@ -107,27 +120,28 @@ length = round(length, 2)
 
 # Print the cable length in the
 # console window for the user to see.
-print(f"Length of cable in meters: {length}")
-</pre></div>
+print(f"Length of cable in meters: {length}")</pre></div>
 
 <pre class="console">&gt; python cable.py
 Distance the cable must span in meters: <span class="input">500</span>
 Distance the cable will sag or dip in meters: <span class="input">18.5</span>
 Length of cable in meters: 501.83</pre>
 
-        <p>The arithmetic that is written on line&nbsp;10 in the above
-        code example comes from a well known formula. Given the distance
-        that a cable must span and the vertical distance that the cable
-        will be allowed to sag or dip in the middle of the cable, the
-        formula for calculating the length of the cable is:</p>
+        <p>The arithmetic that is written on
+        <span class="cross" data-ref="ex1">line&nbsp;10</span>
+        in the above code example comes from a well known formula. Given
+        the distance that a cable must span and the vertical distance
+        that the cable will be allowed to sag or dip in the middle of
+        the cable, the formula for calculating the length of the cable
+        is:</p>
 
-        <div class="block expr"><var>length</var> = <var>span</var> + <div>8 <var>dip</var><sup>2</sup><hr>3 <var>span</var></div></div></div></li>
+        <div class="block expr"><var>length</var> = <var>span</var> + <div class="fract"><div class="numer">8 <var>dip</var><sup>2</sup></div><div class="denom">3 <var>span</var></div></div></div>
 
         <li><div>We can store several values in a
         <a target="_blank" href="https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences">Python tuple</a>.
         Tuples are immutable, meaning after a tuple is created, it
         cannot be changed. Tuples are most useful for data such as
-        geometric points that contain x and y parts.</div></li>
+        geometric points that contain x and y values.</div></li>
 
         <li><div>We can store many items in a
         <a target="_blank" href="https://docs.python.org/3/tutorial/introduction.html#lists">Python list</a>.
@@ -146,7 +160,7 @@ Length of cable in meters: 501.83</pre>
         Sets are mutable, meaning they can be changed after they are
         created. A set is different from a list. A list allows duplicate
         items to be stored in it, but a set doesn't allow duplicate
-        items. Items in a set are unique.</div></li>
+        items. In other words, items in a set are unique.</div></li>
 
         <li><div><p>We can also store many items in a
         <a target="_blank" href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">Python dictionary</a>.
@@ -160,7 +174,7 @@ Length of cable in meters: 501.83</pre>
         reading this code example is "What are the characters that cause
         the computer to create a tuple, list, set, or dictionary?"</p>
 
-<div class="pre"><pre class="python">
+<div class="pre"><pre class="python" id="ex2">
 # Get two numbers from the user.
 x = float(input("Enter the x value of a point: "))
 y = float(input("Enter the y value of a point: "))
@@ -187,15 +201,19 @@ students = <em>{
             <li><div>A tuple normally begins and ends with parentheses
             and always has commas separating the parts of the tuple. For
             example: <code>(x, y)</code></div></li>
-            <li><div>A list always begins and ends with square brackets.
-            For example: <code>[2.5, -3.2, 2.1, 0.6]</code></div></li>
-            <li><div>A set always begins and ends with curly braces and
-            has only keys with no values. In other words in a set, there
-            are no key value pairs separated by the colon character. For
+
+            <li><div>A list begins and ends with square brackets. For
+            example: <code>[2.5, -3.2, 2.1, 0.6]</code></div></li>
+
+            <li><div>A set begins and ends with curly braces and has
+            only keys with no values. In other words in a set, there are
+            no key value pairs separated by the colon character. For
             example: <code>{"red", "green", "blue"}</code></div></li>
+
             <li><div>A dictionary begins and ends with curly braces and
             contains key value pairs separated by the colon character.
-            For example: <code>{"67-412-8350" : "Alan Benson"}</code></div></li>
+            For example:
+            <code>{"67-412-8350" : "Alan Benson"}</code></div></li>
         </ul>
 
         <p>The next code example shows how to populate a list, set, and
@@ -203,7 +221,7 @@ students = <em>{
         creates an empty list, set, and dictionary and then adds items
         one at a time.</p>
 
-<div class="pre"><pre class="python">
+<div class="pre"><pre class="python" id="ex3">
 # Create an empty list, set, and dictionary.
 samples = []
 colors = set()

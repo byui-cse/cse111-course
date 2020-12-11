@@ -74,6 +74,7 @@ article {
 }
 
 article h1 {
+	clear: both;
 	text-align: center;
 	font-size: 150%;
 	line-height: 1.5em;
@@ -81,6 +82,7 @@ article h1 {
 }
 
 article h2 {
+	clear: both;
 	font-size: 125%;
 	font-weight: bold;
 	margin: 1.5em 0 0.25em 0;
@@ -107,6 +109,10 @@ article blockquote {
 article a:link { color: var(--byui-blue); }
 article a:visited { color: purple; }
 article a:active { color: red; }
+
+article audio {
+	float: right;
+}
 
 article em {
 	font-style: italic;
@@ -196,10 +202,29 @@ article dl.function dd {
 	padding-left: 2em;
 }
 
+
+/* Figures */
+div.figure {
+	float: right;
+	margin: 0 0 1em 1em
+	page-break-inside: avoid;
+}
+
+div.figure img {
+	width: 100%
+	page-break-after: avoid;
+}
+
+div.figure div {
+	margin: 0.75em 0 0 0
+	font-size: 90%;
+	page-break-before: avoid;
+}
+
+
 /* Mathematical Formulas */
 article div.expr {
 	white-space: nowrap;
-	vertical-align: middle;
 	text-align: center;
 	font-family: "Palatino Linotype", Palatino, Garamond, serif;
 	font-size: large;
@@ -208,10 +233,12 @@ article div.expr {
 article div.expr.inline {
 	display: inline-block;
 	margin: 0 0.5em;
+	vertical-align: baseline;
 }
 
 article div.expr.block {
 	margin: 1em 0;
+	vertical-align: middle;
 }
 
 article div.expr div {
@@ -220,43 +247,12 @@ article div.expr div {
 	text-align: center;
 }
 
-article div.expr hr {
-	margin: 0 auto;
-	border-top: 1px solid; border-right: 0; border-bottom: 0; border-left: 0;
-	padding: 0;
-	height: 0;
-}
-
-article div.expr hr.fract {
-	margin: 0.2em auto 0 auto;
-}
-
-article div.expr span.abs:before {
-	font-size: xx-large;
-	font-weight: 100;
+article div.expr.middle {
 	vertical-align: middle;
-	content: '\7c';
 }
 
-article div.expr span.rad:before {
-	font-size: xx-large;
-	font-weight: 100;
-	vertical-align: middle;
-	content: '\221a';
-}
-
-article div.expr span.sum:before {
-	display: block;
-	margin-bottom: 0.2em;
-	vertical-align: middle;
-	font-size: xx-large;
-	font-weight: 100;
-	content: '\2211';
-}
-
-article div.expr span.index {
-	display: block;
-	font-size: small;
+article div.expr .baseline {
+	vertical-align: baseline;
 }
 
 article div.expr sup,
@@ -265,7 +261,86 @@ article div.expr sub {
 	font-size: small;
 }
 
+article div.expr span.abs:before,
+article div.expr span.abs:after {
+	font-size: xx-large;
+	font-weight: 100;
+	vertical-align: middle;
+	content: '\7c';
+}
 
+article div.expr .paren:before {
+	padding-left: 0.1em;
+	content: '\28';
+}
+
+article div.expr .paren:after {
+	padding-left: 0.1em;
+	content: '\29';
+}
+
+article div.expr div.paren:before,
+article div.expr div.paren:after {
+	font-size: xx-large;
+	font-weight: 100;
+}
+
+article div.expr div.paren {
+	vertical-align: baseline;
+}
+
+article div.expr span.radic:before {
+	font-size: x-large;
+	font-weight: 100;
+	vertical-align: bottom;
+	content: '\221a';
+}
+
+article div.expr div.radic:before {
+	font-size: xx-large;
+	font-weight: 100;
+	vertical-align: middle;
+	content: '\221a';
+}
+
+article div.expr .radic > * {
+	border-top: 1px solid;
+	padding: 0 0.2em;
+}
+
+article div.expr div.fract {
+}
+
+article div.expr div.fract > div.numer {
+	display: block;
+}
+
+article div.expr div.fract > div.denom {
+	display: block;
+	margin-top: 0.25em;
+	border-top: 1px solid;
+	padding-top: 0.1em;
+}
+
+article div.expr div.sum {
+	margin-right: 0.15em;
+}
+
+article div.expr div.sum > span.sum {
+	display: block;
+	margin-bottom: 0.25em;
+	vertical-align: middle;
+	font-size: xx-large;
+	font-weight: 100;
+}
+
+article div.expr div.sum > div.index {
+	display: block;
+	font-size: small;
+}
+
+
+/* Sections that can be expanded and collapsed. */
 article div.expand div.title,
 article div.collaps div.title {
 	cursor: pointer;
@@ -372,6 +447,11 @@ article div.pre > pre.linenums {
 	color: var(--border);
 }
 
+article div.pre > pre.linenums > .hi {
+	background-color: var(--byui-blue);
+	color: white;
+}
+
 article div.pre > pre.python {
 }
 
@@ -379,6 +459,11 @@ article pre.python span.hiScope  { background-color: yellow; }
 article pre.python span.hiVarDef { background-color: orange; }
 article pre.python span.hiVarUse { background-color: yellow; }
 article pre.python span.hiError  { background-color: red; }
+
+article .cross {
+	text-decoration: underline var(--byui-blue) dotted;
+}
+
 
 /* Tables */
 article table {

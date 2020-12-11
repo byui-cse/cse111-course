@@ -1,3 +1,7 @@
+"""
+Write and call functions that demonstrate both
+default parameter values and pass by reference.
+"""
 import random
 
 def main():
@@ -23,6 +27,13 @@ def main():
 def append_random_numbers(numbers_list, quantity=1):
     """Append quantity random numbers onto the numbers list.
     The random numbers are between 0 and 100, inclusive.
+    Parameters
+        numbers_list: A list of numbers where this function will append
+            random numbers.
+        quantity: The number of random numbers that this function will
+            append onto numbers_list.
+    Return: nothing. It's unnecessary for this function to return
+        anything because this function changes the numbers_list.
     """
     for _ in range(quantity):
         random_number = random.uniform(0, 100)
@@ -31,7 +42,15 @@ def append_random_numbers(numbers_list, quantity=1):
 
 
 def append_random_words(words_list, quantity=1):
-    """Append quantity randomly chosen words onto the words list."""
+    """Append quantity randomly chosen words onto the words list.
+    Parameters
+        words_list: A list of words where this function will append
+            random words.
+        quantity: The number of random words that this function will
+            append onto words_list.
+    Return: nothing. It's unnecessary for this function to return
+        anything because this function changes the words_list.
+    """
 
     # A list of words to randomly choose from.
     candidates = [

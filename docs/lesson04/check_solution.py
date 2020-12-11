@@ -1,4 +1,5 @@
-# Import the statistics standard module.
+# Import the statistics standard module
+# so that it can be used in this program.
 import statistics
 
 # A list of people's height in meters.
@@ -15,8 +16,8 @@ mn = min(heights)
 mx = max(heights)
 s = sum(heights)
 
-# Call the mean, median, and mode functions and
-# pass the list of heights to each function.
+# Call the mean, median, and mode functions that are in the
+# statistics module and pass the list of heights to each function.
 mean = statistics.mean(heights)
 median = statistics.median(heights)
 mode = statistics.mode(heights)

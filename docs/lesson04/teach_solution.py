@@ -1,11 +1,14 @@
+# Import the random and textwrap modules so
+# that they can be used in this program.
 import random
 import textwrap
 
-# Open the quotes.txt file.
+# Open the quotes.txt file for reading.
 with open("quotes.txt", "rt") as infile:
 
     # Read all the quotes in the file into a list.
-    quotes = infile.readlines()
+    string = infile.read()
+    quotes = string.splitlines()
 
 # Ask the user how many quotes she would like to see.
 quant = int(input("How many quotes would you like? "))

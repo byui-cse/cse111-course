@@ -201,23 +201,29 @@ print(f"Hello {name}")</pre></div>
         prints the rounded number.
 
 <div class="pre"><pre class="linenums"></pre>
-<pre class="python">n = float(input("Please enter a number: "))
+<pre class="python" id="ex1">
+n = float(input("Please enter a number: "))
 r = round(n, 2)
 print(r)</pre></div>
 
         In the previous example,
         <ul>
-            <li><div>The code on line 1 calls both the
-            <code>input</code> and <code>float</code> built-in
-            functions.</div></li>
-            <li><div>Line 2 calls the built-in <code>round</code>
-            function and passes two arguments. Notice that the order of
-            the arguments matches the order of the parameters.
-            Specifically the number to be rounded (<var>n</var>) is the
-            first argument and the number of digits after the decimal
-            point (2) is the second argument.</div></li>
-            <li><div>Line 3 calls the built-in <code>print</code>
-            function to print the rounded number.</div></li>
+            <li><div>The code on
+            <span class="cross" data-ref="ex1">line&nbsp;1</span>
+            calls both the <code>input</code> and <code>float</code>
+            built-in functions.</div></li>
+
+            <li><div><span class="cross" data-ref="ex1">Line&nbsp;2</span>
+            calls the built-in <code>round</code> function and passes
+            two arguments. Notice that the order of the arguments
+            matches the order of the parameters. Specifically the number
+            to be rounded (<var>n</var>) is the first argument and the
+            number of digits after the decimal point (2) is the second
+            argument.</div></li>
+
+            <li><div><span class="cross" data-ref="ex1">Line&nbsp;3</span>
+            calls the built-in <code>print</code> function to print the
+            rounded number.</div></li>
         </ul></div></li>
 
         <li><div><p>Python is an object oriented language and includes
@@ -235,7 +241,7 @@ print(r)</pre></div>
         string and prints the string in all upper case characters.</p>
 
 <div class="pre"><pre class="linenums"></pre>
-<pre class="python">
+<pre class="python" id="ex2">
 # Get a string of text from the user.
 text1 = input("Enter a motivational quote: ")
 
@@ -252,37 +258,46 @@ text2 = <em>text1.upper()</em>
 # upper case for the user to see.
 print(length, text2)</pre></div>
 
-        <p>Notice the code on line&nbsp;6 calls the built-in
-        <code>len</code> function and the code on line&nbsp;11 calls the
-        string <code>upper</code> method. Compare the function call in
-        line&nbsp;6 to the method call in line&nbsp;11. To call the
-        <code>len</code> function, we type the name of the function
-        followed by a list of arguments. To call the <code>upper</code>
-        method, we type the name of the object (<code>text1</code>) and
-        a period before the method name and then a list of
-        arguments.</p>
+        <p>Notice the code on
+        <span class="cross" data-ref="ex2">line&nbsp;6</span>
+        calls the built-in <code>len</code> function and the code on
+        <span class="cross" data-ref="ex2">line&nbsp;10</span>
+        calls the string <code>upper</code> method. Compare the function
+        call in
+        <span class="cross" data-ref="ex2">line&nbsp;6</span>
+        to the method call in
+        <span class="cross" data-ref="ex2">line&nbsp;10</span>.
+        To call the <code>len</code> function, we type the name of the
+        function followed by a list of arguments. To call the
+        <code>upper</code> method, we type the name of the object
+        (<code>text1</code>) and a period before the method name and
+        then a list of arguments.</p>
 
         <p>A method can receive arguments just like a function can.
         However, in the previous example, there are no arguments passed
         to the <code>upper</code> method.</p></div></li>
 
         <li><div><p>Most of the previous information in this prepare
-        content can be summarized in these three statements.</p>
+        content can be summarized in these three statements:</p>
 
-        <p>To call a built-in function, write code that follows this
-        template:</p>
+        <ol>
+            <li><div>To call a built-in function, write code that
+            follows this template:
 <div class="pre"><pre class="python"><var>variable_name</var> = <var>function_name</var>(<var>arg1</var>, <var>arg2</var>, &hellip; <var>argN</var>)</pre></div>
+            </div></li>
 
-        <p>To call a function from a module, import the module and write
-        code that follows this template:</p>
+            <li><div>To call a function from a module, import the module
+            and write code that follows this template:
 <div class="pre"><pre class="python">
 import <var>module_name</var>
 
 <var>variable_name</var> = <var>module_name</var>.<var>function_name</var>(<var>arg1</var>, <var>arg2</var>, &hellip; <var>argN</var>)</pre></div>
+            </div></li>
 
-        <p>To call a method, write code that follows this template:</p>
+            <li><div>To call a method, write code that follows this template:
 <div class="pre"><pre class="python"><var>variable_name</var> = <var>object_name</var>.<var>method_name</var>(<var>arg1</var>, <var>arg2</var>, &hellip; <var>argN</var>)</pre></div>
-        </div></li>
+            </div></li>
+        </ol></div></li>
 
         <li id="optArgs"><div>When calling a function or method, some
         arguments are optional. Again consider the description of the
@@ -297,7 +312,7 @@ import <var>module_name</var>
             <var>number</var>.</dd>
         </dl>
 
-        From the description we read that the second argument is
+        From the description, we read that the second argument is
         optional. If the programmer doesn't pass a second argument, the
         <var>number</var> will be rounded to an integer.</div></li>
 
@@ -323,10 +338,12 @@ import <var>module_name</var>
         <code>print</code> function to print three words all separated
         by a vertical bar (|). Notice the named argument <var>sep</var>.
 
-<div class="pre"><pre class="python">x = "sun"
+<div class="pre"><pre class="python" id="ex3">
+x = "sun"
 y = "moon"
 z = "stars"
-print(x, y, z, sep="|", flush=True)</pre></div></div></li>
+print(x, y, z, sep="|", flush=True)</pre></div>
+        </div></li>
     </ol>
 
     <h2>Tutorial</h2>

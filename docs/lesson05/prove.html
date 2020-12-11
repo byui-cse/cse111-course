@@ -121,7 +121,8 @@
     window and a canvas that your program can draw to.</p>
 
 <div class="pre"><pre class="linenums"></pre>
-<pre class="python">from tkinter import Tk, Frame, Canvas, BOTH
+<pre class="python" id="ex1">
+from tkinter import Tk, Frame, Canvas, BOTH
 
 
 def main():
@@ -151,11 +152,12 @@ def draw_scene(canvas, scene_left, scene_top, scene_right, scene_bottom):
     """Draw a scene in the canvas. scene_left, scene_top,
     scene_right, and scene_bottom contain the extent in
     pixels of the region where the scene should be drawn.
-
-    param scene_left - left side of the region; less than scene_right
-    param scene_top - top of the region; less than scene_bottom
-    param scene_right - right side of the region
-    param scene_bottom - bottom of the region
+    Parameters:
+        scene_left - left side of the region; less than scene_right
+        scene_top - top of the region; less than scene_bottom
+        scene_right - right side of the region
+        scene_bottom - bottom of the region
+    Return: nothing
 
     If needed, the width and height of the
     region can be calculated like this:
@@ -174,7 +176,16 @@ def draw_scene(canvas, scene_left, scene_top, scene_right, scene_bottom):
 # draw_cloud, draw_tree, draw_kite, draw_snowflake, etc.
 
 def draw_pine_tree(canvas, peak_x, peak_y, height):
-    """Draw a single pine tree."""
+    """Draw a single pine tree.
+    Parameters:
+        canvas: The tkinter canvas where this
+            function will draw a pine tree.
+        peak_x, peak_y: The x and y location in pixels where
+            this function will draw the top peak of a pine tree.
+        height: The height in pixels of the pine tree that
+            this function will draw.
+    Return: nothing
+    """
     trunk_width = height / 10
     trunk_height = height / 8
     trunk_left = peak_x - trunk_width / 2
@@ -187,9 +198,12 @@ def draw_pine_tree(canvas, peak_x, peak_y, height):
     skirt_right = peak_x + skirt_width / 2
     skirt_bottom = peak_y + skirt_height
 
+    # Draw the trunk of the pine tree.
     canvas.create_rectangle(trunk_left, skirt_bottom,
             trunk_right, trunk_bottom,
             outline="gray20", width=1, fill="tan3")
+
+    # Draw the crown (also called skirt) of the pine tree.
     canvas.create_polygon(peak_x, peak_y,
             skirt_right, skirt_bottom,
             skirt_left, skirt_bottom,
@@ -206,12 +220,12 @@ main()</pre></div>
 
     <p><img src="oval.png" alt="A blue circle drawn by a Python program"></p>
 
-    <p>The pine tree was drawn because the code at line&nbsp;78 called
+    <p>The pine tree was drawn because the code at line&nbsp;91 called
     the <code>main</code> function. At line&nbsp;22, the
     <code>main</code> function called the <code>draw_scene</code>
-    function. At line&nbsp;47, the <code>draw_scene</code> function
+    function. At line&nbsp;48, the <code>draw_scene</code> function
     called the <code>draw_pine_tree</code> function and at
-    lines&nbsp;67&ndash;73 the <code>draw_pine_tree</code> function
+    lines&nbsp;78&ndash;83 the <code>draw_pine_tree</code> function
     called the <code>create_rectangle</code> and
     <code>create_polygon</code> methods.</p>
 
@@ -228,8 +242,8 @@ main()</pre></div>
 
 <div class="pre"><pre class="python">def draw_grass_blade(canvas, blade_left, blade_top, blade_right, blade_bottom):</pre></div>
 
-    <p>Delete or comment-out lines&nbsp;44&ndash;47 and
-    lines&nbsp;53&ndash;73 and begin writing your program.As you write
+    <p>Delete or comment-out lines&nbsp;45&ndash;48 and
+    lines&nbsp;54&ndash;86 and begin writing your program. As you write
     your program, be sure that it draws elements in the order of
     farthest away to nearest. For example, you program should draw the
     blue sky first, then the ground, then clouds, then trees, then

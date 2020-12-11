@@ -19,7 +19,7 @@ if (!window.hasOwnProperty('cse111')) {
 }
 
 cse111.color = {
-	addSchemeHandler : function() {
+	addColorThemeHandler : function() {
 		let dark = 'dark';
 		let light = 'light';
 		let schemeData = {
@@ -74,4 +74,4 @@ cse111.color = {
 	}
 };
 
-window.addEventListener("DOMContentLoaded", cse111.color.addSchemeHandler);
+window.addEventListener("DOMContentLoaded", cse111.color.addColorThemeHandler);

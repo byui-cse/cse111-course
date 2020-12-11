@@ -1,4 +1,5 @@
-from meter_usage import add_year_month_column, filter_for_meter, filter_between_dates
+from meter_usage import add_year_month_column, \
+    filter_for_meter, filter_between_dates
 import pandas as pd
 import pytest
 

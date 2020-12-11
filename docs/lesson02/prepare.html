@@ -25,10 +25,12 @@
 </header>
 <article>
     <h1>02 Prepare: Review Selection and Repetition</h1>
+    <p>During this lesson, you will continue to review programming
+    concepts that you learned in CSE 110.</p>
 
     <h2>Videos</h2>
-    <p>Watch these videos about <code>if</code> statements, logic,
-    lists, and loops in Python.</p>
+    <p>Watch these videos from CSE 110 about <code>if</code> statements,
+    logic, lists, and loops in Python.</p>
 
     <ul class="links">
         <li><div><a target="_blank" href="https://www.youtube.com/watch?v=5pPKYWqkoek&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=19">Conditional Logic</a></div></li>
@@ -62,7 +64,7 @@
         </tbody></table>
         Here is example code that tests if a number is greater than 500.
 <div class="pre"><pre class="linenums"></pre>
-<pre class="python">
+<pre class="python" id="ex1">
 # Get an account balance as a number from the user.
 balance = float(input("Please enter the account balance: "))
 
@@ -81,11 +83,14 @@ print(balance)</pre></div>
         statement. However, notice in the example code above that
         <code>if</code> statements in Python do not use curly braces.
         Instead, we type a colon (:) after the comparison of the
-        <code>if</code> statement as shown on line&nbsp;6 above. Then we
-        indent all the statements that are in the body of the
-        <code>if</code> statement as shown on lines&nbsp;7 and&nbsp;8.
+        <code>if</code> statement as shown on
+        <span class="cross" data-ref="ex1">line&nbsp;6</span>
+        above. Then we indent all the statements that are in the body of
+        the <code>if</code> statement as shown on
+        <span class="cross" data-ref="ex1">lines&nbsp;7 and&nbsp;8</span>.
         The body of the <code>if</code> statement ends with the first
-        line of code that is not indented, like line&nbsp;11.</p>
+        line of code that is not indented, like
+        <span class="cross" data-ref="ex1">line&nbsp;11</span>.</p>
 
         <p>It may seem strange to not use curly braces to mark the start
         and end of the body of an <code>if</code> statement. However,
@@ -95,11 +100,13 @@ print(balance)</pre></div>
         the code.</p></div></li>
 
         <li><div>Each <code>if</code> statement may have an
-        <code>else</code> statement. We can combine <code>else</code>
-        and <code>if</code> into the keyword <code>elif</code> as shown
-        on lines&nbsp;7 and&nbsp;9 in the following example code.
+        <code>else</code> statement. We can combine <code>else</code> and
+        <code>if</code> into the keyword <code>elif</code> as shown on
+        <span class="cross" data-ref="ex2">lines&nbsp;7 and&nbsp;9</span>
+        in the following example code.
+
 <div class="pre"><pre class="linenums"></pre>
-<pre class="python">
+<pre class="python" id="ex2">
 # Get the cost of an item from the user.
 cost = float(input("Please enter the cost: "))
 
@@ -118,13 +125,14 @@ discount = cost * rate
 cost -= discount
 
 # Print the discounted cost for the user to see.
-print(f"After the discount, you will pay {cost}")</pre></div></div></li>
+print(f"After the discount, you will pay {cost}")</pre></div>
+        </div></li>
 
         <li><div>Python also includes a <dfn>membership operator</dfn>:
         <code>in</code>. We can use the <code>in</code> operator to
         determine if a tuple, list, set, or dictionary contains a value.
         For example:
-<div class="pre"><pre class="python">
+<div class="pre"><pre class="python" id="ex3">
 # Create a set that contains family names.
 surnames = {"Smith", "Lopez", "Marsh", "Olsen", "Vasiuk"}
 
@@ -135,7 +143,8 @@ family = input("Please enter your family name: ")
 if <em>family in surnames</em>:
     print("Your family name is in the set.")
 else:
-    print("Your family name is NOT in the set.")</pre></div></div></li>
+    print("Your family name is NOT in the set.")</pre></div>
+        </div></li>
 
         <li><div>Python includes two <dfn>logic operators</dfn>:
         <code>and</code>, <code>or</code> that we can use to combine two
@@ -144,9 +153,10 @@ else:
         literally the words: <code>and</code>, <code>or</code>,
         <code>not</code> and not symbols as in other programming
         languages:
-<div class="pre"><pre class="python">
+<div class="pre"><pre class="python" id="ex4">
 if driver &gt;= 54 <em>or</em> (driver &gt;= 32 <em>and</em> passenger &gt;= 54):
-    message = "Enjoy the ride!"</pre></div></div></li>
+    message = "Enjoy the ride!"</pre></div>
+        </div></li>
 
         <li><div>We can cause a computer to repeat a group of statements
         by writing <code>for</code> and <code>while</code> loops. A
@@ -155,9 +165,10 @@ if driver &gt;= 54 <em>or</em> (driver &gt;= 32 <em>and</em> passenger &gt;= 54)
         <code>while</code> loop is more flexible than a <code>for</code>
         loop and repeats while some condition is true. The next code
         example shows three loops that iterate over a range of numbers.
-        Notice that just like <code>if</code> statements, in Python the
+        Notice that just like <code>if</code> statements in Python, the
         body of a loop starts and ends with indentation.
-<div class="pre"><pre class="python">
+
+<div class="pre"><pre class="python" id="ex5">
 # Count from zero to nine by ones.
 for i in range(10):
     print(i)
@@ -176,7 +187,7 @@ for i in range(100, 69, -3):
         However, we can write as much code as we need in the body of a
         loop to repeatedly perform all manner of complex computations.
 
-<div class="pre"><pre class="python">
+<div class="pre"><pre class="python" id="ex6">
 # Create a list.
 colors = ["red", "orange", "yellow", "green", "blue", "indigo"]
 
@@ -200,14 +211,16 @@ for family in names:
 
 # Print each key value pair in a dictionary.
 for inumber, name in students.items():
-    print(inumber, name)</pre></div></div></li>
+    print(inumber, name)</pre></div>
+        </div></li>
 
         <li><div>A <code>break</code> statement causes a loop to end
         early. In the next code example, there is a <code>for</code>
         loop that asks the user to input ten numbers one at a time.
         However, the loop will terminate early if the user enters a zero
-        (0).
-<div class="pre"><pre class="python">
+        (0) because of the <code>break</code> statement.
+
+<div class="pre"><pre class="python" id="ex7">
 # Get ten or fewer numbers from the user and add them
 # together. Notice that this loop uses underscore (_) as
 # the counting variable, which is a valid variable name.
@@ -219,7 +232,8 @@ for _ in range(10):
     if n == 0:
         <em>break</em>
     sum += n
-print(sum)</pre></div></div></li>
+print(sum)</pre></div>
+        </div></li>
     </ol>
 
     <h2>Documentation</h2>
@@ -242,7 +256,7 @@ print(sum)</pre></div></div></li>
     of the BYU-Idaho library and read one of the online books from
     the result set.</p>
 
-    <h2 id="example">Code Example</h2>
+    <h2 id="validate">Example - Validating User Input</h2>
     <p>The following code example uses <code>if</code> statements inside
     of a <code>while</code> loop. The code asks the user to enter an
     integer between a minimum and maximum and verifies that the integer
@@ -252,7 +266,8 @@ print(sum)</pre></div></div></li>
     user to enter an integer until he enters one between the minimum and
     maximum.</p>
 
-    <p>Line&nbsp;16 of the code example uses the
+    <p><span class="cross" data-ref="ex8">Line&nbsp;16</span> of
+    the code example uses the
     <a target="_blank" href="https://docs.python.org/3/library/stdtypes.html#str.isdecimal"><code>isdecimal()</code></a>
     method to verify that the user entered only decimal digits. The
     <code>isdecimal()</code> method returns True if a string contains at
@@ -265,7 +280,7 @@ print(sum)</pre></div></div></li>
     negative integers or floating point numbers.</p>
 
 <div class="pre"><pre class="linenums"></pre>
-<pre class="python">
+<pre class="python" id="ex8">
 # The minimum and maximum integers that the user may enter.
 minimum = 20
 maximum = 40

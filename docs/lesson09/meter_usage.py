@@ -128,7 +128,9 @@ def show_comparison(indiv_df, meter_number):
     pass
 
 
-# Call the main function so that
-# this program will start executing.
+# If this file was executed like this:
+# python meter_usage.py
+# then call the main function. However, if this file
+# was simply imported, then skip the call to main.
 if __name__ == "__main__":
     main()

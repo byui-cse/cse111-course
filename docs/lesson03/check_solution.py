@@ -1,3 +1,8 @@
+"""
+Write a Python program named provinces.py that reads the contents
+of provinces.txt into a list and that modifies the list.
+"""
+
 # Open the provinces.txt text file for reading.
 with open("provinces.txt", "rt") as infile:
 

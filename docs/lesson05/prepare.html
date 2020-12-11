@@ -81,12 +81,14 @@
         <li><div>To write a user-defined function in Python, simply type
         code that matches this template:
 
-<div class="pre"><pre class="python">def <var>function_name</var>(<var>param1</var>, <var>param2</var>, &hellip; <var>paramN</var>):
+<div class="pre"><pre class="python">
+def <var>function_name</var>(<var>param1</var>, <var>param2</var>, &hellip; <var>paramN</var>):
     <var>statement1</var>
     <var>statement2</var>
         &vellip;
     <var>statementN</var>
-    return <var>value</var></pre></div></div></li>
+    return <var>value</var></pre></div>
+        </div></li>
 
         <li><div>The first line of a function is called the
         <dfn>header</dfn> or <dfn>signature</dfn>, and it includes the
@@ -140,7 +142,7 @@
         accepts a list of numbers as a parameter and computes and prints
         the average value of the numbers in the list.</p>
 
-<div class="pre"><pre class="python">
+<div class="pre"><pre class="python" id="ex1">
 # Define a function that accepts one parameter.
 #
 # Whatever argument is passed to this function
@@ -159,7 +161,8 @@ def print_average(numbers):
         total += number
 
     average = total / len(numbers)
-    print(f"The average is: {average}")</pre></div></div></li>
+    print(f"The average is: {average}")</pre></div>
+        </div></li>
 
         <li><div><p>Many functions that you've used in the past
         <dfn>return</dfn> a result. When a function returns a result, we
@@ -176,7 +179,7 @@ def print_average(numbers):
         <code>calculate_average</code> instead of
         <code>print_average</code>.</p>
 
-<div class="pre"><pre class="python">
+<div class="pre"><pre class="python" id="ex2">
 # Define a function that accepts one parameter.
 def calculate_average(numbers):
     """Compute and return the average of the
@@ -193,14 +196,16 @@ def calculate_average(numbers):
 
     # The returned result will be available
     # wherever this function was called.
-    return average</pre></div></div></li>
+    return average</pre></div>
+        </div></li>
 
         <li><div>In all previous Python programs that you wrote in CSE
         110 and 111, you wrote statements that were not in a function
         like this simple program where the statements are not inside the
         body of a function:
 
-<div class="pre"><pre class="python"># Get a value in miles and convert it to kilometers.
+<div class="pre"><pre class="python" id="ex3">
+# Get a value in miles and convert it to kilometers.
 miles = float(input("Please enter a distance in miles: "))
 km = miles * 1.60934
 print(f"{miles} miles is {km} kilometers")</pre></div>
@@ -217,7 +222,7 @@ print(f"{miles} miles is {km} kilometers")</pre></div>
         that has a <code>main</code> function that calls the
         <code>calculate_average</code> function:</p>
 
-<div class="pre"><pre class="python">
+<div class="pre"><pre class="python" id="ex4">
 # Define a function that accepts one parameter.
 def calculate_average(numbers):
     """Compute and return the average of the
@@ -254,7 +259,8 @@ def main():
 
 # Start this program by
 # calling the main function.
-main()</pre></div></div></li>
+main()</pre></div>
+        </div></li>
 
         <li><div>While it's usually a good practice, you don't
         <em>have</em> to store the return value of a function in a
@@ -262,7 +268,8 @@ main()</pre></div></div></li>
         following example:
 
 <div class="pre"><pre class="linenums"></pre>
-<pre class="python"># Define the main function.
+<pre class="python" id="ex5">
+# Define the main function.
 def main():
     # Create a list of numbers.
     scores = [100, 90, 85, 84, 99]
@@ -281,17 +288,21 @@ def main():
 
         <p>Notice in the above example, we called the
         <code>calculate_average</code> function twice, once at
-        line&nbsp;9 to print the average and again at line&nbsp;13 to
-        see if the student earned an A or not. Every time we call a
+        <span class="cross" data-ref="ex5">line&nbsp;9</span>
+        to print the average and again at
+        <span class="cross" data-ref="ex5">line&nbsp;13</span>
+        to see if the student earned an A or not. Every time we call a
         function, the code inside the function body is executed. In the
         previous example, because the argument is the same list of
-        scores at both lines&nbsp;9 and&nbsp;13, the result will be the
-        same in both cases. So it would be faster to save the result in
-        a variable and reuse the variable instead, as shown in this
-        example:</p>
+        scores at both
+        <span class="cross" data-ref="ex5">lines&nbsp;9 and&nbsp;13</span>,
+        the result will be the same in both cases. So it would be faster
+        to save the result in a variable and reuse the variable instead,
+        as shown in this example:</p>
 
 <div class="pre"><pre class="linenums"></pre>
-<pre class="python"># Define the main function.
+<pre class="python" id="ex6">
+# Define the main function.
 def main():
     # Create a list of numbers.
     scores = [100, 90, 85, 84, 99]
@@ -317,9 +328,12 @@ def main():
         returned result to a variable. The circled numbers show the
         order in which the events happen in the computer.</p>
 
-        <img src="call.png" alt="A diagram showing a call to a function and a value returned from that function">
+        <img src="call.png"
+        alt="A diagram showing a call to a function and a value returned from that function"
+        title="A diagram showing a call to a function and a value returned from that function">
 <!--
-<div class="pre"><pre class="python">import math
+<div class="pre"><pre class="python" id="ex7">
+import math
 
 <b>def main()</b>:
     """Get the length of each side of a triangle,
