@@ -27,10 +27,22 @@
     <h1>11 Prepare: Functional Programming</h1>
     <p>A <dfn>paradigm</dfn> is a way of thinking or a way of viewing
     the world. There are at least four main paradigms for programming a
-    computer: procedural, declarative, functional, and object oriented.
+    computer: procedural, declarative, functional, and object-oriented.
     During previous lessons, you used procedural and declarative
     programming. During this lesson, you will be introduced to
     functional programming.</p>
+
+    <p><dfn>Procedural programming</dfn> is a programming paradigm that
+    focuses on the process or the steps to accomplish a task. This is
+    the type of programming that you did in CSE&nbsp;110 and in lessons
+    1&ndash;8 of CSE&nbsp;111.</p>
+
+    <p><dfn>Declarative programming</dfn> is a programming paradigm that
+    does <em>not</em> focus on the process or steps to accomplish a
+    task. Instead, with declarative programming, we focus on what we
+    want from the computer, or in other words, we focus on the desired
+    result. Many of the commands in the <code>pandas</code> module use a
+    form of declarative programming.</p>
 
     <p><dfn>Functional programming</dfn> is a programming paradigm that
     focuses on functions and avoids shared state, mutating state, and
@@ -45,7 +57,7 @@
     </ol>
 
     <h2>Concepts</h2>
-    <p>Here are the Python programming concepts and topics that you
+    <p>Here are the functional programming concepts and topics that you
     should learn during this lesson.</p>
 
     <ol class="long">
@@ -227,12 +239,15 @@ main()</pre></div>
 
         <li id="apply"><div>The pandas
         <a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.apply.html"><code>apply</code> function</a>
-        also takes another function as a parameter and calls the passed
-        function for each cell in a DataFrame or row or column. Consider
-        one final program to convert Fahrenheit temperatures to Celsius
-        as shown in example&nbsp;5. This final example program uses the
-        <code>pandas</code> module and calls the pandas
-        <code>apply</code> function on line&nbsp;17.
+        uses one of the functional programming concepts, specifically
+        that we can pass a function into another function. The pandas
+        <code>apply</code> function takes another function as a
+        parameter and calls the passed function once for each cell in a
+        DataFrame or Series. Consider one final program to convert
+        Fahrenheit temperatures to Celsius as shown in example&nbsp;5.
+        This final example program uses the <code>pandas</code> module
+        and calls the pandas <code>apply</code> function on
+        line&nbsp;17.
 
 <div class="pre"><pre class="linenums"></pre>
 <pre class="python" id="ex5"># Example 5
