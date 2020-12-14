@@ -1,4 +1,4 @@
-from meter_usage import get_int, insert_after
+from meter_usage import get_int
 from io import StringIO
 import pandas as pd
 import pytest

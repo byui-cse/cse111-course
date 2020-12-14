@@ -11,13 +11,13 @@ def test_add_year_month_column():
     assert len(df) == 246830
 
     # Ensure that the data frame doesn't have a column named yearMonth.
-    assert "yearMonth" not in df
+    assert "yearMonth" not in df.columns
 
     # Call the add_year_month_column function.
     df = add_year_month_column(df)
 
     # Ensure that the data frame now has a column named yearMonth.
-    assert "yearMonth" in df
+    assert "yearMonth" in df.columns
 
     # Ensure that each cell in the yearMonth column
     # contains a period[M] with a valid year and month.
