@@ -136,7 +136,7 @@ print(f"After the discount, you will pay {cost}")</pre></div>
 # Create a set that contains family names.
 surnames = {"Smith", "Lopez", "Marsh", "Olsen", "Vasiuk"}
 
-# Get the users family name.
+# Get the user's family name.
 family = input("Please enter your family name: ")
 
 # Determine if the user's family name is in the set of family names.
@@ -270,14 +270,14 @@ print(sum)</pre></div>
     the code example uses the
     <a target="_blank" href="https://docs.python.org/3/library/stdtypes.html#str.isdecimal"><code>isdecimal()</code></a>
     method to verify that the user entered only decimal digits. The
-    <code>isdecimal()</code> method returns True if a string contains at
+    <code>isdecimal</code> method returns True if a string contains at
     least one character and all the characters in the string are decimal
-    digits. Otherwise, it returns False. The isdecimal method will
-    return False if a string contains any character that is not a
-    decimal digit, including the minus sign (-) and the decimal
+    digits. Otherwise, it returns False. The <code>isdecimal</code>
+    method will return False if a string contains any character that is
+    not a decimal digit, including the minus sign (-) and the decimal
     separator (.). Unfortunately, this means the following code example
-    will allow a user to enter only non-negative integers and not
-    negative integers or floating point numbers.</p>
+    will not allow a user to enter negative integers and floating point
+    numbers.</p>
 
 <div class="pre"><pre class="linenums"></pre>
 <pre class="python" id="ex8">
@@ -325,6 +325,15 @@ while not valid:
 
 # Use the integer in the program.
 print(integer)</pre></div>
+
+    <p>Some students are confused by the comparison in
+    <span class="cross" data-ref="ex8">line&nbsp;11</span>:</p>
+    <div class="pre"><pre class="python">while not valid:</pre></div>
+    <p>The comparison in line&nbsp;11 is equivalent to this
+    comparison:</p>
+    <div class="pre"><pre class="python">while valid == False:</pre></div>
+    <p>Many programmers prefer the comparison as it is written in
+    line&nbsp;11 because it reads more like English.</p>
 </article>
 <footer>
     <small>Copyright &copy; 2020, Brigham Young University - Idaho. All
