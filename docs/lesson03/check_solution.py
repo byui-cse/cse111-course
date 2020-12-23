@@ -14,7 +14,6 @@ with open("provinces.txt", "rt") as infile:
 
 # As a debugging aid, print the entire list.
 print(provinces)
-print()
 
 # Remove the first element from the list.
 provinces.pop(0)
@@ -36,4 +35,5 @@ for province in provinces:
     if province == "Alberta":
         count += 1
 
+print()
 print(f"Alberta occurs {count} times in the modified list.")

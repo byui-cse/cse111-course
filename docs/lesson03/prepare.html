@@ -113,7 +113,7 @@ print(f"The fabrics list contains {n} elements.")
 
 # Use a for loop to print each element in the list. Of
 # course, the code in the body of a loop can do much
-# more with each element than simply print print it.
+# more with each element than simply print it.
 for element in fabrics:
     print(element)
 </pre></div>
@@ -125,7 +125,7 @@ for element in fabrics:
     created. In a dictionary, items are stored as key value pairs. All
     keys within a dictionary must be unique. In other words, no key can
     appear more than once in a dictionary. Values within a dictionary do
-    not have to be unique. The following diagram shows a dictionary that
+    not have to be unique. The following table shows a dictionary that
     contains five items (five key value pairs) Notice that each of the
     keys is unique.</p>
 
@@ -188,16 +188,14 @@ print(name)</pre></div>
     item to an existing dictionary, write code that follows this
     template:</p>
 <div class="pre"><pre class="python">dictionary_name[key] = value</pre></div>
-    <p>Notice that <span class="cross" data-ref="ex2">line&nbsp;12</span>
-    follows this template.</p>
+    <p>Notice that line&nbsp;12 follows this template.</p>
 
     <p><span class="cross" data-ref="ex2">Line&nbsp;26</span> in the
     previous code example, looks up a key and retrieves its
     corresponding value from a dictionary. To look up a key and retrieve
     its corresponding value, write code that follows this template:</p>
 <div class="pre"><pre class="python">value = dictionary_name[key]</pre></div>
-    <p>Notice that <span class="cross" data-ref="ex2">line&nbsp;26</span>
-    follows this template.</p>
+    <p>Notice that line&nbsp;26 follows this template.</p>
 
     <h3>Converting between Lists and Dictionaries</h3>
     <p>It is possible to convert two lists into a dictionary by using
@@ -205,7 +203,8 @@ print(name)</pre></div>
     contents of the first list will become the keys in the dictionary,
     and the contents of the second list will become the values. This
     implies that the two lists must have the same length, and the
-    elements in the first list must be unique.</p>
+    elements in the first list must be unique because keys in a
+    dictionary must be unique.</p>
 
     <p>It is also possible to convert a dictionary into two lists by
     using the <code>keys</code> and <code>values</code> methods and the
@@ -246,9 +245,9 @@ print(values)</pre></div>
     <a target="_blank" href="https://docs.python.org/3/library/stdtypes.html#str.splitlines"><code>string.splitlines()</code></a>
     method breaks a string into a list of strings, breaking at line
     boundaries. The following code example uses the built-in
-    <code>open</code> function and <code>read</code> and
-    <code>splitlines</code> methods to read the contents of a text file
-    into a list.</p>
+    <code>open</code> function and <code>file.read</code> and
+    <code>string.splitlines</code> methods to read the contents of a
+    text file into a list.</p>
 
 <div class="pre"><pre class="python" id="ex4">
 # Open the plants.txt file for reading.
@@ -258,8 +257,8 @@ with <em>open("plants.txt", "rt")</em> as infile:
     <em>string = infile.read()</em>
 
 # Split the string into a list of strings named
-# plants. Each line of the plants.txt file will
-# be stored in its own element in the list.
+# plants. Each line from the plants.txt file
+# will be stored in its own element in the list.
 <em>plants = string.splitlines()</em>
 
 # Print the entire list.
