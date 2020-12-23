@@ -45,13 +45,8 @@
     should learn during this lesson.</p>
 
     <ol class="long">
-        <li><div>We can use the functions that are part of the
-        <code>pandas</code> <code>DataFrame.plot</code> object to draw
-        different types of plots, including line, vertical bar,
-        horizontal bar, histogram, box, pie, and scatter.</div></li>
-
-        <li><div>Drawing a plot can be as simple as these three steps:
-        <ol>
+        <li><div>Drawing a plot with the <code>pandas</code> module can
+        be as simple as these three steps: <ol>
             <li><div>read the data</div></li>
             <li><div>define the plot</div></li>
             <li><div>draw (show) the plot</div></li>
@@ -71,9 +66,34 @@ df.plot(kind="bar", x="column_name_1", y="column_name_2")
 # Draw and show all defined plots.
 pyplot.show()</pre></div>
 
-        In the above example, lines 2 and 11 are easy to forget but
-        without them, the plots that your code defines will not be shown
-        on the computer's monitor.</div></li>
+        In the above example,
+        <span class="cross" data-ref="ex1">lines&nbsp;2</span>
+        <span class="cross" data-ref="ex1">and&nbsp;11</span>
+        are easy to forget but without them, the plots that your code
+        defines will not be shown on the computer's monitor.</div></li>
+
+        <li><div><span class="cross" data-ref="ex1">Line&nbsp;8</span>
+        in the example code above contains a call to the pandas
+        <code>DataFrame.plot</code> method. The <var>kind</var> named
+        argument tells the <code>DataFrame.plot</code> method what type
+        of plot to draw. There are at least nine types of plots that
+        <code>DataFrame.plot</code> can draw by changing the value for
+        the <var>kind</var> named parameter as follows:
+        <ul>
+            <li><div><code>area</code> - area plot</div></li>
+            <li><div><code>bar</code> - vertical bar plot</div></li>
+            <li><div><code>barh</code> - horizontal bar plot</div></li>
+            <li><div><code>box</code> - box plot</div></li>
+            <li><div><code>density</code> - density plot</div></li>
+            <li><div><code>hexbin</code> - hexagonal bin plot</div></li>
+            <li><div><code>hist</code> - histogram</div></li>
+            <li><div><code>pie</code> - pie plot</div></li>
+            <li><div><code>scatter</code> - scatter plot</div></li>
+        </ul>
+
+        The <var>x</var> and <var>y</var> named arguments tell the
+        <code>DataFrame.plot</code> method which columns in the data
+        frame to use as the x and y axes in the plot.</div></li>
 
         <li><div>Although drawing a plot can be very simple, a data
         scientist may have to write significant amounts of code to
