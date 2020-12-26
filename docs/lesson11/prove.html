@@ -132,7 +132,7 @@
     <div class="expand">
     <div class="title">Calculates numbers</div>
     <div class="pre"><pre class="python">
-def pmt(amt, ar, y, ppy):
+def payment(amt, ar, y, ppy):
     """Computes and returns the payment amount
     for a loan with a fixed annual interest rate.
     """
@@ -141,10 +141,10 @@ def pmt(amt, ar, y, ppy):
     p = amt * r / (1 - (1 + r) ** -n)
     return round(p, 2)</pre></div>
     <div class="pre"><pre class="python">
-def test_pmt():
-    """Verify that the pmt function works correctly."""
-    assert pmt(10_000, 0.07, 4, 12) == 239.46
-    assert pmt(80_000, 0.04, 15, 4) == 1779.56</pre></div></div>
+def test_payment():
+    """Verify that the payment function works correctly."""
+    assert payment(10_000, 0.07, 4, 12) == 239.46
+    assert payment(80_000, 0.04, 15, 4) == 1779.56</pre></div></div>
 
     <div class="expand">
     <div class="title">Processes text instead of numbers</div>
@@ -231,9 +231,44 @@ def test_get_int(monkeypatch):
     <div class="expand">
     <div class="title">Gets user input from a GUI</div>
     <div class="pre"><pre class="python">
-    </pre></div>
+"""In order to test a program that gets user input from a graphical
+user interface, separate the event functions (the ones that are
+executed when a user types a value in a text field) into two
+functions. Move the calculations out of an event function and into a
+calculation function that takes parameters, performs a calculation,
+and returns a result. Then write a test function for the new
+calculation function."""
+
+        # This function is called each time the user releases a key.
+        def calc(event):
+            try:
+                # Get the user input.
+                w = txtWidth.get()
+                a = txtRatio.get()
+                d = txtDiam.get()
+
+                # Compute the tire volume.
+                v = tire_volume(w, a, d)
+
+                # Display the volume for the user to see.
+                lblResult.config(text=str(round(v, 1)))
+
+            except ValueError:
+                # When the user deletes all the digits in one
+                # of the text fields, clear the result labels.
+                    lblResult.config(text="")
+
+
+    def tire_volume(width, ratio, diam):
+        """Compute and return the approximate volume of a tire."""
+        vol = (math.pi * width * width * ratio *
+                (widith * ratio + 2540 * diam)) / 10_000_000
+        return vol</pre></div>
     <div class="pre"><pre class="python">
-    </pre></div></div>
+def test_tire_volume():
+    """Verify that the tire_volume function works correctly."""
+    assert tire_volume(185, 60, 14) == approx(30101.58, 0.01)
+    assert tire_volume(205, 60, 15) == approx(39924.49, 0.01)</pre></div></div>
 
     <div class="expand">
     <div class="title">Writes to a file</div>
@@ -266,14 +301,17 @@ def test_write_file():
 
     # Read the contents of the fruits.txt file.
     with open(filename, "rt") as infile:
-        written = infile.readlines()
+
+        # Read all the characters in the file into a string.
+        string = infile.read()
+
+    # Split the string into a list of strings named
+    # written. Each line of text from the text file
+    # will be stored in its own element in the list.
+    written = string.splitlines()
 
     # Delete the fruits.txt file.
     os.remove(filename)
-
-    # Remove newline characters from the end of each line of text.
-    rstrip = lambda text: text.rstrip()
-    written = list(map(rstrip, written))
 
     # Verify that write_file correctly wrote the fruits.txt file.
     assert lines == written</pre></div></div>
@@ -287,11 +325,14 @@ def read_file(filename):
     """
     lines = None
     with open(filename, "rt") as infile:
-        lines = infile.readlines()
 
-        # Remove newline characters from the end of each line.
-        rstrip = lambda line: line.rstrip()
-        lines = list(map(rstrip, lines))
+        # Read all the characters in the file into a string.
+        string = infile.read()
+
+    # Split the string into a list of strings named
+    # lines. Each line of text from the text file
+    # will be stored in its own element in the list.
+    lines = string.splitlines()
 
     return lines</pre></div>
     <div class="pre"><pre class="python">
@@ -317,23 +358,39 @@ def test_read_file():
     <div class="expand">
     <div class="title">Uses pandas</div>
     <div class="pre"><pre class="python">
-    </pre></div>
-    <div class="pre"><pre class="python">
-    </pre></div></div>
+def filter_for_meter(df, meter_number):
+    """Return a new DataFrame that contains only the rows where
+    the meterNumber column equals the parameter meter_number.
 
-    <div class="expand">
-    <div class="title">Doesn't use pandas</div>
+    param df: The DataFrame that this function will filter.
+    param meter_number: df will be filtered so that all the rows in the
+        new DataFrame will have this meter number.
+    return: A new DataFrame.
+    """
+    filter = (df["meterNumber"] == meter_number)
+    filtered_df = df[filter]
+    return filtered_df</pre></div>
     <div class="pre"><pre class="python">
-    </pre></div>
-    <div class="pre"><pre class="python">
-    </pre></div></div>
+import pandas as pd
 
-    <div class="expand">
-    <div class="title">Draws plots</div>
-    <div class="pre"><pre class="python">
-    </pre></div>
-    <div class="pre"><pre class="python">
-    </pre></div></div>
+def test_filter_for_meter():
+    """Verify that the filter_for_meter function works correctly."""
+
+    # Read the water.csv file and convert the
+    # readDate column from a string to a datetime64.
+    df = pd.read_csv(FILENAME, parse_dates=["readDate"])
+
+    # Call the filter_for_meter function.
+    meter_num = "M4103"
+    filtered_df = filter_for_meter(df, meter_num)
+
+    # Verify that the filtered data frame contains at least one row.
+    assert len(filtered_df.index) &gt; 0
+
+    # Verify that all the meter numbers in the
+    # filtered data frame are the correct number.
+    for value in filtered_df["meterNumber"]:
+        assert value == meter_num</pre></div></div>
 
     <div class="expand">
     <div class="title">My code is so good that it doesn't need to be tested.</div>
