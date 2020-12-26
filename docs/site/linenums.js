@@ -26,16 +26,31 @@ cse111.linenums = {
 
 	addCrossRefs : function() {
 		let getNumbers = function(target) {
-			// Notice the dash and en dash in the chracter class.
-			const space = /([-–\s]|&nbsp;|&ndash;|<br>)+/g;
+			const space = /(\s|&nbsp;|<br>)+/g;
+
+			// Notice the dash and en dash in the character class.
+			const dash = /[-–]|&ndash;/;
 
 			let text = target.innerText;
 			let candidates = text.split(space);
 			let numbers = [];
 			for (let i = 0;  i < candidates.length;  ++i) {
-				let linenum = parseInt(candidates[i]);
-				if (! Number.isNaN(linenum)) {
-					numbers.push(linenum);
+				let candidate = candidates[i];
+				if (dash.test(candidate)) {
+					let limits = candidate.split(dash);
+					let start = parseInt(limits[0]);
+					let end = parseInt(limits[1]);
+					if (! (Number.isNaN(start) || Number.isNaN(start))) {
+						for (let j = start;  j <= end;  ++j) {
+							numbers.push(j);
+						}
+					}
+				}
+				else {
+					let linenum = parseInt(candidate);
+					if (! Number.isNaN(linenum)) {
+						numbers.push(linenum);
+					}
 				}
 			}
 			return numbers;

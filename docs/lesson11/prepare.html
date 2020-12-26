@@ -97,14 +97,14 @@ def cels_from_fahr(fahr):
 
 main()</pre></div>
 
-        <p>At lines&nbsp;12&ndash;14 in example&nbsp;1 above, there is a
-        for each loop that converts each Fahrenheit temperature to
-        Celsius and then appends the Celsius temperature into a new
-        list. Writing a for each loop like this is the traditional way
-        to process all the elements in a list. However, Python also
-        includes a built-in function named <code>map</code> that will
-        process all of the elements in a list and return a new list that
-        contains the results. The
+        <p>At <span class="cross" data-ref="ex1">lines&nbsp;12&ndash;14</span>
+        in example&nbsp;1 above, there is a for each loop that converts
+        each Fahrenheit temperature to Celsius and then appends the
+        Celsius temperature into a new list. Writing a for each loop
+        like this is the traditional way to process all the elements in
+        a list. However, Python also includes a built-in function named
+        <code>map</code> that will process all of the elements in a list
+        and return a new list that contains the results. The
         <a target="_blank" href="https://docs.python.org/3/library/functions.html#map"><code>map</code> function</a>
         contains a loop inside of it, so that when a programmer calls
         the <code>map</code> function, he doesn't need to write a loop.
@@ -139,12 +139,12 @@ def cels_from_fahr(fahr):
 main()</pre></div>
 
         <p>Notice that example&nbsp;2, doesn't contain a for each loop.
-        Instead, at line&nbsp;11, it contains a call to the
-        <code>map</code> function. Remember that the <code>map</code>
-        function has a loop inside of it, so that the programmer who
-        calls <code>map</code>, doesn't have to write the loop. Notice
-        also at line&nbsp;11, that the first argument to the
-        <code>map</code> function is the name of the
+        Instead, at <span class="cross" data-ref="ex2">line&nbsp;11</span>,
+        it contains a call to the <code>map</code> function. Remember
+        that the <code>map</code> function has a loop inside of it, so
+        that the programmer who calls <code>map</code>, doesn't have to
+        write the loop. Notice also at line&nbsp;11, that the first
+        argument to the <code>map</code> function is the name of the
         <code>cels_from_fahr</code> function. In other words, at
         line&nbsp;11, we are passing the <code>cels_from_fahr</code>
         function into the <code>map</code> function, so that
@@ -167,8 +167,9 @@ main()</pre></div>
         function only. The program in example&nbsp;3 produces the same
         results as examples&nbsp;1&nbsp;and&nbsp;2, but it uses a nested
         function. Notice in example&nbsp;3 at
-        lines&nbsp;5&ndash;10 that the <code>cels_from_fahr</code>
-        function is nested inside the <code>main</code> function.
+        <span class="cross" data-ref="ex3">lines&nbsp;5&ndash;10</span>
+        that the <code>cels_from_fahr</code> function is nested inside
+        the <code>main</code> function.
 
 <div class="pre"><pre class="linenums"></pre>
 <pre class="python" id="ex3"># Example 3
@@ -203,9 +204,10 @@ main()</pre></div></div></li>
         language restricts a lambda function to just one expression.
         Consider the program in example&nbsp;4 which is yet another
         example program that converts Fahrenheit temperatures to
-        Celsius. Notice the lambda function on line&nbsp;12 of
-        example&nbsp;4. It takes one parameter named <var>fahr</var> and
-        computes and returns the corresponding Celsius temperature.
+        Celsius. Notice the lambda function on
+        <span class="cross" data-ref="ex4">line&nbsp;12</span>
+        of example&nbsp;4. It takes one parameter named <var>fahr</var>
+        and computes and returns the corresponding Celsius temperature.
 
 <div class="pre"><pre class="linenums"></pre>
 <pre class="python" id="ex4"># Example 4
@@ -236,18 +238,20 @@ main()</pre></div>
         example&nbsp;4 can be rewritten as the
         <code>cels_from_fahr</code> function in examples&nbsp;1,&nbsp;2,
         and&nbsp;3.</p></div></li>
+    </ol>
 
-        <li id="apply"><div>The pandas
-        <a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.apply.html"><code>apply</code> function</a>
-        uses one of the functional programming concepts, specifically
-        that we can pass a function into another function. The pandas
-        <code>apply</code> function takes another function as a
-        parameter and calls the passed function once for each cell in a
-        DataFrame or Series. Consider one final program to convert
-        Fahrenheit temperatures to Celsius as shown in example&nbsp;5.
-        This final example program uses the <code>pandas</code> module
-        and calls the pandas <code>apply</code> function on
-        line&nbsp;17.
+    <h2 id="apply">Pandas <code>apply</code> Function</h2>
+    <p>The pandas
+    <a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.apply.html"><code>apply</code> function</a>
+    uses one of the functional programming concepts, specifically that
+    we can pass a function into another function. The pandas
+    <code>apply</code> function takes another function as a parameter
+    and calls the passed function once for each cell in a DataFrame or
+    Series. Consider one final program to convert Fahrenheit
+    temperatures to Celsius. The example program  in example&nbsp;5 uses
+    the <code>pandas</code> module and calls the pandas
+    <code>apply</code> function on
+    <span class="cross" data-ref="ex5">line&nbsp;17</span>.</p>
 
 <div class="pre"><pre class="linenums"></pre>
 <pre class="python" id="ex5"># Example 5
@@ -272,8 +276,7 @@ def main():
     print(df)
 
 
-main()</pre></div></div></li>
-    </ol>
+main()</pre></div>
 
     <h2>Videos</h2>
     <p>If you wish to learn more about functional programming in Python,
