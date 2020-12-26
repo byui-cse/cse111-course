@@ -115,8 +115,7 @@ print(f"The fabrics list contains {n} elements.")
 # course, the code in the body of a loop can do much
 # more with each element than simply print it.
 for element in fabrics:
-    print(element)
-</pre></div>
+    print(element)</pre></div>
 
     <h3 id="dicts">Dictionaries</h3>
     <p>Within a Python program, we can store many items in a
@@ -176,12 +175,22 @@ print(students)
 # Get a student ID from the user.
 id = input("Enter a student ID: ")
 
-# Lookup the student ID in the dictionary and
-# retrieve the corresponding student name.
-<em>name = students[id]</em>
+# Check if the student ID is in the dictionary.
+if id in students:
+    # Lookup the student ID in the dictionary and
+    # retrieve the corresponding student name.
+    <em>name = students[id]</em>
 
-# Print the student name.
-print(name)</pre></div>
+    # Print the student name.
+    print(name)
+else:
+    print("No such student")
+
+# Use a for loop to print each key value pair in the
+# dictionary. Of course, the code in the body of a loop can
+# do much more with each key value pair than simply print it.
+for key, value in students.items():
+    print(key, value)</pre></div>
 
     <p><span class="cross" data-ref="ex2">Line&nbsp;12</span> in the
     previous code example, adds an item to the dictionary. To add an
@@ -190,12 +199,12 @@ print(name)</pre></div>
 <div class="pre"><pre class="python">dictionary_name[key] = value</pre></div>
     <p>Notice that line&nbsp;12 follows this template.</p>
 
-    <p><span class="cross" data-ref="ex2">Line&nbsp;26</span> in the
+    <p><span class="cross" data-ref="ex2">Line&nbsp;28</span> in the
     previous code example, looks up a key and retrieves its
     corresponding value from a dictionary. To look up a key and retrieve
     its corresponding value, write code that follows this template:</p>
 <div class="pre"><pre class="python">value = dictionary_name[key]</pre></div>
-    <p>Notice that line&nbsp;26 follows this template.</p>
+    <p>Notice that line&nbsp;28 follows this template.</p>
 
     <h3>Converting between Lists and Dictionaries</h3>
     <p>It is possible to convert two lists into a dictionary by using
