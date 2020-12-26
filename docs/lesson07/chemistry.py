@@ -156,10 +156,10 @@ class FormulaError(ValueError):
 
 
 def parse_formula(formula):
-    """Convert a chemical formula for a molecule into a dictionary that
-    stores the number of atoms of each element in the molecule. For
-    example, this function will convert "H2O" to {"H":2, "O":1} and
-    "PO4H2(CH2)12CH3" to {"P":1, "O":4, "H":29, "C":13}
+    """Convert a chemical formula for a molecule into a dictionary
+    that stores the number of atoms of each element in the molecule.
+    For example, this function will convert "H2O" to {"H":2, "O":1}
+    and "PO4H2(CH2)12CH3" to {"P":1, "O":4, "H":29, "C":13}
     """
     def parse_quant(formula, index):
         quant = 1

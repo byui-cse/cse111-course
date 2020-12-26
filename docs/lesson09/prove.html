@@ -36,7 +36,7 @@
         this assignment. Additionally, the prepare content contains
         links to the official <code>pandas</code> tutorials.</div></li>
 
-        <li><div>Grouping and aggregating data is an advanced data
+        <li><div>Grouping and aggregating data is an intermediate data
         analysis operation that can summarize many rows into just a few
         rows. To
         <a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/06_calculate_statistics.html#aggregating-statistics-grouped-by-category">group and aggregate data</a>,
@@ -45,10 +45,10 @@
 
 <div class="pre"><pre class="python">import pandas as pd
 
-df = pd.read_csv("filename.csv")
-group = df.groupby("existing_column_to_group_by")
+df = pd.read_csv("<var>filename</var>.csv")
+group = df.groupby("<var>existing_column_to_group_by</var>")
 grouped_df = group.aggregate(
-        new_column_name=("existing_column_to_summarize", "function"))</pre></div>
+        <var>new_column_name</var>=("<var>existing_column_to_summarize</var>", "<var>function</var>"))</pre></div>
 
         For example, the following code computes the sum of water usage
         grouped by account type.
