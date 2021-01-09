@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!-- Copyright 2020, Brigham Young University - Idaho. All rights reserved. -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSE 111 - Example</title>
+    <link rel="icon" type="image/png" href="../site/icon.png">
+    <link rel="stylesheet" type="text/css" href="../site/style.css">
+    <script src="../site/color.js"></script>
+</head>
+
+<body>
+<header>
+    <div class="colorCtrl">&nbsp;</div>
+    <div class="logo">
+        <div class="upper">BYU</div>
+        <div class="lower">Idaho</div>
+    </div>
+    <h2>CSE 111 | <span>Programming with Functions</span></h2>
+</header>
+<article>
+    <h1>01 Example: Review Python</h1>
+
+    <h2>Overview</h2>
+    <p>Prove that you can write a simple Python program that gets input
+    from a user, performs arithmetic, and displays output to the
+    user.</p>
+
+    <h2>Problem Statement</h2>
+    <div class="figure" style="width:14em;"><img src="cone.png"
+    alt="A right circular cone with radius r and height h"
+    title="A right circular cone with radius r and height h">
+    <div>A right circular cone with radius <var>r</var> and height
+    <var>h</var>.</div></div>
+
+    <p>The surface area of a right circular cone can be computed with
+    this formula:</p>
+
+    <div class="block expr"><var>A</var> = &pi;&thinsp;<var>r</var><div class="paren"><var>r</var> + <span class="radic"><span><var>r</var><sup>2</sup> + <var>h</var><sup>2</sup></span></span></div></div>
+
+    <ul>
+        <li><div><var>A</var> is the surface area of the cone</div></li>
+        <li><div><var>r</var> is the radius of the cone</div></li>
+        <li><div><var>h</var> is the height of the cone</div></li>
+    </ul>
+
+    <h2>Assignment</h2>
+    <p>Write a Python program named <code>cone_surface_area.py</code>
+    that reads from the keyboard the radius and height of a right
+    circular cone and computes and outputs the surface area of that
+    cone.</p>
+
+    <h2>Helpful Documentation</h2>
+    <p>The Python <a target="_blank"
+    href="https://docs.python.org/3/library/math.html"><code>math</code>
+    module</a> contains mathematical constants and functions including
+    <a target="_blank" href="https://docs.python.org/3/library/math.html#math.pi"><code>math.pi</code></a>
+    and
+    <a target="_blank" href="https://docs.python.org/3/library/math.html#math.sqrt"><code>math.sqrt</code></a>.</p>
+
+    <h2>Sample Run</h2>
+<pre class="console">&gt; python example.py
+This program computes and outputs the
+surface area of a right circular cone.
+Enter the radius of a cone: <span class="input">5</span>
+Enter the height of a cone: <span class="input">8</span>
+The surface area is 226.7</pre>
+
+    <h2>Testing Procedure</h2>
+    <p>Verify that your program works correctly by following each step
+    in this testing procedure:</p>
+    <ol class="test long">
+        <li><div>Run your program using the input shown in the sample
+        run section above. Ensure that your program's output matches the
+        sample run output.</div></li>
+
+        <li><div>Run your program again and enter the values: -5 and 8.
+        Did your program output valid results? What should your program
+        do when a user enters negative numbers?</div></li>
+    </ol>
+</article>
+<footer>
+    <small>Copyright &copy; 2020, Brigham Young University - Idaho. All
+    rights reserved.</small>
+</footer>
+</body>
+</html>

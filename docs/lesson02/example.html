@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!-- Copyright 2020, Brigham Young University - Idaho. All rights reserved. -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSE 111 - Prove</title>
+    <link rel="icon" type="image/png" href="../site/icon.png">
+    <link rel="stylesheet" type="text/css" href="../site/style.css">
+    <script src="../site/color.js"></script>
+</head>
+
+<body>
+<header>
+    <div class="colorCtrl">&nbsp;</div>
+    <div class="logo">
+        <div class="upper">BYU</div>
+        <div class="lower">Idaho</div>
+    </div>
+    <h2>CSE 111 | <span>Programming with Functions</span></h2>
+</header>
+<article>
+    <h1>02 Example: Validate User Input</h1>
+
+    <h2>Overview</h2>
+    <p>Prove that you can write a Python program that validates user
+    input and uses that input in calculations.</p>
+
+    <h2>Problem Statement</h2>
+    <p>While entering input for a program, users occasionally make
+    mistakes and enter invalid or incorrect input. A good program
+    recovers from user mistakes, informs users about mistakes in clear
+    polite language, and gives users an opportunity to correct their
+    mistakes.</p>
+
+    <h2>Helpful Documentation</h2>
+    <p>The <a target="_blank" href="prepare.html#validate">code
+    example</a> in this lesson's prepare content shows how to require a
+    user to enter a non-negative integer between a minimum and maximum
+    value.</p>
+
+    <h2>Assignment</h2>
+    <p>The video for the previous lesson showed how to write a program
+    that computes the surface area of a right circular cone. Change the
+    program so that it validates all both of the numbers that the user
+    enters while using the program. Assume that the user will enter
+    integers and not floating point numbers (numbers with a decimal
+    point). The minimum and maximum for the two numbers are as
+    follows:</p>
+
+    <table class="center"><thead>
+        <tr><th>Quantity</th> <th>Minimum</th> <th>Maximum</th></tr>
+    </thead><tbody>
+        <tr><th>radius</th>
+            <td class="number">2</td> <td class="number">500</td></tr>
+        <tr><th>height</th>
+            <td class="number">3</td> <td class="number">1000</td></tr>
+    </tbody></table>
+
+    <h2>Sample Run</h2>
+<pre class="console">&gt; python example.py
+This program computes and outputs the
+surface area of a right circular cone.
+
+Enter the integer radius of a cone: <span class="input">radius</span>
+'radius' is not a positive integer. Please enter a positive integer.
+Enter the integer radius of a cone: <span class="input">1</span>
+1 is too small. Please enter a positive integer between 2 and 500.
+Enter the integer radius of a cone: <span class="input">650</span>
+650 is too large. Please enter a positive integer between 2 and 500.
+Enter the integer radius of a cone: <span class="input">14</span>
+
+Enter the integer height of a cone: <span class="input">height</span>
+'height' is not a positive integer. Please enter a positive integer.
+Enter the integer height of a cone: <span class="input">1</span>
+1 is too small. Please enter a positive integer between 3 and 1000.
+Enter the integer height of a cone: <span class="input">9000</span>
+9000 is too large. Please enter a positive integer between 3 and 1000.
+Enter the integer height of a cone: <span class="input">20</span>
+
+The surface area is 1689.5</pre>
+
+    <h2>Testing Procedure</h2>
+    <p>Verify that your program works correctly by following each step
+    in this testing procedure:</p>
+    <ol class="test">
+        <li><div>Run your program and enter the inputs shown in the
+        "Sample Run" section above. Ensure that your program's output
+        matches the sample run output.</div></li>
+    </ol>
+</article>
+<footer>
+    <small>Copyright &copy; 2020, Brigham Young University - Idaho. All
+    rights reserved.</small>
+</footer>
+</body>
+</html>
