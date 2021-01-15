@@ -46,21 +46,16 @@
     according to what you actually did.</p>
 
     <h2>Problem Statement</h2>
+    <p>In our modern world economy, many items are manufactured in large
+    factories, then packed in boxes and shipped to distribution centers
+    and retail stores. A common question for employees who pack items is
+    "How many boxes do we need?"</p>
+
     <p>While entering input for a program, users occasionally make
     mistakes and enter invalid or incorrect input. A good program
     recovers from user mistakes, informs users about mistakes in clear
     polite language, and gives users an opportunity to correct their
     mistakes.</p>
-
-    <h2>Helpful Documentation</h2>
-    <p>The <a target="_blank" href="prepare.html#validate">code
-    example</a> in this lesson's prepare content shows how to require a
-    user to enter a non-negative integer between a minimum and maximum
-    value.</p>
-
-    <p>The <a target="_blank" href="https://docs.python.org/3/library/math.html#math.ceil">math.ceil()</a>
-    function rounds a number up to the nearest integer that is greater
-    than or equal to a number.</p>
 
     <h2>Assignment</h2>
     <p>A manufacturing company needs a program that will help its
@@ -71,10 +66,30 @@
     must compute and print the number of boxes necessary to hold the
     items.</p>
 
+    <h2>Order of Development</h2>
+    <p>A good way to write this program is to first write simple code to
+    get the two integers from the user, compute the number of boxes, and
+    print the number of boxes. Then second, add code to validate the user
+    input.</p>
+
+    <h2>Helpful Documentation</h2>
+    <p>The <a target="_blank" href="https://docs.python.org/3/library/math.html#math.ceil">math.ceil()</a>
+    function rounds a number up to the nearest integer that is greater
+    than or equal to a number.</p>
+
+    <p>The <a target="_blank" href="prepare.html#validate">code
+    example</a> in this lesson's prepare content shows how to require a
+    user to enter a non-negative integer between a minimum and maximum
+    value.</p>
+
     <h3>Core Requirements</h3>
     <p>Your program must do the following:</p>
 
     <ol class="long">
+        <li><div>Compute and print the number of boxes required to hold
+        the items. This must be a whole number. Note that the last box
+        may be packed with fewer items than the other boxes.</div></li>
+
         <li><div>Prompt the user for the number of <em>manufactured
         items</em> and ensure that the user enters an integer greater
         than 0. If the user enters anything that is not an integer
@@ -89,10 +104,6 @@
         greater than 0 and less than the number of manufactured items,
         your program must repeatedly prompt the user to enter another
         integer until he enters a correct integer.</div></li>
-
-        <li><div>Compute and print the number of boxes required to hold
-        the items. This must be a whole number. Note that the last box
-        may be packed with fewer items than the other boxes.</div></li>
     </ol>
 
     <h3>Stretch Challenges</h3>
@@ -113,7 +124,14 @@
         negative integers and fractional numbers.</div></li>
     </ol>
 
-    <h2>Sample Run</h2>
+    <h2>Sample Runs</h2>
+<pre class="console">&gt; python teach_solution.py
+Enter the number of items: <span class="input">8</span>
+Enter the number of items per box: <span class="input">5</span>
+
+For 8 items, packing 5 items in each box, you will need 2 boxes.
+</pre>
+
 <pre class="console">&gt; python teach_solution.py
 Enter the number of items: <span class="input">hello</span>
 'hello' is not a positive integer. Please enter a positive integer.
