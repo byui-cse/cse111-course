@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<!-- Copyright 2020, Brigham Young University - Idaho. All rights reserved. -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSE 111 - Example</title>
+    <link rel="icon" type="image/png" href="../site/icon.png">
+    <link rel="stylesheet" type="text/css" href="../site/style.css">
+    <script src="../site/color.js"></script>
+</head>
+
+<body>
+<header>
+    <div class="colorCtrl">&nbsp;</div>
+    <div class="logo">
+        <div class="upper">BYU</div>
+        <div class="lower">Idaho</div>
+    </div>
+    <h2>CSE 111 | <span>Programming with Functions</span></h2>
+</header>
+<article>
+    <h1>03 Example: Using Dictionaries</h1>
+
+    <h2>Overview</h2>
+    <p>Prove that you can write a Python program that reads CSV files
+    and creates, populates, and uses a dictionary.</p>
+
+    <h2>Problem Statement</h2>
+    <p>A local music teacher has a large collection of recorded music.
+    He has a CSV file named <code>all_music.csv</code> that contains
+    information about all of his music. He also has a playlist stored
+    in a text file named <code>evening.txt</code>. He wants to know how
+    long it will take to listen to the songs in the playlist.</p>
+
+    <h2>Helpful Documentation</h2>
+    <p><a target="_blank" href="file_setup.html">This article</a>
+    explains how to setup VS Code so that your Python program can read
+    from files.</p>
+
+    <p>The prepare content for this lesson includes a section about
+    <a target="_blank" href="prepare.html#dicts">using dictionaries</a>
+    and a section about
+    <a target="_blank" href="prepare.html#csvFiles">reading CSV files</a>.</p>
+
+    <p>The prepare content for this lesson includes a section about
+    <a target="_blank" href="prepare.html#lists">using lists</a>
+    and a section about
+    <a target="_blank" href="prepare.html#textFiles">reading text files</a>.</p>
+
+    <h2>Assignment</h2>
+    <p>Write a program that does the following:</p>
+
+    <ol>
+        <li><div>Reads the data in the <code>all_music.csv</code> file
+        and stores it in a dictionary named <code>all_music</code> with
+        the song title as the key.</div></li>
+
+        <li><div>Reads the titles from the <code>evening.txt</code>
+        playlist.</div></li>
+
+        <li><div>For each title in the playlist does the
+        following:
+        <ol>
+            <li><div>Finds the title in the <code>all_music</code>
+            dictionary.</div></li>
+            <li><div>Gets the length in seconds of the song.</div></li>
+            <li><div>Prints the song title and length in seconds.</div></li>
+            <li><div>Adds the length to a total.</div></li>
+        </ol></div></li>
+
+        <li><div>Prints the total length of the playlist in minutes.</div></li>
+    </ol>
+
+    <h2>Sample Run</h2>
+<pre class="console">&gt; python playlist.py
+Lambs 154
+Magic Castle 251
+Blue Skies 150
+Serenade For Strings 237
+Appalachian Spring - Simple Gifts 342
+Fanfare For The Common Man 199
+Quiet City 656
+The Rustle of Spring 166
+Nocturne #2 In E Flat 275
+Waltz #1 In E Flat 309
+All They That See Him 51
+Behold &amp; See 106
+Hallelujah Chorus 251
+Rhapsody in Blue 163
+How Beautiful Are The Feet 137
+I Know That My Redeemer Liveth 396
+If God Be For Us Who Can Be Against Us? 296
+O Death, Where Is Thy Sting? 72
+Since By Man Came Death 141
+Snowflakes 424
+Jesu, Joy Of Man's Desiring 215
+Clara &amp; Nutcracker 214
+French Doll 70
+Stars &amp; Stripes Forever 204
+Worthy Is The Lamb 438
+Always 173
+Sugar Plum Fairy 144
+Waltz of the Flowers 364
+
+Total time: 110 minutes</pre>
+
+    <h2>Testing Procedure</h2>
+    <p>Verify that your program works correctly by following each step
+    in this testing procedure:</p>
+
+    <ol class="test">
+        <li><div>Run your program and verify that it prints the
+        <var>products</var> dictionary and requested items as shown in
+        the "Sample Run" section above. The output of your program
+        should contain the same data as above but does not have to be
+        formatted exactly the same as above.</div></li>
+    </ol>
+</article>
+<footer>
+    <small>Copyright &copy; 2020, Brigham Young University - Idaho. All
+    rights reserved.</small>
+</footer>
+</body>
+</html>
