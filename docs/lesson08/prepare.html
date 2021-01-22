@@ -31,9 +31,9 @@
     cannot be found on a server, and calculations that produce undefined
     results. A well written program handles errors in a graceful manner
     that may include adjusting to an error, printing an error message
-    for the user to see, and saving an error to a log file. During this
-    lesson, you will learn to write code that handles errors that may
-    occur while your Python program is running.</p>
+    for the user to see, and saving an error message to a log file.
+    During this lesson, you will learn to write code that handles errors
+    that may occur while your Python program is running.</p>
 
     <h2>Videos</h2>
     <p>Watch these videos from Microsoft about error handling.</p>
@@ -47,18 +47,19 @@
     should learn during this lesson.</p>
 
     <ol class="long">
-        <li><div>An exception is a relatively rare exceptional event
-        that sometimes occurs while a Python program is running. In
-        Python, an error is a type of exception. There are many
+        <li><div>An <dfn>exception</dfn> is a relatively rare event
+        that sometimes occurs while a Python program is running. For
+        example, an exception occurs when a Python program tries to open
+        a file for reading, and that file doesn't exist. There are many
         different <a target="_blank"
         href="https://docs.python.org/3/library/exceptions.html">built-in
         exceptions</a> that may occur while a Python program is
         running.</div></li>
 
         <li><div>When an exceptional event occurs, a Python function
-        raises an exception which may be handled by code at another
-        location in the executing Python program. The Python keyword to
-        raise an exception is <code>raise</code>.</div></li>
+        <dfn>raises</dfn> an exception which may be handled by code at
+        another location in the executing Python program. The Python
+        keyword to raise an exception is <code>raise</code>.</div></li>
 
         <li><div>The Python keywords to handle exceptions are
         <code>try</code>, <code>except</code>, <code>else</code>, and
@@ -77,9 +78,6 @@
 <em>except ZeroDivisionError as ex:</em>
     # Code that the computer executes if the code in the
     # try block caused a ZeroDivisionError to be raised.
-<em>except OSError as ex:</em>
-    # Code that the computer executes if the code in
-    # the try block caused an OSError to be raised.
 <em>except ValueError as ex:</em>
     # Code that the computer executes if the code in
     # the try block caused a ValueError to be raised.

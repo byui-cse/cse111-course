@@ -18,8 +18,16 @@ def main():
     append_random_numbers(randnums, 3)
     print(f"randnums {randnums}")
 
+    # Create a list to store random words.
     randwords = []
+
+    # Call the append_random_words function
+    # to add one random word to the list.
     append_random_words(randwords)
+    print(f"randwords {randwords}")
+
+    # Call the append_random_words function
+    # to add five random words to the list.
     append_random_words(randwords, 5)
     print(f"randwords {randwords}")
 
