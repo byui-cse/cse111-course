@@ -38,19 +38,6 @@
     the purchased items and shows the subtotal, the sales tax amount,
     and the total.</p>
 
-    <h2>Helpful Documentation</h2>
-    <p>The <a target="_blank" href="prepare.html">prepare</a> content
-    for this lesson includes lots of information about calling functions
-    and methods.</p>
-
-    <p>The <code>datetime</code> module contains the
-    <a target="_blank" href="https://docs.python.org/3/library/datetime.html#datetime.datetime.now"><code>now method</code></a>,
-    which will get the current date and time from your computer's
-    operating system, and the
-    <a target="_blank" href="https://docs.python.org/3/library/datetime.html#datetime.date.strftime"><code>strftime method</code></a>,
-    which will format a date and time in a way that is easily
-    readable by a user.</p>
-
     <h2>Assignment</h2>
     <p>During the prove assignment for lesson 3, you wrote the part of
     this program that reads and processes two CSV files, one named
@@ -73,22 +60,6 @@
         operating system and print the current date and time.</div></li>
     </ol>
 
-    <p>To get the current date and time from your computer's operating
-    system, import the <code>datetime</code> module and add this code to
-    your program:</p>
-
-<div class="pre"><pre class="python">
-# Get the current date and time from the operating system.
-now = datetime.datetime.now()
-</pre></div>
-
-    <p>After the computer executes the above code, the variable
-    <var>now</var> will hold the current date and time. You can then add
-    code to call the
-    <a target="_blank" href="https://docs.python.org/3/library/datetime.html#datetime.date.strftime"><code>strftime</code></a>
-    method which will format the date and time into a string which your
-    program can print.</p>
-
     <h2>Sample Run</h2>
 <pre class="console">&gt; python receipt.py
 Inkom Emporium
@@ -105,6 +76,57 @@ Total: 14.43
 
 Thank you for shopping at the Inkom Emporium.
 Wed Nov  4 05:10:30 2020</pre>
+
+    <h2>Helpful Documentation</h2>
+    <p>The <a target="_blank" href="prepare.html">prepare</a> content
+    for this lesson includes lots of information about calling functions
+    and methods.</p>
+
+    <p>The <code>datetime</code> module contains the
+    <a target="_blank" href="https://docs.python.org/3/library/datetime.html#datetime.datetime.now"><code>now method</code></a>,
+    which will get the current date and time from your computer's
+    operating system. To get the current date and time from your
+    computer's operating system, import the <code>datetime</code> module
+    and add this code to your program:</p>
+
+<div class="pre"><pre class="python">
+import datetime
+
+# Get the current date and time from the datetime
+# module which gets it from the operating system.
+current_date_and_time = datetime.datetime.now()
+</pre></div>
+
+    <p>After the computer executes the above code, the variable
+    <var>current_date_and_time</var> will hold the current date and
+    time. You can then add code to call the
+    <a target="_blank" href="https://docs.python.org/3/library/datetime.html#datetime.date.strftime"><code>strftime</code> method</a>,
+    which will format a date and time into a string that is easily
+    readable by a user. For example:</p>
+
+<div class="pre"><pre class="python">
+import datetime
+
+# Get the current date and time from the datetime
+# module which gets it from the operating system.
+current_date_and_time = datetime.datetime.now()
+
+# Format the current date and time to include only
+# the day of the week, the hour, and the minute.
+string = <em>current_date_and_time.strftime("%A %I:%M %p")</em>
+
+# Print the formatted string.
+print(string)</pre></div>
+
+    <p>In the previous example, the string sequences that begin with the
+    percent symbol (%) are called format codes. The
+    <code>strftime</code> format codes and their meaning are listed in
+    <a target="blank" href="https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes">this document</a>.
+    When executed, the previous example will print the current date and
+    time to the terminal window like this:</p>
+
+<pre class="console">&gt; python example.py
+Tuesday 01:23 PM</pre>
 
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each step
