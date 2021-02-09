@@ -127,25 +127,26 @@
 
 <div class="pre"><pre class="linenums"></pre>
 <pre class="python" id="ex1">
-from tkinter import Tk, Frame, Canvas, BOTH
+import tkinter as tk
 
 
 def main():
+    # The width and height of the scene window.
     width = 800
     height = 500
 
     # Create the root Tk object.
-    root = Tk()
+    root = tk.Tk()
     root.geometry(f"{width}x{height}")
 
     # Create a Frame object.
-    frame = Frame()
+    frame = tk.Frame()
     frame.master.title("Scene")
-    frame.pack(fill=BOTH, expand=1)
+    frame.pack(fill=tk.BOTH, expand=1)
 
     # Create a canvas object that will draw into the frame.
-    canvas = Canvas(frame)
-    canvas.pack(fill=BOTH, expand=1)
+    canvas = tk.Canvas(frame)
+    canvas.pack(fill=tk.BOTH, expand=1)
 
     # Call the draw_scene function.
     draw_scene(canvas, 0, 0, width-1, height-1)
@@ -171,10 +172,10 @@ def draw_scene(canvas, scene_left, scene_top, scene_right, scene_bottom):
     """
     # Call your functions here, such as draw_sky, draw_ground,
     # draw_snowman, draw_tree, draw_shrub, etc.
-    tree_left = scene_left + 500
+    tree_center = scene_left + 500
     tree_top = scene_top + 100
     tree_height = 150
-    draw_pine_tree(canvas, tree_left, tree_top, tree_height)
+    draw_pine_tree(canvas, tree_center, tree_top, tree_height)
 
 
 # Define more functions here, like draw_sky, draw_ground,
