@@ -2,10 +2,16 @@ from weather import wind_chill, heat_index
 from pytest import approx
 import pytest
 
+
 def test_wind_chill():
-    assert wind_chill(0, 3) == approx(-6.9)
-    assert wind_chill(-5, 5) == approx(-16.4)
-    assert wind_chill(-10, 3) == approx(-18.2)
+    chill = wind_chill(0, 3)
+    assert chill == approx(-6.9)
+
+    chill = wind_chill(-5, 5)
+    assert chill == approx(-16.4)
+
+    chill = wind_chill(-10, 3)
+    assert chill == approx(-18.2)
 
 
 def test_heat_index():
