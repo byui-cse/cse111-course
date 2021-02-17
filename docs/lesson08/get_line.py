@@ -1,4 +1,5 @@
-"""This program asks the user for
+"""
+This program asks the user for
 1) the name of a text file
 2) a line number
 and prints the text from that line of the file.
