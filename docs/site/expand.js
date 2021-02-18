@@ -1,7 +1,7 @@
 /* Copyright 2020 by Brigham Young University - Idaho. All rights reserved. */
 "use strict";
 
-if (!window.hasOwnProperty("cse111")) {
+if (!window.hasOwnProperty('cse111')) {
 	window.cse111 = {};
 }
 
@@ -32,4 +32,4 @@ cse111.expand = {
 	}
 };
 
-window.addEventListener("DOMContentLoaded", cse111.expand.addExpandHandlers);
+window.addEventListener('DOMContentLoaded', cse111.expand.addExpandHandlers);

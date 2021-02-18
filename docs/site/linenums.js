@@ -103,5 +103,5 @@ cse111.linenums = {
 	}
 };
 
-window.addEventListener("DOMContentLoaded", cse111.linenums.addLineNumbers);
-window.addEventListener("DOMContentLoaded", cse111.linenums.addCrossRefs);
+window.addEventListener('DOMContentLoaded', cse111.linenums.addLineNumbers);
+window.addEventListener('DOMContentLoaded', cse111.linenums.addCrossRefs);

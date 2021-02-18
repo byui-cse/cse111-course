@@ -1,7 +1,7 @@
 /* Copyright 2020 by Brigham Young University - Idaho. All rights reserved. */
 "use strict";
 
-if (!window.hasOwnProperty("cse111")) {
+if (!window.hasOwnProperty('cse111')) {
 	window.cse111 = {};
 }
 

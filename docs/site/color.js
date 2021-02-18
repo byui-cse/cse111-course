@@ -74,4 +74,4 @@ cse111.color = {
 	}
 };
 
-window.addEventListener("DOMContentLoaded", cse111.color.addColorThemeHandler);
+window.addEventListener('DOMContentLoaded', cse111.color.addColorThemeHandler);
