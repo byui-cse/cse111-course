@@ -52,10 +52,14 @@ cse111.url.setDate = function(id, date) {
 
 
 cse111.url.readViews = function(startId, endId, listId) {
+	console.log('readViews(' + startid + ', ' + endId + ', ' + listId + ')');
 	let self = this;
+	console.log('this.initDatabase()');
 	let db = this.initDatabase();
+	console.log("db.ref('/views').get()");
 	db.ref('/views').get().then(
 	function(snapshot) {
+		console.log('let urls = snapshot.val();');
 		let urls = snapshot.val();
 		let outer = this.getById(listId);
 		for (let url in urls) {
@@ -98,6 +102,11 @@ cse111.url.readViews = function(startId, endId, listId) {
 			li.appendChild(div);
 			outer.appendChild(li);
 		}
+	})
+	.catch(function(error) {
+		let msg = 'Error: ' + error.message;
+		self.appendById('status', msg);
+		console.log(msg);
 	});
 };
 
