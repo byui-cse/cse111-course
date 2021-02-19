@@ -51,7 +51,11 @@ cse111.url.protocol = /[^:]+:\/+/;
 
 cse111.url.abbreviate = function(url) {
 	let remove = this.byuicse.test(url) ? this.byuicse : this.protocol;
-	return url.replace(remove, '');
+	let abbrev = url.replace(remove, '');
+	console.log(url);
+	console.log(remove.toString());
+	console.log(abbrev);
+	return abbrev;
 };
 
 

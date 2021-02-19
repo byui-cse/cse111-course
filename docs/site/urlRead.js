@@ -52,14 +52,10 @@ cse111.url.setDate = function(id, date) {
 
 
 cse111.url.readViews = function(startId, endId, listId) {
-	console.log('readViews(' + startId + ', ' + endId + ', ' + listId + ')');
 	let self = this;
-	console.log('self.initDatabase()');
 	let db = self.initDatabase();
-	console.log("db.ref('/views').get()");
 	db.ref('/views').get().then(
 	function(snapshot) {
-		console.log('let urls = snapshot.val();');
 		let urls = snapshot.val();
 		let outer = self.getById(listId);
 		for (let url in urls) {
