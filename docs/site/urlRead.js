@@ -1,13 +1,23 @@
 /* Copyright 2020 by Brigham Young University - Idaho. All rights reserved. */
 "use strict";
 
-cse111.url.readViews = function(id) {
+cse111.url.setDate = function(id, date) {
+	if (! date) {
+		date = new Date();
+	}
+	let str = date.toISOString().replace(/T.*/, '');
+	let picker = document.getElementById(id);
+	picker.setAttribute('value', str);
+};
+
+
+cse111.url.readViews = function(startId, endId, listId) {
 	let self = this;
 	let db = this.initFirebase();
 	db.ref('/views').get().then(
 	function(snapshot) {
 		let urls = snapshot.val();
-		let outer = document.getElementById(id);
+		let outer = document.getElementById(listId);
 		for (let url in urls) {
 			let views = urls[url];
 

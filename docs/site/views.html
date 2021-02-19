@@ -15,7 +15,7 @@
     <script src="../site/color.js"></script>
 </head>
 
-<body onload="cse111.url.readViews('views')">
+<body onload="cse111.url.setDate('end'); cse111.url.readViews('start', 'end', 'views')">
 <header>
     <div class="colorCtrl">&nbsp;</div>
     <div class="logo">
@@ -25,6 +25,10 @@
     <h2>CSE 111 | <span>Programming with Functions</span></h2>
 </header>
 <article>
+    <p>Start Date: <input type="date" id="start" value="2021-01-01">
+    &nbsp; &nbsp; &nbsp; &nbsp;
+    End Date: <input type="date" id="end"></p>
+
     <h1>Page Views</h1>
     <ul id="views">
     </ul>
