@@ -26,14 +26,16 @@ cse111.url.openLink = function(url) {
 
 cse111.url.writeView = function(source, target) {
 	try {
-		source = this.encode(source);
-		target = this.encode(target);
+		source = this.encode(this.abbreviate(source));
+		target = this.encode(this.abbreviate(target));
+		let tzo = new Date().getTimezoneOffset();
 
 		let db = this.initFirebase();
 		let ref = db.ref('/views/' + target);
 		let obj = {
 			'referrer':source,
-			'when':firebase.database.ServerValue.TIMESTAMP
+			'when':firebase.database.ServerValue.TIMESTAMP,
+			'tzo':tzo
 		};
 		ref.push(obj);
 		setTimeout(function() { db.goOffline(); }, 2000);
@@ -41,6 +43,15 @@ cse111.url.writeView = function(source, target) {
 	catch (ex) {
 		console.log(JSON.stringify(ex));
 	}
+};
+
+
+cse111.url.byuicse = /https:\/\/byui-cse\.github\.io\/cse111-course\//;
+cse111.url.protocol = /[^:]+:\/+/;
+
+cse111.url.abbreviate = function(url) {
+	let remove = this.byuicse.test(url) ? this.byuicse : this.protocol;
+	return url.replace(remove, '');
 };
 
 
