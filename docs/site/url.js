@@ -6,11 +6,8 @@ if (!window.hasOwnProperty('cse111')) {
 }
 
 cse111.url = {
-	database : null,
-
 	initFirebase : function() {
-		let db = this.database;
-		if (! db) {
+		if (! firebase.apps.length) {
 			let config = {
 				apiKey: 'AIzaSyAnFi9Z3H4V1yaC1JMDtxuuoNdMecLFw-k',
 				authDomain: 'cse111.firebaseapp.com',
@@ -22,6 +19,15 @@ cse111.url = {
 
 			// Initialize Firebase realtime database.
 			firebase.initializeApp(config);
+		}
+	},
+
+	database : null,
+
+	initDatabase : function() {
+		let db = this.database;
+		if (! db) {
+			this.initFirebase();
 			db = this.database = firebase.database();
 		}
 		db.goOnline();

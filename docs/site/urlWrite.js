@@ -30,7 +30,7 @@ cse111.url.writeView = function(source, target) {
 		target = this.encode(this.abbreviate(target));
 		let tzo = new Date().getTimezoneOffset();
 
-		let db = this.initFirebase();
+		let db = this.initDatabase();
 		let ref = db.ref('/views/' + target);
 		let obj = {
 			'referrer':source,

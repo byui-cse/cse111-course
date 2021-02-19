@@ -9,13 +9,14 @@
     <link rel="icon" type="image/png" href="../site/icon.png">
     <link rel="stylesheet" type="text/css" href="../site/style.css">
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-database.js"></script>
     <script src="../site/url.js"></script>
     <script src="../site/urlRead.js"></script>
     <script src="../site/color.js"></script>
 </head>
 
-<body onload="cse111.url.setDate('end'); cse111.url.readViews('start', 'end', 'views')">
+<body onload="cse111.url.setDate('end');">
 <header>
     <div class="colorCtrl">&nbsp;</div>
     <div class="logo">
@@ -25,8 +26,13 @@
     <h2>CSE 111 | <span>Programming with Functions</span></h2>
 </header>
 <article>
+	<p><span id="user">Not signed in</span>
+	<button type="button" id="signIn" title="Sign In"
+		onclick="cse111.url.signIn()">@</button></p>
+    <div id="status"></div>
+
     <p>Start Date: <input type="date" id="start" value="2021-01-01">
-    &nbsp; &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp; &nbsp;
     End Date: <input type="date" id="end"></p>
 
     <h1>Page Views</h1>
