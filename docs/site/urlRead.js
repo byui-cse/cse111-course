@@ -52,7 +52,7 @@ cse111.url.setDate = function(id, date) {
 
 
 cse111.url.readViews = function(startId, endId, listId) {
-	console.log('readViews(' + startid + ', ' + endId + ', ' + listId + ')');
+	console.log('readViews(' + startId + ', ' + endId + ', ' + listId + ')');
 	let self = this;
 	console.log('this.initDatabase()');
 	let db = this.initDatabase();
