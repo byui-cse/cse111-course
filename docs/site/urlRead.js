@@ -70,19 +70,20 @@ cse111.url.readViews = function(startId, endId, listId) {
 			for (let key in views) {
 				let view = views[key];
 				let when = new Date(view.when);
-				when = self.createText(when.toDateString()
-						+ ', ' + when.toLocaleTimeString());
+				when = when.toDateString() + ', ' + when.toLocaleTimeString();
+				if (view.hasOwnProperty('tzo')) {
+					when += '  tzo: ' + view.tzo;
+				}
+				when = self.createText(when);
 				let div = self.createElem('div');
 				div.appendChild(when);
 
-				if (view.referrer.length > 0) {
+				if (view.hasOwnProperty('referrer') && view.referrer.length > 0) {
+					div.appendChild(self.createText('referrer: '));
 					let referrer = self.decode(view.referrer);
 					let link = self.createElem('a');
 					link.setAttribute('href', referrer);
 					link.appendChild(self.createText(referrer));
-
-					div.appendChild(self.createElem('br'));
-					div.appendChild(self.createText('referrer: '));
 					div.appendChild(link);
 				}
 
