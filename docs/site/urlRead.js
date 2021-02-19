@@ -54,51 +54,51 @@ cse111.url.setDate = function(id, date) {
 cse111.url.readViews = function(startId, endId, listId) {
 	console.log('readViews(' + startId + ', ' + endId + ', ' + listId + ')');
 	let self = this;
-	console.log('this.initDatabase()');
-	let db = this.initDatabase();
+	console.log('self.initDatabase()');
+	let db = self.initDatabase();
 	console.log("db.ref('/views').get()");
 	db.ref('/views').get().then(
 	function(snapshot) {
 		console.log('let urls = snapshot.val();');
 		let urls = snapshot.val();
-		let outer = this.getById(listId);
+		let outer = self.getById(listId);
 		for (let url in urls) {
 			let views = urls[url];
 
 			url = self.decode(url);
-			let link = this.createElem('a');
+			let link = self.createElem('a');
 			link.setAttribute('href', url);
-			link.appendChild(this.createText(url));
+			link.appendChild(self.createText(url));
 
-			let inner = this.createElem('ol');
+			let inner = self.createElem('ol');
 			for (let key in views) {
 				let view = views[key];
 				let when = new Date(view.when);
-				when = this.createText(when.toDateString()
+				when = self.createText(when.toDateString()
 						+ ', ' + when.toLocaleTimeString());
-				let div = this.createElem('div');
+				let div = self.createElem('div');
 				div.appendChild(when);
 
 				if (view.referrer.length > 0) {
 					let referrer = self.decode(view.referrer);
-					let link = this.createElem('a');
+					let link = self.createElem('a');
 					link.setAttribute('href', referrer);
-					link.appendChild(this.createText(referrer));
+					link.appendChild(self.createText(referrer));
 
-					div.appendChild(this.createElem('br'));
-					div.appendChild(this.createText('referrer: '));
+					div.appendChild(self.createElem('br'));
+					div.appendChild(self.createText('referrer: '));
 					div.appendChild(link);
 				}
 
-				let li = this.createElem('li');
+				let li = self.createElem('li');
 				li.appendChild(div);
 				inner.appendChild(li);
 			}
 
-			let div = this.createElem('div');
+			let div = self.createElem('div');
 			div.appendChild(link);
 			div.appendChild(inner);
-			let li = this.createElem('li');
+			let li = self.createElem('li');
 			li.appendChild(div);
 			outer.appendChild(li);
 		}
