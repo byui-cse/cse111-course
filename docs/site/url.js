@@ -6,28 +6,6 @@ if (!window.hasOwnProperty('cse111')) {
 }
 
 cse111.url = {
-	openDoc : function() {
-		cse111.url.reportView(document.referrer, window.location.href);
-	},
-
-	modifyLinks : function() {
-		let links = document.getElementsByTagName('a');
-		for (let i = 0, len = links.length;  i < len;  ++i) {
-			let link = links[i];
-			let href = link.href;
-			if (href.startsWith('http')) {
-				href = 'javascript:cse111.url.openLink("' + href + '")';
-				link.setAttribute('href', href);
-			}
-		}
-	},
-
-	openLink : function(url) {
-		cse111.url.reportView(window.location.href, url);
-		window.open(url, '_blank');
-	},
-
-
 	database : null,
 
 	initFirebase : function() {
@@ -51,26 +29,6 @@ cse111.url = {
 	},
 
 
-	reportView : function(source, target) {
-		try {
-			source = this.encode(source);
-			target = this.encode(target);
-
-			let db = this.initFirebase();
-			let ref = db.ref('/views/' + target);
-			let obj = {
-				'referrer':source,
-				'when':firebase.database.ServerValue.TIMESTAMP
-			};
-			ref.push(obj);
-			setTimeout(function() { db.goOffline(); }, 2000);
-		}
-		catch (ex) {
-			console.log(JSON.stringify(ex));
-		}
-	},
-
-
 	symbols : {
 		'%':'%25',
 		' ':'%20', '!':'%21',  '#':'%23', '&':'%26',
@@ -79,15 +37,35 @@ cse111.url = {
 		'[':'%5b', '\\':'%5c', ']':'%5d'
 	},
 
+	encodings : null,
+
+	makeEncodings : function() {
+		let encodings = this.encodings;
+		if (! encodings) {
+			encodings = {};
+			let symbols = this.symbols;
+			for (let symbol in symbols) {
+				encodings[symbols[symbol]] = symbol;
+			}
+			this.encodings = encodings;
+		}
+	},
+
 	encode : function(url) {
-		for (let symbol in this.symbols) {
-			let subst = this.symbols[symbol];
-			url = url.replaceAll(symbol, subst);
+		return this.translate(url, this.symbols);
+	},
+
+	decode : function(url) {
+		return this.translate(url, this.encodings);
+	},
+
+	translate : function(url, dict) {
+		for (let key in dict) {
+			url = url.replaceAll(key, dict[key]);
 		}
 		return url;
 	}
 };
 
 
-window.addEventListener('DOMContentLoaded', cse111.url.openDoc);
-window.addEventListener('DOMContentLoaded', cse111.url.modifyLinks);
+cse111.url.makeEncodings();
