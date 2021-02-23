@@ -83,7 +83,7 @@ cse111.url.readViews = function(startId, endId, listId) {
 					div.appendChild(self.createText(' referrer: '));
 					let referrer = self.decode(view.referrer);
 					let link = self.createElem('a',
-							null, null, {'href', referrer});
+							null, null, {'href':referrer});
 					link.appendChild(self.createText(referrer));
 					div.appendChild(link);
 				}
