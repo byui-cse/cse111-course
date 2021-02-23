@@ -76,15 +76,14 @@ cse111.url.readViews = function(startId, endId, listId) {
 				if (view.hasOwnProperty('tzo')) {
 					text += ' ' + (view.tzo >= 0 ? '+' : '') + view.tzo;
 				}
-				text = self.createText(text);
 				let div = self.createElem('div');
-				div.appendChild(text);
+				div.appendChild(self.createText(text));
 
 				if (view.hasOwnProperty('referrer') && view.referrer.length > 0) {
 					div.appendChild(self.createText(' referrer: '));
 					let referrer = self.decode(view.referrer);
-					let link = self.createElem('a');
-					link.setAttribute('href', referrer);
+					let link = self.createElem('a',
+							null, null, {'href', referrer});
 					link.appendChild(self.createText(referrer));
 					div.appendChild(link);
 				}
@@ -110,8 +109,28 @@ cse111.url.readViews = function(startId, endId, listId) {
 };
 
 
-cse111.url.createElem = function(tagName) {
-	return document.createElement(tagName);
+cse111.url.createElem = function(tagName, id, clss, attrs) {
+	let elem = document.createElement(tagName);
+	if (id) {
+		elem.id = id;
+	}
+	if (clss) {
+		if (Array.isArray(clss)) {
+			for (let i = 0, len = clss.length;  i < len;  ++i) {
+				elem.classList.add(clss[i]);
+			}
+		}
+		else {
+			elem.classList.add(clss);
+		}
+	}
+	if (attrs) {
+		for (let key in attrs) {
+			let value = attrs[key];
+			elem.setAttribute(key, value);
+		}
+	}
+	return elem;
 };
 
 cse111.url.createText = function(text) {

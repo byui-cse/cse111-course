@@ -9,6 +9,10 @@
     <link rel="icon" type="image/png" href="../site/icon.png">
     <link rel="stylesheet" type="text/css" href="../site/style.css">
     <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-database.js"></script>
+    <script src="../site/url.js"></script>
+    <script src="../site/urlWrite.js"></script>
     <script src="../site/color.js"></script>
     <script src="../site/hljs/highlight.pack.js"></script>
 </head>
@@ -39,7 +43,7 @@
         DataFrame with a user entered date, a program must first convert
         the user input from a string to a date. One way to convert a
         string to a date is to use the pandas
-        <a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.to_datetime.html"><code>to_datetime</code></a>
+        <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.to_datetime.html"><code>to_datetime</code></a>
         function as shown in this code example:
 <div class="pre"><pre class="python">import pandas as pd
 
@@ -48,12 +52,10 @@ text = f"{year}-01-01"
 <em>date = pd.to_datetime(text)</em></pre></div></div></li>
 
         <li><div>The <code>pandas</code> Getting Started Tutorials
-        contain a helpful <a target="_blank"
-        href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/04_plotting.html">short section about creating plots</a>.</div></li>
+        contain a helpful <a href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/04_plotting.html">short section about creating plots</a>.</div></li>
 
         <li><div>The <code>pandas</code> User Guide contains a
-        <a target="_blank"
-        href="https://pandas.pydata.org/pandas-docs/stable/user_guide/visualization.html">long section about creating plots</a>.</div></li>
+        <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/visualization.html">long section about creating plots</a>.</div></li>
 
         <li><div>The prepare content, checkpoint, and team activity in
         this lesson taught you how to define a plot with just one series
@@ -75,7 +77,7 @@ pyplot.show()</pre></div>
         To define a plot with more than one column plotted on the
         y-axis, pass a list instead of a single string as the
         <var>y</var> named parameter to the pandas
-        <a target="_blank" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.plot.html"><code>plot</code></a>
+        <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.plot.html"><code>plot</code></a>
         function. For example:
 <div class="pre"><pre class="python"># Define a vertical bar plot from the DataFrame.
 df.plot(kind="bar", x="column_name_1",
