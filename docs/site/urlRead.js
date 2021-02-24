@@ -1,6 +1,17 @@
 /* Copyright 2020 by Brigham Young University - Idaho. All rights reserved. */
 "use strict";
 
+
+cse111.url.setDate = function(id, date) {
+	if (! date) {
+		date = new Date();
+	}
+	let str = date.toISOString().replace(/T.*/, '');
+	let picker = this.getById(id);
+	picker.setAttribute('value', str);
+};
+
+
 cse111.url.signIn = function(successFunc) {
 	const self = this;
 	this.initFirebase();
@@ -41,13 +52,55 @@ cse111.url.signIn = function(successFunc) {
 };
 
 
-cse111.url.setDate = function(id, date) {
-	if (! date) {
-		date = new Date();
+/** Copy all the data to the clipboard in CSV format. */
+cse111.url.copyCSV = function() {
+	function twoDigits(i) {
+		let s = i.toString();
+		if (s.length < 2) {
+			s = '0' + s;
+		}
+		return s;
 	}
-	let str = date.toISOString().replace(/T.*/, '');
-	let picker = this.getById(id);
-	picker.setAttribute('value', str);
+
+	let self = this;
+	let urls = self.allViews;
+	if (urls) {
+		let text = 'URL,Date,Time,Time Zone Offset,Referrer\n';
+		for (let url in urls) {
+			let views = urls[url];
+			url = self.decode(url);
+			for (let key in views) {
+				let view = views[key];
+				let when = new Date(view.when);
+				let date = when.getFullYear() + '-'
+						+ twoDigits(when.getMonth() + 1) + '-'
+						+ twoDigits(when.getDate());
+				let time = when.toLocaleTimeString();
+				let tzo = '';
+				if (view.hasOwnProperty('tzo')) {
+					tzo = view.tzo;
+				}
+				let referrer = '';
+				if (view.hasOwnProperty('referrer') && view.referrer.length>0) {
+					referrer = self.decode(view.referrer);
+				}
+				text += '"' + url + '",'
+					+ date + ','
+					+ time + ','
+					+ tzo + ','
+					+ '"' + referrer + '"\n';
+			}
+		}
+
+		// Copy the text to the clipboard.
+		let listener = function(event) {
+			event.clipboardData.setData('text/plain', text);
+			event.preventDefault();
+		};
+		document.addEventListener('copy', listener);
+		document.execCommand('copy');
+		document.removeEventListener('copy', listener);
+	}
 };
 
 
@@ -57,6 +110,7 @@ cse111.url.readViews = function(startId, endId, listId) {
 	db.ref('/views').get().then(
 	function(snapshot) {
 		let urls = snapshot.val();
+		self.allViews = urls;
 		let outer = self.getById(listId);
 		for (let url in urls) {
 			let views = urls[url];
@@ -79,7 +133,7 @@ cse111.url.readViews = function(startId, endId, listId) {
 				let div = self.createElem('div');
 				div.appendChild(self.createText(text));
 
-				if (view.hasOwnProperty('referrer') && view.referrer.length > 0) {
+				if (view.hasOwnProperty('referrer') && view.referrer.length>0) {
 					div.appendChild(self.createText(' referrer: '));
 					let referrer = self.decode(view.referrer);
 					let link = self.createElem('a',
