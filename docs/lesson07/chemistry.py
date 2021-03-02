@@ -8,7 +8,7 @@ def init_periodic_table():
     symbol : (name, symbol, atomic_mass)
 
     The unit for atomic mass is atomic mass
-    units (amu) sometimes abbreviated as u
+    units (amu) sometimes abbreviated as u.
     """
     Element = namedtuple("Element", ["name", "symbol", "atomic_mass"])
     table = {
@@ -140,11 +140,19 @@ periodic_table = init_periodic_table()
 
 
 def get_name(symbol):
-    """Return the name of an element."""
+    """Return the name of an element.
+
+    Parameter symbol: the chemical symbol for an
+        element such as H, C, O, Ag, and Au
+    """
     return periodic_table[symbol].name
 
 def get_atomic_mass(symbol):
-    """Return the atomic mass of an element."""
+    """Return the atomic mass of an element.
+
+    Parameter symbol: the chemical symbol for an
+        element such as H, C, O, Ag, and Au
+    """
     return periodic_table[symbol].atomic_mass
 
 
@@ -160,6 +168,9 @@ def parse_formula(formula):
     that stores the number of atoms of each element in the molecule.
     For example, this function will convert "H2O" to {"H":2, "O":1}
     and "PO4H2(CH2)12CH3" to {"P":1, "O":4, "H":29, "C":13}
+
+    Parameter formula: the chemical formula for a molecule such as "C13H18O2"
+    Return: a dictionary such as {"C":13, "H":18, "O":2}
     """
     def parse_quant(formula, index):
         quant = 1
@@ -220,12 +231,17 @@ def parse_formula(formula):
     return elems
 
 
-def molar_mass(symbol_quantity_dict):
+def molar_mass(formula_dict):
     """Compute and return the total molar mass of all the
-    elements listed in symbol_quantity_dict. Each item in
-    symbol_quantity_dict is a tuple in the form: (symbol, quantity).
+    elements listed in formula_dict. Each item in formula_dict
+    is a tuple in the form: (symbol, quantity).
 
-    As an example, if symbol_quantity_dict is {"H":2, "O":1},
+    Parameter formula_dict: a dictionary with each item containing
+        an element symbol and an integer quantity. In other words,
+        a dictionary with element symbols as the keys and integer
+        quantities as the values.
+
+    As an example, if formula_dict is {"H":2, "O":1},
     this function will calculate and return
     atomic_mass("H") * 2 + atomic_mass("O") * 1
     1.00794 * 2 + 15.9994 * 1
@@ -238,7 +254,7 @@ def molar_mass(symbol_quantity_dict):
     #   Get the atomic mass for the symbol.
     #   Multiply the atomic mass by the quantity.
     #   Add the product into the total mass.
-    for symbol, quantity in symbol_quantity_dict.items():
+    for symbol, quantity in formula_dict.items():
         atomic_mass = get_atomic_mass(symbol)
         total_mass += atomic_mass * quantity
 

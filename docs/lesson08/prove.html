@@ -104,11 +104,15 @@ from chemistry import parse_formula, FormulaError
 
 def test_parse_formula():
     with pytest.raises(FormulaError):
-        parse_formula("H2L4")</pre></div>
+        parse_formula("H2L4")
+    with pytest.raises(FormulaError):
+        parse_formula("H2)O3")</pre></div>
 
         <p>In the previous example, the <code>with</code> block at
         <span class="cross" data-ref="ex1">lines&nbsp;5&ndash;6</span>
-        expects the <code>parse_formula</code> function to raise an
+        and the <code>with</code> block at
+        <span class="cross" data-ref="ex1">lines&nbsp;7&ndash;8</span>
+        expect the <code>parse_formula</code> function to raise an
         exception. Therefore, if the <code>parse_formula</code> function
         raises an exception, the test will pass. If the
         <code>parse_formula</code> function doesn't raise an exception,
@@ -153,10 +157,10 @@ def test_parse_formula():
         <ol>
             <li><div>Gets a formula for a molecule from the
             user.</div></li>
-            <li><div>Calls <code>chemistry.parse_formula</code> to
-            convert the formula to a dictionary.</div></li>
-            <li><div>Calls <code>chemistry.molar_mass</code> to
-            calculate the molar mass of the molecule.</div></li>
+            <li><div>Calls <code>parse_formula</code> to convert the
+            formula to a dictionary.</div></li>
+            <li><div>Calls <code>molar_mass</code> to calculate the
+            molar mass of the molecule.</div></li>
             <li><div>Rounds the molar mass to five digits after the
             decimal point and prints the rounded molar mass.</div></li>
             <li><div>Gets a mass in grams from the user.</div></li>
@@ -190,6 +194,8 @@ except FormulaError as ex:
     # ex.args[0] contains the message "invalid formula"
     # ex.args[1] contains the incorrect formula
     # ex.args[2] contains the index of the first mistake in the formula
+    print(ex.args[1])
+    print(ex.args[2])
     print(ex.args[0])</pre></div></div></li>
 
         <li><div>At the bottom of your <code>chemistry.py</code> file,
@@ -219,19 +225,19 @@ if __name__ == "__main__":
 
     <h2>Sample Runs</h2>
 <pre class="console">&gt; python molar_mass.py
-Molecular formula of the substance: <span class="input">CJ3COOH</span>
+Enter the molecular formula of the substance: <span class="input">CJ3COOH</span>
 Error invalid formula: CJ3COOH
                         ^
 
 &gt; python molar_mass.py
-Molecular formula of the substance: <span class="input">C6H10O5)4</span>
+Enter the molecular formula of the substance: <span class="input">C6H10O5)4</span>
 Error invalid formula: C6H10O5)4
                               ^
 
 &gt; python molar_mass.py
-Molecular formula of the substance: <span class="input">C13H18O2</span>
+Enter the molecular formula of the substance: <span class="input">C13H18O2</span>
 206.28082 grams/mole
-Mass in grams of the substance: <span class="input">5.04</span>
+Enter the mass in grams of the substance: <span class="input">5.04</span>
 0.02443 moles</pre>
 
     <h2>Testing Procedure</h2>
