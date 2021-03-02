@@ -11,15 +11,22 @@ cse111.url.modifyLinks = function() {
 	for (let i = 0, len = links.length;  i < len;  ++i) {
 		let link = links[i];
 		let href = link.href;
-		if (href.startsWith('http')) {
-			href = 'javascript:cse111.url.openLink("' + href + '")';
-			link.setAttribute('href', href);
-		}
+		href = 'javascript:cse111.url.openLink("' + href + '")';
+		link.setAttribute('href', href);
 	}
 };
 
+
+cse111.url.byuicse = /https:\/\/byui-cse\.github\.io\/cse111-course\//;
+cse111.url.protocol = /[^:]+:\/+/;
+
 cse111.url.openLink = function(url) {
-	cse111.url.writeView(window.location.href, url);
+	let test1 = this.byuicse.test(url);
+	let test2 = this.protocol.test(url);
+	let external = !test1 && test2;
+	if (external) {
+		cse111.url.writeView(window.location.href, url);
+	}
 	window.open(url, '_blank');
 };
 
@@ -45,9 +52,6 @@ cse111.url.writeView = function(source, target) {
 	}
 };
 
-
-cse111.url.byuicse = /https:\/\/byui-cse\.github\.io\/cse111-course\//;
-cse111.url.protocol = /[^:]+:\/+/;
 
 cse111.url.abbreviate = function(url) {
 	let remove = this.byuicse.test(url) ? this.byuicse : this.protocol;

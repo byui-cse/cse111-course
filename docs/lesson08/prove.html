@@ -65,10 +65,9 @@
 
     <h2>Helpful Documentation</h2>
     <ul class="long">
-        <li><div>The <a target="_blank" href="prepare.html">prepare</a>
-        content for this lesson explains how to wrap <code>try</code>
-        and <code>except</code> around a normal block of
-        code.</div></li>
+        <li><div>The <a href="prepare.html">prepare</a> content for this
+        lesson explains how to wrap <code>try</code> and
+        <code>except</code> around a normal block of code.</div></li>
 
         <li><div>This <a href="https://content.byui.edu/items/a9e60503-b5e7-40f0-bf48-ebf1a7441d25/1/example_08.mp4">short video</a>
         shows a BYU-Idaho faculty member adding a <code>try</code> block
@@ -94,8 +93,8 @@ with pytest.raises(&lt;ExceptionType&gt;):
     &lt;function_call_here(&lt;arguments_here&gt;)&gt;</pre></div>
 
         <p>For example, to test that the <code>parse_formula</code>
-        function raises a <code>FormulaError</code> for an invalid
-        molecular formula, you could write this Python code:</p>
+        function raises a <code>FormulaError</code> for two invalid
+        molecular formulas, you could write this Python code:</p>
 
 <div class="pre"><pre class="linenums"></pre>
 <pre class="python" id="ex1">
@@ -108,9 +107,9 @@ def test_parse_formula():
     with pytest.raises(FormulaError):
         parse_formula("H2)O3")</pre></div>
 
-        <p>In the previous example, the <code>with</code> block at
+        <p>In the previous example, the <code>with</code> blocks at
         <span class="cross" data-ref="ex1">lines&nbsp;5&ndash;6</span>
-        and the <code>with</code> block at
+        and
         <span class="cross" data-ref="ex1">lines&nbsp;7&ndash;8</span>
         expect the <code>parse_formula</code> function to raise an
         exception. Therefore, if the <code>parse_formula</code> function
