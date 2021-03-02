@@ -1,17 +1,17 @@
 import csv
 
 
-# These constants hold the names of the columns in crashes.csv.
-YEAR_KEY = "Year"
-FATALITIES_KEY = "Fatalities"
-INJURIES_KEY = "Injuries"
-CRASHES_KEY = "Crashes"
-FATAL_CRASHES_KEY = "Fatal Crashes"
-DISTRACT_KEY = "Distraction Affected Fatal Crashes"
-PHONE_KEY = "Fatal Crashes involving Cell Phone Use"
-SPEED_KEY = "Fatal Crashes involving Excessive Speed"
-DUI_KEY = "Fatal Crashes while Driving under the Influence"
-FATIGUE_KEY = "Fatal Crashes involving Fatigue or Illness"
+# Column numbers from the accidents.csv file.
+YEAR_COLUMN = 0
+FATALITIES_COLUMN = 1
+INJURIES_COLUMN = 2
+CRASHES_COLUMN = 3
+FATAL_CRASHES_COLUMN = 4
+DISTRACT_COLUMN = 5
+PHONE_COLUMN = 6
+SPEED_COLUMN = 7
+DUI_COLUMN = 8
+FATIGUE_COLUMN = 9
 
 
 def main():
@@ -50,18 +50,21 @@ def main():
         print()
         print("Year, Injuries, Deaths")
 
-        # Create a DictReader object to read each line from the CSV
-        # file. This code doesn't include the next(reader) command to
-        # skip the first line of the file because the DictReader object
-        # uses the column headers on the first line of the file.
-        reader = csv.DictReader(infile)
+        # Use the csv module to create a reader
+        # object that will read from the opened file.
+        reader = csv.reader(infile)
+
+        # The first line of the CSV file contains column headings
+        # and not a student's I-Number and name, so this statement
+        # skips the first line of the CSV file.
+        next(reader)
 
         # Process each row in the CSV file.
         for row in reader:
-            year = row[YEAR_KEY]
+            year = row[YEAR_COLUMN]
 
             # Call the estimate_reduction function.
-            injur, fatal = estimate_reduction(row, PHONE_KEY, perc_reduc)
+            injur, fatal = estimate_reduction(row, PHONE_COLUMN, perc_reduc)
 
             # Print the estimated reductions in injuries and fatalities.
             print(year, injur, fatal, sep=", ")
@@ -101,11 +104,11 @@ def estimate_reduction(row, behavior_key, perc_reduc):
             behavior
     """
     behavior = int(row[behavior_key])
-    fatal_crashes = int(row[FATAL_CRASHES_KEY])
+    fatal_crashes = int(row[FATAL_CRASHES_COLUMN])
     ratio = perc_reduc / 100 * behavior / fatal_crashes
 
-    fatalities = int(row[FATALITIES_KEY])
-    injuries = int(row[INJURIES_KEY])
+    fatalities = int(row[FATALITIES_COLUMN])
+    injuries = int(row[INJURIES_COLUMN])
 
     reduc_fatal = int(round(fatalities * ratio, 0))
     reduc_injur = int(round(injuries * ratio, 0))
