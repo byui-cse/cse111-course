@@ -9,6 +9,8 @@
     <link rel="icon" type="image/png" href="../site/icon.png">
     <link rel="stylesheet" type="text/css" href="../site/style.css">
     <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
+    <script src="../site/url.js"></script>
+    <script src="../site/urlWrite.js"></script>
     <script src="../site/color.js"></script>
     <script src="../site/hljs/highlight.pack.js"></script>
     <script src="../site/linenums.js"></script>
@@ -57,17 +59,17 @@
 
         <li><div>It is possible to convert between many of the data
         types. For example, to convert from any data type to a string,
-        we use the <a target="_blank" href="https://docs.python.org/3/library/functions.html#func-str"><code>str()</code></a>
+        we use the <a href="https://docs.python.org/3/library/functions.html#func-str"><code>str()</code></a>
         function. To convert from a string to an integer, we use the
-        <a target="_blank" href="https://docs.python.org/3/library/functions.html#int"><code>int()</code></a>
+        <a href="https://docs.python.org/3/library/functions.html#int"><code>int()</code></a>
         function, and to convert from a string to a float, we use the
-        <a target="_blank" href="https://docs.python.org/3/library/functions.html#float"><code>float()</code></a>
+        <a href="https://docs.python.org/3/library/functions.html#float"><code>float()</code></a>
         function. The <code>int()</code> and <code>float()</code>
         functions are especially useful to convert user input, which is
         always a string, from a string to a number. See the example
         program below.</div></li>
 
-        <li><div>We use the <a target="_blank" href="https://docs.python.org/3/library/functions.html#input"><code>input()</code></a>
+        <li><div>We use the <a href="https://docs.python.org/3/library/functions.html#input"><code>input()</code></a>
         function to prompt a user for input.</div></li>
 
         <li><div>Python has many arithmetic operators including power
@@ -94,7 +96,7 @@
         </tbody></table></div></li>
 
         <li><div><p>We use the
-        <a target="_blank" href="https://docs.python.org/3/library/functions.html#print"><code>print()</code></a>
+        <a href="https://docs.python.org/3/library/functions.html#print"><code>print()</code></a>
         function to display output to a user.</p>
 
         <p>The following program gets input from the user, converts the
@@ -138,14 +140,14 @@ Length of cable in meters: 501.83</pre>
         <div class="block expr"><var>length</var> = <var>span</var> + <div class="fract"><div class="numer">8 <var>dip</var><sup>2</sup></div><div class="denom">3 <var>span</var></div></div></div>
 
         <li><div>We can store several values in a
-        <a target="_blank" href="https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences">Python tuple</a>.
+        <a href="https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences">Python tuple</a>.
         Tuples are immutable, meaning after a tuple is created, it
         cannot be changed. Tuples are most useful for data such as
         geometric points that contain <var>x</var> and <var>y</var>
         values.</div></li>
 
         <li><div>We can store many items in a
-        <a target="_blank" href="https://docs.python.org/3/tutorial/introduction.html#lists">Python list</a>.
+        <a href="https://docs.python.org/3/tutorial/introduction.html#lists">Python list</a>.
         Lists are mutable, meaning they can be changed after they are
         created. We can determine the number of items in a list using
         the <code>len</code> function. We can add an item to a list
@@ -157,14 +159,14 @@ Length of cable in meters: 501.83</pre>
         <code>remove</code>.</div></li>
 
         <li><div>We can store many items in a
-        <a target="_blank" href="https://docs.python.org/3/tutorial/datastructures.html#sets">Python set</a>.
+        <a href="https://docs.python.org/3/tutorial/datastructures.html#sets">Python set</a>.
         Sets are mutable, meaning they can be changed after they are
         created. A set is different from a list. A list allows duplicate
         items to be stored in it, but a set doesn't allow duplicate
         items. In other words, items in a set are unique.</div></li>
 
         <li><div><p>We can also store many items in a
-        <a target="_blank" href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">Python dictionary</a>.
+        <a href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">Python dictionary</a>.
         Dictionaries are mutable, meaning they can be changed after they
         are created. In a dictionary, items are stored as key value
         pairs, and we can easily write code to find a value by its
@@ -255,19 +257,19 @@ students["06-412-7583"] = "Samyukta Daniels"</pre></div>
     <p>If any of the concepts or topics in the previous list seem
     unfamiliar to you, you should review them. To review the unfamiliar
     concepts, you could rewatch some of the Microsoft
-    <a target="_blank" href="https://www.youtube.com/playlist?list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6">videos about Python</a>
+    <a href="https://www.youtube.com/playlist?list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6">videos about Python</a>
     that you watched for CSE 110:</p>
 
     <ul class="links">
-        <li><div><a target="_blank" href="https://www.youtube.com/watch?v=7XOhibxgBlQ&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=2">Introducing Python</a></div></li>
-        <li><div><a target="_blank" href="https://www.youtube.com/watch?v=CXZYvNRIAKM&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=3">Getting Started</a></div></li>
-        <li><div><a target="_blank" href="https://www.youtube.com/watch?v=EU8eayHWoZg&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=4">Configuring VS Code</a></div></li>
-        <li><div><a target="_blank" href="https://www.youtube.com/watch?v=FhoASwgvZHk&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=5">Input and print functions</a></div></li>
-        <li><div><a target="_blank" href="https://www.youtube.com/watch?v=FhoASwgvZHk&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=6">Demo of print function</a></div></li>
-        <li><div><a target="_blank" href="https://www.youtube.com/watch?v=kEuVvUc1Zec&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=7">Comments</a></div></li>
-        <li><div><a target="_blank" href="https://www.youtube.com/watch?v=FhoASwgvZHk&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=9">String data type</a></div></li>
-        <li><div><a target="_blank" href="https://www.youtube.com/watch?v=FhoASwgvZHk&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=13">Numeric data types</a></div></li>
-        <li><div><a target="_blank" href="https://www.youtube.com/watch?v=o1dlxoHxdHU&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=15">Date data types</a></div></li>
+        <li><div><a href="https://www.youtube.com/watch?v=7XOhibxgBlQ&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=2">Introducing Python</a></div></li>
+        <li><div><a href="https://www.youtube.com/watch?v=CXZYvNRIAKM&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=3">Getting Started</a></div></li>
+        <li><div><a href="https://www.youtube.com/watch?v=EU8eayHWoZg&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=4">Configuring VS Code</a></div></li>
+        <li><div><a href="https://www.youtube.com/watch?v=FhoASwgvZHk&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=5">Input and print functions</a></div></li>
+        <li><div><a href="https://www.youtube.com/watch?v=FhoASwgvZHk&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=6">Demo of print function</a></div></li>
+        <li><div><a href="https://www.youtube.com/watch?v=kEuVvUc1Zec&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=7">Comments</a></div></li>
+        <li><div><a href="https://www.youtube.com/watch?v=FhoASwgvZHk&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=9">String data type</a></div></li>
+        <li><div><a href="https://www.youtube.com/watch?v=FhoASwgvZHk&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=13">Numeric data types</a></div></li>
+        <li><div><a href="https://www.youtube.com/watch?v=o1dlxoHxdHU&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=15">Date data types</a></div></li>
     </ul>
 
     <h2>Documentation</h2>
@@ -275,18 +277,17 @@ students["06-412-7583"] = "Samyukta Daniels"</pre></div>
     from CSE 110.</p>
 
     <ul class="links">
-        <li><div><a target="_blank" href="https://realpython.com/python-introduction/">Why Choose Python?</a></div></li>
-        <li><div><a target="_blank" href="https://realpython.com/interacting-with-python/">Interacting with Python</a></div></li>
-        <li><div><a target="_blank" href="https://realpython.com/python-data-types/">Basic Data Types</a> in Python</div></li>
-        <li><div><a target="_blank" href="https://realpython.com/python-variables/">Variables</a> in Python</div></li>
-        <li><div><a target="_blank" href="https://realpython.com/python-operators-expressions/">Operators and Expressions</a> in Python</div></li>
+        <li><div><a href="https://realpython.com/python-introduction/">Why Choose Python?</a></div></li>
+        <li><div><a href="https://realpython.com/interacting-with-python/">Interacting with Python</a></div></li>
+        <li><div><a href="https://realpython.com/python-data-types/">Basic Data Types</a> in Python</div></li>
+        <li><div><a href="https://realpython.com/python-variables/">Variables</a> in Python</div></li>
+        <li><div><a href="https://realpython.com/python-operators-expressions/">Operators and Expressions</a> in Python</div></li>
     </ul>
 
     <p>You could also read some of the Python tutorials at
-    <a target="_blank"
-    href="https://www.w3schools.com/python/default.asp">W3 Schools</a>.
+    <a href="https://www.w3schools.com/python/default.asp">W3 Schools</a>.
     Or you could search for "Python" in the
-    <a target="_blank" href="https://library.byui.edu">online catalog</a>
+    <a href="https://library.byui.edu">online catalog</a>
     of the BYU-Idaho library and read one of the online books from
     the result set.</p>
 </article>

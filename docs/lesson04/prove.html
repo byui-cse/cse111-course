@@ -9,6 +9,8 @@
     <link rel="icon" type="image/png" href="../site/icon.png">
     <link rel="stylesheet" type="text/css" href="../site/style.css">
     <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
+    <script src="../site/url.js"></script>
+    <script src="../site/urlWrite.js"></script>
     <script src="../site/color.js"></script>
     <script src="../site/hljs/highlight.pack.js"></script>
 </head>
@@ -78,17 +80,17 @@ Thank you for shopping at the Inkom Emporium.
 Wed Nov  4 05:10:30 2020</pre>
 
     <h2>Helpful Documentation</h2>
-    <p>The <a target="_blank" href="prepare.html">prepare</a> content
-    for this lesson includes lots of information about calling functions
-    and methods.</p>
+    <p>The <a href="prepare.html">prepare</a> content for this lesson
+    includes lots of information about calling functions and
+    methods.</p>
 
-    <p><a target="_blank" href="https://content.byui.edu/items/a9e60503-b5e7-40f0-bf48-ebf1a7441d25/1/example_04.mp4">This video</a>
+    <p><a href="https://content.byui.edu/items/a9e60503-b5e7-40f0-bf48-ebf1a7441d25/1/example_04.mp4">This video</a>
     shows a BYU-Idaho faculty member writing code that prints the
     current date and time formatted so that users can easily read
     it.</p>
 
     <p>The <code>datetime</code> module contains the
-    <a target="_blank" href="https://docs.python.org/3/library/datetime.html#datetime.datetime.now"><code>now</code> method</a>,
+    <a href="https://docs.python.org/3/library/datetime.html#datetime.datetime.now"><code>now</code> method</a>,
     which will get the current date and time from your computer's
     operating system. To get the current date and time from your
     computer's operating system, import the <code>datetime</code> module
@@ -105,7 +107,7 @@ current_date_and_time = datetime.datetime.now()
     <p>After the computer executes the above code, the variable
     <var>current_date_and_time</var> will hold the current date and
     time. You can then add code to call the
-    <a target="_blank" href="https://docs.python.org/3/library/datetime.html#datetime.date.strftime"><code>strftime</code> method</a>,
+    <a href="https://docs.python.org/3/library/datetime.html#datetime.date.strftime"><code>strftime</code> method</a>,
     which will format a date and time into a string that is easily
     readable by a user. For example:</p>
 
@@ -126,7 +128,7 @@ print(string)</pre></div>
     <p>In the previous example, the string sequences that begin with the
     percent symbol (%) are called format codes. The
     <code>strftime</code> format codes and their meaning are listed in
-    <a target="blank" href="https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes">this document</a>.
+    <a ref="https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes">this document</a>.
     When executed, the previous example will print the current date and
     time to the terminal window like this:</p>
 
