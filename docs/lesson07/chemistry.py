@@ -164,10 +164,11 @@ class FormulaError(ValueError):
 
 
 def parse_formula(formula):
-    """Convert a chemical formula for a molecule into a dictionary
-    that stores the number of atoms of each element in the molecule.
-    For example, this function will convert "H2O" to {"H":2, "O":1}
-    and "PO4H2(CH2)12CH3" to {"P":1, "O":4, "H":29, "C":13}
+    """Convert a chemical formula for a molecule from a string into a
+    dictionary that stores the number of atoms of each element in the
+    molecule.  For example, this function will convert
+    "H2O" to {"H":2, "O":1} and
+    "PO4H2(CH2)12CH3" to {"P":1, "O":4, "H":29, "C":13}
 
     Parameter formula: the chemical formula for a molecule such as "C13H18O2"
     Return: a dictionary such as {"C":13, "H":18, "O":2}
@@ -236,10 +237,8 @@ def molar_mass(formula_dict):
     elements listed in formula_dict. Each item in formula_dict
     is a tuple in the form: (symbol, quantity).
 
-    Parameter formula_dict: a dictionary with each item containing
-        an element symbol and an integer quantity. In other words,
-        a dictionary with element symbols as the keys and integer
-        quantities as the values.
+    Parameter formula_dict: a dictionary with each item containing an
+        element symbol as the key and an integer quantity as the value.
 
     As an example, if formula_dict is {"H":2, "O":1},
     this function will calculate and return

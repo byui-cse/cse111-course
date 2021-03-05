@@ -28,17 +28,18 @@ def main():
         print(type(ex).__name__, ex, sep=": ")
 
 
-def get_int(prompt, lower, upper):
+def get_int(prompt, lower_bound, upper_bound):
     """Get an integer from the user, validate that the integer is
     between a lower and upper bound, and return the integer to the
     calling function. If the user enters text that cannot be converted
-    to an integer or if the converted integer is not between lower and
-    upper inclusive, this function will prompt the user repeatedly until
-    the user enters an integer between lower and upper.
+    to an integer or if the converted integer is not between lower_bound
+    and upper_bound inclusive, this function will prompt the user
+    repeatedly until the user enters an integer between lower_bound and
+    upper_bound.
 
     param prompt: A string to display to the user.
-    param lower: The lowest (smallest) integer that the user may enter.
-    param upper: The highest (largest) integer that the user may enter.
+    param lower_bound: The lowest (smallest) integer that the user may enter.
+    param upper_bound: The highest (largest) integer that the user may enter.
     return: The integer that the user entered.
     """
     return
@@ -128,9 +129,9 @@ def show_comparison(indiv_df, meter_number):
     pass
 
 
-# If this file was executed like this:
-# python meter_usage.py
-# then call the main function. However, if this file
-# was simply imported, then skip the call to main.
+# If this file is executed like this:
+# > python meter_usage.py
+# then call the main function. However, if this file is simply
+# imported (e.g. into a test file), then skip the call to main.
 if __name__ == "__main__":
     main()
