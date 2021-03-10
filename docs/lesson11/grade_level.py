@@ -45,8 +45,8 @@ def main():
         counts = grade_level_counts(df)
         print(counts)
 
-    except RuntimeError as ex:
-        print(type(ex).__name__, ex, sep=": ")
+    except RuntimeError as run_err:
+        print(type(run_err).__name__, run_err, sep=": ")
 
 
 def add_columns(df, cutoff):

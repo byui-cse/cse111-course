@@ -15,8 +15,8 @@ def main():
         # such as key presses and mouse button clicks.
         app.mainloop()
 
-    except RuntimeError as ex:
-        print(type(ex).__name__, ex, sep=": ")
+    except RuntimeError as run_err:
+        print(type(run_err).__name__, run_err, sep=": ")
 
 
 class HeartWindow(tk.Frame):

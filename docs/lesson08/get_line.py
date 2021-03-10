@@ -27,28 +27,28 @@ def main():
         print()
         print(line)
 
-    except FileNotFoundError as ex:
+    except FileNotFoundError as file_not_found_err:
         # This code will be executed if the user enters
         # the name of a file that doesn't exist.
         print()
-        print(type(ex).__name__, ex, sep=": ")
+        print(type(file_not_found_err).__name__, file_not_found_err, sep=": ")
         print(f"The file {filename} doesn't exist.")
         print("Run the program again and enter the name of an existing file.")
 
-    except ValueError as ex:
+    except ValueError as val_err:
         # This code will be executed if the user enters
         # an invalid integer for the line number.
         print()
-        print(type(ex).__name__, ex, sep=": ")
+        print(type(val_err).__name__, val_err, sep=": ")
         print("You entered an invalid integer for the line number.")
         print("Run the program again and enter an integer for the line number.")
 
-    except IndexError as ex:
+    except IndexError as index_err:
         # This code will be executed if the user enters a valid integer
         # for the line number, but the integer is negative or the
         # integer is greater than the number of lines in the file.
         print()
-        print(type(ex).__name__, ex, sep=": ")
+        print(type(index_err).__name__, index_err, sep=": ")
         if linenum < 0:
             print(f"{linenum} is a negative integer.")
         else:
@@ -56,10 +56,10 @@ def main():
             print(f"There are only {len(lines)} lines in {filename}.")
         print(f"Run the program again and enter a line number between 1 and {len(lines)}.")
 
-    except Exception as ex:
+    except Exception as excep:
         # This code will be executed if some other type of exception occurs.
         print()
-        print(type(ex).__name__, ex, sep=": ")
+        print(type(excep).__name__, excep, sep=": ")
 
 
 # Call the main function so that

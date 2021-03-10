@@ -19,8 +19,8 @@ def main():
         # Show all defined plots.
         pyplot.show()
 
-    except RuntimeError as ex:
-        print(type(ex).__name__, ex, sep=": ")
+    except RuntimeError as run_err:
+        print(type(run_err).__name__, run_err, sep=": ")
 
 
 def show_all_water_usage(df):

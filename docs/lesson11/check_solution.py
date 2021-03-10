@@ -5,7 +5,7 @@ def main():
     try:
         # Read the students.csv file and convert the
         # birthdate column from a string to a datetime64.
-        df = pd.read_csv("students.csv", parse_dates=["birthdate"])
+        original_df = pd.read_csv("students.csv", parse_dates=["birthdate"])
 
         # Some of the phone numbers in the "phone" column do not start
         # with an area code, so replace the "phone" column with a new
@@ -13,13 +13,13 @@ def main():
         # code. To do this, call the pandas apply function for the
         # "phone" column and pass the add_area_code function as an
         # argument to the apply function.
-        df["phone"] = df["phone"].apply(add_area_code)
+        original_df["phone"] = original_df["phone"].apply(add_area_code)
 
         # Print the DataFrame with the corrected phone numbers.
-        print(df)
+        print(original_df)
 
-    except RuntimeError as ex:
-        print(type(ex).__name__, ex, sep=": ")
+    except RuntimeError as run_err:
+        print(type(run_err).__name__, run_err, sep=": ")
 
 
 def add_area_code(phone):

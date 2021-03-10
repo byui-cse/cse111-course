@@ -197,7 +197,7 @@ def get_int(prompt, min, max):
                 print(f"Invalid input: number must be {max} or less.")
             else:
                 num = prospect
-        except ValueError as ex:
+        except ValueError as val_err:
             print(f"Invalid integer: {text}. Please try again.")
     return num</pre></div>
     <div class="pre"><pre class="python">

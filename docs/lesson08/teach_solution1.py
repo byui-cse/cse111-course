@@ -22,8 +22,8 @@ def main():
             filename = input("Name of file that contains NHTSA data: ")
             try:
                 infile = open(filename, "rt")
-            except (FileNotFoundError, PermissionError) as ex:
-                print(ex)
+            except (FileNotFoundError, PermissionError) as error:
+                print(error)
                 print("Please choose a different file.")
         print()
 
@@ -40,8 +40,8 @@ def main():
                     print(f"Error: {perc_reduc} is too high.",
                             "Please enter a different number.", sep="\n")
                     perc_reduc = None
-            except ValueError as ex:
-                print("Error:", ex)
+            except ValueError as val_err:
+                print("Error:", val_err)
         print()
 
         print(f"With a {perc_reduc}% reduction in using a cell phone while",
@@ -69,13 +69,13 @@ def main():
             # Print the estimated reductions in injuries and fatalities.
             print(year, injur, fatal, sep=", ")
 
-    except (csv.Error, KeyError) as ex:
+    except (csv.Error, KeyError) as error:
         print(f"Error: line {reader.line_num} of {infile.name} is"
                 " formatted incorrectly.")
-    except ZeroDivisionError as ex:
+    except ZeroDivisionError as zero_div_err:
         print(f"Error: line {reader.line_num} of {infile.name} contains"
                 " 0 in the 'Fatal Crashes' or 'Cell Phone Use' column.")
-    except RuntimeError as ex:
+    except RuntimeError as run_err:
         # RuntimeError is probably the most general type of exception
         # that you want to handle in a Python program. Exception is
         # more general than RuntimeError. However, Exception includes
@@ -83,7 +83,7 @@ def main():
         # SyntaxError. Instead, you want your program to crash for
         # SyntaxError and print the line number where the SyntaxError
         # occurred.
-        print(type(ex).__name__, ex, sep=": ")
+        print(type(run_err).__name__, run_err, sep=": ")
     finally:
         if infile is not None:
             # Close the text file.

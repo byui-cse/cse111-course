@@ -27,8 +27,8 @@ def main():
 
         average_water_used_per_dwelling(df)
 
-    except RuntimeError as ex:
-        print(type(ex).__name__, ex, sep=": ")
+    except RuntimeError as run_err:
+        print(type(run_err).__name__, run_err, sep=": ")
 
 
 def unique(df, column_name, heading):

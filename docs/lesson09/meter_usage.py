@@ -24,8 +24,8 @@ def main():
             # Show all defined plots.
         pass
 
-    except RuntimeError as ex:
-        print(type(ex).__name__, ex, sep=": ")
+    except RuntimeError as run_err:
+        print(type(run_err).__name__, run_err, sep=": ")
 
 
 def get_int(prompt, lower_bound, upper_bound):
@@ -37,10 +37,11 @@ def get_int(prompt, lower_bound, upper_bound):
     repeatedly until the user enters an integer between lower_bound and
     upper_bound.
 
-    param prompt: A string to display to the user.
-    param lower_bound: The lowest (smallest) integer that the user may enter.
-    param upper_bound: The highest (largest) integer that the user may enter.
-    return: The integer that the user entered.
+    Parameters:
+        prompt: A string to display to the user.
+        lower_bound: The lowest (smallest) integer that the user may enter.
+        upper_bound: The highest (largest) integer that the user may enter.
+    Return: The integer that the user entered.
     """
     return
 
@@ -49,8 +50,8 @@ def add_median_usage_column(df):
     """Add to a DataFrame a column named medianUsage that contains
     the median usage grouped by accountType and yearMonth.
 
-    param df: The DataFrame that this function will add a column to.
-    return: A new DataFrame that contains a medianUsage column.
+    Parameter df: The DataFrame that this function will add a column to.
+    Return: A new DataFrame that contains a medianUsage column.
     """
     df = add_year_month_column(df)
 
@@ -68,8 +69,8 @@ def add_year_month_column(df):
     """Add to a DataFrame a column named yearMonth that contains only
     the year and the month of the readDate and return the new DataFrame.
 
-    param df: The DataFrame that this function will add a column to.
-    return: The DataFrame that contains a yearMonth column.
+    Parameter df: The DataFrame that this function will add a column to.
+    Return: The DataFrame that contains a yearMonth column.
     """
     return
 
@@ -78,27 +79,29 @@ def filter_for_meter(df, meter_number):
     """Return a new DataFrame that contains only the rows where
     the meterNumber column equals the parameter meter_number.
 
-    param df: The DataFrame that this function will filter.
-    param meter_number: df will be filtered so that all the rows in the
-        new DataFrame will have this meter number.
-    return: A new DataFrame that contains rows for meter_number only.
+    Parameters
+        df: The DataFrame that this function will filter.
+        meter_number: df will be filtered so that all the rows in the
+            new DataFrame will have this meter number.
+    Return: A new DataFrame that contains rows for meter_number only.
     """
     return
 
 
-def filter_between_dates(df, start, end):
+def filter_between_dates(df, start_date, end_date):
     """Return a new DataFrame that contains only the rows where the
     readDate column is between the specified start and end dates.
 
-    param df: The DataFrame that this function will filter.
-    param start: A date object. This function will filter df so that all
-        the rows in the new DataFrame have a readDate greater than or
-        equal to this date.
-    param end: A date object. This function will filter df so that all
-        the rows in the new DataFrame have a readDate less than or equal
-        to this date.
-    return: A new DataFrame that contains only rows where the readDate
-        is between start and end inclusive.
+    Parameters
+        df: The DataFrame that this function will filter.
+        start_date: A date object. This function will filter df so that
+            all the rows in the new DataFrame have a readDate greater
+            than or equal to this date.
+        end_date: A date object. This function will filter df so that
+            all the rows in the new DataFrame have a readDate less than
+            or equal to this date.
+    Return: A new DataFrame that contains only rows where the readDate
+        is between start_date and end_date inclusive.
     """
     return
 
@@ -107,11 +110,12 @@ def show_meter_usage(indiv_df, meter_number):
     """Define a vertical column plot that shows the year
     and month on the x-axis and the usage on the y-axis.
 
-    param indiv_df: A DataFrame with at least two columns: yearMonth and
-        usage. The DataFrame must already be filtered to the rows for
-        only one meter number before it is passed into this function.
-    param meter_number: The meter number for which df is already filtered.
-    return: Nothing
+    Parameters
+        indiv_df: A DataFrame with at least two columns: yearMonth and
+            usage. The DataFrame must already be filtered to the rows for
+            one meter number only before it is passed into this function.
+        meter_number: The meter number for which df is already filtered.
+    Return: Nothing
     """
     pass
 
@@ -120,11 +124,12 @@ def show_comparison(indiv_df, meter_number):
     """Define a line plot that shows the year and month on
     the x-axis and the usage and median usage on the y-axis.
 
-    param indiv_df: A DataFrame with at least three columns: yearMonth, usage
-        and medianUsage. The DataFrame must already be filtered to the rows
-        for only one meter number before it is passed into this function.
-    param meter_number: The meter number for which df is already filtered.
-    return: Nothing
+    Parameters
+        indiv_df: A DataFrame with at least three columns: yearMonth, usage
+            and medianUsage. The DataFrame must already be filtered to the rows
+            for one meter number only before it is passed into this function.
+        meter_number: The meter number for which df is already filtered.
+    Return: Nothing
     """
     pass
 

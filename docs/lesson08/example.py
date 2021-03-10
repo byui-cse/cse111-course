@@ -32,16 +32,16 @@ def main():
         # Print the rounded average score.
         print(rounded)
 
-    except FileNotFoundError as ex:
+    except FileNotFoundError as file_not_found_err:
         print(f"Error: {filename} does not exist.")
-    except PermissionError as ex:
+    except PermissionError as perm_err:
         print(f"Error: your account does not have permission to read {filename}.")
-    except ValueError as ex:
+    except ValueError as val_err:
         print(f"Error: invalid score in {filename} at line {linenum}.")
-    except ZeroDivisionError as ex:
+    except ZeroDivisionError as zero_div_err:
         print(f"Error: {filename} is empty.")
-    except Exception as ex:
-        print(type(ex).__name__, ex, sep=": ")
+    except Exception as excep:
+        print(type(excep).__name__, excep, sep=": ")
 
 
 # Call the main function so that

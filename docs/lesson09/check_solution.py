@@ -24,8 +24,8 @@ def main():
         filtered_df = df[filter]
         print(filtered_df)
 
-    except RuntimeError as ex:
-        print(type(ex).__name__, ex, sep=": ")
+    except RuntimeError as run_err:
+        print(type(run_err).__name__, run_err, sep=": ")
 
 
 # If this file is executed like this:

@@ -21,17 +21,17 @@ your program.
 
 def main():
     # Get an odometer value in U.S. miles from the user.
-    start = float(input("Enter the first odometer reading (in miles): "))
+    start_miles = float(input("Enter the first odometer reading (in miles): "))
 
     # Get another odometer value in U.S. miles from the user.
-    end = float(input("Enter the second odometer reading (in miles): "))
+    end_miles = float(input("Enter the second odometer reading (in miles): "))
 
     # Get a fuel amount in U.S. gallons from the user.
-    gallons = float(input("Enter the amount of fuel used (in gallons): "))
+    amount_gallons = float(input("Enter the amount of fuel used (in gallons): "))
 
     # Call the miles_per_gallon function and store
     # the result in a variable named mpg.
-    mpg = miles_per_gallon(start, end, gallons)
+    mpg = miles_per_gallon(start_miles, end_miles, amount_gallons)
 
     # Call the lp100k_from_mpg function to convert the
     # miles per gallon to liters per 100 kilometers and
@@ -49,17 +49,17 @@ def main():
     print(f"{lp100k} liters per 100 kilometers")
 
 
-def miles_per_gallon(start, end, gallons):
+def miles_per_gallon(start_miles, end_miles, amount_gallons):
     """Compute and return the average number of miles
     that a vehicle traveled per gallon of fuel.
 
     Parameters
-        start: An odometer value in miles.
-        end: Another odometer value in miles.
-        gallons: A fuel amount in U.S. gallons.
+        start_miles: An odometer value in miles.
+        end_miles: Another odometer value in miles.
+        amount_gallons: A fuel amount in U.S. gallons.
     Return: Fuel efficiency in miles per gallon.
     """
-    mpg = abs(end - start) / gallons
+    mpg = abs(end_miles - start_miles) / amount_gallons
     return mpg
 
 

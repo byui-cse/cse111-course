@@ -78,16 +78,16 @@
     # 1. Code that may cause an exception to be raised
     # 2. Code that depends on the results from the code
     #    in the first group
-<em>except ZeroDivisionError as ex:</em>
+<em>except ZeroDivisionError as zero_div_err:</em>
     # Code that the computer executes if the code in the
     # try block caused a ZeroDivisionError to be raised.
-<em>except ValueError as ex:</em>
+<em>except ValueError as val_err:</em>
     # Code that the computer executes if the code in
     # the try block caused a ValueError to be raised.
-<em>except (TypeError, KeyError, NameError) as ex:</em>
+<em>except (TypeError, KeyError, NameError) as error:</em>
     # Code that the computer executes if the code in the try
     # block raised a TypeError, KeyError, or NameError.
-<em>except Exception as ex:</em>
+<em>except Exception as excep:</em>
     # Code that the computer executes if the code in the
     # try block caused any exception to be raised that was
     # not handled by one of the previous except blocks.
@@ -111,13 +111,13 @@
         Then we write <code>except</code> blocks to handle the
         exceptions. Each <code>except</code> block may handle one type
         of exception such as:
-<div class="pre"><pre class="python">except ValueError as ex:</pre></div>
+<div class="pre"><pre class="python">except ValueError as val_err:</pre></div>
         Or each <code>except</code> block may handle several types of
         exceptions, such as:
-<div class="pre"><pre class="python">except (TypeError, KeyError, NameError) as ex:</pre></div>
+<div class="pre"><pre class="python">except (TypeError, KeyError, NameError) as error:</pre></div>
 Or one <code>except</code> block may handle all possible types of
 exceptions such as:
-<div class="pre"><pre class="python">except Exception as ex:</pre></div>
+<div class="pre"><pre class="python">except Exception as excep:</pre></div>
 Or a bare <code>except</code> block may handle anything that can
 be raised, including <code>SystemExit</code>,
 <code>KeyboardInterrupt</code> and <code>GeneratorExit</code>
@@ -199,8 +199,8 @@ def main():
         bmr = basal_metabolic_rate(gender, weight, height, age)
         print(f"Your basal metabolic rate is {bmr} calories per day.")
 
-    <em>except RuntimeError as ex:</em>
-        print(type(ex).__name__, ex, sep=": ")
+    <em>except RuntimeError as run_err:</em>
+        print(type(run_err).__name__, run_err, sep=": ")
 
 
 def get_float(prompt):
@@ -217,7 +217,7 @@ def get_float(prompt):
             text = input(prompt)
             number = float(text)
             break
-        <em>except ValueError:</em>
+        <em>except ValueError as val_err:</em>
             print(f"{text} is not a number.")
             print("Please enter a number.")
 
@@ -290,40 +290,40 @@ def main():
                 # the date, the starting and ending odometer
                 # readings, and the number of gallons used.
                 date = row[0]
-                start = float(row[1])
-                end = float(row[2])
+                start_miles = float(row[1])
+                end_miles = float(row[2])
                 gallons = float(row[3])
 
                 # Call the miles_per_gallon function.
-                mpg = miles_per_gallon(start, end, gallons)
+                mpg = miles_per_gallon(start_miles, end_miles, gallons)
 
                 # Display the results for one row.
                 mpg = round(mpg, 1)
-                print(date, start, end, gallons, mpg, sep=",")
+                print(date, start_miles, end_miles, gallons, mpg, sep=",")
 
-    <em>except FileNotFoundError as ex:</em>
+    <em>except FileNotFoundError as file_not_found_err:</em>
         print(f"Error: cannot open {filename}"
                 " because it doesn't exist.")
 
-    <em>except PermissionError as ex:</em>
+    <em>except PermissionError as perm_err:</em>
         print(f"Error: cannot read from {filename}"
                 " because you don't have permission.")
 
-    <em>except ZeroDivisionError as ex:</em>
+    <em>except ZeroDivisionError as zero_div_err:</em>
         print(f"Error: {filename} contains a"
                 " zero in the gallons column.")
 
-    <em>except RuntimeError as ex:</em>
-        print(type(ex).__name__, ex, sep=": ")
+    <em>except RuntimeError as run_err:</em>
+        print(type(run_err).__name__, run_err, sep=": ")
 
 
-def miles_per_gallon(start, end, gallons):
+def miles_per_gallon(start_miles, end_miles, gallons):
     """Compute and return the average number of miles
     that a vehicle traveled per gallon of fuel.
-    start and end are odometer readings in miles.
+    start_miles and end_miles are odometer readings in miles.
     gallons is a fuel amount in U.S. gallons.
     """
-    mpg = abs(end - start) / gallons
+    mpg = abs(end_miles - start_miles) / gallons
     return mpg
 
 

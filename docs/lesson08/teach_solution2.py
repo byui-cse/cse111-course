@@ -27,7 +27,7 @@ def main():
         # it will process each row in the CSV file.
         process_csv_file(infile, perc_reduc)
 
-    except RuntimeError as ex:
+    except RuntimeError as run_err:
         # RuntimeError is probably the most general type of exception
         # that you want to handle in a Python program. Exception is
         # more general than RuntimeError. However, Exception includes
@@ -35,7 +35,7 @@ def main():
         # SyntaxError. Instead, you want your program to crash for
         # SyntaxError and print the line number where the SyntaxError
         # occurred.
-        print(type(ex).__name__, ex, sep=": ")
+        print(type(run_err).__name__, run_err, sep=": ")
     finally:
         if infile is not None:
             # Close the text file.
@@ -51,8 +51,8 @@ def get_input_file(prompt):
         filename = input(prompt)
         try:
             infile = open(filename, "rt")
-        except (FileNotFoundError, PermissionError) as ex:
-            print(ex)
+        except (FileNotFoundError, PermissionError) as error:
+            print(error)
             print("Please choose a different file.")
     print()
     return infile
@@ -74,8 +74,8 @@ def get_float(min, max, prompt):
                 print(f"Error: {num} is too high.",
                         "Please enter a different number.", sep="\n")
                 num = None
-        except ValueError as ex:
-            print("Error:", ex)
+        except ValueError as val_err:
+            print("Error:", val_err)
     print()
     return num
 
@@ -113,10 +113,10 @@ def process_csv_file(infile, perc_reduc):
             # Print the estimated reductions in injuries and fatalities.
             print(year, injur, fatal, sep=", ")
 
-    except (csv.Error, KeyError) as ex:
+    except (csv.Error, KeyError) as error:
         print(f"Error: line {reader.line_num} of {infile.name} is"
                 " formatted incorrectly.")
-    except ZeroDivisionError as ex:
+    except ZeroDivisionError as zero_div_err:
         print(f"Error: line {reader.line_num} of {infile.name} contains"
                 " 0 in the 'Fatal Crashes' or 'Cell Phone Use' column.")
 

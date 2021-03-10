@@ -183,19 +183,19 @@ def test_parse_formula():
         <code>FormulaError</code> to help the chemist know what she
         typed incorrectly as shown in the sample run section below. To
         access the information stored inside an exception, use the
-        <code>ex.args</code> list. For example:</p>
+        <code>formula_err.args</code> list. For example:</p>
 
 <div class="pre"><pre class="python" id="ex2">
 try:
     &hellip;
-except FormulaError as ex:
+except FormulaError as formula_err:
     # The FormulaError includes information inside its args list.
-    # ex.args[0] contains the message "invalid formula"
-    # ex.args[1] contains the incorrect formula
-    # ex.args[2] contains the index of the first mistake in the formula
-    print(ex.args[0])
-    print(ex.args[1])
-    print(ex.args[2])</pre></div></div></li>
+    # formula_err.args[0] contains the message "invalid formula"
+    # formula_err.args[1] contains the incorrect formula
+    # formula_err.args[2] contains the index of the first mistake in the formula
+    print(formula_err.args[0])
+    print(formula_err.args[1])
+    print(formula_err.args[2])</pre></div></div></li>
 
         <li><div>At the bottom of your <code>chemistry.py</code> file,
         add this code to call the <code>main</code> function when your

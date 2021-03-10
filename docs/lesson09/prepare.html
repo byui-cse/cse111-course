@@ -109,7 +109,7 @@ df = pd.read_csv("filename.csv")
 df = pd.read_csv("filename.csv")
 <em>print(df.describe())</em></pre></div></div></li>
 
-        <li><div>To <a href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/03_subset_data.html#how-do-i-select-specific-columns-from-a-dataframe">extract a column</a>
+        <li><div>To <a href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/03_subset_data.html#how-do-i-select-specific-columns-from-a-dataframe">extract one column</a>
         from a DataFrame write the column's name in square brackets [].
         For example:
 <div class="pre"><pre class="python">import pandas as pd
@@ -120,9 +120,9 @@ df = pd.read_csv("filename.csv")
         column names between the square brackets like this:
 <div class="pre"><pre class="python">import pandas as pd
 
-df = pd.read_csv("filename.csv")
+original_df = pd.read_csv("filename.csv")
 <em>column_names = ["col_name1", "col_name2", "col_name3"]
-smaller_df = df[column_names]</em></pre></div></div></li>
+smaller_df = original_df[column_names]</em></pre></div></div></li>
 
         <li><div>To <a href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/03_subset_data.html#how-do-i-filter-specific-rows-from-a-dataframe">filter rows</a>
         out of a DataFrame, use a comparison to create a filter object.
@@ -133,13 +133,13 @@ smaller_df = df[column_names]</em></pre></div></div></li>
         and <var>filtered_df</var> is a DataFrame that contains only
         some of the rows from the CSV file because all the rows that
         don't satisfy the comparison
-        <code><em>df["col_name"] &gt; threshold</em></code>
+        <code><em>original_df["column_name"] &gt; threshold</em></code>
         have been filtered out.
 <div class="pre"><pre class="python">import pandas as pd
 
-df = pd.read_csv("filename.csv")
-<em>filter = (df["col_name"] &gt; threshold)
-filtered_df = df[filter]</em></pre></div>
+original_df = pd.read_csv("filename.csv")
+<em>filter = (original_df["column_name"] &gt; threshold)
+filtered_df = original_df[filter]</em></pre></div>
         It is possible to filter rows by two comparisons. However,
         because of operator precedence in Python, we must add
         parentheses around each comparison. In the next example,
@@ -150,40 +150,41 @@ filtered_df = df[filter]</em></pre></div>
         that satisfy either or both comparisons.
 <div class="pre"><pre class="python">import pandas as pd
 
-df = pd.read_csv("filename.csv")
-<em>andfilt = (df["col_name"] &gt; threshold) &amp; (df["col_name2"] == value)
-orfilt  = (df["col_name"] &gt; threshold) | (df["col_name2"] == value)</em>
-filtered_and_df = df[andfilt]
-filtered_or_df = df[orfilt]</pre></div>
+original_df = pd.read_csv("filename.csv")
+<em>andfilt = (original_df["col_name1"] &gt; threshold) &amp; (original_df["col_name2"] == value)
+orfilt  = (original_df["col_name1"] &gt; threshold) | (original_df["col_name2"] == value)</em>
+filtered_and_df = original_df[andfilt]
+filtered_or_df = original_df[orfilt]</pre></div>
         Unfortunately, it is easy to confuse the code that selects a
         column or columns (shown in the previous item) and the code that
         filters rows (shown in this item) because both of them use a
         data frame and square brackets such as:&nbsp;
-        <code>df[ ]</code>. However, look closely at the example code in
-        the previous item and this item to see the difference. The code
-        to select a column or columns contains only a string or list of
-        strings between the square brackets. The code to filter rows
-        contains a filter object between the square brackets.</div></li>
+        <code>original_df[ ]</code>. However, look closely at the
+        example code in the previous item and this item to see the
+        difference. The code to select a column or columns contains only
+        a string or list of strings between the square brackets. The
+        code to filter rows contains a filter object between the square
+        brackets.</div></li>
 
         <li><div>To filter out duplicate rows, call the <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.drop_duplicates.html">DataFrame.drop_duplicates()</a>
         function. For example in the following code, <var>no_dups_df</var>
-        is a DataFrame that contains the same data as <var>df</var> but
-        with all duplicate rows removed.
+        is a DataFrame that contains the same data as <var>original_df</var>
+        but with all duplicate rows removed.
 <div class="pre"><pre class="python">import pandas as pd
 
-df = pd.read_csv("filename.csv")
-<em>no_dups_df = df.drop_duplicates()</em></pre></div></div></li>
+original_df = pd.read_csv("filename.csv")
+<em>no_dups_df = original_df.drop_duplicates()</em></pre></div></div></li>
 
         <li><div>The <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.unique.html">Series.unique()</a>
         function returns a list of unique values from a Series. This is
         very helpful to get a list of unique values from a column. In
         the following code, <var>unique_vals</var> is a list of the
         unique values that appear in a column named
-        <var>col_name</var>.
+        <var>column_name</var>.
 <div class="pre"><pre class="python">import pandas as pd
 
-df = pd.read_csv("filename.csv")
-column = df["col_name"]
+original_df = pd.read_csv("filename.csv")
+column = original_df["column_name"]
 <em>unique_vals = column.unique()</em></pre></div></div></li>
 
         <li><div>The <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.value_counts.html">Series.value_counts()</a>
@@ -191,8 +192,8 @@ column = df["col_name"]
         value occurs in a Series.
 <div class="pre"><pre class="python">import pandas as pd
 
-df = pd.read_csv("filename.csv")
-column = df["col_name"]
+original_df = pd.read_csv("filename.csv")
+column = original_df["column_name"]
 <em>counts = column.value_counts()</em></pre></div></div></li>
 
         <li><div>To <a href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/05_add_columns.html">create a new column</a>
@@ -201,8 +202,8 @@ column = df["col_name"]
         For example:
 <div class="pre"><pre class="python">import pandas as pd
 
-df = pd.read_csv("filename.csv")
-<em>df["new_column_name"] = 3 * df["existing_column_name"] + 1</em></pre></div></div></li>
+original_df = pd.read_csv("filename.csv")
+<em>original_df["new_column_name"] = 3 * original_df["existing_column_name"] + 1</em></pre></div></div></li>
 
         <li><div>To extract parts of datetime values, use the
         <code>.dt</code> attribute and the <code>.to_period</code>
@@ -213,8 +214,8 @@ df = pd.read_csv("filename.csv")
         For example:
 <div class="pre"><pre class="python">import pandas as pd
 
-df = pd.read_csv("filename.csv")
-<em>column = df["datetime_column"].dt.to_period("M")</em></pre></div></div></li>
+original_df = pd.read_csv("filename.csv")
+<em>column = original_df["datetime_column"].dt.to_period("M")</em></pre></div></div></li>
 
         <li><div>The <code>pandas</code> module includes several
         functions that aggregate data, including the following:
@@ -237,8 +238,8 @@ df = pd.read_csv("filename.csv")
         methods as shown in this template:
 <div class="pre"><pre class="python">import pandas as pd
 
-df = pd.read_csv("filename.csv")
-group = df.groupby("existing_column_to_group_by")
+original_df = pd.read_csv("filename.csv")
+group = original_df.groupby("existing_column_to_group_by")
 grouped_df = group.aggregate(
         new_column_name=("existing_column_to_summarize", "function"))</pre></div></div></li>
     </ol>
