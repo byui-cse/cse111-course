@@ -110,12 +110,10 @@ def show_usage_sum(sum_df):
     pyplot.tight_layout()
 
     # Define a vertical bar plot.
-    bar = sum_df.plot(kind="bar", y="sumUsage", color=colors,
-            title=title, legend=None)
-    bar.set_xlabel("")
-    bar.set_ylabel("x1000 gallons")
+    bar_plot = sum_df.plot(kind="bar", y="sumUsage", color=colors,
+            title=title, legend=None, xlabel="", ylabel="x1000 gallons")
     fmtr = ticker.FuncFormatter(lambda val, pos: f"{val:,.0f}")
-    bar.yaxis.set_major_formatter(fmtr)
+    bar_plot.yaxis.set_major_formatter(fmtr)
 
     # Call the pyplot.tight_layout function, which will format the
     # previously defined plot so that all of its parts are spaced
