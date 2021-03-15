@@ -111,7 +111,7 @@ def show_usage_sum(sum_df):
 
     # Define a vertical bar plot.
     bar_plot = sum_df.plot(kind="bar", y="sumUsage", color=colors,
-            title=title, legend=None, xlabel="", ylabel="x1000 gallons")
+            title=title, xlabel="", ylabel="x1000 gallons", legend=None)
     fmtr = ticker.FuncFormatter(lambda val, pos: f"{val:,.0f}")
     bar_plot.yaxis.set_major_formatter(fmtr)
 

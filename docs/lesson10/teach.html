@@ -89,22 +89,24 @@
     help a user visualize the data that is printed out.</p>
 
     <p>Your program must be split into several functions:</p>
-    <ol>
+    <ol class="long">
         <li><div><code>main</code> which calls <code>pd.read_csv</code>
         to read the contents of the <code>water.csv</code> file into a
         data frame and then calls the other functions. Of course,
         <code>main</code> may include additional statements as
         needed.</div></li>
 
-        <li><div>For each of the three questions above, one function
+        <li><div><p>For each of the three questions above, one function
         that shows a plot to answer the corresponding
-        question.<sup>*</sup></div></li>
+        question.<sup>*</sup></p>
+
+        <ul class="note"><li>Because the second and third questions are
+        very similar, it is reasonably easy to add parameters to the
+        function that answers the second question, so that it can be
+        reused to answer both the second and third questions.</li></ul>
+        </div></li>
     </ol>
 
-    <ul class="note"><li>Because the second and third questions are
-    very similar, it is reasonably easy to add parameters to the
-    function that answers the second question, so that it can be reused
-    to answer both the second and third questions.</li></ul>
 
     <h3>Stretch Challenges</h3>
     <p>If your team finishes the core requirements in less than an
@@ -112,20 +114,21 @@
     the stretch challenges are optional.</p>
 
     <ol>
-        <li><div>Write another function that shows a chart to answer
+        <li><div><p>Write another function that shows a chart to answer
         this question, "Is the average amount of water used <em>per
-        dwelling</em> increasing each year?"<sup>*</sup></div></li>
-   </ol>
+        dwelling</em> increasing each year?" <sup>*</sup></p>
 
-    <ul class="note"><li>If you examine the water data closely, you will
-    see that some water meters serve both a business and one or more
-    apartments. When analyzing data to answer the stretch question, your
-    program should exclude the water usage data for such meters because
-    there is no way to determine how much water went to the business and
-    how much went to the attached apartment. In fact, when answering the
-    stretch question, your program should use only the data for
-    apartment complexes, residences, town homes, and trailer
-    courts.</li></ul>
+        <ul class="note"><li>If you examine the water data closely, you
+        will see that some water meters serve both a business and one or
+        more apartments. When analyzing data to answer the stretch
+        question, your program should exclude the water usage data for
+        such meters because there is no way to determine how much water
+        went to the business and how much went to the attached
+        apartment. In fact, when answering the stretch question, your
+        program should use only the data for apartment complexes,
+        residences, town homes, and trailer courts.</li></ul>
+        </div></li>
+   </ol>
 
     <h2>Sample Run</h2>
 <pre class="console">&gt; python prove_solution.py
