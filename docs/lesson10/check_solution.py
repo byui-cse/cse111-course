@@ -18,9 +18,9 @@ def main():
 
         # Define a vertical bar plot from the data frame for meter #M4103.
         barplot = m4103_df.plot(kind="bar", x="readDate", y="usage",
-                title=f"Water Usage for Meter #{meternum}", legend=None)
-        barplot.set_xlabel("")
-        barplot.set_ylabel("x1000 gallons")
+                title=f"Water Usage for Meter #{meternum}",
+                color="lightseagreen",
+                xlabel="", ylabel="x1000 gallons", legend=None)
 
         # Call the pyplot.tight_layout function, which will format the
         # previously defined plot so that all of its parts are spaced

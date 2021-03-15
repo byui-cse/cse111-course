@@ -66,59 +66,45 @@
     </ol>
 
     <h2>Assignment</h2>
+    <h3>Core Requirements</h3>
     <p>Write a Python program named <code>visualize_teach.py</code> that
     uses <code>pandas</code> and includes several functions to answer
-    these two questions about the
+    these three questions about the
     <a download href="../lesson09/water.zip">water usage data</a> from
     the City of Rexburg:</p>
 
     <ol>
         <li><div>Is the total amount of water used in the City of
         Rexburg increasing each year?</div></li>
-        <li><div>Is the average amount of water used per dwelling
-        increasing each year?</div></li>
+        <li><div>Is the amount of water used by apartment complexes in
+        the City of Rexburg increasing each year?</li></div>
+        <li><div>Is the amount of water used by businesses in
+        the City of Rexburg increasing each year?</li></div>
     </ol>
 
-    <p>Your program should compute actual numbers from the water meter
-    data that answer the two questions above. Your program should print
-    those numbers formatted nicely as shown in the sample run below and
-    should draw at least two plots to help a user visualize the data
-    that is printed out.</p>
+    <p>Your program must filter, group, and aggregate the water usage
+    data to compute actual numbers that answer the three questions
+    above. Your program must print those numbers formatted nicely as
+    shown in the sample run below and must draw at least two plots to
+    help a user visualize the data that is printed out.</p>
 
-    <p><b>Note</b>: If you examine the water data closely, you will see
-    that some water meters serve both a business and one or more
-    apartments. When analyzing data to answer the <em>second</em>
-    question, your program should exclude the water usage data for such
-    meters because there is no way to determine how much water went to
-    the business and how much went to the attached apartment. In fact,
-    when answering the <em>second</em> question, your program should use
-    only the data for apartment complexes, residences, town homes, and
-    trailer courts.</p>
+    <p>Your program must be split into several functions:</p>
+    <ol>
+        <li><div><code>main</code> which calls <code>pd.read_csv</code>
+        to read the contents of the <code>water.csv</code> file into a
+        data frame and then calls the other functions. Of course,
+        <code>main</code> may include additional statements as
+        needed.</div></li>
 
-    <h3>Core Requirements</h3>
-    <ol class="long">
-        <li><div>Your program must be split into at least three
-        functions:
-        <ol>
-            <li><div><code>main</code></div></li>
-            <li><div>A function that shows a plot to answer the first
-            question in this assignment.</div></li>
-            <li><div>A function that shows a plot to answer the second
-            question in this assignment.</div></li>
-        </ol></div></li>
-
-        <li><div>Your program must call <code>pd.read_csv</code> to read
-        the <code>water.csv</code> file into a DataFrame and must add to
-        the DataFrame a new column named "year" that contains only the
-        year part of the "readDate" column.</div></li>
-
-        <li><div>Your program must compute the sum of the water usage
-        grouped by year and must print that summed data as shown in the
-        sample run section below. Then your program must display a
-        vertical bar chart that shows the summed data. If you examine
-        this chart, you will be able to answer the <em>first</em>
-        question of this assignment.</div></li>
+        <li><div>For each of the three questions above, one function
+        that shows a plot to answer the corresponding
+        question.<sup>*</sup></div></li>
     </ol>
+
+    <ul class="note"><li>Because the second and third questions are
+    very similar, it is reasonably easy to add parameters to the
+    function that answers the second question, so that it can be reused
+    to answer both the second and third questions.</li></ul>
 
     <h3>Stretch Challenges</h3>
     <p>If your team finishes the core requirements in less than an
@@ -126,15 +112,25 @@
     the stretch challenges are optional.</p>
 
     <ol>
-        <li><div>Add code to filter, group, and aggregate the water
-        usage data and to display a vertical bar chart that answers the
-        <em>second</em> question of this assignment.</div></li>
-    </ol>
+        <li><div>Write another function that shows a chart to answer
+        this question, "Is the average amount of water used <em>per
+        dwelling</em> increasing each year?"<sup>*</sup></div></li>
+   </ol>
+
+    <ul class="note"><li>If you examine the water data closely, you will
+    see that some water meters serve both a business and one or more
+    apartments. When analyzing data to answer the stretch question, your
+    program should exclude the water usage data for such meters because
+    there is no way to determine how much water went to the business and
+    how much went to the attached apartment. In fact, when answering the
+    stretch question, your program should use only the data for
+    apartment complexes, residences, town homes, and trailer
+    courts.</li></ul>
 
     <h2>Sample Run</h2>
 <pre class="console">&gt; python prove_solution.py
 
-Total usage for all account types (in 1000 gallons):
+Total water usage by year (in 1000 gallons):
       sumUsage
 year
 2015   1863804
@@ -143,8 +139,26 @@ year
 2018   1999372
 2019   2325421
 
-Average total usage per dwelling (in 1000 gallons):
-      sumUsage  numDwellings  usagePerDwelling
+Apartment Complex water usage by year (in 1000 gallons):
+      sumUsage
+year
+2015    476491
+2016    490781
+2017    460989
+2018    470969
+2019    494621
+
+Business water usage by year (in 1000 gallons):
+      sumUsage
+year
+2015    374424
+2016    361005
+2017    376274
+2018    407715
+2019    455834
+
+Average usage per dwelling (in 1000 gallons):
+      sumUsage  sumDwellings  usagePerDwelling
 year
 2015   1108284       32181.9              34.4
 2016   1175975       32642.0              36.0
@@ -160,15 +174,15 @@ year
         results, rounded and formatted as shown in the sample run
         above.</div></li>
 
-        <li><div>Examine the two vertical bar charts displayed by your
-        program and verify that the two charts show the same values as
-        the printed results.</div></li>
+        <li><div>Examine the charts displayed by your program and verify
+        that the charts show the same values as the printed
+        results.</div></li>
     </ol>
 
     <h2>Ponder</h2>
     <p>Examine the printed output and the plots displayed by your
-    program. What are the answers to the two questions in the
-    "Assignment" section?</p>
+    program. What are the answers to the two questions in the Assignment
+    section?</p>
 
     <h2>Sample Solution</h2>
     <p>Please work diligently with your team for the one hour meeting.
