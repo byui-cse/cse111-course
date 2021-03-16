@@ -35,14 +35,14 @@ def show_all_water_usage(df):
     print("Total water usage by year (in 1000 gallons):")
     print(total_df)
 
-    barplot = total_df.plot(kind="bar", y="sumUsage",
+    total_df.plot(kind="bar", y="sumUsage",
             title="Total Water Usage by Year",
             xlabel="", ylabel="x1000 gallons", legend=None)
 
-    # Call the pyplot.tight_layout function, which will format the
+    # Call the pyplot.tight_layout() function, which will format the
     # previously defined plot so that all of its parts are spaced
-    # nicely. Strangely, pyplot.tight_layout must be called multiple
-    # times, once for each defined plot, but pyplot.show needs to be
+    # nicely. Strangely, pyplot.tight_layout() must be called multiple
+    # times, once for each defined plot, but pyplot.show() needs to be
     # called only once.
     pyplot.tight_layout()
 
@@ -60,14 +60,14 @@ def show_water_usage_for_account_type(df, account_type, color):
     print(f"{account_type} water usage by year (in 1000 gallons):")
     print(total_df)
 
-    barplot = total_df.plot(kind="bar", y="sumUsage", color=color,
+    total_df.plot(kind="bar", y="sumUsage", color=color,
             title=f"{account_type} Water Usage by Year",
             xlabel="", ylabel="x1000 gallons", legend=None)
 
-    # Call the pyplot.tight_layout function, which will format the
+    # Call the pyplot.tight_layout() function, which will format the
     # previously defined plot so that all of its parts are spaced
-    # nicely. Strangely, pyplot.tight_layout must be called multiple
-    # times, once for each defined plot, but pyplot.show needs to be
+    # nicely. Strangely, pyplot.tight_layout() must be called multiple
+    # times, once for each defined plot, but pyplot.show() needs to be
     # called only once.
     pyplot.tight_layout()
 
@@ -105,14 +105,14 @@ def show_water_usage_per_dwelling(df):
     print("Average usage per dwelling (in 1000 gallons):")
     print(final_df)
 
-    barplot = final_df.plot(kind="bar", y="usagePerDwelling", color="lime",
+    final_df.plot(kind="bar", y="usagePerDwelling", color="lime",
             title="Average Usage per Dwelling",
             xlabel="", ylabel="x1000 gallons", legend=None)
 
-    # Call the pyplot.tight_layout function, which will format the
+    # Call the pyplot.tight_layout() function, which will format the
     # previously defined plot so that all of its parts are spaced
-    # nicely. Strangely, pyplot.tight_layout must be called multiple
-    # times, once for each defined plot, but pyplot.show needs to be
+    # nicely. Strangely, pyplot.tight_layout() must be called multiple
+    # times, once for each defined plot, but pyplot.show() needs to be
     # called only once.
     pyplot.tight_layout()
 
