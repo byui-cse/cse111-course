@@ -8,11 +8,14 @@
     <title>CSE 111 - Prove</title>
     <link rel="icon" type="image/png" href="../site/icon.png">
     <link rel="stylesheet" type="text/css" href="../site/style.css">
+    <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-database.js"></script>
     <script src="../site/url.js"></script>
     <script src="../site/urlWrite.js"></script>
     <script src="../site/color.js"></script>
+    <script src="../site/linenums.js"></script>
+    <script src="../site/hljs/highlight.pack.js"></script>
 </head>
 
 <body>
@@ -25,139 +28,244 @@
     <h2>CSE 111 | <span>Programming with Functions</span></h2>
 </header>
 <article>
-    <h1>03 Prove Milestone: Using Dictionaries</h1>
+    <h1>03 Prove Milestone: Writing Functions</h1>
 
     <h2>Overview</h2>
-    <p>Prove that you can write a Python program that reads CSV files
-    and creates, populates, and uses dictionaries.</p>
+    <p>Prove that you can write functions with parameters and call those
+    functions with arguments by writing a program that draws an outdoor
+    scene in a window.</p>
 
     <h2>Problem Statement</h2>
-    <p>A local grocery store subscribes to an online service that
-    enables their customers to order groceries online. After a customer
-    completes an order, the online service sends a CSV file that
-    contains the customer's requests to the grocery store. The store
-    needs you to write a program that reads the CSV file and prints (to
-    the terminal window) a receipt that lists the purchased items and
-    shows the subtotal, the sales tax amount, and the total.</p>
+    <p>Most modern computer operating systems have graphical user
+    interfaces (GUIs) that are rich with colors, icons, images, menus,
+    tabs, buttons, text fields, sliders, scroll bars, etc. However, many
+    Python programs are designed to run in a console window, also called
+    a terminal window, to read user input from a keyboard, and to print
+    text as output to the console window. This means that many Python
+    programs are not designed and written to take advantage of the rich
+    features of graphical user interfaces.</p>
 
-    <h2>Helpful Documentation</h2>
-    <p><a href="file_setup.html">This article</a> explains how to setup
-    VS Code so that your Python program can read from files.</p>
+    <p>Python includes two competing libraries of code named
+    <code>tkinter</code> and <code>kivy</code> that enable a program to
+    have a user interface. Writing a program with a complete GUI is a
+    large task. During this lesson and the next lesson, you will write a
+    Python program that uses the <code>tkinter</code> library and
+    draws a semi-realistic scene in a graphical window similar to this
+    scene:</p>
 
-    <p>The prepare content for this lesson includes a section about
-    <a href="prepare.html#dicts">using dictionaries</a> and a section
-    about <a href="prepare.html#csvFiles">reading CSV files</a>.</p>
+    <p><img src="scene.png"
+    alt="A semi-realistic outdoor scene drawn by a Python program"></p>
 
-    <p><a href="https://content.byui.edu/items/a9e60503-b5e7-40f0-bf48-ebf1a7441d25/1/example_03.mp4">This video</a>
-    shows a BYU-Idaho faculty member solving a problem that is similar
-    to this prove assignment.</p>
+    <h2>Scene Gallery</h2>
+    <p>All the scenes in
+    <a href="../lesson06/gallery/index.html">this gallery</a>
+    were drawn by programs written by former CSE 111 students.</p>
 
-    <h2>Assignment</h2>
-    <p>During this milestone (lesson 3), you will write half of this
-    Python program. Specifically, by the end of this milestone, your
-    program will read and process these two CSV files:</p>
-    <ul>
-        <li><div>The <code>products.csv</code> file is a catalog of
-            all the products that the grocery store sells.</div></li>
-        <li><div>The <code>request.csv</code> file contains the items
-            ordered by a customer.</div></li>
+    <h2>Helpful Videos</h2>
+    <p>The following videos walk through two examples of using functions
+    to draw with <code>tkinter</code>.</p>
+    <ul class="links">
+        <li><div><a href="https://content.byui.edu/items/a9e60503-b5e7-40f0-bf48-ebf1a7441d25/1/drawing_with_functions_part1.mp4">Drawing with Functions, part 1</a></div></li>
+        <li><div><a href="https://content.byui.edu/items/a9e60503-b5e7-40f0-bf48-ebf1a7441d25/1/drawing_with_functions_part2.mp4">Drawing with Functions, part 2</a></div></li>
     </ul>
 
-    <p>Do the following:</p>
-    <ol class="long">
-        <li><div>Download both of these files:
-        <a download href="products.csv">products.csv</a> and
-        <a download href="request.csv">request.csv</a> and
-        save them into the same folder where you will save your Python
-        program.</div></li>
+    <h2>Helpful Documentation</h2>
+    <ul class="long">
+        <li><div>How to <a href="prepare.html">write functions</a></div></li>
 
-        <li><div>Open the <code>products.csv</code> file in VS Code and
-        examine it. Notice that each row in this file contains three
-        values separated by commas: a product number, a product name,
-        and a retail price.</div></li>
+        <li><div>A tutorial about
+        <a href="http://zetcode.com/tkinter/drawing/">drawing with
+        tkinter</a></div></li>
 
-        <li><div>In VS Code, create a new file, import the
-        <code>csv</code> module, and save the new file as
-        <code>receipt.py</code> in the same folder where you saved the
-        <code>products.csv</code> and <code>request.csv</code>
-        files.</div></li>
+        <li><div>References for tkinter Canvas methods
+        <ul>
+            <li><div><a href="https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/create_arc.html">create_arc()</a></div></li>
+            <li><div><a href="https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/create_line.html">create_line()</a></div></li>
+            <li><div><a href="https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/create_oval.html">create_oval()</a></div></li>
+            <li><div><a href="https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/create_polygon.html">create_polygon()</a></div></li>
+            <li><div><a href="https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/create_rectangle.html">create_rectangle()</a></div></li>
+            <li><div><a href="https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/create_text.html">create_text()</a></div></li>
+        </ul></div></li>
 
-        <li><div><p>Write code in <code>receipt.py</code> that will open
-        the <code>products.csv</code> file for reading and populate a
-        dictionary named <var>products</var> with the contents of the
-        <code>products.csv</code> file. In the next part of your
-        program, your program will use this <var>products</var>
-        dictionary to look up product names and prices.</p>
+        <li><div><a href="colors.png">Chart of named
+        colors</a> in tkinter</div></li>
+    </ul>
 
-        <p>Recall that each item in a dictionary has a key and a value.
-        Each item in the <var>products</var> dictionary must have a
-        product number as the key and a list with the product name and
-        price as the value. This organization is shown in the following
-        table.</p>
+    <h2>Assignment</h2>
+    <p>During this lesson, you will write code that draws the sky,
+    the ground, and clouds. During the next lesson, you will write code
+    that completes the scene. The scene that your program draws may be
+    very different from the example scene above. However, your scene
+    must be outdoor, the sky must have clouds, and the scene must
+    include repetitive elements such as blades of grass, trees, leaves
+    on a tree, birds, flowers, insects, fish, pickets in a fence, dashed
+    lines on a road, buildings, bales of hay, snowmen, snowflakes, or
+    icicles. Be creative.</p>
 
-        <table class="center"><thead>
-            <tr><th colspan="2">Products</th></tr>
-            <tr><th>Key</th> <th>Value</th></tr>
-        </thead><tbody>
-            <tr><td>"D150"</td> <td>["1 gallon milk", 2.85]</td></tr>
-            <tr><td>"D083"</td> <td>["1 cup yogurt", 0.75]</td></tr>
-            <tr><td>"P143"</td> <td>["1 lb baby carrots", 1.39]</td></tr>
-            <tr><td>"W231"</td> <td>["32 oz granola", 3.21]</td></tr>
-            <tr><td>"W112"</td> <td>["wheat bread", 2.55]</td></tr>
-            <tr><td>"C013"</td> <td>["twix candy bar", 0.85]</td></tr>
-        <tbody></table></div></li>
+    <p>Each repetitive element must be drawn by a function that your
+    program calls repeatedly, once for each repeated element. For
+    example, your program may include a function named
+    <code>draw_leaf</code> that your program repeatedly calls to draw
+    all the leaves on a tree.</p>
 
-        <li><div>In your <code>receipt.py</code> program, after the code
-        that populates the <var>products</var> dictionary, write a line
-        of code to print the entire <var>products</var> dictionary. Run
-        your program and verify that your printed dictionary contains
-        the same data as shown in the previous table.</div></li>
-
-        <li><div>Open the <code>request.csv</code> file in VS Code and
-        examine it. Notice that each row contains only two values, a
-        product number and a quantity.</div></li>
-
-        <li><div>At the bottom of your <code>receipt.py</code> program,
-        write code that will open the <code>request.csv</code> file for
-        reading. Write a loop that will read and process each row from
-        the <code>request.csv</code> file. Within the body of the loop,
-        your program must do the following for each row:
-        <ol>
-            <li><div>Use the requested product number to retrieve the
-            corresponding product name and price from the
-            <var>products</var> dictionary.</div></li>
-            <li><div>Print the product name, requested quantity, and
-            product price.</div></li>
-        </ol></div></li>
+    <p>The goal of this assignment is not to train you to become a
+    world-famous cloud artist. Instead, the goal is to teach you how to
+    apply the following principles to a real programming problem:</p>
+    <ol>
+        <li><div>Writing a function</div></li>
+        <li><div>Deciding what needs to be a parameter in a function
+        definition</div></li>
+        <li><div>Calling a function with different argument values to
+        produce different results</div></li>
+        <li><div>Understanding how to separate the parts of a function
+        that should stay the same and the parts that depend on
+        parameters, in order to make the function as reusable as
+        possible.</div></li>
     </ol>
 
-    <h2>Sample Run</h2>
-<pre class="console">&gt; python receipt.py
+    <p>Begin your program by copying and pasting the following code into
+    a new file named <code>scene.py</code>. This beginning code imports
+    several parts of the <code>tkinter</code> library and creates a
+    window and a canvas that your program can draw to.</p>
 
-Products
-{'D150': ['1 gallon milk', 2.85],
-'D083': ['1 cup yogurt', 0.75],
-'P143': ['1 lb baby carrots', 1.39],
-'W231': ['32 oz granola', 3.21],
-'W112': ['wheat bread', 2.55],
-'C013': ['twix candy bar', 0.85]}
+<div class="pre"><pre class="linenums"></pre>
+<pre class="python" id="ex1">
+import tkinter as tk
 
-Requested Items
-1 gallon milk: 2 @ 2.85
-32 oz granola: 1 @ 3.21
-1 cup yogurt: 4 @ 0.75
-twix candy bar: 2 @ 0.85</pre>
+
+def main():
+    # The width and height of the scene window.
+    width = 800
+    height = 500
+
+    # Create the root Tk object.
+    root = tk.Tk()
+    root.geometry(f"{width}x{height}")
+
+    # Create a Frame object.
+    frame = tk.Frame()
+    frame.master.title("Scene")
+    frame.pack(fill=tk.BOTH, expand=1)
+
+    # Create a canvas object that will draw into the frame.
+    canvas = tk.Canvas(frame)
+    canvas.pack(fill=tk.BOTH, expand=1)
+
+    # Call the draw_scene function.
+    draw_scene(canvas, 0, 0, width-1, height-1)
+
+    root.mainloop()
+
+
+def draw_scene(canvas, scene_left, scene_top, scene_right, scene_bottom):
+    """Draw a scene in the canvas. scene_left, scene_top,
+    scene_right, and scene_bottom contain the extent in
+    pixels of the region where the scene should be drawn.
+    Parameters:
+        scene_left - left side of the region; less than scene_right
+        scene_top - top of the region; less than scene_bottom
+        scene_right - right side of the region
+        scene_bottom - bottom of the region
+    Return: nothing
+
+    If needed, the width and height of the
+    region can be calculated like this:
+    scene_width = scene_right - scene_left + 1
+    scene_height = scene_bottom - scene_top + 1
+    """
+    # Call your functions here, such as draw_sky, draw_ground,
+    # draw_snowman, draw_tree, draw_shrub, etc.
+    tree_center = scene_left + 500
+    tree_top = scene_top + 100
+    tree_height = 150
+    draw_pine_tree(canvas, tree_center, tree_top, tree_height)
+
+
+# Define more functions here, like draw_sky, draw_ground,
+# draw_cloud, draw_tree, draw_kite, draw_snowflake, etc.
+
+def draw_pine_tree(canvas, peak_x, peak_y, height):
+    """Draw a single pine tree.
+    Parameters:
+        canvas: The tkinter canvas where this
+            function will draw a pine tree.
+        peak_x, peak_y: The x and y location in pixels where
+            this function will draw the top peak of a pine tree.
+        height: The height in pixels of the pine tree that
+            this function will draw.
+    Return: nothing
+    """
+    trunk_width = height / 10
+    trunk_height = height / 8
+    trunk_left = peak_x - trunk_width / 2
+    trunk_right = peak_x + trunk_width / 2
+    trunk_bottom = peak_y + height
+
+    skirt_width = height / 2
+    skirt_height = height - trunk_height
+    skirt_left = peak_x - skirt_width / 2
+    skirt_right = peak_x + skirt_width / 2
+    skirt_bottom = peak_y + skirt_height
+
+    # Draw the trunk of the pine tree.
+    canvas.create_rectangle(trunk_left, skirt_bottom,
+            trunk_right, trunk_bottom,
+            outline="gray20", width=1, fill="tan3")
+
+    # Draw the crown (also called skirt) of the pine tree.
+    canvas.create_polygon(peak_x, peak_y,
+            skirt_right, skirt_bottom,
+            skirt_left, skirt_bottom,
+            outline="gray20", width=1, fill="dark green")
+
+
+# Call the main function so that
+# this program will start executing.
+main()</pre></div>
+
+    <p>Save your new file as <code>scene.py</code> and run your new
+    Python program. When you run it, it should open a window that
+    contains a single pine tree like this:</p>
+
+    <p><img src="tree.png" alt="A blue circle drawn by a Python program"></p>
+
+    <p>The pine tree was drawn because the code at line&nbsp;91 called
+    the <code>main</code> function. At line&nbsp;22, the
+    <code>main</code> function called the <code>draw_scene</code>
+    function. At line&nbsp;48, the <code>draw_scene</code> function
+    called the <code>draw_pine_tree</code> function and at
+    lines&nbsp;78&ndash;83 the <code>draw_pine_tree</code> function
+    called the <code>create_rectangle</code> and
+    <code>create_polygon</code> methods.</p>
+
+    <p>The purpose of this assignment is to prove that you can write and
+    call functions. Therefore, your program must be divided into
+    functions such as <code>draw_sky</code>, <code>draw_cloud</code>,
+    <code>draw_ground</code>, <code>draw_bird</code>,
+    <code>draw_grass_blade</code>, and <code>draw_insect</code>. The
+    headers for the <code>draw_scene</code> and
+    <code>draw_pine_tree</code> functions are good examples for the
+    headers of all your draw_* functions. For example, if you write a
+    <code>draw_grass_blade</code> function in your program, you could
+    write its header like this:</p>
+
+<div class="pre"><pre class="python">def draw_grass_blade(canvas, blade_left, blade_top, blade_right, blade_bottom):</pre></div>
+
+    <p>Delete or comment-out lines&nbsp;45&ndash;48 and
+    lines&nbsp;54&ndash;86 and begin writing your program. As you write
+    your program, be sure that it draws elements in the order of
+    farthest away to nearest. For example, you program should draw the
+    blue sky first, then the ground, then clouds, then trees, then
+    insects in the trees.</p>
 
     <h2>Testing Procedure</h2>
-    <p>Verify that your program works correctly by following each step
-    in this testing procedure:</p>
+    <p>Verify that your program works correctly by following each
+    step in this testing procedure:</p>
 
     <ol class="test">
-        <li><div>Run your program and verify that it prints the
-        <var>products</var> dictionary and requested items as shown in
-        the "Sample Run" section above. The output of your program
-        should contain the same data as above but does not have to be
-        formatted exactly the same as above.</div></li>
+        <li><div>Run your program and verify that it correctly opens a
+        window and draws within that window an outdoor scene that
+        contains at least the sky, clouds, and the ground.</div></li>
     </ol>
 
     <h2>Submission</h2>
