@@ -8,11 +8,13 @@
     <title>CSE 111 - Team Activity</title>
     <link rel="icon" type="image/png" href="../site/icon.png">
     <link rel="stylesheet" type="text/css" href="../site/style.css">
+    <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-database.js"></script>
     <script src="../site/url.js"></script>
     <script src="../site/urlWrite.js"></script>
     <script src="../site/color.js"></script>
+    <script src="../site/hljs/highlight.pack.js"></script>
 </head>
 
 <body>
@@ -25,7 +27,7 @@
     <h2>CSE 111 | <span>Programming with Functions</span></h2>
 </header>
 <article>
-    <h1>03 Team Activity: Using Dictionaries</h1>
+    <h1>03 Team Activity: Writing Functions</h1>
 
     <h2>Instructions</h2>
     <p>Arrange a one hour synchronous meeting with your team for this
@@ -35,65 +37,157 @@
     the individual checkpoint assignment beforehand.</p>
 
     <h2>Problem Statement</h2>
-    <p>A common task for many knowledge workers is to use a number, key,
-    or ID to look up information about a person. For example, a
-    knowledge worker may use a phone number or e-mail address as a key
-    to find (or look up) additional information about a customer. During
-    this activity, your team will write a Python program that uses a
-    student's I-Number to look up the student's name.</p>
+    <p>Health professionals who are helping a client achieve a healthy
+    body weight, sometimes use two computed values called body mass
+    index and basal metabolic rate.</p>
+
+    <p>From the U.S. Centers for Disease Control and Prevention we read,
+    "Body mass index (BMI) is a person's weight in kilograms divided by
+    the square of their height in meters. BMI can be used to screen for
+    weight categories such as underweight, normal, overweight, and obese
+    that may lead to health problems. However, BMI is not diagnostic of
+    the body fatness or health of an individual." The formula for
+    computing BMI is</p>
+    <div class="block expr"><var>bmi</var> = <div class="fract"><div class="numer">10,000 <var>weight</var></div><div class="denom"><var>height</var><sup>2</sup></div></div></div>
+    <p>where <var>weight</var> is in kilograms and <var>height</var> is
+    in centimeters.</p>
+
+    <p>Basal metabolic rate (BMR) is the minimum number of calories
+    required daily to keep your body functioning at rest. BMR is
+    different for women and men and changes with age. The revised
+    Harris-Benedict formulas for computing BMR are</p>
+    <div class="block expr">(women) &nbsp;<var>bmr</var> = 447.593 + 9.247 <var>weight</var> + 3.098 <var>height</var> &minus; 4.330 <var>age</var></div>
+    <div class="block expr">(men) &nbsp;<var>bmr</var> = 88.362 + 13.397 <var>weight</var> + 4.799 <var>height</var> &minus; 5.677 <var>age</var></div>
+    <p>where <var>weight</var> is in kilograms and <var>height</var> is
+    in centimeters.</p>
 
     <h2>Helpful Documentation</h2>
-    <p><a href="file_setup.html">This article</a> explains how to setup
-    VS Code so that your Python program can read from files.</p>
+    <ul>
+        <li><div>The <a href="prepare.html">prepare content</a> for this
+        lesson explains how to write functions.</div></li>
 
-    <p>The prepare content for this lesson includes a section about
-    <a href="prepare.html#dicts">using dictionaries</a> and a section
-    about <a href="prepare.html#csvFiles">reading CSV files</a>.</p>
+        <li><div>The official Python documentation describes the built-in
+        <a href="https://docs.python.org/3/library/functions.html#round"><code>round</code> function</a>.</div></li>
+    </ul>
 
     <h2>Assignment</h2>
-    <p>Download the
-    <a download href="pupils.csv"><code>pupils.csv</code></a> file and
-    save it in the same folder where you will save your Python program.
-    Open the file in VS Code and examine it. Notice that the I-Numbers
-    and names in the file are separated by a comma. Notice also that the
-    I-Numbers are stored in the file without any dashes between the
-    digits.</p>
-
-    <p>Write a Python program named <code>pupils.py</code> that does the
-    following:</p>
-
+    <p>Write a Python program named <code>fitness.py</code> that does
+    the following:</p>
     <ol>
-        <li><div>Opens the <code>pupils.csv</code> file for
-        reading.</div></li>
-
-        <li><div>Skips the first line of text in the file.</div></li>
-
-        <li><div>Reads the other lines of the file into a dictionary.
-        The program must store the student I-Numbers as keys and the
-        student names as values in the dictionary.</div></li>
-
-        <li><div>Prints the entire dictionary.</div></li>
-
-        <li><div>Gets an I-Number from the user.</div></li>
-
-        <li><div>Uses the I-Number to find the corresponding student
-        name in the dictionary and prints the name.</div></li>
+        <li><div>Asks the user to enter four values:
+        <ol>
+            <li><div>gender</div></li>
+            <li><div>birthdate in this format: YYYY-MM-DD</div></li>
+            <li><div>weight in US pounds</div></li>
+            <li><div>height in US inches</div></li>
+        </ol></div></li>
+        <li><div>Converts the weight from pounds to kilograms (1 lb =
+        0.45359237 kg).</div></li>
+        <li><div>Converts inches to centimeters (1 in = 2.54 cm).</div></li>
+        <li><div>Calculates age, BMI, and BMR.</div></li>
+        <li><div>Prints age, weight in kg, height in cm, BMI, and
+        BMR.</div></li>
     </ol>
+
+    <p>Use the following design to write your program. Write code for
+    each function that contains the keyword <code>pass</code> and then
+    delete the keyword <code>pass</code>.</p>
+
+<div class="pre"><pre class="python">
+# Import datetime so that it can be
+# used to compute a person's age.
+import datetime
+
+
+def main():
+    # Get the user's gender, birthdate, height, and weight.
+
+    # Call the compute_age, kg_from_lb, cm_from_in, body_mass_index,
+    # and basal_metabolic_rate functions as needed.
+
+    # Print the results for the user to see.
+    pass
+
+
+def compute_age(birth):
+    """Compute and return a person's age in years.
+
+    Parameter birth: a person's birthdate stored as
+        a string in this format: YYYY-MM-DD
+    Return: a person's age in years.
+    """
+    birthday = datetime.datetime.strptime(birth, "%Y-%m-%d").date()
+    today = datetime.datetime.now()
+
+    # Compute the difference between today and the birthday in years.
+    years = today.year - birthday.year
+
+    # If necessary, subtract one from the difference.
+    if birthday.month &gt; today.month or \
+        (birthday.month == today.month and birthday.day &gt; today.day):
+        years -= 1
+
+    return years
+
+
+def kg_from_lb(lb):
+    """Convert a mass in pounds to kilograms.
+    Parameter lb: a mass in US pounds.
+    Return: the mass in kilograms.
+    """
+    return
+
+
+def cm_from_in(inch):
+    """Convert a length in inches to centimeters.
+    Parameter inch: a length in inches.
+    Return: the length in centimeters.
+    """
+    return
+
+
+def body_mass_index(weight, height):
+    """Calculate and return a person's body mass index (bmi).
+    Parameters:
+        weight must be in kilograms.
+        height must be in centimeters.
+    Return: a person's body mass index.
+    """
+    return
+
+
+def basal_metabolic_rate(gender, weight, height, age):
+    """Calculate and return a person's basal metabolic rate (bmr).
+    Parameters:
+        weight must be in kilograms.
+        height must be in centimeters.
+        age must be in years.
+    Return: a person's basal metabolic rate in kcal per day.
+    """
+    return
+
+
+# Call the main function so that
+# this program will start executing.
+
+</pre></div>
 
     <h3>Core Requirements</h3>
     <ol class="long">
-        <li><div>Your program must read the data in the
-        <code>pupils.csv</code> file and convert that data into a Python
-        dictionary with I-Numbers as the keys and names as the
-        values.</div></li>
+        <li><div>Your program contains complete and correct functions
+        named <code>compute_age</code>, <code>kg_from_lb</code>, and
+        <code>cm_from_in</code>.
 
-        <li><div>Your program must ask the user for an I-Number and must
-        display the student name that corresponds to the given
-        I-Number.</div></li>
+        <li><div>Your program contains complete and correct functions
+        named <code>body_mass_index</code> and
+        <code>basal_metabolic_rate</code>. To be correct, the
+        <code>basal_metabolic_rate</code> function must compute BMR
+        differently for males and females.</div></li>
 
-        <li><div>If a user enters an I-Number that doesn't exist in the
-        dictionary, your program must print the message, "No such
-        student" (without the quotes).</div></li>
+        <li><div>Your program contains a function named
+        <code>main</code> which gets four values from the user, calls
+        the other functions, and prints the results for the user to
+        see.</div></li>
     </ol>
 
     <h3>Stretch Challenges</h3>
@@ -102,65 +196,57 @@
     stretch challenges are optional.</p>
 
     <ol class="long">
+        <li><div>Modify your program to print the height values in
+        meters instead of centimeters.</div></li>
+
+        <li><div>Modify your program to allow the user to enter weight
+        in British stones and add a function named
+        <code>kg_from_stone</code>.</div></li>
+
+        <li><div>Modify your program to allow the user to enter height
+        as US feet and inches.</div></li>
+
         <li><div>Add something or change something in your program that
         you think would make your program better, easier for the user,
         more elegant, or more fun. Be creative.</div></li>
-
-        <li><div>Write comments above the lines of code that were
-        difficult for you to understand.</div></li>
-
-        <li><div>Add code to remove dashes from the I-Number that the
-        user enters. This will allow the user to enter I-Numbers with
-        dashes or without dashes and still allow the computer to search
-        in the dictionary.</div></li>
-
-        <li><div>When a user enters an I-Number, your program should
-        ensure it is a valid I-Number.</div>
-        <ol>
-            <li><div>If there are too few digits in the I-Number, your
-            program should print, "Invalid I-Number: too few digits"
-            (without the quotes).</div></li>
-
-            <li><div>If there are too many digits in the I-Number, your
-            program should print, "Invalid I-Number: too many digits"
-            (without the quotes).</div></li>
-
-            <li><div>If the given I-Number contains any characters
-            besides digits and dashes, your program should output
-            "Invalid I-Number" (without the quotes).</div></li>
-
-            <li><div>Write a loop around the code that gets the user
-            input. If the user enters an invalid I-Number, the loop
-            should repeat so that the user is again prompted to enter an
-            I-Number.</div></li>
-        </ol></li>
     </ol>
 
     <h2>Sample Runs</h2>
-<pre class="console">&gt; python teach_solution.py
-Please enter an I-Number (xx-xxx-xxxx): <span class="input">55-123-4151</span>
-No such student
+<pre class="console">&gt; python fitness.py
+Please enter your gender (M or F): <span class="input">F</span>
+Please enter your birthdate (YYYY-MM-DD): <span class="input">2001-03-21</span>
+Enter your weight in US pounds: <span class="input">125</span>
+Enter your height in US inches: <span class="input">54</span>
+Age (years): 19
+Weight (kg): 56.7
+Height (cm): 137.2
+Body mass index: 30.1
+Basal metabolic rate (kcal/day): 1315</pre>
 
-&gt; python teach_solution.py
-Please enter an I-Number (xx-xxx-xxxx): <span class="input">75-176-6201</span>
-James Smith</pre>
+<pre class="console">&gt; python fitness.py
+Please enter your gender (M or F): <span class="input">M</span>
+Please enter your birthdate (YYYY-MM-DD): <span class="input">2003-11-26</span>
+Enter your weight in US pounds: <span class="input">145</span>
+Enter your height in US inches: <span class="input">58</span>
+Age (years): 17
+Weight (kg): 65.77
+Height (cm): 147.3
+Body mass index: 30.3
+Basal metabolic rate (kcal/day): 1580</pre>
+
+    <ul class="note"><li>Note that the output of your program will not
+    be the same for the Age and BMR values because a computer executed
+    the sample runs before you executed your program. Therefore, when
+    you run your program, the people will be older than they were when
+    the computer completed the sample runs.</li></ul>
 
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each step
     in this testing procedure:</p>
-    <ol class="test long">
-        <li><div>Run your program using the input shown in the sample
-        run section above. Ensure that your program's output matches the
-        sample run output.</div></li>
-
-        <li><div>Run your program and give this I-Number as input:
-        <code>00-115-2306</code> (including the dashes). Many users will
-        want to enter I-Numbers with dashes. How should your program
-        handle the dashes?</div></li>
-
-        <li><div>Run your program and give an I-Number with too few
-        digits or too many digits. How should your program handle these
-        invalid I-Numbers?</div></li>
+    <ol class="testing">
+        <li><div>Run your program and verify that it prints the correct
+        results, rounded and formatted as shown in the sample run
+        above.</div></li>
     </ol>
 
     <h2>Sample Solution</h2>

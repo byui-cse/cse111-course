@@ -1,68 +1,120 @@
 """
-A common task for many knowledge workers is to use a number, key, or ID
-to look up information about a person. For example, a knowledge worker
-may use a phone number or e-mail address as a key to find (or look up)
-additional information about a customer. During this activity, your team
-will write a Python program that uses a student's I-Number to look up
-the student's name.
+Write a Python program named fitness.py that does the following:
+1. Asks the user to enter four values:
+    a. gender
+    b. birthdate in this format: YYYY-MM-DD
+    c. weight in US pounds
+    d. height in US inches
+2. Converts the weight from pounds to kilograms (1 lb = 0.45359237 kg).
+3. Converts inches to centimeters (1 in = 2.54 cm).
+4. Calculates age, BMI, and BMR.
+5. Prints age, weight in kg, height in cm, BMI, and BMR.
 """
 
-import csv
-
-# Create an empty dictionary that will store student
-# information with the I-Number number as the key.
-students = {}
-
-# Open a file named students.csv and store a reference
-# to the opened file in a variable named infile.
-with open("pupils.csv", "rt") as infile:
-
-    # Use the csv module to create a reader
-    # object that will read from the opened file.
-    reader = csv.reader(infile)
-
-    # The first line of the CSV file contains column headings
-    # and not a student's I-Number and name, so this statement
-    # skips the first line of the CSV file.
-    next(reader)
-
-    # Read each row in the CSV file one at a time as a list.
-    for row in reader:
-
-        # For the current row, retrieve
-        # the values in columns 0 and 1.
-        inumber = row[0]
-        name = row[1]
-
-        # Add a student's I-Number and name
-        # to the students dictionary.
-        students[inumber] = name
+# Import datetime so that it can be
+# used to compute a person's age.
+import datetime
 
 
-# Get an I-Number from the user.
-inum = str(input("Please enter an I-Number (xx-xxx-xxxx): "))
+def main():
+    # Get the user's gender, birthdate, height, and weight.
+    gender = input("Please enter your gender (M or F): ")
+    birthdate = input("Please enter your birthdate (YYYY-MM-DD): ")
+    pounds = float(input("Enter your weight in US pounds: "))
+    inches = float(input("Enter your height in US inches: "))
 
-# The I-Numbers are stored in the CSV file as digits only (without
-# any dashes), so we remove all dashes from the user's input.
-inum = inum.replace("-", "")
+    # Call the compute_age function.
+    years = compute_age(birthdate)
 
-# Determine if the user input is formatted correctly.
-if inum.isdigit():
-    if len(inum) < 9:
-        print("Invalid I-Number: too few digits")
-    elif len(inum) > 9:
-        print("Invalid I-Number: too many digits")
+    # Call the kg_from_lb function to convert from pounds to kilograms
+    # and then round the result to two digits after the decimal.
+    kg = round(kg_from_lb(pounds), 2)
+
+    # Call the cm_from_in function to convert from inches to centimeters
+    # and then round the result to one digit after the decimal.
+    cm = round(cm_from_in(inches), 1)
+
+    # Call the body_mass_index function and round
+    # its result to one digit after the decimal.
+    bmi = round(body_mass_index(kg, cm), 1)
+
+    # Call the basal_metabolic_rate function and round
+    # its result to an integer.
+    bmr = round(basal_metabolic_rate(gender, kg, cm, years))
+
+    # Print the results for the user to see.
+    print("Age (years):", years)
+    print("Weight (kg):", kg)
+    print("Height (cm):", cm)
+    print("Body mass index:", bmi)
+    print("Basal metabolic rate (kcal/day):", bmr)
+
+
+def compute_age(birth):
+    """Compute and return a person's age in years.
+
+    Parameter birth: a person's birthdate stored as
+        a string in this format: YYYY-MM-DD
+    Return: a person's age in years.
+    """
+    birthday = datetime.datetime.strptime(birth, "%Y-%m-%d").date()
+    today = datetime.datetime.now()
+
+    # Compute the difference between today and the birthday in years.
+    years = today.year - birthday.year
+
+    # If necessary, subtract one from the difference.
+    if birthday.month > today.month or \
+        (birthday.month == today.month and birthday.day > today.day):
+        years -= 1
+
+    return years
+
+
+def kg_from_lb(lb):
+    """Convert a mass in pounds to kilograms.
+    Parameter lb: a mass in US pounds.
+    Return: the mass in kilograms.
+    """
+    kg = lb * 0.45359237
+    return kg
+
+
+def cm_from_in(inch):
+    """Convert a length in inches to centimeters.
+    Parameter inch: a length in inches.
+    Return: the length in centimeters.
+    """
+    cm = inch * 2.54
+    return cm
+
+
+def body_mass_index(weight, height):
+    """Calculate and return a person's body mass index (bmi).
+    Parameters:
+        weight must be in kilograms.
+        height must be in centimeters.
+    Return: a person's body mass index.
+    """
+    bmi = weight / (height ** 2) * 10000
+    return bmi
+
+
+def basal_metabolic_rate(gender, weight, height, age):
+    """Calculate and return a person's basal metabolic rate (bmr).
+    Parameters:
+        weight must be in kilograms.
+        height must be in centimeters.
+        age must be in years.
+    Return: a person's basal metabolic rate in kcal per day.
+    """
+    if gender.upper() == "F":
+        bmr = 447.593 + 9.247 * weight + 3.098 * height - 4.330 * age
     else:
-        # The user input is a valid I-Number. Find
-        # the I-Number in the list of I-Numbers.
-        if inum in students:
-            # Retrieve the student name that corresponds
-            # to the I-Number that the user entered.
-            name = students[inum]
+        bmr = 88.362 + 13.397 * weight + 4.799 * height - 5.677 * age
+    return bmr
 
-            # Print the student name.
-            print(name)
-        else:
-            print("No such student")
-else:
-    print("Invalid character in I-Number")
+
+# Call the main function so that
+# this program will start executing.
+main()
