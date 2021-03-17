@@ -94,9 +94,56 @@ pyplot.show()</pre></div>
             <li><div><code>scatter</code> - scatter plot</div></li>
         </ul>
 
-        The <var>x</var> and <var>y</var> named arguments tell the
+        <p>In addition to the <code>kind</code> named argument, the
+        <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.plot.html">plot method</a>
+        can take many other named arguments including these:</p>
+        <ul>
+            <li><div><code>x</code>: string or list of strings - The
+            column or columns to plot along the x-axis.</div></li>
+            <li><div><code>y</code>: string or list of strings - The
+            column or columns to plot along the y-axis.</div></li>
+            <li><div><code>title</code>: string - The title to use for
+            the plot.</div></li>
+            <li><div><code>xlabel</code>: string - The label for the
+            x-axis.</div></li>
+            <li><div><code>ylabel</code>: string - The label for the
+            y-axis.</div></li>
+            <li><div><code>color</code>: string - The of the color that
+            the plot will be drawn in.</div></li>
+            <li><div><code>legend</code>: boolean - True to draw the
+            legend, False to hide the legend.</div></li>
+        </ul>
+
+        <p>The <var>x</var> and <var>y</var> named arguments tell the
         <code>DataFrame.plot</code> method which columns in the data
-        frame to use as the x and y axes in the plot.</div></li>
+        frame to use as the x and y axes in the plot. You can cause
+        pandas to draw the data from multiple columns on the same plot
+        by passing a list of strings for the <var>y</var> named argument
+        as shown on <span class="cross" data-ref="ex2">line&nbsp;3</span>
+        in the next code example.</p>
+
+<div class="pre"><pre class="linenums"></pre>
+<pre class="python" id="ex2">
+# Define a vertical bar plot from the DataFrame.
+df.plot(kind="bar", x="column_name_1",
+        y=["column_name_2", "column_name_3", "column_name_4"])</pre></div>
+
+        <p>Writing code to define a plot for a pandas DataFrame is
+        usually simple. Unfortunately, writing code to define a plot for
+        a pandas Series can be very confusing. Recall that a pandas
+        DataFrame contains multiple rows and columns but that a pandas
+        Series contains only a single column. When we call
+        <code>DataFrame.plot</code>, we can use both the <var>x</var>
+        and <var>y</var> named arguments to chose the columns for the x
+        and y axes. However, when we call <code>Series.plot</code>, a
+        Series has one column only, so we shouldn't use both the
+        <var>x</var> and <var>y</var> named arguments, but instead we
+        should use only one of them. This problem is most often seen
+        when we write code to group and aggregate a DataFrame which
+        often produces a Series. In that situation, when we call
+        Series.plot we should use just the <var>y</var> named
+        argument.</p>
+        </div></li>
 
         <li><div>Although drawing a plot can be very simple, a data
         scientist may have to write significant amounts of code to
