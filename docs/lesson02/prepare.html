@@ -28,315 +28,357 @@
     <h2>CSE 111 | <span>Programming with Functions</span></h2>
 </header>
 <article>
-    <h1>02 Prepare: Review Selection and Repetition</h1>
-    <p>During this lesson, you will continue to review programming
-    concepts that you learned in CSE 110.</p>
+    <h1>02 Prepare: Calling Functions</h1>
 
-    <h2>Videos</h2>
-    <p>Watch these videos from CSE 110 about <code>if</code> statements,
-    logic, lists, and loops in Python.</p>
-
-    <ul class="links">
-        <li><div><a href="https://www.youtube.com/watch?v=5pPKYWqkoek&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=19">Conditional Logic</a></div></li>
-        <li><div><a href="https://www.youtube.com/watch?v=oYaGJBMoXok&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=21">Handling Multiple Conditions</a></div></li>
-        <li><div><a href="https://www.youtube.com/watch?v=oYaGJBMoXok&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=23">Complex Conditions</a></div></li>
-        <li><div><a href="https://www.youtube.com/watch?v=beA8IsY3mQs&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=25">Collections</a></div></li>
-        <li><div><a href="https://www.youtube.com/watch?v=LrOAl8vUFHY&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=27">Loops</a></div></li>
-    </ul>
+    <p>Because most useful computer programs are very large, programmers
+    divide their programs into parts. Dividing a program into parts
+    makes it easier to write, debug, and understand the program. A
+    programmer can divide a Python program into modules, classes, and
+    functions. In this lesson, you will learn how to call existing
+    functions, and in the next lesson, you will learn how to write your
+    own functions.</p>
 
     <h2>Concepts</h2>
-    <p>Here are the Python programming concepts and topics from CSE 110
-    that you should review during this lesson.</p>
-
+    <p>Here are the Python programming concepts and topics that you
+    should learn during this lesson:</p>
     <ol class="long">
-        <li><div>In Python, we use <code>if</code> statements to cause
-        the computer to make decisions; <code>if</code> statements are
-        also called <dfn>selection</dfn> because the computer selects
-        one group of statements to execute and skips the other group of
-        statements.</div></li>
+        <li><div>A <dfn>function</dfn> is a group of statements
+        (computer commands) that together perform one task. Broadly
+        speaking, there are four types of functions in Python which are:
+        <ol>
+            <li><div>Built-in functions</div></li>
+            <li><div>Standard library functions</div></li>
+            <li><div>Third-party functions</div></li>
+            <li><div>User defined functions</div></li>
+        </ol>
+        A programmer (you) can save lots of time by using existing
+        functions. In this lesson, you'll learn how to use (call) the
+        first two types of functions. In lesson&nbsp;5, you'll learn how
+        to install third-party modules and call third-party functions.
+        In the next lesson, you'll learn how to write and call user
+        defined functions.</div></li>
 
-        <li><div>There are six comparison operators that we can use in
-        an <code>if</code> statement:
-        <table><thead>
-        </thead><tbody>
-            <tr><td>&lt;</td> <td>less than</td></tr>
-            <tr><td>&lt;=</td> <td>less than or equal</td></tr>
-            <tr><td>&gt;</td> <td>greater than</td></tr>
-            <tr><td>&gt;=</td> <td>greater than or equal</td></tr>
-            <tr><td>==</td> <td>equal to</td></tr>
-            <tr><td>!=</td> <td>not equal to</td></tr>
-        </tbody></table>
-        Here is example code that tests if a number is greater than 500.
+        <li><div>Python includes many <dfn>built-in functions</dfn> such
+        as: <code>input</code>, <code>print</code>, <code>open</code>,
+        <code>len</code>, <code>range</code>, <code>int</code>,
+        <code>float</code>, <code>str</code>, <code>abs</code>,
+        <code>round</code>, <code>list</code>, and <code>dict</code>.
+        These are called built-in functions because you don't have to
+        import any module to use them. They are simply a built-in part
+        of the Python language. You can read about the built-in
+        functions in the
+        <a href="https://docs.python.org/3/library/functions.html">Built-in
+        Functions</a> section of the official Python online
+        reference.</div></li>
+
+        <li><div>A programmer uses a function by calling it (also known
+        as invoking it). To <dfn>call</dfn> (or <dfn>invoke</dfn>) a
+        function means to write code that causes the computer to execute
+        the code that is inside of that function. Regardless of the type
+        of function (built-in, standard, third-party, or user defined),
+        a function is called by writing its name followed by a set of
+        parentheses ( ). During CSE 110 and 111, you often wrote code
+        that called the built-in <code>input</code> and
+        <code>print</code> functions. For example:
+<div class="pre"><pre class="python">name = input("Please enter your name: ")
+print(f"Hello {name}")</pre></div>
+        </div></li>
+
+        <li><div>To correctly call a function you must know the
+        following:
+        <ol>
+            <li><div>The name of the function</div></li>
+            <li><div>The parameters that the function takes</div></li>
+            <li><div>What the function does</div></li>
+        </ol>
+
+        All of this information is normally available in online
+        documentation. For example, from the online Python documentation
+        about the <a href="https://docs.python.org/3/library/functions.html#input"><code>input</code></a>
+        function, we read this:
+
+        <dl class="function">
+            <dt><code>input(prompt)</code></dt>
+            <dd>Write the <var>prompt</var> parameter to the terminal
+            window, then read a line of user input from the terminal
+            window, convert the input to a string, and return the input
+            as a string.</dd>
+        </dl>
+
+        From this short description, we know the following:
+        <ol>
+            <li><div>The name of the function is
+            <code>input</code>.</div></li>
+            <li><div>The function takes one parameter named
+            <var>prompt</var>.</div></li>
+            <li><div>The function writes the prompt to the terminal and
+            then reads and returns user input from the terminal.</div></li>
+        </ol></div></li>
+
+        <li><div>A <dfn>parameter</dfn> is a piece of data that a
+        function needs in order to complete its task. In the online
+        documentation for the <code>input</code> function, we see that
+        the <code>input</code> function has one parameter named
+        <var>prompt</var>.</div></li>
+
+        <li><div>An <dfn>argument</dfn> is the value that is passed
+        through a parameter into a function. In other words, parameters
+        are listed in a function's documentation, and arguments are
+        listed in a call to a function.</div></li>
+
+        <li><div>To write code that calls a function, we normally do the
+        following:
+        <ol>
+            <li><div>Type a new variable name and use the assignment
+            operator (=) to assign a value to the variable.</div></li>
+            <li><div>Type the name of the function followed by a set of
+            parentheses.</div></li>
+            <li><div>Between the parentheses, type arguments that the
+            computer will pass into the function through its
+            parameters.</div></li>
+        </ol>
+
+        For example, the following code calls the built-in
+        <code>input</code> function and passes the string <code>"Please
+        enter your name: "</code> as the argument for the
+        <var>prompt</var> parameter.
+
+<div class="pre"><pre class="python">name = input("Please enter your name: ")</pre></div>
+
+        When a function has more than one parameter and a programmer
+        writes code to call that function, the programmer usually writes
+        the arguments in the same order as the parameters. Consider the
+        description of the built-in
+        <a href="https://docs.python.org/3/library/functions.html#round"><code>round</code></a> function:
+
+        <!-- At this point in their computer programming education,
+        most students are familiar with only a few functions. In
+        addition, many of the students do not know enough math to
+        successfully pass college algebra. It was difficult to choose a
+        Python function with multiple parameters and a purpose that most
+        students would understand. I settled on the round function even
+        though its second parameter is optional. Here are some other
+        functions that I considered writing about in this list item:
+        divmod, pow, range, open, math.comb, math.perm, math.dist,
+        math.remainder -->
+
+        <dl class="function">
+            <dt><code>round(number, ndigits)</code></dt>
+            <dd>Return <var>number</var> rounded to
+            <var>ndigits</var> precision after the decimal point. If
+            <var>ndigits</var> is omitted or is <code>None</code>,
+            <code>round</code> returns the nearest integer to
+            <var>number</var>.</dd>
+        </dl>
+
+        Now consider this Python code that gets a number from a user,
+        rounds that number to two digits after the decimal, and then
+        prints the rounded number.
+
 <div class="pre"><pre class="linenums"></pre>
 <pre class="python" id="ex1">
-# Get an account balance as a number from the user.
-balance = float(input("Please enter the account balance: "))
+n = float(input("Please enter a number: "))
+r = round(n, 2)
+print(r)</pre></div>
 
-# If the balance is greater than 500, then
-# compute and add interest to the balance.
-if <em>balance &gt; 500</em>:
-    interest = balance * 0.03
-    balance += interest
+        In the previous example,
+        <ul>
+            <li><div>The code on
+            <span class="cross" data-ref="ex1">line&nbsp;1</span>
+            calls both the <code>input</code> and <code>float</code>
+            built-in functions.</div></li>
 
-# Print the balance.
-print(balance)</pre></div>
+            <li><div><span class="cross" data-ref="ex1">Line&nbsp;2</span>
+            calls the built-in <code>round</code> function and passes
+            two arguments. Notice that the order of the arguments
+            matches the order of the parameters. Specifically, the
+            number to be rounded (<var>n</var>) is the first argument
+            and the number of digits after the decimal point (2) is the
+            second argument.</div></li>
 
-        <p>If you have written programs in other programming languages
-        such as JavaScript, Java, or C++, you always used curly braces
-        to mark the start and end of the body of an <code>if</code>
-        statement. However, notice in the example code above that
-        <code>if</code> statements in Python do not use curly braces.
-        Instead, we type a colon (:) after the comparison of the
-        <code>if</code> statement as shown on
-        <span class="cross" data-ref="ex1">line&nbsp;6</span>
-        above. Then we indent all the statements that are in the body of
-        the <code>if</code> statement as shown on
-        <span class="cross" data-ref="ex1">lines&nbsp;7 and&nbsp;8</span>.
-        The body of the <code>if</code> statement ends with the first
-        line of code that is not indented, like
-        <span class="cross" data-ref="ex1">line&nbsp;11</span>.</p>
+            <li><div><span class="cross" data-ref="ex1">Line&nbsp;3</span>
+            calls the built-in <code>print</code> function to print the
+            rounded number.</div></li>
+        </ul></div></li>
 
-        <p>It may seem strange to not use curly braces to mark the start
-        and end of the body of an <code>if</code> statement. However,
-        the Python way forces us to write code where the indentation
-        matches the functionality or in other words, where the way we
-        indent the code matches the way that the computer will execute
-        the code.</p></div></li>
+        <li id="optArgs"><div>When calling a function or method, some
+        arguments are optional. Again consider the description of the
+        built-in <code>round</code> function:
 
-        <li><div>Each <code>if</code> statement may have an
-        <code>else</code> statement. We can combine <code>else</code> and
-        <code>if</code> into the keyword <code>elif</code> as shown on
-        <span class="cross" data-ref="ex2">lines&nbsp;7 and&nbsp;9</span>
-        in the following example code.
+        <dl class="function">
+            <dt><code>round(number, ndigits)</code></dt>
+            <dd>Return <var>number</var> rounded to
+            <var>ndigits</var> precision after the decimal point. If
+            <var>ndigits</var> is omitted or is <code>None</code>,
+            <code>round</code> returns the nearest integer to
+            <var>number</var>.</dd>
+        </dl>
+
+        From the description, we read that the second argument is
+        optional. If the programmer doesn't pass a second argument, the
+        value in the <var>number</var> parameter will be rounded to an
+        integer.</div></li>
+
+        <li><div>For some optional arguments, we must pass a <dfn>named
+        argument</dfn>, which is an argument that is preceded by the
+        name of its matching parameter. For example, here is an excerpt
+        from the documentation for the <code>print</code> function:
+
+        <dl class="function">
+            <dt><code>print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)</code></dt>
+            <dd>Print objects to the text stream <var>file</var>,
+            separated by <var>sep</var> and followed by <var>end</var>.
+            <var>sep</var>, <var>end</var>, <var>file</var> and
+            <var>flush</var>, if present, must be given as named
+            arguments.</dd>
+        </dl>
+
+        Notice from the excerpt that the <code>print</code> function can
+        take many objects that will be printed. Optionally, it can take
+        parameters named <var>sep</var>, <var>end</var>,
+        <var>file</var>, and <var>flush</var> that must be named when
+        they are used. For example, this code calls the
+        <code>print</code> function to print three words all separated
+        by a vertical bar (|). Notice the named arguments <var>sep</var>
+        and <var>flush</var>.
+
+<div class="pre"><pre class="python" id="ex2">
+x = "sun"
+y = "moon"
+z = "stars"
+print(x, y, z, sep="|", flush=True)</pre></div>
+        </div></li>
+
+        <li><div>A Python <dfn>module</dfn> is a collection of related
+        functions. The Python <dfn>standard library</dfn> includes many
+        modules which have more functions, such as the <code>math</code>
+        module&mdash;which includes the <code>floor</code>,
+        <code>ceil</code>, and <code>sqrt</code> functions and the
+        <code>random</code> module&mdash;which includes the
+        <code>randint</code>, <code>choice</code>, and
+        <code>shuffle</code> functions. Consider the description of the
+        <a href="https://docs.python.org/3/library/math.html#math.sqrt"><code>sqrt</code></a>
+        function that is in the standard <code>math</code> module:
+
+        <dl class="function">
+            <dt><code>math.sqrt(x)</code></dt>
+            <dd>Return the square root of <var>x</var>.</dd>
+        </dl>
+
+        From this short description, we know the following:
+        <ol>
+            <li><div>The name of the containing module is
+            <code>math</code>.</div></li>
+            <li><div>The name of the function is
+            <code>sqrt</code>.</div></li>
+            <li><div>The function takes one parameter named
+            <var>x</var>.</div></li>
+            <li><div>The function computes and returns the square root
+            of a number.</div></li>
+        </ol>
+
+        To use any code that is in a module, you must import the module
+        into your program and precede the function name with the module
+        name. For example, if you wish to call the <code>math.sqrt</code>
+        function, you must first import the <code>math</code> module and
+        then type <code>math.</code> in front of <code>sqrt</code> like
+        this:
+
+<div class="pre"><pre class="python">import math
+
+r = math.sqrt(71)
+print(r)</pre></div>
+
+        In the above example, 71 is the argument that will be passed
+        through the parameter <var>x</var> into the
+        <code>math.sqrt</code> function. The <code>math.sqrt</code>
+        function will compute the square root of 71 and return the
+        computed value that will then be stored in the variable
+        <var>r</var>. You can read more about the standard modules in
+        the official documentation for the
+        <a href="https://docs.python.org/3/library/">Python Standard
+        Library</a>.</div></li>
+
+        <li><div><p>Python is an object oriented language and includes
+        many classes and objects. A <dfn>method</dfn> is a function that
+        belongs to a class or object. Even though classes and objects
+        are not part of this course (CSE 111), calling a method in
+        Python is so common and so easy that you should know how to do
+        it. A method is a function, so calling a method is similar to
+        calling a function. The difference is that to call a method we
+        must type the name of the object and a period (.) in front of
+        the method name.</p>
+
+        <p>Consider the following example code that gets a string of
+        text from a user and prints the number of characters in the
+        string and prints the string in all upper case characters.</p>
 
 <div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex2">
-# Get the cost of an item from the user.
-cost = float(input("Please enter the cost: "))
+<pre class="python" id="ex3">
+# Get a string of text from the user.
+text1 = input("Enter a motivational quote: ")
 
-# Determine a discount rate based on the cost.
-<em>if</em> cost &lt; 100:
-    rate = 0.10
-<em>elif</em> cost &lt; 250:
-    rate = 0.15
-<em>elif</em> cost &lt; 400:
-    rate = 0.18
-<em>else</em>:
-    rate = 0.20
+# Call the built-in len function to get
+# the number of characters in the text.
+length = <em>len(text1)</em>
 
-# Compute the discount amount and the discounted cost.
-discount = cost * rate
-cost -= discount
+# Call the string upper method to convert
+# the quote to upper case characters.
+text2 = <em>text1.upper()</em>
 
-# Print the discounted cost for the user to see.
-print(f"After the discount, you will pay {cost}")</pre></div>
-        </div></li>
+# Call the built-in print function to print
+# the length of the text and the text in all
+# upper case for the user to see.
+print(length, text2)</pre></div>
 
-        <li><div>Python also includes a <dfn>membership operator</dfn>:
-        <code>in</code>. We can use the <code>in</code> operator to
-        determine if a tuple, list, set, or dictionary contains a value.
-        For example:
-<div class="pre"><pre class="python" id="ex3">
-# Create a set that contains family names.
-surnames = {"Smith", "Lopez", "Marsh", "Olsen", "Vasiuk"}
+        <p>Notice the code on
+        <span class="cross" data-ref="ex3">line&nbsp;6</span>
+        calls the built-in <code>len</code> function and the code on
+        <span class="cross" data-ref="ex3">line&nbsp;10</span>
+        calls the string <code>upper</code> method. Compare the function
+        call in
+        <span class="cross" data-ref="ex3">line&nbsp;6</span>
+        to the method call in
+        <span class="cross" data-ref="ex3">line&nbsp;10</span>.
+        To call the <code>len</code> function, we type the name of the
+        function followed by a list of arguments. To call the
+        <code>upper</code> method, we type the name of the object
+        (<code>text1</code>) and a period before the method name and
+        then a list of arguments.</p>
 
-# Get the user's family name.
-family = input("Please enter your family name: ")
+        <p>A method can receive arguments just like a function can.
+        However, in the previous example, there are no arguments passed
+        to the <code>upper</code> method.</p></div></li>
 
-# Determine if the user's family name is in the set of family names.
-if <em>family in surnames</em>:
-    print("Your family name is in the set.")
-else:
-    print("Your family name is NOT in the set.")</pre></div>
-        </div></li>
+        <li><div><p>Most of the previous information in this prepare
+        content can be summarized in these three statements:</p>
 
-        <li><div>Python includes two <dfn>logic operators</dfn>:
-        <code>and</code>, <code>or</code> that we can use to combine two
-        comparisons. Python also includes the logical <code>not</code>
-        operator. Notice in Python that the logical operators are
-        literally the words: <code>and</code>, <code>or</code>,
-        <code>not</code> and not symbols as in other programming
-        languages:
-<div class="pre"><pre class="python" id="ex4">
-if driver &gt;= 54 <em>or</em> (driver &gt;= 32 <em>and</em> passenger &gt;= 54):
-    message = "Enjoy the ride!"</pre></div>
-        </div></li>
+        <ol>
+            <li><div>To call a built-in function, write code that
+            follows this template:
+<div class="pre"><pre class="python"><var>variable_name</var> = <var>function_name</var>(<var>arg1</var>, <var>arg2</var>, &hellip; <var>argN</var>)</pre></div>
+            </div></li>
 
-        <li><div>We can cause a computer to repeat a group of statements
-        by writing <code>for</code> and <code>while</code> loops. A
-        <code>for</code> loop iterates over a range of numbers such as
-        <code>range(3, 10)</code> or a sequence such as a list. A
-        <code>while</code> loop is more flexible than a <code>for</code>
-        loop and repeats while some condition is true. The next code
-        example shows three loops that iterate over a range of numbers.
-        Notice that just like <code>if</code> statements in Python, the
-        body of a loop starts and ends with indentation.
+            <li><div>To call a function from a module, import the module
+            and write code that follows this template:
+<div class="pre"><pre class="python">
+import <var>module_name</var>
 
-<div class="pre"><pre class="python" id="ex5">
-# Count from zero to nine by ones.
-for i in range(10):
-    print(i)
+<var>variable_name</var> = <var>module_name</var>.<var>function_name</var>(<var>arg1</var>, <var>arg2</var>, &hellip; <var>argN</var>)</pre></div>
+            </div></li>
 
-# Count from zero to eight by twos.
-for i in range(0, 10, 2):
-    print(i)
-
-# Count from 100 down to 70 by three.
-for i in range(100, 69, -3):
-    print(i)</pre></div>
-
-        The next code example contains three loops that iterate over the
-        elements in a list, set, and dictionary. The code in the body of
-        these example loops is very small and simply prints a value.
-        However, we can write as much code as we need in the body of a
-        loop to repeatedly perform all manner of complex computations.
-
-<div class="pre"><pre class="python" id="ex6">
-# Create a list.
-colors = ["red", "orange", "yellow", "green", "blue", "indigo"]
-
-# Create a set.
-names = {"Smith", "Lopez", "Marsh", "Olsen", "Vasiuk"}
-
-# Create a dictionary.
-students = {
-    "67-412-8350" : "Alan Benson",
-    "76-240-1835" : "Madison Silverlake",
-    "06-412-7583" : "Samyukta Daniels"
-}
-
-# Print each value in a list.
-for color in colors:
-    print(color)
-
-# Print each value in a set.
-for family in names:
-    print(family)
-
-# Print each key value pair in a dictionary.
-for inumber, name in students.items():
-    print(inumber, name)</pre></div>
-        </div></li>
-
-        <li><div>A <code>break</code> statement causes a loop to end
-        early. In the next code example, there is a <code>for</code>
-        loop that asks the user to input ten numbers one at a time.
-        However, the loop will terminate early if the user enters a zero
-        (0) because of the <code>break</code> statement.
-
-<div class="pre"><pre class="python" id="ex7">
-# Get ten or fewer numbers from the user and add them
-# together. Notice that this loop uses underscore (_) as
-# the counting variable, which is a valid variable name.
-# Many programmers use underscore to indicate that the
-# variable will not be used within the body of the loop.
-sum = 0
-for _ in range(10):
-    n = float(input("Please enter a number: "))
-    if n == 0:
-        <em>break</em>
-    sum += n
-print(sum)</pre></div>
-        </div></li>
+            <li><div>To call a method, write code that follows this template:
+<div class="pre"><pre class="python"><var>variable_name</var> = <var>object_name</var>.<var>method_name</var>(<var>arg1</var>, <var>arg2</var>, &hellip; <var>argN</var>)</pre></div>
+            </div></li>
+        </ol></div></li>
     </ol>
 
-    <h2>Documentation</h2>
-    <p>If any of the concepts or topics in the previous list seem
-    unfamiliar to you, reading these tutorials may help you recall
-    these programming concepts from CSE 110.</p>
-
-    <ul class="links">
-        <li><div><a href="https://realpython.com/python-conditional-statements/">Conditional Statements in Python</a></div></li>
-        <li><div><a href="https://realpython.com/courses/lists-tuples-python/">Lists and Tuples in Python</a></div></li>
-        <li><div><a href="https://realpython.com/python-for-loop/">Python "for" Loops</a></div></li>
-        <li><div><a href="https://realpython.com/python-while-loop/">Python "while" Loops</a></div></li>
-    </ul>
-
-    <p>You could also read some of the Python tutorials at
-    <a href="https://www.w3schools.com/python/default.asp">W3 Schools</a>.
-    Or you could search for "Python" in the
-    <a href="https://library.byui.edu">online catalog</a> of the
-    BYU-Idaho library and read one of the online books from the result
-    set.</p>
-
-    <h2 id="validate">Example - Validating User Input</h2>
-    <p>The following code example uses <code>if</code> statements inside
-    a <code>while</code> loop. The code asks the user to enter an
-    integer between a minimum and maximum and verifies that the integer
-    is between the minimum and maximum. If the user does not enter an
-    integer or enters an integer that is too small or too large, the
-    <code>while</code> loop causes the computer to repeatedly ask the
-    user to enter an integer until he enters one between the minimum and
-    maximum.</p>
-
-    <p><span class="cross" data-ref="ex8">Line&nbsp;16</span> of
-    the code example uses the
-    <a href="https://docs.python.org/3/library/stdtypes.html#str.isdecimal"><code>isdecimal()</code></a>
-    method to verify that the user entered only decimal digits. The
-    <code>isdecimal</code> method returns True if a string contains at
-    least one character and all the characters in the string are decimal
-    digits. Otherwise, it returns False. The <code>isdecimal</code>
-    method will return False if a string contains any character that is
-    not a decimal digit, including the minus sign (-) and the decimal
-    separator (.). Unfortunately, this means the following code example
-    will not allow a user to enter negative integers and floating point
-    numbers.</p>
-
-<div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex8">
-# The minimum and maximum integers that the user may enter.
-minimum = 20
-maximum = 40
-
-# Make a boolean variable that will change to
-# True after the user enters a valid integer.
-valid = False
-
-# Repeatedly ask the user to enter an integer until the
-# user enters one between minimum and maximum, inclusive.
-while not valid:
-    text = input(f"Enter an integer between {minimum} and {maximum}: ")
-
-    # Determine if all the characters that
-    # the user entered are decimal digits.
-    if <em>text.isdecimal()</em>:
-
-        # Convert the text that the user
-        # entered from a string to an integer.
-        integer = int(text)
-
-        # Determine if the integer entered by the
-        # user is between minimum and maximum, inclusive.
-        if integer &lt; minimum:
-            print(f"{integer} is too small. Please"
-                    " enter another positive integer.")
-        elif integer &gt; maximum:
-            print(f"{integer} is too large. Please"
-                    " enter another positive integer.")
-        else:
-            # If the computer gets to this line of code,
-            # the user entered an integer between minimum
-            # and maximum, so change the boolean variable
-            # to True so that the loop will stop repeating.
-            valid = True
-
-    else:
-        # The user entered at least one character that is not a decimal
-        # digit, so print a message asking the user to enter an integer.
-        print(f"'{text}' is not a positive integer."
-                " Please enter a positive integer.")
-
-# Use the integer in the program.
-print(integer)</pre></div>
-
-    <p>Some students are confused by the comparison in
-    <span class="cross" data-ref="ex8">line&nbsp;11</span>:</p>
-    <div class="pre"><pre class="python">while not valid:</pre></div>
-    <p>The comparison in line&nbsp;11 is equivalent to this
-    comparison:</p>
-    <div class="pre"><pre class="python">while valid == False:</pre></div>
-    <p>Many programmers prefer the comparison as it is written in
-    line&nbsp;11 because it reads more like English.</p>
+    <h2>Tutorial</h2>
+    <p>If you are uncertain about any of the concepts in the previous
+    list, you could reread the list. Also, you could read about the
+    same concepts in the Python
+    <a href="https://www.w3schools.com/python/python_functions.asp">functions
+    tutorial</a> at w3schools.</p>
 </article>
 <footer>
     <small>Copyright &copy; 2020, Brigham Young University - Idaho. All
