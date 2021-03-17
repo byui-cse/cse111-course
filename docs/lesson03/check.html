@@ -8,11 +8,13 @@
     <title>CSE 111 - Checkpoint</title>
     <link rel="icon" type="image/png" href="../site/icon.png">
     <link rel="stylesheet" type="text/css" href="../site/style.css">
+    <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-database.js"></script>
     <script src="../site/url.js"></script>
     <script src="../site/urlWrite.js"></script>
     <script src="../site/color.js"></script>
+    <script src="../site/hljs/highlight.pack.js"></script>
 </head>
 
 <body>
@@ -25,117 +27,123 @@
     <h2>CSE 111 | <span>Programming with Functions</span></h2>
 </header>
 <article>
-    <h1>03 Checkpoint: Using Lists</h1>
+    <h1>03 Checkpoint: Writing Functions</h1>
 
     <h2>Overview</h2>
-    <p>Demonstrate your understanding of text files and lists by
-    completing the following individual checkpoint assignment.</p>
+    <p>Demonstrate your understanding of writing your own functions with
+    parameters and then calling those functions by completing the
+    following individual checkpoint assignment.</p>
 
-    <h2>Helpful Documentation</h2>
-    <p>The <a href="prepare.html#textFiles">Text Files</a> section of
-    the prepare content for this lesson contains example code that shows
-    how to read a text file into a list.</p>
+    <h2>Problem Statement</h2>
+    <p>Many vehicle owners record the fuel efficiency of their vehicles
+    as a way to track the health of the vehicle. If the fuel efficiency
+    of a vehicle suddenly drops, there is probably something wrong with
+    the engine or drive train of the vehicle. In the United States, fuel
+    efficiency for gasoline powered vehicles is calculated as miles per
+    gallon. In most other countries, fuel efficiency is calculated as
+    liters per 100 kilometers.</p>
 
-    <p>The <a href="prepare.html#lists">Lists</a> section of the prepare
-    content for this lesson contains example code that shows how to
-    insert, replace, and remove elements in a list.</p>
+    <p>The formula for computing fuel efficiency in miles per gallon
+    is the following:</p>
+    <div class="block expr"><var>mpg</var> = <div class="fract"><div class="numer"><var>end</var> &minus; <var>start</var></div><div class="denom"><var>gallons</var></div></div></div>
+    <p>where <var>start</var> and <var>end</var> are both odometer
+    values in miles and <var>gallons</var> is a fuel amount in U.S.
+    gallons.</p>
+
+    <p>The formula for converting miles per gallon to liters per 100
+    kilometers is the following:</p>
+    <div class="block expr"><var>lp100k</var> = <div class="fract"><div class="numer">235.215</div><div class="denom"><var>mpg</var></div></div></div>
 
     <h2>Assignment</h2>
-    <p>You must do the following to setup VS Code so that your program
-    can read from a text file:</p>
-
-    <ol class="long">
-        <li><div>Download the
-        <a download href="provinces.txt"><code>provinces.txt</code></a>
-        file and save it in the same folder where you will save your
-        Python program.</div></li>
-
-        <li><div>Open VS Code.</div></li>
-
-        <li><div>Using VS Code, open the folder where you saved the
-        <code>provinces.txt</code> file by doing the following:
-        <ul>
-            <li><div>On a computer running the <dfn>Windows</dfn>
-            operating system:
-            <ol>
-                <li><div>Click the "File" menu, then "Open
-                Folder..."</div></li>
-                <li><div>Find and select the folder where you saved the
-                <code>provinces.txt</code> file.</div></li>
-                <li><div>Click the "Select Folder" button.</div></li>
-            </ol></div></li>
-
-            <li><div>On a computer running the <dfn>Mac OSX</dfn>
-            operating system:
-            <ol>
-                <li><div>Click the "File" menu, then "Open..."</div></li>
-                <li><div>Find and select the folder where you saved the
-                <code>provinces.txt</code> file.</div></li>
-                <li><div>Click the "Open" button.</div></li>
-            </ol></div></li>
-        </ul></div></li>
-    </ol>
-
-    <p>Now that you correctly setup VS Code so that your program can
-    read the <code>provinces.txt</code> file, open that file in VS Code
-    and examine it. Notice that the file contains a list of names of
-    Canadian Provinces. Notice also that the file contains "AB" several
-    times which is an abbreviation for Alberta.</p>
-
-    <p>Write a Python program named <code>provinces.py</code> that reads
-    the contents of <code>provinces.txt</code> into a list and that
-    modifies the list. Your program must do the following:</p>
-
+    <p>Write a Python program named <code>fuel_usage.py</code> that
+    asks the user for three numbers:</p>
     <ol>
-        <li><div>Open the <code>provinces.txt</code> file for
-        reading.</div></li>
-
-        <li><div>Read the contents of the file into a list where each
-        line of text in the file is stored in a separate element in the
-        list.</div></li>
-
-        <li><div>Print the entire list.</div></li>
-
-        <li><div>Remove the first element from the list.</div></li>
-
-        <li><div>Remove the last element from the list.</div></li>
-
-        <li><div>Replace all occurrences of "AB" in the list with
-        "Alberta".</div></li>
-
-        <li><div>Count the number of elements that are "Alberta" and
-        print that number.</div></li>
+        <li><div>A starting odometer value in miles</div></li>
+        <li><div>An ending odometer value in miles</div></li>
+        <li><div>A amount of fuel in gallons</div></li>
     </ol>
+
+    <p>Your program must calculate and print fuel efficiency in both
+    miles per gallon and liters per 100 kilometers. Your program must
+    have three functions named as follows:</p>
+    <ol>
+        <li><div><code>main</code></div></li>
+        <li><div><code>miles_per_gallon</code></div></li>
+        <li><div><code>lp100k_from_mpg</code></div></li>
+    </ol>
+
+    <p>All user input and printing must be in the <code>main</code>
+    function. In other words, the <code>miles_per_gallon</code> and
+    <code>lp100k_from_mpg</code> functions must not call the the
+    <code>input</code> or <code>print</code> functions. To start your
+    program, copy and paste the following code into your program and use
+    it as a design as you write your program.</p>
+
+<div class="pre"><pre class="python">
+def main():
+    # Get an odometer value in U.S. miles from the user.
+
+    # Get another odometer value in U.S. miles from the user.
+
+    # Get a fuel amount in U.S. gallons from the user.
+
+    # Call the miles_per_gallon function and store
+    # the result in a variable named mpg.
+
+    # Call the lp100k_from_mpg function to convert the
+    # miles per gallon to liters per 100 kilometers and
+    # store the result in a variable named lp100k.
+
+    # Round the miles per gallon to one digit after the decimal.
+
+    # Round the liters per 100 km to two digits after the decimal.
+
+    # Display the results for the user to see.
+    pass
+
+
+def miles_per_gallon(start_miles, end_miles, amount_gallons):
+    """Compute and return the average number of miles
+    that a vehicle traveled per gallon of fuel.
+
+    Parameters
+        start_miles: An odometer value in miles.
+        end_miles: Another odometer value in miles.
+        amount_gallons: A fuel amount in U.S. gallons.
+    Return: Fuel efficiency in miles per gallon.
+    """
+    return
+
+
+def lp100k_from_mpg(mpg):
+    """Convert miles per gallon to liters per 100
+    kilometers and return the converted value.
+
+    Parameter mpg: A value in miles per gallon
+    Return: The converted value in liters per 100km.
+    """
+    return
+
+
+# Call the main function so that
+# this program will start executing.
+main()</pre></div>
 
     <h2>Sample Run</h2>
 <pre class="console">&gt; python check_solution.py
-['Alberta', 'Ontario', 'Prince Edward Island', 'Ontario', 'Quebec',
-'Saskatchewan', 'AB', 'Nova Scotia', 'Alberta',
-'Northwest Territories', 'Saskatchewan', 'Nunavut', 'Nova Scotia',
-'Prince Edward Island', 'Alberta', 'Nova Scotia',
-'Prince Edward Island', 'British Columbia', 'Nova Scotia',
-'Newfoundland and Labrador', 'Ontario', 'Ontario', 'Ontario',
-'Ontario', 'Saskatchewan', 'Nova Scotia', 'Prince Edward Island',
-'Saskatchewan', 'Newfoundland and Labrador', 'Ontario', 'Ontario',
-'Manitoba', 'British Columbia', 'Ontario', 'Alberta', 'Saskatchewan',
-'Ontario', 'Yukon', 'Ontario', 'New Brunswick', 'Manitoba',
-'British Columbia', 'Yukon', 'Newfoundland and Labrador', 'Manitoba',
-'British Columbia', 'Yukon', 'Ontario', 'Yukon', 'Ontario', 'AB',
-'Newfoundland and Labrador', 'Nova Scotia', 'Yukon',
-'Northwest Territories', 'Nunavut', 'Yukon', 'Nunavut', 'Ontario',
-'British Columbia', 'AB', 'Saskatchewan', 'Prince Edward Island',
-'Saskatchewan', 'Prince Edward Island', 'Alberta', 'Ontario',
-'Alberta', 'Manitoba', 'AB', 'British Columbia', 'Alberta']
-
-Alberta occurs 9 times in the modified list.</pre>
+Enter the first odometer reading (in miles): <span class="input">30462</span>
+Enter the second odometer reading (in miles): <span class="input">30810</span>
+Enter the amount of fuel used (in gallons): <span class="input">11.2</span>
+31.1 miles per gallon
+7.57 liters per 100 kilometers</pre>
 
     <h2>Testing Procedure</h2>
-    <p>Verify that your program works correctly by following each
-    step in this testing procedure:</p>
-    <ol class="test">
-        <li><div>Run your program and ensure that your program's output
-        matches the sample run output. (Your program may wrap the
-        province names differently.)</div></li>
+    <p>Verify that your program works correctly by following each step
+    in this testing procedure:</p>
+    <ol>
+        <li><div>Run your program using the input shown in the sample
+        run section above. Ensure that your program's output matches the
+        sample run output.</div></li>
     </ol>
 
     <h2>Sample Solution</h2>
