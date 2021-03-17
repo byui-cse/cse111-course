@@ -27,123 +27,171 @@
     <h2>CSE 111 | <span>Programming with Functions</span></h2>
 </header>
 <article>
-    <h1>05 Checkpoint: Writing Functions</h1>
+    <h1>05 Checkpoint: Testing Functions</h1>
 
     <h2>Overview</h2>
-    <p>Demonstrate your understanding of writing your own functions with
-    parameters and then calling those functions by completing the
-    following individual checkpoint assignment.</p>
+    <p>Complete this individual checkpoint assignment to demonstrate
+    your ability to verify the correctness of functions by writing test
+    functions and using <code>pytest</code>.</p>
 
-    <h2>Problem Statement</h2>
-    <p>Many vehicle owners record the fuel efficiency of their vehicles
-    as a way to track the health of the vehicle. If the fuel efficiency
-    of a vehicle suddenly drops, there is probably something wrong with
-    the engine or drive train of the vehicle. In the United States, fuel
-    efficiency for gasoline powered vehicles is calculated as miles per
-    gallon. In most other countries, fuel efficiency is calculated as
-    liters per 100 kilometers.</p>
+    <h2>Helpful Documentation</h2>
+    <p>This <a href="https://video.byui.edu/media/t/1_f72kfav3">short video</a>
+    shows a BYU-Idaho faculty member using the <code>pip</code> module
+    to install other Python modules.</p>
 
-    <p>The formula for computing fuel efficiency in miles per gallon
-    is the following:</p>
-    <div class="block expr"><var>mpg</var> = <div class="fract"><div class="numer"><var>end</var> &minus; <var>start</var></div><div class="denom"><var>gallons</var></div></div></div>
-    <p>where <var>start</var> and <var>end</var> are both odometer
-    values in miles and <var>gallons</var> is a fuel amount in U.S.
-    gallons.</p>
+    <p>This <a href="https://content.byui.edu/items/a9e60503-b5e7-40f0-bf48-ebf1a7441d25/1/example_07.mp4">short video</a>
+    shows a BYU-Idaho faculty member writing two test functions and
+    using <code>pytest</code> to run them.</p>
 
-    <p>The formula for converting miles per gallon to liters per 100
-    kilometers is the following:</p>
-    <div class="block expr"><var>lp100k</var> = <div class="fract"><div class="numer">235.215</div><div class="denom"><var>mpg</var></div></div></div>
+    <p>If you wish to learn more about installing modules using the
+    <code>pip</code> module, read the
+    <a href="https://docs.python.org/3/installing/index.html#basic-usage">Basic
+    usage</a> section of the official <code>pip</code> reference.</p>
+
+    <p>The <a href="prepare.html">prepare</a> content for this lesson
+    explains how to use <code>pytest</code>, <code>assert</code>, and
+    <code>approx</code> to automatically verify that functions are
+    correct. It also contains an <a href="prepare.html#ex">example test
+    function</a> and links to additional documentation about
+    <code>pytest</code>.</p>
 
     <h2>Assignment</h2>
-    <p>Write a Python program named <code>fuel_usage.py</code> that
-    asks the user for three numbers:</p>
-    <ol>
-        <li><div>A starting odometer value in miles</div></li>
-        <li><div>An ending odometer value in miles</div></li>
-        <li><div>A amount of fuel in gallons</div></li>
-    </ol>
+    <p>Write two test functions that test previously written functions.
+    Use <code>pytest</code> to run the test functions.</p>
 
-    <p>Your program must calculate and print fuel efficiency in both
-    miles per gallon and liters per 100 kilometers. Your program must
-    have three functions named as follows:</p>
-    <ol>
-        <li><div><code>main</code></div></li>
-        <li><div><code>miles_per_gallon</code></div></li>
-        <li><div><code>lp100k_from_mpg</code></div></li>
-    </ol>
+    <p>Do the following:</p>
+    <ol class="long">
+        <li><div>Download the <a download href="words.py">words.py</a>
+        Python file and save it in the same
+        folder where you will save your Python test program. Then open the
+        downloaded file in VS Code.</div></li>
 
-    <p>All user input and printing must be in the <code>main</code>
-    function. In other words, the <code>miles_per_gallon</code> and
-    <code>lp100k_from_mpg</code> functions must not call the the
-    <code>input</code> or <code>print</code> functions. To start your
-    program, copy and paste the following code into your program and use
-    it as a design as you write your program.</p>
+        <li><div>On the menu bar for VS Code, click "Terminal" and then
+        "New Terminal." This will open a terminal frame at the bottom of
+        the VS Code window. A terminal is a window or frame where a user
+        can type and execute computer commands.</div></li>
 
+        <li><div>Copy and paste the following command into the terminal
+        frame and execute the command by pressing the Enter key. This
+        command will upgrade <code>pip</code> and several other parts of
+        the Python installation modules so that <code>pip</code> will
+        work correctly.
+<pre class="console">python -m pip install --user --upgrade pip setuptools wheel</pre>
+        <ul class="note"><li>If your computer is running the Mac OS, you
+        must use the <code>python3</code> command instead of the
+        <code>python</code> command. In other words, after you copy and
+        paste the above command, but before you press the enter key,
+        change <code>python</code> to <code>python3</code>.</li>
+        <li>If your computer is running the Windows OS, and the above
+        command doesn't work on your computer, you should use the
+        <code>py</code> command instead of the <code>python</code>
+        command. In other words, after you copy and paste the above
+        command, but before you press the enter key, change
+        <code>python</code> to <code>py</code>.</li></ul>
+        </div></li>
+
+        <li><div>Install the <code>pytest</code> module by copying,
+        pasting, and executing the following command in the terminal
+        frame.
+<pre class="console">python -m pip install --user pytest</pre>
+        <ul class="note"><li>If your computer is running the Mac OS, you
+        must use the <code>python3</code> command instead of the
+        <code>python</code> command. In other words, after you copy and
+        paste the above command, but before you press the enter key,
+        change <code>python</code> to <code>python3</code>.</li>
+        <li>If your computer is running the Windows OS, and the above
+        command doesn't work on your computer, you should use the
+        <code>py</code> command instead of the <code>python</code>
+        command. In other words, after you copy and paste the above
+        command, but before you press the enter key, change
+        <code>python</code> to <code>py</code>.</li></ul>
+        </div></li>
+
+        <li><div>Notice the downloaded <code>words.py</code> file
+        contains two small functions named: <code>prefix</code> and
+        <code>suffix</code>. Notice also that each function has a
+        documentation string that describes what the function does. Read
+        the documentation strings for both functions.</div></li>
+
+        <li><div>In VS Code open a new Python file and save it with the
+        name <code>test_words.py</code> in the same folder where you
+        saved the downloaded <code>words.py</code> file.</div></li>
+
+        <li><div>Copy and paste these import statements at the top of
+        the <code>test_words.py</code> file:
+<div class="pre"><pre class="python">from words import prefix, suffix
+import pytest</pre></div></div></li>
+
+        <li><div>In <code>test_words.py</code> write a function named
+        <code>test_prefix</code> that takes no parameters and contains
+        <code>assert</code> statements for these nine calls to
+        <code>prefix</code>:
+        <table><thead>
+            <tr><th colspan="2">Parameters</th>
+                <th rowspan="2">Return<br>Value</th></tr>
+            <tr><th>s1</th> <th>s2</th></tr>
+        </thead><tbody>
+            <tr><td>""</td> <td>""</td> <td>""</td></tr>
+            <tr><td>""</td> <td>"correct"</td> <td>""</td></tr>
+            <tr><td>"clear"</td> <td>""</td> <td>""</td></tr>
+            <tr><td>"happy"</td> <td>"funny"</td> <td>""</td></tr>
+            <tr><td>"cat"</td> <td>"catalog"</td> <td>"cat"</td></tr>
+            <tr><td>"dogmatic"</td> <td>"dog"</td> <td>"dog"</td></tr>
+            <tr><td>"jump"</td> <td>"joyous"</td> <td>"j"</td></tr>
+            <tr><td>"unwise"</td> <td>"ungrateful"</td> <td>"un"</td></tr>
+            <tr><td>"Disable"</td> <td>"dIstasteful"</td> <td>"dis"</td></tr>
+        </tbody></table></div></li>
+
+        <li><div>In <code>test_words.py</code> write a function named
+        <code>test_suffix</code> that takes no parameters and contains
+        <code>assert</code> statements for these nine calls to
+        <code>suffix</code>:
+        <table><thead>
+            <tr><th colspan="2">Parameters</th>
+                <th rowspan="2">Return<br>Value</th></tr>
+            <tr><th>s1</th> <th>s2</th></tr>
+        </thead><tbody>
+            <tr><td>""</td> <td>""</td> <td>""</td></tr>
+            <tr><td>""</td> <td>"correct"</td> <td>""</td></tr>
+            <tr><td>"clear"</td> <td>""</td> <td>""</td></tr>
+            <tr><td>"angelic"</td> <td>"awesome"</td> <td>""</td></tr>
+            <tr><td>"found"</td> <td>"profound"</td> <td>"found"</td></tr>
+            <tr><td>"ditch"</td> <td>"itch"</td> <td>"itch"</td></tr>
+            <tr><td>"happy"</td> <td>"funny"</td> <td>"y"</td></tr>
+            <tr><td>"tired"</td> <td>"fatigued"</td> <td>"ed"</td></tr>
+            <tr><td>"swimming"</td> <td>"FLYING"</td> <td>"ing"</td></tr>
+        </tbody></table></div></li>
+
+        <li><div>At the bottom of your <code>test_words.py</code> file,
+        write a call to the <code>pytest.main</code> function like this:
 <div class="pre"><pre class="python">
-def main():
-    # Get an odometer value in U.S. miles from the user.
+# Call the main function that is part of pytest so that
+# the test functions in this file will start executing.
+pytest.main(["-v", "--tb=no", "test_words.py"])
+</pre></div></div></li>
 
-    # Get another odometer value in U.S. miles from the user.
-
-    # Get a fuel amount in U.S. gallons from the user.
-
-    # Call the miles_per_gallon function and store
-    # the result in a variable named mpg.
-
-    # Call the lp100k_from_mpg function to convert the
-    # miles per gallon to liters per 100 kilometers and
-    # store the result in a variable named lp100k.
-
-    # Round the miles per gallon to one digit after the decimal.
-
-    # Round the liters per 100 km to two digits after the decimal.
-
-    # Display the results for the user to see.
-    pass
-
-
-def miles_per_gallon(start_miles, end_miles, amount_gallons):
-    """Compute and return the average number of miles
-    that a vehicle traveled per gallon of fuel.
-
-    Parameters
-        start_miles: An odometer value in miles.
-        end_miles: Another odometer value in miles.
-        amount_gallons: A fuel amount in U.S. gallons.
-    Return: Fuel efficiency in miles per gallon.
-    """
-    return
-
-
-def lp100k_from_mpg(mpg):
-    """Convert miles per gallon to liters per 100
-    kilometers and return the converted value.
-
-    Parameter mpg: A value in miles per gallon
-    Return: The converted value in liters per 100km.
-    """
-    return
-
-
-# Call the main function so that
-# this program will start executing.
-main()</pre></div>
+        <li><div>Save your <code>test_words.py</code> file and run it by
+        clicking the green run icon in VS Code.</div></li>
+    </ol>
 
     <h2>Sample Run</h2>
 <pre class="console">&gt; python check_solution.py
-Enter the first odometer reading (in miles): <span class="input">30462</span>
-Enter the second odometer reading (in miles): <span class="input">30810</span>
-Enter the amount of fuel used (in gallons): <span class="input">11.2</span>
-31.1 miles per gallon
-7.57 liters per 100 kilometers</pre>
+========================= test session starts =========================
+platform win32 -- Python 3.8.5, pytest-6.1.1, py-1.9.0, pluggy-0.13.1
+rootdir: C:\Users\cse111\lesson05
+collected 2 items
+
+check_solution.py::test_prefix <span class="pass">PASSED                            [ 50%]</span>
+check_solution.py::test_suffix <span class="pass">PASSED                            [100%]</span>
+
+<span class="pass">========================== 2 passed in 0.09s ==========================</span></pre>
 
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each step
     in this testing procedure:</p>
-    <ol>
-        <li><div>Run your program using the input shown in the sample
-        run section above. Ensure that your program's output matches the
-        sample run output.</div></li>
+    <ol class="test">
+        <li><div>Run your program and ensure that your program's output
+        is similar to the sample run output.</div></li>
     </ol>
 
     <h2>Sample Solution</h2>

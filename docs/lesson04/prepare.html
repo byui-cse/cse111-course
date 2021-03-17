@@ -9,16 +9,20 @@
     <link rel="icon" type="image/png" href="../site/icon.png">
     <link rel="stylesheet" type="text/css" href="../site/style.css">
     <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-database.js"></script>
     <script src="../site/url.js"></script>
     <script src="../site/urlWrite.js"></script>
     <script src="../site/color.js"></script>
+    <script src="../site/scope.js"></script>
+    <script src="../site/respel.js"></script>
     <script src="../site/linenums.js"></script>
     <script src="../site/hljs/highlight.pack.js"></script>
 </head>
 
-<body>
+<body onload="cse111.scope.addScopeHandlers('ex1', 'ex2');
+    cse111.scope.addVarHandlers('ex3', 'ex4', 'ex5', 'ex6', 'ex7')">
 <header>
     <div class="colorCtrl">&nbsp;</div>
     <div class="logo">
@@ -28,335 +32,172 @@
     <h2>CSE 111 | <span>Programming with Functions</span></h2>
 </header>
 <article>
-    <h1>04 Prepare: Calling Functions</h1>
+    <h1>04 Prepare: Function Details</h1>
+    <p>During this lesson, you will learn additional details about
+    writing and calling functions. These details will help you
+    understand functions better and use them more effectively. These
+    details include variable scope, default parameter values, and
+    optional arguments.</p>
 
-    <p>Because most useful computer programs are very large, programmers
-    divide their programs into parts. Dividing a program into parts
-    makes it easier to write, debug, and understand the program. A
-    programmer can divide a Python program into modules, classes, and
-    functions. In this lesson, you will learn how to call existing
-    functions, and in the next lesson, you will learn how to write your
-    own functions.</p>
-
-    <h2>Concepts</h2>
-    <p>Here are the Python programming concepts and topics that you
-    should learn during this lesson:</p>
-    <ol class="long">
-        <li><div>A <dfn>function</dfn> is a group of statements
-        (computer commands) that together perform one task. Broadly
-        speaking, there are four types of functions in Python which are:
-        <ol>
-            <li><div>Built-in functions</div></li>
-            <li><div>Standard library functions</div></li>
-            <li><div>Third-party functions</div></li>
-            <li><div>User defined functions</div></li>
-        </ol>
-        In this lesson, you'll learn how to use (call) the first two
-        types of functions. In lessons 7 and 9, you'll learn how to
-        install third-party modules and use third-party functions. In
-        the next lesson, you'll learn how to write and call user defined
-        functions.</div></li>
-
-        <li><div>Python includes many <dfn>built-in functions</dfn> such
-        as: <code>input</code>, <code>print</code>, <code>open</code>,
-        <code>len</code>, <code>range</code>, <code>int</code>,
-        <code>float</code>, <code>str</code>, <code>abs</code>,
-        <code>round</code>, <code>list</code>, <code>set</code>, and
-        <code>dict</code>. These are called built-in functions because
-        you don't have to import any module to use them. They are simply
-        a built-in part of the Python language. In CSE 110 and 111, you
-        already used many of the built-in functions. You can read about
-        the built-in functions in the
-        <a href="https://docs.python.org/3/library/functions.html">Built-in
-        Functions</a> section of the official Python online
-        reference.</div></li>
-
-        <li><div>A Python <dfn>module</dfn> is collection of related
-        functions. The Python <dfn>standard library</dfn> includes many
-        modules which have more functions, such as the <code>math</code>
-        module&mdash;which includes the <code>floor</code>,
-        <code>ceil</code>, and <code>sqrt</code> functions and the
-        <code>random</code> module&mdash;which includes the
-        <code>randint</code>, <code>choice</code>, and
-        <code>shuffle</code> functions. To use any code that is in a
-        module, you must first import the module into your program. For
-        example, if you wish to use the <code>math.sqrt</code> function,
-        you must first import the <code>math</code> module like this:
-<div class="pre"><pre class="python">import math</pre></div>
-        You can read more about the standard modules in the official
-        documentation for the
-        <a href="https://docs.python.org/3/library/">Python Standard
-        Library</a>.</div></li>
-
-        <li><div>A programmer (you) can save lots of time by using
-        existing modules and functions.</div></li>
-
-        <li><div>A programmer uses a function by calling it (also known
-        as invoking it). To <dfn>call</dfn> (or <dfn>invoke</dfn>) a
-        function means to write code that causes the computer to execute
-        the code that is inside of that function. Regardless of the type
-        of function (built-in, standard, third-party, or user defined),
-        a function is called by writing its name followed by a set of
-        parentheses ( ). During CSE 110 and 111, you often wrote code
-        that called the built-in <code>input</code> and
-        <code>print</code> functions. For example:
-<div class="pre"><pre class="python">name = input("Please enter your name: ")
-print(f"Hello {name}")</pre></div>
-        </div></li>
-
-        <li><div>To correctly call a function you must know the
-        following:
-        <ol>
-            <li><div>The name of the module in which the function is
-            located *</div></li>
-            <li><div>The name of the function</div></li>
-            <li><div>The parameters that the function takes</div></li>
-            <li><div>What the function does</div></li>
-        </ol>
-        <ul class="note"><li>The built-in functions, such as
-        <code>input</code>, <code>round</code>, <code>len</code>, and
-        <code>print</code> are not located in any module. They are
-        always available.</li></ul>
-
-        All of this information is normally available in online
-        documentation. For example, from the online Python documentation
-        about the <code>math</code> module, we read this about the
-        <code>sqrt</code> function:
-
-        <dl class="function">
-            <dt><code>math.sqrt(x)</code></dt>
-            <dd>Return the square root of <var>x</var>.</dd>
-        </dl>
-
-        From this short description, we know the following:
-        <ol>
-            <li><div>The name of the containing module is
-            <code>math</code>.</div></li>
-            <li><div>The name of the function is
-            <code>sqrt</code>.</div></li>
-            <li><div>The function takes one parameter named
-            <var>x</var>.</div></li>
-            <li><div>The function computes and returns the square root
-            of a number.</div></li>
-        </ol></div></li>
-
-        <li><div>A <dfn>parameter</dfn> is a piece of data that a
-        function needs in order to complete its task. In the online
-        documentation for the <code>math</code> module, we see that the
-        <a href="https://docs.python.org/3/library/math.html#math.sqrt"><code>math.sqrt</code></a>
-        function has one parameter named <var>x</var>, which is the
-        number that <code>math.sqrt</code> will compute the square root
-        of.
-
-        <dl class="function">
-            <dt><code>math.sqrt(x)</code></dt>
-            <dd>Return the square root of <var>x</var>.</dd>
-        </dl>
-
-        In order for the <code>math.sqrt</code> function to do its job
-        (compute the square root), you must write code to pass a number
-        through the parameter <var>x</var> into the
-        <code>math.sqrt</code> function. Here is a simple example of
-        passing a number to the <code>math.sqrt</code> function:
-<div class="pre"><pre class="python">r = math.sqrt(71)</pre></div>
-
-        In the above example, 71 will be passed through the parameter
-        <var>x</var> into the <code>math.sqrt</code> function. The
-        <code>math.sqrt</code> function will compute the square root of
-        71 and return the computed value that will then be stored in the
-        variable <var>r</var>.</div></li>
-
-        <li><div>An <dfn>argument</dfn> is the value that is passed
-        through a parameter into a function. In other words, parameters
-        are listed in a function's documentation, and arguments are
-        listed in a call to a function. In this example code:
-<div class="pre"><pre class="python">r = math.sqrt(71)</pre></div>
-        71 is the argument that is passed into the
-        <code>math.sqrt</code> function through its parameter
-        <var>x</var>.
-
-        When a function has more than one parameter and a programmer
-        writes code to call that function, the programmer usually writes
-        the arguments in the same order as the parameters. Consider the
-        built-in <code>round</code> function:
-
-        <!-- At this point in their computer programming education,
-        most students are familiar with only a few functions. In
-        addition, many of the students do not know enough math to
-        successfully pass college algebra. It was difficult to choose a
-        Python function with multiple parameters and a purpose that most
-        students would understand. I settled on the round function even
-        though its second parameter is optional. Here are some other
-        functions that I considered writing about in this list item:
-        divmod, pow, range, open, math.comb, math.perm, math.dist,
-        math.remainder -->
-
-        <dl class="function">
-            <dt><code>round(number, ndigits)</code></dt>
-            <dd>Return <var>number</var> rounded to
-            <var>ndigits</var> precision after the decimal point. If
-            <var>ndigits</var> is omitted or is <code>None</code>,
-            <code>round</code> returns the nearest integer to
-            <var>number</var>.</dd>
-        </dl>
-
-        Now consider this Python code that gets a number from a user,
-        rounds that number to two digits after the decimal, and then
-        prints the rounded number.
+    <h2 id="varScope">Variable Scope</h2>
+    <p>The <dfn>scope</dfn> of a variable determines how long that
+    variable exists and where it can be used. Within a Python program,
+    there are two categories of scope:  local and global. A variable has
+    <dfn>local scope</dfn> when it is defined (assigned a value) inside
+    a function. A variable has <dfn>global scope</dfn> when it is
+    defined outside of all functions. Here is a small Python program
+    that has two variables: <var>g</var> and <var>x</var>. <var>g</var>
+    is defined outside of all functions and therefore has global scope.
+    <var>x</var> is defined inside the function <code>main</code> and
+    therefore has local scope.</p>
 
 <div class="pre"><pre class="linenums"></pre>
 <pre class="python" id="ex1">
-n = float(input("Please enter a number: "))
-r = round(n, 2)
-print(r)</pre></div>
+<span data-scope="global"># g is a global variable because it
+# is defined outside of all functions.
+<span class="varDef">g</span> = 25
 
-        In the previous example,
-        <ul>
-            <li><div>The code on
-            <span class="cross" data-ref="ex1">line&nbsp;1</span>
-            calls both the <code>input</code> and <code>float</code>
-            built-in functions.</div></li>
+<span data-scope="main">def main():
+    # x is a local variable because
+    # it is defined inside a function.
+    <span class="varDef">x</span> = 1</span></span></pre></div>
 
-            <li><div><span class="cross" data-ref="ex1">Line&nbsp;2</span>
-            calls the built-in <code>round</code> function and passes
-            two arguments. Notice that the order of the arguments
-            matches the order of the parameters. Specifically the number
-            to be rounded (<var>n</var>) is the first argument and the
-            number of digits after the decimal point (2) is the second
-            argument.</div></li>
+    <p>As shown in the following table, a local variable (a variable
+    with local scope) is defined inside a function, exists for as long
+    as its containing function is executing, and can be used within its
+    containing function but nowhere else. Parameters have local scope
+    because they are defined within a function, specifically within a
+    function’s header and exist for as long as their containing function
+    is executing. A global variable (a variable with global scope) is
+    defined outside of all functions, exists for as long as its
+    containing Python program is executing and can be used within all
+    functions in its containing Python program.</p>
 
-            <li><div><span class="cross" data-ref="ex1">Line&nbsp;3</span>
-            calls the built-in <code>print</code> function to print the
-            rounded number.</div></li>
-        </ul></div></li>
+    <table><thead>
+        <tr><th colspan="3">Python Variable Scope</th></tr>
+        <tr><td></td> <th scope="col">Local</th>
+            <th scope="col">Global</th></tr>
+    </thead><tbody>
+        <tr><th scope="row">Where to Define</th>
+            <td>Inside a function</td>
+            <td>Outside of all functions</td></tr>
+        <tr><th scope="row">Owner</th>
+            <td>The function where the variable is defined</td>
+            <td>The Python file where the variable is defined</td></tr>
+        <tr><th scope="row">Lifetime</th>
+            <td>Only as long as its containing function is
+            executing</td>
+            <td>As long as its containing program is executing</td></tr>
+        <tr><th scope="row">Where<br>Usable</th>
+            <td>Only inside the function where it is defined</td>
+            <td>In all functions of the Python program</td></tr>
+    </tbody></table>
 
-        <li><div><p>Python is an object oriented language and includes
-        many classes and objects. A <dfn>method</dfn> is a function that
-        belongs to a class or object. Even though classes and objects
-        are not part of this course (CSE 111), calling a method in
-        Python is so common and so easy that you should know how to do
-        it. A method is a function, so calling a method is similar to
-        calling a function. The difference is that to call a method we
-        must type the name of the object and a period (.) in front of
-        the method name.</p>
-
-        <p>Consider the following example code that gets a string of
-        text from a user and prints the number of characters in the
-        string and prints the string in all upper case characters.</p>
+    <p>The following Python code example contains variables with local
+    and global scope. The variable <var>nShapes</var> is global because
+    it is defined outside of all functions. Because it is a global
+    variable, the code in the body of all functions may use the variable
+    <var>nShapes</var>. Within the function <code>square_area</code>,
+    the parameter named <var>length</var> and the variable named
+    <var>area</var> both have local scope. Within the function
+    <code>rectangle_area</code>, the parameters named <var>width</var>
+    and <var>length</var> have local scope and the variable named
+    <var>area</var> has local scope.</p>
 
 <div class="pre"><pre class="linenums"></pre>
 <pre class="python" id="ex2">
-# Get a string of text from the user.
-text1 = input("Enter a motivational quote: ")
+<span data-scope="global"><span class="varDef">nShapes</span> = 0
 
-# Call the built-in len function to get
-# the number of characters in the text.
-length = <em>len(text1)</em>
+<span data-scope="square">def square_area(<span class="varDef">length</span>):
+    <span class="varDef">area</span> = <span class="varUse">length</span> * <span class="varUse">length</span>
+    return <span class="varUse">area</span></span>
 
-# Call the string upper method to convert
-# the quote to upper case characters.
-text2 = <em>text1.upper()</em>
+<span data-scope="rect">def rectangle_area(<span class="varDef">width</span>, <span class="varDef">length</span>):
+    <span class="varDef">area</span> = <span class="varUse">width</span> * <span class="varUse">length</span>
+    return <span class="varUse">area</span></span></span></pre></div>
 
-# Call the built-in print function to print
-# the length of the text and the text in all
-# upper case for the user to see.
-print(length, text2)</pre></div>
+    <p>Because local variables are visible only within the function
+    where they are defined, a programmer can define two variables with
+    the same name as long as he defines them in different functions. In
+    the previous example, both of the functions <code>square_area</code>
+    and <code>rectangle_area</code> contain a parameter named
+    <var>length</var> and a variable named <var>area</var>. All four of
+    these variables are entirely separate and do not conflict with each
+    other in any way because the scope of each variable is local to the
+    function where it is defined.</p>
 
-        <p>Notice the code on
-        <span class="cross" data-ref="ex2">line&nbsp;6</span>
-        calls the built-in <code>len</code> function and the code on
-        <span class="cross" data-ref="ex2">line&nbsp;10</span>
-        calls the string <code>upper</code> method. Compare the function
-        call in
-        <span class="cross" data-ref="ex2">line&nbsp;6</span>
-        to the method call in
-        <span class="cross" data-ref="ex2">line&nbsp;10</span>.
-        To call the <code>len</code> function, we type the name of the
-        function followed by a list of arguments. To call the
-        <code>upper</code> method, we type the name of the object
-        (<code>text1</code>) and a period before the method name and
-        then a list of arguments.</p>
+    <p>A common mistake that many programmers make is to assume that a
+    local variable can be used inside of other functions. For example,
+    the following Python code includes two functions named
+    <code>main</code> and <code>circle_area</code>.
+    <span class="cross" data-ref="ex3">Line&nbsp;4</span>
+    in <code>main</code> defines a variable named <var>radius</var>.
+    Some programmers assume that the variable <var>radius</var> that is
+    defined in <code>main</code> (and is therefore local to
+    <code>main</code> only) can be used in <code>circle_area</code>.
+    However, local variables from one function cannot be used inside
+    another function. The local variables from <code>main</code> cannot
+    be used inside <code>circle_area</code>.</p>
 
-        <p>A method can receive arguments just like a function can.
-        However, in the previous example, there are no arguments passed
-        to the <code>upper</code> method.</p></div></li>
+<div class="pre"><pre class="linenums"></pre>
+<pre class="python" id="ex3">
+<span data-scope="global">import <span class="varDef">math</span>
 
-        <li><div><p>Most of the previous information in this prepare
-        content can be summarized in these three statements:</p>
+<span data-scope="main">def main():
+    <em><span class="varDef">radius</span></em> = float(input("Enter the radius of a circle: "))
+    <span class="varDef">area</span> = circle_area()
+    print(<span class="varUse">area</span>)</span>
 
-        <ol>
-            <li><div>To call a built-in function, write code that
-            follows this template:
-<div class="pre"><pre class="python"><var>variable_name</var> = <var>function_name</var>(<var>arg1</var>, <var>arg2</var>, &hellip; <var>argN</var>)</pre></div>
-            </div></li>
+<span data-scope="circle_area">def circle_area():
+    # Mistake! There is no variable named radius
+    # defined inside this function, so the variable
+    # radius cannot be used in this function.
+    <span class="varDef">area</span> = <span class="varUse">math</span>.pi * <em><span class="varUse">radius</span></em> * <em><span class="varUse">radius</span></em>
+    return <span class="varUse">area</span></span>
 
-            <li><div>To call a function from a module, import the module
-            and write code that follows this template:
-<div class="pre"><pre class="python">
-import <var>module_name</var>
+main()</span></pre></div>
 
-<var>variable_name</var> = <var>module_name</var>.<var>function_name</var>(<var>arg1</var>, <var>arg2</var>, &hellip; <var>argN</var>)</pre></div>
-            </div></li>
+    <h2 id="defaultParams">Default Parameter Values and Optional Arguments</h2>
+    <p>Python allows function parameters to have default values. If a
+    parameter has a default value, then its corresponding argument is
+    optional. If a function is called without an argument, the
+    corresponding parameter gets its default value. Consider this
+    example Python code:</p>
 
-            <li><div>To call a method, write code that follows this template:
-<div class="pre"><pre class="python"><var>variable_name</var> = <var>object_name</var>.<var>method_name</var>(<var>arg1</var>, <var>arg2</var>, &hellip; <var>argN</var>)</pre></div>
-            </div></li>
-        </ol></div></li>
+<div class="pre"><pre class="linenums"></pre>
+<pre class="python" id="ex4">
+<span data-scope="global">import <span class="varDef">math</span>
 
-        <li id="optArgs"><div>When calling a function or method, some
-        arguments are optional. Again consider the description of the
-        built-in <code>round</code> function:
+<span data-scope="main">def main():
+    # Call the arc_length function with only one argument
+    # even though the arc_length function has two parameters.
+    <em><span class="varDef">length</span> = arc_length(4.7)</em>
+    print(<span class="varUse">length</span>)</span>
 
-        <dl class="function">
-            <dt><code>round(number, ndigits)</code></dt>
-            <dd>Return <var>number</var> rounded to
-            <var>ndigits</var> precision after the decimal point. If
-            <var>ndigits</var> is omitted or is <code>None</code>,
-            <code>round</code> returns the nearest integer to
-            <var>number</var>.</dd>
-        </dl>
+# Define a function with two parameters. The
+# second parameter has a default value of 360.
+<span data-scope="arc_length">def arc_length(<span class="varDef">radius</span>, <em><span class="varDef">degrees</span>=360</em>):
+    """Compute and return the length of an arc of a circle."""
+    <span class="varDef">circum</span> = 2 * <span class="varUse">math</span>.pi * <span class="varUse">radius</span>
+    <span class="varDef">length</span> = <span class="varUse">circum</span> * <span class="varUse">degrees</span> / 360
+    return <span class="varUse">length</span></span>
 
-        From the description, we read that the second argument is
-        optional. If the programmer doesn't pass a second argument, the
-        <var>number</var> will be rounded to an integer.</div></li>
+main()</span></pre></div>
 
-        <li><div>For some optional arguments, we must pass a <dfn>named
-        argument</dfn>, which is an argument that is preceded by the
-        name of its matching parameter. For example, here is an excerpt
-        from the documentation for the <code>print</code> function:
-
-        <dl class="function">
-            <dt><code>print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)</code></dt>
-            <dd>Print objects to the text stream <var>file</var>,
-            separated by <var>sep</var> and followed by <var>end</var>.
-            <var>sep</var>, <var>end</var>, <var>file</var> and
-            <var>flush</var>, if present, must be given as named
-            arguments.</dd>
-        </dl>
-
-        Notice from the excerpt that the <code>print</code> function can
-        take many objects that will be printed. Optionally, it can take
-        parameters named <var>sep</var>, <var>end</var>,
-        <var>file</var>, and <var>flush</var> that must be named when
-        they are used. For example, this code calls the
-        <code>print</code> function to print three words all separated
-        by a vertical bar (|). Notice the named arguments <var>sep</var>
-        and <var>flush</var>.
-
-<div class="pre"><pre class="python" id="ex3">
-x = "sun"
-y = "moon"
-z = "stars"
-print(x, y, z, sep="|", flush=True)</pre></div>
-        </div></li>
-    </ol>
-
-    <h2>Tutorial</h2>
-    <p>If you are uncertain about any of the concepts in the previous
-    list, you could reread the list. Also, you could read about the
-    same concepts in the Python
-    <a href="https://www.w3schools.com/python/python_functions.asp">functions
-    tutorial</a> at w3schools.</p>
+    <p>Notice at <span class="cross" data-ref="ex4">line&nbsp;11</span>
+    in the header for the <code>arc_length</code> function, that the
+    parameter <var>radius</var> does not have a default value but the
+    parameter <var>degrees</var> has a default value of 360. This means
+    that when a programmer calls the <code>arc_length</code> function,
+    the programmer must pass a value for <var>radius</var> but is not
+    required to pass a value for <var>degrees</var>. At
+    <span class="cross" data-ref="ex4">line&nbsp;6</span>, the
+    programmer called the <code>arc_length</code> function and passed
+    4.7 for the <var>radius</var> parameter but did not pass a value for
+    the <var>degrees</var>, so during that call to
+    <code>arc_length</code>, the value of <var>degrees</var> will be the
+    default value from <span class="cross" data-ref="ex4">line&nbsp;11</span>
+    which is 360.</p>
 </article>
 <footer>
     <small>Copyright &copy; 2020, Brigham Young University - Idaho. All

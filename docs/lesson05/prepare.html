@@ -14,7 +14,6 @@
     <script src="../site/url.js"></script>
     <script src="../site/urlWrite.js"></script>
     <script src="../site/color.js"></script>
-    <script src="../site/linenums.js"></script>
     <script src="../site/hljs/highlight.pack.js"></script>
 </head>
 
@@ -28,403 +27,191 @@
     <h2>CSE 111 | <span>Programming with Functions</span></h2>
 </header>
 <article>
-    <h1>05 Prepare: Writing Functions</h1>
-    <p>Because most useful computer programs are very large, programmers
-    divide their programs into parts. Dividing a program into parts
-    makes it easier to write, debug, and understand the program. A
-    programmer can divide a Python program into modules, classes, and
-    functions. In this lesson and the next, you will learn how to write
-    your own functions.</p>
-
-    <h2>Videos</h2>
-    <p>Watch the following videos from Microsoft about writing functions:</p>
-    <ul class="links">
-        <li><div><a href="https://www.youtube.com/watch?v=nrCAxXfRU28&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=29">Introducing Functions</a> (10 minutes)</div></li>
-        <li><div><a href="https://www.youtube.com/watch?v=C9ZEGqGHXms&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=30">Demo: Functions</a> (8 minutes)</div></li>
-        <li><div><a href="https://www.youtube.com/watch?v=sKW-zdYZNX4&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=31">Parameterized Functions</a> (7 minutes)</div></li>
-        <li><div><a href="https://www.youtube.com/watch?v=LtKAXFRtxhQ&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=32">Demo: Parameterized Functions</a> (5 minutes)</div></li>
-    </ul>
+    <h1>05 Prepare: Testing Functions</h1>
+    <p>During this lesson, you will learn to use a more systematic
+    approach to developing code. Specifically, you will learn how to
+    write test functions that automatically verify that other functions
+    are correct. You will learn how to use a Python module named
+    <code>pytest</code> to run your test functions, and you will learn
+    how to read the output of <code>pytest</code> to help you find and
+    fix mistakes in your code.</p>
 
     <h2>Concepts</h2>
     <p>Here are the Python programming concepts and topics that you
     should learn during this lesson:</p>
     <ol class="long">
-        <li><div>A <dfn>function</dfn> is a group of statements that
-        together perform one task. Broadly speaking, there are four
-        types of functions in Python which are:
-        <ol>
-            <li><div>Built-in functions</div></li>
-            <li><div>Standard library functions</div></li>
-            <li><div>Third-party functions</div></li>
-            <li><div>User defined functions</div></li>
-        </ol>
-        In the previous lesson, you learned how to call the first two
-        types of functions. In lessons 7 and 9, you'll learn how to
-        install third-party modules and call third-party functions. In
-        this lesson, you'll learn how to write and call user defined
-        functions.</div></li>
+        <li><div>During previous lessons, you tested your programs by
+        running them, typing user input, reading the output, and
+        verifying that the output was correct. This is a valid way to
+        test a program. However, it is time consuming, tedious, and
+        error prone. A much better way to test a program is to test its
+        functions individually and to write test functions that
+        <em>automatically</em> verify that the program's functions are
+        correct.</div></li>
 
-        <li><div>A <dfn>user-defined function</dfn> is a function that
-        is not a built-in function, a standard function, or a
-        third-party function. A user-defined function is written by a
-        programmer like yourself as part of a program. For some students
-        the term "user-defined function" is confusing because the user
-        of a program does not define the function. Instead, the
-        programmer (you) define user-defined functions. Perhaps a more
-        correct term is programmer-defined function. Writing
-        user-defined functions has several advantages, including:
-        <ol>
-            <li><div>User-defined functions make your code more
-            reusable.</div></li>
-            <li><div>User-defined functions make your code easier to
-            understand and debug.</div></li>
-            <li><div>User-defined functions make your code easier to
-            change or add capabilities.</div></li>
+        <li><div><a href="https://docs.pytest.org/en/latest/reference.html"><code>pytest</code></a>
+        is a Python module that makes it easy to write and run test
+        functions. There are other Python testing modules besides
+        <code>pytest</code>, but <code>pytest</code> seems to be the
+        easiest. <code>pytest</code> is not a standard Python module. It
+        is a third-party module. This means that when you installed
+        Python on your computer, <code>pytest</code> was not installed,
+        and you will need to install pytest in order to use it.</div></li>
+
+        <li><div><code>pytest</code> allows us to write simple test
+        functions that use the built-in Python
+        <a href="https://docs.python.org/3/reference/simple_stmts.html#the-assert-statement"><code>assert</code></a>
+        statement to verify that a function returns a correct result.
+        For example, if we want to verify that the built-in
+        <code>min</code> function works correctly, we could write an
+        <code>assert</code> statement like this:
+<div class="pre"><pre class="python">assert min(7, -3, 0, 2) == -3</pre></div>
+        The previous line of code will cause the computer to first call
+        the <code>min</code> function and pass 7, -3, 0, and 2 as
+        arguments to the <code>min</code> function. The <code>min</code>
+        function will find the minimum value of its parameters and
+        return that minimum value. Then the <code>assert</code>
+        statement will compare the returned minimum value to -3. If the
+        returned minimum value is not -3, the <code>assert</code>
+        statement will raise an exception which will cause
+        <code>pytest</code> to print an error message.</div></li>
+
+        <li><div><p>Within a computer's memory, everything (all numbers,
+        text, sound, pictures, movies, everything) is stored using the
+        binary number system. When executing Python code, a computer
+        stores integers in binary in a way that exactly represents the
+        integers. For example, a computer executing Python code stores
+        the integer 23 as 00010111 in binary which is an exact
+        representation of decimal 23. However, when executing Python
+        code, a computer approximates floating point numbers (numbers
+        with digits after the decimal place). For example, a computer
+        stores the floating point number 23.7 as
+        1000001101111011001100110011010 in binary. This binary number is
+        actually 23.700000762939453 in decimal which is an approximation
+        to 23.7.</p>
+
+        <p>Because computers approximate floating point numbers, we must
+        be careful when comparing floating point numbers in our test
+        functions. It is bad practice to check if floating point numbers
+        are equal using just the equality operator (==).
+        The <code>pytest</code> module contains a function named
+        <a href="https://docs.pytest.org/en/latest/reference.html#pytest-approx"><code>approx</code></a>
+        to help us compare floating point numbers. For example, to test
+        the <code>math.sqrt</code> function, we could write an
+        <code>assert</code> statement like this:</p>
+<div class="pre"><pre class="python">assert math.sqrt(5) == approx(2.24, 0.01)</pre></div>
+        <p>The previous <code>assert</code> statement verifies that the
+        value returned from <code>math.sqrt(5)</code> is within 1%
+        (0.01) of 2.24.</p>
+        </div></li>
+
+        <li><div>In this course, you will write your test functions in a
+        Python file that is separate from your Python program. In other
+        words, you will keep normal program code and test code in
+        separate files.</div></li>
+
+        <li><div>To test a function you should do the following:
+        <ol class="long">
+            <li><div>Write a function that is part of your normal Python
+            program.</div></li>
+            <li><div>Think about different parameter values that will
+            cause the computer to execute all the code in your function
+            and will possibly cause your function to fail or return an
+            incorrect result.</div></li>
+            <li><div>In a separate Python file, write a test function
+            that calls your program function and uses an
+            <code>assert</code> statement to <em>automatically</em>
+            verify that the value returned from your program function is
+            correct.</div></li>
+            <li><div>Use <code>pytest</code> to run the test
+            function.</div></li>
+            <li><div>Read the output of <code>pytest</code> and use that
+            output to help you find and fix mistakes in both your
+            program function and test function.</div></li>
         </ol></div></li>
 
-        <li><div>To write a user-defined function in Python, simply type
-        code that matches this template:
-
-<div class="pre"><pre class="python">
-def <var>function_name</var>(<var>param1</var>, <var>param2</var>, &hellip; <var>paramN</var>):
-    <var>statement1</var>
-    <var>statement2</var>
-        &vellip;
-    <var>statementN</var>
-    return <var>value</var></pre></div>
-        </div></li>
-
-        <li><div>The first line of a function is called the
-        <dfn>header</dfn> or <dfn>signature</dfn>, and it includes the
-        following:
-        <ol>
-            <li><div>the keyword <code>def</code> (which is an
-            abbreviation for "define")</div></li>
-            <li><div>the function name</div></li>
-            <li><div>the parameter list (with the parameters separated
-            by commas)</div></li>
-        </ol>
-        Here is the header for a function named <code>draw_circle</code>
-        that takes three parameters named <code>x</code>,
-        <code>y</code>, and <code>radius</code>:
-
-<div class="pre"><pre class="python">def draw_circle(x, y, radius):</pre></div>
-
-        You could read the previous line of code as, "Define a function
-        named <code>draw_circle</code> that takes three
-        parameters."</div></li>
-
-        <li><div>The <dfn>function name</dfn> must start with a letter
-        or the underscore (_). The rest of the name must be made of
-        letters, digits (0–9), or the underscore. A function name cannot
-        include spaces or other punctuation. A function name should be
-        meaningful and should describe curtly what the function does.
-        Well-named functions almost always start with a verb.</div></li>
-
-        <li><div>The parameter list contains data stored in variables
-        that the function needs to complete its task. A
-        <dfn>parameter</dfn> is a variable whose value comes from
-        outside the function. One way to get input into a function is to
-        ask the user for input by calling the built-in Python
-        <code>input</code> function. Another way to get input into a
-        function is through the function's parameters. Getting input
-        through parameters is much more flexible than asking the user
-        for input because the input through parameters can come from the
-        user or a file on a hard drive or the network or a sensor or
-        even another function.</div></li>
-
-        <li><div><p>The statements inside a function are called the
-        <dfn>body</dfn> of the function. Just like other block
-        statements, such as <code>if</code>, <code>else</code>,
-        <code>while</code>, and <code>for</code>, all of which end with
-        a colon (:), you must indent the statements inside the body of a
-        function. The body of a function may contain as many statements
-        as you wish to write inside of it. However, it is a good idea to
-        limit functions to less than a page (60 lines) long.</p>
-
-        <p>Here is a function named <code>print_average</code> that
-        accepts a list of numbers as a parameter and computes and prints
-        the average value of the numbers in the list.</p>
-
-<div class="pre"><pre class="python" id="ex1">
-# Define a function that accepts one parameter.
-#
-# Whatever argument is passed to this function
-# when it is called, will be stored in the
-# "numbers"  parameter, and will be accessible
-# within the body of this function.
-def print_average(numbers):
-    """Compute and print the average of the
-    numbers stored in the numbers list.
-
-    param numbers: A list of numbers
-    return: Nothing
-    """
-    total = 0
-    for number in numbers:
-        total += number
-
-    average = total / len(numbers)
-    print(f"The average is: {average}")</pre></div>
-        </div></li>
-
-        <li><div><p>Many functions that you've used in the past
-        <dfn>return</dfn> a result. When a function returns a result, we
-        usually store that result in a variable to use later. To return
-        a result from a function, simply type the keyword
-        <code>return</code> followed by whatever result you want
-        returned to the calling function.</p>
-
-        <p>Here is a new version of the <code>print_average</code>
-        function that returns the average rather than printing it.
-        Having a function return a value, instead of printing it, makes
-        a function more reusable. In the next example, notice that we
-        changed the name of the function to
-        <code>calculate_average</code> instead of
-        <code>print_average</code>.</p>
-
-<div class="pre"><pre class="python" id="ex2">
-# Define a function that accepts one parameter.
-def calculate_average(numbers):
-    """Compute and return the average of the
-    numbers stored in the numbers list.
-
-    param numbers: A list of numbers
-    return: The average value of the numbers
-    """
-    total = 0
-    for number in numbers:
-        total += number
-
-    average = total / len(numbers)
-
-    # The returned result will be available
-    # wherever this function was called.
-    return average</pre></div>
-        </div></li>
-
-        <li><div>In all previous Python programs that you wrote in CSE
-        110 and 111, you wrote statements that were not in a function
-        like this simple program where the statements are not inside the
-        body of a function like this:
-
-<div class="pre"><pre class="python" id="ex3">
-# Get a value in miles and convert it to kilometers.
-miles = float(input("Please enter a distance in miles: "))
-km = miles * 1.60934
-print(f"{miles} miles is {km} kilometers")</pre></div>
-
-        <p>However, writing statements outside of a function can lead to
-        poor organization within a large program. Professional software
-        developers write statements inside a function whenever possible.
-        Beginning with this lesson, we will write nearly all statements
-        inside a function. Also, each program will have a function named
-        <code>main</code> which will contain the beginning statements of
-        the program. In addition, we will have one or more functions
-        that perform calculations and other useful work and return a
-        value to the call point. For example, here is a complete program
-        that has a <code>main</code> function that calls the
-        <code>calculate_average</code> function:</p>
-
-<div class="pre"><pre class="python" id="ex4">
-# Define a function that accepts one parameter.
-def calculate_average(numbers):
-    """Compute and return the average of the
-    numbers stored in the numbers list.
-
-    param numbers: A list of numbers
-    return: The average value of the numbers
-    """
-    total = 0
-    for number in numbers:
-        total += number
-
-    average = total / len(numbers)
-
-    # The returned result will be available
-    # wherever this function was called.
-    return average
-
-
-# Define the main function.
-def main():
-    # Create a list of numbers.
-    scores = [100, 90, 85, 84, 99]
-
-    # Call the calculate_average function and store
-    # its return value in a variable to use later.
-    final_grade = calculate_average(scores)
-
-    if final_grade &gt;= 93:
-        print("You got an A 🤩")
-    else:
-        print("You did not get an A 😞")
-
-
-# Start this program by
-# calling the main function.
-main()</pre></div>
-        </div></li>
-
-        <li><div>While it's usually a good practice, you don't
-        <em>have</em> to store the return value of a function in a
-        variable. Sometimes you'll see it used directly like in the
-        following example:
-
-<div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex5">
-# Define the main function.
-def main():
-    # Create a list of numbers.
-    scores = [100, 90, 85, 84, 99]
-
-    # Call the calculate_average function and
-    # immediately print its return value.
-    print("The average is: ")
-    print( calculate_average(scores) )
-
-    # Call the calculate_average function again
-    # and use its return value in an if statement.
-    if calculate_average(scores) &gt;= 93:
-        print("You got an A 🤩")
-    else:
-        print("You did not get an A 😞")</pre></div>
-
-        <p>Notice in the above example, we called the
-        <code>calculate_average</code> function twice, once at
-        <span class="cross" data-ref="ex5">line&nbsp;9</span>
-        to print the average and again at
-        <span class="cross" data-ref="ex5">line&nbsp;13</span>
-        to see if the student earned an A or not. Every time we call a
-        function, the code inside the function body is executed. In the
-        previous example, because the argument is the same list of
-        scores at both
-        <span class="cross" data-ref="ex5">lines&nbsp;9 and&nbsp;13</span>,
-        the result will be the same in both cases. So it would be faster
-        to save the result in a variable and reuse the variable instead,
-        as shown in this example:</p>
-
-<div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex6">
-# Define the main function.
-def main():
-    # Create a list of numbers.
-    scores = [100, 90, 85, 84, 99]
-
-    # Call the calculate_average function and store
-    # its return value in a variable to use later.
-    <em>final_grade</em> = calculate_average(scores)
-
-    print(f"The average is: {<em>final_grade</em>}")
-
-    if <em>final_grade</em> &gt;= 93:
-        print("You got an A 🤩")
-    else:
-        print("You did not get an A 😞")</pre></div></div></li>
-
-        <li><div><p>Some students have trouble visualizing what happens
-        when the computer calls (executes) a function. The following
-        code example is a complete program that includes several
-        function calls. The green arrows in the example code show how
-        the computer executes statements in one location and then jumps
-        to execute statements in another function. The blue arrows show
-        how data flows from arguments into parameters and from a
-        returned result to a variable. The circled numbers show the
-        order in which the events happen in the computer.</p>
-
-        <img src="call.png"
-        alt="A diagram showing a call to a function and a value returned from that function"
-        title="A diagram showing a call to a function and a value returned from that function">
-<!--
-<div class="pre"><pre class="python" id="ex7">
-import math
-
-<b>def main()</b>:
-    """Get the length of each side of a triangle,
-    call the triangle_area function, and print
-    the area for the user to see.
-    """
-    print("This program computes the area of a triangle.")
-    print("Enter the length of each side:")
-    side1 = float(input())
-    side2 = float(input())
-    side3 = float(input())
-    <b>triarea = triangle_area(side1, side2, side3)</b>
-    print(f"The area is {triarea}")
-
-
-<b>def triangle_area(a, b, c)</b>:
-    """Compute and return the area of a
-    triangle with side lengths a, b, and c.
-    """
-    s = (a + b + c) / 2
-    area = math.sqrt(s * (s-a) * (s-b) * (s-c))
-    <b>return area</b>
-
-
-# Start this program by
-# calling the main function.
-<b>main()</b></pre></div>
--->
-
-        <p>A computer will execute the statements in the previous
-        example in this order:</p>
-        <ol>
-            <li><div>The statement at (1) is not inside of a function,
-            so the computer executes it when the program begins. This is
-            a call to the <code>main</code> function which causes the
-            computer to begin executing the statements inside of
-            <code>main</code> at (2).</div></li>
-            <li><div>The computer gets three numbers from the
-            user.</div></li>
-            <li><div>The statement at (3) is a call to the
-            <code>triangle_area</code> function.</div></li>
-            <li><div>The computer copies the values in the arguments
-            <var>side1</var>, <var>side2</var>, and <var>side3</var>
-            into the parameters <var>a</var>, <var>b</var>, and
-            <var>c</var>, respectively and then begins executing the
-            statements inside the <code>triangle_area</code> function at
-            (5).</div></li>
-            <li><div>The computer computes the area of a triangle.</div></li>
-            <li><div>The statement at (6) is a return statement which
-            causes the computer to stop executing the
-            <code>triangle_area</code> function, to return a value to
-            the call point at (3), and to resume executing statements at
-            (8) after the call point.</div></li>
-            <li><div>The computer returns the value in the
-            <var>area</var> variable to the call point (3). At the call
-            point, the returned value is stored in the
-            <var>triarea</var> variable.</div></li>
-            <li><div>The computer prints the value that is in the
-            <var>triarea</var> variable for the user to see. This is the
-            last statement in the <code>main</code> function, so after
-            executing it, the computer resumes executing the statements
-            after the call point (1) to main.</div></li>
-            <li><div>There are no more statements after the call to
-            <code>main</code>, so the program is finished.</div></li>
-        </ol></div></li>
-
-        <li><div>The most <dfn>reusable functions</dfn> are ones that
-        take parameters, perform calculations, and return a value but
-        <em>do not perform user input and output</em>. In the previous
-        code example, there are two functions: <code>main</code> and
-        <code>triangle_area</code>. The <code>main</code> function is
-        certainly useful in this program, but it is not reusable in
-        other programs because it gets user input and prints the result
-        for the user to see. The <code>triangle_area</code> function is
-        very reusable in another program because it doesn't get user
-        input or print output. Instead it takes three parameters,
-        performs a calculation, and returns a result to the calling
-        function. This second function is so reusable that it could be
-        included in a library of functions that compute the area and
-        volume of 2-D and 3-D geometric shapes.</div></li>
+        <li><div><a href="https://docs.python.org/3/installing/index.html"><code>pip</code></a>
+        is a standard Python module that you can use to download and
+        install third-party modules. During the checkpoint of this
+        lesson, you will use <code>pip</code> to download and install
+        <code>pytest</code>, so that you can use <code>pytest</code> in
+        your test code.</div></li>
     </ol>
 
-    <p><strong>It is extremely important that you can write and call
-    functions.</strong> After watching the above videos, if the concepts
-    related to writing a function still seem confusing or vague to you,
-    watch the videos and read the list of concepts
-    <strong>again</strong>.</p>
+    <h2 id="ex">Example</h2>
+    <p>Here is a simple function named <code>cels_from_fahr</code> that
+    converts a temperature in Fahrenheit to Celsius and that is part of
+    a larger Python program in a file named <code>weather.py</code>:</p>
+
+<div class="pre"><pre class="python">def cels_from_fahr(fahr):
+    """Convert a temperature in Fahrenheit to
+    Celsius and return the Celsius temperature.
+    """
+    cels = (fahr - 32) * 5 / 9
+    return cels</pre></div>
+
+    <p>We want to test the <code>cels_from_fahr</code> function. From
+    the function header, we see that <code>cels_from_fahr</code> takes
+    one parameter named <code>fahr</code>. To adequately test this
+    function, we should call it with at least a negative number, zero,
+    and a positive number, so we write this test function in a separate
+    file named <code>test_weather.py</code>:</p>
+
+<div class="pre"><pre class="python">from weather import cels_from_fahr
+from pytest import approx
+import pytest
+
+def test_cels_from_fahr():
+    """Test the cels_from_fahr function by calling it and comparing
+    the values it returns to the expected values. Notice this test
+    function uses pytest.approx to compare floating point numbers.
+    """
+    assert cels_from_fahr(-25) == approx(-31.76667)
+    assert cels_from_fahr(0) == approx(-17.77778)
+    assert cels_from_fahr(32) == approx(0)
+    assert cels_from_fahr(70) == approx(21.1111)
+
+# Call the main function that is part of pytest so that
+# the test functions in this file will start executing.
+pytest.main(["-v", "--tb=no", "test_weather.py"])</pre></div>
+
+    <p>Notice that the test function <code>test_cels_from_fahr</code>
+    calls the program function <code>cels_from_fahr</code> four times:
+    once with a negative number, once with zero, and twice with positive
+    numbers. Notice also that the test function uses <code>assert</code>
+    and <code>approx</code>. After writing the test function, we use
+    <code>pytest</code> to run the test function:</p>
+
+<pre class="console">&gt; python test_weather.py
+========================= test session starts =========================
+platform win32 -- Python 3.8.5, pytest-6.1.1, py-1.9.0, pluggy-0.13.1
+rootdir: C:\Users\cse111\lesson05
+collected 1 item
+
+test_weather.py::test_cels_from_fahr <span class="pass">PASSED                      [100%]</span>
+
+<span class="pass">========================== 1 passed in 0.10s ==========================</span></pre>
+
+    <p><code>pytest</code> runs the <code>test_cels_from_fahr</code>
+    function which calls the <code>cels_from_fahr</code> function four
+    times and verifies that <code>cels_from_fahr</code> returns the
+    correct value each time. We can see from the output of
+    <code>pytest</code>, "[100%] and 1 passed", that the
+    <code>cels_from_fahr</code> function return the expected (correct)
+    result all four times.</p>
+
+    <h2>Documentation</h2>
+    <p>The official online documentation for <code>pytest</code>
+    contains much more information about using <code>pytest</code>. The
+    following pages are the most applicable to CSE 111:</p>
+
+    <ul class="links">
+        <li><div><a href="https://docs.pytest.org/en/latest/getting-started.html#create-your-first-test">Create your first test</a></div></li>
+        <li><div><a href="https://docs.pytest.org/en/latest/assert.html#asserting-with-the-assert-statement"><code>assert</code></a></div></li>
+        <li><div><a href="https://docs.pytest.org/en/latest/reference.html#pytest-approx"><code>pytest.approx</code></a></div></li>
+        <li><div><a href="https://docs.pytest.org/en/latest/usage.html#calling-pytest-from-python-code"><code>pytest.main</code></a></div></li>
+        <li><div>Assert that an <a href="https://docs.pytest.org/en/latest/getting-started.html#assert-that-a-certain-exception-is-raised">exception is raised</a> (taught in the next lesson)</div></li>
+    </ul>
 </article>
 <footer>
     <small>Copyright &copy; 2020, Brigham Young University - Idaho. All

@@ -27,7 +27,7 @@
     <h2>CSE 111 | <span>Programming with Functions</span></h2>
 </header>
 <article>
-    <h1>05 Team Activity: Writing Functions</h1>
+    <h1>05 Team Activity: Testing and Fixing Functions</h1>
 
     <h2>Instructions</h2>
     <p>Arrange a one hour synchronous meeting with your team for this
@@ -37,156 +37,106 @@
     the individual checkpoint assignment beforehand.</p>
 
     <h2>Problem Statement</h2>
-    <p>Health professionals who are helping a client achieve a healthy
-    body weight, sometimes use two computed values called body mass
-    index and basal metabolic rate.</p>
-
-    <p>From the U.S. Centers for Disease Control and Prevention we read,
-    "Body mass index (BMI) is a person's weight in kilograms divided by
-    the square of their height in meters. BMI can be used to screen for
-    weight categories such as underweight, normal, overweight, and obese
-    that may lead to health problems. However, BMI is not diagnostic of
-    the body fatness or health of an individual." The formula for
-    computing BMI is</p>
-    <div class="block expr"><var>bmi</var> = <div class="fract"><div class="numer">10,000 <var>weight</var></div><div class="denom"><var>height</var><sup>2</sup></div></div></div>
-    <p>where <var>weight</var> is in kilograms and <var>height</var> is
-    in centimeters.</p>
-
-    <p>Basal metabolic rate (BMR) is the minimum number of calories
-    required to keep your body functioning at rest. BMR is different for
-    women and men and changes with age. The revised Harris-Benedict
-    formulas for computing BMR are</p>
-    <div class="block expr">(women) &nbsp;<var>bmr</var> = 447.593 + 9.247 <var>weight</var> + 3.098 <var>height</var> &minus; 4.330 <var>age</var></div>
-    <div class="block expr">(men) &nbsp;<var>bmr</var> = 88.362 + 13.397 <var>weight</var> + 4.799 <var>height</var> &minus; 5.677 <var>age</var></div>
-    <p>where <var>weight</var> is in kilograms and <var>height</var> is
-    in centimeters.</p>
+    <p>Writing and running test functions often help a software
+    developer find mistakes in code.</p>
 
     <h2>Helpful Documentation</h2>
-    <ul>
-        <li><div>The prepare content for lesson&nbsp;3 includes a
-        section about <a href="../lesson03/prepare.html#csvFiles">reading
-        CSV files</a>.</div></li>
+    <p>The <a href="prepare.html">prepare</a> content for this lesson
+    explains how to use <code>pytest</code>, <code>assert</code>, and
+    <code>approx</code> to automatically verify that functions are
+    correct. It also contains an <a href="prepare.html#ex">example test
+    function</a> and links to additional documentation about
+    <code>pytest</code>.</p>
 
-        <li><div>The prepare content for this lesson explains how to
-        <a href="prepare.html">write functions</a>.</div></li>
-    </ul>
+    <p>This <a href="https://content.byui.edu/items/a9e60503-b5e7-40f0-bf48-ebf1a7441d25/1/example_07.mp4">short video</a>
+    shows a BYU-Idaho faculty member writing two test functions and
+    using <code>pytest</code> to run them.</p>
 
     <h2>Assignment</h2>
-    <p>Download the <a download href="fitness.csv">fitness.csv</a> file
-    and save it in the same folder where you will save your Python
-    program. Open the file in VS Code and notice that it contains four
-    columns: gender, birthdate, weight (in U.S. pounds), and height (in
-    U.S. inches).</p>
+    <p>Write three test functions that test three previously written
+    functions. Use <code>pytest</code> to run the test functions and
+    find and fix the mistakes, if any, that are in three previously
+    written functions.</p>
 
-    <p>Write a Python program named <code>fitness.py</code> that does
-    the following:</p>
-    <ol>
-        <li><div>Reads the contents of the <code>fitness.csv</code>
-        file.</div></li>
-        <li><div>Converts weight from pounds to kilograms (1 lb =
-        0.45359237 kg).</div></li>
-        <li><div>Converts inches to centimeters (1 in = 2.54 cm).</div></li>
-        <li><div>Calculates age, BMI, and BMR.</div></li>
+    <p>Do the following:</p>
+    <ol class="long">
+        <li><div>Download the <a download href="names.py">names.py</a>
+        Python file and save it in the same folder where you will save
+        your Python test program. Then open the downloaded file in VS
+        Code. Notice that the downloaded file contains three small
+        functions named: <code>full_name</code>,
+        <code>given_name</code>, and <code>family_name</code>. Notice
+        also that each function has a documentation string that
+        describes what the function does. Read the documentation strings
+        for all three functions.</div></li>
+
+        <li><div>The functions in the file that you downloaded
+        (<code>names.py</code>) may contain some mistakes. Write a
+        Python test program named <code>test_names.py</code> that tests
+        the three functions in <code>names.py</code>. Save your
+        <code>test_names.py</code> file in the same folder where you
+        saved the <code>names.py</code> file.</div></li>
+
+        <li><div>At the top of your <code>test_names.py</code> file, add
+        these statements to import the three functions that are in
+        <code>names.py</code> and to import pytest:
+<div class="pre"><pre class="python">from names import given_name, family_name, full_name
+import pytest</pre></div></div></li>
+
+        <li><div>In <code>test_names.py</code> write a function named
+        <code>test_full_name</code> that takes no parameters. Write
+        <code>assert</code> statements inside this function to test the
+        value returned from the <code>full_name</code> function. If you
+        are not sure what the <code>full_name</code> function does or
+        how to test it, read the documentation string that is at the top
+        of the <code>full_name</code> function in the
+        <code>names.py</code> file.</div></li>
+
+        <li><div>In <code>test_names.py</code> write a function named
+        <code>test_family_name</code> that takes no parameters. Write
+        <code>assert</code> statements inside this function to test the
+        value returned from the <code>family_name</code>
+        function.</div></li>
+
+        <li><div>In <code>test_names.py</code> write a function named
+        <code>test_given_name</code> that takes no parameters. Write
+        <code>assert</code> statements inside this function to test the
+        value returned from the <code>given_name</code>
+        function.</div></li>
+
+        <li><div>At the bottom of your <code>test_names.py</code> file,
+        write a call to the <code>pytest.main</code> function like this:
+<div class="pre"><pre class="python">
+# Call the main function that is part of pytest so that
+# the test functions in this file will start executing.
+pytest.main(["-v", "--tb=no", "test_names.py"])
+</pre></div></div></li>
+
+        <li><div>Save your <code>test_names.py</code> file and run it by
+        clicking the green run icon in VS Code.</div></li>
+
+        <li><div>Read the output from <code>pytest</code> and use the
+        output to help you find and fix any errors that are in your test
+        functions or the <code>full_name</code>,
+        <code>given_name</code>, and <code>family_name</code>
+        functions.</div></li>
+
+        <li><div>Repeat steps&nbsp;8 and&nbsp;9 until you have found and
+        fixed all the mistakes and your three test functions
+        pass.</div></li>
     </ol>
-
-    <p>Use the following design to write your program. Write code for
-    each function that contains the keyword <code>pass</code>. Then
-    delete the keyword <code>pass</code>.</p>
-
-<div class="pre"><pre class="python"># Import necessary modules.
-import csv
-import math
-from datetime import date, datetime
-
-
-def main():
-    # Print this header:
-    # Gender,Age (years),Weight (kg),Height (cm),BMI,BMR
-
-    # Open the fitness.csv file for reading.
-
-        # Use the csv module to get a reader object.
-
-        # Process each row in the csv file by doing the following:
-            # 1. Call the compute_age, kg_from_lb, cm_from_in,
-            #    body_mass_index, and basal_metabolic_rate
-            #    functions as necessary.
-            # 2. Print the gender, age in years, weight in
-            #    kilograms, height in centimeters, body mass
-            #    index, and basal metabolic rate.
-    pass
-
-
-def compute_age(birth):
-    """Compute and return a person's age in years.
-
-    param birth: a person's birthdate stored as
-        a string in this format: YYYY-MM-DD
-    """
-    birthdate = datetime.strptime(birth, "%Y-%m-%d").date()
-    now = date.today()
-    diff = now - birthdate
-    years = math.floor(diff.days / 365.25)
-    return years
-
-
-def kg_from_lb(lb):
-    """Convert a mass in US pounds to kilograms.
-    param lb: a mass in US pounds
-    """
-    pass
-
-
-def cm_from_in(inch):
-    """Convert a length in inches to centimeters.
-    param inch: a length in inches
-    """
-    pass
-
-
-def body_mass_index(weight, height):
-    """Calculate and return a person's body mass
-    index (bmi). weight and height must be in
-    kilograms and centimeters, respectively.
-    """
-    pass
-
-
-def basal_metabolic_rate(gender, weight, height, age):
-    """Calculate and return a person's basal metabolic
-    rate (bmr). weight must be in kilograms, height
-    must be in centimeters, and age must be in years.
-    """
-    pass
-
-
-# Call the main function so that
-# this program will start executing.
-
-</pre></div>
 
     <h3>Core Requirements</h3>
     <ol class="long">
-        <li><div>Your program contains five complete and correct
-        functions named <code>compute_age</code>,
-        <code>kg_from_lb</code>, <code>cm_from_in</code>,
-        <code>body_mass_index</code>, and
-        <code>basal_metabolic_rate</code>. To be correct, the
-        <code>basal_metabolic_rate</code> function must compute BMR
-        differently for males and females.</div></li>
-
-        <li><div>Your program includes a function named
-        <code>main</code> which prints the header, opens the
-        <code>fitness.csv</code> file, and reads each row in the
-        file.</div></li>
-
-        <li><div>The <code>main</code> function computes and prints the
-        correct values for each row in the <code>fitness.csv</code> file
-        by calling the <code>compute_age</code>, <code>float</code>,
-        <code>round</code>, <code>kg_from_lb</code>,
-        <code>cm_from_in</code>, <code>body_mass_index</code>,
-        <code>basal_metabolic_rate</code>, and <code>print</code>
-        functions.</div></li>
+        <li><div>Write <code>test_full_name</code> so that it tests
+        <code>full_name</code> with various names, including long names,
+        short names, and hyphenated names.</div></li>
+        <li><div>Write <code>test_given_name</code> so that it tests
+        <code>given_name</code> with various names, including long
+        names, short names, and hyphenated names.</div></li>
+        <li><div>Write <code>test_family_name</code> so that it tests
+        <code>family_name</code> with various names, including long
+        names, short names, and hyphenated names.</div></li>
     </ol>
 
     <h3>Stretch Challenges</h3>
@@ -195,42 +145,34 @@ def basal_metabolic_rate(gender, weight, height, age):
     stretch challenges are optional.</p>
 
     <ol class="long">
-        <li><div>Add something or change something in your program that
-        you think would make your program better, easier for the user,
-        more elegant, or more fun. Be creative.</div></li>
-
-        <li><div>Write comments above the lines of code in
-        <code>main</code> that were difficult for you to
-        understand.</div></li>
-
-        <li><div>Modify your program to print the height values in
-        meters instead of centimeters.</div></li>
+        <li><div>Fix the mistakes in the <code>full_name</code>
+        function.</div></li>
+        <li><div>Fix the mistakes in the <code>given_name</code>
+        function.</div></li>
     </ol>
 
     <h2>Sample Run</h2>
-<pre class="console">&gt; python teach_solution.py
-Gender,Age (years),Weight (kg),Height (cm),BMI,BMR
-F,30,58.97,157.5,23.8,1350.9
-F,35,61.23,163.8,22.8,1369.7
-F,39,56.7,161.3,21.8,1302.7
-M,28,63.5,182.9,19.0,1657.9
-M,35,65.77,176.5,21.1,1617.8
-M,38,70.31,174.0,23.2,1649.6</pre>
+    <pre class="console">&gt; python teach_solution.py
+========================= test session starts =========================
+platform win32 -- Python 3.8.5, pytest-6.1.1, py-1.9.0, pluggy-0.13.1
+rootdir: C:\Users\cse111\lesson05
+collected 3 items
 
-    <p>Note that the output of your program will not be the same for the
-    Age and BMR columns because a computer printed the sample run before
-    you executed your program. Therefore, when you run your program, the
-    people will be older than they were when the computer printed the
-    sample run.</p>
+teach_solution.py::test_full_name <span class="fail">FAILED                         [ 33%]</span>
+teach_solution.py::test_family_name <span class="pass">PASSED                       [ 66%]</span>
+teach_solution.py::test_given_name <span class="fail">FAILED                        [100%]</span>
+
+======================= short test summary info =======================
+FAILED teach_solution.py::test_full_name - AssertionError:
+    assert 'Smith-Jones;Penelope' == 'Smith-Jones; Penelope'
+FAILED teach_solution.py::test_given_name - AssertionError:
+    assert 'mith-Jones; Penelope' == 'Penelope'
+<span class="fail">===================== 2 failed</span>, <span class="pass">1 passed</span> <span class="fail">in 0.14s =====================</span></pre>
 
     <h2>Testing Procedure</h2>
-    <p>Verify that your program works correctly by following each step
-    in this testing procedure:</p>
-    <ol class="testing">
-        <li><div>Run your program and verify that it prints the correct
-        results, rounded and formatted as shown in the sample run
-        above.</div></li>
-    </ol>
+    <p>Repeat steps&nbsp;8 and&nbsp;9 above until you have found and
+    fixed all the mistakes in the <code>names.py</code> file and your
+    tests pass.</p>
 
     <h2>Sample Solution</h2>
     <p>Please work diligently with your team for the one hour meeting.
