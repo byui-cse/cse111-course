@@ -30,14 +30,15 @@
 <article>
     <h1>06 Prepare: Handling Errors</h1>
     <p>Errors and exceptional situations sometimes occur while a program
-    is running. Such errors include a file that does not exist, a
-    connection error from trying to connect to a server, data that
-    cannot be found on a server, and calculations that produce undefined
-    results. A well written program handles errors in a graceful manner
-    that may include adjusting to an error, printing an error message
-    for the user to see, and saving an error message to a log file.
-    During this lesson, you will learn to write code that handles errors
-    that may occur while your Python program is running.</p>
+    is running. Such errors include attempting to read from a file that
+    does not exist, a connection error from trying to connect to a
+    server, data that cannot be found on a server, and calculations that
+    produce undefined results. A well written program handles errors in
+    a graceful manner that may include adjusting to an error, printing
+    an error message for the user to see, and saving an error message to
+    a log file. During this lesson, you will learn to write code that
+    handles errors that may occur while your Python program is
+    running.</p>
 
     <h2>Videos</h2>
     <p>Watch these videos from Microsoft about error handling.</p>
@@ -153,14 +154,14 @@ We must order except blocks from most specific at the top to
     blocks in the program: one at
     <span class="cross" data-ref="ex2">line&nbsp;2</span>
     in the <code>main</code> function and another at
-    <span class="cross" data-ref="ex2">line&nbsp;26</span>
+    <span class="cross" data-ref="ex2">line&nbsp;30</span>
     in the <code>get_float</code> function.</p>
 
     <p>The <code>try</code> block at
     <span class="cross" data-ref="ex2">line&nbsp;2</span>
     includes all the regular code in the <code>main</code> function. The
     except block at
-    <span class="cross" data-ref="ex2">line&nbsp;18</span>
+    <span class="cross" data-ref="ex2">line&nbsp;12</span>
     will handle all types of runtime exceptions.
     <code>RuntimeError</code> is probably the most general type of
     exception that we want to handle in a Python program.
@@ -175,10 +176,10 @@ We must order except blocks from most specific at the top to
     before the program is given to users.</p>
 
     <p>The <code>try</code> block at
-    <span class="cross" data-ref="ex2">line&nbsp;26</span>
+    <span class="cross" data-ref="ex2">line&nbsp;30</span>
     is part of a loop that validates user input in the
     <code>get_float</code> function. Notice at
-    <span class="cross" data-ref="ex2">line&nbsp;30</span>
+    <span class="cross" data-ref="ex2">line&nbsp;44</span>
     that the <code>except</code> block handles
     <a href="https://docs.python.org/3/library/exceptions.html#ValueError"><code>ValueError</code></a>
     which is the type of exception that the
@@ -192,9 +193,9 @@ def main():
     <em>try:</em>
         gender = input("Enter your gender (M or F): ")
 
-        weight = get_float("Enter your weight in kilograms: ")
-        height = get_float("Enter your height in centimeters: ")
-        age = get_float("Enter your age in years: ")
+        weight = get_float("Enter your weight in kilograms: ", 20, 500)
+        height = get_float("Enter your height in centimeters: ", 60, 250)
+        age = get_float("Enter your age in years: ", 10, 120)
 
         bmr = basal_metabolic_rate(gender, weight, height, age)
         print(f"Your basal metabolic rate is {bmr} calories per day.")
@@ -203,21 +204,38 @@ def main():
         print(type(run_err).__name__, run_err, sep=": ")
 
 
-def get_float(prompt):
+def get_float(prompt, lower_bound, upper_bound):
     """Get a number from the user, validate that the user entered
-    a number and not some other text, and return the number. If
+    a number and not some other text, validate that the number is
+    between a lower and upper bound, and then return the number. If
     the user enters an invalid number, this function will prompt
     the user repeatedly until the user enters a valid number.
 
-    param prompt: A string to display to the user.
-    return: The number entered by the user.
+    Parameters
+        prompt: A string to display to the user.
+        lower_bound: The smallest number that the user may enter.
+        upper_bound: The largest number that the user may enter.
+    Return: The number entered by the user.
     """
     while True:
         <em>try:</em>
             text = input(prompt)
             number = float(text)
-            break
+            if number &lt; lower_bound:
+                print(f"{number} is too small.")
+                print("Please enter another number.")
+            elif number &gt; upper_bound:
+                print(f"{number} is too large.")
+                print("Please enter another number.")
+            else:
+                # If the computer gets to this line of code, the
+                # user entered a number between lower_bound and
+                # upper_bound, so exit the loop.
+                break
         <em>except ValueError as val_err:</em>
+            # The user entered at least one character that is
+            # not part of a floating point number, so print a
+            # message asking the user to enter a number.
             print(f"{text} is not a number.")
             print("Please enter a number.")
 
@@ -234,97 +252,6 @@ def basal_metabolic_rate(gender, weight, height, age):
     else:
         bmr = 88.362 + 13.397 * weight + 4.799 * height - 5.677 * age
     return bmr
-
-
-# Call the main function so that
-# this program will start executing.
-main()</pre></div>
-
-    <h2>Example - Reading from a File</h2>
-    <p>The example program shown below handles exceptions that might
-    occur when the program opens and reads from a file. This program
-    contains only one <code>try</code> block, which begins at
-    <span class="cross" data-ref="ex3">line&nbsp;4</span>
-    and includes all the regular code in the main function.
-    This one try block has four <code>except</code> blocks at
-    <span class="cross" data-ref="ex3">lines&nbsp;40, 44,&nbsp;48,
-    and&nbsp;52</span>.</p>
-
-    <p>Each of the <code>except</code> blocks handles a different type
-    of exception. The first three <code>except</code> blocks handle
-    specific exceptions: <code>FileNotFoundError</code>,
-    <code>PermissionError</code>, and <code>ZeroDivisionError</code>.
-    The last <code>except</code> block handles
-    <code>RuntimeError</code>, which is a general exception.
-    <code>RuntimeError</code> is probably the most general type of
-    exception that we want to handle in a Python program. The
-    description above the first example program explains why.</p>
-
-<div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex3">
-import csv
-
-
-def main():
-    <em>try:</em>
-        # Open the fuel_usage.csv file.
-        filename = "fuel_usage.csv"
-        with open(filename, "rt") as usage_file:
-
-            # Use the standard csv module to get
-            # a reader object for the CSV file.
-            reader = csv.reader(usage_file)
-
-            # The first line of the CSV file contains headings
-            # and not fuel usage data, so this statement skips
-            # the first line of the CSV file.
-            next(reader)
-
-            # Print headers for the three columns.
-            print("Date,Start,End,Gallons,Miles/Gallon")
-
-            # Process each row in the CSV file.
-            for row in reader:
-
-                # From the current row of the CSV file, get
-                # the date, the starting and ending odometer
-                # readings, and the number of gallons used.
-                date = row[0]
-                start_miles = float(row[1])
-                end_miles = float(row[2])
-                gallons = float(row[3])
-
-                # Call the miles_per_gallon function.
-                mpg = miles_per_gallon(start_miles, end_miles, gallons)
-
-                # Display the results for one row.
-                mpg = round(mpg, 1)
-                print(date, start_miles, end_miles, gallons, mpg, sep=",")
-
-    <em>except FileNotFoundError as file_not_found_err:</em>
-        print(f"Error: cannot open {filename}"
-                " because it doesn't exist.")
-
-    <em>except PermissionError as perm_err:</em>
-        print(f"Error: cannot read from {filename}"
-                " because you don't have permission.")
-
-    <em>except ZeroDivisionError as zero_div_err:</em>
-        print(f"Error: {filename} contains a"
-                " zero in the gallons column.")
-
-    <em>except RuntimeError as run_err:</em>
-        print(type(run_err).__name__, run_err, sep=": ")
-
-
-def miles_per_gallon(start_miles, end_miles, gallons):
-    """Compute and return the average number of miles
-    that a vehicle traveled per gallon of fuel.
-    start_miles and end_miles are odometer readings in miles.
-    gallons is a fuel amount in U.S. gallons.
-    """
-    mpg = abs(end_miles - start_miles) / gallons
-    return mpg
 
 
 # Call the main function so that
