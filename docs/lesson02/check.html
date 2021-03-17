@@ -8,13 +8,11 @@
     <title>CSE 111 - Checkpoint</title>
     <link rel="icon" type="image/png" href="../site/icon.png">
     <link rel="stylesheet" type="text/css" href="../site/style.css">
-    <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-database.js"></script>
     <script src="../site/url.js"></script>
     <script src="../site/urlWrite.js"></script>
     <script src="../site/color.js"></script>
-    <script src="../site/hljs/highlight.pack.js"></script>
 </head>
 
 <body>
@@ -27,79 +25,56 @@
     <h2>CSE 111 | <span>Programming with Functions</span></h2>
 </header>
 <article>
-    <h1>02 Checkpoint: Review Selection</h1>
+    <h1>02 Checkpoint: Calling Functions</h1>
 
     <h2>Overview</h2>
-    <p>Demonstrate your understanding of selection (<code>if</code>
-    statements) and logic by completing the following individual
+    <p>Demonstrate your understanding of calling functions that are in a
+    standard Python module by completing the following individual
     checkpoint assignment.</p>
 
     <h2>Problem Statement</h2>
-    <p>You work for a retail store that wants to increase sales on
-    Tuesday and Wednesday, which are the store's slowest sales days. On
-    Tuesday and Wednesday, if a customer's subtotal is greater than $50,
-    the store will discount the customer's subtotal by 10%.</p>
+    <p>In our modern world economy, many items are manufactured in large
+    factories, then packed in boxes and shipped to distribution centers
+    and retail stores. A common question for employees who pack items is
+    "How many boxes do we need?"</p>
 
     <h2>Assignment</h2>
-    <p>Write a Python program named <code>discount.py</code> that takes
-    a customer's subtotal as input. If the subtotal is greater than $50
-    and today is Tuesday or Wednesday, your program must subtract 10%
-    from the subtotal. Your program should then compute and output the
-    total amount due by adding sales tax of 6% to the subtotal.</p>
+    <p>A manufacturing company needs a program that will help its
+    employees pack manufactured items into boxes for shipping. Write a
+    Python program named <code>boxes.py</code> that asks the user for
+    two integers:&nbsp; 1) the number of manufactured items and 2) the
+    number of items that the user will pack per box. Your program must
+    compute and print the number of boxes necessary to hold the items.
+    This must be a whole number. Note that the last box may be packed
+    with fewer items than the other boxes.</p>
 
-    <p>Your program must <strong>not</strong> ask the user to enter the
-    day of the week. Instead, it must get the day of the week from your
-    computer's clock. At the top of your program, import the
-    <code>datetime</code> module like this:</p>
-
-<div class="pre"><pre class="python">import datetime</pre></div>
-
-    <p>Then within your program, use this Python code that will get the
-    current day of the week from your computer's clock:</p>
-
-<div class="pre"><pre class="python">weekday = datetime.datetime.now().isoweekday()</pre></div>
-
-    <p>If you use the above code, the variable <var>weekday</var>
-    will hold 1 if today is Monday, 2 if today is Tuesday, and so on
-    to 7 if today is Sunday.</p>
+    <h2>Helpful Documentation</h2>
+    <p>The <a href="https://docs.python.org/3/library/math.html#math.ceil">math.ceil()</a>
+    function rounds a number up to the nearest integer that is greater
+    than or equal to a number.</p>
 
     <h2>Sample Runs</h2>
-    <h3>Run on a Monday</h3>
 <pre class="console">&gt; python check_solution.py
-Please enter the subtotal: <span class="input">42.75</span>
-Total: 45.31
+Enter the number of items: <span class="input">8</span>
+Enter the number of items per box: <span class="input">5</span>
 
-&gt; python check_solution.py
-Please enter the subtotal: <span class="input">55.20</span>
-Total: 58.51</pre>
+For 8 items, packing 5 items in each box, you will need 2 boxes.
+</pre>
 
-    <h3>Run on a Tuesday</h3>
 <pre class="console">&gt; python check_solution.py
-Please enter the subtotal: <span class="input">42.75</span>
-Total: 45.31
+Enter the number of items: <span class="input">25</span>
+Enter the number of items per box: <span class="input">4</span>
 
-&gt; python check_solution.py
-Please enter the subtotal: <span class="input">55.20</span>
-Total: 52.66</pre>
+For 25 items, packing 4 items in each box, you will need 7 boxes.
+</pre>
 
     <h2>Testing Procedure</h2>
-    <p>Verify that your program works correctly by following each
-    step in this testing procedure:</p>
-    <ol class="test long">
-        <li><div>If today is any day other than Tuesday or Wednesday,
-        run your program using the input shown in the "Run on a Monday"
-        section above. Ensure that your program's output matches the
-        sample run output. If today is Tuesday or Wednesday, run your
-        program using the input in the "Run on a Tuesday"
-        section.</div></li>
-
-        <li><div>Is there a simple way to test your program for all the
-        days of the week without testing on seven consecutive days and
-        without changing your computer's system date? Hint: In your
-        program immediately after this line of code:
-<div class="pre"><pre class="python">weekday = datetime.datetime.now().isoweekday()</pre></div>
-        temporarily add a line of code like this one:
-<div class="pre"><pre class="python">weekday = 3</pre></div></div></li>
+    <p>Verify that your program works correctly by following each step
+    in this testing procedure:</p>
+    <ol class="test">
+        <li><div>Run your program and enter the inputs shown in the
+        "Sample Run" section above. Ensure that your program's output
+        matches the sample run output.</div></li>
     </ol>
 
     <h2>Sample Solution</h2>

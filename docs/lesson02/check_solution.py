@@ -1,35 +1,22 @@
 """
-You work for a retail store that wants to increase sales on Tuesday and
-Wednesday, which are the store's slowest sales days. On Tuesday and
-Wednesday, if a customer's subtotal is greater than $50, the store will
-discount the customer's purchase by 10%.
+A manufacturing company needs a program that will help its employees
+pack manufactured items into boxes for shipping. Write a Python program
+named boxes.py that asks the user for two integers:  1) the number of
+manufactured items and 2) the number of items that the user will pack
+per box. Your program must compute and print the number of boxes
+necessary to hold the items. This must be a whole number. Note that the
+last box may be packed with fewer items than the other boxes.
 """
 
-# Import the datatime module so that it can be used in this program.
-import datetime
+# Import the math module so that it can be used in this program.
+import math
 
-# Get the subtotal from the user.
-text = input("Please enter the subtotal: ")
-subtotal = float(text)
+num_items = int(input(f"Enter the number of items: "))
+items_per_box = int(input(f"Enter the number of items per box: "))
 
-# Get the day of the week from the computer's clock.
-weekday = datetime.datetime.now().isoweekday()
+# Compute the number of boxes.
+num_boxes = math.ceil(num_items / items_per_box)
 
-# The discount rate is 10% and the sales tax rate is 6%.
-DISC_RATE = 0.10
-SALES_TAX_RATE = 0.06
-
-# if the subtotal is greater than 50 and
-# today is Tuesday or Wednesday, compute the discount.
-if subtotal > 50 and (weekday == 2 or weekday == 3):
-    discount = round(subtotal * DISC_RATE, 2)
-    subtotal -= discount
-
-# Compute the sales tax and total. Notice that we compute the sales
-# tax after computing the discount because the customer does not
-# pay sales tax on the full price but on the discounted price.
-sales_tax = round(subtotal * SALES_TAX_RATE, 2)
-total = subtotal + sales_tax
-
-# Display the total for the user to see.
-print(f"Total: {total:.2f}")
+# Display the results for the user to see.
+print(f"For {num_items} items, packing {items_per_box}"
+f" items in each box, you will need {num_boxes} boxes.")

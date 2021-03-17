@@ -13,9 +13,30 @@ import datetime
 DISC_RATE = 0.10
 SALES_TAX_RATE = 0.06
 
-# Get the subtotal from the user.
-text = input("Please enter the subtotal: ")
-subtotal = float(text)
+subtotal = 0
+
+done = False
+while not done:
+    # Get the price from the user.
+    text = input("Please enter the price: ")
+    if text.lower() == "done":
+        done = True
+    else:
+        price = float(text)
+
+        # Get the quantity from the user.
+        quantity = int(input("Plesae enter the quantity: "))
+
+        subtotal += price * quantity
+
+        # Print a blank line.
+        print()
+
+# Round the subtotal to two digits after
+# the decimal and print the subtotal.
+subtotal = round(subtotal, 2)
+print(f"Subtotal: {subtotal}")
+print()
 
 # Call the now() method to get the current date and
 # time as a datetime object from the computer's clock.
@@ -27,10 +48,14 @@ weekday = current.isoweekday()
 
 # if the subtotal is greater than 50 and
 # today is Tuesday or Wednesday, compute the discount.
-if subtotal >= 50 and (weekday == 2 or weekday == 3):
-    discount = round(subtotal * DISC_RATE, 2)
-    print(f"Discount amount: {discount}")
-    subtotal -= discount
+if weekday == 2 or weekday == 3:
+    if subtotal < 50:
+        insufficient = 50 - subtotal
+        print(f"To receive the discount, add {insufficient} to your order.")
+    else:
+        discount = round(subtotal * DISC_RATE, 2)
+        print(f"Discount amount: {discount}")
+        subtotal -= discount
 
 # Compute the sales tax. Notice that we compute the sales tax
 # after computing the discount because the customer does not

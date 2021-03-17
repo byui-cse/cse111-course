@@ -8,11 +8,13 @@
     <title>CSE 111 - Team Activity</title>
     <link rel="icon" type="image/png" href="../site/icon.png">
     <link rel="stylesheet" type="text/css" href="../site/style.css">
+    <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-database.js"></script>
     <script src="../site/url.js"></script>
     <script src="../site/urlWrite.js"></script>
     <script src="../site/color.js"></script>
+    <script src="../site/hljs/highlight.pack.js"></script>
 </head>
 
 <body>
@@ -25,146 +27,161 @@
     <h2>CSE 111 | <span>Programming with Functions</span></h2>
 </header>
 <article>
-    <h1>02 Team Activity: Validate User Input</h1>
+    <h1>02 Team Activity: Calling Functions</h1>
 
-    <h2>Instructions for Team Activities</h2>
-    <p>Beginning with this lesson, each lesson will contain a team
-    activity. Team activities are designed to take about an hour and be
-    completed by multiple people working together. In face-to-face
-    sections of the course, multiple people will sit in front of the
-    same computer. In online sections, you will need to coordinate a
-    video call, where everyone can see the code that is being written
-    and contribute.</p>
-
-    <p>For this lesson, because the teams may not have been defined and
-    you have not had a chance to coordinate a meeting time yet, you are
-    welcome to complete this team activity individually or with others
-    by using Slack, or any other means to collaborate. Even though you
-    might not meet with a team this week, to help you see how the team
-    activities work, this activity is set up identically to the future
-    team activities, including the I-Learn quiz that you will submit
-    when finished. When you submit the I-Learn quiz for this team
-    activity, you should simply answer "True" to the questions that ask
-    if you met with your team, were on time to the meeting, etc. In
-    future lessons, you should answer these questions honestly,
-    according to what you actually did.</p>
+    <h2>Instructions</h2>
+    <p>Arrange a one hour synchronous meeting with your team for this
+    activity. Online students should coordinate a video-sharing meeting.
+    Campus students will use class time for this meeting. You should
+    prepare for this meeting by completing the preparation material and
+    the individual checkpoint assignment beforehand.</p>
 
     <h2>Problem Statement</h2>
-    <p>In our modern world economy, many items are manufactured in large
-    factories, then packed in boxes and shipped to distribution centers
-    and retail stores. A common question for employees who pack items is
-    "How many boxes do we need?"</p>
-
-    <p>While entering input for a program, users occasionally make
-    mistakes and enter invalid or incorrect input. A good program
-    recovers from user mistakes, informs users about mistakes in clear
-    polite language, and gives users an opportunity to correct their
-    mistakes.</p>
-
-    <h2>Assignment</h2>
-    <p>A manufacturing company needs a program that will help its
-    employees pack manufactured items into boxes for shipping. Write a
-    Python program named <code>boxes.py</code> that asks the user for
-    two integers: 1) the number of items and 2) the items per box. Your
-    program must require the user to enter positive integers and then
-    must compute and print the number of boxes necessary to hold the
-    items.</p>
-
-    <h2>Order of Development</h2>
-    <p>A good way to write this program is to first write simple code to
-    get the two integers from the user, compute the number of boxes, and
-    print the number of boxes. Then second, add code to validate the user
-    input.</p>
+    <p>You work for a retail store that wants to increase sales on
+    Tuesday and Wednesday, which are the store's slowest sales days. On
+    Tuesday and Wednesday, if a customer's subtotal is $50 or greater,
+    the store will discount the customer's subtotal by 10%.</p>
 
     <h2>Helpful Documentation</h2>
-    <p>The <a href="https://docs.python.org/3/library/math.html#math.ceil">math.ceil()</a>
-    function rounds a number up to the nearest integer that is greater
-    than or equal to a number.</p>
+    <ul class="long">
+        <li><div>The <a href="prepare.html">prepare content</a> for this
+        lesson explains how to call a function and a method.</div></li>
 
-    <p>The <a href="prepare.html#validate">code example</a> in this
-    lesson's prepare content shows how to require a user to enter a
-    non-negative integer between a minimum and maximum value.</p>
+        <li><div>The <a href="https://docs.python.org/3/library/datetime.html#datetime.datetime.now"><code>now</code> method</a>
+        from the datetime class returns the current local date and time
+        as a datetime object.</div></li>
+
+        <li><div>The <a href="https://docs.python.org/3/library/datetime.html#datetime.datetime.isoweekday"><code>isoweekday</code> method</a>
+        that is part of all datetime objects returns the day of the week
+        as an integer, where Monday is 1 and Sunday is 7.</div></li>
+    </ul>
+
+    <h2>Assignment</h2>
+    <p>Write a Python program named <code>discount.py</code> that takes
+    a customer's subtotal as input. If the subtotal is $50 or greater
+    and today is Tuesday or Wednesday, your program must subtract 10%
+    from the subtotal. Your program must then compute the total amount
+    due by adding sales tax of 6% to the subtotal. Your program must
+    print the discount amount if applicable, the sales tax amount, and
+    the total amount due.</p>
+
+    <p>Your program must <strong>not</strong> ask the user to enter the
+    day of the week. Instead, it must get the day of the week from your
+    computer's clock. The standard Python <code>datetime</code> module
+    contains functions that your program can call to get the current day
+    of the week from your computer's clock. The following code example
+    shows how to do that.</p>
+
+<div class="pre"><pre class="python" id="ex1">
+# Import the datatime module so that
+# it can be used in this program.
+import datetime
+
+# Call the now() method to get the current date and
+# time as a datetime object from the computer's clock.
+current = datetime.datetime.now()
+
+# Call the isoweekday() method to get the day
+# of the week from the current datetime object.
+weekday = current.isoweekday()
+
+print(weekday)</pre></div>
+
+    <p>If you use the above code, the variable <var>weekday</var>
+    will hold 1 if today is Monday, 2 if today is Tuesday, and so on
+    to 7 if today is Sunday.</p>
 
     <h3>Core Requirements</h3>
-    <p>Your program must do the following:</p>
-
     <ol class="long">
-        <li><div>Compute and print the number of boxes required to hold
-        the items. This must be a whole number. Note that the last box
-        may be packed with fewer items than the other boxes.</div></li>
+        <li><div>Your program asks the user for the subtotal but does
+        <strong>not</strong> ask the user for the day of the week. Your
+        program gets the day of the week from your computer's
+        clock.</div></li>
 
-        <li><div>Prompt the user for the number of <em>manufactured
-        items</em> and ensure that the user enters an integer greater
-        than 0. If the user enters anything that is not an integer
-        greater than 0, your program must repeatedly prompt the user to
-        enter another integer until he enters an integer greater than
-        zero.</div></li>
+        <li><div>Your program correctly computes the discount amount if
+        applicable.</div></li>
 
-        <li><div>Prompt the user for the <em>number of items</em> that
-        he will pack <em>per box</em> and ensure that the user enters an
-        integer greater than 0 and less than the number of manufactured
-        items. If the user enters anything that is not an integer
-        greater than 0 and less than the number of manufactured items,
-        your program must repeatedly prompt the user to enter another
-        integer until he enters a correct integer.</div></li>
+        <li><div>Your program correctly computes the sales tax amount,
+        and the total amount due.</div></li>
     </ol>
 
-    <h3>Stretch Challenges</h3>
+    <h3>Stretch Challenge</h3>
     <p>If your team finishes the core requirements in less than an hour,
     complete one or more of these stretch challenges. Note that the
     stretch challenges are optional.</p>
 
     <ol class="long">
-        <li><div>Review your code and ask yourself if any section of the
-        code seems similar to another section. Write down or record the
-        starting and ending line number of each similar section. Perhaps
-        one of the similar sections could be separated from the other
-        code and reused multiple times which would cause the program to
-        have fewer lines of code.</div></li>
+        <li><div>Add code to your program that the computer will execute
+        if today is Tuesday or Wednesday and the customer is not
+        purchasing enough to receive the discount. This added code
+        should compute and print the difference between $50 and the
+        subtotal which is the additional amount the customer would need
+        to purchase in order to receive the discount.</div></li>
 
-        <li><div>Discuss with your team how you could write code to
-        validate that a user correctly entered any number, including
-        negative integers and fractional numbers.</div></li>
+        <li><div>Near the beginning of your program replace the code
+        that asks the user for the subtotal with a loop that repeatedly
+        asks the user for a price and a quantity and computes the
+        subtotal. This loop should repeat until the user enters the word
+        "done" for the price.</div></li>
     </ol>
 
     <h2>Sample Runs</h2>
-<pre class="console">&gt; python teach_solution.py
-Enter the number of items: <span class="input">8</span>
-Enter the number of items per box: <span class="input">5</span>
+    <h3>Run on a Monday</h3>
+<pre class="console">&gt; python discount.py
+Please enter the subtotal: <span class="input">42.75</span>
+Sales tax amount: 2.56
+Total: 45.31
 
-For 8 items, packing 5 items in each box, you will need 2 boxes.
-</pre>
+&gt; python discount.py
+Please enter the subtotal: <span class="input">55.20</span>
+Sales tax amount: 3.31
+Total: 58.51</pre>
 
-<pre class="console">&gt; python teach_solution.py
-Enter the number of items: <span class="input">hello</span>
-'hello' is not a positive integer. Please enter a positive integer.
-Enter the number of items: <span class="input">-3</span>
-'-3' is not a positive integer. Please enter a positive integer.
-Enter the number of items: <span class="input">25</span>
+    <h3>Run on a Tuesday</h3>
+<pre class="console">&gt; python discount.py
+Please enter the subtotal: <span class="input">42.75</span>
+Sales tax amount: 2.56
+Total: 45.31
 
-Enter the number of items per box: <span class="input">quit</span>
-'quit' is not a positive integer. Please enter a positive integer.
-Enter the number of items per box: <span class="input">-7</span>
-'-7' is not a positive integer. Please enter a positive integer.
-Enter the number of items per box: <span class="input">4</span>
-
-For 25 items, packing 4 items in each box, you will need 7 boxes.
-</pre>
+&gt; python discount.py
+Please enter the subtotal: <span class="input">55.20</span>
+Discount amount: 5.52
+Sales tax amount: 2.98
+Total: 52.66</pre>
 
     <h2>Testing Procedure</h2>
-    <p>Verify that your program works correctly by following each step
-    in this testing procedure:</p>
-    <ol class="test">
-        <li><div>Run your program and enter the inputs shown in the
-        "Sample Run" section above. Ensure that your program's output
-        matches the sample run output.</div></li>
+    <p>Verify that your program works correctly by following each
+    step in this testing procedure:</p>
+    <ol class="test long">
+        <li><div>If today is any day other than Tuesday or Wednesday,
+        run your program using the input shown in the "Run on a Monday"
+        section above. Ensure that your program's output matches the
+        sample run output. If today is Tuesday or Wednesday, run your
+        program using the input in the "Run on a Tuesday"
+        section.</div></li>
+
+        <li><div>Is there a simple way to test your program for all the
+        days of the week without testing on seven consecutive days and
+        without changing your computer's system date? Hint: In your
+        program immediately after these three lines of code:
+
+<div class="pre"><pre class="python">
+# Call the isoweekday() method to get the day
+# of the week from the current datetime object.
+weekday = current.isoweekday()</pre></div>
+
+        temporarily add a line of code like this one:
+
+<div class="pre"><pre class="python">weekday = 3</pre></div>
+        </div></li>
     </ol>
 
     <h2>Sample Solution</h2>
     <p>Please work diligently with your team for the one hour meeting.
     After the meeting is over, please compare your approach to the
-    <a download href="teach_solution.py">sample solution</a>. Please
-    <strong>do not look at the sample solution</strong> until you have
+    <a download href="teach_solution.py">sample solution</a> or the
+    <a download href="teach_stretch.py">stretch solution</a>. Please
+    <strong>do not look at the sample solutions</strong> until you have
     either finished the program or diligently worked for at least one
     hour. At the end of the hour, if you are still struggling to
     complete the assignment, you may use the sample solution to help you
