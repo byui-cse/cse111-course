@@ -14,6 +14,7 @@
     <script src="../site/url.js"></script>
     <script src="../site/urlWrite.js"></script>
     <script src="../site/color.js"></script>
+    <script src="../site/linenums.js"></script>
     <script src="../site/hljs/highlight.pack.js"></script>
 </head>
 
@@ -27,78 +28,141 @@
     <h2>CSE 111 | <span>Programming with Functions</span></h2>
 </header>
 <article>
-    <h1>04 Checkpoint: Calling Functions</h1>
+    <h1>04 Checkpoint: Variable Scope</h1>
 
     <h2>Overview</h2>
-    <p>Demonstrate your understanding of calling Python built-in
-    functions and functions from a standard module by completing the
-    following individual checkpoint assignment.</p>
+    <p>Demonstrate your understanding of parameters, arguments, and
+    local variable scope by fixing a program that won't run because the
+    programmer tried to use variables that were defined in a different
+    function.</p>
 
     <h2>Helpful Documentation</h2>
-    <ul class="links">
-        <li><div><a href="https://docs.python.org/3/library/functions.html">Built-in Functions</a></div></li>
-        <li><div><a href="https://docs.python.org/3/library/statistics.html#module-statistics">statistics standard module</a></div></li>
-    </ul>
+    <ol class="long">
+        <li><div>The prepare content for the previous lesson explains
+        what a <a href="../lesson03/prepare.html#param">parameter</a>
+        is.</div></li>
+
+        <li><div>The prepare content for a previous lesson explains
+        what an <a href="../lesson02/prepare.html#arg">argument</a>
+        is.</div></li>
+
+        <li><div>The prepare content for this lesson contains an
+        <a href="prepare.html#ex3descr">example program</a> with a mistake
+        similar to the mistake that is in the example code
+        above.</div></li>
+    </ol>
 
     <h2>Assignment</h2>
+    <p>The following code example is almost correct but it contains a
+    common mistake. The programmer who wrote it assumed that the
+    <code>cone_volume</code> function could use the <var>radius</var>
+    and <var>height</var> variables that are defined in the
+    <code>main</code> function. Of course, this assumption is incorrect
+    because as the <a href="prepare.html">prepare content</a> for this
+    lesson explains, variables defined inside a function have local
+    scope and can be used only inside their containing function.</p>
+
+<div class="pre"><pre class="linenums"></pre>
+<pre class="python" id="ex1">
+"""Compute and print the volume of a right circular cone."""
+
+# Import the standard math module so that
+# math.pi can be used in this program.
+import math
+
+
+def main():
+    # Call the cone_volume function to compute
+    # the volume of an example cone.
+    ex_radius = 2.8
+    ex_height = 3.2
+    ex_vol = cone_volume()
+
+    # Print several lines that describe this program.
+    print("This program computes the volume of a right circular cone.")
+    print(f"For example, if the radius of a cone is {ex_radius} and")
+    print(f"the height is {ex_height}, then the volume is {ex_vol}")
+    print()
+
+    # Get the radius and height of the cone from the user.
+    radius = float(input("Please enter the radius of the cone: "))
+    height = float(input("Please enter the height of the cone: "))
+
+    # Call the cone_volume function to compute the volume
+    # for the radius and height that came from the user.
+    vol = cone_volume()
+
+    # Print the radius, height, and
+    # volume for the user to see.
+    print(f"Radius: {radius}")
+    print(f"Height: {height}")
+    print(f"Volume: {vol}")
+
+
+def cone_volume():
+    """Compute and return the volume of a right circular cone."""
+    volume = math.pi * radius**2 * height / 3
+    return volume
+
+
+# Start this program by
+# calling the main function.
+main()</pre></div>
+
     <p>Do the following:</p>
     <ol class="long">
-        <li><div>In VS Code, open a new file for a Python
-        program and save it as <code>heights.py</code>.</div></li>
+        <li><div>Create a new file in VS Code and copy and paste all of
+        the example program above into that new file.</div></li>
 
-        <li><div>Copy and paste the following Python code into your
-        program. The code imports the <code>statistics</code> module,
-        which is a Python standard module, and creates a list named
-        <var>heights</var>.
+        <li><div>Save the new file as <code>cone_volume.py</code></div></li>
 
-<div class="pre"><pre class="python">import statistics
+        <li><div>Run the program. What error message do you see in the
+        terminal?</div></li>
 
-# A list of people's height in meters.
-heights = [
-    1.72, 1.50, 1.96, 2.01, 1.75,
-    2.11, 1.60, 1.65, 2.05, 1.50,
-    1.80, 1.83, 2.05, 1.79, 1.84
-]</pre></div></div></li>
+        <li><div>Fix the <code>cone_volume</code> function which begins
+        on <span class="cross" data-ref="ex1">line&nbsp;36</span> by
+        adding two parameters to its header. What parameter names should
+        you use?<br><br>
+        Hint:&nbsp; the parameter names at
+        <span class="cross" data-ref="ex1">line&nbsp;36</span> and the variable
+        names at <span class="cross" data-ref="ex1">line&nbsp;38</span>
+        must be the same.</div></li>
 
-        <li><div>Write Python code to call each of these built-in
-        functions and pass the list of heights to each function.
-        Store the value returned from each function in a different
-        variable.
-        <ol>
-            <li><div><code>len</code></div></li>
-            <li><div><code>min</code></div></li>
-            <li><div><code>max</code></div></li>
-            <li><div><code>sum</code></div></li>
-        </ol></div></li>
+        <li><div>Fix the call to the <code>cone_volume</code> function
+        that is in <code>main</code> at
+        <span class="cross" data-ref="ex1">line&nbsp;13</span> by adding
+        two arguments. Because the <code>cone_volume</code> function has
+        two parameters (You added the two parameters in the previous
+        step.), each call to <code>cone_volume</code> must have two
+        arguments. What variable names should you use for the
+        arguments?<br><br>
+        Hint:&nbsp; the only variables that you can use must be defined
+        inside main above line&nbsp;13.</div></li>
 
-        <li><div>Write Python code to call each of these functions from
-        the <code>statistics</code> module and pass the list of heights
-        to each function. Store the value returned from each function in
-        a different variable.
-        <ol>
-            <li><div><code>mean</code></div></li>
-            <li><div><code>median</code></div></li>
-            <li><div><code>mode</code></div></li>
-        </ol></div></li>
+        <li><div>Fix the call to the <code>cone_volume</code> function
+        that is in <code>main</code> at
+        <span class="cross" data-ref="ex1">line&nbsp;27</span> by adding
+        two arguments. What variable names should you use for the
+        arguments?<br><br>
+        Hint:&nbsp; the only variables that you can use must be defined
+        inside main above line&nbsp;27.</div></li>
 
-        <li><div>Write code to call the built-in <code>round</code>
-        function to round the value returned from the <code>sum</code>
-        function and the <code>mean</code> function to two digits after
-        the decimal place and store the result in a variable.</div></li>
-
-        <li><div>Write code to print the value returned from each of
-        the functions.</div></li>
+        <li><div>Save your program and run it again. Did it run
+        correctly? If not, fix the mistakes until it runs
+        correctly.</div></li>
     </ol>
 
     <h2>Sample Run</h2>
-<pre class="console">&gt; python check_solution.py
-len: 15
-min: 1.5
-max: 2.11
-sum: 27.16
-mean: 1.81
-median: 1.8
-mode: 1.5</pre>
+<pre class="console">&gt; python cone_volume.py
+This program computes the volume of a right circular cone.
+For example, if the radius of a cone is 2.8 and
+the height is 3.2, then the volume is 26.27209216442024
+
+Please enter the radius of the cone: <span class="input">5</span>
+Please enter the height of the cone: <span class="input">8.2</span>
+Radius: 5.0
+Height: 8.2
+Volume: 214.67549799530252</pre>
 
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each

@@ -126,9 +126,9 @@
     other in any way because the scope of each variable is local to the
     function where it is defined.</p>
 
-    <p>A common mistake that many programmers make is to assume that a
-    local variable can be used inside of other functions. For example,
-    the following Python code includes two functions named
+    <p id="ex3descr">A common mistake that many programmers make is to
+    assume that a local variable can be used inside of other functions.
+    For example, the following Python code includes two functions named
     <code>main</code> and <code>circle_area</code>.
     <span class="cross" data-ref="ex3">Line&nbsp;4</span>
     in <code>main</code> defines a variable named <var>radius</var>.
@@ -171,20 +171,27 @@ main()</span></pre></div>
 <span data-scope="main">def main():
     # Call the arc_length function with only one argument
     # even though the arc_length function has two parameters.
-    <em><span class="varDef">length</span> = arc_length(4.7)</em>
-    print(<span class="varUse">length</span>)</span>
+    <em><span class="varDef">len1</span> = arc_length(4.7)</em>
+    print(<span class="varUse">len1</span>)
+
+    # Call the arc_length function again but
+    # this time with two arguments.
+    <span class="varDef">len2</span> = arc_length(6.2, 270)
+    print(<span class="varUse">len2</span>)</span>
+
 
 # Define a function with two parameters. The
 # second parameter has a default value of 360.
 <span data-scope="arc_length">def arc_length(<span class="varDef">radius</span>, <em><span class="varDef">degrees</span>=360</em>):
     """Compute and return the length of an arc of a circle."""
-    <span class="varDef">circum</span> = 2 * <span class="varUse">math</span>.pi * <span class="varUse">radius</span>
-    <span class="varDef">length</span> = <span class="varUse">circum</span> * <span class="varUse">degrees</span> / 360
+    <span class="varDef">circumference</span> = 2 * <span class="varUse">math</span>.pi * <span class="varUse">radius</span>
+    <span class="varDef">length</span> = <span class="varUse">circumference</span> * <span class="varUse">degrees</span> / 360
     return <span class="varUse">length</span></span>
+
 
 main()</span></pre></div>
 
-    <p>Notice at <span class="cross" data-ref="ex4">line&nbsp;11</span>
+    <p>Notice at <span class="cross" data-ref="ex4">line&nbsp;17</span>
     in the header for the <code>arc_length</code> function, that the
     parameter <var>radius</var> does not have a default value but the
     parameter <var>degrees</var> has a default value of 360. This means
@@ -196,8 +203,12 @@ main()</span></pre></div>
     4.7 for the <var>radius</var> parameter but did not pass a value for
     the <var>degrees</var>, so during that call to
     <code>arc_length</code>, the value of <var>degrees</var> will be the
-    default value from <span class="cross" data-ref="ex4">line&nbsp;11</span>
-    which is 360.</p>
+    default value from <span class="cross" data-ref="ex4">line&nbsp;17</span>
+    which is 360. At <span class="cross" data-ref="ex4">line&nbsp;11</span>,
+    the programmer called the <code>arc_length</code> function again and
+    passed two arguments:&nbsp; 6.2 and 270, so during that call to
+    <code>arc_length</code>, the value of <var>degrees</var> will be
+    270.</p>
 </article>
 <footer>
     <small>Copyright &copy; 2020, Brigham Young University - Idaho. All

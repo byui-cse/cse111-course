@@ -70,7 +70,7 @@ article {
 	max-width: 40em;
 	padding: 1em;
 	font-size: 110%;
-	line-height: 120%;
+	line-height: 125%;
 }
 
 article h1 {
@@ -453,6 +453,7 @@ article div.pre > pre.linenums > .hi {
 }
 
 article div.pre > pre.python {
+	min-width: 18em;
 }
 
 article pre.python span.hiScope  { background-color: yellow; }
