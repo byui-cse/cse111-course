@@ -8,11 +8,13 @@
     <title>CSE 111 - Prove</title>
     <link rel="icon" type="image/png" href="../site/icon.png">
     <link rel="stylesheet" type="text/css" href="../site/style.css">
+    <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-database.js"></script>
     <script src="../site/url.js"></script>
     <script src="../site/urlWrite.js"></script>
     <script src="../site/color.js"></script>
+    <script src="../site/hljs/highlight.pack.js"></script>
 </head>
 
 <body>
@@ -25,84 +27,154 @@
     <h2>CSE 111 | <span>Programming with Functions</span></h2>
 </header>
 <article>
-    <h1>02 Prove: Validate User Input</h1>
+    <h1>02 Prove: Calling Functions</h1>
 
     <h2>Overview</h2>
-    <p>Prove that you can write a Python program that validates user
-    input and uses that input in calculations.</p>
+    <p>Prove that you can write a Python program that calls functions to
+    store values in a file.</p>
 
     <h2>Problem Statement</h2>
-    <p>While entering input for a program, users occasionally make
-    mistakes and enter invalid or incorrect input. A good program
-    recovers from user mistakes, informs users about mistakes in clear
-    polite language, and gives users an opportunity to correct their
-    mistakes.</p>
-
-    <h2>Helpful Documentation</h2>
-    <p>The <a href="prepare.html#validate">code example</a> in this
-    lesson's prepare content shows how to require a user to enter a
-    non-negative integer between a minimum and maximum value.</p>
-
-    <p>This <a href="https://content.byui.edu/items/a9e60503-b5e7-40f0-bf48-ebf1a7441d25/1/example_02.mp4">short video</a>
-    shows a BYU-Idaho faculty member solving a problem that is similar
-    to this prove assignment.</p>
+    <p>Many companies wish to understand the needs and wants of their
+    customers more deeply so the company can create products that fill
+    those needs and wants. One way to understand customers more deeply
+    is to record the values entered by customers while they are using a
+    program and then to analyze those values. One common way to record
+    values is for a program to store them in a file.</p>
 
     <h2>Assignment</h2>
     <p>The previous lesson's <a href="../lesson01/prove.html">prove
     assignment</a> required you to write a program that computes the
-    approximate volume of air inside a tire. Change the program that you
-    wrote for the previous lesson's prove assignment so that it
-    validates all three of the integers that the user enters while using
-    the program. The minimum and maximum for each of the three numbers
-    are as follows:</p>
+    approximate volume of air inside a tire. Add code near the end of
+    that program that does the following:</p>
 
-    <table class="center"><thead>
-        <tr><th>Quantity</th> <th>Minimum</th> <th>Maximum</th></tr>
-    </thead><tbody>
-        <tr><th>tire width</th>
-            <td class="number">180</td> <td class="number">400</td></tr>
-        <tr><th>aspect ratio</th>
-            <td class="number">45</td> <td class="number">70</td></tr>
-        <tr><th>wheel diameter</th>
-            <td class="number">12</td> <td class="number">28</td></tr>
-    </tbody></table>
+    <ol>
+        <li><div>Gets the current date from the computer's
+        clock.</div></li>
+        <li><div>Opens a file named <code>volumes.txt</code> for
+        appending.</div></li>
+        <li><div>Appends to the end of the file one line of text that
+        contains the following five values:
+        <ol>
+            <li><div>current date</div></li>
+            <li><div>width of the tire</div></li>
+            <li><div>aspect ratio of the tire</div></li>
+            <li><div>diameter of the wheel</div></li>
+            <li><div>volume of the tire</div></li>
+        </ol></div></li>
+    </ol>
+
+    <h2>Helpful Documentation</h2>
+    <ul class="long">
+        <li><div>The <a href="prepare.html">prepare content</a> for this
+        lesson explains how to call a function and a method.</div></li>
+
+        <li><div>The <a href="https://docs.python.org/3/library/datetime.html#datetime.datetime.now"><code>now()</code></a>
+        method from the datetime class returns the current local date
+        and time as a datetime object.</div></li>
+
+        <li><div>The built-in <a href="https://docs.python.org/3/library/functions.html#open"><code>open()</code></a>
+        function opens a file for reading or writing. Here is an excerpt
+        from the official documentation for the <code>open</code>
+        function:
+        <dl class="function">
+            <dt><code>open(filename, mode="rt")</code></dt>
+            <dd><p>Open a file and return a corresponding file
+            object.</p>
+            <p><var>filename</var> is the name of the file to be
+            opened.</p>
+            <p><var>mode</var> is an optional string that specifies the
+            mode in which the file will be opened. It defaults to
+            <code>'rt'</code> which means open for reading in text mode.
+            Other common values are <code>'wt'</code> for writing a text
+            file (truncating the file if it already exists), and
+            <code>'at'</code> for appending to the end of a text
+            file.</p></dd>
+        </dl></div></li>
+
+        <li><div>The built-in <a href="https://docs.python.org/3/library/functions.html#print"><code>print()</code></a>
+        function prints text to a terminal window or to a text file.
+        Here is an excerpt from the official documentation for the
+        <code>print</code> function:
+        <dl class="function">
+            <dt><code>print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)</code></dt>
+            <dd>Print objects to the text stream <var>file</var>,
+            separated by <var>sep</var> and followed by <var>end</var>.
+            <var>sep</var>, <var>end</var>, <var>file</var> and
+            <var>flush</var>, if present, must be given as named
+            arguments.</dd>
+        </dl></div></li>
+
+        <!--
+        <li><div>This <a href="https://content.byui.edu/items/a9e60503-b5e7-40f0-bf48-ebf1a7441d25/1/example_02.mp4">short video</a>
+        shows a BYU-Idaho faculty member solving a problem that is
+        similar to this prove assignment.</div></li>
+        -->
+    </ul>
+
+    <p>The following example code calls the <code>open</code> function
+    to open a file for appending text and then calls the
+    <code>print</code> function three times to print three lines of text
+    to the file.</p>
+
+<div class="pre"><pre class="python" id="ex1">
+model = "GMC Acadia"
+length = 193
+width = 75
+height = 67
+
+# Open a file named dimensions.txt in append mode.
+with open("dimensions.txt", <em>"at"</em>) as dimens_file:
+
+    # Print a car's model, dimensions,
+    # and a blank line to the file.
+    print(model, <em>file=dimens_file</em>)
+    print(f"{length}, {width}, {height}", <em>file=dimens_file</em>)
+    print(<em>file=dimens_file</em>)</pre></div>
 
     <h2>Sample Run</h2>
 <pre class="console">&gt; python prove_solution.py
-Enter the width of the tire in mm (ex 205): <span class="input">tire</span>
-'tire' is not a positive integer. Please enter a positive integer.
-Enter the width of the tire in mm (ex 205): <span class="input">60</span>
-60 is too small. Please enter a positive integer between 180 and 400.
-Enter the width of the tire in mm (ex 205): <span class="input">550</span>
-550 is too large. Please enter a positive integer between 180 and 400.
-Enter the width of the tire in mm (ex 205): <span class="input">205</span>
+Enter the width of the tire in mm (ex 205): <span class="input">185</span>
+Enter the aspect ratio of the tire (ex 60): <span class="input">50</span>
+Enter the diameter of the wheel in inches (ex 15): <span class="input">14</span>
 
-Enter the aspect ratio of the tire (ex 60): <span class="input">aspect</span>
-'aspect' is not a positive integer. Please enter a positive integer.
-Enter the aspect ratio of the tire (ex 60): <span class="input">15</span>
-15 is too small. Please enter a positive integer between 45 and 70.
-Enter the aspect ratio of the tire (ex 60): <span class="input">90</span>
-90 is too large. Please enter a positive integer between 45 and 70.
-Enter the aspect ratio of the tire (ex 60): <span class="input">60</span>
-
-Enter the diameter of the tire in inches (ex 15): <span class="input">wheel</span>
-'wheel' is not a positive integer. Please enter a positive integer.
-Enter the diameter of the tire in inches (ex 15): <span class="input">10</span>
-10 is too small. Please enter a positive integer between 12 and 28.
-Enter the diameter of the tire in inches (ex 15): <span class="input">35</span>
-35 is too large. Please enter a positive integer between 12 and 28.
-Enter the diameter of the tire in inches (ex 15): <span class="input">15</span>
-
-The approximate volume is 39924.5 milliliters.
-</pre>
+The approximate volume is 24090.1 cubic cm.</pre>
 
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each step
     in this testing procedure:</p>
-    <ol class="test">
-        <li><div>Run your program and enter the inputs shown in the
-        "Sample Run" section above. Ensure that your program's output
-        matches the sample run output.</div></li>
+    <ol class="test long">
+        <li><div>Run your program using the input shown in the sample
+        run section above. Ensure that your program's output matches the
+        sample run output. Use VS Code to open the
+        <code>volumes.txt</code> file and verify that the last line of
+        text in the file looks like this except the date will be
+        different:
+<pre class="file">2021-03-18, 185, 50, 14, 24090.1</pre></div></li>
+
+        <li><div>Run your program using these values: 205, 60, 15 and
+        verify that your program outputs 39924.5 for the volume. Use VS
+        Code to open the <code>volumes.txt</code> file and verify that
+        the last two lines of text in the file look like this except the
+        dates will be different:
+<pre class="file">2021-03-18, 185, 50, 14, 24090.1
+2021-04-16, 205, 60, 15, 39924.5</pre></div></li>
+    </ol>
+
+    <h2>Exceeding the Requirements</h2>
+    <p>Here are a few suggestions for additional features you could add
+    to your program.</p>
+    <ol class="long">
+        <li><div>Find tire prices for four or more tire sizes online.
+        Add a set of <code>if &hellip; elif &hellip; else</code>
+        statements in your program that use the tire width, tire aspect
+        ratio, and wheel diameter that the user enters to find a price
+        and then print the price.</div></li>
+
+        <li><div>After your program prints the tire volume to the
+        terminal, your program could ask the user if she wants to buy
+        tires with the dimensions that she entered. If the user answers
+        yes, your program should ask for her phone number and store her
+        phone number in the volumes.txt file.</div></li>
     </ol>
 
     <h2>Submission</h2>

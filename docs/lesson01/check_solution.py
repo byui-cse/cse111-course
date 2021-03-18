@@ -11,8 +11,8 @@ heart rate between 65% and 85% of your heart's maximum.
 # Get the user's age as a string.
 text = input("Please enter your age: ")
 
-# Convert the string that the user entered into a positive integer.
-age = abs(round(float(text)))
+# Convert the string that the user entered into an integer.
+age = int(text)
 
 # Compute the slowest and fastest beneficial
 # heart rates from the user's age.
