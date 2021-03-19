@@ -14,6 +14,7 @@
     <script src="../site/url.js"></script>
     <script src="../site/urlWrite.js"></script>
     <script src="../site/color.js"></script>
+    <script src="../site/linenums.js"></script>
     <script src="../site/hljs/highlight.pack.js"></script>
 </head>
 
@@ -27,222 +28,176 @@
     <h2>CSE 111 | <span>Programming with Functions</span></h2>
 </header>
 <article>
-    <h1>09 Prepare: Data Analysis</h1>
+    <h1>09 Prepare: Dictionaries</h1>
+    <p>During this lesson, you will learn about dictionaries and use
+    them in Python programs.</p>
 
-    <p><dfn>Data analysis</dfn> is a process of inspecting,
-    transforming, and viewing data with the goal of discovering useful
-    information. During this lesson and the next, you will learn to use
-    a third-party Python module named <code>pandas</code> to perform
-    data analysis.</p>
-
-    <h2>Documentation</h2>
-    <p>Read the following four articles about <code>pandas</code>. These
-    articles will help you as you complete the assignments in this
-    lesson and the next.</p>
-
-    <ul class="links">
-        <li><div><a href="https://pandas.pydata.org/pandas-docs/stable/getting_started/overview.html">Overview of Pandas</a></div></li>
-        <li><div>Getting Started Tutorials
-        <ul class="links">
-            <li><div><a href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/01_table_oriented.html">What kind of data</a> does pandas handle?</div></li>
-            <li><div><a href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/02_read_write.html">Read and write</a> tabular data</div></li>
-            <li><div><a href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/03_subset_data.html">Select columns</a> from a DataFrame</div></li>
-        </ul></div></li>
-    </ul>
+    <h2>Videos</h2>
+    <p>Watch this video about
+    <a href="https://realpython.com/lessons/dictionary-python/">dictionaries</a>
+    in Python.</p>
 
     <h2>Concepts</h2>
-    <p>Here are the Python programming concepts and topics that you
-    should learn during this lesson.</p>
+    <h3 id="dicts">Dictionaries</h3>
+    <p>Within a Python program, we can store many items in a
+    <a href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">dictionary</a>.
+    Dictionaries are mutable, meaning they can be changed after they are
+    created. In a dictionary, items are stored as key value pairs. All
+    keys within a dictionary must be unique. In other words, no key can
+    appear more than once in a dictionary. Values within a dictionary do
+    not have to be unique. The following table shows a dictionary that
+    contains five items (five key value pairs) Notice that each of the
+    keys is unique.</p>
 
-    <ol class="long">
-        <li><div>The <a href="https://pandas.pydata.org/pandas-docs/stable/getting_started/overview.html"><code>pandas</code></a>
-        module is a Python module that enables data analysis and
-        includes functionality to read and write CSV files, retrieve,
-        modify, store, sort, filter, and aggregate data, and draw
-        charts. In order to provide all of that functionality,
-        <code>pandas</code> uses several other modules, including
-        <code>numpy</code> and <code>matplotlib.pyplot</code>. Some of
-        the functionality that seems to be part of <code>pandas</code>
-        is actually part of these other modules.</div></li>
+    <table class="center"><thead>
+        <tr><th colspan="2">items</th> <th></th></tr>
+        <tr><th>keys</th> <th>values</th> <th></th></tr>
+    </thead><tbody>
+        <tr><td>42-039-4736</td> <td>Clint Huish</td>
+            <td class="center">&uarr;</td></tr>
+        <tr><td>61-315-0160</td> <td>Michelle Davis</td>
+            <td class="center">5</td></tr>
+        <tr><td>10-450-1203</td> <td>Jorge Soares</td>
+            <td class="center">items</td></tr>
+        <tr><td>75-421-2310</td> <td>Abdul Ali</td>
+            <td class="center"></td></tr>
+        <tr><td>07-103-5621</td> <td>Michelle Davis</td>
+            <td class="center">&darr;</td></tr>
+    </tbody></table>
 
-        <li><div>The <code>pandas</code> module organizes data into
-        <code>DataFrames</code>, <code>Series</code>, and
-        <code>Elements</code>. A <code>DataFrame</code> is a
-        two-dimensional structure like a table with rows and columns.
-        Each row and each column in a <code>DataFrame</code> is a
-        <code>Series</code>. A <code>Series</code> is a one-dimensional
-        structure and is composed of <code>Elements</code>. An
-        <code>Element</code> is a single piece of data.</div></li>
+    <p>We can create a dictionary by using curly braces ({ and }). We
+    can add an item to a dictionary and look up an item in a dictionary
+    by using the square brackets ([ and ]) and a key. The following code
+    example shows how to create a dictionary and add and look up items
+    in a dictionary.</p>
 
-        <li><div>The <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html"><code>pandas.read_csv</code></a>
-        function will read a CSV file and return a
-        <code>DataFrame</code>. The <code>read_csv</code> function has a
-        huge number of parameters most of which are optional. The
-        <var>filepath</var> and <var>parse_dates</var> parameters are
-        the most useful for the assignments you will complete in this
-        course.
-<div class="pre"><pre class="python">import pandas as pd
+<div class="pre"><pre class="linenums"></pre>
+<pre class="python" id="ex3">
+# Create a dictionary with student IDs as
+# the keys and student names as the values.
+students = {
+    "42-039-4736": "Clint Huish",
+    "61-315-0160": "Michelle Davis",
+    "10-450-1203": "Jorge Soares",
+    "75-421-2310": "Abdul Ali",
+    "07-103-5621": "Michelle Davis"
+}
 
-<em>df = pd.read_csv("filename.csv")</em></pre></div></div></li>
+# Add an item to the dictionary.
+<em>students["81-298-9238"] = "Sama Patel"</em>
 
-        <li><div><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.dtypes.html"><code>DataFrame.dtypes</code></a>
-        is an attribute of a DataFrame and contains a Series with the
-        data type of each column in the DataFrame. You may want to print
-        <var>dtypes</var> attribute after calling
-        <code>read_csv()</code> so that you can verify that the
-        DataFrame was read correctly. For example in the following code,
-        <var>df</var> is a DataFrame that contains all the data that
-        <code>read_csv</code> read from <code>filename.csv</code>.
-<div class="pre"><pre class="python">import pandas as pd
+# Get the number of items in the dictionary and print it.
+length = len(students)
+print(length)
 
-df = pd.read_csv("filename.csv")
-<em>print(df.dtypes)</em></pre></div></div></li>
+# Print the entire dictionary.
+print(students)
 
-        <li><div><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.describe.html"><code>DataFrame.describe()</code></a>
-        is a function that returns several statistics that summarize the
-        data in a DataFrame. You may want to print the results of
-        <code>describe()</code> after calling <code>read_csv()</code>
-        to help you understand the data that is in the DataFrame. For
-        example:
-<div class="pre"><pre class="python">import pandas as pd
+# Get a student ID from the user.
+id = input("Enter a student ID: ")
 
-df = pd.read_csv("filename.csv")
-<em>print(df.describe())</em></pre></div></div></li>
+# Check if the student ID is in the dictionary.
+if id in students:
+    # Lookup the student ID in the dictionary and
+    # retrieve the corresponding student name.
+    <em>name = students[id]</em>
 
-        <li><div>To <a href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/03_subset_data.html#how-do-i-select-specific-columns-from-a-dataframe">extract one column</a>
-        from a DataFrame write the column's name in square brackets [].
-        For example:
-<div class="pre"><pre class="python">import pandas as pd
+    # Print the student name.
+    print(name)
+else:
+    print("No such student")
 
-df = pd.read_csv("filename.csv")
-<em>column = df["column_name"]</em></pre></div>
-        It is also possible extract multiple columns by writing a list of
-        column names between the square brackets like this:
-<div class="pre"><pre class="python">import pandas as pd
+# Use a for loop to print each key value pair in the
+# dictionary. Of course, the code in the body of a loop can
+# do much more with each key value pair than simply print it.
+for key, value in students.items():
+    print(key, value)</pre></div>
 
-original_df = pd.read_csv("filename.csv")
-<em>column_names = ["col_name1", "col_name2", "col_name3"]
-smaller_df = original_df[column_names]</em></pre></div></div></li>
+    <p><span class="cross" data-ref="ex3">Line&nbsp;12</span> in the
+    previous code example, adds an item to the dictionary. To add an
+    item to an existing dictionary, write code that follows this
+    template:</p>
+<div class="pre"><pre class="python">dictionary_name[key] = value</pre></div>
+    <p>Notice that line&nbsp;12 follows this template.</p>
 
-        <li><div>To <a href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/03_subset_data.html#how-do-i-filter-specific-rows-from-a-dataframe">filter rows</a>
-        out of a DataFrame, use a comparison to create a filter object.
-        Then use the filter object in square brackets to filter the
-        DataFrame. For example in the following code, <var>df</var> is a
-        DataFrame that contains all the rows from the CSV file
-        <code>filename.csv</code>, <var>filter</var> is a filter object,
-        and <var>filtered_df</var> is a DataFrame that contains only
-        some of the rows from the CSV file because all the rows that
-        don't satisfy the comparison
-        <code><em>original_df["column_name"] &gt; threshold</em></code>
-        have been filtered out.
-<div class="pre"><pre class="python">import pandas as pd
+    <p><span class="cross" data-ref="ex3">Line&nbsp;28</span> in the
+    previous code example, looks up a key and retrieves its
+    corresponding value from a dictionary. To look up a key and retrieve
+    its corresponding value, write code that follows this template:</p>
+<div class="pre"><pre class="python">value = dictionary_name[key]</pre></div>
+    <p>Notice that line&nbsp;28 follows this template.</p>
 
-original_df = pd.read_csv("filename.csv")
-<em>filter = (original_df["column_name"] &gt; threshold)
-filtered_df = original_df[filter]</em></pre></div>
-        It is possible to filter rows by two comparisons. However,
-        because of operator precedence in Python, we must add
-        parentheses around each comparison. In the next example,
-        <var>andfilt</var> and <var>orfilt</var> are filter objects,
-        <var>filtered_and_df</var> is a data frame that contains rows
-        that satisfy both of the comparisons, and
-        <var>filtered_or_df</var> is a data frame that contains rows
-        that satisfy either or both comparisons.
-<div class="pre"><pre class="python">import pandas as pd
+    <h3>Membership Operator</h3>
+    <p>Python includes a <dfn>membership operator</dfn>:&nbsp;
+    <code>in</code>. We can use the <code>in</code> operator to
+    determine if a list or dictionary contains a value. For example:</p>
 
-original_df = pd.read_csv("filename.csv")
-<em>andfilt = (original_df["col_name1"] &gt; threshold) &amp; (original_df["col_name2"] == value)
-orfilt  = (original_df["col_name1"] &gt; threshold) | (original_df["col_name2"] == value)</em>
-filtered_and_df = original_df[andfilt]
-filtered_or_df = original_df[orfilt]</pre></div>
-        Unfortunately, it is easy to confuse the code that selects a
-        column or columns (shown in the previous item) and the code that
-        filters rows (shown in this item) because both of them use a
-        data frame and square brackets such as:&nbsp;
-        <code>original_df[ ]</code>. However, look closely at the
-        example code in the previous item and this item to see the
-        difference. The code to select a column or columns contains only
-        a string or list of strings between the square brackets. The
-        code to filter rows contains a filter object between the square
-        brackets.</div></li>
+<div class="pre"><pre class="python" id="ex3">
+# Create a dictionary with student IDs as
+# the keys and student names as the values.
+students = {
+    "42-039-4736": "Clint Huish",
+    "61-315-0160": "Michelle Davis",
+    "10-450-1203": "Jorge Soares",
+    "75-421-2310": "Abdul Ali",
+    "07-103-5621": "Michelle Davis"
+}
 
-        <li><div>To filter out duplicate rows, call the <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.drop_duplicates.html">DataFrame.drop_duplicates()</a>
-        function. For example in the following code, <var>no_dups_df</var>
-        is a DataFrame that contains the same data as <var>original_df</var>
-        but with all duplicate rows removed.
-<div class="pre"><pre class="python">import pandas as pd
+# Get the user's I-Number.
+inumber = input("Please enter your I-Number: ")
 
-original_df = pd.read_csv("filename.csv")
-<em>no_dups_df = original_df.drop_duplicates()</em></pre></div></div></li>
+# Determine if the user's I-Number is in the dictionary of students.
+if <em>inumber in students</em>:
+    print(f"Your I-Number {inumber} is in the dictionary.")
+else:
+    print(f"Your I-Number {inumber} is NOT in the dictionary.")</pre></div>
 
-        <li><div>The <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.unique.html">Series.unique()</a>
-        function returns a list of unique values from a Series. This is
-        very helpful to get a list of unique values from a column. In
-        the following code, <var>unique_vals</var> is a list of the
-        unique values that appear in a column named
-        <var>column_name</var>.
-<div class="pre"><pre class="python">import pandas as pd
+    <h3>Converting between Lists and Dictionaries</h3>
+    <p>It is possible to convert two lists into a dictionary by using
+    the built-in <code>zip</code> and <code>dict</code> functions. The
+    contents of the first list will become the keys in the dictionary,
+    and the contents of the second list will become the values. This
+    implies that the two lists must have the same length, and the
+    elements in the first list must be unique because keys in a
+    dictionary must be unique.</p>
 
-original_df = pd.read_csv("filename.csv")
-column = original_df["column_name"]
-<em>unique_vals = column.unique()</em></pre></div></div></li>
+    <p>It is also possible to convert a dictionary into two lists by
+    using the <code>keys</code> and <code>values</code> methods and the
+    built-in <code>list</code> function. The following code example
+    starts with two lists, converts them into a dictionary, and then
+    converts the dictionary into two lists.</p>
 
-        <li><div>The <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.value_counts.html">Series.value_counts()</a>
-        function counts and returns the number of times that each unique
-        value occurs in a Series.
-<div class="pre"><pre class="python">import pandas as pd
+<div class="pre"><pre class="python" id="ex4">
+# Create a list that contains five student numbers.
+numbers = ["42-039-4736", "61-315-0160",
+        "10-450-1203", "75-421-2310", "07-103-5621"]
 
-original_df = pd.read_csv("filename.csv")
-column = original_df["column_name"]
-<em>counts = column.value_counts()</em></pre></div></div></li>
+# Create a list that contains five student names.
+names = ["Clint Huish", "Michelle Davis",
+        "Jorge Soares", "Abdul Ali", "Michelle Davis"]
 
-        <li><div>To <a href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/05_add_columns.html">create a new column</a>
-        derived from existing columns, use square brackets [] with the
-        new column name on the left side of the assignment operator (=).
-        For example:
-<div class="pre"><pre class="python">import pandas as pd
+# Convert the numbers list and names list into a dictionary.
+<em>student_dict = dict(zip(numbers, names))</em>
 
-original_df = pd.read_csv("filename.csv")
-<em>original_df["new_column_name"] = 3 * original_df["existing_column_name"] + 1</em></pre></div></div></li>
+# Print the entire student dictionary.
+print(student_dict)
 
-        <li><div>To extract parts of datetime values, use the
-        <code>.dt</code> attribute and the <code>.to_period</code>
-        method
-        (<a href="https://www.interviewqs.com/ddi_code_snippets/extract_month_year_pandas">tutorial</a>,
-        <a href="https://stackoverflow.com/questions/23840797/convert-a-column-of-timestamps-into-periods-in-pandas">stack overflow question</a>,
-        <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.dt.to_period.html">official documentation</a>).
-        For example:
-<div class="pre"><pre class="python">import pandas as pd
+# Convert the student dictionary into
+# two lists named keys and values.
+<em>keys = list(student_dict.keys())
+values = list(student_dict.values())</em>
 
-original_df = pd.read_csv("filename.csv")
-<em>column = original_df["datetime_column"].dt.to_period("M")</em></pre></div></div></li>
+# Print both lists.
+print(keys)
+print(values)</pre></div>
 
-        <li><div>The <code>pandas</code> module includes several
-        functions that aggregate data, including the following:
-        <ol>
-            <li><div>The <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.sum.html">Series.sum()</a>
-            function computes the sum of all the values in a Series.</div></li>
-            <li><div>The <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.sum.html">Series.mean()</a>
-            function computes the average value of all the values in a
-            Series.</div></li>
-            <li><div>The <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.min.html">Series.min()</a>
-            function finds the minimum value within a Series.</div></li>
-            <li><div>The <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.min.html">Series.max()</a>
-            function finds the maximum value within a Series.</div></li>
-        </ol></div></li>
+    <h2>Documentation</h2>
+    <p>The following tutorials contain more information about lists and
+    dictionaries in Python.</p>
 
-        <li><div>Grouping and aggregating data is an advanced data
-        analysis operation that can summarize many rows into just a few
-        rows. To <a href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/06_calculate_statistics.html#aggregating-statistics-grouped-by-category">group and aggregate data</a>,
-        use the <code>.groupby</code> and <code>.aggregate</code>
-        methods as shown in this template:
-<div class="pre"><pre class="python">import pandas as pd
-
-original_df = pd.read_csv("filename.csv")
-group = original_df.groupby("existing_column_to_group_by")
-grouped_df = group.aggregate(
-        new_column_name=("existing_column_to_summarize", "function"))</pre></div></div></li>
-    </ol>
+    <ul class="links">
+        <li><div><a href="https://realpython.com/python-dicts/">Dictionaries in Python</a>.</div></li>
+    </ul>
 </article>
 <footer>
     <small>Copyright &copy; 2020, Brigham Young University - Idaho. All

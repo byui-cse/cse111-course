@@ -28,163 +28,127 @@
     <h2>CSE 111 | <span>Programming with Functions</span></h2>
 </header>
 <article>
-    <h1>10 Prepare: Data Visualization</h1>
-    <p><dfn>Data visualization</dfn> is the graphical representation of
-    data in charts and graphs to help people visualize and understand
-    data more easily than they would by looking at tables of numbers.
-    Data visualization is closely related to and often comes after data
-    analysis. In other words, a data scientist will often perform data
-    analysis to process large data sets and then employ data
-    visualization techniques to make charts and graphs from the
-    data.</p>
-
-    <p>The <code>pandas</code> module includes functions to draw
-    different types of charts. In <code>pandas</code>, charts are called
-    plots. Interestingly, the plots are not actually drawn by
-    <code>pandas</code> but instead by another Python module named
-    <code>matplotlib.pyplot</code>.</p>
+    <h1>10 Prepare: Comma Separated Values</h1>
+    <p>In this lesson, you will learn how to store and retrieve data
+    from Python lists and dictionaries.</p>
 
     <h2>Concepts</h2>
     <p>Here are the Python programming concepts and topics that you
-    should learn during this lesson.</p>
+    should learn during this lesson:</p>
 
-    <ol class="long">
-        <li><div>Drawing a plot with the <code>pandas</code> module can
-        be as simple as these three steps: <ol>
-            <li><div>read the data</div></li>
-            <li><div>define the plot</div></li>
-            <li><div>draw (show) the plot</div></li>
-        </ol>
-        For example:
-<div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex1">
-import pandas as pd
-import matplotlib.pyplot as pyplot
+    <h3 id="csvFiles">Comma Separated Values</h3>
+    <p>Many computer systems import and export data in CSV files. CSV is
+    an acronym for comma separated values. A CSV file is a text file
+    that contains tabular data where each row is on a separate line and
+    each cell (column) is separated by a comma. The following example is
+    the contents of a CSV file that stores information about some dental
+    offices in Rexburg, Idaho. Notice that the first row of the file
+    contains column headings, the next four rows contain information
+    about four dental offices, and each row contains three columns
+    separated by commas.</p>
 
-# Read a DataFrame from a CSV file.
-df = pd.read_csv("filename.csv")
+<div class="pre"><pre class="csv">
+Company Name,Address,Phone Number
+Eagle Rock Dental Care,556 Trejo Suite C,208-359-2224
+Apple Tree Dental,33 Winn Drive Suite 2,208-359-1500
+Rockhouse Dentistry,106 E 1st N,208-356-5600
+Cornerstone Family Dental,44 S Center Street,208-356-4240
+</pre></div>
 
-# Define a vertical bar plot from the DataFrame.
-df.plot(kind="bar", x="column_name_1", y="column_name_2")
+    <p>Python has a module named
+    <a href="https://docs.python.org/3/library/csv.html"><code>csv</code></a>
+    that includes functionality to read and write data from CSV files.
+    The following example code shows how to open a CSV file and use the
+    <code>csv</code> module to read and print each row.</p>
 
-# Draw and show all defined plots.
-pyplot.show()</pre></div>
+<div class="pre"><pre class="python" id="ex5">
+import csv
 
-        In the above example,
-        <span class="cross" data-ref="ex1">lines&nbsp;2 and&nbsp;11</span>
-        are easy to forget but without them, the plots that your code
-        defines will not be shown on the computer's monitor.</div></li>
+# Open a file named dentists.csv and store a reference
+# to the opened file in a variable named infile.
+with open("dentists.csv", "rt") as infile:
 
-        <li><div><span class="cross" data-ref="ex1">Line&nbsp;8</span>
-        in the example code above contains a call to the pandas
-        <code>DataFrame.plot</code> method. The <var>kind</var> named
-        argument tells the <code>DataFrame.plot</code> method what type
-        of plot to draw. There are at least nine types of plots that
-        <code>DataFrame.plot</code> can draw by changing the value for
-        the <var>kind</var> named parameter as follows:
-        <ul>
-            <li><div><code>area</code> - area plot</div></li>
-            <li><div><code>bar</code> - vertical bar plot</div></li>
-            <li><div><code>barh</code> - horizontal bar plot</div></li>
-            <li><div><code>box</code> - box plot</div></li>
-            <li><div><code>density</code> - density plot</div></li>
-            <li><div><code>hexbin</code> - hexagonal bin plot</div></li>
-            <li><div><code>hist</code> - histogram</div></li>
-            <li><div><code>pie</code> - pie plot</div></li>
-            <li><div><code>scatter</code> - scatter plot</div></li>
-        </ul>
+    # Use the csv module to create a reader
+    # object that will read from the opened file.
+    reader = csv.reader(infile)
 
-        <p>In addition to the <code>kind</code> named argument, the
-        <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.plot.html">plot method</a>
-        can take many other named arguments including these:</p>
-        <ul>
-            <li><div><code>x</code>: string or list of strings - The
-            column or columns to plot along the x-axis.</div></li>
-            <li><div><code>y</code>: string or list of strings - The
-            column or columns to plot along the y-axis.</div></li>
-            <li><div><code>title</code>: string - The title to use for
-            the plot.</div></li>
-            <li><div><code>xlabel</code>: string - The label for the
-            x-axis.</div></li>
-            <li><div><code>ylabel</code>: string - The label for the
-            y-axis.</div></li>
-            <li><div><code>color</code>: string - The of the color that
-            the plot will be drawn in.</div></li>
-            <li><div><code>legend</code>: boolean - True to draw the
-            legend, False to hide the legend.</div></li>
-        </ul>
+    # The first line of the CSV file contains column headings
+    # and not information about a dental office, so this
+    # statement skips the first line of the CSV file.
+    next(reader)
 
-        <p>The <var>x</var> and <var>y</var> named arguments tell the
-        <code>DataFrame.plot</code> method which columns in the data
-        frame to use as the x and y axes in the plot. You can cause
-        pandas to draw the data from multiple columns on the same plot
-        by passing a list of strings for the <var>y</var> named argument
-        as shown on <span class="cross" data-ref="ex2">line&nbsp;3</span>
-        in the next code example.</p>
+    # Read each row one at a time as a list.
+    for row in reader:
 
-<div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex2">
-# Define a vertical bar plot from the DataFrame.
-df.plot(kind="bar", x="column_name_1",
-        y=["column_name_2", "column_name_3", "column_name_4"])</pre></div>
+        # For the current row, retrieve the
+        # values in columns 0, 1, and 2.
+        company = row[0]
+        address = row[1]
+        phone = row[2]
 
-        <p>Writing code to define a plot for a pandas DataFrame is
-        usually simple. Unfortunately, writing code to define a plot for
-        a pandas Series can be very confusing. Recall that a pandas
-        DataFrame contains multiple rows and columns but that a pandas
-        Series contains only a single column. When we call
-        <code>DataFrame.plot</code>, we can use both the <var>x</var>
-        and <var>y</var> named arguments to chose the columns for the x
-        and y axes. However, when we call <code>Series.plot</code>, a
-        Series has one column only, so we shouldn't use both the
-        <var>x</var> and <var>y</var> named arguments, but instead we
-        should use only one of them. This problem is most often seen
-        when we write code to group and aggregate a DataFrame which
-        often produces a Series. In that situation, when we call
-        Series.plot we should use just the <var>y</var> named
-        argument.</p>
-        </div></li>
+        # Print the values for the user to see.
+        print(company, address, phone)</pre></div>
 
-        <li><div>Although drawing a plot can be very simple, a data
-        scientist may have to write significant amounts of code to
-        analyze and process the data before defining a plot. This
-        analysis code is the type of code that you learned to write in
-        the previous lesson of this course.</div></li>
+    <p>You could use this example code in a program that you write, but
+    of course, you could modify the <code>for</code> loop in the code to
+    do much more than simply print the contents of each row. For
+    example, the next code sample shows how to read the contents of a
+    CSV file into a dictionary.</p>
 
-        <li><div>There are many options that you can use in your code to
-        modify the look and layout of a plot. Some of these options are
-        not available through the <code>pandas</code> functions but
-        instead are available through the <code>matplotlib.pyplot</code>
-        functions.</div></li>
-    </ol>
+<div class="pre"><pre class="python" id="ex6">
+import csv
 
-    <h2>Examples</h2>
-    <p>Here are two plots that were drawn by this
-    <a download href="sample_plots.py">Python program</a> using
-    <code>pandas</code> and <code>matplotlib.pyplot</code>. Both plots
-    show the exact same data, first as a pie plot and then as a vertical
-    bar plot. Although pie plots are very popular, most data scientists
-    don't use them because they convey less information than a bar
-    plot.</p>
+# Create an empty dictionary that will
+# store the data from the CSV file.
+<em>dentists = {}</em>
 
-    <p><img src="pie.png"
-    alt="A pie plot that shows total water used in the City of Rexburg during the years 2015 through 2019"
-    title="A pie plot that shows total water used in the City of Rexburg during the years 2015 through 2019">
-    </p>
+# Open a file named dentists.csv and store a reference
+# to the opened file in a variable named infile.
+with open("dentists.csv", "rt") as infile:
 
-    <p><img src="vbar.png"
-    alt="A vertical bar plot that shows the amount of water used in the City of Rexburg during the years 2015 through 2019"
-    title="A vertical bar plot that shows the amount of water used in the City of Rexburg during the years 2015 through 2019">
-    </p>
+    # Use the csv module to create a reader
+    # object that will read from the opened file.
+    reader = csv.reader(infile)
+
+    # The first line of the CSV file contains column headings
+    # and not information about a dental office, so this
+    # statement skips the first line of the CSV file.
+    next(reader)
+
+    # Read each row one at a time as a list.
+    for row in reader:
+
+        # For the current row, retrieve the
+        # values in columns 0, 1, and 2.
+        company = row[0]
+        address = row[1]
+        phone = row[2]
+
+        # Store the data from the current row into the dentists
+        # dictionary. Use the phone number as the key. Create a
+        # list with the company name and address as the value.
+        <em>dentists[phone] = [company, address]</em>
+
+# Print the entire dentists dictionary.
+print(dentists)</pre></div>
 
     <h2>Documentation</h2>
-    <ul>
-        <li><div>The <code>pandas</code> Getting Started Tutorials
-        contain a helpful <a href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/04_plotting.html">short section about creating plots</a>.</div></li>
+    <p>If any of the concepts or topics in the previous list seem
+    unfamiliar to you, reading these tutorials may help you recall
+    these programming concepts from CSE 110.</p>
 
-        <li><div>The <code>pandas</code> User Guide contains a
-        <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/visualization.html">long section about creating plots</a>.</div></li>
+    <ul class="links">
+        <li><div><a href="https://realpython.com/python-for-loop/">Python "for" Loops</a></div></li>
+        <li><div><a href="https://realpython.com/python-while-loop/">Python "while" Loops</a></div></li>
+        <li><div><a href="https://realpython.com/python-csv/">Reading and Writing CSV Files in Python</a></div></li>
     </ul>
+
+    <p>You could also read some of the Python tutorials at
+    <a href="https://www.w3schools.com/python/default.asp">W3 Schools</a>.
+    Or you could search for "Python" in the
+    <a href="https://library.byui.edu">online catalog</a> of the
+    BYU-Idaho library and read one of the online books from the result
+    set.</p>
 </article>
 <footer>
     <small>Copyright &copy; 2020, Brigham Young University - Idaho. All
