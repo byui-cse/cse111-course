@@ -8,11 +8,14 @@
     <title>CSE 111 - Prove</title>
     <link rel="icon" type="image/png" href="../site/icon.png">
     <link rel="stylesheet" type="text/css" href="../site/style.css">
+    <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-database.js"></script>
     <script src="../site/url.js"></script>
     <script src="../site/urlWrite.js"></script>
     <script src="../site/color.js"></script>
+    <script src="../site/linenums.js"></script>
+    <script src="../site/hljs/highlight.pack.js"></script>
 </head>
 
 <body>
@@ -25,99 +28,28 @@
     <h2>CSE 111 | <span>Programming with Functions</span></h2>
 </header>
 <article>
-    <h1>06 Prove Assignment: Writing Functions</h1>
+    <h1>06 Prove Assignment: Troubleshooting Functions</h1>
 
     <h2>Overview</h2>
-    <p>Prove that you can write and call functions by writing a program
-    that draws an outdoor scene in a window.</p>
 
     <h2>Problem Statement</h2>
-    <p>Most modern computer operating systems have graphical user
-    interfaces (GUIs) that are rich with colors, icons, images, menus,
-    tabs, buttons, text fields, sliders, scroll bars, etc. However, many
-    Python programs are designed to run in a console window, also called
-    a terminal window, to read user input from a keyboard, and to print
-    text as output to the console window. This means that many Python
-    programs are not designed and written to take advantage of the rich
-    features of graphical user interfaces.</p>
-
-    <p>Python includes two competing libraries of code named
-    <code>tkinter</code> and <code>kivy</code> that enable a program to
-    have a user interface. Writing a program with a complete GUI is a
-    large task. During the previous lesson, you wrote code to draw at
-    least the sky, clouds, and the ground. During this lesson, you will
-    write code to finish drawing an outdoor scene.</p>
-
-    <h2>Assignment</h2>
-    <p>During this lesson, you will write code that draws the remaining
-    elements in your scene. The scene that your program draws must be
-    outdoor, the sky must have clouds, and the scene must include
-    repetitive elements such as blades of grass, trees, leaves on a
-    tree, birds, flowers, insects, fish, pickets in a fence, dashed
-    lines on a road, buildings, bales of hay, snowmen, snowflakes, or
-    icicles. Be creative.</p>
-
-    <p>Each repetitive element must be drawn by a function that your
-    program calls repeatedly, once for each repeated element. For
-    example, your program may include a function named
-    <code>draw_leaf</code> that your program repeatedly calls to draw
-    all the leaves on a tree.</p>
-
-    <p>As you write your program, be sure that it draws elements in the
-    order of farthest to nearest. For example, your program should draw
-    the sky first, then clouds, then the ground, then trees, and then
-    insects in the trees.</p>
-
-    <h2>Scene Gallery</h2>
-    <p>All the scenes in
-    <a href="../lesson06/gallery/index.html">this gallery</a>
-    were drawn by programs written by former CSE 111 students.</p>
-
-    <h2>Helpful Videos</h2>
-    <p>The following videos walk through two examples of using functions
-    to draw with <code>tkinter</code>.</p>
-    <ul class="links">
-        <li><div><a href="https://content.byui.edu/items/a9e60503-b5e7-40f0-bf48-ebf1a7441d25/1/drawing_with_functions_part1.mp4">Drawing with Functions, part 1</a></div></li>
-        <li><div><a href="https://content.byui.edu/items/a9e60503-b5e7-40f0-bf48-ebf1a7441d25/1/drawing_with_functions_part2.mp4">Drawing with Functions, part 2</a></div></li>
-    </ul>
 
     <h2>Helpful Documentation</h2>
     <ul class="long">
-        <li><div>How to <a href="prepare.html">write functions</a></div></li>
-
-        <li><div>A tutorial about
-        <a href="http://zetcode.com/tkinter/drawing/">drawing with
-        tkinter</a></div></li>
-
-        <li><div>References for tkinter Canvas methods
-        <ul>
-            <li><div><a href="https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/create_arc.html">create_arc()</a></div></li>
-            <li><div><a href="https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/create_line.html">create_line()</a></div></li>
-            <li><div><a href="https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/create_oval.html">create_oval()</a></div></li>
-            <li><div><a href="https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/create_polygon.html">create_polygon()</a></div></li>
-            <li><div><a href="https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/create_rectangle.html">create_rectangle()</a></div></li>
-            <li><div><a href="https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/create_text.html">create_text()</a></div></li>
-        </ul></div></li>
-
-        <li><div><a href="../lesson05/colors.png">Chart of named
-        colors</a> in tkinter</div></li>
     </ul>
 
+    <h2>Assignment</h2>
+
+    <h2>Sample Runs</h2>
+
     <h2>Testing Procedure</h2>
-    <p>Verify that your program works correctly by following each step
-    in this testing procedure:</p>
-    <ol class="test">
-        <li><div>Run your program and verify that it correctly opens a
-        window and draws within that window a complete outdoor scene
-        that contains the sky, clouds, the ground, and other
-        elements.</div></li>
-    </ol>
 
     <h2>Submission</h2>
     <p>To submit your program, return to I-Learn and do these two
     things:</p>
     <ol>
-        <li><div>Upload your program (the .py file) for feedback.</div></li>
+        <li><div>Upload your two files: <code>chemistry.py</code> and
+        <code>test_chemistry.py</code> for feedback.</div></li>
         <li><div>Add a submission comment that specifies the grading
         category that best describes your program along with a one or
         two sentence justification for your choice. The grading criteria

@@ -28,7 +28,7 @@
     <h2>CSE 111 | <span>Programming with Functions</span></h2>
 </header>
 <article>
-    <h1>07 Prepare: Lists</h1>
+    <h1>07 Prepare: Lists and Repetition</h1>
     <p>During this lesson, you will learn about lists and use them in
     Python programs.</p>
 
@@ -36,16 +36,22 @@
     <p>Watch this video about <a href="https://www.youtube.com/watch?v=beA8IsY3mQs&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=25">lists</a> in Python.</p>
 
     <h2>Concepts</h2>
+    <p>During this lesson, you should learn how to use lists to store
+    many items in a Python program. You should also understand that
+    numbers are passed into a function differently than lists are
+    passed.</p>
+
     <h3 id="lists">Lists</h3>
     <p>Within a Python program, we can store many elements in a
     <a href="https://docs.python.org/3/tutorial/datastructures.html#more-on-lists">list</a>.
     Lists are mutable, meaning they can be changed after they are
     created. Each element in a list is stored at a unique index. An
-    index is always an integer, and the first index in a Python list is
-    always zero (0). The following diagram shows a list that contains
-    five words. The diagram shows both the elements and the indexes of
-    the list. Notice that each index is a unique integer, and that the
-    first index is zero.</p>
+    <dfn>index</dfn> (also known as a <dfn>subscript</dfn>) is always an
+    integer and determines where an element is stored in a list. The
+    first index of a Python list is always zero (0). The following
+    diagram shows a list that contains five words. The diagram shows
+    both the elements and the indexes of the list. Notice that each
+    index is a unique integer, and that the first index is zero.</p>
 
     <table class="list center"><tbody>
         <tr class="elems"><td class="label">elements</td>
@@ -85,11 +91,13 @@ colors[3] = "purple"
 print(colors)</pre></div>
 
     <p>We can add an item to a list by using the <code>insert</code> and
-    <code>append</code> methods. We can find an item in a list using the
-    <code>index</code> method. We can remove an item from a list using
-    <code>del</code>, <code>pop</code>, and <code>remove</code>. The
-    following code example shows how to create a list and add, find, and
-    remove items from a list.</p>
+    <code>append</code> methods. We can determine if an element is in a
+    list by using the Python membership operator which is the keyword
+    <code>in</code>. We can find the index of an item within a list by
+    using the <code>index</code> method. We can remove an item from a
+    list by using <code>del</code>, <code>pop</code>, and
+    <code>remove</code>. The following code example shows how to create
+    a list and add, find, and remove items from a list.</p>
 
 <div class="pre"><pre class="python" id="ex2">
 # Create an empty list that will hold fabric names.
@@ -102,6 +110,12 @@ fabrics.append("gingham")
 
 # Insert an element at the beginning of the fabrics list.
 fabrics.insert(0, "chiffon")
+
+# Determine if gingham is in the fabrics list.
+if "gingham" in fabrics:
+    print("gingham is in the list.")
+else:
+    print("gingham is NOT in the list.")
 
 # Get the index where velvet is stored in the fabrics list.
 i = fabrics.index("velvet")
@@ -125,25 +139,123 @@ print(f"The fabrics list contains {n} elements.")
 for element in fabrics:
     print(element)</pre></div>
 
-    <h3>Membership Operator</h3>
-    <p>Python includes a <dfn>membership operator</dfn>:&nbsp;
-    <code>in</code>. We can use the <code>in</code> operator to
-    determine if a list contains a value. For example:</p>
+    <h3>IndexError</h3>
+    <p>If we write code that tries to use an index that doesn't exist in
+    a list, when the computer executes that code, the computer will
+    raise an <a href="https://docs.python.org/3/library/exceptions.html#IndexError"><code>IndexError</code></a>.
+    For example, the following example code creates a list that contains
+    three surnames. Then the code attempts to print and change the
+    surname at index 3. Of course, both of these statements fail because
+    the list contains only three elements, and the last index is 2.</p>
 
-<div class="pre"><pre class="python" id="ex3">
-# Create a list that contains family names.
-surnames = ["Smith", "Lopez", "Marsh", "Olsen", "Vasiuk"]
+<div class="pre"><pre class="python" id="ex5">
+def main():
+    try:
+        # Create a list that contains three family names.
+        surnames = ["Smith", "Lopez", "Marsh"]
 
-# Get the user's family name.
-family = input("Please enter your family name: ")
+        # Attempt to print the surname at index 3. Because there
+        # are only three names in the surnames list and therefore
+        # the last index is 2, this statement will fail and cause
+        # the computer to raise an IndexError.
+        print(surnames[3])
 
-# Determine if the user's family name is in the list of family names.
-if <em>family in surnames</em>:
-    print("Your family name is in the list.")
-else:
-    print("Your family name is NOT in the list.")</pre></div>
+        # Attempt to change the surname at index 3. Because there
+        # are only three names in the surnames list and therefore
+        # the last index is 2, this statement will fail and cause
+        # the computer to raise an IndexError.
+        surnames[3] = "Olsen"
 
-    <h3 id="passByRef">Passing Values and References</h3>
+    except IndexError as index_err:
+        print(index_err)
+
+
+# Call the main function so that
+# this program will start executing.
+main()</pre></div>
+
+<pre class="console">&gt; python index_error.py
+list index out of range</pre>
+
+    <h3>Repetition</h3>
+    <p>We can cause a computer to repeat a group of statements by
+    writing <code>for</code> and <code>while</code> loops. A
+    <code>for</code> loop iterates over a range of numbers such as
+    <code>range(3, 10)</code> or a sequence such as a list. A
+    <code>while</code> loop is more flexible than a <code>for</code>
+    loop and repeats while some condition is true. The next code example
+    shows three loops that iterate over a range of numbers. Notice that
+    just like <code>if</code> statements in Python, the body of a loop
+    starts and ends with indentation.</p>
+
+<div class="pre"><pre class="python" id="ex5">
+# Count from zero to nine by ones.
+for i in range(10):
+    print(i)
+
+# Count from zero to eight by twos.
+for i in range(0, 10, 2):
+    print(i)
+
+# Count from 100 down to 70 by three.
+for i in range(100, 69, -3):
+    print(i)</pre></div>
+
+    <p>The next code example contains three loops that iterate over the
+    elements in a list, set, and dictionary. The code in the body of
+    these example loops is very small and simply prints a value.
+    However, we can write as much code as we need in the body of a loop
+    to repeatedly perform all manner of complex computations.</p>
+
+<div class="pre"><pre class="python" id="ex6">
+# Create a list.
+colors = ["red", "orange", "yellow", "green", "blue", "indigo"]
+
+# Create a set.
+names = {"Smith", "Lopez", "Marsh", "Olsen", "Vasiuk"}
+
+# Create a dictionary.
+students = {
+    "67-412-8350" : "Alan Benson",
+    "76-240-1835" : "Madison Silverlake",
+    "06-412-7583" : "Samyukta Daniels"
+}
+
+# Print each value in a list.
+for color in colors:
+    print(color)
+
+# Print each value in a set.
+for family in names:
+    print(family)
+
+# Print each key value pair in a dictionary.
+for inumber, name in students.items():
+    print(inumber, name)</pre></div>
+
+    <p>A <code>break</code> statement causes a loop to end early. In the
+    next code example, there is a <code>for</code> loop that asks the
+    user to input ten numbers one at a time. However, the loop will
+    terminate early if the user enters a zero (0) because of the
+    <code>break</code> statement.</p>
+
+<div class="pre"><pre class="python" id="ex7">
+# Get ten or fewer numbers from the user and add them
+# together. Notice that this loop uses underscore (_) as
+# the counting variable, which is a valid variable name.
+# Many programmers use underscore to indicate that the
+# variable will not be used within the body of the loop.
+sum = 0
+for _ in range(10):
+    n = float(input("Please enter a number: "))
+    if n == 0:
+        <em>break</em>
+    sum += n
+print(sum)</pre></div>
+        </div></li>
+    </ol>
+
+    <h3 id="passByRef">Values and References</h3>
     <p>In Python, variables are processed differently based on their
     data type. For example, here is a small Python program that contains
     two integer variables named <var>x</var> and <var>y</var>.</p>
@@ -168,15 +280,19 @@ After changing x:  <em>x 18  y 17</em></pre>
         <li><div>The statement on
         <span class="cross" data-ref="ex5">line&nbsp;2</span>
         stores the value 17 into the variable <var>x</var>.</div></li>
-        <li><div>Line&nbsp;3 copies the value that is in the variable
-        <var>x</var> into the variable <var>y</var>.</div></li>
-        <li><div>Line&nbsp;4 prints the values of <var>x</var> and
-        <var>y</var> which are both 17.</div></li>
-        <li><div>Line&nbsp;5 adds one to the value of <var>x</var>,
-        making its value 18 instead of 17.</div></li>
-        <li><div>Line&nbsp;6 prints the values of <var>x</var> and
-        <var>y</var>. The value of <var>x</var> was changed to 18. The
-        value of <var>y</var> remained unchanged.</div></li>
+        <li><div><span class="cross" data-ref="ex5">Line&nbsp;3</span>
+        copies the value that is in the variable <var>x</var> into the
+        variable <var>y</var>.</div></li>
+        <li><div><span class="cross" data-ref="ex5">Line&nbsp;4</span>
+        prints the values of <var>x</var> and <var>y</var> which are
+        both 17.</div></li>
+        <li><div><span class="cross" data-ref="ex5">Line&nbsp;5</span>
+        adds one to the value of <var>x</var>, making its value 18
+        instead of 17.</div></li>
+        <li><div><span class="cross" data-ref="ex5">Line&nbsp;6</span>
+        prints the values of <var>x</var> and <var>y</var>. The value of
+        <var>x</var> was changed to 18. The value of <var>y</var>
+        remained unchanged.</div></li>
     </ul>
 
     <p>Why did <span class="cross" data-ref="ex5">line&nbsp;5</span>

@@ -1,27 +1,78 @@
-from names import given_name, family_name, full_name
-import pytest
+"""
+Write and call functions that demonstrate both
+default parameter values and pass by reference.
+"""
+import random
 
-def test_full_name():
-    """Verify that the full_name function returns correct results."""
-    assert full_name("Penelope", "Smith-Jones") == "Smith-Jones; Penelope"
-    assert full_name("George", "Washington") == "Washington; George"
-    assert full_name("J", "Ng") == "Ng; J"
-    assert full_name("", "") == "; "
+def main():
+    randnums = [16.2, 75.1, 52.3]
+    print(f"randnums {randnums}")
 
-def test_famliy_name():
-    """Verify that the family_name function returns correct results."""
-    assert family_name("Smith-Jones; Penelope") == "Smith-Jones"
-    assert family_name("Washington; George") == "Washington"
-    assert family_name("Ng; J") == "Ng"
-    assert family_name("; ") == ""
+    # Call the append_random_numbers function to
+    # add one random number to the randnums list.
+    append_random_numbers(randnums)
+    print(f"randnums {randnums}")
 
-def test_given_name():
-    """Verify that the given_name function returns correct results."""
-    assert given_name("Smith-Jones; Penelope") == "Penelope"
-    assert given_name("Washington; George") == "George"
-    assert given_name("Ng; J") == "J"
-    assert given_name("; ") == ""
+    # Call the append_random_numbers function to add
+    # three random numbers to the randnums list.
+    append_random_numbers(randnums, 3)
+    print(f"randnums {randnums}")
 
-# Call the main function that is part of pytest so that
-# the test functions in this file will start executing.
-pytest.main(["-v", "--tb=no", "teach_solution.py"])
+    # Create a list to store random words.
+    randwords = []
+
+    # Call the append_random_words function
+    # to add one random word to the list.
+    append_random_words(randwords)
+    print(f"randwords {randwords}")
+
+    # Call the append_random_words function
+    # to add five random words to the list.
+    append_random_words(randwords, 5)
+    print(f"randwords {randwords}")
+
+
+def append_random_numbers(numbers_list, quantity=1):
+    """Append quantity random numbers onto the numbers list.
+    The random numbers are between 0 and 100, inclusive.
+    Parameters
+        numbers_list: A list of numbers where this function will append
+            random numbers.
+        quantity: The number of random numbers that this function will
+            append onto numbers_list.
+    Return: nothing. It's unnecessary for this function to return
+        anything because this function changes the numbers_list.
+    """
+    for _ in range(quantity):
+        random_number = random.uniform(0, 100)
+        rounded = round(random_number, 1)
+        numbers_list.append(rounded)
+
+
+def append_random_words(words_list, quantity=1):
+    """Append quantity randomly chosen words onto the words list.
+    Parameters
+        words_list: A list of words where this function will append
+            random words.
+        quantity: The number of random words that this function will
+            append onto words_list.
+    Return: nothing. It's unnecessary for this function to return
+        anything because this function changes the words_list.
+    """
+
+    # A list of words to randomly choose from.
+    candidates = [
+        "arm", "car", "cloud", "head", "heal", "hydrogen", "jog",
+        "join", "laugh", "love", "sleep", "smile", "speak",
+        "sunshine", "toothbrush", "tree", "truth", "walk", "water"
+    ]
+
+    # Randomly choose quantity words and append them onto words_list.
+    for _ in range(quantity):
+        word = random.choice(candidates)
+        words_list.append(word)
+
+
+# Call the main function so that
+# this program will start executing.
+main()

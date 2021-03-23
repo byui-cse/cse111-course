@@ -8,14 +8,11 @@
     <title>CSE 111 - Checkpoint</title>
     <link rel="icon" type="image/png" href="../site/icon.png">
     <link rel="stylesheet" type="text/css" href="../site/style.css">
-    <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-database.js"></script>
     <script src="../site/url.js"></script>
     <script src="../site/urlWrite.js"></script>
     <script src="../site/color.js"></script>
-    <script src="../site/linenums.js"></script>
-    <script src="../site/hljs/highlight.pack.js"></script>
 </head>
 
 <body>
@@ -28,121 +25,13 @@
     <h2>CSE 111 | <span>Programming with Functions</span></h2>
 </header>
 <article>
-    <h1>06 Checkpoint: Function Details</h1>
+    <h1>06 Checkpoint: Troubleshooting Functions</h1>
 
     <h2>Overview</h2>
-    <p>During this checkpoint, you will boost your understanding that in
-    Python numbers are passed to a function by value and lists are
-    passed to a function by reference.</p>
-
-    <h2>Helpful Documentation</h2>
-    <p>Within a Python program, when a number is passed as an argument
-    into a function, the computer copies the number in the argument into
-    the parameter. In other words, the parameter gets a copy of the
-    value that is in the argument. However, when a list is passed as an
-    argument into a function, the computer does not copy the list.
-    Instead, the computer passes a reference to the list into the
-    function. This means the argument and parameter refer to the same
-    list. If a called function changes a list that was passed into the
-    function, this will change the list in the calling function because
-    both the argument and parameter refer to the same list.</p>
 
     <h2>Assignment</h2>
-    <p>Do the following:</p>
-
-    <ol class="long">
-        <li><div>Open a new file in VS Code.</div></li>
-
-        <li><div>Copy and paste this program into your new file and save
-        it as <code>pass_demo.py</code>
-
-<div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex1">
-"""
-Demonstrate that numbers are passed to a function by value
-and lists are passed to a function by reference.
-"""
-
-def main():
-    print("main()")
-    x = 5
-    lx = [7, -2]
-    print(f"    Before calling modify_args(): x {x}  lx {lx}")
-
-    # Pass one integer and one list
-    # to the modify_args function.
-    modify_args(x, lx)
-
-    print(f"    After calling modify_args():  x {x}  lx {lx}")
-
-
-def modify_args(n, alist):
-    """Demonstrate that the computer passes a value
-    for integers and passes a reference for lists.
-    Parameters:
-        n - A number
-        alist - A list
-    Return: nothing
-    """
-    print("    modify_args(n, alist)")
-    print(f"        Before changing n and alist: n {n}  alist {alist}")
-
-    # Change the values of both parameters.
-    n += 1
-    alist.append(4)
-
-    print(f"        After changing n and alist:  n {n}  alist {alist}")
-
-
-# Call main to begin this program.
-main()</pre></div></div></li>
-
-        <li><div>Run the pass_demo program on your computer. Examine the
-        code and the output and answer the following three questions:
-        <ol>
-            <li><div>In <code>main</code>, there are two local variables
-            named <var>x</var> and <var>lx</var>. At
-            <span class="cross" data-ref="ex1">line&nbsp;14</span>,
-            both of these local variables are passed to the
-            <code>modify_args</code> function. After the call to
-            <code>modify_args</code> finished, which of
-            <code>main</code>'s two local variables did the
-            <code>modify_args</code> function change?
-            <ol>
-                <li><div><var>x</var></div></li>
-                <li><div><var>lx</var></div></li>
-                <li><div>both of them</div></li>
-                <li><div>neither of them</div></li>
-            </ol></div></li>
-
-            <li><div>Why is the <code>modify_args</code> function NOT
-            able to change <code>main</code>'s local variable <var>x</var>?
-            <ol>
-                <li><div>Because <var>x</var> is a number and therefore
-                passed to a function by value</div></li>
-                <li><div>Because <var>x</var> is a list and therefore
-                passed to a function by reference</div></li>
-            </ol></div></li>
-
-            <li><div>Why is the <code>modify_args</code> function able
-            to change <code>main</code>'s local variable <var>lx</var>?
-            <ol>
-                <li><div>Because <var>lx</var> is a number and therefore
-                passed to a function by value</div></li>
-                <li><div>Because <var>lx</var> is a list and therefore
-                passed to a function by reference</div></li>
-            </ol></div></li>
-        </ol></div></li>
-    </ol>
 
     <h2>Sample Run</h2>
-<pre class="console">&gt; python pass_demo.py
-main()
-    Before calling modify_args(): x 5  lx [7, -2]
-    modify_args(n, alist)
-        Before changing n and alist: n 5  alist [7, -2]
-        After changing n and alist:  n 6  alist [7, -2, 4]
-    After calling modify_args():  x 5  lx [7, -2, 4]</pre>
 
     <h2>Submission</h2>
     <p>When complete, report your progress in the associated I-Learn

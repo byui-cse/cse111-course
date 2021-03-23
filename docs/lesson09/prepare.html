@@ -38,166 +38,142 @@
     in Python.</p>
 
     <h2>Concepts</h2>
-    <h3 id="dicts">Dictionaries</h3>
-    <p>Within a Python program, we can store many items in a
-    <a href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">dictionary</a>.
-    Dictionaries are mutable, meaning they can be changed after they are
-    created. In a dictionary, items are stored as key value pairs. All
-    keys within a dictionary must be unique. In other words, no key can
-    appear more than once in a dictionary. Values within a dictionary do
-    not have to be unique. The following table shows a dictionary that
-    contains five items (five key value pairs) Notice that each of the
-    keys is unique.</p>
+    <h3 id="textFiles">Text Files</h3>
+    <p>The built-in
+    <a href="https://docs.python.org/3/library/functions.html#open"><code>open()</code></a>
+    function opens a file for reading or writing. The
+    <a href="https://docs.python.org/3/tutorial/inputoutput.html#methods-of-file-objects"><code>file.read()</code></a>
+    method reads characters or bytes from a file. The
+    <a href="https://docs.python.org/3/library/stdtypes.html#str.splitlines"><code>string.splitlines()</code></a>
+    method breaks a string into a list of strings, breaking at line
+    boundaries. The following code example uses the built-in
+    <code>open</code> function and <code>file.read</code> and
+    <code>string.splitlines</code> methods to read the contents of a
+    text file into a list.</p>
 
-    <table class="center"><thead>
-        <tr><th colspan="2">items</th> <th></th></tr>
-        <tr><th>keys</th> <th>values</th> <th></th></tr>
-    </thead><tbody>
-        <tr><td>42-039-4736</td> <td>Clint Huish</td>
-            <td class="center">&uarr;</td></tr>
-        <tr><td>61-315-0160</td> <td>Michelle Davis</td>
-            <td class="center">5</td></tr>
-        <tr><td>10-450-1203</td> <td>Jorge Soares</td>
-            <td class="center">items</td></tr>
-        <tr><td>75-421-2310</td> <td>Abdul Ali</td>
-            <td class="center"></td></tr>
-        <tr><td>07-103-5621</td> <td>Michelle Davis</td>
-            <td class="center">&darr;</td></tr>
-    </tbody></table>
+<div class="pre"><pre class="python" id="ex4">
+# Open the plants.txt file for reading.
+with <em>open("plants.txt", "rt")</em> as infile:
 
-    <p>We can create a dictionary by using curly braces ({ and }). We
-    can add an item to a dictionary and look up an item in a dictionary
-    by using the square brackets ([ and ]) and a key. The following code
-    example shows how to create a dictionary and add and look up items
-    in a dictionary.</p>
+    # Read all the characters in the file into a string.
+    <em>string = infile.read()</em>
+
+# Split the string into a list of strings named
+# plants. Each line from the plants.txt file
+# will be stored in its own element in the list.
+<em>plants = string.splitlines()</em>
+
+# Print the entire list.
+print(plants)</pre></div>
+
+    <h2>Example - Reading from a File</h2>
+    <p>The example program shown below handles exceptions that might
+    occur when the program opens and reads from a file. This program
+    contains only one <code>try</code> block, which begins at
+    <span class="cross" data-ref="ex3">line&nbsp;4</span>
+    and includes all the regular code in the main function.
+    This one try block has four <code>except</code> blocks at
+    <span class="cross" data-ref="ex3">lines&nbsp;40, 44,&nbsp;48,
+    and&nbsp;52</span>.</p>
+
+    <p>Each of the <code>except</code> blocks handles a different type
+    of exception. The first three <code>except</code> blocks handle
+    specific exceptions: <code>FileNotFoundError</code>,
+    <code>PermissionError</code>, and <code>ZeroDivisionError</code>.
+    The last <code>except</code> block handles
+    <code>RuntimeError</code>, which is a general exception.
+    <code>RuntimeError</code> is probably the most general type of
+    exception that we want to handle in a Python program. The
+    description above the first example program explains why.</p>
 
 <div class="pre"><pre class="linenums"></pre>
 <pre class="python" id="ex3">
-# Create a dictionary with student IDs as
-# the keys and student names as the values.
-students = {
-    "42-039-4736": "Clint Huish",
-    "61-315-0160": "Michelle Davis",
-    "10-450-1203": "Jorge Soares",
-    "75-421-2310": "Abdul Ali",
-    "07-103-5621": "Michelle Davis"
-}
+import csv
 
-# Add an item to the dictionary.
-<em>students["81-298-9238"] = "Sama Patel"</em>
 
-# Get the number of items in the dictionary and print it.
-length = len(students)
-print(length)
+def main():
+    <em>try:</em>
+        # Open the fuel_usage.csv file.
+        filename = "fuel_usage.csv"
+        with open(filename, "rt") as usage_file:
 
-# Print the entire dictionary.
-print(students)
+            # Use the standard csv module to get
+            # a reader object for the CSV file.
+            reader = csv.reader(usage_file)
 
-# Get a student ID from the user.
-id = input("Enter a student ID: ")
+            # The first line of the CSV file contains headings
+            # and not fuel usage data, so this statement skips
+            # the first line of the CSV file.
+            next(reader)
 
-# Check if the student ID is in the dictionary.
-if id in students:
-    # Lookup the student ID in the dictionary and
-    # retrieve the corresponding student name.
-    <em>name = students[id]</em>
+            # Print headers for the three columns.
+            print("Date,Start,End,Gallons,Miles/Gallon")
 
-    # Print the student name.
-    print(name)
-else:
-    print("No such student")
+            # Process each row in the CSV file.
+            for row in reader:
 
-# Use a for loop to print each key value pair in the
-# dictionary. Of course, the code in the body of a loop can
-# do much more with each key value pair than simply print it.
-for key, value in students.items():
-    print(key, value)</pre></div>
+                # From the current row of the CSV file, get
+                # the date, the starting and ending odometer
+                # readings, and the number of gallons used.
+                date = row[0]
+                start_miles = float(row[1])
+                end_miles = float(row[2])
+                gallons = float(row[3])
 
-    <p><span class="cross" data-ref="ex3">Line&nbsp;12</span> in the
-    previous code example, adds an item to the dictionary. To add an
-    item to an existing dictionary, write code that follows this
-    template:</p>
-<div class="pre"><pre class="python">dictionary_name[key] = value</pre></div>
-    <p>Notice that line&nbsp;12 follows this template.</p>
+                # Call the miles_per_gallon function.
+                mpg = miles_per_gallon(start_miles, end_miles, gallons)
 
-    <p><span class="cross" data-ref="ex3">Line&nbsp;28</span> in the
-    previous code example, looks up a key and retrieves its
-    corresponding value from a dictionary. To look up a key and retrieve
-    its corresponding value, write code that follows this template:</p>
-<div class="pre"><pre class="python">value = dictionary_name[key]</pre></div>
-    <p>Notice that line&nbsp;28 follows this template.</p>
+                # Display the results for one row.
+                mpg = round(mpg, 1)
+                print(date, start_miles, end_miles, gallons, mpg, sep=",")
 
-    <h3>Membership Operator</h3>
-    <p>Python includes a <dfn>membership operator</dfn>:&nbsp;
-    <code>in</code>. We can use the <code>in</code> operator to
-    determine if a list or dictionary contains a value. For example:</p>
+    <em>except FileNotFoundError as file_not_found_err:</em>
+        print(f"Error: cannot open {filename}"
+                " because it doesn't exist.")
 
-<div class="pre"><pre class="python" id="ex3">
-# Create a dictionary with student IDs as
-# the keys and student names as the values.
-students = {
-    "42-039-4736": "Clint Huish",
-    "61-315-0160": "Michelle Davis",
-    "10-450-1203": "Jorge Soares",
-    "75-421-2310": "Abdul Ali",
-    "07-103-5621": "Michelle Davis"
-}
+    <em>except PermissionError as perm_err:</em>
+        print(f"Error: cannot read from {filename}"
+                " because you don't have permission.")
 
-# Get the user's I-Number.
-inumber = input("Please enter your I-Number: ")
+    <em>except ZeroDivisionError as zero_div_err:</em>
+        print(f"Error: {filename} contains a"
+                " zero in the gallons column.")
 
-# Determine if the user's I-Number is in the dictionary of students.
-if <em>inumber in students</em>:
-    print(f"Your I-Number {inumber} is in the dictionary.")
-else:
-    print(f"Your I-Number {inumber} is NOT in the dictionary.")</pre></div>
+    <em>except RuntimeError as run_err:</em>
+        print(type(run_err).__name__, run_err, sep=": ")
 
-    <h3>Converting between Lists and Dictionaries</h3>
-    <p>It is possible to convert two lists into a dictionary by using
-    the built-in <code>zip</code> and <code>dict</code> functions. The
-    contents of the first list will become the keys in the dictionary,
-    and the contents of the second list will become the values. This
-    implies that the two lists must have the same length, and the
-    elements in the first list must be unique because keys in a
-    dictionary must be unique.</p>
 
-    <p>It is also possible to convert a dictionary into two lists by
-    using the <code>keys</code> and <code>values</code> methods and the
-    built-in <code>list</code> function. The following code example
-    starts with two lists, converts them into a dictionary, and then
-    converts the dictionary into two lists.</p>
+def miles_per_gallon(start_miles, end_miles, gallons):
+    """Compute and return the average number of miles
+    that a vehicle traveled per gallon of fuel.
+    start_miles and end_miles are odometer readings in miles.
+    gallons is a fuel amount in U.S. gallons.
+    """
+    mpg = abs(end_miles - start_miles) / gallons
+    return mpg
 
-<div class="pre"><pre class="python" id="ex4">
-# Create a list that contains five student numbers.
-numbers = ["42-039-4736", "61-315-0160",
-        "10-450-1203", "75-421-2310", "07-103-5621"]
 
-# Create a list that contains five student names.
-names = ["Clint Huish", "Michelle Davis",
-        "Jorge Soares", "Abdul Ali", "Michelle Davis"]
-
-# Convert the numbers list and names list into a dictionary.
-<em>student_dict = dict(zip(numbers, names))</em>
-
-# Print the entire student dictionary.
-print(student_dict)
-
-# Convert the student dictionary into
-# two lists named keys and values.
-<em>keys = list(student_dict.keys())
-values = list(student_dict.values())</em>
-
-# Print both lists.
-print(keys)
-print(values)</pre></div>
+# Call the main function so that
+# this program will start executing.
+main()</pre></div>
 
     <h2>Documentation</h2>
-    <p>The following tutorials contain more information about lists and
-    dictionaries in Python.</p>
+    <p>If any of the concepts or topics in the previous list seem
+    unfamiliar to you, reading these tutorials may help you recall
+    these programming concepts from CSE 110.</p>
 
     <ul class="links">
-        <li><div><a href="https://realpython.com/python-dicts/">Dictionaries in Python</a>.</div></li>
+        <li><div><a href="https://realpython.com/python-for-loop/">Python "for" Loops</a></div></li>
+        <li><div><a href="https://realpython.com/python-while-loop/">Python "while" Loops</a></div></li>
+        <li><div><a href="https://realpython.com/python-csv/">Reading and Writing CSV Files in Python</a></div></li>
     </ul>
+
+    <p>You could also read some of the Python tutorials at
+    <a href="https://www.w3schools.com/python/default.asp">W3 Schools</a>.
+    Or you could search for "Python" in the
+    <a href="https://library.byui.edu">online catalog</a> of the
+    BYU-Idaho library and read one of the online books from the result
+    set.</p>
 </article>
 <footer>
     <small>Copyright &copy; 2020, Brigham Young University - Idaho. All
