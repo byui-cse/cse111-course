@@ -138,7 +138,10 @@ def <var>function_name</var>(<var>param1</var>, <var>param2</var>, &hellip; <var
         statements, such as <code>if</code>, <code>else</code>,
         <code>while</code>, and <code>for</code>, all of which end with
         a colon (:), you must indent the statements inside the body of a
-        function. The body of a function may contain as many statements
+        function. The body of a function should begin with a
+        <dfn>docstring</dfn> which is a triple quoted string that
+        describes the function's purpose, parameters and return value.
+        The body of a function may contain as many statements
         as you wish to write inside of it. However, it is a good idea to
         limit functions to less than 60 lines of text.</p>
 
@@ -191,16 +194,21 @@ def print_cylinder_volume(<em>radius</em>, <em>height</em>):
         <dfn>return</dfn> a result. When a function returns a result, we
         usually store that result in a variable to use later like this:
 
-<div class="pre"><pre class="python" id="ex3">
+<div class="pre"><pre class="python">
 text = input("Please enter your name: ")</pre></div>
 
         <p>To return a result from a function, simply type the keyword
         <code>return</code> followed by whatever result you want
-        returned to the calling function. For example, here is another
-        version of the previous function that returns the volume instead
-        of printing it.</p>
+        returned to the calling function. The next code example contains
+        a third version of the cylinder volume function. Notice that
+        this third version returns the volume instead of printing it,
+        which makes the function more reusable. In this third version,
+        we changed the name of the function from
+        <code>print_cylinder_volume</code> to
+        <code>compute_cylinder_volume</code> because this version
+        doesn't print the volume but instead returns it.</p>
 
-<div class="pre"><pre class="python" id="ex4">
+<div class="pre"><pre class="python" id="ex3">
 import math
 
 def compute_cylinder_volume(radius, height):
@@ -217,12 +225,6 @@ def compute_cylinder_volume(radius, height):
     # Return the volume of the cylinder so that the
     # volume can be used somewhere else in the program.
     <em>return volume</em></pre></div>
-
-        Having a function return a value, instead of printing it, makes
-        the function more reusable. In the previous example, notice that
-        we changed the name of the function from
-        <code>print_cylinder_volume</code> to
-        <code>compute_cylinder_volume</code>.</p>
         </div></li>
 
         <li><div>In all previous Python programs that you wrote in CSE
@@ -230,7 +232,7 @@ def compute_cylinder_volume(radius, height):
         like this simple program where the statements are not inside the
         body of a function:
 
-<div class="pre"><pre class="python" id="ex3">
+<div class="pre"><pre class="python">
 # Get a value in miles and convert it to kilometers.
 miles = float(input("Please enter a distance in miles: "))
 km = miles * 1.60934
@@ -326,7 +328,7 @@ def main():
         <span class="cross" data-ref="ex5">lines&nbsp;9 and&nbsp;13</span>,
         the result will be the same in both cases. So it would be faster
         to save the result in a variable and reuse the variable instead,
-        as shown in this example:</p>
+        as shown in the next example.</p>
 
 <div class="pre"><pre class="linenums"></pre>
 <pre class="python" id="ex6">

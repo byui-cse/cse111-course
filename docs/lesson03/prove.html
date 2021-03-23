@@ -58,7 +58,7 @@
 
     <h2>Scene Gallery</h2>
     <p>All the scenes in
-    <a href="../lesson06/gallery/index.html">this gallery</a>
+    <a href="../lesson04/gallery/index.html">this gallery</a>
     were drawn by programs written by former CSE 111 students.</p>
 
     <h2>Helpful Videos</h2>
@@ -101,27 +101,6 @@
     on a tree, birds, flowers, insects, fish, pickets in a fence, dashed
     lines on a road, buildings, bales of hay, snowmen, snowflakes, or
     icicles. Be creative.</p>
-
-    <p>Each repetitive element must be drawn by a function that your
-    program calls repeatedly, once for each repeated element. For
-    example, your program may include a function named
-    <code>draw_leaf</code> that your program repeatedly calls to draw
-    all the leaves on a tree.</p>
-
-    <p>The goal of this assignment is not to train you to become a
-    world-famous cloud artist. Instead, the goal is to teach you how to
-    apply the following principles to a real programming problem:</p>
-    <ol>
-        <li><div>Writing a function</div></li>
-        <li><div>Deciding what needs to be a parameter in a function
-        definition</div></li>
-        <li><div>Calling a function with different argument values to
-        produce different results</div></li>
-        <li><div>Understanding how to separate the parts of a function
-        that should stay the same and the parts that depend on
-        parameters, in order to make the function as reusable as
-        possible.</div></li>
-    </ol>
 
     <p>Begin your program by copying and pasting the following code into
     a new file named <code>scene.py</code>. This beginning code imports
@@ -184,6 +163,7 @@ def draw_scene(canvas, scene_left, scene_top, scene_right, scene_bottom):
 # Define more functions here, like draw_sky, draw_ground,
 # draw_cloud, draw_tree, draw_kite, draw_snowflake, etc.
 
+
 def draw_pine_tree(canvas, peak_x, peak_y, height):
     """Draw a single pine tree.
     Parameters:
@@ -225,38 +205,77 @@ main()</pre></div>
 
     <p>Save your new file as <code>scene.py</code> and run your new
     Python program. When you run it, it should open a window that
-    contains a single pine tree like this:</p>
+    contains a single pine tree as shown in the image below. The pine
+    tree was drawn because of the following:</p>
+    <ol>
+        <li><div>The code at <span class="cross"
+        data-ref="ex1">line&nbsp;93</span> called the <code>main</code>
+        function.</div></li>
+
+        <li><div>At <span class="cross"
+        data-ref="ex1">line&nbsp;23</span>, the <code>main</code>
+        function called the <code>draw_scene</code> function.</div></li>
+
+        <li><div>At <span class="cross"
+        data-ref="ex1">line&nbsp;49</span>, the <code>draw_scene</code>
+        function called the <code>draw_pine_tree</code>
+        function.</div></li>
+
+        <li><div>At <span class="cross"
+        data-ref="ex1">lines&nbsp;80&ndash;88</span> the
+        <code>draw_pine_tree</code> function called the
+        <code>create_rectangle</code> and <code>create_polygon</code>
+        methods.</div></li>
+    </ol>
 
     <p><img src="tree.png" alt="A blue circle drawn by a Python program"></p>
 
-    <p>The pine tree was drawn because the code at line&nbsp;91 called
-    the <code>main</code> function. At line&nbsp;22, the
-    <code>main</code> function called the <code>draw_scene</code>
-    function. At line&nbsp;48, the <code>draw_scene</code> function
-    called the <code>draw_pine_tree</code> function and at
-    lines&nbsp;78&ndash;83 the <code>draw_pine_tree</code> function
-    called the <code>create_rectangle</code> and
-    <code>create_polygon</code> methods.</p>
-
-    <p>The purpose of this assignment is to prove that you can write and
-    call functions. Therefore, your program must be divided into
-    functions such as <code>draw_sky</code>, <code>draw_cloud</code>,
-    <code>draw_ground</code>, <code>draw_bird</code>,
-    <code>draw_grass_blade</code>, and <code>draw_insect</code>. The
-    headers for the <code>draw_scene</code> and
-    <code>draw_pine_tree</code> functions are good examples for the
-    headers of all your draw_* functions. For example, if you write a
-    <code>draw_grass_blade</code> function in your program, you could
-    write its header like this:</p>
-
-<div class="pre"><pre class="python">def draw_grass_blade(canvas, blade_left, blade_top, blade_right, blade_bottom):</pre></div>
-
-    <p>Delete or comment-out lines&nbsp;45&ndash;48 and
-    lines&nbsp;54&ndash;86 and begin writing your program. As you write
+    <p>Delete or comment-out lines&nbsp;46&ndash;49 and
+    lines&nbsp;56&ndash;88 and begin writing your program. As you write
     your program, be sure that it draws elements in the order of
     farthest away to nearest. For example, you program should draw the
     blue sky first, then the ground, then clouds, then trees, then
     insects in the trees.</p>
+
+    <h2>Purpose</h2>
+    <p>The purpose of this assignment is not to train you to become a
+    world-famous cloud artist. Instead, the purpose is to teach you how
+    to apply the following principles to a real programming problem:</p>
+    <ol>
+        <li><div>Dividing a large program into parts</div></li>
+        <li><div>Writing a function</div></li>
+        <li><div>Deciding what needs to be a parameter in a function
+        definition</div></li>
+        <li><div>Calling a function with different argument values to
+        produce different results</div></li>
+        <li><div>Understanding how to separate the parts of a function
+        that should stay the same and the parts that depend on
+        parameters, in order to make the function as reusable as
+        possible.</div></li>
+    </ol>
+
+    <p>Your program must be divided into functions such as
+    <code>draw_sky</code>, <code>draw_cloud</code>,
+    <code>draw_ground</code>, <code>draw_bird</code>,
+    <code>draw_grass_blade</code>, and <code>draw_insect</code>. The
+    headers for the <code>draw_scene</code> and
+    <code>draw_pine_tree</code> functions in the example code above are
+    good examples for the headers of all your draw_* functions. Below are
+    a few other examples of headers for functions that you might want to
+    include in your program. However, these are simply examples, and you
+    can change them in your program or even exclude them from your
+    program.</p>
+
+<div class="pre"><pre class="python">
+def draw_house(canvas, house_left, house_bottom):
+
+def draw_bird(canvas, bird_center, bird_top):
+
+def draw_pebble(canvas, pebble_left, pebble_top, pebble_radius):
+
+def draw_picket(canvas, picket_left, picket_bottom):
+
+def draw_grass_blade(canvas, blade_left, blade_top, blade_height):</pre></div>
 
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each

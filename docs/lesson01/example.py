@@ -1,6 +1,3 @@
-In this video, I'll show you how to solve a problem that is similar to
-the prove assignment for lesson 1 in CSE 111.
-
 # Import the math module so we can use math.pi and math.sqrt.
 import math
 

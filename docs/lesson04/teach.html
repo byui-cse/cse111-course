@@ -27,7 +27,7 @@
     <h2>CSE 111 | <span>Programming with Functions</span></h2>
 </header>
 <article>
-    <h1>04 Team Activity: Calling Functions</h1>
+    <h1>04 Team Activity: Writing Functions</h1>
 
     <h2>Instructions</h2>
     <p>Arrange a one hour synchronous meeting with your team for this
@@ -37,67 +37,130 @@
     the individual checkpoint assignment beforehand.</p>
 
     <h2>Problem Statement</h2>
-    <p>When working on a long task or completing a long term goal,
-    people sometimes find it difficult to stay motivated. Some people
-    find that inspiring quotes from others who accomplished similar
-    tasks help them to stay motivated. During this activity, your team
-    will write a Python program that prints a quote chosen randomly from
-    a file of quotes.</p>
+    <p>In many countries food is stored in steel cans that are shaped
+    like cylinders. These steel cans are also known as tin cans. There
+    are many different sizes of steel cans. The <dfn>storage
+    efficiency</dfn> of a can tells us how much a can stores versus how
+    much steel is required to make the can. Some sizes of cans require a
+    lot of steel to store a small amount of food. Other sizes of cans
+    require less steel and store more food. A can size with a large
+    storage efficiency is considered more friendly to the environment
+    than a can size with a small storage efficiency.</p>
 
-    <h2>Helpful Documentation</h2>
-    <p>The built-in <a href="https://docs.python.org/3/library/functions.html#open"><code>open function</code></a>
-    opens a file for reading or writing. The prepare content for the
-    previous lesson contains
-    <a href="../lesson03/prepare.html#textFiles">example code</a> that
-    reads all the lines of text from a text file into a list.</p>
+    <p>The storage efficiency of a steel can is computed by dividing the
+    volume of a can by its surface area.</p>
 
-    <p>The Python <code>random</code> module contains functions to
-    generate pseudo random numbers and to make pseudo random choices.
-    Read about the <code>random</code> module in one of these
-    articles:</p>
+    <div class="block expr"><var>storage efficiency</var> = <div class="fract"><div class="numer"><var>volume</var></div><div class="denom"><var>surface area</var></div></div></div>
+
+    <p>In other words, the storage efficiency of a can is the space
+    inside the can divided by the amount of steel required to make the
+    can. The formulas for the volume and surface area of a cylinder
+    are:</p>
+
+    <div class="block expr"><var>volume</var> = &pi;&thinsp;<var>r</var><sup>2</sup>&thinsp;<var>h</var></div>
+    <div class="block expr"><var>surface area</var> = 2&pi;&thinsp;<var>r</var>&thinsp;(<var>r</var> + <var>h</var>)</div>
+
     <ul>
-        <li><div>Official Python <a href="https://docs.python.org/3/library/random.html">reference for the <code>random</code> module</a></div></li>
-        <li><div><a href="https://realpython.com/lessons/random-data-generation-python/">Lesson about <code>random</code></a> at Real Python</div></li>
+        <li><div>&pi; is the constant PI, the ratio of the circumference
+        of a circle divided by its diameter (use
+        <code>math.pi</code>)</div></li>
+        <li><div><var>r</var> is the radius of the cylinder</div></li>
+        <li><div><var>h</var> is the height of the cylinder</div></li>
     </ul>
 
-    <p>The Python <code>textwrap</code> module contains functions to
-    format plain text. The module formats text by adding, removing, and
-    moving line breaks in the input text. Read about the
-    <code>textwrap</code> module in this article:</p>
-    <ul>
-        <li><div>Official Python reference for the
-        <a href="https://docs.python.org/3/library/textwrap.html"><code>textwrap</code> module</a></div></li>
+    <h2>Helpful Documentation</h2>
+    <ul class="long">
+        <li><div>The <a href="../lesson03/prepare.html">prepare</a> content for
+        the previous lesson explains how to write functions.</div></li>
+
+        <li><div>The <a href="prepare.html">prepare</a> content for this lesson
+        explains local variable scope.</div></li>
+
+        <li><div>The Python
+        <a href="https://docs.python.org/3/library/math.html"><code>math</code>
+        module</a> contains mathematical constants and functions including
+        <a href="https://docs.python.org/3/library/math.html#math.pi"><code>math.pi</code></a>.</div></li>
+
+        <li><div>The Python built-in
+        <a href="https://docs.python.org/3/library/functions.html#round"><code>round</code></a>
+        function can round numbers to integers or to a specified number
+        of digits after the decimal place.</div></li>
     </ul>
 
     <h2>Assignment</h2>
-    <p>Download this file: <a download href="quotes.txt">quotes.txt</a>
-    and save it in the same folder where you will save your Python
-    program.</p>
-
-    <p>Write a Python program named <code>quotes.py</code> that reads
-    the contents of the <code>quotes.txt</code> file into a list and
-    then randomly chooses one of the quotes and prints it for the user
-    to see. Include these two lines of code at the top of your program
-    to import the functions in the <code>random</code> and
-    <code>textwrap</code> modules:</p>
-
-<div class="pre"><pre class="python">import random
-import textwrap</pre></div>
-
     <h3>Core Requirements</h3>
-    <ol class="long">
-        <li><div>Your program must call the <code>open</code> function
-        to open the <code>quotes.txt</code> file and read all the lines
-        in the file into a list.</div></li>
+    <p>Write a Python program named <code>can_sizes.py</code> that
+    computes and prints the storage efficiency for each of the following
+    12 steel can sizes. Then visually examine the output and answer this
+    question, "Which can size has the highest storage efficiency?"</p>
 
-        <li><div>Your program must call <code>random.choice</code> to
-        randomly choose one of the quotes from the list.</div></li>
+    <table class="center"><thead>
+        <tr><th>Name</th>
+            <th>Radius<br>(centimeters)</th>
+            <th>Height<br>(centimeters)</th>
+            <th>Cost per Can<br>(US dollars)</th></tr>
+    </thead><tbody>
+        <tr><td>#1 Picnic</td>
+            <td class="number">6.83</td>
+            <td class="number">10.16</td>
+            <td class="number">$0.28</td></tr>
+        <tr><td>#1 Tall</td>
+            <td class="number">7.78</td>
+            <td class="number">11.91</td>
+            <td class="number">$0.43</td></tr>
+        <tr><td>#2</td>
+            <td class=number>8.73</td>
+            <td class=number>11.59</td>
+            <td class="number">$0.45</td></tr>
+        <tr><td>#2.5</td>
+            <td class=number>10.32</td>
+            <td class=number>11.91</td>
+            <td class="number">$0.61</td></tr>
+        <tr><td>#3 Cylinder</td>
+            <td class=number>10.79</td>
+            <td class=number>17.78</td>
+            <td class="number">$0.86</td></tr>
+        <tr><td>#5</td>
+            <td class=number>13.02</td>
+            <td class=number>14.29</td>
+            <td class="number">$0.83</td></tr>
+        <tr><td>#6Z</td>
+            <td class=number>5.40</td>
+            <td class=number>8.89</td>
+            <td class="number">$0.22</td></tr>
+        <tr><td>#8Z short</td>
+            <td class=number>6.83</td>
+            <td class=number>7.62</td>
+            <td class="number">$0.26</td></tr>
+        <tr><td>#10</td>
+            <td class=number>15.72</td>
+            <td class=number>17.78</td>
+            <td class="number">$1.53</td></tr>
+        <tr><td>#211</td>
+            <td class=number>6.83</td>
+            <td class=number>12.38</td>
+            <td class="number">$0.34</td></tr>
+        <tr><td>#300</td>
+            <td class=number>7.62</td>
+            <td class=number>11.27</td>
+            <td class="number">$0.38</td></tr>
+        <tr><td>#303</td>
+            <td class=number>8.10</td>
+            <td class=number>11.11</td>
+            <td class="number">$0.42</td></tr>
+    </tbody></table>
 
-        <li><div>Your program must call <code>textwrap.wrap</code> to
-        wrap the words of the chosen quote to 70 characters or fewer per
-        line and call <code>print</code> to print the wrapped lines of
-        the quote for the user to see.</div></li>
-    </ol>
+    <p>If you separate your program into functions, this problem will be
+    much easier to solve than if you don't separate it into functions.
+    You are free to write any functions that you choose in your program,
+    but we <em>strongly</em> suggest that your program include at least
+    these three functions:</p>
+
+    <ul>
+        <li><div><code>main</code></div></li>
+        <li><div><code>cylinder_volume</code></div></li>
+        <li><div><code>cylinder_surface_area</code></div></li>
+    </ul>
 
     <h3>Stretch Challenges</h3>
     <p>If your team finishes the core requirements in less than an hour,
@@ -105,54 +168,63 @@ import textwrap</pre></div>
     stretch challenges are optional.</p>
 
     <ol class="long">
-        <li><div>Add something or change something in your program that
-        you think would make your program better, easier for the user,
-        more elegant, or more fun. Be creative.</div></li>
+        <li><div>Add another function named
+        <code>storage_efficiency</code> to your program. This function
+        should call the <code>cylinder_volume</code> and
+        <code>cylinder_surface_area</code> functions and then compute
+        and return the storage efficiency of a steel can
+        size.</div></li>
 
-        <li><div>Write comments above the lines of code that were
-        difficult for you to understand.</div></li>
+        <li><div>The table of can sizes that appears in the Core
+        Requiements section above includes a column that contains the
+        cost per can of each steel can size. Add another function to
+        your program named <code>cost_efficiency</code> that computes
+        and returns the volume of a steel can divided by its cost. Write
+        code to compute and print the cost efficiency for each can size.
+        Then visually examine the output and answer this question,
+        "Which can size has the highest cost efficiency?"</div></li>
 
-        <li><div>Allow the user to enter a positive integer to choose
-        how many quotes are chosen and printed.</div></li>
+        <li><div>If you remember how to use lists and a for loop from
+        CSE&nbsp;110, rewrite your <code>main</code> function so that it
+        uses a list that contains the can size names and measurements.
+        Then write a loop that processes the values in the
+        list.</div></li>
 
-        <li><div>Write a new program that reads the
-        <code>quotes.txt</code> file and then prints all of the names of
-        the authors, but just the names and not the quotes. Hint: notice
-        that the author's name appears at the end of each quote,
-        separated from the quote by a dash (-). However, notice also
-        that some quotes contain a dash. To find the location of the
-        last dash, use the <a href="https://docs.python.org/3/library/stdtypes.html#str.rindex"><code>rindex</code></a>
-        function.</div></li>
+        <li><div>Add <code>if</code> statements inside the loop to
+        automatically determine which can size has the best storage
+        efficiency and which can size has the best cost
+        efficiency.</div></li>
     </ol>
 
     <h2>Sample Run</h2>
-<pre class="console">&gt; python teach_solution.py
-How many quotes would you like? <span class="input">2</span>
-
-If you want to achieve excellence, you can get there today. As of this
-second, quit doing less-than-excellent work. -Thomas J. Watson
-
-B is for believe--in yourself, in those around you, and in eternal
-principles. -Thomas S. Monson</pre>
+    <pre class="console">&gt; python can_sizes.py
+#1 Picnic 2.0
+#1 Tall 2.4
+#2 2.5
+#2.5 2.8
+#3 Cylinder 3.4
+#5 3.4
+#6Z 1.7
+#8Z short 1.8
+#10 4.2
+#211 2.2
+#300 2.3
+#303 2.3</pre>
 
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each step
     in this testing procedure:</p>
-    <ol class="test long">
-        <li><div>Run your program and verify that it outputs a quote (or
-        multiple quotes if you completed stretch challenge #4).</div></li>
-        <li><div>Run your program again and verify that it outputs a
-        different quote.</div></li>
-        <li><div>If the quotes that you program printed are short, run
-        your program again until it prints a long quote that wraps onto
-        two or more lines. Verify that each line contains no more than
-        70 characters.</div></li>
+    <ol class="testing">
+        <li><div>Run your program and verify that it prints the correct
+        results, rounded and formatted as shown in the sample run
+        above.</div></li>
     </ol>
 
     <h2>Sample Solution</h2>
     <p>Please work diligently with your team for the one hour meeting.
     After the meeting is over, please compare your approach to the
-    <a download href="teach_solution.py">sample solution</a>. Please
+    <a download href="teach_solution.py">sample solution</a> or the
+    <a download href="teach_stretch.py">stretch solution</a>. Please
     <strong>do not look at the sample solution</strong> until you have
     either finished the program or diligently worked for at least one
     hour. At the end of the hour, if you are still struggling to
