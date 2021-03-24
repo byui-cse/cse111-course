@@ -28,127 +28,420 @@
     <h2>CSE 111 | <span>Programming with Functions</span></h2>
 </header>
 <article>
-    <h1>10 Prepare: Comma Separated Values</h1>
-    <p>In this lesson, you will learn how to store and retrieve data
-    from Python lists and dictionaries.</p>
+    <h1>06 Prepare: Handling Exceptions</h1>
+    <p>Errors and exceptional situations sometimes occur while a program
+    is running. Such errors include attempting to read from a file that
+    does not exist, a connection error from trying to connect to a
+    server, data that cannot be found on a server, and calculations that
+    produce undefined results. A well written program handles errors in
+    a graceful manner that may include adjusting to an error, printing
+    an error message for the user to see, and saving an error message to
+    a log file. During this lesson, you will learn to write code that
+    handles errors that may occur while your Python program is
+    running.</p>
+
+    <h2>Videos</h2>
+    <p>Watch these videos from Microsoft about error handling.</p>
+    <ul class="links">
+        <li><div><a href="https://channel9.msdn.com/Series/Intro-to-Python-Development/Python-for-Beginners-17-of-44-Error-Handling">Error Handling Concepts</a></div></li>
+        <li><div><a href="https://channel9.msdn.com/Series/Intro-to-Python-Development/Python-for-Beginners-18-of-44-Demo-Error-Handling">Error Handling Demo</a></div></li>
+    </ul>
 
     <h2>Concepts</h2>
     <p>Here are the Python programming concepts and topics that you
-    should learn during this lesson:</p>
+    should learn during this lesson.</p>
 
-    <h3 id="csvFiles">Comma Separated Values</h3>
-    <p>Many computer systems import and export data in CSV files. CSV is
-    an acronym for comma separated values. A CSV file is a text file
-    that contains tabular data where each row is on a separate line and
-    each cell (column) is separated by a comma. The following example is
-    the contents of a CSV file that stores information about some dental
-    offices in Rexburg, Idaho. Notice that the first row of the file
-    contains column headings, the next four rows contain information
-    about four dental offices, and each row contains three columns
-    separated by commas.</p>
+    <ol class="long">
+        <li><div>An <dfn>exception</dfn> is a relatively rare event that
+        sometimes occurs while a Python program is running. For example,
+        an exception occurs when a Python program tries to open a file
+        for reading, and that file doesn't exist. There are many different
+        <a href="https://docs.python.org/3/library/exceptions.html">built-in
+        exceptions</a> that may occur while a Python program is
+        running.</div></li>
 
-<div class="pre"><pre class="csv">
-Company Name,Address,Phone Number
-Eagle Rock Dental Care,556 Trejo Suite C,208-359-2224
-Apple Tree Dental,33 Winn Drive Suite 2,208-359-1500
-Rockhouse Dentistry,106 E 1st N,208-356-5600
-Cornerstone Family Dental,44 S Center Street,208-356-4240
-</pre></div>
+        <li><div>When an exceptional event occurs, a Python function
+        <dfn>raises</dfn> an exception which may be handled by code at
+        another location in the executing Python program. The Python
+        keyword to raise an exception is <code>raise</code>.</div></li>
 
-    <p>Python has a module named
-    <a href="https://docs.python.org/3/library/csv.html"><code>csv</code></a>
-    that includes functionality to read and write data from CSV files.
-    The following example code shows how to open a CSV file and use the
-    <code>csv</code> module to read and print each row.</p>
+        <li><div>The Python keywords to handle exceptions are
+        <code>try</code>, <code>except</code>, <code>else</code>, and
+        <code>finally</code>. The following example code contains the
+        outline of a complete try-except-else-finally block. Read the
+        code and its comments carefully to understand the correct syntax
+        and organization of a try-except-else-finally block.
+
+<div class="pre"><pre class="python" id="ex1">
+<em>try</em>:
+    # Write normal code here. This block must include
+    # code that falls into two groups:
+    # 1. Code that may cause an exception to be raised
+    # 2. Code that depends on the results from the code
+    #    in the first group
+<em>except ZeroDivisionError as zero_div_err:</em>
+    # Code that the computer executes if the code in the
+    # try block caused a ZeroDivisionError to be raised.
+<em>except ValueError as val_err:</em>
+    # Code that the computer executes if the code in
+    # the try block caused a ValueError to be raised.
+<em>except (TypeError, KeyError, NameError) as error:</em>
+    # Code that the computer executes if the code in the try
+    # block raised a TypeError, KeyError, or NameError.
+<em>except Exception as excep:</em>
+    # Code that the computer executes if the code in the
+    # try block caused any exception to be raised that was
+    # not handled by one of the previous except blocks.
+<em>except:</em>
+    # Code that the computer executes if the code in the
+    # try block caused anything to be raised that was
+    # not handled by one of the previous except blocks.
+<em>else:</em>
+    # Code that the computer executes after the code
+    # in the try block if the code in the try block
+    # did not raise any exceptions.
+<em>finally:</em>
+    # Code that is executed after all the other code in
+    # try, except, and else blocks regardless of whether
+    # an exception was raised or not.</pre></div></div></li>
+
+        <li><div>As shown in the example code above, when we want to
+        write code that will handle exceptions, we first write a
+        <code>try</code> block, and we put into that <code>try</code>
+        block the normal code that might cause an exception.
+        Then we write <code>except</code> blocks to handle the
+        exceptions. Each <code>except</code> block may handle one type
+        of exception such as:
+<div class="pre"><pre class="python">except ValueError as val_err:</pre></div>
+        Or each <code>except</code> block may handle several types of
+        exceptions, such as:
+<div class="pre"><pre class="python">except (TypeError, KeyError, NameError) as error:</pre></div>
+Or one <code>except</code> block may handle all possible types of
+exceptions such as:
+<div class="pre"><pre class="python">except Exception as excep:</pre></div>
+Or a bare <code>except</code> block may handle anything that can
+be raised, including <code>SystemExit</code>,
+<code>KeyboardInterrupt</code> and <code>GeneratorExit</code>
+such as:
+<div class="pre"><pre class="python">except:</pre></div>
+We must order except blocks from most specific at the top to
+        least specific (most general) at the bottom.</div></li>
+
+        <li><div>As shown in the example code above, following the
+        <code>except</code> blocks, we may write an optional
+        <code>else</code> block which the computer will execute if the
+        <code>try</code> block does not raise any exceptions. It is
+        uncommon to need to write code in the <code>else</code> block of
+        <code>try</code> and <code>except</code>, and professional
+        programmers almost never do it.</div></li>
+
+        <li><div>As shown in the example code above, at the end of the
+        exception handling code, we may write an optional
+        <code>finally</code> block. The <code>finally</code> block
+        contains code that the computer executes after all the other
+        code in the <code>try</code>, <code>except</code>, and
+        <code>else</code> blocks regardless of whether an exception was
+        raised or not. The code in the <code>finally</code> block
+        usually contains "clean up" code that frees resources that the
+        code in the <code>try</code> block used. For example, if the
+        code in the <code>try</code> block opens a file, the code in the
+        <code>finally</code> block could close that file.</div></li>
+    </ol>
+
+    <h2>Common Exceptions</h2>
+    <p>There are many different types of
+    <a href="https://docs.python.org/3/library/exceptions.html">built-in
+    exceptions</a> that may occur while a Python program is running.
+    This section shows how three types of exceptions may occur.</p>
+
+    <h3>TypeError</h3>
+    <p>The computer raises a <a href="https://docs.python.org/3/library/exceptions.html#TypeError"><code>TypeError</code></a>
+    when the code that calls a function passes an argument with the
+    wrong type. The next code example attempts to pass a string of text
+    to the <code>round</code> function which causes the computer to
+    raise <code>TypeError</code> as shown in the output below the code
+    example.</p>
+
+<div class="pre"><pre class="python" id="ex2">
+def main():
+    try:
+        integer = round("5.2")
+        print(integer)
+
+    except TypeError as type_err:
+        print(type_err)
+
+
+# Call the main function so that
+# this program will start executing.
+main()</pre></div>
+
+<pre class="console">&gt; python type_error.py
+type str doesn't define __round__ method</pre>
+
+    <h3>ValueError</h3>
+    <p>The computer raises a <a href="https://docs.python.org/3/library/exceptions.html#ValueError"><code>ValueError</code></a>
+    when the code that calls a function passes an argument with the
+    correct type but with an invalid value. A common event that causes
+    the computer to raise a <code>ValueError</code> is when the
+    <code>int</code> function or <code>float</code> function is called
+    to convert a string to a number but the string contains characters
+    that are not digits. The next code example and its output show a
+    <code>ValueError</code>.</p>
+
+<div class="pre"><pre class="python" id="ex3">
+def main():
+    try:
+        number = float(input("Please enter a number: "))
+        print(number)
+
+    except ValueError as val_err:
+        print(val_err)
+
+
+# Call the main function so that
+# this program will start executing.
+main()</pre></div>
+
+<pre class="console">&gt; python value_error.py
+Please enter a number: <span class="input">45.7u</span>
+could not convert string to float: '45.7u'</pre>
+
+    <h3>ZeroDivisionError</h3>
+    <p>The computer raises a <a href="https://docs.python.org/3/library/exceptions.html#ZeroDivisionError"><code>ZeroDivisionError</code></a>
+    when code attempts to divide a number by zero (0) as shown in the
+    next code example and its output.</p>
+
+<div class="pre"><pre class="python" id="ex4">
+def main():
+    try:
+        players = int(input("Enter the number of players: "))
+        teams = int(input("Enter the number of teams: "))
+
+        players_per_team = players / teams
+
+        print(f"Each team should have {players_per_team} players.")
+
+    except ZeroDivisionError as zero_div_err:
+        print(zero_div_err)
+
+
+# Call the main function so that
+# this program will start executing.
+main()</pre></div>
+
+<pre class="console">&gt; python zero_div_error.py
+Enter the number of players: <span class="input">20</span>
+Enter the number of teams: <span class="input">0</span>
+division by zero</pre>
+
+    <h3>IndexError</h3>
+    <p>If we write code that tries to use an index that doesn't exist in
+    a list, when the computer executes that code, the computer will
+    raise an <a href="https://docs.python.org/3/library/exceptions.html#IndexError"><code>IndexError</code></a>.
+    For example, the following example code creates a list that contains
+    three surnames. Then the code attempts to print and change the
+    surname at index 3. Of course, both of these statements fail because
+    the list contains only three elements, and the last index is 2.</p>
 
 <div class="pre"><pre class="python" id="ex5">
-import csv
+def main():
+    try:
+        # Create a list that contains three family names.
+        surnames = ["Smith", "Lopez", "Marsh"]
 
-# Open a file named dentists.csv and store a reference
-# to the opened file in a variable named infile.
-with open("dentists.csv", "rt") as infile:
+        # Attempt to print the surname at index 3. Because there
+        # are only three names in the surnames list and therefore
+        # the last index is 2, this statement will fail and cause
+        # the computer to raise an IndexError.
+        print(surnames[3])
 
-    # Use the csv module to create a reader
-    # object that will read from the opened file.
-    reader = csv.reader(infile)
+        # Attempt to change the surname at index 3. Because there
+        # are only three names in the surnames list and therefore
+        # the last index is 2, this statement will fail and cause
+        # the computer to raise an IndexError.
+        surnames[3] = "Olsen"
 
-    # The first line of the CSV file contains column headings
-    # and not information about a dental office, so this
-    # statement skips the first line of the CSV file.
-    next(reader)
+    except IndexError as index_err:
+        print(index_err)
 
-    # Read each row one at a time as a list.
-    for row in reader:
 
-        # For the current row, retrieve the
-        # values in columns 0, 1, and 2.
-        company = row[0]
-        address = row[1]
-        phone = row[2]
+# Call the main function so that
+# this program will start executing.
+main()</pre></div>
 
-        # Print the values for the user to see.
-        print(company, address, phone)</pre></div>
+<pre class="console">&gt; python index_error.py
+list index out of range</pre>
 
-    <p>You could use this example code in a program that you write, but
-    of course, you could modify the <code>for</code> loop in the code to
-    do much more than simply print the contents of each row. For
-    example, the next code sample shows how to read the contents of a
-    CSV file into a dictionary.</p>
+    <h2>Example</h2>
+    <p>The following code example contains <code>except</code> blocks to
+    handle two types of exceptions:&nbsp; <code>ValueError</code> and
+    <code>ZeroDivisionError</code>.</p>
 
-<div class="pre"><pre class="python" id="ex6">
-import csv
+<div class="pre"><pre class="python" id="ex10">
+"""Sam, who is the owner of Sam's Sandwich Shop, requested
+this program, which computes the number of sandwiches per
+employee that were made in his restaurant in one day.
+"""
+def main():
+    <em>try:</em>
+        # Get the number of sandwiches made today and the
+        # number of employees who worked today from the user.
+        sandwiches = int(input("Number of sandwiches that were made today: "))
+        employees = int(input("Number of employees who worked today: "))
 
-# Create an empty dictionary that will
-# store the data from the CSV file.
-<em>dentists = {}</em>
+        # Compute the number of sandwiches per employee
+        # that were made today in the restaurant.
+        sands_per_employee = sandwiches / employees
 
-# Open a file named dentists.csv and store a reference
-# to the opened file in a variable named infile.
-with open("dentists.csv", "rt") as infile:
+        # Print the results for the user to see.
+        print(f"{sands_per_employee} sandwiches per employee")
 
-    # Use the csv module to create a reader
-    # object that will read from the opened file.
-    reader = csv.reader(infile)
+    <em>except ValueError as val_err:</em>
+        print()
+        print(val_err)
+        print("Error: you entered text that is not an integer.")
+        print("Please run the program again and enter an integer.")
 
-    # The first line of the CSV file contains column headings
-    # and not information about a dental office, so this
-    # statement skips the first line of the CSV file.
-    next(reader)
+    <em>except ZeroDivisionError as zero_div_err:</em>
+        print()
+        print("Error: you entered 0 for the number of employees.")
+        print("Please run the program again and enter an integer")
+        print("larger than 0 for the number of employees.")
 
-    # Read each row one at a time as a list.
-    for row in reader:
 
-        # For the current row, retrieve the
-        # values in columns 0, 1, and 2.
-        company = row[0]
-        address = row[1]
-        phone = row[2]
+# Call the main function so that
+# this program will start executing.
+main()</pre></div>
 
-        # Store the data from the current row into the dentists
-        # dictionary. Use the phone number as the key. Create a
-        # list with the company name and address as the value.
-        <em>dentists[phone] = [company, address]</em>
+    <h2 id="validate">Validating User Input</h2>
+    <p>To <dfn>validate user input</dfn> means to check user input to
+    ensure it is in the correct format before using that input. The next
+    example program validates user input by handling exceptions. Notice
+    there are two <code>try</code> blocks in the program: one at
+    <span class="cross" data-ref="ex11">line&nbsp;2</span>
+    in the <code>main</code> function and another at
+    <span class="cross" data-ref="ex11">line&nbsp;30</span>
+    in the <code>get_float</code> function.</p>
 
-# Print the entire dentists dictionary.
-print(dentists)</pre></div>
+    <p>The <code>try</code> block at
+    <span class="cross" data-ref="ex11">line&nbsp;2</span>
+    includes all the regular code in the <code>main</code> function. The
+    except block at
+    <span class="cross" data-ref="ex11">line&nbsp;12</span>
+    will handle all types of runtime exceptions.
+    <code>RuntimeError</code> is probably the most general type of
+    exception that we want to handle in a Python program.
+    <code>Exception</code> is more general than
+    <code>RuntimeError</code>. However, <code>Exception</code> includes
+    <code>SyntaxError</code>, and we don't want to handle
+    <code>SyntaxError</code>. Instead, we want our program to crash for
+    a syntax error and print the line number where the syntax error
+    occurred. This is because syntax errors are caused by a programmer
+    mistyping code and not by bad user input or missing files. We want a
+    programmer to find and fix all syntax errors in a program long
+    before the program is given to users.</p>
+
+    <p>The <code>try</code> block at
+    <span class="cross" data-ref="ex11">line&nbsp;30</span>
+    is part of a loop that validates user input in the
+    <code>get_float</code> function. Notice at
+    <span class="cross" data-ref="ex11">line&nbsp;44</span>
+    that the <code>except</code> block handles
+    <a href="https://docs.python.org/3/library/exceptions.html#ValueError"><code>ValueError</code></a>
+    which is the type of exception that the
+    <a href="https://docs.python.org/3/library/functions.html#float"><code>float</code></a>
+    function raises when it tries to convert text to a number but the
+    text contains characters that are not numeric.</p>
+
+<div class="pre"><pre class="linenums"></pre>
+<pre class="python" id="ex11">
+def main():
+    <em>try:</em>
+        gender = input("Enter your gender (M or F): ")
+
+        weight = get_float("Enter your weight in kilograms: ", 20, 500)
+        height = get_float("Enter your height in centimeters: ", 60, 250)
+        age = get_float("Enter your age in years: ", 10, 120)
+
+        bmr = basal_metabolic_rate(gender, weight, height, age)
+        print(f"Your basal metabolic rate is {bmr} calories per day.")
+
+    <em>except RuntimeError as run_err:</em>
+        print(type(run_err).__name__, run_err, sep=": ")
+
+
+def get_float(prompt, lower_bound, upper_bound):
+    """Get a number from the user, validate that the user entered
+    a number and not some other text, validate that the number is
+    between a lower and upper bound, and then return the number. If
+    the user enters an invalid number, this function will prompt
+    the user repeatedly until the user enters a valid number.
+
+    Parameters
+        prompt: A string to display to the user.
+        lower_bound: The smallest number that the user may enter.
+        upper_bound: The largest number that the user may enter.
+    Return: The number entered by the user.
+    """
+    while True:
+        <em>try:</em>
+            text = input(prompt)
+            number = float(text)
+            if number &lt; lower_bound:
+                print(f"{number} is too small.")
+                print("Please enter another number.")
+            elif number &gt; upper_bound:
+                print(f"{number} is too large.")
+                print("Please enter another number.")
+            else:
+                # If the computer gets to this line of code, the
+                # user entered a number between lower_bound and
+                # upper_bound, so exit the loop.
+                break
+        <em>except ValueError as val_err:</em>
+            # The user entered at least one character that is
+            # not part of a floating point number, so print a
+            # message asking the user to enter a number.
+            print(f"{text} is not a number.")
+            print("Please enter a number.")
+
+    return number
+
+
+def basal_metabolic_rate(gender, weight, height, age):
+    """Calculate and return a person's basal metabolic rate (bmr)
+    in calories per day. weight must be in kilograms, height must
+    be in centimeters, and age must be in years.
+    """
+    if gender.upper() == "F":
+        bmr = 447.593 + 9.247 * weight + 3.098 * height - 4.330 * age
+    else:
+        bmr = 88.362 + 13.397 * weight + 4.799 * height - 5.677 * age
+    return bmr
+
+
+# Call the main function so that
+# this program will start executing.
+main()</pre></div>
 
     <h2>Documentation</h2>
-    <p>If any of the concepts or topics in the previous list seem
-    unfamiliar to you, reading these tutorials may help you recall
-    these programming concepts from CSE 110.</p>
+    <p>If the concepts above seem vague, these tutorials may clear some
+    confusion for you:</p>
 
     <ul class="links">
-        <li><div><a href="https://realpython.com/python-for-loop/">Python "for" Loops</a></div></li>
-        <li><div><a href="https://realpython.com/python-while-loop/">Python "while" Loops</a></div></li>
-        <li><div><a href="https://realpython.com/python-csv/">Reading and Writing CSV Files in Python</a></div></li>
+        <li><div>Python Exceptions: <a href="https://realpython.com/python-exceptions/">An Introduction</a></div></li>
+        <li><div>Official Python <a href="https://docs.python.org/3/tutorial/errors.html">Errors and Exceptions tutorial</a></div></li>
+        <li><div>The Most <a href="https://realpython.com/the-most-diabolical-python-antipattern/">Diabolical Python Antipattern</a></div></li>
+        <li><div>Understanding the <a href="https://realpython.com/python-traceback/">Python Traceback</a></div></li>
     </ul>
 
-    <p>You could also read some of the Python tutorials at
-    <a href="https://www.w3schools.com/python/default.asp">W3 Schools</a>.
-    Or you could search for "Python" in the
-    <a href="https://library.byui.edu">online catalog</a> of the
-    BYU-Idaho library and read one of the online books from the result
-    set.</p>
+    <p>The official Python <a href="https://docs.python.org/3/library/exceptions.html#bltin-exceptions">built-in
+    exceptions</a> reference contains a list of all the built-in
+    exceptions. It also includes the <a href="https://docs.python.org/3/library/exceptions.html#exception-hierarchy">class
+    hierarchy</a> for the built-in exceptions that is helpful for
+    ordering <code>except</code> blocks from most specific to most
+    general.</p>
 </article>
 <footer>
     <small>Copyright &copy; 2020, Brigham Young University - Idaho. All

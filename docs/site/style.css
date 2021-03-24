@@ -427,11 +427,28 @@ article pre.console span.fail {
 	color: red;
 }
 
+/* Containers for line numbers and Python source code */
 article div.pre {
 	display: table;
 	margin: 1em auto 1em 0;
 	border: 1px solid var(--border);
 	padding: 0.25em 0.5em;
+	position: relative;
+}
+
+article div.pre > button.copy {
+	position: absolute;
+	top: 0.25em;
+	right: 0.25em;
+	visibility: hidden;
+}
+
+article div.pre > button.copy > img {
+	width: 2em;
+}
+
+article div.pre:hover > button.copy {
+	visibility: visible;
 }
 
 article div.pre > pre {

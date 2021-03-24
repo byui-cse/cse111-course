@@ -100,8 +100,42 @@ cse111.linenums = {
 			elem.addEventListener('mouseover', on);
 			elem.addEventListener('mouseout', off);
 		}
+	},
+
+	addCopyButtons : function() {
+		const copyFunc = function(event) {
+			const button = event.currentTarget;
+			const div = button.parentElement;
+			const pre = div.getElementsByClassName('python')[0];
+			const text = pre.textContent;
+
+			// Copy the text to the clipboard.
+			const listener = function(event) {
+				event.clipboardData.setData('text/plain', text);
+				event.preventDefault();
+			};
+			document.addEventListener('copy', listener);
+			document.execCommand('copy');
+			document.removeEventListener('copy', listener);
+		};
+
+		const elems = document.getElementsByClassName('pre');
+		for (let i = 0;  i < elems.length;  ++i) {
+			let image = document.createElement('img');
+			image.setAttribute('src', '../site/copy.png');
+			image.setAttribute('alt', 'Copy code to the clipboard');
+			image.style.width = '2em';
+			let button = document.createElement('button');
+			button.setAttribute('type', 'button');
+			button.setAttribute('title', 'Copy code to the clipboard');
+			button.classList.add('copy')
+			button.appendChild(image);
+			button.addEventListener('click', copyFunc);
+			elems[i].appendChild(button);
+		}
 	}
 };
 
 window.addEventListener('DOMContentLoaded', cse111.linenums.addLineNumbers);
 window.addEventListener('DOMContentLoaded', cse111.linenums.addCrossRefs);
+window.addEventListener('DOMContentLoaded', cse111.linenums.addCopyButtons);

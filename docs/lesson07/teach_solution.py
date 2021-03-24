@@ -73,6 +73,9 @@ def append_random_words(words_list, quantity=1):
         words_list.append(word)
 
 
-# Call the main function so that
-# this program will start executing.
-main()
+# If this file was executed like this:
+# > python teach_solution.py
+# then call the main function. However, if this file
+# was simply imported, then skip the call to main.
+if __name__ == "__main__":
+    main()

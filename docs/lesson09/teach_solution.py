@@ -1,124 +1,88 @@
-import pandas as pd
+"""
+A common task for many knowledge workers is to use a number, key, or ID
+to look up information about a person. For example, a knowledge worker
+may use a phone number or e-mail address as a key to find (or look up)
+additional information about a customer. During this activity, your team
+will write a Python program that uses a student's I-Number to look up
+the student's name.
+"""
+import csv
 
 
 def main():
-    try:
-        # Read the water.csv file and convert the
-        # readDate column from a string to a datetime64.
-        df = pd.read_csv("water.csv", parse_dates=["readDate"])
-        print()
+    students = read_dict("pupils.csv")
 
 
-        # CORE REQUIREMENTS
+    # Get an I-Number from the user.
+    inum = str(input("Please enter an I-Number (xx-xxx-xxxx): "))
 
-        unique(df, "accountType", "Unique account types:")
-        unique(df, "meterNumber", "Unique meter numbers:")
+    # The I-Numbers are stored in the CSV file as digits only (without
+    # any dashes), so we remove all dashes from the user's input.
+    inum = inum.replace("-", "")
 
-        sum_water_used_by_account_type(df)
+    # Determine if the user input is formatted correctly.
+    if not inum.isdigit():
+        print("Invalid character in I-Number")
+    else:
+        if len(inum) < 9:
+            print("Invalid I-Number: too few digits")
+        elif len(inum) > 9:
+            print("Invalid I-Number: too many digits")
+        else:
+            # The user input is a valid I-Number. Find
+            # the I-Number in the list of I-Numbers.
+            if inum not in students:
+                print("No such student")
+            else:
+                # Retrieve the student name that corresponds
+                # to the I-Number that the user entered.
+                name = students[inum]
 
-        count_meters_by_account_type(df)
+                # Print the student name.
+                print(name)
 
 
-        # STRETCH CHALLENGES
+def read_dict(filename):
+    """Read the contents of a CSV file into a dictionary
+    and return the dictionary.
 
-        sum_water_used_between_dates(df,
-                "2018-01-01", "2018-12-31",
-                "Water used during 2018:")
-
-        average_water_used_per_dwelling(df)
-
-    except RuntimeError as run_err:
-        print(type(run_err).__name__, run_err, sep=": ")
-
-
-def unique(df, column_name, heading):
-    """Print all the unique values in a column.
-
-    param df - the data frame that contains the column
-    param column_name - name of the column to get the unique values from
-    param heading - the heading that will be printed before the unique values
+    Parameter filename: the name of the CSV file.
+    Return: a new dictionary containing the contents of the CSV file.
     """
-    unique_values = df[column_name].unique()
-    print(heading)
-    print(len(unique_values), unique_values)
-    print()
+    # Create an empty dictionary that will store student
+    # information with the I-Number number as the key.
+    dictionary = {}
+
+    # Open the specified file for reading and store a reference
+    # to the opened file in a variable named infile.
+    with open(filename, "rt") as infile:
+
+        # Use the csv module to create a reader object
+        # that will read from the opened file.
+        reader = csv.reader(infile)
+
+        # The first line of the CSV file contains column headings
+        # and not a student's I-Number and name, so this statement
+        # skips the first line of the CSV file.
+        next(reader)
+
+        # Read each row in the CSV file one at a time as a list.
+        for row in reader:
+
+            # For the current row, retrieve
+            # the values in columns 0 and 1.
+            inumber = row[0]
+            name = row[1]
+
+            # Add a student's I-Number and name to the dictionary.
+            dictionary[inumber] = name
+
+    return dictionary
 
 
-def sum_water_used_by_account_type(df):
-    # Compute and print the total amount of water used.
-    total_water_used = df["usage"].sum()
-    print("Total water used:", total_water_used)
-
-    # Filter the data frame to readings from residences and
-    # compute and print the total water used by residences.
-    resfilter = df["accountType"] == "Residence"
-    residences = df[resfilter]
-    water_used = residences["usage"].sum()
-    print("Total water used by residences:", water_used)
-
-    # Filter the data frame to readings from apartment complexes and
-    # compute and print the total water used by apartment complexes.
-    aptfilter = df["accountType"] == "Apartment Complex"
-    apartments = df[aptfilter]
-    water_used = apartments["usage"].sum()
-    print("Total water used by apartment complexes:", water_used)
-    print()
-
-
-def count_meters_by_account_type(df):
-    # Filter the data frame to one row per meter.
-    one_row_per_meter = df.drop_duplicates(subset=["meterNumber"])
-
-    # Count and print the number of account types.
-    print("Account types:")
-    print(one_row_per_meter["accountType"].value_counts())
-    print()
-
-
-def sum_water_used_between_dates(df, start, end, heading):
-    # Filter the data frame to readings between start and end.
-    start = pd.to_datetime(start)
-    end = pd.to_datetime(end)
-    filter = (df["readDate"] >= start) & (df["readDate"] <= end)
-    filtered_df = df[filter]
-
-    # Compute and print the amount of water used.
-    water_used = filtered_df["usage"].sum()
-    print(heading, water_used)
-
-
-def average_water_used_per_dwelling(df):
-    # Filter the data frame to readings in 2018.
-    start = pd.to_datetime("2018-01-01")
-    end = pd.to_datetime("2018-12-31")
-    filter = (df["readDate"] >= start) & (df["readDate"] <= end)
-    df2018 = df[filter]
-
-    # Filter the 2018 data frame to one row per meter.
-    one_row_per_meter = df2018.drop_duplicates(subset=["meterNumber"], keep="last")
-
-    # Use the filtered data frame from above
-    # to compute the number of dwellings.
-    number_of_dwells = one_row_per_meter["numberOfDwellings"].sum()
-    print("Number of dwellings in 2018:", number_of_dwells)
-
-    # Filter the 2018 data frame to readings
-    # for meters that serve dwellings.
-    dwelfilter = df2018["numberOfDwellings"] > 0
-    reads_for_dwells = df2018[dwelfilter]
-
-    # Compute the total amount of water used during 2018 by dwellings.
-    total_for_dwells = reads_for_dwells["usage"].sum()
-
-    # Compute and print the average amount
-    # of water used during 2018 per dwelling.
-    avg_per_dwell = round(total_for_dwells / number_of_dwells, 2)
-    print("Average water used per dwelling in 2018: ", avg_per_dwell)
-
-
-# If this file is executed like this:
+# If this file was executed like this:
 # > python teach_solution.py
-# then call the main function. However, if this file is simply
-# imported (e.g. into a test file), then skip the call to main.
+# then call the main function. However, if this file
+# was simply imported, then skip the call to main.
 if __name__ == "__main__":
     main()

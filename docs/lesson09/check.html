@@ -25,175 +25,124 @@
     <h2>CSE 111 | <span>Programming with Functions</span></h2>
 </header>
 <article>
-    <h1>09 Checkpoint: Data Analysis</h1>
+    <h1>09 Checkpoint: Text Files</h1>
 
     <h2>Overview</h2>
-    <p>Complete this individual checkpoint assignment to demonstrate
-    that you can use <code>pandas</code> to read a CSV file and print a
-    summary of the data.</p>
-
-    <h2>Problem Statement</h2>
-    <p>In many countries of the world, including the USA, drinking water
-    is delivered to houses through underground pipes. Very often this
-    water must be filtered and purified before it is put into the pipes.
-    Of course, filtering and purification costs money, and most cities
-    charge households according to the amount of water that the
-    household uses. In order to know how much water a household uses,
-    the city inserts a device called a water meter in the pipe
-    immediately before each house. The water meter measures how much
-    water passes by it in the pipe. An employee of the city comes
-    frequently to read and record the amount of water used as shown on
-    the meter.</p>
-
-    <p>Employees of the City of Rexburg, Idaho, where BYU-Idaho is
-    located, read the water meters about once each month. For the
-    checkpoints and assignments of this lesson and the next, you will
-    write Python code that reads and processes a CSV file named
-    water.csv that contains water meter readings for five years from
-    the City of Rexburg.</p>
+    <p>Improve your understanding of text files and lists by completing
+    the following individual checkpoint assignment.</p>
 
     <h2>Helpful Documentation</h2>
-    <p>The <a href="prepare.html">prepare</a> content for this lesson
-    includes example code for the tasks in this checkpoint.
-    Additionally, the prepare content contains links to the official
-    <code>pandas</code> tutorials.</p>
+    <ul>
+        <li><div>The <a href="prepare.html#textFiles">Text Files</a>
+        section of the prepare content for this lesson contains example
+        code that shows how to read a text file into a list.</div></li>
+
+        <li><div>The <a href="../lesson07/prepare.html#lists">Lists</a>
+        section of the prepare content for lesson 7 contains example
+        code that shows how to append, replace, and remove elements in a
+        list.</div></li>
+
+        <li><div>The <a href="https://docs.python.org/3/tutorial/datastructures.html#more-on-lists">list.count</a>
+        method counts and returns the number of times a value appears in
+        a list.</div></li>
+    </ul>
 
     <h2>Assignment</h2>
-    <p>Write a Python program named <code>analyze_check.py</code> with a
-    main function that uses <code>pandas</code> to read a CSV file into
-    a <code>DataFrame</code> and to manipulate and print the data. Do
-    the following:</p>
+    <p>You must do the following to setup VS Code so that your program
+    can read from a text file:</p>
 
     <ol class="long">
-        <li><div>Open VS Code. Then open the VS Code terminal frame by
-        clicking "Terminal" on the menu bar and then clicking "New
-        Terminal".</div></li>
+        <li><div>Download the
+        <a download href="provinces.txt"><code>provinces.txt</code></a>
+        file and save it in the same folder where you will save your
+        Python program.</div></li>
 
-        <li><div>Upgrade pip, setuptools, and wheel by executing this
-        command:
-<pre class="console">python -m pip install --user --upgrade pip setuptools wheel</pre>
-        <ul class="note"><li>If your computer is running the Mac OS, you
-        must use the <code>python3</code> command instead of the
-        <code>python</code> command. In other words, after you copy and
-        paste the above command, but before you press the enter key,
-        change <code>python</code> to <code>python3</code>.</li></ul>
-        </div></li>
+        <li><div>Open VS Code.</div></li>
 
-        <li><div>Install the <code>numpy</code>, matplotlib, and pandas
-        modules:
-<pre class="console">python -m pip install --user numpy==1.19.3 matplotlib pandas</pre>
-        <ul class="note">
-        <li>If your computer is running the Mac OS, you must use the
-        <code>python3</code> command instead of the <code>python</code>
-        command. In other words, after you copy and paste the above
-        command, but before you press the enter key, change
-        <code>python</code> to <code>python3</code>.</li>
-        <li>2020-11-4 The above command must specify the version of
-        numpy (1.19.3) until Microsoft fixes a bug in the
-        <code>fmod</code> function in the standard C++ library. See this
-        <a href="https://tinyurl.com/y3dm3h86">article</a>
-        for more details.</li>
-        </ul>
-        </div></li>
+        <li><div>Using VS Code, open the folder where you saved the
+        <code>provinces.txt</code> file by doing the following:
+        <ul>
+            <li><div>On a computer running the <dfn>Windows</dfn>
+            operating system:
+            <ol>
+                <li><div>Click the "File" menu, then "Open
+                Folder..."</div></li>
+                <li><div>Find and select the folder where you saved the
+                <code>provinces.txt</code> file.</div></li>
+                <li><div>Click the "Select Folder" button.</div></li>
+            </ol></div></li>
 
-        <li><div>Download and save this
-        <a download href="water.zip">water.zip</a> file.</div></li>
+            <li><div>On a computer running the <dfn>Mac OSX</dfn>
+            operating system:
+            <ol>
+                <li><div>Click the "File" menu, then "Open..."</div></li>
+                <li><div>Find and select the folder where you saved the
+                <code>provinces.txt</code> file.</div></li>
+                <li><div>Click the "Open" button.</div></li>
+            </ol></div></li>
+        </ul></div></li>
+    </ol>
 
-        <li><div>Unzip the file (extract all) into the same folder where
-        you will save your Python program. This will unzip the file
-        <code>water.csv</code>. This file contains water meter readings
-        for five years from the City of Rexburg,
-        Idaho.</div></li>
+    <p>Now that you correctly setup VS Code so that your program can
+    read the <code>provinces.txt</code> file, open that file in VS Code
+    and examine it. Notice that the file contains a list of names of
+    Canadian Provinces. Notice also that the file contains "AB" several
+    times which is an abbreviation for Alberta.</p>
 
-        <li><div>Open the unzipped <code>water.csv</code> file in VS
-        Code and examine it. Notice that each row in the file contains
-        seven columns which are named: meterNumber, meterSize, readDate,
-        numberOfDays, usage, accountType, and numberOfDwellings. Notice
-        also that this file is large, containing 246,832 lines. In
-        Rexburg, each water meter is read about once a month. Each line
-        in the <code>water.csv</code> file, except for the first line,
-        holds the data from reading one water meter one time.</div></li>
+    <p>Write a Python program named <code>provinces.py</code> that reads
+    the contents of <code>provinces.txt</code> into a list and that
+    modifies the list. Your program must do the following:</p>
 
-        <li><div>Write a Python program with a <code>main</code>
-        function that does the following in this order:
-        <ol>
-            <li><div>Uses <code>pandas.read_csv</code> to read the
-            <code>water.csv</code> file into a
-            <code>DataFrame</code>.</div></li>
+    <ol>
+        <li><div>Open the <code>provinces.txt</code> file for
+        reading.</div></li>
 
-            <li><div>Prints the DataFrame's <code>.dtype</code>
-            attribute.</div></li>
+        <li><div>Read the contents of the file into a list where each
+        line of text in the file is stored in a separate element in the
+        list.</div></li>
 
-            <li><div>Calls the <code>.describe()</code> function and
-            prints the summary returned from
-            <code>.describe()</code>.</div></li>
+        <li><div>Print the entire list.</div></li>
 
-            <li><div>Calls the <code>print()</code> function to print
-            the DataFrame.</div></li>
+        <li><div>Remove the first element from the list.</div></li>
 
-            <li><div>Filters the DataFrame to include residences
-            only.</div></li>
+        <li><div>Remove the last element from the list.</div></li>
 
-            <li><div>Calls the <code>print()</code> function to print
-            the filtered DataFrame.</div></li>
-        </ol></div></li>
+        <li><div>Replace all occurrences of "AB" in the list with
+        "Alberta".</div></li>
+
+        <li><div>Count the number of elements that are "Alberta" and
+        print that number.</div></li>
     </ol>
 
     <h2>Sample Run</h2>
 <pre class="console">&gt; python check_solution.py
-meterNumber                  object
-meterSize                   float64
-readDate             datetime64[ns]
-numberOfDays                  int32
-usage                         int32
-accountType                  object
-numberOfDwellings             int32
-dtype: object
+['Alberta', 'Ontario', 'Prince Edward Island', 'Ontario', 'Quebec',
+'Saskatchewan', 'AB', 'Nova Scotia', 'Alberta',
+'Northwest Territories', 'Saskatchewan', 'Nunavut', 'Nova Scotia',
+'Prince Edward Island', 'Alberta', 'Nova Scotia',
+'Prince Edward Island', 'British Columbia', 'Nova Scotia',
+'Newfoundland and Labrador', 'Ontario', 'Ontario', 'Ontario',
+'Ontario', 'Saskatchewan', 'Nova Scotia', 'Prince Edward Island',
+'Saskatchewan', 'Newfoundland and Labrador', 'Ontario', 'Ontario',
+'Manitoba', 'British Columbia', 'Ontario', 'Alberta', 'Saskatchewan',
+'Ontario', 'Yukon', 'Ontario', 'New Brunswick', 'Manitoba',
+'British Columbia', 'Yukon', 'Newfoundland and Labrador', 'Manitoba',
+'British Columbia', 'Yukon', 'Ontario', 'Yukon', 'Ontario', 'AB',
+'Newfoundland and Labrador', 'Nova Scotia', 'Yukon',
+'Northwest Territories', 'Nunavut', 'Yukon', 'Nunavut', 'Ontario',
+'British Columbia', 'AB', 'Saskatchewan', 'Prince Edward Island',
+'Saskatchewan', 'Prince Edward Island', 'Alberta', 'Ontario',
+'Alberta', 'Manitoba', 'AB', 'British Columbia', 'Alberta']
 
-           meterSize   numberOfDays          usage  numberOfDwellings
-count  246830.000000  246830.000000  246830.000000      246830.000000
-mean        0.980451      30.458814      40.733967           8.164542
-std         0.575209       8.032419     409.503802          23.633490
-min         0.750000       1.000000       0.000000           0.000000
-25%         0.750000      28.000000       4.000000           1.000000
-50%         0.750000      31.000000      10.000000           1.000000
-75%         1.000000      33.000000      35.000000           1.000000
-max         8.000000    1276.000000  119670.000000         207.000000
-
-      meterNumber meterSize  ...        accountType numberOfDwellings
-0           M1000      0.75  ...          Residence                 1
-1           M1000      0.75  ...          Residence                 1
-2           M1000      0.75  ...          Residence                 1
-3           M1000      0.75  ...          Residence                 1
-4           M1000      0.75  ...          Residence                 1
-...           ...       ...  ...                ...               ...
-246825      M9996      1.00  ...  Apartment Complex                 6
-246826      M9996      1.00  ...  Apartment Complex                 6
-246827      M9996      1.00  ...  Apartment Complex                 6
-246828      M9996      1.00  ...  Apartment Complex                 6
-246829      M9996      1.00  ...  Apartment Complex                 6
-[246830 rows x 7 columns]
-
-       meterNumber  meterSize   readDate  ...  usage  accountType  ...
-0            M1000       0.75 2015-01-15  ...      4    Residence  ...
-1            M1000       0.75 2015-02-15  ...      4    Residence  ...
-2            M1000       0.75 2015-03-23  ...      0    Residence  ...
-3            M1000       0.75 2015-04-22  ...      7    Residence  ...
-4            M1000       0.75 2015-05-26  ...      9    Residence  ...
-...            ...        ...        ...  ...    ...          ...  ...
-246705       M9993       0.75 2019-01-15  ...      6    Residence  ...
-246706       M9993       0.75 2019-02-15  ...      6    Residence  ...
-246707       M9993       0.75 2019-03-15  ...      6    Residence  ...
-246708       M9993       0.75 2019-04-19  ...      1    Residence  ...
-246709       M9993       0.75 2019-05-01  ...      1    Residence  ...
-[139195 rows x 7 columns]</pre>
+Alberta occurs 9 times in the modified list.</pre>
 
     <h2>Testing Procedure</h2>
-    <p>Verify that your program works correctly by following each step
-    in this testing procedure:</p>
+    <p>Verify that your program works correctly by following each
+    step in this testing procedure:</p>
     <ol class="test">
         <li><div>Run your program and ensure that your program's output
-        is the same as the sample run output.</div></li>
+        matches the sample run output. (Your program may wrap the
+        province names differently.)</div></li>
     </ol>
 
     <h2>Sample Solution</h2>
