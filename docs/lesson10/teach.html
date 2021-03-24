@@ -25,7 +25,7 @@
     <h2>CSE 111 | <span>Programming with Functions</span></h2>
 </header>
 <article>
-    <h1>10 Team Activity: Data Visualization</h1>
+    <h1>10 Team Activity: Handling Exceptions</h1>
 
     <h2>Instructions</h2>
     <p>Arrange a one hour synchronous meeting with your team for this
@@ -34,184 +34,213 @@
     prepare for this meeting by completing the preparation material and
     the individual checkpoint assignment beforehand.</p>
 
+    <h2>Problem Statement</h2>
+    <p>Every year in the United States, thousands of people are killed
+    and millions more are injured in traffic accidents on the nation's
+    roads and highways. The U.S. National Highway Traffic Safety
+    Administration (NHTSA) maintains
+    <a href="https://cdan.nhtsa.gov/tsftables/tsfar.htm">data about the
+    accidents</a>, including a list of factors contributing to each
+    accident.</p>
+
+    <p>The CSV file <code>accidents.csv</code> contains summary data
+    from the NHTSA about the accidents that occurred on U.S. roads and
+    highways during the years 2010 through 2017. <code>accidents.py</code>
+    is a Python program that uses the data to estimate how many lives
+    would have been saved and injuries avoided if drivers had stopped
+    dangerous behavior such as speeding and using cell phones while
+    driving.</p>
+
+    <p>Unfortunately, <code>accidents.py</code> does not contain any
+    code to validate the input that the user enters while the program is
+    running. Add exception handling code to <code>accidents.py</code> to
+    validate the user's input and print helpful error messages when the
+    user enters incorrect input.</p>
+
     <h2>Helpful Documentation</h2>
-    <ol class="long">
-        <li><div>The <a href="../lesson09/prepare.html">prepare</a>
-        content for the previous lesson includes example code for the
-        following:
-        <ol>
-            <li><div>Reading a CSV file into a DataFrame.</div></li>
-            <li><div>Filtering the rows of a DataFrame.</div></li>
-            <li><div>Creating new columns in a DataFrame.</div></li>
-        </ol></div></li>
-
-        <li><div>The <a href="../lesson09/prove.html">prove</a>
-        assignment from the previous lesson includes example code for
-        grouping and summarizing the rows in a DataFrame.</div></li>
-
+    <ul>
         <li><div>The <a href="prepare.html">prepare</a> content for this
-        lesson includes example code for drawing a vertical bar
-        plot.</div></li>
+        lesson explains how to wrap <code>try</code> and
+        <code>except</code> around a normal block of code. It also
+        includes an example that shows how to
+        <a href="prepare.html#validate">validate user input</a>
+        within a loop.</div></li>
 
-        <li><div>A tutorial at Geeks for Geeks shows how to
-        <a href="https://www.geeksforgeeks.org/python-pandas-series-dt-year/">extract the year</a>
-        from a datetime column.</div></li>
+        <li><div>This <a href="https://content.byui.edu/items/a9e60503-b5e7-40f0-bf48-ebf1a7441d25/1/example_08.mp4">short video</a>
+        shows a BYU-Idaho faculty member adding a <code>try</code> block
+        and <code>except</code> blocks to handle errors that might occur
+        while a program is executing.</div></li>
 
-        <li><div>The <code>pandas</code> Getting Started Tutorials
-        contain a
-        <a href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/04_plotting.html">short section about creating plots</a>.</div></li>
+        <li><div><a href="https://docs.python.org/3/library/functions.html#open">open function</a>,
+        <a href="https://docs.python.org/3/library/exceptions.html#FileNotFoundError">FileNotFoundError</a>, and
+        <a href="https://docs.python.org/3/library/exceptions.html#PermissionError">PermissionError</a></div></li>
 
-        <li><div>The <code>pandas</code> User Guide contains a
-        <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/visualization.html">long section about creating plots</a>.</div></li>
-    </ol>
+        <li><div><a href="https://docs.python.org/3/library/functions.html#float">float function</a> and
+        <a href="https://docs.python.org/3/library/exceptions.html#ValueError">ValueError</a></div></li>
 
-    <h2>Assignment</h2>
-    <h3>Core Requirements</h3>
-    <p>Write a Python program named <code>visualize_teach.py</code> that
-    uses <code>pandas</code> and includes several functions to answer
-    these three questions about the
-    <a download href="../lesson09/water.zip">water usage data</a> from
-    the City of Rexburg:</p>
-
-    <ol class="long">
-        <li><div>Is the total amount of water used in the City of
-        Rexburg increasing each year?</div></li>
-        <li><div>Is the amount of water used by apartment complexes in
-        the City of Rexburg increasing each year?</li></div>
-        <li><div>Is the amount of water used by businesses in
-        the City of Rexburg increasing each year?</li></div>
-    </ol>
-
-    <p>Your program must filter, group, and aggregate the water usage
-    data to compute actual numbers that answer the three questions
-    above. Your program must print those numbers formatted nicely as
-    shown in the sample run below and must draw at least two plots to
-    help a user visualize the data that is printed out.</p>
-
-    <p>Your program must be split into several functions:</p>
-    <ul class="long">
-        <li><div><code>main</code> which calls <code>pd.read_csv</code>
-        to read the contents of the <code>water.csv</code> file into a
-        data frame and then calls the other functions. Of course,
-        <code>main</code> may include additional statements as
-        needed.</div></li>
-
-        <li><div><p>For each of the three questions above, one function
-        that shows a plot to answer the corresponding
-        question.<sup>*</sup></p>
-
-        <ul class="note"><li>Because the second and third questions are
-        very similar, it is reasonably easy to add parameters to the
-        function that answers the second question, so that it can be
-        reused to answer both the second and third questions.</li></ul>
-        </div></li>
+        <li><div><a href="https://docs.python.org/3/library/exceptions.html#KeyError">KeyError</a> and
+        <a href="https://docs.python.org/3/library/exceptions.html#ZeroDivisionError">ZeroDivisionError</a></div></li>
     </ul>
 
+    <h2>Assignment</h2>
+    <p>Do the following:</p>
+    <ol class="long">
+        <li><div>Download and save both
+        <a download href="accidents.csv"><code>accidents.csv</code></a> and
+        <a download href="accidents.py"><code>accidents.py</code></a> in
+        the same folder.</div></li>
+
+        <li><div>Open <code>accidents.csv</code> in VS Code or another
+        editor and notice that it contains ten columns and eight rows of
+        data regarding traffic accidents in the United
+        States.</div></li>
+
+        <li><div>Open <code>accidents.py</code> in VS Code and notice
+        that lines&nbsp;18&ndash;23 contain code to ask the user for a
+        filename and then open that file. It is possible that when the
+        computer executes line&nbsp;18, the user may enter the name of a
+        file that does not exist or may enter the name of a file that
+        the user does not have permission to read. These two situations
+        cause the computer to raise a <code>FileNotFoundError</code> or
+        <code>PermissionError</code> when the computer tries to open the
+        file at line&nbsp;23.</div></li>
+
+        <li><div>Notice that line&nbsp;26 of <code>accidents.py</code>
+        contains code to prompt the user for a number. It is possible
+        that while the computer is executing line&nbsp;26, the user may
+        enter text that is not a number, for example: "4r0". This
+        situation causes the computer to raise a
+        <code>ValueError</code>. It is also possible that the user may
+        enter a number that is too low or too high, for example: -15 or
+        701234932. In this situation, the computer does not raise an
+        exception, but this situation is still a mistake that the
+        program should alert the user about.</div></li>
+
+        <li><div>Notice that lines&nbsp;43&ndash;51 of
+        <code>accidents.py</code> contain code to process each line of
+        the CSV file. It is possible that the CSV file is formatted
+        incorrectly which would cause the computer to raise either
+        <code>csv.Error</code> or <code>KeyError</code>. It is also
+        possible that one of the rows in the CSV file contains zero (0)
+        in the "Fatal Crashes" column. This would cause the computer to
+        raise <code>ZeroDivisionError</code> at line&nbsp;70 within the
+        <code>estimate_reduction</code> function.</div></li>
+    </ol>
+
+    <h3>Core Requirements</h3>
+    <ol class="long">
+        <li><div>Add exception handling code that prints a useful error
+        message when the computer raises <code>FileNotFoundError</code>
+        or <code>PermissionError</code>.</div></li>
+
+        <li><div>Add exception handling code that prints a useful error
+        message when the computer raises <code>ValueError</code> while
+        it is converting the percentage entered by the user to a
+        float.</div></li>
+
+        <li><div>Add code that prints a useful error message when the
+        user enters a percentage that is less than 0 or greater than
+        100.</div></li>
+    </ol>
 
     <h3>Stretch Challenges</h3>
     <p>If your team finishes the core requirements in less than an
     hour, complete one or more of these stretch challenges. Note that
     the stretch challenges are optional.</p>
 
-    <ol>
-        <li><div><p>Write another function that shows a chart to answer
-        this question, "Is the average amount of water used <em>per
-        dwelling</em> increasing each year?" <sup>*</sup></p>
+    <ol class="long">
+        <li><div>Add exception handling code to handle
+        <code>csv.Error</code> and <code>KeyError</code> that might be
+        raised by the <code>csv</code> module. This exception handling
+        code should print a useful error message that includes the
+        filename and line number of the line that is formatted
+        incorrectly.</div></li>
 
-        <ul class="note"><li>If you examine the water data closely, you
-        will see that some water meters serve both a business and one or
-        more apartments. When analyzing data to answer the stretch
-        question, your program should exclude the water usage data for
-        such meters because there is no way to determine how much water
-        went to the business and how much went to the attached
-        apartment. In fact, when answering the stretch question, your
-        program should use only the data for apartment complexes,
-        residences, town homes, and trailer courts.</li></ul>
-        </div></li>
-   </ol>
+        <li><div>Add exception handling code to handle
+        <code>ZeroDivisionError</code> that might be raised by the
+        <code>estimate_reduction</code> function. This exception
+        handling code should print a useful error message that includes
+        the filename and line number of the line that contains zero (0)
+        in the "Fatal Crashes" column.</div></li>
 
-    <h2>Sample Run</h2>
-<pre class="console">&gt; python prove_solution.py
+        <li><div>Test <em>all</em> of your error handling code,
+        including the code that handles <code>ZeroDivisionError</code>
+        and <code>PermissionError</code>. To test
+        <code>ZeroDivisionError</code>, you could temporarily change
+        one of the numbers in the "Fatal Crashes" column of
+        <code>accidents.csv</code> to zero. To test
+        <code>PermissionError</code>, you could create a CSV file or a
+        simple text file and then use File Explorer or Finder to change
+        the permissions on that file so that you don't have permission
+        to read that file.</div></li>
+    </ol>
 
-Total water usage by year (in 1000 gallons):
-      sumUsage
-year
-2015   1863804
-2016   1985262
-2017   1880506
-2018   1999372
-2019   2325421
+    <h2>Sample Runs</h2>
+<pre class="console">&gt; python accidents.py
+Name of file that contains NHTSA data: <span class="input">dentiaccs.vsc</span>
+[Errno 2] No such file or directory: 'dentiaccs.vsc'
+Please choose a different file.
 
-Apartment Complex water usage by year (in 1000 gallons):
-      sumUsage
-year
-2015    476491
-2016    490781
-2017    460989
-2018    470969
-2019    494621
+&gt; python accidents.py
+Name of file that contains NHTSA data: <span class="input">unreadable.csv</span>
+[Errno 13] Permission denied: 'unreadable.csv'
+Please choose a different file.
 
-Business water usage by year (in 1000 gallons):
-      sumUsage
-year
-2015    374424
-2016    361005
-2017    376274
-2018    407715
-2019    455834
+&gt; python accidents.py
+Name of file that contains NHTSA data: <span class="input">accidents.csv</span>
+Percent reduction of texting while driving [0, 100]: <span class="input">4r0</span>
+Error: could not convert string to float: '4r0'
 
-Average usage per dwelling (in 1000 gallons):
-      sumUsage  sumDwellings  usagePerDwelling
-year
-2015   1108284       32181.9              34.4
-2016   1175975       32642.0              36.0
-2017   1084619       31533.2              34.4
-2018   1107399       33716.2              32.8
-2019   1117934       35919.1              31.1</pre>
+&gt; python accidents.py
+Name of file that contains NHTSA data: <span class="input">accidents.csv</span>
+Percent reduction of texting while driving [0, 100]: <span class="input">-5</span>
+Error: -5.0 is too low. Please enter a different number.
 
-    <p><img src="total_usage.png"
-    alt="A vertical bar plot showing the total water used in the City of Rexburg grouped by year."
-    title="A vertical bar plot showing the total water used in the City of Rexburg grouped by year."></p>
+&gt; python accidents.py
+Name of file that contains NHTSA data: <span class="input">accidents.csv</span>
+Percent reduction of texting while driving [0, 100]: <span class="input">110</span>
+Error: 110.0 is too high. Please enter a different number.
 
-    <p><img src="apartment_usage.png"
-    alt="A vertical bar plot showing the water used by apartment complexes in the City of Rexburg grouped by year."
-    title="A vertical bar plot showing the water used by apartment complexes in the City of Rexburg grouped by year."></p>
+&gt; python accidents.py
+Name of file that contains NHTSA data: <span class="input">accidents.csv</span>
+Percent reduction of texting while driving [0, 100]: <span class="input">50</span>
 
-    <p><img src="business_usage.png"
-    alt="A vertical bar plot showing the water used by businesses in the City of Rexburg grouped by year."
-    title="A vertical bar plot showing the water used by businesses in the City of Rexburg grouped by year."></p>
+With a 50.0% reduction in using a cell phone while
+driving, approximately this number of injuries and
+deaths would have been prevented in the USA.
 
-    <p><img src="usage_per_dwelling.png"
-    alt="A vertical bar plot showing the average amount of water used per dwelling in the City of Rexburg grouped by year."
-    title="A vertical bar plot showing the average amount of water used per dwelling in the City of Rexburg grouped by year."></p>
+Year, Injuries, Deaths
+2010, 15631, 230
+2011, 15811, 232
+2012, 16759, 240
+2013, 15738, 224
+2014, 15052, 211
+2015, 17006, 247
+2016, 19953, 246
+2017, 16077, 217</pre>
 
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each step
     in this testing procedure:</p>
-    <ol class="test long">
-        <li><div>Run your program and verify that it prints the correct
-        results, rounded and formatted as shown in the sample run
-        above.</div></li>
-
-        <li><div>Examine the charts displayed by your program and verify
-        that the charts show the same values as the printed
-        results.</div></li>
+    <ol class="test">
+        <li><div>Run the <code>accidents.py</code> program and enter the
+        inputs shown in the Sample Run section above. Verify that the
+        exception handling code that you added prints error messages as
+        shown in the Sample Run section.</div></li>
     </ol>
-
-    <h2>Ponder</h2>
-    <p>Examine the printed output and the plots displayed by your
-    program. What are the answers to the two questions in the Assignment
-    section?</p>
 
     <h2>Sample Solution</h2>
     <p>Please work diligently with your team for the one hour meeting.
-    After the meeting is over, please compare your approach to the
-    <a download href="teach_solution.py">sample solution</a>. Please
-    <strong>do not look at the sample solution</strong> until you have
-    either finished the program or diligently worked for at least one
-    hour. At the end of the hour, if you are still struggling to
-    complete the assignment, you may use the sample solution to help you
-    finish.</p>
+    After the meeting is over, please compare your approach to this
+    <a download href="teach_solution1.py">first sample solution</a> or
+    to this
+    <a download href="teach_solution2.py">second sample solution</a>
+    which is better organized because it is split into three more
+    functions than the first solution. Please <strong>do not look at the
+    sample solutions</strong> until you have either finished the program
+    or diligently worked for at least one hour. At the end of the hour,
+    if you are still struggling to complete the assignment, you may use
+    the sample solution to help you finish.</p>
 
     <h2>Submission</h2>
     <p>When you have finished the activity, please report your progress

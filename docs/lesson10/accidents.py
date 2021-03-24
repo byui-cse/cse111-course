@@ -17,41 +17,36 @@ FATIGUE_COLUMN = 9
 def main():
     # Prompt the user for a filename and open that text file.
     filename = input("Name of file that contains NHTSA data: ")
-    print()
+    with open(filename, "rt") as infile:
 
-    # Open the text file that the user requested.
-    infile = open(filename, "rt")
+        # Prompt the user for a percentage.
+        perc_reduc = float(input("Percent reduction of texting while driving [0, 100]: "))
 
-    # Prompt the user for a percentage.
-    perc_reduc = float(input("Percent reduction of texting while driving: "))
-    print()
+        print()
+        print(f"With a {perc_reduc}% reduction in using a cell phone while",
+                "driving, approximately this number of injuries and",
+                "deaths would have been prevented in the USA.", sep="\n")
+        print()
+        print("Year, Injuries, Deaths")
 
-    print(f"With a {perc_reduc}% reduction in using a cell phone while",
-            "driving, approximately this number of injuries and",
-            "deaths would have been prevented in the USA.", sep="\n")
-    print()
-    print("Year, Injuries, Deaths")
+        # Use the csv module to create a reader
+        # object that will read from the opened file.
+        reader = csv.reader(infile)
 
-    # Use the csv module to create a reader
-    # object that will read from the opened file.
-    reader = csv.reader(infile)
+        # The first line of the CSV file contains column headings
+        # and not a student's I-Number and name, so this statement
+        # skips the first line of the CSV file.
+        next(reader)
 
-    # The first line of the CSV file contains column headings
-    # and not a student's I-Number and name, so this statement
-    # skips the first line of the CSV file.
-    next(reader)
+        # Process each row in the CSV file.
+        for row in reader:
+            year = row[YEAR_COLUMN]
 
-    # Process each row in the CSV file.
-    for row in reader:
-        year = row[YEAR_COLUMN]
+            # Call the estimate_reduction function.
+            injur, fatal = estimate_reduction(row, PHONE_COLUMN, perc_reduc)
 
-        # Call the estimate_reduction function.
-        injur, fatal = estimate_reduction(row, PHONE_COLUMN, perc_reduc)
-
-        # Print the estimated reductions in injuries and fatalities.
-        print(year, injur, fatal, sep=", ")
-
-    infile.close()
+            # Print the estimated reductions in injuries and fatalities.
+            print(year, injur, fatal, sep=", ")
 
 
 def estimate_reduction(row, behavior_key, perc_reduc):
@@ -80,6 +75,9 @@ def estimate_reduction(row, behavior_key, perc_reduc):
     return reduc_injur, reduc_fatal
 
 
-# Call the main function so that
-# this program will start executing.
-main()
+# If this file was executed like this:
+# > python teach_solution.py
+# then call the main function. However, if this file
+# was simply imported, then skip the call to main.
+if __name__ == "__main__":
+    main()

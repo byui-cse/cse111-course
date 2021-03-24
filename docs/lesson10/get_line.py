@@ -4,24 +4,29 @@ This program asks the user for
 2) a line number
 and prints the text from that line of the file.
 """
-
 def main():
     try:
         # Get a filename from the user.
         filename = input("Enter the name of text file: ")
 
+        # Create an empty list to hold the
+        # text that is read from the file.
+        text_lines = []
+
         # Open the text file for reading.
         with open(filename, "rt") as infile:
 
-            # Read all the lines of the text file into a list.
-            string = infile.read()
-            lines = string.splitlines()
+            # Read all the lines of the text file one line at
+            # a time and store each line of text into a list.
+            for line in infile:
+                clean_line = line.strip()
+                text_lines.append(clean_line)
 
         # Get a line number from the user.
         linenum = int(input("Enter a line number: "))
 
         # Get the line that the user requested from the list.
-        line = lines[linenum - 1]
+        line = text_lines[linenum - 1]
 
         # Print the line that the user requested.
         print()
@@ -49,12 +54,13 @@ def main():
         # integer is greater than the number of lines in the file.
         print()
         print(type(index_err).__name__, index_err, sep=": ")
+        length = len(text_lines)
         if linenum < 0:
             print(f"{linenum} is a negative integer.")
         else:
             print(f"{linenum} is greater than the number of lines in {filename}.")
-            print(f"There are only {len(lines)} lines in {filename}.")
-        print(f"Run the program again and enter a line number between 1 and {len(lines)}.")
+            print(f"There are only {length} lines in {filename}.")
+        print(f"Run the program again and enter a line number between 1 and {length}.")
 
     except Exception as excep:
         # This code will be executed if some other type of exception occurs.
@@ -62,6 +68,9 @@ def main():
         print(type(excep).__name__, excep, sep=": ")
 
 
-# Call the main function so that
-# this program will start executing.
-main()
+# If this file was executed like this:
+# > python teach_solution.py
+# then call the main function. However, if this file
+# was simply imported, then skip the call to main.
+if __name__ == "__main__":
+    main()

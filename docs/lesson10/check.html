@@ -25,66 +25,70 @@
     <h2>CSE 111 | <span>Programming with Functions</span></h2>
 </header>
 <article>
-    <h1>10 Checkpoint: Data Visualization</h1>
+    <h1>10 Checkpoint: Handling Exceptions</h1>
 
     <h2>Overview</h2>
-    <p>Complete this individual checkpoint assignment to demonstrate
-    that you can write code that uses <code>pandas</code> to read a
-    DataFrame from a CSV file and draw a vertical bar plot.</p>
-
-    <h2>Helpful Documentation</h2>
-    <ul>
-        <li><div>The <a href="../lesson09/prepare.html">prepare</a>
-        content for the previous lesson includes example code for
-        reading a CSV file into DataFrame and for filtering the rows of
-        a DataFrame.</div></li>
-
-        <li><div>The <a href="prepare.html">prepare</a> content for this
-        lesson includes example code for drawing a vertical bar
-        plot.</div></li>
-
-        <li><div>The <code>pandas</code> Getting Started Tutorials
-        contain a helpful <a href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/04_plotting.html">short section about creating plots</a>.</div></li>
-
-        <li><div>The <code>pandas</code> User Guide contains a
-        <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/visualization.html">long section about creating plots</a>.</div></li>
-    </ul>
+    <p>Complete this individual checkpoint assignment to improve your
+    understanding of how to handle exceptions in a Python program.</p>
 
     <h2>Assignment</h2>
-    <p>Write a Python program named <code>visualize_check.py</code> that
-    uses <code>pandas</code> and <code>matplotlib.pyplot</code> to do
-    the following:</p>
+    <p>Do the following:</p>
 
-    <ol>
-        <li><div>Read the water usage data from the
-        <code>water.csv</code> file.</div></li>
+    <ol class="long">
+        <li><div>Download and save the
+        <a download href="accidents.csv"><code>accidents.csv</code></a>
+        and
+        <a download href="get_line.py"><code>get_line.py</code></a>
+        files in the same folder. <code>get_line.py</code> is a simple
+        program that asks a user to input the name of a text file and a
+        line number. Then it prints the text that is in the file on the
+        requested line.</div></li>
 
-        <li><div>Filter the data to only the rows for meter
-        M4103.</div></li>
+        <li><div>Open <code>get_line.py</code> in VS Code and notice the
+        <code>try</code> block on line&nbsp;8 and the four
+        <code>except</code> blocks, each handling a different type of
+        exception, on lines&nbsp;35&ndash;68.</div></li>
 
-        <li><div>Define and show a vertical bar plot that shows the
-        readDate on the x-axis and the water usage on the y-axis like
-        the plot shown in the Sample Run section.</div></li>
+        <li><div>Run the <code>get_line.py</code> program five times and
+        enter the input shown in the Sample Run section below. For each
+        of the first four times that you run the program, find the lines
+        of code in <code>get_line.py</code> that handled the exception
+        that was raised.</div></li>
     </ol>
 
     <h2>Sample Run</h2>
-    <pre class="console">&gt; python check_solution.py</pre>
-    <p><img src="m4103.png"
-    alt="A vertical bar plot showing the water used by meter #M4103"
-    title="A vertical bar plot showing the water used by meter #M4103"></p>
+<pre class="console">&gt; python get_line.py
+Enter the name of text file: <span class="input">notafile.csv</span>
+FileNotFoundError: [Errno 2] No such file or directory: 'notafile.csv'
+The file notafile.csv doesn't exist.
+Run the program again and enter the name of an existing file.
 
-    <h2>Testing Procedure</h2>
-    <p>Run your program and verify that it draws a vertical bar plot
-    like the one shown in the sample run section above.</p>
+&gt; python get_line.py
+Enter the name of text file: <span class="input">accidents.csv</span>
+Enter a line number: <span class="input">hey</span>
+ValueError: invalid literal for int() with base 10: 'hey'
+You entered an invalid integer for the line number.
+Run the program again and enter an integer for the line number.
 
-    <h2>Sample Solution</h2>
-    <p>When your program is finished, view the <a download
-    href="check_solution.py">sample solution</a> for this assignment to
-    compare your solution to that one. Before looking at the sample
-    solution, you should work to complete this checkpoint program first.
-    However, if you have worked on it for at least an hour and are still
-    having problems, feel free to use the sample solution to help you
-    finish your program.</p>
+&gt; python get_line.py
+Enter the name of text file: <span class="input">accidents.csv</span>
+Enter a line number: <span class="input">-300</span>
+IndexError: list index out of range
+-300 is is a negative integer.
+Run the program again and enter a line number between 1 and 7.
+
+&gt; python get_line.py
+Enter the name of text file: <span class="input">accidents.csv</span>
+Enter a line number: <span class="input">75</span>
+IndexError: list index out of range
+75 is greater than the number of lines in accidents.csv.
+There are only 7 lines in accidents.csv.
+Run the program again and enter a line number between 1 and 7.
+
+&gt; python get_line.py
+Enter the name of text file: <span class="input">accidents.csv</span>
+Enter a line number: <span class="input">4</span>
+2012,33782,2362000,5615000,31006,3167,440,9420,6396,1262</pre>
 
     <h2>Submission</h2>
     <p>When complete, report your progress in the associated I-Learn

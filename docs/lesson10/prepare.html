@@ -28,7 +28,7 @@
     <h2>CSE 111 | <span>Programming with Functions</span></h2>
 </header>
 <article>
-    <h1>06 Prepare: Handling Exceptions</h1>
+    <h1>10 Prepare: Handling Exceptions</h1>
     <p>Errors and exceptional situations sometimes occur while a program
     is running. Such errors include attempting to read from a file that
     does not exist, a connection error from trying to connect to a
@@ -63,7 +63,11 @@
         <li><div>When an exceptional event occurs, a Python function
         <dfn>raises</dfn> an exception which may be handled by code at
         another location in the executing Python program. The Python
-        keyword to raise an exception is <code>raise</code>.</div></li>
+        keyword to raise an exception is <code>raise</code>. Normally,
+        you will not need to write code to raise an exception because
+        the built-in functions, such as <code>open</code>,
+        <code>int</code>, and <code>float</code>, will raise an
+        exception when necessary.</div></li>
 
         <li><div>The Python keywords to handle exceptions are
         <code>try</code>, <code>except</code>, <code>else</code>, and
@@ -308,6 +312,97 @@ def main():
         print("Error: you entered 0 for the number of employees.")
         print("Please run the program again and enter an integer")
         print("larger than 0 for the number of employees.")
+
+
+# Call the main function so that
+# this program will start executing.
+main()</pre></div>
+
+    <h2>Example - Reading from a File</h2>
+    <p>The example program shown below handles exceptions that might
+    occur when the program opens and reads from a file. This program
+    contains only one <code>try</code> block, which begins at
+    <span class="cross" data-ref="ex3">line&nbsp;4</span>
+    and includes all the regular code in the main function.
+    This one try block has four <code>except</code> blocks at
+    <span class="cross" data-ref="ex3">lines&nbsp;40, 44,&nbsp;48,
+    and&nbsp;52</span>.</p>
+
+    <p>Each of the <code>except</code> blocks handles a different type
+    of exception. The first three <code>except</code> blocks handle
+    specific exceptions: <code>FileNotFoundError</code>,
+    <code>PermissionError</code>, and <code>ZeroDivisionError</code>.
+    The last <code>except</code> block handles
+    <code>RuntimeError</code>, which is a general exception.
+    <code>RuntimeError</code> is probably the most general type of
+    exception that we want to handle in a Python program. The
+    description above the first example program explains why.</p>
+
+<div class="pre"><pre class="linenums"></pre>
+<pre class="python" id="ex3">
+import csv
+
+
+def main():
+    <em>try:</em>
+        # Open the fuel_usage.csv file.
+        filename = "fuel_usage.csv"
+        with open(filename, "rt") as usage_file:
+
+            # Use the standard csv module to get
+            # a reader object for the CSV file.
+            reader = csv.reader(usage_file)
+
+            # The first line of the CSV file contains headings
+            # and not fuel usage data, so this statement skips
+            # the first line of the CSV file.
+            next(reader)
+
+            # Print headers for the three columns.
+            print("Date,Start,End,Gallons,Miles/Gallon")
+
+            # Process each row in the CSV file.
+            for row in reader:
+
+                # From the current row of the CSV file, get
+                # the date, the starting and ending odometer
+                # readings, and the number of gallons used.
+                date = row[0]
+                start_miles = float(row[1])
+                end_miles = float(row[2])
+                gallons = float(row[3])
+
+                # Call the miles_per_gallon function.
+                mpg = miles_per_gallon(start_miles, end_miles, gallons)
+
+                # Display the results for one row.
+                mpg = round(mpg, 1)
+                print(date, start_miles, end_miles, gallons, mpg, sep=",")
+
+    <em>except FileNotFoundError as file_not_found_err:</em>
+        print(f"Error: cannot open {filename}"
+                " because it doesn't exist.")
+
+    <em>except PermissionError as perm_err:</em>
+        print(f"Error: cannot read from {filename}"
+                " because you don't have permission.")
+
+    <em>except ZeroDivisionError as zero_div_err:</em>
+        print(f"Error: {filename} contains a"
+                " zero in the gallons column.")
+
+    <em>except RuntimeError as run_err:</em>
+        print(type(run_err).__name__, run_err, sep=": ")
+
+
+def miles_per_gallon(start_miles, end_miles, gallons):
+    """Compute and return the average number of miles
+    that a vehicle traveled per gallon of fuel.
+    start_miles and end_miles are odometer readings in miles.
+    gallons is a fuel amount in U.S. gallons.
+    """
+    mpg = abs(end_miles - start_miles) / gallons
+    return mpg
 
 
 # Call the main function so that
