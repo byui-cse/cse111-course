@@ -29,21 +29,21 @@
 </header>
 <article>
     <h1>08 Prepare: Dictionaries</h1>
-    <p>In this lesson, you will learn how to store and retrieve data
-    from Python dictionaries.</p>
+    <p>In this lesson, you will learn how to store data in and retrieve
+    data from Python dictionaries.</p>
 
     <h2>Videos</h2>
-    <p>Watch these videos about lists and dictionaries in Python.</p>
+    <p>Watch this video about dictionaries in Python.</p>
 
     <ul class="links">
-        <li><div><a href="https://www.youtube.com/watch?v=LrOAl8vUFHY&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=27">Loops</a></div></li>
+        <li><div><a href="https://realpython.com/lessons/dictionary-python/">Dictionaries</a></div></li>
     </ul>
 
     <h2>Concepts</h2>
     <p>Here are the Python programming concepts and topics that you
     should learn during this lesson:</p>
 
-    <h3 id="dicts">Dictionaries</h3>
+    <h3>Dictionaries</h3>
     <p>Within a Python program, we can store many items in a
     <a href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">dictionary</a>.
     Dictionaries are mutable, meaning they can be changed after they are
@@ -71,13 +71,13 @@
     </tbody></table>
 
     <p>We can create a dictionary by using curly braces ({ and }). We
-    can add an item to a dictionary and look up an item in a dictionary
-    by using the square brackets ([ and ]) and a key. The following code
-    example shows how to create a dictionary and add and look up items
-    in a dictionary.</p>
+    can add an item to a dictionary and find an item in a dictionary by
+    using the square brackets ([&nbsp;and&nbsp;]) and a key. The
+    following code example shows how to create a dictionary, add an
+    item, and find an item in a dictionary.</p>
 
 <div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex3">
+<pre class="python" id="ex1">
 # Create a dictionary with student IDs as
 # the keys and student names as the values.
 students = {
@@ -103,7 +103,7 @@ id = input("Enter a student ID: ")
 
 # Check if the student ID is in the dictionary.
 if id in students:
-    # Lookup the student ID in the dictionary and
+    # Find the student ID in the dictionary and
     # retrieve the corresponding student name.
     <em>name = students[id]</em>
 
@@ -118,44 +118,67 @@ else:
 for key, value in students.items():
     print(key, value)</pre></div>
 
-    <p><span class="cross" data-ref="ex3">Line&nbsp;12</span> in the
+    <p><span class="cross" data-ref="ex1">Line&nbsp;12</span> in the
     previous code example, adds an item to the dictionary. To add an
     item to an existing dictionary, write code that follows this
     template:</p>
 <div class="pre"><pre class="python">dictionary_name[key] = value</pre></div>
-    <p>Notice that line&nbsp;12 follows this template.</p>
+    <p>Notice that <span class="cross" data-ref="ex1">line&nbsp;12</span>
+    follows this template.</p>
 
-    <p><span class="cross" data-ref="ex3">Line&nbsp;28</span> in the
-    previous code example, looks up a key and retrieves its
-    corresponding value from a dictionary. To look up a key and retrieve
-    its corresponding value, write code that follows this template:</p>
+    <p><span class="cross" data-ref="ex1">Line&nbsp;28</span> in the
+    previous code example, finds a key and retrieves its corresponding
+    value from a dictionary. To find a key and retrieve its
+    corresponding value, write code that follows this template:</p>
 <div class="pre"><pre class="python">value = dictionary_name[key]</pre></div>
-    <p>Notice that line&nbsp;28 follows this template.</p>
+    <p>Notice that <span class="cross" data-ref="ex1">line&nbsp;28</span>
+    follows this template.</p>
 
-    <h3>Membership Operator</h3>
-    <p>Python includes a <dfn>membership operator</dfn>:&nbsp;
-    <code>in</code>. We can use the <code>in</code> operator to
-    determine if a list or dictionary contains a value. For example:</p>
+    <h3>Common Mistake</h3>
+    <p>The reason Python dictionaries were developed is to make finding
+    items easy and fast. As explained in the previous code example, to
+    find an item in a dictionary, a programmer needs to write just one
+    line of code that follows this template:</p>
 
-<div class="pre"><pre class="python" id="ex3">
-# Create a dictionary with student IDs as
-# the keys and student names as the values.
-students = {
-    "42-039-4736": "Clint Huish",
-    "61-315-0160": "Michelle Davis",
-    "10-450-1203": "Jorge Soares",
-    "75-421-2310": "Abdul Ali",
-    "07-103-5621": "Michelle Davis"
-}
+<div class="pre"><pre class="python">value = dictionary_name[key]</pre></div>
 
-# Get the user's I-Number.
-inumber = input("Please enter your I-Number: ")
+    <p>That one line of code will cause the computer to search the
+    dictionary until it finds the <var>key</var>. Then the computer will
+    return the <var>value</var> that corresponds to the <var>key</var>.
+    Some students forget how easy it is to find items in a dictionary
+    and when asked to write code to find an item, they write code like
+    this example.</p>
 
-# Determine if the user's I-Number is in the dictionary of students.
-if <em>inumber in students</em>:
-    print(f"Your I-Number {inumber} is in the dictionary.")
+<div class="pre"><pre class="python">
+# Get a student ID from the user.
+id = input("Enter a student ID: ")
+
+name = None
+
+# For each item in the dictionary, check if
+# its key is the same as the variable id.
+for key, value in students.items():
+    if key == id:
+        name = value
+        break
+
+if name:
+    # Print the student name.
+    print(name)
 else:
-    print(f"Your I-Number {inumber} is NOT in the dictionary.")</pre></div>
+    print("No such student")</pre></div>
+
+    <p>Compare the <code>for</code> loop in the previous example with
+    this one line of code.</p>
+<div class="pre"><pre class="python">    name = students[id]</pre></div>
+
+    <p>Clearly, writing the one line of code is easier for the
+    programmer than writing the <code>for</code> loop. Not only is the
+    one line of code easier to write, but the computer will execute it
+    much, much faster than the <code>for</code> loop. Therefore, when
+    you need to write code to find an item in a dictionary, don't write
+    a loop. Instead, write one line of code that uses the square
+    brackets ([&nbsp;and&nbsp;]) and a key to find an item.</p>
 
     <h3>Converting between Lists and Dictionaries</h3>
     <p>It is possible to convert two lists into a dictionary by using
@@ -197,7 +220,7 @@ print(keys)
 print(values)</pre></div>
 
     <h2>Documentation</h2>
-    <p>The following tutorials contain more information about lists and
+    <p>The following tutorials contain more information about
     dictionaries in Python.</p>
 
     <ul class="links">
