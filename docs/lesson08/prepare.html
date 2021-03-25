@@ -74,10 +74,12 @@
     can add an item to a dictionary and find an item in a dictionary by
     using the square brackets ([&nbsp;and&nbsp;]) and a key. The
     following code example shows how to create a dictionary, add an
-    item, and find an item in a dictionary.</p>
+    item, remove an item, and find an item in a dictionary.</p>
 
 <div class="pre"><pre class="linenums"></pre>
 <pre class="python" id="ex1">
+# Example 1
+
 # Create a dictionary with student IDs as
 # the keys and student names as the values.
 students = {
@@ -91,6 +93,9 @@ students = {
 # Add an item to the dictionary.
 <em>students["81-298-9238"] = "Sama Patel"</em>
 
+# Remove an item from the dictionary.
+students.pop("61-315-0160")
+
 # Get the number of items in the dictionary and print it.
 length = len(students)
 print(length)
@@ -103,11 +108,12 @@ id = input("Enter a student ID: ")
 
 # Check if the student ID is in the dictionary.
 if id in students:
+
     # Find the student ID in the dictionary and
     # retrieve the corresponding student name.
     <em>name = students[id]</em>
 
-    # Print the student name.
+    # Print the student's name.
     print(name)
 else:
     print("No such student")
@@ -134,11 +140,58 @@ for key, value in students.items():
     <p>Notice that <span class="cross" data-ref="ex1">line&nbsp;28</span>
     follows this template.</p>
 
-    <h3>Common Mistake</h3>
+    <h3>Compound Values</h3>
+    <p>A <dfn>compound value</dfn> is a value that has parts. A
+    <dfn>simple value</dfn> is a value that isn't separated into parts.
+    In example&nbsp;1 above, the <var>students</var> dictionary has
+    simple keys and values. Each key is a single string and each value
+    is a single string. It is possible to store compound values in a
+    dictionary. The next code example shows a <var>students</var>
+    dictionary where each value is a Python list. Because each list
+    contains multiple parts, we say that dictionary stores compound
+    values.</p>
+
+<div class="pre"><pre class="python" id="ex2">
+# Example 2
+
+# Create a dictionary with student IDs as the keys
+# and student data stored in a list as the values.
+students = {
+    "42-039-4736": ["Clint", "Huish", "hui20001@byui.edu", 16],
+    "61-315-0160": ["Michelle", "Davis", "dav21012@byui.edu", 3],
+    "10-450-1203": ["Jorge", "Soares", "soa22005@byui.edu", 15],
+    "75-421-2310": ["Abdul", "Ali", "ali20003@byui.edu", 5],
+    "07-103-5621": ["Michelle", "Davis" "dav19008@byui.edu", 0]
+}
+
+# Add an item to the dictionary.
+students["81-298-9238"] = ["Sama", "Patel", "pat21004@byui.edu", 8]
+
+# Get a student ID from the user.
+id = input("Enter a student ID: ")
+
+# Check if the student ID is in the dictionary.
+if id in students:
+
+    # Find the student ID in the dictionary and
+    # retrieve the corresponding value, which is a list.
+    value = students[id]
+
+    # Retrive the student's given name (first name) and
+    # surname (last name or family name) from the list.
+    given_name = value[0]
+    surname = value[1]
+
+    # Print the student's name.
+    print(f"{given_name} {surname}")
+else:
+    print("No such student")</pre></div>
+
+    <h3 id="findOne">Finding One Item</h3>
     <p>The reason Python dictionaries were developed is to make finding
-    items easy and fast. As explained in the previous code example, to
-    find an item in a dictionary, a programmer needs to write just one
-    line of code that follows this template:</p>
+    items easy and fast. As explained in the example&nbsp;1, to find an
+    item in a dictionary, a programmer needs to write just one line of
+    code that follows this template:</p>
 
 <div class="pre"><pre class="python">value = dictionary_name[key]</pre></div>
 
@@ -149,9 +202,15 @@ for key, value in students.items():
     and when asked to write code to find an item, they write code like
     this example.</p>
 
-<div class="pre"><pre class="python">
+<div class="pre"><pre class="python" id="ex3">
+# Example 3
+
 # Get a student ID from the user.
 id = input("Enter a student ID: ")
+
+<em># This is a difficult and slow way to find an item in a
+# dictionary. Don't write code like this to find an item
+# in a dictionary!</em>
 
 name = None
 
@@ -178,7 +237,63 @@ else:
     much, much faster than the <code>for</code> loop. Therefore, when
     you need to write code to find an item in a dictionary, don't write
     a loop. Instead, write one line of code that uses the square
-    brackets ([&nbsp;and&nbsp;]) and a key to find an item.</p>
+    brackets ([&nbsp;and&nbsp;]) and a key to find an item.
+    Example&nbsp;4 shows the correct way to find an item in a
+    dictionary.</p>
+
+<div class="pre"><pre class="python" id="ex4">
+# Example 4
+
+# Get a student ID from the user.
+id = input("Enter a student ID: ")
+
+<em># This is the correct way to find an item in a dictionary.</em>
+
+# Check if the student ID is in the dictionary.
+if id in students:
+
+    # Find the student ID in the dictionary and
+    # retrieve the corresponding student name.
+    name = students[id]
+
+    # Print the student's name.
+    print(name)
+else:
+    print("No such student")</pre></div>
+
+    <h3 id="processAll">Processing All Items</h3>
+    <p>Occaisionally, you may need to write a program that processes all
+    the items in a dictionary. Processing all the items in a dictionary
+    is done using a <code>for</code> loop and the
+    <code>dict.items</code> method as shown in example&nbsp;5.
+
+<div class="pre"><pre class="python" id="ex5">
+# Example 5
+
+# Create a dictionary with student IDs as the keys
+# and student data stored in a list as the values.
+students = {
+    "42-039-4736": ["Clint", "Huish", "hui20001@byui.edu", 16],
+    "61-315-0160": ["Michelle", "Davis", "dav21012@byui.edu", 3],
+    "10-450-1203": ["Jorge", "Soares", "soa22005@byui.edu", 15],
+    "75-421-2310": ["Abdul", "Ali", "ali20003@byui.edu", 5],
+    "07-103-5621": ["Michelle", "Davis" "dav19008@byui.edu", 0],
+    "81-298-9238": ["Sama", "Patel", "pat21004@byui.edu", 8]
+}
+
+total = 0
+
+# For each item in the list add the number
+# of credits that the studen thas earned.
+<em>for inumber, value in students.items():</em>
+
+    # Retrieve the number of credits from the value list.
+    credits = value[3]
+
+    # Add the number of credits to the total.
+    total += credits
+
+print(f"Total credits earned by all students: {total}")</pre></div>
 
     <h3>Converting between Lists and Dictionaries</h3>
     <p>It is possible to convert two lists into a dictionary by using
@@ -195,7 +310,9 @@ else:
     starts with two lists, converts them into a dictionary, and then
     converts the dictionary into two lists.</p>
 
-<div class="pre"><pre class="python" id="ex4">
+<div class="pre"><pre class="python" id="ex6">
+# Example 6
+
 # Create a list that contains five student numbers.
 numbers = ["42-039-4736", "61-315-0160",
         "10-450-1203", "75-421-2310", "07-103-5621"]

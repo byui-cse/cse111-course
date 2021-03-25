@@ -129,15 +129,15 @@ print(text_lines)</pre></div>
     example is the contents of a CSV file that stores information about
     some dental offices in Rexburg, Idaho. Notice that the first row of
     the file contains column headings, the next four rows contain
-    information about four dental offices, and each row contains three
+    information about four dental offices, and each row contains five
     columns separated by commas.</p>
 
 <div class="pre"><pre class="csv">
-Company Name,Address,Phone Number
-Eagle Rock Dental Care,556 Trejo Suite C,208-359-2224
-Apple Tree Dental,33 Winn Drive Suite 2,208-359-1500
-Rockhouse Dentistry,106 E 1st N,208-356-5600
-Cornerstone Family Dental,44 S Center Street,208-356-4240
+Company Name,Address,Phone Number,Employees,Patients
+Eagle Rock Dental Care,556 Trejo Suite C,208-359-2224,7,1205
+Apple Tree Dental,33 Winn Drive Suite 2,208-359-1500,10,1520
+Rockhouse Dentistry,106 E 1st N,208-356-5600,12,1982
+Cornerstone Family Dental,44 S Center Street,208-356-4240,8,1453
 </pre></div>
 
     <p>Python has a module named
@@ -187,6 +187,58 @@ with open("dentists.csv", "rt") as dentists_file:
 
 # Print the entire dentists dictionary.
 print(dentists)</pre></div>
+
+    <p>The previous example reads the contents of a CSV file and stores
+    the contents in a dictionary. However, it is not always necessary to
+    store the contents of a CSV file in a dictionary. Sometimes a
+    program simply needs to use the values in the CSV file in
+    calculations but doesn't need to store the contents of the CSV
+    file. In such a situation, the program will still use a for loop
+    but will not use a dictionary. The next code example processes each
+    line in the dentists.csv file to determine which dental office has
+    the most patients per employee, but it doesn't use a dictionary.</p>
+
+<div class="pre"><pre class="python" id="ex3">
+import csv
+
+# Open a file named dentists.csv and store a reference
+# to the opened file in a variable named dentists_file.
+with open("dentists.csv", "rt") as dentists_file:
+
+    # Use the csv module to create a reader
+    # object that will read from the opened file.
+    reader = csv.reader(dentists_file)
+
+    # The first line of the CSV file contains column headings
+    # and not information about a dental office, so this
+    # statement skips the first line of the CSV file.
+    next(reader)
+
+    running_max = 0
+    most_office = None
+
+    # Read each row in the CSV file one at a time.
+    # The reader object returns each row as a list.
+    for row in reader:
+
+        # For the current row, retrieve the
+        # values in columns 0, 3, and 4.
+        company = row[0]
+        num_employees = int(row[3])
+        num_patients = int(row[4])
+
+        # Compute the number of patients per
+        # employee for the current dental office.
+        patients_per_employee = num_patients / num_employees
+
+        # If the current dental office has more patients per
+        # employee than the running maximum, assign the running
+        # maximum and best office to be the current dental office.
+        if patients_per_employee &gt; running_max:
+            running_max = patients_per_employee
+            most_office = company
+
+print(f"{most_office} has {running_max:.1f} patients per employee")</pre></div>
 
     <h2>Documentation</h2>
     <p>If any of the concepts or topics in the previous section seem

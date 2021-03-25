@@ -8,13 +8,11 @@
     <title>CSE 111 - Prove</title>
     <link rel="icon" type="image/png" href="../site/icon.png">
     <link rel="stylesheet" type="text/css" href="../site/style.css">
-    <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-database.js"></script>
     <script src="../site/url.js"></script>
     <script src="../site/urlWrite.js"></script>
     <script src="../site/color.js"></script>
-    <script src="../site/hljs/highlight.pack.js"></script>
 </head>
 
 <body>
@@ -27,134 +25,150 @@
     <h2>CSE 111 | <span>Programming with Functions</span></h2>
 </header>
 <article>
-    <h1>09 Prove Milestone: Data Analysis</h1>
+    <h1>09 Prove Milestone: Text Files</h1>
 
     <h2>Overview</h2>
-    <p>Prove that you can write a Python program that uses
-    <code>pandas</code> to read and analyze data.</p>
+    <p>Prove that you can write a Python program that reads CSV files
+    and creates, populates, and uses dictionaries.</p>
+
+    <h2>Problem Statement</h2>
+    <p>A local grocery store subscribes to an online service that
+    enables their customers to order groceries online. After a customer
+    completes an order, the online service sends a CSV file that
+    contains the customer's requests to the grocery store. The store
+    needs you to write a program that reads the CSV file and prints (to
+    the terminal window) a receipt that lists the purchased items and
+    shows the subtotal, the sales tax amount, and the total.</p>
 
     <h2>Helpful Documentation</h2>
-    <ol class="long">
-        <li><div>The <a href="prepare.html">prepare</a> content for this
-        lesson includes example code for the tasks in this assignment.
-        Additionally, the prepare content contains links to the official
-        <code>pandas</code> tutorials.</div></li>
+    <ul class="long">
+        <li><div><a href="file_setup.html">This article</a> explains how
+        to setup VS Code so that your Python program can read from
+        files.</div></li>
 
-        <li><div>Grouping and aggregating data is an intermediate data
-        analysis operation that can summarize many rows into just a few
-        rows. To
-        <a href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/06_calculate_statistics.html#aggregating-statistics-grouped-by-category">group and aggregate data</a>,
-        use the <code>.groupby</code> and <code>.aggregate</code>
-        methods as shown in this template:
+        <li><div>The <a href="prepare.html">prepare content</a> for this
+        lesson shows how to read all the lines from a text file and how
+        to read the contents of a CSV file into a dictionary.</div></li>
 
-<div class="pre"><pre class="python">import pandas as pd
+        <li><div>The prepare content for lesson&nbsp;8 explains how to
+        <a href="../lesson09/prepare.html#findOne">find an item</a> in a
+        dictionary.</div></li>
 
-df = pd.read_csv("<var>filename</var>.csv")
-group = df.groupby("<var>existing_column_to_group_by</var>")
-grouped_df = group.aggregate(
-        <var>new_column_name</var>=("<var>existing_column_to_summarize</var>", "<var>function</var>"))</pre></div>
-
-        For example, the following code computes the sum of water usage
-        grouped by account type.
-
-<div class="pre"><pre class="python">import pandas as pd
-
-df = pd.read_csv("water.csv", parse_dates=["readDate"])
-group = df.groupby("accountType")
-grouped_df = group.aggregate(sumUsage=("usage", "sum"))
-print(grouped_df)</pre></div>
-
-        And produces the following DataFrame. Notice that the 246,830
-        rows from the <code>water.csv</code> file are grouped and
-        summarized into just 16 rows.
-
-<pre class="console">
-                          sumUsage
-accountType
-Airport Hanger                 833
-Apartment Complex          2393851
-BYU-Idaho                  1463713
-Business                   1975252
-Business with Apartment      23297
-Church                      270953
-City                        264437
-Free                          1648
-Out of Town                 111530
-Residence                  2849155
-Residence with Apartment     11143
-School                      262725
-Sprinklers                   59386
-Town Homes                  215182
-Trailer Court               136023
-Vacant                       15237</pre></div></li>
-    </ol>
+        <li><div><a href="https://content.byui.edu/items/a9e60503-b5e7-40f0-bf48-ebf1a7441d25/1/example_03.mp4">This video</a>
+        shows a BYU-Idaho faculty member solving a problem that is
+        similar to this prove assignment.</div></li>
+    </ul>
 
     <h2>Assignment</h2>
-    <p>During this lesson and the next lesson, you will write a Python
-    program that uses <code>pandas</code> to analyze <a download
-    href="water.zip">water usage data</a> from the City of Rexburg. Your
-    program must be separated into functions where each function
-    performs one task only. Your program will allow a user to enter a
-    water meter number, a start year, and an end year and then display
-    at least two charts to help the user visualize the data for the
-    given meter number. During this prove milestone, you will write code
-    to read the CSV file, get the user input, and filter and prepare the
-    data. During the next prove assignment, you will write code to draw
-    the charts.</p>
-
-    <p>Download this Python file: <a download
-    href="meter_usage.py"><code>meter_usage.py</code></a> and save it in
-    the same folder where you previously saved the
-    <code>water.csv</code> file. Open the <code>meter_usage.py</code>
-    file in VS Code. Notice that the only function that is complete is
-    <code>add_usage_median_column</code>. All the other functions are
-    incomplete, and you need to complete them. During this prove
-    milestone, you should complete these three functions:</p>
+    <p>During this milestone (lesson 9), you will write half of this
+    Python program. Specifically, by the end of this milestone, your
+    program will read and process these two CSV files:</p>
     <ul>
-        <li><div><code>add_year_month_column</code></div></li>
-        <li><div><code>filter_for_meter</code></div></li>
-        <li><div><code>filter_between_dates</code></div></li>
+        <li><div>The <code>products.csv</code> file is a catalog of
+            all the products that the grocery store sells.</div></li>
+        <li><div>The <code>request.csv</code> file contains the items
+            ordered by a customer.</div></li>
     </ul>
 
-    <p>During the next prove assignment, you should complete these
-    functions:</p>
-    <ul>
-        <li><div><code>main</code></div></li>
-        <li><div><code>get_int</code></div></li>
-        <li><div><code>show_meter_usage</code></div></li>
-        <li><div><code>show_comparison</code></div></li>
-        <li><div>any other functions that you add</div></li>
-    </ul>
+    <p>Do the following:</p>
+    <ol class="long">
+        <li><div>Download both of these files:
+        <a download href="products.csv">products.csv</a> and
+        <a download href="request.csv">request.csv</a> and
+        save them into the same folder where you will save your Python
+        program.</div></li>
 
-    <p>If you would like to see two of the charts that your program
-    should draw at the end of next lesson, look at the
-    <a href="../lesson10/prove.html#run">Sample Run</a> section of the
-    next prove assignment.</p>
+        <li><div>Open the <code>products.csv</code> file in VS Code and
+        examine it. Notice that each row in this file contains three
+        values separated by commas: a product number, a product name,
+        and a retail price.</div></li>
+
+        <li><div>In VS Code, create a new file and save it as
+        <code>receipt.py</code> in the same folder where you saved the
+        <code>products.csv</code> and <code>request.csv</code>
+        files.</div></li>
+
+        <li><div><p>In <code>receipt.py</code>, write a function named
+        <code>read_products</code> that will open the
+        <code>products.csv</code> file for reading and use a csv.reader
+        to read each row and populate a dictionary named
+        <var>products</var> with the contents of the
+        <code>products.csv</code> file.</p>
+
+        <p>Recall that each item in a dictionary has a key and a value.
+        Each item in the <var>products</var> dictionary must have a
+        product number as the key and a list with the product name and
+        price as the value. This organization is shown in the following
+        table.</p>
+
+        <table class="center"><thead>
+            <tr><th colspan="2">Products</th></tr>
+            <tr><th>Key</th> <th>Value</th></tr>
+        </thead><tbody>
+            <tr><td>"D150"</td> <td>["1 gallon milk", 2.85]</td></tr>
+            <tr><td>"D083"</td> <td>["1 cup yogurt", 0.75]</td></tr>
+            <tr><td>"P143"</td> <td>["1 lb baby carrots", 1.39]</td></tr>
+            <tr><td>"W231"</td> <td>["32 oz granola", 3.21]</td></tr>
+            <tr><td>"W112"</td> <td>["wheat bread", 2.55]</td></tr>
+            <tr><td>"C013"</td> <td>["twix candy bar", 0.85]</td></tr>
+            <tr><td class="center">&vellip;</td> <td class="center">&vellip;</td></tr>
+        <tbody></table></div></li>
+
+        <li><div>Open the <code>request.csv</code> file in VS Code and
+        examine it. Notice that each row contains only two values, a
+        product number and a quantity.</div></li>
+
+        <li><div>In your <code>receipt.py</code> program, write another
+        function named <code>process_request</code> that will open the
+        <code>request.csv</code> file for reading. In the
+        <code>process_request</code> function, write a loop that will
+        read and process each row from the <code>request.csv</code>
+        file. Within the body of the loop, your program must do the
+        following for each row:
+        <ol>
+            <li><div>Use the requested product number to find the
+            corresponding item in <var>products</var>
+            dictionary.</div></li>
+            <li><div>Print the product name, requested quantity, and
+            product price.</div></li>
+        </ol></div></li>
+
+        <li><div>In your <code>receipt.py</code> program, write after the code
+        that populates the <var>products</var> dictionary, write a line
+        of code to print the entire <var>products</var> dictionary. Run
+        your program and verify that your printed dictionary contains
+        all the data that is in the <code>products.csv</code>
+        file.</div></li>
+    </ol>
+
+    <h2>Sample Run</h2>
+<pre class="console">&gt; python receipt.py
+
+Products
+{'D150': ['1 gallon milk', 2.85],
+'D083': ['1 cup yogurt', 0.75],
+'P143': ['1 lb baby carrots', 1.39],
+'W231': ['32 oz granola', 3.21],
+'W112': ['wheat bread', 2.55],
+'C013': ['twix candy bar', 0.85]}
+
+Requested Items
+1 gallon milk: 2 @ 2.85
+32 oz granola: 1 @ 3.21
+1 cup yogurt: 4 @ 0.75
+twix candy bar: 2 @ 0.85</pre>
 
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each step
     in this testing procedure:</p>
 
-    <ol class="test long">
-        <li><div>Download, examine, and run this Python file named
-        <a download href="test_meter_usage.py"><code>test_meter_usage.py</code></a>
-        that contains <code>pytest</code> test functions. Verify that
-        all the test functions pass. If they don't pass, fix the
-        mistakes in your code until they do pass.</div></li>
+    <ol class="test">
+        <li><div>Run your program and verify that it prints the
+        <var>products</var> dictionary and requested items as shown in
+        the Sample Run section above. The output of your program should
+        contain the same data as above but does not have to be formatted
+        exactly the same as above.</div></li>
     </ol>
-
-    <h2>Sample Run</h2>
-<pre class="console">&gt; python test_meter_usage.py
-========================= test session starts =========================
-platform win32 -- Python 3.8.5, pytest-6.1.1, py-1.9.0, pluggy-0.13.1
-rootdir: C:\Users\cse111\lesson09
-collected 3 items
-
-test_meter_usage.py::test_add_year_month_column <span class="pass">PASSED           [ 33%]</span>
-test_meter_usage.py::test_filter_for_meter <span class="pass">PASSED                [ 66%]</span>
-test_meter_usage.py::test_filter_between_dates <span class="pass">PASSED            [100%]</span>
-
-<span class="pass">========================== 3 passed in 2.06s ==========================</span></pre>
 
     <h2>Submission</h2>
     <p>On or before the due date, return to I-Learn and report your

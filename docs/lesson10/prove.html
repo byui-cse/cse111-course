@@ -14,6 +14,7 @@
     <script src="../site/url.js"></script>
     <script src="../site/urlWrite.js"></script>
     <script src="../site/color.js"></script>
+    <script src="../site/linenums.js"></script>
     <script src="../site/hljs/highlight.pack.js"></script>
 </head>
 
@@ -27,139 +28,136 @@
     <h2>CSE 111 | <span>Programming with Functions</span></h2>
 </header>
 <article>
-    <h1>10 Prove Assignment: Data Visualization</h1>
+    <h1>10 Prove Assignment: Handling Exceptions</h1>
 
     <h2>Overview</h2>
-    <p>Prove that you can write a Python program that uses
-    <code>pandas</code> to read and analyze data and draw plots to help
-    a user visualize trends in the data.</p>
+    <p>Prove that you can write a Python program that handles
+    exceptions, including FileNotFoundError, PermissionError, and
+    KeyError.</p>
+
+    <h2>Problem Statement</h2>
+    <p>A local grocery store subscribes to an online service that
+    enables their customers to order groceries online. After a customer
+    completes an order, the online service sends a CSV file to the
+    grocery store. The store needs you to write a program that reads the
+    CSV file and prints (to the terminal window) a receipt that lists
+    the purchased items and shows the subtotal, the sales tax amount,
+    and the total.</p>
 
     <h2>Helpful Documentation</h2>
-    <ul class="long">
-        <li><div>In previous programs in this course, you wrote code
-        that called the <code>int</code> and <code>float</code>
-        functions to convert user input from a string to a number. Dates
-        are similar to numbers. In order to filter the rows in a
-        DataFrame with a user entered date, a program must first convert
-        the user input from a string to a date. One way to convert a
-        string to a date is to use the pandas
-        <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.to_datetime.html"><code>to_datetime</code></a>
-        function as shown in this code example:
-<div class="pre"><pre class="python">import pandas as pd
+    <ol class="long">
+        <li><div>The <a href="prepare.html">prepare</a> content for this
+        lesson explains how to handle exceptions.</div></li>
 
-year = int(input("Please enter a year (ex: 2021) "))
-text = f"{year}-01-01"
-<em>date = pd.to_datetime(text)</em></pre></div></div></li>
+    <p><a href="https://content.byui.edu/items/a9e60503-b5e7-40f0-bf48-ebf1a7441d25/1/example_04.mp4">This video</a>
+    shows a BYU-Idaho faculty member writing code that prints the
+    current date and time formatted so that users can easily read
+    it.</p>
 
-        <li><div>The <code>pandas</code> Getting Started Tutorials
-        contain a helpful <a href="https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/04_plotting.html">short section about creating plots</a>.</div></li>
+    <p>The <code>datetime</code> module contains the
+    <a href="https://docs.python.org/3/library/datetime.html#datetime.datetime.now"><code>now</code> method</a>,
+    which will get the current date and time from your computer's
+    operating system. To get the current date and time from your
+    computer's operating system, import the <code>datetime</code> module
+    and add this code to your program:</p>
 
-        <li><div>The <code>pandas</code> User Guide contains a
-        <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/visualization.html">long section about creating plots</a>.</div></li>
+<div class="pre"><pre class="python">
+import datetime
 
-        <li><div>The prepare content, checkpoint, and team activity in
-        this lesson taught you how to define a plot with just one series
-        (column) plotted on the y-axis. For example:
-<div class="pre"><pre class="python">import pandas as pd
-import matplotlib.pyplot as pyplot
+# Get the current date and time from the datetime
+# module which gets it from the operating system.
+current_date_and_time = datetime.datetime.now()
+</pre></div>
 
-# Read a DataFrame from a CSV file.
-df = pd.read_csv("filename.csv")
+    <p>After the computer executes the above code, the variable
+    <var>current_date_and_time</var> will hold the current date and
+    time. You can then add code to call the
+    <a href="https://docs.python.org/3/library/datetime.html#datetime.datetime.strftime"><code>strftime</code> method</a>,
+    which will format a date and time into a string that is easily
+    readable by a user. For example:</p>
 
-# Define a vertical bar plot from the DataFrame.
-df.plot(kind="bar", x="column_name_1", y="column_name_2")
+<div class="pre"><pre class="python">
+import datetime
 
-# Draw and show all defined plots.
-pyplot.show()</pre></div>
+# Get the current date and time from the datetime
+# module which gets it from the operating system.
+current_date_and_time = datetime.datetime.now()
 
-        Sometimes we want a plot to show the values from two columns on
-        the y-axis like Figure&nbsp;2 in the Sample Run section below.
-        To define a plot with more than one column plotted on the
-        y-axis, pass a list instead of a single string as the
-        <var>y</var> named parameter to the pandas
-        <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.plot.html"><code>plot</code></a>
-        function. For example:
-<div class="pre"><pre class="python"># Define a vertical bar plot from the DataFrame.
-df.plot(kind="bar", x="column_name_1",
-        <em>y=["column_name_2", "column_name_3"]</em>)</pre></div></div></li>
-    </ul>
+# Format the current date and time to include only
+# the day of the week, the hour, and the minute.
+string = <em>current_date_and_time.strftime("%A %I:%M %p")</em>
+
+# Print the formatted string.
+print(string)</pre></div>
+
+    <p>In the previous example, the string sequences that begin with the
+    percent symbol (%) are called format codes. The
+    <code>strftime</code> format codes and their meaning are listed in
+    <a ref="https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes">this document</a>.
+    When executed, the previous example will print the current date and
+    time to the terminal window like this:</p>
+
+<pre class="console">&gt; python example.py
+Tuesday 01:23 PM</pre>
 
     <h2>Assignment</h2>
-    <p>During this assignment, you will write and test the remaining
-    parts of the Python program that you began during the previous
-    <a href="../lesson09/prove.html">lesson's milestone</a>. Do the
-    following:</p>
+    <p>During the prove assignment for lesson&nbsp;9, you wrote the part
+    of this program that reads and processes two CSV files, one named
+    <code>products.csv</code> that contains a catalog of products and
+    one named <code>request.csv</code> that contains a customer's
+    order. During this prove assignment (for lesson&nbsp;10), you will
+    add code to finish printing a receipt and to handle any exceptions
+    that might occur while your program is running. Specifically, your
+    program must do the following:</p>
 
-    <ol class="long">
-        <li><div>In the Python program that you began in the previous
-        lesson's milestone, write the code for the <code>get_int</code>,
-        <code>show_meter_usage</code>, and <code>show_comparison</code>
-        functions.</div></li>
-
-        <li><div>Add any additional functions that you would like to
-        write, including functions to draw additional plots.</div></li>
-
-        <li><div>Modify the code in the <code>main</code> function so
-        that your program allows a user to enter a water meter number, a
-        start year, and an end year and then displays at least two
-        plots to help the user visualize the data for the given meter
-        number.</div></li>
-
-        <li><div>Test your individual functions and program.</div></li>
+    <ol>
+        <li><div>Print the store name at the top of the receipt.</div></li>
+        <li><div>Print the list of ordered items.</div></li>
+        <li><div>Sum and print the number of ordered items.</div></li>
+        <li><div>Sum and print the subtotal due.</div></li>
+        <li><div>Compute and print the sales tax amount. Use 6% as the
+        sales tax rate.</div></li>
+        <li><div>Compute and print the total amount due.</div></li>
+        <li><div>Print a thank you message.</div></li>
+        <li><div>Get the current date and time from your computer's
+        operating system and print the current date and time.</div></li>
+        <li><div>Include a <code>try</code> block and
+        <code>except</code> blocks to handle
+        <code>FileNotFoundError</code>, <code>PermissionError</code>,
+        and <code>KeyError</code>.</div></li>
     </ol>
 
-    <!--
-    Notice also that while reading the function description for the
-    <code>main</code> function, it may seem that <code>main</code>
-    violates the rule that each function must perform one task only.
-    However, <code>main</code> does perform one high-level task only.
-    Its task is to fulfill the requirements of the program by calling
-    the other functions.
-    -->
+    <h2>Sample Run</h2>
+<pre class="console">&gt; python receipt.py
+Inkom Emporium
+
+1 gallon milk: 2 @ 2.85
+32 oz granola: 1 @ 3.21
+1 cup yogurt: 4 @ 0.75
+twix candy bar: 2 @ 0.85
+
+Number of Items: 9
+Subtotal: 13.61
+Sales Tax: 0.82
+Total: 14.43
+
+Thank you for shopping at the Inkom Emporium.
+Wed Nov  4 05:10:30 2020</pre>
 
     <h2>Testing Procedure</h2>
-    <p>Verify that your program works correctly by following each
-    step in this testing procedure:</p>
+    <p>Verify that your program works correctly by following each step
+    in this testing procedure:</p>
 
     <ol class="test long">
-        <li><div>Download, examine, and run this Python file named
-        <a download href="test_meter_usage.py"><code>test_meter_usage.py</code></a>
-        that contains <code>pytest</code> test functions. Verify that
-        all the test functions pass. If they don't pass, fix the
-        mistakes in your code until they do pass.</div></li>
+        <li><div>Run your program and verify that it computes the
+        number of items, subtotal, sales tax, and total as shown in the
+        Sample Run section above.</div></li>
 
-        <li><div>Run your program with the inputs shown in the Sample
-        Run section. Verify that your program displays the correct data
-        formatted similarly to the two plots shown in the Sample Run
-        section.</div></li>
-
-        <li><div>If you chose to add code to your program so that it
-        displays more plots than the two required ones, verify that the
-        plots are correct.</div></li>
-
-        <li><div>Run your program with other inputs. Verify that your
-        program correctly validates user input and displays correct
-        plots.</div></li>
+        <li><div>Verify that your program prints a receipt formatted
+        exactly like the one shown in the Sample Run section above,
+        except the last line with the date and time will have a
+        different value and may be formatted differently.</div></li>
     </ol>
-
-    <h2 id="run">Sample Run</h2>
-<pre class="console">&gt; python prove_solution
-
-Enter a meter number ('q' to quit): <span class="input">M5211</span>
-Enter a start year between 2015 and 2019, inclusive: <span class="input">2018</span>
-Enter an end year between 2018 and 2019, inclusive: <span class="input">2019</span>
-
-Enter a meter number ('q' to quit): q</pre>
-
-    <p><img src="m5211.png"
-    alt="A vertical bar plot showing the water used by meter #M5211"
-    title="A vertical bar plot showing the water used by meter #M5211"></p>
-
-    <p><img src="m5211_median.png"
-    alt="A line plot showing the water used by meter #M5211 and the
-    median for water meters of the same account type as M5211"
-    title="A line plot showing the water used by meter #M5211 and the
-    median for water meters of the same account type as M5211"></p>
 
     <h2>Submission</h2>
     <p>To submit your program, return to I-Learn and do these two
