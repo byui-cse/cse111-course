@@ -3,9 +3,9 @@ import pandas as pd
 
 def main():
     try:
-        # Read the students.csv file and convert the
+        # Read the pupils.csv file and convert the
         # birthdate column from a string to a datetime64.
-        original_df = pd.read_csv("students.csv", parse_dates=["birthdate"])
+        original_df = pd.read_csv("pupils.csv", parse_dates=["birthdate"])
 
         # Some of the phone numbers in the "phone" column do not start
         # with an area code, so replace the "phone" column with a new

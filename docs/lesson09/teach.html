@@ -57,7 +57,7 @@
 
     <h2>Assignment</h2>
     <p>Download the
-    <a download href="pupils.csv"><code>pupils.csv</code></a> file and
+    <a download href="students.csv"><code>students.csv</code></a> file and
     save it in the same folder where you will save your Python program.
     Open the file in VS Code and examine it. Notice that the I-Numbers
     and names in the file are separated by a comma. Notice also that the
@@ -65,15 +65,15 @@
     digits.</p>
 
     <h3>Core Requirements</h3>
-    <p>Write a Python program named <code>pupils.py</code> that does the
-    following:</p>
+    <p>Write a Python program named <code>students.py</code> that does
+    the following:</p>
 
     <ol class="long">
-        <li><div>Opens the <code>pupils.csv</code> file for reading.
-        Skips the first line of text in the file. Reads the other lines
-        of the file into a dictionary. The program must store the
-        student I-Numbers as keys and the student names as values in the
-        dictionary.</div></li>
+        <li><div>Opens the <code>students.csv</code> file for reading.
+        Skips the first line of text in the file because it contains
+        only headings. Reads the other lines of the file into a
+        dictionary. The program must store the student I-Numbers as keys
+        and the student names as values in the dictionary.</div></li>
 
         <li><div>Gets an I-Number from the user, uses the I-Number to
         find the corresponding student name in the dictionary, and
@@ -90,10 +90,6 @@
     stretch challenges are optional.</p>
 
     <ol class="long">
-        <li><div>Add something or change something in your program that
-        you think would make your program better, easier for the user,
-        more elegant, or more fun. Be creative.</div></li>
-
         <li><div>Add code to remove dashes from the I-Number that the
         user enters. This will allow the user to enter I-Numbers with
         dashes or without dashes and still allow the computer to search
@@ -114,15 +110,19 @@
             besides digits and dashes, your program should output
             "Invalid I-Number" (without the quotes).</div></li>
         </ol></li>
+
+        <li><div>Add something or change something in your program that
+        you think would make your program better, easier for the user,
+        more elegant, or more fun. Be creative.</div></li>
     </ol>
 
     <h2>Sample Runs</h2>
-<pre class="console">&gt; python teach_solution.py
-Please enter an I-Number (xx-xxx-xxxx): <span class="input">55-123-4151</span>
+<pre class="console">&gt; python students.py
+Please enter an I-Number (xxxxxxxxx): <span class="input">551234151</span>
 No such student
 
 &gt; python teach_solution.py
-Please enter an I-Number (xx-xxx-xxxx): <span class="input">75-176-6201</span>
+Please enter an I-Number (xxxxxxxxx): <span class="input">751766201</span>
 James Smith</pre>
 
     <h2>Testing Procedure</h2>

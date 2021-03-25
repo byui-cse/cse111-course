@@ -41,9 +41,9 @@ def test_add_columns():
     """Verify that the add_columns function
     correctly adds two columns to a data frame.
     """
-    # Read the students.csv file and convert the
+    # Read the pupils.csv file and convert the
     # birthdate column from a string to a datetime64.
-    df = pd.read_csv("students.csv", parse_dates=["birthdate"])
+    df = pd.read_csv("pupils.csv", parse_dates=["birthdate"])
     assert len(df) == 187
 
     # Verify that the data frame doesn't yet have the two columns.
@@ -70,11 +70,11 @@ def test_add_columns():
 
 def test_grade_level_counts():
     """Verify that the grade_level_counts function correctly counts the
-    number of students in each grade (kindergarten, first, second...)
+    number of pupils in each grade (kindergarten, first, second...)
     """
-    # Read the students.csv file and convert the
+    # Read the pupils.csv file and convert the
     # birthdate column from a string to a datetime64.
-    df = pd.read_csv("students.csv", parse_dates=["birthdate"])
+    df = pd.read_csv("pupils.csv", parse_dates=["birthdate"])
     assert len(df) == 187
 
     # Create a cutoff date that is 2020 Oct 1.

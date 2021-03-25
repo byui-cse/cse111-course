@@ -90,44 +90,62 @@
     programmers use a <code>with</code> block when calling the
     <code>open</code> function and nest the <code>for</code> loop inside
     the <code>with</code> block. When the <code>with</code> block ends,
-    the computer will automatically close the file.</p>
+    the computer will automatically close the file, so that the
+    programmer doesn't have to write a call <code>file.close</code>
+    method.</p>
 
     <p>Here is a code example that opens a text file named
-    <code>plants.txt</code> for reading and then reads each line of text
-    one at a time. In the body of the <code>for</code> loop the code
-    removes surrounding white space from each line of text and stores
-    each line of text in a list.</p>
+    <code>plants.txt</code> for reading and then reads the text one line
+    at a time. In the body of the <code>for</code> loop the code removes
+    surrounding white space from each line of text and stores each line
+    of text in a list.</p>
 
 <div class="pre"><pre class="python" id="ex1">
-# Create an empty list named text_lines.
-text_lines = []
+def main():
+    # Read the contents of a text file
+    # named plants.txt into a list.
+    text_lines = read_list("plants.txt")
 
-# Open the plants.txt file for reading and store a reference
-# to the opened file in a variable named plants_file.
-with open("plants.txt", "rt") as plants_file:
+    # Print the entire list.
+    print(text_lines)
 
-    # Read the contents of the text
-    # file one line at a time.
-    for line in plants_file:
 
-        # Remove white space, if there is any,
-        # from the beginning and end of the line.
-        clean_line = line.strip()
+def read_list(filename):
+    """Read the contents of a text file into a list
+    and return the list that contains the lines of text.
 
-        # Append the clean line of text
-        # onto the end of the list.
-        text_lines.append(clean_line)
+    Parameter filename: the name of the text file to read
+    Return: a list of strings
+    """
+    # Create an empty list named text_lines.
+    text_lines = []
 
-# Print the entire list.
-print(text_lines)</pre></div>
+    # Open the text file for reading and store a reference
+    # to the opened file in a variable named text_file.
+    with open(filename, "rt") as text_file:
+
+        # Read the contents of the text
+        # file one line at a time.
+        for line in text_file:
+
+            # Remove white space, if there is any,
+            # from the beginning and end of the line.
+            clean_line = line.strip()
+
+            # Append the clean line of text
+            # onto the end of the list.
+            text_lines.append(clean_line)
+
+    # Return the list that contains the lines of text.
+    return text_lines</pre></div>
 
     <h3 id="csvFiles">CSV Files</h3>
     <p>Many computer systems import and export data in CSV files. CSV is
     an acronym for comma separated values. A <dfn>CSV file</dfn> is a
-    text file that contains tabular data where each row is on a separate
-    line and each cell (column) is separated by a comma. The following
-    example is the contents of a CSV file that stores information about
-    some dental offices in Rexburg, Idaho. Notice that the first row of
+    text file that contains tabular data with each row on a separate
+    line and each cell (column) separated by a comma. The following
+    example shows the contents of a CSV file that stores information
+    about dental offices in Rexburg, Idaho. Notice that the first row of
     the file contains column headings, the next four rows contain
     information about four dental offices, and each row contains five
     columns separated by commas.</p>
@@ -146,47 +164,72 @@ Cornerstone Family Dental,44 S Center Street,208-356-4240,8,1453
     following example code shows how to open a CSV file and use the
     <code>csv</code> module to read the data and store it in a
     dictionary. Remember that each item in a dictionary is a key value
-    pair. Notice in the code example that the last cell in each row is
-    used as the key and the other cells in each row are used as the
-    value in each dictionary item.</p>
+    pair. Notice in the code example that the dental office phone number
+    is used as the key, and the other cells are used as the value in
+    each item in the dictionary.</p>
 
 <div class="pre"><pre class="python" id="ex2">
 import csv
 
-# Create an empty dictionary that will
-# store the data from the CSV file.
-dentists = {}
 
-# Open a file named dentists.csv and store a reference
-# to the opened file in a variable named dentists_file.
-with open("dentists.csv", "rt") as dentists_file:
+def main():
+    # The headings and indexes of the
+    # columns in the dentists.csv file.
+    COMPANY_NAME = 0
+    ADDRESS = 1
+    PHONE = 2
+    EMPLOYEES = 3
+    PATIENTS = 4
 
-    # Use the csv module to create a reader
-    # object that will read from the opened file.
-    reader = csv.reader(dentists_file)
+    # Read the contents of a CSV file named dentists.csv
+    # into a dictionary named dentists. Use the phone
+    # numbers as the keys in the dictionary.
+    dentists = read_dict("dentists.csv", PHONE)
 
-    # The first line of the CSV file contains column headings
-    # and not information about a dental office, so this
-    # statement skips the first line of the CSV file.
-    next(reader)
+    # Print the dentists dictionary.
+    print(dentists)
 
-    # Read each row in the CSV file one at a time.
-    # The reader object returns each row as a list.
-    for row in reader:
 
-        # For the current row, retrieve the
-        # values in columns 0, 1, and 2.
-        company = row[0]
-        address = row[1]
-        phone = row[2]
+def read_dict(filename, key_column_index):
+    """Read the contens of a CSV file into a dictionary
+    and return the dictionary.
+    Parameters
+        filename: the name of the CSV file to read.
+        key_column_index: the index of the column
+            to use as the keys in the dictionary.
+    Return: a dictionary that contains the contents of the CSV file.
+    """
+    # Create an empty dictionary that will
+    # store the data from the CSV file.
+    dictionary = {}
 
-        # Store the data from the current row into the dentists
-        # dictionary. Use the phone number as the key. Create a
-        # list with the company name and address as the value.
-        dentists[phone] = [company, address]
+    # Open a CSV file for reading and store a reference
+    # to the opened file in a variable named text_file.
+    with open(filename, "rt") as text_file:
 
-# Print the entire dentists dictionary.
-print(dentists)</pre></div>
+        # Use the csv module to create a reader
+        # object that will read from the opened file.
+        reader = csv.reader(text_file)
+
+        # The first line of the CSV file contains column
+        # headings and not information, so this statement
+        # skips the first line of the CSV file.
+        next(reader)
+
+        # Read the rows in the CSV file one row at a time.
+        # The reader object returns each row as a list.
+        for row in reader:
+
+            # From the current row, retrieve
+            # the column that contains the key.
+            key = row[key_column_index]
+
+            # Store the data from the current row
+            # into the dictionary.
+            dictionary[key] = row
+
+    # Return the dictionary.
+    return dictionary</pre></div>
 
     <p>The previous example reads the contents of a CSV file and stores
     the contents in a dictionary. However, it is not always necessary to
@@ -201,44 +244,47 @@ print(dentists)</pre></div>
 <div class="pre"><pre class="python" id="ex3">
 import csv
 
-# Open a file named dentists.csv and store a reference
-# to the opened file in a variable named dentists_file.
-with open("dentists.csv", "rt") as dentists_file:
 
-    # Use the csv module to create a reader
-    # object that will read from the opened file.
-    reader = csv.reader(dentists_file)
+def main():
+    # Open a file named dentists.csv and store a reference
+    # to the opened file in a variable named dentists_file.
+    with open("dentists.csv", "rt") as dentists_file:
 
-    # The first line of the CSV file contains column headings
-    # and not information about a dental office, so this
-    # statement skips the first line of the CSV file.
-    next(reader)
+        # Use the csv module to create a reader
+        # object that will read from the opened file.
+        reader = csv.reader(dentists_file)
 
-    running_max = 0
-    most_office = None
+        # The first line of the CSV file contains column headings
+        # and not information about a dental office, so this
+        # statement skips the first line of the CSV file.
+        next(reader)
 
-    # Read each row in the CSV file one at a time.
-    # The reader object returns each row as a list.
-    for row in reader:
+        running_max = 0
+        most_office = None
 
-        # For the current row, retrieve the
-        # values in columns 0, 3, and 4.
-        company = row[0]
-        num_employees = int(row[3])
-        num_patients = int(row[4])
+        # Read each row in the CSV file one at a time.
+        # The reader object returns each row as a list.
+        for row in reader:
 
-        # Compute the number of patients per
-        # employee for the current dental office.
-        patients_per_employee = num_patients / num_employees
+            # For the current row, retrieve the
+            # values in columns 0, 3, and 4.
+            company = row[0]
+            num_employees = int(row[3])
+            num_patients = int(row[4])
 
-        # If the current dental office has more patients per
-        # employee than the running maximum, assign the running
-        # maximum and best office to be the current dental office.
-        if patients_per_employee &gt; running_max:
-            running_max = patients_per_employee
-            most_office = company
+            # Compute the number of patients per
+            # employee for the current dental office.
+            patients_per_employee = num_patients / num_employees
 
-print(f"{most_office} has {running_max:.1f} patients per employee")</pre></div>
+            # If the current dental office has more patients per
+            # employee than the running maximum, assign running_max
+            # and most_office to be the current dental office.
+            if patients_per_employee &gt; running_max:
+                running_max = patients_per_employee
+                most_office = company
+
+    # Print the results for the user to see.
+    print(f"{most_office} has {running_max:.1f} patients per employee")</pre></div>
 
     <h2>Documentation</h2>
     <p>If any of the concepts or topics in the previous section seem

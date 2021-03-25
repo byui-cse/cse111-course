@@ -10,73 +10,84 @@ import csv
 
 
 def main():
-    students = read_dict("pupils.csv")
+    # The column headings and indexes.
+    I_NUMBER = 0
+    NAME = 1
 
+    # Read the contents of a CSV file named students.csv
+    # into a dictionary named students. Use the I-Number
+    # as the key in the dictionary.
+    students = read_dict("students.csv", I_NUMBER)
 
     # Get an I-Number from the user.
-    inum = str(input("Please enter an I-Number (xx-xxx-xxxx): "))
+    inumber = str(input("Please enter an I-Number (xx-xxx-xxxx): "))
 
     # The I-Numbers are stored in the CSV file as digits only (without
     # any dashes), so we remove all dashes from the user's input.
-    inum = inum.replace("-", "")
+    inumber = inumber.replace("-", "")
 
     # Determine if the user input is formatted correctly.
-    if not inum.isdigit():
+    if not inumber.isdigit():
         print("Invalid character in I-Number")
     else:
-        if len(inum) < 9:
+        if len(inumber) < 9:
             print("Invalid I-Number: too few digits")
-        elif len(inum) > 9:
+        elif len(inumber) > 9:
             print("Invalid I-Number: too many digits")
         else:
             # The user input is a valid I-Number. Find
             # the I-Number in the list of I-Numbers.
-            if inum not in students:
+            if inumber not in students:
                 print("No such student")
             else:
                 # Retrieve the student name that corresponds
                 # to the I-Number that the user entered.
-                name = students[inum]
+                value = students[inumber]
+                name = value[NAME]
 
                 # Print the student name.
                 print(name)
 
 
-def read_dict(filename):
-    """Read the contents of a CSV file into a dictionary
+def read_dict(filename, key_column_index):
+    """Read the contens of a CSV file into a dictionary
     and return the dictionary.
-
-    Parameter filename: the name of the CSV file.
-    Return: a new dictionary containing the contents of the CSV file.
+    Parameters
+        filename: the name of the CSV file to read.
+        key_column_index: the index of the column
+            to use as the keys in the dictionary.
+    Return: a dictionary that contains the contents of the CSV file.
     """
-    # Create an empty dictionary that will store student
-    # information with the I-Number number as the key.
+    # Create an empty dictionary that will
+    # store the data from the CSV file.
     dictionary = {}
 
-    # Open the specified file for reading and store a reference
-    # to the opened file in a variable named infile.
-    with open(filename, "rt") as infile:
+    # Open a CSV file for reading and store a reference
+    # to the opened file in a variable named text_file.
+    with open(filename, "rt") as text_file:
 
-        # Use the csv module to create a reader object
-        # that will read from the opened file.
-        reader = csv.reader(infile)
+        # Use the csv module to create a reader
+        # object that will read from the opened file.
+        reader = csv.reader(text_file)
 
-        # The first line of the CSV file contains column headings
-        # and not a student's I-Number and name, so this statement
+        # The first line of the CSV file contains column
+        # headings and not information, so this statement
         # skips the first line of the CSV file.
         next(reader)
 
-        # Read each row in the CSV file one at a time as a list.
+        # Read the rows in the CSV file one row at a time.
+        # The reader object returns each row as a list.
         for row in reader:
 
-            # For the current row, retrieve
-            # the values in columns 0 and 1.
-            inumber = row[0]
-            name = row[1]
+            # From the current row, retrieve
+            # the column that contains the key.
+            key = row[key_column_index]
 
-            # Add a student's I-Number and name to the dictionary.
-            dictionary[inumber] = name
+            # Store the data from the current row
+            # into the dictionary.
+            dictionary[key] = row
 
+    # Return the dictionary.
     return dictionary
 
 

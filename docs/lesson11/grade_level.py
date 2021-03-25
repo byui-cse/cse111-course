@@ -23,9 +23,9 @@ level_dict = {
 
 def main():
     try:
-        # Read the students.csv file and convert the
+        # Read the pupils.csv file and convert the
         # birthdate column from a string to a datetime64.
-        df = pd.read_csv("students.csv", parse_dates=["birthdate"])
+        df = pd.read_csv("pupils.csv", parse_dates=["birthdate"])
 
         # Create the cutoff date to be Oct 1 during
         # the current year and print the cutoff date.
@@ -82,10 +82,10 @@ def add_columns(df, cutoff):
 
 def grade_level_counts(df):
     """Create and return a new Series that contains
-    the number of students in each grade level.
+    the number of pupils in each grade level.
     """
     # Call pandas value_counts function to create a new Series named
-    # counts that contains the number of students in each grade level.
+    # counts that contains the number of pupils in each grade level.
     pass
 
     # Return the counts Series.
