@@ -9,18 +9,8 @@ def main():
         # Get a filename from the user.
         filename = input("Enter the name of text file: ")
 
-        # Create an empty list to hold the
-        # text that is read from the file.
-        text_lines = []
-
-        # Open the text file for reading.
-        with open(filename, "rt") as infile:
-
-            # Read all the lines of the text file one line at
-            # a time and store each line of text into a list.
-            for line in infile:
-                clean_line = line.strip()
-                text_lines.append(clean_line)
+        # Read the text file specified by the user into a list.
+        text_lines = read_list(filename)
 
         # Get a line number from the user.
         linenum = int(input("Enter a line number: "))
@@ -39,6 +29,14 @@ def main():
         print(type(file_not_found_err).__name__, file_not_found_err, sep=": ")
         print(f"The file {filename} doesn't exist.")
         print("Run the program again and enter the name of an existing file.")
+
+    except PermissionError as perm_err:
+        # This code will be executed if the user enters the name
+        # of a file and doesn't have permission to read that file.
+        print()
+        print(type(perm_err).__name__, perm_err, sep=": ")
+        print(f"You don't have permission to read {filename}.")
+        print("Run the program again and enter the name of a file that you are allowed to read.")
 
     except ValueError as val_err:
         # This code will be executed if the user enters
@@ -66,6 +64,36 @@ def main():
         # This code will be executed if some other type of exception occurs.
         print()
         print(type(excep).__name__, excep, sep=": ")
+
+
+def read_list(filename):
+    """Read the contents of a text file into a list
+    and return the list that contains the lines of text.
+
+    Parameter filename: the name of the text file to read
+    Return: a list of strings
+    """
+    # Create an empty list named text_lines.
+    text_lines = []
+
+    # Open the text file for reading and store a reference
+    # to the opened file in a variable named text_file.
+    with open(filename, "rt") as text_file:
+
+        # Read the contents of the text
+        # file one line at a time.
+        for line in text_file:
+
+            # Remove white space, if there is any,
+            # from the beginning and end of the line.
+            clean_line = line.strip()
+
+            # Append the clean line of text
+            # onto the end of the list.
+            text_lines.append(clean_line)
+
+    # Return the list that contains the lines of text.
+    return text_lines
 
 
 # If this file was executed like this:

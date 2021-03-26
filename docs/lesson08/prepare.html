@@ -116,40 +116,34 @@ if id in students:
     # Print the student's name.
     print(name)
 else:
-    print("No such student")
+    print("No such student")</pre></div>
 
-# Use a for loop to print each key value pair in the
-# dictionary. Of course, the code in the body of a loop can
-# do much more with each key value pair than simply print it.
-for key, value in students.items():
-    print(key, value)</pre></div>
-
-    <p><span class="cross" data-ref="ex1">Line&nbsp;12</span> in the
+    <p><span class="cross" data-ref="ex1">Line&nbsp;14</span> in the
     previous code example, adds an item to the dictionary. To add an
     item to an existing dictionary, write code that follows this
     template:</p>
 <div class="pre"><pre class="python">dictionary_name[key] = value</pre></div>
-    <p>Notice that <span class="cross" data-ref="ex1">line&nbsp;12</span>
+    <p>Notice that <span class="cross" data-ref="ex1">line&nbsp;14</span>
     follows this template.</p>
 
-    <p><span class="cross" data-ref="ex1">Line&nbsp;28</span> in the
+    <p><span class="cross" data-ref="ex1">Line&nbsp;34</span> in the
     previous code example, finds a key and retrieves its corresponding
     value from a dictionary. To find a key and retrieve its
     corresponding value, write code that follows this template:</p>
 <div class="pre"><pre class="python">value = dictionary_name[key]</pre></div>
-    <p>Notice that <span class="cross" data-ref="ex1">line&nbsp;28</span>
+    <p>Notice that <span class="cross" data-ref="ex1">line&nbsp;34</span>
     follows this template.</p>
 
     <h3>Compound Values</h3>
-    <p>A <dfn>compound value</dfn> is a value that has parts. A
-    <dfn>simple value</dfn> is a value that isn't separated into parts.
-    In example&nbsp;1 above, the <var>students</var> dictionary has
-    simple keys and values. Each key is a single string and each value
-    is a single string. It is possible to store compound values in a
-    dictionary. The next code example shows a <var>students</var>
-    dictionary where each value is a Python list. Because each list
-    contains multiple parts, we say that dictionary stores compound
-    values.</p>
+    <p>A <dfn>simple value</dfn> is a value that isn't separated into
+    parts, such as an integer. A <dfn>compound value</dfn> is a value
+    that has parts, such as a list. In example&nbsp;1 above, the
+    <var>students</var> dictionary has simple keys and values. Each key
+    is a single string and each value is a single string. It is possible
+    to store compound values in a dictionary. The next code example
+    shows a <var>students</var> dictionary where each value is a Python
+    list. Because each list contains multiple parts, we say that
+    the dictionary stores compound values.</p>
 
 <div class="pre"><pre class="python" id="ex2">
 # Example 2
@@ -189,30 +183,31 @@ else:
 
     <h3 id="findOne">Finding One Item</h3>
     <p>The reason Python dictionaries were developed is to make finding
-    items easy and fast. As explained in the example&nbsp;1, to find an
-    item in a dictionary, a programmer needs to write just one line of
-    code that follows this template:</p>
+    items easy and fast. As explained in example&nbsp;1, to find an item
+    in a dictionary, a programmer needs to write just one line of code
+    that follows this template:</p>
 
 <div class="pre"><pre class="python">value = dictionary_name[key]</pre></div>
 
     <p>That one line of code will cause the computer to search the
     dictionary until it finds the <var>key</var>. Then the computer will
     return the <var>value</var> that corresponds to the <var>key</var>.
-    Some students forget how easy it is to find items in a dictionary
-    and when asked to write code to find an item, they write code like
-    this example.</p>
+    Some students forget how easy it is to find items in a dictionary,
+    and when asked to write code to find an item, they write complex
+    code like this example.</p>
 
-<div class="pre"><pre class="python" id="ex3">
+<div class="pre"><pre class="linenums"></pre>
+<pre class="python" id="ex3">
 # Example 3
 
 # Get a student ID from the user.
 id = input("Enter a student ID: ")
 
+name = None
+
 <em># This is a difficult and slow way to find an item in a
 # dictionary. Don't write code like this to find an item
 # in a dictionary!</em>
-
-name = None
 
 # For each item in the dictionary, check if
 # its key is the same as the variable id.
@@ -227,8 +222,9 @@ if name:
 else:
     print("No such student")</pre></div>
 
-    <p>Compare the <code>for</code> loop in the previous example with
-    this one line of code.</p>
+    <p>Compare the <code>for</code> loop at
+    <span class="cross" data-ref="ex3">lines&nbsp;14&ndash;17</span> in
+    the previous example to this one line of code.</p>
 <div class="pre"><pre class="python">    name = students[id]</pre></div>
 
     <p>Clearly, writing the one line of code is easier for the
@@ -265,7 +261,7 @@ else:
     <p>Occaisionally, you may need to write a program that processes all
     the items in a dictionary. Processing all the items in a dictionary
     is done using a <code>for</code> loop and the
-    <code>dict.items</code> method as shown in example&nbsp;5.
+    <code>dict.items()</code> method as shown in example&nbsp;5.</p>
 
 <div class="pre"><pre class="python" id="ex5">
 # Example 5

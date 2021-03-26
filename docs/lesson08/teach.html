@@ -8,11 +8,14 @@
     <title>CSE 111 - Team Activity</title>
     <link rel="icon" type="image/png" href="../site/icon.png">
     <link rel="stylesheet" type="text/css" href="../site/style.css">
+    <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-database.js"></script>
     <script src="../site/url.js"></script>
     <script src="../site/urlWrite.js"></script>
     <script src="../site/color.js"></script>
+    <script src="../site/linenums.js"></script>
+    <script src="../site/hljs/highlight.pack.js"></script>
 </head>
 
 <body>
@@ -25,7 +28,7 @@
     <h2>CSE 111 | <span>Programming with Functions</span></h2>
 </header>
 <article>
-    <h1>08 Team Activity: Handling Errors</h1>
+    <h1>08 Team Activity: Dictionaries</h1>
 
     <h2>Instructions</h2>
     <p>Arrange a one hour synchronous meeting with your team for this
@@ -35,27 +38,215 @@
     the individual checkpoint assignment beforehand.</p>
 
     <h2>Problem Statement</h2>
-    <p>Every year in the United States, thousands of people are killed
-    and millions more are injured in traffic accidents on the nation's
-    roads and highways. The U.S. National Highway Traffic Safety
-    Administration (NHTSA) maintains
-    <a href="https://cdan.nhtsa.gov/tsftables/tsfar.htm">data about the
-    accidents</a>, including a list of factors contributing to each
-    accident.</p>
+    <p>The Church of Jesus Christ of Latter-day Saints uses lots of
+    computer technology to collect and store family history data,
+    including data about individuals and marriages. Interestingly, the
+    data about individuals must be stored separately from the data about
+    marriages because some individuals get married multiple times.
+    However, in order to make the data understandable to people, when a
+    person views marriage data, a program must combine the marriage data
+    with the data about individuals in the marriage.</p>
 
-    <p>The CSV file <code>accidents.csv</code> contains summary data
-    from the NHTSA about the accidents that occurred on U.S. roads and
-    highways during the years 2010 through 2017. <code>accidents.py</code>
-    is a Python program that uses the data to estimate how many lives
-    would have been saved and injuries avoided if drivers had stopped
-    dangerous behavior such as speeding and using cell phones while
-    driving.</p>
+    <h2>Assignment</h2>
+    <p>Write a Python program that stores data about individuals in one
+    dictionary and stores data about marriages in a different
+    dictionary. Your program must combine the data in the two
+    dictionaries and print the combined data so that it is understandble
+    to a user. Copy and paste the following code into a new program
+    named <code>family_history.py</code></p>
 
-    <p>Unfortunately, <code>accidents.py</code> does not contain any
-    code to validate the input that the user enters while the program is
-    running. Add exception handling code to <code>crashes.py</code> to
-    validate the user's input and print helpful error messages when the
-    user enters incorrect input.</p>
+<div class="pre"><pre class="python">
+# Each value in the people dictionary is a list. These
+# are the indexes of the elements in those lists.
+NAME_INDEX = 0
+GENDER_INDEX = 1
+BIRTH_YEAR_INDEX = 2
+DEATH_YEAR_INDEX = 3
+
+# Each value in the marriages dictionary is a list.
+# These are the indexes of the elements in those lists.
+HUSBAND_KEY_INDEX = 0
+WIFE_KEY_INDEX = 1
+WEDDING_YEAR_INDEX = 2
+
+
+def main():
+    people_dict = {
+        # Each item in the people dictionary is a key value pair.
+        # Each key is a unique identifier that begins with the
+        # letter "P". Each value is a list of data about a person.
+        # Each item in the dictionary is in this format:
+        # person_key: [name, gender, birth_year, death_year]
+        "P143": ["Lola Park", "F", 1663, 1706],
+        "P338": ["Savanna Foster", "F", 1674, 1723],
+        "P201": ["Tiffany Hughes", "F", 1689, 1747],
+        "P203": ["Ignacio Torres", "M", 1693, 1758],
+        "P128": ["Yasmin Li", "F", 1701, 1716],
+        "P342": ["Trent Ross", "M", 1705, 1757],
+        "P202": ["Samyukta Nguyen", "M", 1717, 1774],
+        "P132": ["Joel Johnson", "M", 1724, 1800],
+        "P445": ["Whitney Nelson", "F", 1757, 1823],
+        "P318": ["Khalid Ali", "M", 1759, 1814],
+        "P317": ["Davina Patel", "F", 1775, 1860],
+        "P313": ["Enzo Ruiz", "M", 1782, 1782],
+        "P475": ["Lauren Smith", "F", 1800, 1802],
+        "P455": ["Lucas Ross", "M", 1800, 1853],
+        "P435": ["Jamal Gray", "M", 1810, 1831],
+        "P204": ["Fatima Soares", "F", 1812, 1898],
+        "P206": ["Ephraim Foster", "M", 1831, 1885],
+        "P500": ["Peter Price", "M", 1832, 1878],
+        "P207": ["Rosalina Jimenez", "F", 1875, 1956],
+        "P425": ["Rachel Johnson", "F", 1876, 1940],
+        "P121": ["Vanessa Bennet", "F", 1880, 1960],
+        "P152": ["Jose Castillo", "M", 1884, 1931],
+        "P205": ["Liam Myers", "M", 1902, 1950],
+        "P465": ["Isabella Lopez", "F", 1907, 1959],
+        "P168": ["Megan Anderson", "F", 1909, 1945]
+    }
+
+    marriages_dict = {
+        # Each item in the marriages dictionary is a key value pair.
+        # Each key is a unique identifier that begins with the
+        # letter "M". Each value is a list of data about a marriage.
+        # Each item in the dictionary is in this format:
+        # marriage_key: [husband_key, wife_key, wedding_year]
+        "M48": ["P203", "P201", 1711],
+        "M45": ["P342", "P338", 1722],
+        "M36": ["P203", "P201", 1724],
+        "M47": ["P202", "P445", 1774],
+        "M21": ["P132", "P445", 1775],
+        "M59": ["P132", "P317", 1792],
+        "M63": ["P318", "P445", 1804],
+        "M12": ["P318", "P317", 1808],
+        "M54": ["P435", "P204", 1830],
+        "M34": ["P455", "P204", 1853],
+        "M55": ["P500", "P317", 1859],
+        "M52": ["P206", "P204", 1875],
+        "M78": ["P152", "P121", 1905],
+        "M50": ["P152", "P425", 1917],
+        "M64": ["P205", "P465", 1925],
+        "M62": ["P152", "P207", 1925],
+        "M70": ["P152", "P168", 1928]
+    }
+
+    # Call the print_death_age function to print
+    # each person's name and age at death.
+    print_death_age(people_dict)
+
+    # Print a blank line.
+    print()
+
+    # Call the count_genders function to count
+    # and print the number of males and females.
+    count_genders(people_dict)
+
+    # Print a blank line.
+    print()
+
+    # Call the print_marriages function to print
+    # human readable data about the marriages.
+    print_marriages(marriages_dict, people_dict)
+
+
+def print_death_age(people_dict):
+    """For each person in the people dictionary,
+    print the person's name and age at death.
+
+    Parameter
+        people_dict: a dictionary that contains data about people
+            Each item in the dictionary is in this format:
+            person_key: [name, gender, birth_year, death_year]
+    Return: nothing
+    """
+    pass
+
+
+def count_genders(people_dict):
+    """Count and print the number of males
+    and females in the people dictionary.
+
+    Parameter
+        people_dict: a dictionary that contains data about people
+            Each item in the dictionary is in this format:
+            person_key: [name, gender, birth_year, death_year]
+    Return: nothing
+    """
+    pass
+
+
+def print_marriages(marriages_dict, people_dict):
+    """For each marriage in the marriages dictionary, print
+    the husband's name, his age at wedding, the wedding year,
+    the wife's name, and her age at wedding.
+
+    Parameters
+        marriages_dict: a dictionary that contains data about
+            marriages. Each item in the dictionary is in this format:
+            marriage_key: [husband_key, wife_key, wedding_year]
+        people_dict: a dictionary that contains data about people
+            Each item in the dictionary is in this format:
+            person_key: [name, gender, birth_year, death_year]
+    Return: nothing
+    """
+    pass
+
+
+# If this file was executed like this:
+# &gt; python teach_solution.py
+# then call the main function. However, if this file
+# was simply imported, then skip the call to main.
+if __name__ == "__main__":
+    main()</pre></div>
+
+    <h3>Core Requirements</h3>
+    <ol class="long">
+        <li><div>Within your program, the <code>print_death_age</code>
+        function must print the name and age at death for each person in
+        the people dictionary.</div></li>
+
+        <li><div>The <code>count_genders</code> function must count and
+        print the number of males and the number of females in the
+        people dictionary.</div></li>
+
+        <li><div>The <code>print_marriages</code> function must print
+        the following for each marriage in the marriages dictionary:
+        <ol>
+            <li><div>The name and age in the wedding year of the
+            husband</div></li>
+            <li><div>The year of the wedding</div></li>
+            <li><div>The name and age in the wedding year of the
+            wife</div></li>
+        </ol>
+        </div></li>
+    </ol>
+
+    <h3>Stretch Challenges</h3>
+    <p>If your team finishes the core requirements in less than an
+    hour, complete one or more of these stretch challenges. Note that
+    the stretch challenges are optional.</p>
+
+    <ol class="long">
+        <li><div>Add code to the <code>print_death_age</code> function
+        that prints the birth year and death year for each
+        person.</div></li>
+
+        <!--
+        <li><div>Add to your program a function named
+        <code>print_marriages_for_person</code> that asks the user for a
+        person key. Then the function should print the person's name and
+        for all the marriages of that person, print the wedding year and
+        spouse's name. If there are no marriages in the marriage
+        dictionary for the person specified by the user, the function
+        should print, "No marriage data." Recall that a person_key
+        begins with the letter "P" and has three digits after the
+        "P".</div></li>
+        -->
+
+        <li><div>Add to your program a function named
+        <code>count_marriages</code> that counts and prints the number
+        of marriages that each person had in his or her lifetime.
+        According to the data, who married the most times?</div></li>
+    </ol>
 
     <h2>Helpful Documentation</h2>
     <ul>
@@ -66,159 +257,67 @@
         <a href="prepare.html#validate">validate user input</a>
         within a loop.</div></li>
 
-        <li><div>This <a href="https://content.byui.edu/items/a9e60503-b5e7-40f0-bf48-ebf1a7441d25/1/example_08.mp4">short video</a>
-        shows a BYU-Idaho faculty member adding a <code>try</code> block
-        and <code>except</code> blocks to handle errors that might occur
-        while a program is executing.</div></li>
-
-        <li><div><a href="https://docs.python.org/3/library/functions.html#open">open function</a>,
-        <a href="https://docs.python.org/3/library/exceptions.html#FileNotFoundError">FileNotFoundError</a>, and
-        <a href="https://docs.python.org/3/library/exceptions.html#PermissionError">PermissionError</a></div></li>
-
-        <li><div><a href="https://docs.python.org/3/library/functions.html#float">float function</a> and
-        <a href="https://docs.python.org/3/library/exceptions.html#ValueError">ValueError</a></div></li>
-
-        <li><div><a href="https://docs.python.org/3/library/exceptions.html#KeyError">KeyError</a> and
-        <a href="https://docs.python.org/3/library/exceptions.html#ZeroDivisionError">ZeroDivisionError</a></div></li>
     </ul>
 
-    <h2>Assignment</h2>
-    <p>Do the following:</p>
-    <ol class="long">
-        <li><div>Download and save both
-        <a download href="accidents.csv"><code>accidents.csv</code></a> and
-        <a download href="accidents.py"><code>accidents.py</code></a> in
-        the same folder.</div></li>
-
-        <li><div>Open <code>accidents.csv</code> in VS Code or another
-        editor and notice that it contains ten columns and eight rows of
-        data regarding traffic accidents in the United
-        States.</div></li>
-
-        <li><div>Open <code>accidents.py</code> in VS Code and notice
-        that lines&nbsp;18&ndash;23 contain code to ask the user for a
-        filename and then open that file. It is possible that when the
-        computer executes line&nbsp;18, the user may enter the name of a
-        file that does not exist or may enter the name of a file that
-        the user does not have permission to read. These two situations
-        cause the computer to raise a <code>FileNotFoundError</code> or
-        <code>PermissionError</code> when the computer tries to open the
-        file at line&nbsp;23.</div></li>
-
-        <li><div>Notice that line&nbsp;26 of <code>accidents.py</code>
-        contains code to prompt the user for a number. It is possible
-        that while the computer is executing line&nbsp;26, the user may
-        enter text that is not a number, for example: "4r0". This
-        situation causes the computer to raise a
-        <code>ValueError</code>. It is also possible that the user may
-        enter a number that is too low or too high, for example: -15 or
-        701234932. In this situation, the computer does not raise an
-        exception, but this situation is still a mistake that the
-        program should alert the user about.</div></li>
-
-        <li><div>Notice that lines&nbsp;41 through&nbsp;49 of
-        <code>accidents.py</code> contain code to process each line of
-        the CSV file. It is possible that the CSV file is formatted
-        incorrectly which would cause the computer to raise either
-        <code>csv.Error</code> or <code>KeyError</code>. It is also
-        possible that one of the rows in the CSV file contains zero (0)
-        in the "Fatal Crashes" column. This would cause the computer to
-        raise <code>ZeroDivisionError</code> at line&nbsp;70 within the
-        <code>estimate_reduction</code> function.</div></li>
-    </ol>
-
-    <h3>Core Requirements</h3>
-    <ol class="long">
-        <li><div>Add exception handling code that prints a useful error
-        message when the computer raises <code>FileNotFoundError</code>
-        or <code>PermissionError</code>. Your exception handling code
-        should allow the user to reenter the filename without restarting
-        the program.</div></li>
-
-        <li><div>Add exception handling code that prints a useful error
-        message when the computer raises <code>ValueError</code> while
-        it is converting the percentage entered by the user to a float.
-        Your exception handling code should allow the user to reenter
-        the percentage without restarting the program.</div></li>
-
-        <li><div>Add code that prints a useful error message when the
-        user enters a percentage that is less than 0 or greater than
-        100. Your code should allow the user to reenter the percentage
-        without restarting the program.</div></li>
-    </ol>
-
-    <h3>Stretch Challenges</h3>
-    <p>If your team finishes the core requirements in less than an
-    hour, complete one or more of these stretch challenges. Note that
-    the stretch challenges are optional.</p>
-
-    <ol class="long">
-        <li><div>Add exception handling code to handle
-        <code>csv.Error</code> and <code>KeyError</code> that might be
-        raised by the <code>csv</code> module. This exception handling
-        code should print a useful error message that includes the
-        filename and line number of the line that is formatted
-        incorrectly.</div></li>
-
-        <li><div>Add exception handling code to handle
-        <code>ZeroDivisionError</code> that might be raised by the
-        <code>estimate_reduction</code> function. This exception
-        handling code should print a useful error message that includes
-        the filename and line number of the line that contains zero (0)
-        in the "Fatal Crashes" column.</div></li>
-
-        <li><div>Test <em>all</em> of your error handling code,
-        including the code that handles <code>ZeroDivisionError</code>
-        and <code>PermissionError</code>. To test
-        <code>ZeroDivisionError</code>, you could temporarily change
-        one of the numbers in the "Fatal Crashes" column of
-        <code>accidents.csv</code> to zero. To test
-        <code>PermissionError</code>, you could create a CSV file or a
-        simple text file and then use File Explorer or Finder to change
-        the permissions on that file so that you don't have permission
-        to read that file.</div></li>
-    </ol>
-
     <h2>Sample Run</h2>
-<pre class="console">&gt; python teach_solution.py
-Name of file that contains NHTSA data: <span class="input">dentiaccs.vsc</span>
-[Errno 2] No such file or directory: 'dentiaccs.vsc'
-Please choose a different file.
-Name of file that contains NHTSA data: <span class="input">unreadable.csv</span>
-[Errno 13] Permission denied: 'unreadable.csv'
-Please choose a different file.
-Name of file that contains NHTSA data: <span class="input">accidents.csv</span>
+<pre class="console">&gt; python family_history.py
+Ages at Death
+Lola Park 43
+Savanna Foster 49
+Tiffany Hughes 58
+Ignacio Torres 65
+Yasmin Li 15
+Trent Ross 52
+Samyukta Nguyen 57
+Joel Johnson 76
+Whitney Nelson 66
+Khalid Ali 55
+Davina Patel 85
+Enzo Ruiz 0
+Lauren Smith 2
+Lucas Ross 53
+Jamal Gray 21
+Fatima Soares 86
+Ephraim Foster 54
+Peter Price 46
+Rosalina Jimenez 56
+Liam Myers 48
+Rachel Johnson 64
+Isabella Castillo 52
+Vanessa Bennet 80
+Jose Castillo 47
+Megan Anderson 26
 
-Percent reduction of texting while driving [0, 100]: <span class="input">4r0</span>
-Error: could not convert string to float: '4r0'
-Percent reduction of texting while driving [0, 100]: <span class="input">-5</span>
-Error: -5.0 is too low. Please enter a different number.
-Percent reduction of texting while driving [0, 100]: <span class="input">110</span>
-Error: 110.0 is too high. Please enter a different number.
-Percent reduction of texting while driving [0, 100]: <span class="input">50</span>
+Genders
+Number of males: 12
+Number of females: 13
 
-With a 50.0% reduction in using a cell phone while
-driving, approximately this number of injuries and
-deaths would have been prevented in the USA.
-
-Year, Injuries, Deaths
-2010, 15631, 230
-2011, 15811, 232
-2012, 16759, 240
-2013, 15738, 224
-2014, 15052, 211
-2015, 17006, 247
-2016, 19953, 246
-2017, 16077, 217</pre>
+Marriages
+Ignacio Torres 18 &gt; 1711 &lt; Tiffany Hughes 22
+Trent Ross 17 &gt; 1722 &lt; Savanna Foster 48
+Ignacio Torres 31 &gt; 1724 &lt; Tiffany Hughes 35
+Samyukta Nguyen 57 &gt; 1774 &lt; Whitney Nelson 17
+Joel Johnson 51 &gt; 1775 &lt; Whitney Nelson 18
+Joel Johnson 68 &gt; 1792 &lt; Davina Patel 17
+Khalid Ali 45 &gt; 1804 &lt; Whitney Nelson 47
+Khalid Ali 49 &gt; 1808 &lt; Davina Patel 33
+Jamal Gray 20 &gt; 1830 &lt; Fatima Soares 18
+Lucas Ross 53 &gt; 1853 &lt; Fatima Soares 41
+Peter Price 27 &gt; 1859 &lt; Davina Patel 84
+Ephraim Foster 44 &gt; 1875 &lt; Fatima Soares 63
+Liam Myers 23 &gt; 1925 &lt; Isabella Castillo 18
+Jose Castillo 21 &gt; 1935 &lt; Vanessa Bennet 25
+Jose Castillo 33 &gt; 1947 &lt; Rachel Johnson 41
+Jose Castillo 41 &gt; 1955 &lt; Rosalina Jimenez 55
+Jose Castillo 44 &gt; 1958 &lt; Megan Anderson 19</pre>
 
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each step
     in this testing procedure:</p>
     <ol class="test">
-        <li><div>Run the <code>accidents.py</code> program and enter the
-        inputs shown in the "Sample Run" section above. Verify that the
-        exception handling code that you added prints error messages as
-        shown in the "Sample Run" section.</div></li>
+        <li><div>Run your <code>family_history.py</code> program and
+        verify that it prints the same results as shown in the Sample
+        Run section above.</div></li>
     </ol>
 
     <h2>Sample Solution</h2>
