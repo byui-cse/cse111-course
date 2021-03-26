@@ -69,20 +69,15 @@
         <code>given_name</code>, and <code>family_name</code>. Notice
         also that each function has a documentation string that
         describes what the function does. Read the documentation strings
-        for all three functions.</div></li>
+        for all three functions. The code in the functions may contains
+        some mistakes.</div></li>
 
-        <li><div>The functions in the file that you downloaded
-        (<code>names.py</code>) may contain some mistakes. Write a
-        Python test program named <code>test_names.py</code> that tests
-        the three functions in <code>names.py</code>. Save your
-        <code>test_names.py</code> file in the same folder where you
-        saved the <code>names.py</code> file.</div></li>
-
-        <li><div>At the top of your <code>test_names.py</code> file, add
-        these statements to import the three functions that are in
-        <code>names.py</code> and to import pytest:
+        <li><div>Using VS Code open a new Python file and copy and paste
+        the following import statements at the top of the file.
 <div class="pre"><pre class="python">from names import given_name, family_name, full_name
-import pytest</pre></div></div></li>
+import pytest</pre></div>
+        Save the file with the name <code>test_names.py</code> in the
+        same folder where you downloaded and saved <code>names.py</code>.
 
         <li><div>In <code>test_names.py</code> write a function named
         <code>test_full_name</code> that takes no parameters. Write
@@ -122,7 +117,7 @@ pytest.main(["-v", "--tb=no", "test_names.py"])
         <code>given_name</code>, and <code>family_name</code>
         functions.</div></li>
 
-        <li><div>Repeat steps&nbsp;8 and&nbsp;9 until you have found and
+        <li><div>Repeat steps&nbsp;7 and&nbsp;8 until you have found and
         fixed all the mistakes and your three test functions
         pass.</div></li>
     </ol>

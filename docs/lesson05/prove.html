@@ -8,14 +8,11 @@
     <title>CSE 111 - Prove</title>
     <link rel="icon" type="image/png" href="../site/icon.png">
     <link rel="stylesheet" type="text/css" href="../site/style.css">
-    <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-database.js"></script>
     <script src="../site/url.js"></script>
     <script src="../site/urlWrite.js"></script>
     <script src="../site/color.js"></script>
-    <script src="../site/linenums.js"></script>
-    <script src="../site/hljs/highlight.pack.js"></script>
 </head>
 
 <body>
@@ -28,244 +25,445 @@
     <h2>CSE 111 | <span>Programming with Functions</span></h2>
 </header>
 <article>
-    <h1>05 Prove Milestone: Writing Functions</h1>
+    <h1>05 Prove Milestone: Testing and Fixing Functions</h1>
 
     <h2>Overview</h2>
-    <p>Prove that you can write functions with parameters and call those
-    functions with arguments by writing a program that draws an outdoor
-    scene in a window.</p>
+    <p>Prove that you can write a Python program and write and run test
+    functions to help you find and fix mistakes.</p>
 
     <h2>Problem Statement</h2>
-    <p>Most modern computer operating systems have graphical user
-    interfaces (GUIs) that are rich with colors, icons, images, menus,
-    tabs, buttons, text fields, sliders, scroll bars, etc. However, many
-    Python programs are designed to run in a console window, also called
-    a terminal window, to read user input from a keyboard, and to print
-    text as output to the console window. This means that many Python
-    programs are not designed and written to take advantage of the rich
-    features of graphical user interfaces.</p>
-
-    <p>Python includes two competing libraries of code named
-    <code>tkinter</code> and <code>kivy</code> that enable a program to
-    have a user interface. Writing a program with a complete GUI is a
-    large task. During this lesson and the next lesson, you will write a
-    Python program that uses the <code>tkinter</code> library and
-    draws a semi-realistic scene in a graphical window similar to this
-    scene:</p>
-
-    <p><img src="scene.png"
-    alt="A semi-realistic outdoor scene drawn by a Python program"></p>
-
-    <h2>Scene Gallery</h2>
-    <p>All the scenes in
-    <a href="../lesson06/gallery/index.html">this gallery</a>
-    were drawn by programs written by former CSE 111 students.</p>
-
-    <h2>Helpful Videos</h2>
-    <p>The following videos walk through two examples of using functions
-    to draw with <code>tkinter</code>.</p>
-    <ul class="links">
-        <li><div><a href="https://content.byui.edu/items/a9e60503-b5e7-40f0-bf48-ebf1a7441d25/1/drawing_with_functions_part1.mp4">Drawing with Functions, part 1</a></div></li>
-        <li><div><a href="https://content.byui.edu/items/a9e60503-b5e7-40f0-bf48-ebf1a7441d25/1/drawing_with_functions_part2.mp4">Drawing with Functions, part 2</a></div></li>
-    </ul>
-
-    <h2>Helpful Documentation</h2>
-    <ul class="long">
-        <li><div>How to <a href="prepare.html">write functions</a></div></li>
-
-        <li><div>A tutorial about
-        <a href="http://zetcode.com/tkinter/drawing/">drawing with
-        tkinter</a></div></li>
-
-        <li><div>References for tkinter Canvas methods
-        <ul>
-            <li><div><a href="https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/create_arc.html">create_arc()</a></div></li>
-            <li><div><a href="https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/create_line.html">create_line()</a></div></li>
-            <li><div><a href="https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/create_oval.html">create_oval()</a></div></li>
-            <li><div><a href="https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/create_polygon.html">create_polygon()</a></div></li>
-            <li><div><a href="https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/create_rectangle.html">create_rectangle()</a></div></li>
-            <li><div><a href="https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/create_text.html">create_text()</a></div></li>
-        </ul></div></li>
-
-        <li><div><a href="colors.png">Chart of named
-        colors</a> in tkinter</div></li>
-    </ul>
-
-    <h2>Assignment</h2>
-    <p>During this lesson, you will write code that draws the sky,
-    the ground, and clouds. During the next lesson, you will write code
-    that completes the scene. The scene that your program draws may be
-    very different from the example scene above. However, your scene
-    must be outdoor, the sky must have clouds, and the scene must
-    include repetitive elements such as blades of grass, trees, leaves
-    on a tree, birds, flowers, insects, fish, pickets in a fence, dashed
-    lines on a road, buildings, bales of hay, snowmen, snowflakes, or
-    icicles. Be creative.</p>
-
-    <p>Each repetitive element must be drawn by a function that your
-    program calls repeatedly, once for each repeated element. For
-    example, your program may include a function named
-    <code>draw_leaf</code> that your program repeatedly calls to draw
-    all the leaves on a tree.</p>
-
-    <p>The goal of this assignment is not to train you to become a
-    world-famous cloud artist. Instead, the goal is to teach you how to
-    apply the following principles to a real programming problem:</p>
+    <p>The molar mass of a substance is the mass in grams of one mole of
+    the substance (grams / mole). In chemistry, a molar mass calculator
+    is a program that computes the molar mass of a substance. To use a
+    molar mass calculator, a chemist enters the formula for a molecule
+    such as H<sub>2</sub>O or C<sub>6</sub>H<sub>12</sub>O<sub>6</sub>.
+    The calculator splits the formula into elements and for each element
+    in the formula does the following:</p>
     <ol>
-        <li><div>Writing a function</div></li>
-        <li><div>Deciding what needs to be a parameter in a function
-        definition</div></li>
-        <li><div>Calling a function with different argument values to
-        produce different results</div></li>
-        <li><div>Understanding how to separate the parts of a function
-        that should stay the same and the parts that depend on
-        parameters, in order to make the function as reusable as
-        possible.</div></li>
+        <li><div>Sums the number of atoms of each element in the
+        formula</div></li>
+        <li><div>Looks up the atomic mass of each element</div></li>
+        <li><div>Multiplies the number of atoms by the atomic
+        mass</div></li>
+        <li><div>Adds the product into the molar mass of the
+        molecule</div></li>
     </ol>
 
-    <p>Begin your program by copying and pasting the following code into
-    a new file named <code>scene.py</code>. This beginning code imports
-    several parts of the <code>tkinter</code> library and creates a
-    window and a canvas that your program can draw to.</p>
+    <h2>Helpful Documentation</h2>
+    <p>If you are interested in the chemistry concepts involved in a
+    molar mass calculator, you can watch this Khan Academy video:
+    <a href="https://www.khanacademy.org/science/chemistry/atomic-structure-and-properties/introduction-to-compounds/v/worked-example-calculating-molar-mass-and-number-of-moles">Calculating molar mass and number of moles</a>.</p>
 
-<div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex1">
-import tkinter as tk
+    <p>The <a href="prepare.html">prepare</a> content for this lesson
+    explains how to use <code>pytest</code>, <code>assert</code>, and
+    <code>approx</code> to automatically verify that functions are
+    correct. It also contains an <a href="prepare.html#ex">example test
+    function</a> and links to additional documentation about
+    <code>pytest</code>.</p>
 
+    <p>This <a href="https://content.byui.edu/items/a9e60503-b5e7-40f0-bf48-ebf1a7441d25/1/example_07.mp4">short video</a>
+    shows a BYU-Idaho faculty member writing two test functions and
+    using <code>pytest</code> to run them.</p>
 
-def main():
-    # The width and height of the scene window.
-    width = 800
-    height = 500
+    <h2>Assignment</h2>
+    <p>During this lesson and the next lesson, you will write and test a
+    molar mass calculator. During this lesson you will complete about
+    half of the task by writing three test functions, running four test
+    functions, and finding and fixing any mistakes that cause test
+    failures.</p>
 
-    # Create the root Tk object.
-    root = tk.Tk()
-    root.geometry(f"{width}x{height}")
+    <p>Do the following:</p>
+    <ol class="long">
+        <li><div>Download the
+        <a download href="chemistry.py"><code>chemistry.py</code></a> and
+        <a download href="test_chemistry.py"><code>test_chemistry.py</code></a>
+        Python files and save them in the same folder where you will
+        save your Python program. Then open both downloaded files in VS
+        Code.</div></li>
 
-    # Create a Frame object.
-    frame = tk.Frame()
-    frame.master.title("Scene")
-    frame.pack(fill=tk.BOTH, expand=1)
+        <li><div>Near the middle of the <code>chemistry.py</code> file
+        are three functions named <code>get_name</code>,
+        <code>get_atomic_mass</code>, and <code>parse_formula</code>.
+        Examine the three functions and read their documentation
+        strings.
+        <ol>
+            <li><div>Notice that <code>get_name</code> takes one
+            parameter, a chemical element symbol such as "H" or "O", and
+            returns the name of the corresponding element.</div></li>
+            <li><div>Notice that <code>get_atomic_mass</code> also takes
+            one parameter, a chemical element symbol, and returns the
+            mass of the element.</div></li>
+            <li><div>Notice that <code>parse_formula</code> takes one
+            parameter, a string that contains the formula for a molecule
+            such as "H2O" or "C6H12O6" and returns a dictionary that
+            contains a key value pair for each element that is in the
+            formula.</div></li>
+        </ol></div></li>
 
-    # Create a canvas object that will draw into the frame.
-    canvas = tk.Canvas(frame)
-    canvas.pack(fill=tk.BOTH, expand=1)
+        <li><div><p>Near the top of the <code>test_chemistry.py</code>
+        file there are two unfinished functions named
+        <code>test_names</code> and <code>test_atomic_masses</code>.
+        Write code for <code>test_names</code> so that it tests the
+        <code>chemistry.get_name</code> function and write code for
+        <code>test_atomic_masses</code> so that it tests the
+        <code>chemistry.get_atomic_mass</code> function.</p>
 
-    # Call the draw_scene function.
-    draw_scene(canvas, 0, 0, width-1, height-1)
+        <p>There are 118 known elements. The names and the atomic masses
+        of all 118 must be tested by the code that you write in
+        <code>test_names</code> and <code>test_atomic_masses</code>.
+        When you are finished writing them, these two test functions
+        will each contain at least 118 lines of code. The correct
+        symbols, names, and atomic masses for the known elements are
+        listed in the following table. We <strong>strongly
+        recommend</strong> that you use <strong>copy and paste</strong>
+        and <strong>find and replace</strong> to help you quickly write
+        <code>test_names</code> and <code>test_atomic_masses</code>. If
+        you don't know how to use copy and paste or find and replace to
+        help you quickly write these two test functions, ask a fellow
+        student, a tutor, a teaching assistant, or your teacher for
+        help.</p>
 
-    root.mainloop()
+        <div>
+            <table style="display:table-cell"><thead>
+                <tr><th>Symbol</th> <th>Name</th></tr>
+            </thead><tbody>
+                <tr><td>Ac</td> <td>Actinium</td></tr>
+                <tr><td>Ag</td> <td>Silver</td></tr>
+                <tr><td>Al</td> <td>Aluminum</td></tr>
+                <tr><td>Am</td> <td>Americium</td></tr>
+                <tr><td>Ar</td> <td>Argon</td></tr>
+                <tr><td>As</td> <td>Arsenic</td></tr>
+                <tr><td>At</td> <td>Astatine</td></tr>
+                <tr><td>Au</td> <td>Gold</td></tr>
+                <tr><td>B</td> <td>Boron</td></tr>
+                <tr><td>Ba</td> <td>Barium</td></tr>
+                <tr><td>Be</td> <td>Beryllium</td></tr>
+                <tr><td>Bh</td> <td>Bohrium</td></tr>
+                <tr><td>Bi</td> <td>Bismuth</td></tr>
+                <tr><td>Bk</td> <td>Berkelium</td></tr>
+                <tr><td>Br</td> <td>Bromine</td></tr>
+                <tr><td>C</td> <td>Carbon</td></tr>
+                <tr><td>Ca</td> <td>Calcium</td></tr>
+                <tr><td>Cd</td> <td>Cadmium</td></tr>
+                <tr><td>Ce</td> <td>Cerium</td></tr>
+                <tr><td>Cf</td> <td>Californium</td></tr>
+                <tr><td>Cl</td> <td>Chlorine</td></tr>
+                <tr><td>Cm</td> <td>Curium</td></tr>
+                <tr><td>Cn</td> <td>Copernicium</td></tr>
+                <tr><td>Co</td> <td>Cobalt</td></tr>
+                <tr><td>Cr</td> <td>Chromium</td></tr>
+                <tr><td>Cs</td> <td>Cesium</td></tr>
+                <tr><td>Cu</td> <td>Copper</td></tr>
+                <tr><td>Db</td> <td>Dubnium</td></tr>
+                <tr><td>Ds</td> <td>Darmstadtium</td></tr>
+                <tr><td>Dy</td> <td>Dysprosium</td></tr>
+                <tr><td>Er</td> <td>Erbium</td></tr>
+                <tr><td>Es</td> <td>Einsteinium</td></tr>
+                <tr><td>Eu</td> <td>Europium</td></tr>
+                <tr><td>F</td> <td>Fluorine</td></tr>
+                <tr><td>Fe</td> <td>Iron</td></tr>
+                <tr><td>Fl</td> <td>Flerovium</td></tr>
+                <tr><td>Fm</td> <td>Fermium</td></tr>
+                <tr><td>Fr</td> <td>Francium</td></tr>
+                <tr><td>Ga</td> <td>Gallium</td></tr>
+                <tr><td>Gd</td> <td>Gadolinium</td></tr>
+                <tr><td>Ge</td> <td>Germanium</td></tr>
+                <tr><td>H</td> <td>Hydrogen</td></tr>
+                <tr><td>He</td> <td>Helium</td></tr>
+                <tr><td>Hf</td> <td>Hafnium</td></tr>
+                <tr><td>Hg</td> <td>Mercury</td></tr>
+                <tr><td>Ho</td> <td>Holmium</td></tr>
+                <tr><td>Hs</td> <td>Hassium</td></tr>
+                <tr><td>I</td> <td>Iodine</td></tr>
+                <tr><td>In</td> <td>Indium</td></tr>
+                <tr><td>Ir</td> <td>Iridium</td></tr>
+                <tr><td>K</td> <td>Potassium</td></tr>
+                <tr><td>Kr</td> <td>Krypton</td></tr>
+                <tr><td>La</td> <td>Lanthanum</td></tr>
+                <tr><td>Li</td> <td>Lithium</td></tr>
+                <tr><td>Lr</td> <td>Lawrencium</td></tr>
+                <tr><td>Lu</td> <td>Lutetium</td></tr>
+                <tr><td>Lv</td> <td>Livermorium</td></tr>
+                <tr><td>Mc</td> <td>Moscovium</td></tr>
+                <tr><td>Md</td> <td>Mendelevium</td></tr>
+                <tr><td>Mg</td> <td>Magnesium</td></tr>
+                <tr><td>Mn</td> <td>Manganese</td></tr>
+                <tr><td>Mo</td> <td>Molybdenum</td></tr>
+                <tr><td>Mt</td> <td>Meitnerium</td></tr>
+                <tr><td>N</td> <td>Nitrogen</td></tr>
+                <tr><td>Na</td> <td>Sodium</td></tr>
+                <tr><td>Nb</td> <td>Niobium</td></tr>
+                <tr><td>Nd</td> <td>Neodymium</td></tr>
+                <tr><td>Ne</td> <td>Neon</td></tr>
+                <tr><td>Nh</td> <td>Nihonium</td></tr>
+                <tr><td>Ni</td> <td>Nickel</td></tr>
+                <tr><td>No</td> <td>Nobelium</td></tr>
+                <tr><td>Np</td> <td>Neptunium</td></tr>
+                <tr><td>O</td> <td>Oxygen</td></tr>
+                <tr><td>Og</td> <td>Oganesson</td></tr>
+                <tr><td>Os</td> <td>Osmium</td></tr>
+                <tr><td>P</td> <td>Phosphorus</td></tr>
+                <tr><td>Pa</td> <td>Protactinium</td></tr>
+                <tr><td>Pb</td> <td>Lead</td></tr>
+                <tr><td>Pd</td> <td>Palladium</td></tr>
+                <tr><td>Pm</td> <td>Promethium</td></tr>
+                <tr><td>Po</td> <td>Polonium</td></tr>
+                <tr><td>Pr</td> <td>Praseodymium</td></tr>
+                <tr><td>Pt</td> <td>Platinum</td></tr>
+                <tr><td>Pu</td> <td>Plutonium</td></tr>
+                <tr><td>Ra</td> <td>Radium</td></tr>
+                <tr><td>Rb</td> <td>Rubidium</td></tr>
+                <tr><td>Re</td> <td>Rhenium</td></tr>
+                <tr><td>Rf</td> <td>Rutherfordium</td></tr>
+                <tr><td>Rg</td> <td>Roentgenium</td></tr>
+                <tr><td>Rh</td> <td>Rhodium</td></tr>
+                <tr><td>Rn</td> <td>Radon</td></tr>
+                <tr><td>Ru</td> <td>Ruthenium</td></tr>
+                <tr><td>S</td> <td>Sulfur</td></tr>
+                <tr><td>Sb</td> <td>Antimony</td></tr>
+                <tr><td>Sc</td> <td>Scandium</td></tr>
+                <tr><td>Se</td> <td>Selenium</td></tr>
+                <tr><td>Sg</td> <td>Seaborgium</td></tr>
+                <tr><td>Si</td> <td>Silicon</td></tr>
+                <tr><td>Sm</td> <td>Samarium</td></tr>
+                <tr><td>Sn</td> <td>Tin</td></tr>
+                <tr><td>Sr</td> <td>Strontium</td></tr>
+                <tr><td>Ta</td> <td>Tantalum</td></tr>
+                <tr><td>Tb</td> <td>Terbium</td></tr>
+                <tr><td>Tc</td> <td>Technetium</td></tr>
+                <tr><td>Te</td> <td>Tellurium</td></tr>
+                <tr><td>Th</td> <td>Thorium</td></tr>
+                <tr><td>Ti</td> <td>Titanium</td></tr>
+                <tr><td>Tl</td> <td>Thallium</td></tr>
+                <tr><td>Tm</td> <td>Thulium</td></tr>
+                <tr><td>Ts</td> <td>Tennessine</td></tr>
+                <tr><td>U</td> <td>Uranium</td></tr>
+                <tr><td>V</td> <td>Vanadium</td></tr>
+                <tr><td>W</td> <td>Tungsten</td></tr>
+                <tr><td>Xe</td> <td>Xenon</td></tr>
+                <tr><td>Y</td> <td>Yttrium</td></tr>
+                <tr><td>Yb</td> <td>Ytterbium</td></tr>
+                <tr><td>Zn</td> <td>Zinc</td></tr>
+                <tr><td>Zr</td> <td>Zirconium</td></tr>
+            </tbody></table>
 
+            <table style="display:table-cell; padding-left:3em"><thead>
+                <tr><th>Symbol</th> <th>Name</th></tr>
+            </thead><tbody>
+                <tr><td>Ac</td> <td>227</td></tr>
+                <tr><td>Ag</td> <td>107.8682</td></tr>
+                <tr><td>Al</td> <td>26.9815386</td></tr>
+                <tr><td>Am</td> <td>243</td></tr>
+                <tr><td>Ar</td> <td>39.948</td></tr>
+                <tr><td>As</td> <td>74.9216</td></tr>
+                <tr><td>At</td> <td>210</td></tr>
+                <tr><td>Au</td> <td>196.966569</td></tr>
+                <tr><td>B</td> <td>10.811</td></tr>
+                <tr><td>Ba</td> <td>137.327</td></tr>
+                <tr><td>Be</td> <td>9.012182</td></tr>
+                <tr><td>Bh</td> <td>272</td></tr>
+                <tr><td>Bi</td> <td>208.9804</td></tr>
+                <tr><td>Bk</td> <td>247</td></tr>
+                <tr><td>Br</td> <td>79.904</td></tr>
+                <tr><td>C</td> <td>12.0107</td></tr>
+                <tr><td>Ca</td> <td>40.078</td></tr>
+                <tr><td>Cd</td> <td>112.411</td></tr>
+                <tr><td>Ce</td> <td>140.116</td></tr>
+                <tr><td>Cf</td> <td>251</td></tr>
+                <tr><td>Cl</td> <td>35.453</td></tr>
+                <tr><td>Cm</td> <td>247</td></tr>
+                <tr><td>Cn</td> <td>285</td></tr>
+                <tr><td>Co</td> <td>58.933195</td></tr>
+                <tr><td>Cr</td> <td>51.9961</td></tr>
+                <tr><td>Cs</td> <td>132.9054519</td></tr>
+                <tr><td>Cu</td> <td>63.546</td></tr>
+                <tr><td>Db</td> <td>268</td></tr>
+                <tr><td>Ds</td> <td>281</td></tr>
+                <tr><td>Dy</td> <td>162.5</td></tr>
+                <tr><td>Er</td> <td>167.259</td></tr>
+                <tr><td>Es</td> <td>252</td></tr>
+                <tr><td>Eu</td> <td>151.964</td></tr>
+                <tr><td>F</td> <td>18.9984032</td></tr>
+                <tr><td>Fe</td> <td>55.845</td></tr>
+                <tr><td>Fl</td> <td>289</td></tr>
+                <tr><td>Fm</td> <td>257</td></tr>
+                <tr><td>Fr</td> <td>223</td></tr>
+                <tr><td>Ga</td> <td>69.723</td></tr>
+                <tr><td>Gd</td> <td>157.25</td></tr>
+                <tr><td>Ge</td> <td>72.64</td></tr>
+                <tr><td>H</td> <td>1.00794</td></tr>
+                <tr><td>He</td> <td>4.002602</td></tr>
+                <tr><td>Hf</td> <td>178.49</td></tr>
+                <tr><td>Hg</td> <td>200.59</td></tr>
+                <tr><td>Ho</td> <td>164.93032</td></tr>
+                <tr><td>Hs</td> <td>270</td></tr>
+                <tr><td>I</td> <td>126.90447</td></tr>
+                <tr><td>In</td> <td>114.818</td></tr>
+                <tr><td>Ir</td> <td>192.217</td></tr>
+                <tr><td>K</td> <td>39.0983</td></tr>
+                <tr><td>Kr</td> <td>83.798</td></tr>
+                <tr><td>La</td> <td>138.90547</td></tr>
+                <tr><td>Li</td> <td>6.941</td></tr>
+                <tr><td>Lr</td> <td>262</td></tr>
+                <tr><td>Lu</td> <td>174.9668</td></tr>
+                <tr><td>Lv</td> <td>293</td></tr>
+                <tr><td>Mc</td> <td>288</td></tr>
+                <tr><td>Md</td> <td>258</td></tr>
+                <tr><td>Mg</td> <td>24.305</td></tr>
+                <tr><td>Mn</td> <td>54.938045</td></tr>
+                <tr><td>Mo</td> <td>95.96</td></tr>
+                <tr><td>Mt</td> <td>276</td></tr>
+                <tr><td>N</td> <td>14.0067</td></tr>
+                <tr><td>Na</td> <td>22.98976928</td></tr>
+                <tr><td>Nb</td> <td>92.90638</td></tr>
+                <tr><td>Nd</td> <td>144.242</td></tr>
+                <tr><td>Ne</td> <td>20.1797</td></tr>
+                <tr><td>Nh</td> <td>284</td></tr>
+                <tr><td>Ni</td> <td>58.6934</td></tr>
+                <tr><td>No</td> <td>259</td></tr>
+                <tr><td>Np</td> <td>237</td></tr>
+                <tr><td>O</td> <td>15.9994</td></tr>
+                <tr><td>Og</td> <td>294</td></tr>
+                <tr><td>Os</td> <td>190.23</td></tr>
+                <tr><td>P</td> <td>30.973762</td></tr>
+                <tr><td>Pa</td> <td>231.03588</td></tr>
+                <tr><td>Pb</td> <td>207.2</td></tr>
+                <tr><td>Pd</td> <td>106.42</td></tr>
+                <tr><td>Pm</td> <td>145</td></tr>
+                <tr><td>Po</td> <td>209</td></tr>
+                <tr><td>Pr</td> <td>140.90765</td></tr>
+                <tr><td>Pt</td> <td>195.084</td></tr>
+                <tr><td>Pu</td> <td>244</td></tr>
+                <tr><td>Ra</td> <td>226</td></tr>
+                <tr><td>Rb</td> <td>85.4678</td></tr>
+                <tr><td>Re</td> <td>186.207</td></tr>
+                <tr><td>Rf</td> <td>267</td></tr>
+                <tr><td>Rg</td> <td>280</td></tr>
+                <tr><td>Rh</td> <td>102.9055</td></tr>
+                <tr><td>Rn</td> <td>222</td></tr>
+                <tr><td>Ru</td> <td>101.07</td></tr>
+                <tr><td>S</td> <td>32.065</td></tr>
+                <tr><td>Sb</td> <td>121.76</td></tr>
+                <tr><td>Sc</td> <td>44.955912</td></tr>
+                <tr><td>Se</td> <td>78.96</td></tr>
+                <tr><td>Sg</td> <td>271</td></tr>
+                <tr><td>Si</td> <td>28.0855</td></tr>
+                <tr><td>Sm</td> <td>150.36</td></tr>
+                <tr><td>Sn</td> <td>118.71</td></tr>
+                <tr><td>Sr</td> <td>87.62</td></tr>
+                <tr><td>Ta</td> <td>180.94788</td></tr>
+                <tr><td>Tb</td> <td>158.92535</td></tr>
+                <tr><td>Tc</td> <td>98</td></tr>
+                <tr><td>Te</td> <td>127.6</td></tr>
+                <tr><td>Th</td> <td>232.03806</td></tr>
+                <tr><td>Ti</td> <td>47.867</td></tr>
+                <tr><td>Tl</td> <td>204.3833</td></tr>
+                <tr><td>Tm</td> <td>168.93421</td></tr>
+                <tr><td>Ts</td> <td>294</td></tr>
+                <tr><td>U</td> <td>238.02891</td></tr>
+                <tr><td>V</td> <td>50.9415</td></tr>
+                <tr><td>W</td> <td>183.84</td></tr>
+                <tr><td>Xe</td> <td>131.293</td></tr>
+                <tr><td>Y</td> <td>88.90585</td></tr>
+                <tr><td>Yb</td> <td>173.054</td></tr>
+                <tr><td>Zn</td> <td>65.38</td></tr>
+                <tr><td>Zr</td> <td>91.224</td></tr>
+            </tbody></table>
+        </div></div></li>
 
-def draw_scene(canvas, scene_left, scene_top, scene_right, scene_bottom):
-    """Draw a scene in the canvas. scene_left, scene_top,
-    scene_right, and scene_bottom contain the extent in
-    pixels of the region where the scene should be drawn.
-    Parameters:
-        scene_left - left side of the region; less than scene_right
-        scene_top - top of the region; less than scene_bottom
-        scene_right - right side of the region
-        scene_bottom - bottom of the region
-    Return: nothing
+        <li><div>Near the bottom of the <code>test_chemistry.py</code>
+        file there is an unfinished function named
+        <code>test_parse</code>. Write the <code>test_parse</code>
+        function so that it tests the
+        <code>chemistry.parse_formula</code> function. Use the following
+        molecular formulas and any others you want to add in
+        <code>assert</code> statements inside the
+        <code>test_parse</code> function:
+        <ul>
+            <li><div>O3</div></li>
+            <li><div>H2O</div></li>
+            <li><div>C6H12O6</div></li>
+            <li><div>PO4H2(CH2)12CH3</div></li>
+        </ul></div></li>
 
-    If needed, the width and height of the
-    region can be calculated like this:
-    scene_width = scene_right - scene_left + 1
-    scene_height = scene_bottom - scene_top + 1
-    """
-    # Call your functions here, such as draw_sky, draw_ground,
-    # draw_snowman, draw_tree, draw_shrub, etc.
-    tree_center = scene_left + 500
-    tree_top = scene_top + 100
-    tree_height = 150
-    draw_pine_tree(canvas, tree_center, tree_top, tree_height)
+        <li><div>Near the bottom of the <code>test_chemistry.py</code>
+        file there is an unfinished function named
+        <code>test_molar_mass</code>. Write the
+        <code>test_molar_mass</code> function so that it tests the
+        <code>chemistry.molar_mass</code> function. Use the following
+        molecular formulas and their approximate molar masses in
+        <code>assert</code> statements inside the
+        <code>test_molar_mass</code> function:
+        <table class="center"><thead>
+            <tr><th>Formula</th> <th>Approximate<br>Molar Mass</th></tr>
+        </thead><tbody>
+            <tr><td>H2O</td> <td>18.01528</td></tr>
+            <tr><td>C6H6</td> <td>78.11184</td></tr>
+            <tr><td>PO4H2(CH2)12CH3</td> <td>280.34072</td></tr>
+        </tbody></table></div></li>
 
+        <li><div>Run the four test functions. Fix mistakes, if there are
+        any, in the <code>chemistry.init_periodic_table</code> function
+        and in the four test functions that you wrote:
+        <code>test_names</code>, <code>test_atomic_masses</code>,
+        <code>test_parse</code>, and <code>test_molar_mass</code>.
+        There are no mistakes in the
+        <code>get_name</code>, <code>get_atomic_mass</code>,
+        <code>parse_formula</code>, and <code>molar_mass</code>
+        functions, so you shouldn't change those four
+        functions.</div></li>
+    </ol>
 
-# Define more functions here, like draw_sky, draw_ground,
-# draw_cloud, draw_tree, draw_kite, draw_snowflake, etc.
+    <h2>Sample Run</h2>
+<pre class="console">&gt; python test_chemistry.py
+========================= test session starts =========================
+platform win32 -- Python 3.8.5, pytest-6.1.1, py-1.9.0, pluggy-0.13.1
+rootdir: C:\Users\cse111\lesson05
+collected 4 items
 
-def draw_pine_tree(canvas, peak_x, peak_y, height):
-    """Draw a single pine tree.
-    Parameters:
-        canvas: The tkinter canvas where this
-            function will draw a pine tree.
-        peak_x, peak_y: The x and y location in pixels where
-            this function will draw the top peak of a pine tree.
-        height: The height in pixels of the pine tree that
-            this function will draw.
-    Return: nothing
-    """
-    trunk_width = height / 10
-    trunk_height = height / 8
-    trunk_left = peak_x - trunk_width / 2
-    trunk_right = peak_x + trunk_width / 2
-    trunk_bottom = peak_y + height
+test_chemistry.py::test_names <span class="pass">PASSED                             [ 25%]</span>
+test_chemistry.py::test_atomic_masses <span class="pass">PASSED                     [ 50%]</span>
+test_chemistry.py::test_parse <span class="pass">PASSED                             [ 75%]</span>
+test_chemistry.py::test_molar_mass <span class="pass">PASSED                        [100%]</span>
 
-    skirt_width = height / 2
-    skirt_height = height - trunk_height
-    skirt_left = peak_x - skirt_width / 2
-    skirt_right = peak_x + skirt_width / 2
-    skirt_bottom = peak_y + skirt_height
-
-    # Draw the trunk of the pine tree.
-    canvas.create_rectangle(trunk_left, skirt_bottom,
-            trunk_right, trunk_bottom,
-            outline="gray20", width=1, fill="tan3")
-
-    # Draw the crown (also called skirt) of the pine tree.
-    canvas.create_polygon(peak_x, peak_y,
-            skirt_right, skirt_bottom,
-            skirt_left, skirt_bottom,
-            outline="gray20", width=1, fill="dark green")
-
-
-# Call the main function so that
-# this program will start executing.
-main()</pre></div>
-
-    <p>Save your new file as <code>scene.py</code> and run your new
-    Python program. When you run it, it should open a window that
-    contains a single pine tree like this:</p>
-
-    <p><img src="oval.png" alt="A blue circle drawn by a Python program"></p>
-
-    <p>The pine tree was drawn because the code at line&nbsp;91 called
-    the <code>main</code> function. At line&nbsp;22, the
-    <code>main</code> function called the <code>draw_scene</code>
-    function. At line&nbsp;48, the <code>draw_scene</code> function
-    called the <code>draw_pine_tree</code> function and at
-    lines&nbsp;78&ndash;83 the <code>draw_pine_tree</code> function
-    called the <code>create_rectangle</code> and
-    <code>create_polygon</code> methods.</p>
-
-    <p>The purpose of this assignment is to prove that you can write and
-    call functions. Therefore, your program must be divided into
-    functions such as <code>draw_sky</code>, <code>draw_cloud</code>,
-    <code>draw_ground</code>, <code>draw_bird</code>,
-    <code>draw_grass_blade</code>, and <code>draw_insect</code>. The
-    headers for the <code>draw_scene</code> and
-    <code>draw_pine_tree</code> functions are good examples for the
-    headers of all your draw_* functions. For example, if you write a
-    <code>draw_grass_blade</code> function in your program, you could
-    write its header like this:</p>
-
-<div class="pre"><pre class="python">def draw_grass_blade(canvas, blade_left, blade_top, blade_right, blade_bottom):</pre></div>
-
-    <p>Delete or comment-out lines&nbsp;45&ndash;48 and
-    lines&nbsp;54&ndash;86 and begin writing your program. As you write
-    your program, be sure that it draws elements in the order of
-    farthest away to nearest. For example, you program should draw the
-    blue sky first, then the ground, then clouds, then trees, then
-    insects in the trees.</p>
+<span class="pass">========================== 4 passed in 0.20s ==========================</span></pre>
 
     <h2>Testing Procedure</h2>
-    <p>Verify that your program works correctly by following each
-    step in this testing procedure:</p>
+    <p>Verify that the Python code in <code>chemistry.py</code> and
+    <code>test_chemistry.py</code> works correctly by using
+    <code>pytest</code> to run the four test functions in
+    <code>test_chemistry.py</code>.</p>
 
-    <ol class="test">
-        <li><div>Run your program and verify that it correctly opens a
-        window and draws within that window an outdoor scene that
-        contains at least the sky, clouds, and the ground.</div></li>
+    <ol class="test long">
+        <li><div>If <code>test_names</code> fails, carefully read the
+        failure message from <code>pytest</code>. Ask yourself, "Given
+        this failure message, which function is incorrect, the
+        <code>init_periodic_table</code> function, the
+        <code>get_name</code> function, or the <code>test_names</code>
+        function?" Fix the function that has a mistake.</div></li>
+
+        <li><div>If <code>test_atomic_masses</code> fails, carefully
+        read the failure message from <code>pytest</code>. Ask yourself,
+        "Given this failure message, which function is incorrect, the
+        <code>init_periodic_table</code> function, the
+        <code>get_atomic_mass</code> function, or the
+        <code>test_atomic_masses</code> function?" Fix the function that
+        has a mistake.</div></li>
+
+        <li><div>If <code>test_parse</code> fails, carefully read the
+        failure message from <code>pytest</code> and fix the mistake in
+        your <code>test_parse</code> function. In other words, we
+        believe there are no mistakes in the <code>parse_formula</code>
+        function that your <code>test_parse</code> function will find,
+        so if <code>test_parse</code> fails, the mistake is very likely
+        in <code>test_parse</code>.</div></li>
+
+        <li><div>If <code>test_molar_mass</code> fails, the mistake is
+        almost certainly in the <code>init_periodic_table</code>
+        function, and you need to find that mistake and fix it. In other
+        words, we believe there are no mistakes in the
+        <code>molar_mass</code> and <code>test_molar_mass</code>
+        functions.</div></li>
     </ol>
 
     <h2>Submission</h2>
