@@ -30,66 +30,80 @@
     <h2>Overview</h2>
     <p>Complete this individual checkpoint assignment to reinforce in
     your mind the concept that a function can be passed as an argument
-    to another function.</p>
+    into another function.</p>
 
     <h2>Problem Statement</h2>
-    <p>Phone numbers in the U.S. are often stored as ten digits and
-    two dashes in this format: "ddd-ddd-dddd" where each <var>d</var> is
-    a digit. The first three digits are called the area code. For
-    example, for many years, 208 was the area code for all phone numbers
-    from the state of Idaho and 801 and 435 were the two area codes for
-    phone numbers in the state of Utah. Some people when entering their
-    phone number will not enter the area code and assume that other
-    people will know the correct area code.</p>
+    <p>Phone numbers in the U.S. are often stored as ten digits and two
+    dashes in this format: "ddd-ddd-dddd" where each <var>d</var> is a
+    digit. The first three digits are called the area code. For example,
+    for many years, 208 was the area code for all phone numbers from the
+    state of Idaho and 801 and 435 were the two area codes for phone
+    numbers in the state of Utah. Some people when entering their phone
+    number will not enter the area code and assume that other people
+    will know the correct area code.</p>
 
     <h2>Helpful Documentation</h2>
-    <p>The prepare content for this lesson explains the pandas
-    <a href="prepare.html#apply"><code>apply</code> function</a>.</p>
+    <p>The <a href="prepare.html">prepare content</a> for this lesson
+    explains functional programming and how to call the <code>map</code>
+    function.</p>
 
     <h2>Assignment</h2>
-    <p>Write a program that reads data from a CSV file into a
-    <code>pandas</code> DataFrame. Your program  must add the area code
-    "208-" to all phone numbers in the DataFrame that don't have an area
-    code. Do the following:</p>
+    <p>Write a program named <code>add_area_code.py</code> that reads
+    phone numbers from a text file named <code>phone_numbers.txt</code>
+    Your program must add the area code "208-" to all phone numbers that
+    don't have an area code. Do the following:</p>
 
     <ol class="long">
         <li><div>Download these two files:
-        <a download href="pupils.csv">pupils.csv</a> and
+        <a download href="phone_numbers.txt">phone_numbers.txt</a> and
         <a download href="add_area_code.py">add_area_code.py</a>
         and save them in the same folder.</div></li>
 
-        <li><div>Open the <code>pupils.csv</code> file in VS Code and
-        examine the phone numbers in the "phone" column. Notice that
-        some of the phone numbers do not contain an area code and
-        contain only seven digits.</div></li>
+        <li><div>Open the <code>phone_numbers.txt</code> file in VS Code
+        and examine the phone numbers. Notice that some of the phone
+        numbers do not have an area code and contain only seven
+        digits.</div></li>
 
         <li><div>Open the <code>add_area_code.py</code> file in VS Code.
         Read the comments in the program and then add code to the
         program so that it does the following:
         <ol>
-            <li><div>Read the data in <code>pupils.csv</code> into a
-            DataFrame.</div></li>
+            <li><div>Read the phone numbers in
+            <code>phone_numbers.txt</code> into a list.</div></li>
             <li><div>Add the area code "208-" to the phone numbers that
-            do not contain an area code.</div></li>
-            <li><div>Print the DataFrame with the corrected phone
+            do not have an area code.</div></li>
+            <li><div>Print the list with the corrected phone
             numbers.</div></li>
         </ol></div></li>
     </ol>
 
     <h2>Sample Run</h2>
-<pre class="console">&gt; python teach_solution.py
-    givenName   surname  birthdate parentSurname         phone
-0       Gavin      Tyra 2012-11-25          Tyra  208-163-7494
-1     Zachary     Danso 2009-08-17         Danso  208-798-4389
-2       Ethan     Balls 2014-07-06         Balls  208-911-2607
-3      Justin      Otis 2012-12-25          Otis  208-260-1806
-4     Mitchel   Elliott 2010-01-03       Elliott  208-122-7565
-..        ...       ...        ...           ...           ...
-182   Richard       Ali 2013-05-29           Ali  208-838-3842
-183      Jack  Reynolds 2013-12-03      Reynolds  208-609-7380
-184   Deborah   Davison 2012-05-10       Davison  208-859-6434
-185     Larry  Cleverly 2011-03-16      Cleverly  208-249-1960
-186     Nancy     Moore 2014-08-02         Moore  208-377-1457</pre>
+<pre class="console">&gt; python add_area_code.py
+['208-318-1623', '208-384-7712', '986-314-1378', '307-377-4921',
+ '208-671-7536', '986-228-7414', '208-693-6706', '208-274-2098',
+ '208-854-3221', '208-361-9817', '208-422-3492', '208-631-1374',
+ '986-533-9667', '208-158-9497', '208-892-9830', '208-477-5323',
+ '406-204-8756', '208-805-2538', '208-913-9942', '208-216-9589',
+ '406-138-9226', '801-644-6761', '208-814-4444', '208-822-6738',
+ '208-892-1093', '208-936-6389', '435-656-5821', '435-605-8294',
+ '208-271-1868', '208-894-6391', '208-232-4118', '208-132-2121',
+ '208-515-8227', '208-848-2334', '208-426-1557', '208-952-4330',
+ '208-998-2171', '208-743-9219', '208-944-4381', '208-589-7767',
+ '208-407-3555', '208-928-9293', '208-957-5808', '208-940-6629',
+ '208-825-9259', '208-123-7580', '208-374-8128', '208-847-4807',
+ '986-159-8293', '208-515-9963', '406-241-6676', '208-907-1851',
+ '208-297-6367', '208-936-8173', '208-376-7010', '208-681-1558',
+ '208-800-4436', '208-590-8866', '208-788-1866', '208-163-7631',
+ '208-928-8793', '406-595-2898', '208-330-3155', '208-884-7294',
+ '208-120-4949', '801-343-8776', '208-362-3779', '208-482-2107',
+ '208-366-5618', '435-957-8250', '208-441-5628', '307-494-6001',
+ '208-571-5297', '208-366-7389', '801-730-8010', '208-134-6240',
+ '208-402-3658', '208-151-9828', '208-485-7973', '208-506-2683',
+ '208-518-9635', '208-769-7551', '208-776-1574', '208-604-4304',
+ '208-119-9734', '208-917-6174', '208-773-1167', '307-749-5991',
+ '208-334-8971', '208-995-8602', '208-193-5073', '208-345-4015',
+ '208-367-8633', '208-289-6515', '208-265-8998', '208-800-3565',
+ '208-211-2706', '208-408-3950', '208-928-3119', '208-691-9409']</pre>
 
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each step
@@ -100,21 +114,20 @@
         <a download href="test_add_area_code.py"><code>test_add_area_code.py</code></a>
         that contains <code>pytest</code> test functions. Verify that
         all the test functions pass. If they don't pass, fix the
-        mistakes in your code until they do pass.</div></li>
+        mistakes in your code until they pass.</div></li>
 
-        <li><div>Run your program which should print the DataFrame.
-        Examine the phone numbers in the DataFrame and verify that all
-        phones have an area code.</div></li>
+        <li><div>Run your program, which should print the list of
+        corrected phone numbers. Examine the corrected phone numbers and
+        verify that all of them have an area code.</div></li>
     </ol>
 
     <h2>Ponder</h2>
     <p>In the <code>main</code> function, look at the line of code that
-    calls the pandas <code>apply</code> function. Think about the fact
-    that the <code>apply</code> function will call the
-    <code>add_area_code</code> function once for each phone number in
-    the "phone" column, and the <code>add_area_code</code> function will
-    add Idaho's area code "208-" at the beginning of the phone number if
-    necessary.</p>
+    calls the <code>map</code> function. Think about the fact that the
+    <code>map</code> function will call the <code>add_area_code</code>
+    function once for each element in the phone_numbers list, and the
+    <code>add_area_code</code> function will add the area code "208-" at
+    the beginning of the phone number if necessary.</p>
 
     <h2>Sample Solution</h2>
     <p>When your program is finished, view the <a download

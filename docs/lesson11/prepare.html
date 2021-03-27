@@ -244,43 +244,10 @@ main()</pre></div>
         and&nbsp;3.</p></div></li>
     </ol>
 
-    <h2 id="apply">Pandas <code>apply</code> Function</h2>
-    <p>The pandas
-    <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.apply.html"><code>apply</code> function</a>
-    uses one of the functional programming concepts, specifically that
-    we can pass a function into another function. The pandas
-    <code>apply</code> function takes another function as a parameter
-    and calls the passed function once for each cell in a DataFrame or
-    Series. Consider one final program to convert Fahrenheit
-    temperatures to Celsius. The example program  in example&nbsp;5 uses
-    the <code>pandas</code> module and calls the pandas
-    <code>apply</code> function on
-    <span class="cross" data-ref="ex5">line&nbsp;17</span>.</p>
-
-<div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex5"># Example 5
-
-import pandas as pd
-
-
-def main():
-    # Read a CSV file that contains a
-    # column of temperatures in Fahrenheit.
-    df = pd.read_csv("fahrenheit.csv")
-
-    # Create a lambda function that converts
-    # a Fahrenheit temperature to Celsius and
-    # returns the Celsius temperature.
-    cels_from_fahr = lambda fahr: round((fahr - 32) * 5 / 9, 1)
-
-    # Add to the data frame a new column named celsius.
-    df["celsius"] = <em>df["fahrenheit"].apply(cels_from_fahr)</em>
-
-    # Print the data frame
-    print(df)
-
-
-main()</pre></div>
+    <h2>Map and Filter</h2>
+    <p>Python contains two built-in functions named <code>map</code>
+    and <code>filter</code> that are used in functional programming to
+    process a list.
 
     <h2>Videos</h2>
     <p>If you wish to learn more about functional programming in Python,

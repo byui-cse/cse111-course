@@ -1,40 +1,45 @@
-import pandas as pd
-
-
 def main():
     try:
-        # Read the pupils.csv file and convert the
-        # birthdate column from a string to a datetime64.
-        original_df = pd.read_csv("pupils.csv", parse_dates=["birthdate"])
+        # Open the file phone_numbers.txt for reading and read all
+        # of the phone numbers into a list named phone_numbers.
+        phone_numbers = []
+        with open("phone_numbers.txt", "rt") as phone_file:
+            for line in phone_file:
+                phone_num = line.strip()
+                phone_numbers.append(phone_num)
 
-        # Some of the phone numbers in the "phone" column do not start
-        # with an area code, so replace the "phone" column with a new
-        # "phone" column where every phone number starts with an area
-        # code. To do this, call the pandas apply function for the
-        # "phone" column and pass the add_area_code function as an
-        # argument to the apply function.
-        original_df["phone"] = original_df["phone"].apply(add_area_code)
+        # Print the list of phone numbers which will show that
+        # some of the phone number don't have an area code.
+        print(phone_numbers)
 
-        # Print the DataFrame with the corrected phone numbers.
-        print(original_df)
+        # Some of the phone numbers in phone_numbers.txt do not start
+        # with an area code. Replace each short phone number with a
+        # phone number that begins with the area code "208-" To do this,
+        # call the map function and pass the add_area_code function and
+        # the list of phone numbers as arguments to the map function.
+        new_numbers = list(map(add_area_code, phone_numbers))
 
-    except RuntimeError as run_err:
-        print(type(run_err).__name__, run_err, sep=": ")
+        # Print the list with the corrected phone numbers.
+        print(new_numbers)
+
+    except (FileNotFoundError, PermissionError) as error:
+        print(type(error).__name__, error, sep=": ")
 
 
-def add_area_code(phone):
-    """Phone numbers in the U.S. are often stored as ten digits and two
-    dashes in this format: "ddd-ddd-dddd" where each d is a digit. If
-    the length of the phone parameter is less than 12 characters, add
-    the area code "208-" at the beginning of the phone number and return
-    the phone number.
+def add_area_code(phone_number):
+    """Phone numbers in the U.S. are often stored as ten digits and
+    two dashes in this format: "ddd-ddd-dddd" where each d is a digit.
+    If the length of phone_number is less than 12 characters, add the
+    area code "208-" at the beginning of the phone_number and return
+    phone_number.
 
-    param phone: a string of digits formatted as "ddd-dddd" or "ddd-ddd-dddd"
-    return: a string of digits formated as "ddd-ddd-dddd"
+    Parameter phone_number: a string of digits formatted as
+        "ddd-dddd" or "ddd-ddd-dddd"
+    Return: a string of digits formated as "ddd-ddd-dddd"
     """
-    if len(phone) < 12:
-        phone = "208-" + phone
-    return phone
+    if len(phone_number) < 12:
+        phone_number = "208-" + phone_number
+    return phone_number
 
 
 # If this file is executed like this:
