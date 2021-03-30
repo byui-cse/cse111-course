@@ -32,21 +32,24 @@
     <p>A <dfn>paradigm</dfn> is a way of thinking or a way of viewing
     the world. There are at least four main paradigms for programming a
     computer: procedural, declarative, functional, and object-oriented.
-    During previous lessons, you used procedural and declarative
-    programming. During this lesson, you will be introduced to
-    functional programming.</p>
+    During previous lessons, you used procedural programming. During
+    this lesson, you will be introduced to functional programming.</p>
 
     <p><dfn>Procedural programming</dfn> is a programming paradigm that
     focuses on the process or the steps to accomplish a task. This is
-    the type of programming that you did in CSE&nbsp;110 and in lessons
-    1&ndash;8 of CSE&nbsp;111.</p>
+    the type of programming that you did in CSE&nbsp;110 and in previous
+    lessons of CSE&nbsp;111.</p>
 
     <p><dfn>Declarative programming</dfn> is a programming paradigm that
     does <em>not</em> focus on the process or steps to accomplish a
-    task. Instead, with declarative programming, we focus on what we
-    want from the computer, or in other words, we focus on the desired
-    result. Many of the commands in the <code>pandas</code> module use a
-    form of declarative programming.</p>
+    task. Instead, with declarative programming, a programmer focuses on
+    what she wants from the computer, or in other words, she focuses on
+    the desired results. If you have ever written SQL code, then you
+    have used declarative programming. The SQL programming language is a
+    good example of a declarative language. When writing SQL code, a
+    programmer writes code to tell the computer what she wants in the
+    results but not the steps the computer must follow to get those
+    results.</p>
 
     <p><dfn>Functional programming</dfn> is a programming paradigm that
     focuses on functions and avoids shared state, mutating state, and
@@ -61,15 +64,19 @@
     </ol>
 
     <h2>Concepts</h2>
-    <p>Here are the functional programming concepts and topics that you
-    should learn during this lesson.</p>
+    <p>Here are the functional programming concepts that you should
+    learn during this lesson.</p>
 
     <ol class="long">
         <li><div>The Python programming language allows a programmer to
-        pass a function as a parameter into another function. One useful
-        example of this is processing the elements in a list. Consider
-        the program in example&nbsp;1 that converts a list of
-        temperatures in Fahrenheit to Celsius.
+        pass a function as an argument into another function. A function
+        that accepts other functions in its parameters is known as a
+        <dfn>higher-order function</dfn>. Higher-order functions are
+        often used to process the elements in a list. Before seeing an
+        example of using a higher-order function to process a list,
+        first consider the program in example&nbsp;1 that doesn't use a
+        higher-order function but instead uses a for each loop to
+        convert a list of temperatures from Fahrenheit to Celsius.
 
 <div class="pre"><pre class="linenums"></pre>
 <pre class="python" id="ex1"># Example 1
@@ -99,21 +106,28 @@ def cels_from_fahr(fahr):
     return round(cels, 1)
 
 
-main()</pre></div>
+# Call main to start this program.
+if __name__ == "__main__":
+    main()</pre></div>
 
         <p>At <span class="cross" data-ref="ex1">lines&nbsp;12&ndash;14</span>
-        in example&nbsp;1 above, there is a for each loop that converts
-        each Fahrenheit temperature to Celsius and then appends the
-        Celsius temperature into a new list. Writing a for each loop
-        like this is the traditional way to process all the elements in
-        a list. However, Python also includes a built-in function named
+        in example&nbsp;1, there is a for each loop that converts each
+        Fahrenheit temperature to Celsius and then appends the Celsius
+        temperature onto a new list. Writing a for each loop like this
+        is the traditional way to process all the elements in a list and
+        doesn't use higher-order functions.</p>
+
+        <p>Python includes a built-in higher-order function named
         <code>map</code> that will process all of the elements in a list
         and return a new list that contains the results. The
         <a href="https://docs.python.org/3/library/functions.html#map"><code>map</code> function</a>
-        contains a loop inside of it, so that when a programmer calls
-        the <code>map</code> function, he doesn't need to write a loop.
-        Consider the program in example&nbsp;2 that produces the same
-        results as example&nbsp;1:</p>
+        accepts a function and a list as arguments and contains a loop
+        inside of it, so that when a programmer calls the
+        <code>map</code> function, he doesn't need to write a loop. The
+        <code>map</code> function is a higher-order function because it
+        accepts a function as an argument. Consider the program in
+        example&nbsp;2 that produces the same results as
+        example&nbsp;1:</p>
 
 <div class="pre"><pre class="linenums"></pre>
 <pre class="python" id="ex2"># Example 2
@@ -140,7 +154,9 @@ def cels_from_fahr(fahr):
     return round(cels, 1)
 
 
-main()</pre></div>
+# Call main to start this program.
+if __name__ == "__main__":
+    main()</pre></div>
 
         <p>Notice that example&nbsp;2, doesn't contain a for each loop.
         Instead, at <span class="cross" data-ref="ex2">line&nbsp;11</span>,
@@ -155,13 +171,14 @@ main()</pre></div>
         <code>map</code> will call <code>cels_from_fahr</code> for each
         element in the <var>fahr_temps</var> list.</p>
 
-        <p>Calling the <code>map</code> function is just one example of
-        passing a function as an argument into another function. Python
-        also includes the built-in
-        <a href="https://docs.python.org/3/library/functions.html#filter"><code>filter function</code></a>
-        and many functions in the
-        <a href="https://docs.python.org/3/library/functools.html"><code>functools</code> module</a>
-        that accept function arguments.</p></div></li>
+        <p>The <code>map</code> function is just one example of a
+        higher-order function. Python also includes the built-in
+        higher-order
+        <a href="https://docs.python.org/3/library/functions.html#sorted"><code>sorted</code></a>
+        and
+        <a href="https://docs.python.org/3/library/functions.html#filter"><code>filter</code></a>
+        functions and several higher-order functions in the
+        <a href="https://docs.python.org/3/library/functools.html"><code>functools</code> module</a>.</p></div></li>
 
         <li><div>The Python programming language allows a programmer to
         define nested functions. A <dfn>nested function</dfn> is a
@@ -169,7 +186,7 @@ main()</pre></div>
         when we wish to split a large function into smaller functions
         and the smaller functions will be called by the containing
         function only. The program in example&nbsp;3 produces the same
-        results as examples&nbsp;1&nbsp;and&nbsp;2, but it uses a nested
+        results as examples&nbsp;1 and&nbsp;2, but it uses a nested
         function. Notice in example&nbsp;3 at
         <span class="cross" data-ref="ex3">lines&nbsp;5&ndash;10</span>
         that the <code>cels_from_fahr</code> function is nested inside
@@ -200,7 +217,9 @@ def main():
     print(f"Celsius: {cels_temps}")
 
 
-main()</pre></div></div></li>
+# Call main to start this program.
+if __name__ == "__main__":
+    main()</pre></div></div></li>
 
         <li id="lambda"><div>A Python <dfn>lambda function</dfn> is a
         small anonymous function, meaning a function without a name. A
@@ -222,20 +241,33 @@ def main():
     # Print the Fahrenheit temperatures.
     print(f"Fahrenheit: {fahr_temps}")
 
-    # Create a lambda function that converts
+    # Define a lambda function that converts
     # a Fahrenheit temperature to Celsius and
     # returns the Celsius temperature.
     cels_from_fahr = <em>lambda fahr: round((fahr - 32) * 5 / 9, 1)</em>
 
     # Convert each Fahrenheit temperature to Celsius and store
     # the Celsius temperatures in a list named cels_temps.
-    cels_temps = list(map(cels_from_fahr, fahr_temps))
+    cels_temps = list(<em>map(cels_from_fahr, fahr_temps)</em>)
 
     # Print the Celsius temperatures.
     print(f"Celsius: {cels_temps}")
 
 
-main()</pre></div>
+# Call main to start this program.
+if __name__ == "__main__":
+    main()</pre></div>
+
+        <p>To write a lambda function write code that follows this
+        template:</p>
+
+<div class="pre"><pre class="python">
+    lambda <var>param1</var>, <var>param2</var>, &hellip; <var>paramN</var>: <var>expression</var></pre></div>
+
+        <p>As shown in the template, type the keyword
+        <code>lambda</code>, then parameters separated by commas, then a
+        colon (:), and finally an expression that performs arithmetic,
+        modifies a string, or computes something else.</p>
 
         <p>In Python, every lambda function can be written as a regular
         Python function. For example, the lambda function in
@@ -244,10 +276,301 @@ main()</pre></div>
         and&nbsp;3.</p></div></li>
     </ol>
 
-    <h2>Map and Filter</h2>
-    <p>Python contains two built-in functions named <code>map</code>
-    and <code>filter</code> that are used in functional programming to
-    process a list.
+    <h2>Example - Map and Filter</h2>
+    <p>The <a href="../lesson09/check.html">checkpoint</a> for
+    lesson&nbsp;9 required you to write a program that replaced all the
+    occurences of "AB" in a list with the name "Alberta" and then
+    counted how many times the name "Alberta" appeared in the list.</p>
+
+    <p>Example&nbsp;5 contains a program that uses the <code>map</code>
+    and <code>filter</code> functions to complete the requirements of
+    checkpoint&nbsp;9. The example program works by doing the
+    following:</p>
+    <ol>
+        <li><div>Calling the <code>map</code> function at
+        <span class="cross" data-ref="ex5">line&nbsp;41</span> to
+        convert all elements that are "AB" to "Alberta."</div></li>
+
+        <li><div>Calling the <code>filter</code> function at
+        <span class="cross" data-ref="ex5">line&nbsp;57</span> to
+        remove all elements that are not "Alberta."</div></li>
+
+        <li><div>Calling the <code>len</code> function at
+        <span class="cross" data-ref="ex5">line&nbsp;64</span> to count
+        the number of elements that remain in the filtered
+        list.</div></li>
+    </ol>
+
+<div class="pre"><pre class="linenums"></pre>
+<pre class="python" id="ex5">
+# Example 5
+
+def main():
+    # Create a list that contains the names of Canadian provinces.
+    provinces_list = [
+        "Alberta", "Ontario", "Prince Edward Island", "Ontario",
+        "Quebec", "Saskatchewan", "AB", "Nova Scotia", "Alberta",
+        "Northwest Territories", "Saskatchewan", "Nunavut",
+        "Nova Scotia", "Prince Edward Island", "Alberta",
+        "Nova Scotia", "Prince Edward Island", "Saskatchewan",
+        "Nova Scotia", "Newfoundland and Labrador", "Ontario",
+        "Ontario", "Ontario", "British Columbia", "Ontario",
+        "Nova Scotia", "Prince Edward Island", "Saskatchewan",
+        "Newfoundland and Labrador", "Ontario", "Ontario",
+        "Manitoba", "British Columbia", "Ontario", "Alberta",
+        "Saskatchewan", "Ontario", "Manitoba", "Ontario",
+        "New Brunswick", "Yukon", "British Columbia", "Yukon",
+        "Newfoundland and Labrador", "Manitoba", "Ontario",
+        "Yukon", "British Columbia", "Yukon", "Ontario", "AB",
+        "Newfoundland and Labrador", "Nova Scotia", "Yukon",
+        "Northwest Territories", "Nunavut", "Yukon", "Nunavut",
+        "Ontario", "British Columbia", "AB", "Saskatchewan",
+        "Prince Edward Island", "Saskatchewan",
+        "Prince Edward Island", "Alberta", "Ontario", "Alberta",
+        "Manitoba", "AB", "British Columbia", "Alberta"
+    ]
+
+    # As a debugging aid, print the entire list.
+    print(provinces_list)
+    print()
+
+    # Define a nested function that converts AB to Alberta.
+    def alberta_from_ab(province_name):
+        if province_name == "AB":
+            province_name = "Alberta"
+        return province_name
+
+    # Replace all occurrrences of "AB" with "Alberta" by
+    # calling the map function and passing the ablerta_from_ab
+    # function and provinces_list into the map function.
+    new_list = list(<em>map(alberta_from_ab, provinces_list)</em>)
+    print(new_list)
+    print()
+
+    # Define a nested function that returns True if
+    # province_name is Alberta and returns False otherwise.
+    def is_alberta(province_name):
+        if province_name == "Alberta":
+            result = True
+        else:
+            result = False
+        return result
+
+    # Filter the new list to only those provinces that
+    # are "Alberta" by calling the filter function and
+    # passing the is_alberta function and new_list.
+    filtered_list = list(<em>filter(is_alberta, new_list)</em>)
+    print(filtered_list)
+    print()
+
+    # Because all the elements in filtered_list are
+    # "Alberta", we can count how many elements are
+    # "Alberta" by simply calling the len function.
+    count = <em>len(filtered_list)</em>
+
+    print(f"Alberta occurs {count} times in the modified list.")
+
+
+# Call main to start this program.
+if __name__ == "__main__":
+    main()</pre></div>
+
+    <h2>Example - Sorting a Compound List</h2>
+    <p>Python includes a built-in function named <code>sorted</code>
+    that accepts a list as an argument and returns a new sorted list.
+    Calling the <code>sorted</code> function is straightforward for
+    a simple list such as a list of strings or a list of numbers as
+    shown in example&nbsp;6. The output of example&nbsp;6 is shown
+    immediately after example&nbsp;6.</p>
+
+<div class="pre"><pre class="linenums"></pre>
+<pre class="python" id="ex6"># Example 6
+
+def main():
+    # Create a list that contains country names and print the list.
+    countries = ["Canada", "France", "Ghana", "Brazil", "Japan"]
+    print(countries)
+
+    # Sort the list. Then print the sorted list.
+    sorted_list = sorted(countries)
+    print(sorted_list)
+
+
+# Call main to start this program.
+if __name__ == "__main__":
+    main()</pre></div>
+
+<pre class="console">&gt; python countries.py
+['Mexico', 'France', 'Ghana', 'Brazil', 'Japan']
+['Brazil', 'France', 'Ghana', 'Japan', 'Mexico']</pre>
+
+    <p>A <dfn>compound list</dfn> is a list that contains lists.
+    Sorting a compound list is a more complex than sorting a simple
+    list. Consider this compound list that contains data about some
+    countries.</p>
+
+<div class="pre"><pre class="python">
+    # Create a list that contains data about countries.
+    countries = [
+        # [country_name, land_area, population, gdp_per_capita]
+        ["Mexico", 1972550, 126014024, 21362],
+        ["France",  640679,  67399000, 45454],
+        ["Ghana",   239567,  31072940,  7343],
+        ["Brazil", 8515767, 210147125, 14563],
+        ["Japan",   377975, 125480000, 41634]
+    ]</pre></div>
+
+    <p>Perhaps we want the <var>countries</var> compound list sorted by
+    country name or perhaps we want it sorted by population. The element
+    that we want a list sorted by is known as the <dfn>key
+    element</dfn>. If we want to use the <code>sorted</code> function to
+    sort a compound list, we must tell it which element is the key
+    element, which we do by passing a small function as an argument into
+    the <code>sorted</code> function. This small function is called the
+    <dfn>key function</dfn> and extracts the key element from a
+    list as shown in example&nbsp;7.</p>
+
+    <p>Notice at <span class="cross" data-ref="ex7">line&nbsp;26</span>
+    there is a lambda function that extracts the population from a
+    country. Then at <span class="cross" data-ref="ex7">line&nbsp;29</span>
+    that lambda function is passed to the <code>sorted</code> function
+    so that the <code>sorted</code> function will sort the list of
+    countries by the population.</p>
+
+<div class="pre"><pre class="linenums"></pre>
+<pre class="python" id="ex7"># Example 7
+
+def main():
+    # Create a list that contains data about countries.
+    countries = [
+        # [country_name, land_area, population, gdp_per_capita]
+        ["Mexico", 1972550, 126014024, 21362],
+        ["France",  640679,  67399000, 45454],
+        ["Ghana",   239567,  31072940,  7343],
+        ["Brazil", 8515767, 210147125, 14563],
+        ["Japan",   377975, 125480000, 41634]
+    ]
+
+    # Print the unsorted list.
+    print("Original unsorted list of countries")
+    for country in countries:
+        print(country)
+    print()
+
+    # Define a lambda function that will be used as the
+    # key function by the sorted function. The lambda
+    # function extracts the population data from each
+    # country so that the population will be used for
+    # sorting the list of countries.
+    POPULATION_INDEX = 2
+    popul_func = lambda country: country[POPULATION_INDEX]
+
+    # Sort the list of countries by the population.
+    sorted_list = sorted(countries, <em>key=popul_func</em>)
+
+    # Print the sorted list.
+    print("List of countries sorted by population")
+    for country in sorted_list:
+        print(country)
+
+
+# Call main to start this program.
+if __name__ == "__main__":
+    main()</pre></div>
+
+<pre class="console">&gt; python countries.py
+Original unsorted list of countries
+['Mexico', 1972550, 126014024, 21362]
+['France', 640679, 67399000, 45454]
+['Ghana', 239567, 31072940, 7343]
+['Brazil', 8515767, 210147125, 14563]
+['Japan', 377975, 125480000, 41634]
+
+List of countries sorted by population
+['Ghana', 239567, 31072940, 7343]
+['France', 640679, 67399000, 45454]
+['Japan', 377975, 125480000, 41634]
+['Mexico', 1972550, 126014024, 21362]
+['Brazil', 8515767, 210147125, 14563]</pre>
+
+    <p>By using a key function it's possible to sort a compound list
+    with a key element that isn't in the list. Consider the compound
+    list named <var>students</var> that contains data about various
+    students in example&nbsp;8. Within the list, each student's
+    given name and surname are stored separately. It is common for a
+    user to want such a list to be sorted by surname and then by
+    given name. A simple way to do that is to write a key function
+    that combines the surname and given name elements and returns
+    the combined name as the key that the <code>sorted</code> function
+    will use for sorting.</p>
+
+    <p><span class="cross" data-ref="ex8">Lines&nbsp;21&ndash;22</span>
+    in example&nbsp;8 contain a <code>lambda</code> function that
+    combines a student's surname and given name into a string that is
+    used as the key by the sorted function at
+    <span class="cross" data-ref="ex8">line&nbsp;25</span>. Notice in
+    the output from example&nbsp;8 that the students are sorted by
+    surname and then by first name.</p>
+
+<div class="pre"><pre class="linenums"></pre>
+<pre class="python" id="ex8"># Example 8
+
+def main():
+    # Create a list that contains data about young students.
+    students = [
+        # [given_name, surname, reading_level]
+        ["Robert", "Smith", 6.7],
+        ["Annie", "Smith", 6.2],
+        ["Robert", "Lopez", 7.1],
+        ["Sean", "Li", 5.6],
+        ["Sofia", "Lopez", 5.3],
+        ["Lily", "Harris", 6.7],
+        ["Alex", "Harris", 5.8]
+    ]
+
+    GIVEN_INDEX = 0
+    SURNAME_INDEX = 1
+
+    # Define a lambda function that combines
+    # a student's surname and given name.
+    combine_names = <em>lambda student_list: \
+        f"{student_list[SURNAME_INDEX]}, {student_list[GIVEN_INDEX]}"</em>
+
+    # Sort the list by the combined key of surname, given_name.
+    sorted_list = sorted(students, <em>key=combine_names</em>)
+
+    # Print the list.
+    for student in sorted_list:
+        print(student)
+
+
+# Call main to start this program.
+if __name__ == "__main__":
+    main()</pre></div>
+
+<pre class="console">&gt; python students.py
+['Alex', 'Harris', 5.8]
+['Lily', 'Harris', 6.7]
+['Sean', 'Li', 5.6]
+['Robert', 'Lopez', 7.1]
+['Sofia', 'Lopez', 5.3]
+['Annie', 'Smith', 6.2]
+['Robert', 'Smith', 6.7]</pre>
+
+    <h2>Summary</h2>
+    <p>In this prepare content, you learned that functional
+    programming is a programming paradigm that focuses on functions,
+    and you learned these three concepts that are used in functional
+    programming:</p>
+
+    <ol>
+        <li><div>You can pass a function into another function as an
+        argument.</div></li>
+        <li><div>A nested function is a function defined inside
+        another function.</div></li>
+        <li><div>A lambda function is a small anonymous
+        function.</div></li>
+    </ol>
 
     <h2>Videos</h2>
     <p>If you wish to learn more about functional programming in Python,

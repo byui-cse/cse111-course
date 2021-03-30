@@ -141,10 +141,15 @@
 
     <h2 id="ex">Example</h2>
     <p>Here is a simple function named <code>cels_from_fahr</code> that
-    converts a temperature in Fahrenheit to Celsius and that is part of
-    a larger Python program in a file named <code>weather.py</code>:</p>
+    converts a temperature in Fahrenheit to Celsius and returns the
+    Celsius temperature. The <code>cels_from_fahr</code> function is
+    part of a larger Python program in a file named
+    <code>weather.py</code>:</p>
 
-<div class="pre"><pre class="python">def cels_from_fahr(fahr):
+<div class="pre"><pre class="linenums"></pre>
+<pre class="python" id="ex1"># weather.py
+
+def cels_from_fahr(fahr):
     """Convert a temperature in Fahrenheit to
     Celsius and return the Celsius temperature.
     """
@@ -152,13 +157,18 @@
     return cels</pre></div>
 
     <p>We want to test the <code>cels_from_fahr</code> function. From
-    the function header, we see that <code>cels_from_fahr</code> takes
-    one parameter named <code>fahr</code>. To adequately test this
-    function, we should call it with at least a negative number, zero,
-    and a positive number, so we write this test function in a separate
-    file named <code>test_weather.py</code>:</p>
+    the function header at
+    <span class="cross" data-ref="ex1">line&nbsp;3</span> in
+    <code>weather.py</code>, we see that <code>cels_from_fahr</code>
+    takes one parameter named <var>fahr</var>. To adequately test this
+    function, we should call it with at least the following:&nbsp; a
+    negative number, zero, and a positive number, so we write a test
+    function in a separate file named <code>test_weather.py</code>:</p>
 
-<div class="pre"><pre class="python">from weather import cels_from_fahr
+<div class="pre"><pre class="linenums"></pre>
+<pre class="python" id="ex2"># test_weather.py
+
+from weather import cels_from_fahr
 from pytest import approx
 import pytest
 
@@ -176,12 +186,25 @@ def test_cels_from_fahr():
 # the test functions in this file will start executing.
 pytest.main(["-v", "--tb=no", "test_weather.py"])</pre></div>
 
-    <p>Notice that the test function <code>test_cels_from_fahr</code>
-    calls the program function <code>cels_from_fahr</code> four times:
-    once with a negative number, once with zero, and twice with positive
-    numbers. Notice also that the test function uses <code>assert</code>
-    and <code>approx</code>. After writing the test function, we use
-    <code>pytest</code> to run the test function:</p>
+    <p>Notice in <code>test_weather.py</code> at
+    <span class="cross" data-ref="ex2">lines&nbsp;12&ndash;15</span>
+    that the test function
+    <code>test_cels_from_fahr</code>
+    calls the program function <code>cels_from_fahr</code> four
+    times:&nbsp; once with a negative number, once with zero, and twice
+    with positive numbers. Notice also that the test function uses
+    <code>assert</code> and <code>approx</code>.</p>
+
+    <p>After writing the test function, we use <code>pytest</code> to
+    run the test function. At
+    <span class="cross" data-ref="ex2">line&nbsp;19</span>,
+    instead of writing a call to the <code>main</code> function as we do
+    in program files, we write a call to <code>pytest.main</code>. In
+    CSE&nbsp;111, in all test files, we will write a call to
+    <code>pytest.main</code>
+    to cause <code>pytest</code> to run the test functions. When
+    <code>pytest</code> runs the test functions, it will produce output
+    that tells us if the tests passed or failed like this:</p>
 
 <pre class="console">&gt; python test_weather.py
 ========================= test session starts =========================
@@ -193,13 +216,77 @@ test_weather.py::test_cels_from_fahr <span class="pass">PASSED                  
 
 <span class="pass">========================== 1 passed in 0.10s ==========================</span></pre>
 
-    <p><code>pytest</code> runs the <code>test_cels_from_fahr</code>
-    function which calls the <code>cels_from_fahr</code> function four
-    times and verifies that <code>cels_from_fahr</code> returns the
-    correct value each time. We can see from the output of
-    <code>pytest</code>, "[100%] and 1 passed", that the
-    <code>cels_from_fahr</code> function return the expected (correct)
-    result all four times.</p>
+    <p>As shown above, <code>pytest</code> runs the
+    <code>test_cels_from_fahr</code> function which calls the
+    <code>cels_from_fahr</code> function four times and verifies that
+    <code>cels_from_fahr</code> returns the correct value each time. We
+    can see from the output of <code>pytest</code>, "[100%] and 1
+    passed", that the <code>cels_from_fahr</code> function returned the
+    expected (correct) result all four times.</p>
+
+    <h2>Separating Program Code from Test Code</h2>
+    <p>As explained above, in CSE&nbsp;111, we will write test functions
+    in a different file than program functions. It is a good idea to
+    separate test functions and program functions. This separation makes
+    it easy to release a program to users without releasing the test
+    functions to them. (In general, users of a program don't want the
+    test functions.) One consequence of writing program functions and
+    test functions in separate files is that we must add an import
+    statement at the top of the test file that imports all the program
+    functions that will be tested.</p>
+
+    <p>Line&nbsp;3 from <code>test_weather.py</code> above is an example
+    of an import statement that imports functions from a program file.
+    Line&nbsp;3 matches this template:</p>
+
+<div class="pre"><pre class="python">from <var>file_name</var> import <var>function_1</var>, <var>function_2</var>, &hellip; <var>function_N</var></pre></div>
+
+    <p>When the computer imports functions from a file, the computer
+    immediately executes all statements that are not written in a
+    function. This includes the statement to call the <code>main</code>
+    function:</p>
+
+<div class="pre"><pre class="python">
+# Start this program by
+# calling the main function.
+main()</pre></div>
+
+    <p>This means that when we run our test functions, the computer will
+    import our program functions and at the same time, execute the call
+    to <code>main()</code> which will start the program executing.
+    However, we don't want the computer to execute the program while it
+    is executing the test functions, so we have a problem. How can we
+    get the computer to import the program functions without executing
+    the <code>main</code> function? Fortunately, the developers of
+    Python gave us a solution to this problem. Instead of writing the
+    following code to start our program running:</p>
+
+<div class="pre"><pre class="python">
+# Start this program by
+# calling the main function.
+main()</pre></div>
+
+    <p>We write an <code>if</code> statement above the call to
+    <code>main()</code> like this:</p>
+
+<div class="pre"><pre class="python">
+# If this file is executed like this:
+# &gt; python program.py
+# then call the main function. However, if this file is simply
+# imported (e.g. into a test file), then skip the call to main.
+if __name__ == "__main__":
+    main()</pre></div>
+
+    <p>Writing the <code>if</code> statment above the call to
+    <code>main()</code> is the correct way to write code to start our
+    program. The Python programming language guarantees that when the
+    computer imports the program functions (in order to test them), the
+    comparison in the <code>if</code> statement will be false, so the
+    computer will skip the call to <code>main()</code>. At another time,
+    when the computer executes the program (not the test functions), the
+    comparison in the <code>if</code> statement will be true, which will
+    cause the computer to call the <code>main</code> function and start
+    the program.</p>
 
     <h2>Documentation</h2>
     <p>The official online documentation for <code>pytest</code>

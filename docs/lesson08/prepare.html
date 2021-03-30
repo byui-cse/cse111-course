@@ -80,58 +80,64 @@
 <pre class="python" id="ex1">
 # Example 1
 
-# Create a dictionary with student IDs as
-# the keys and student names as the values.
-students = {
-    "42-039-4736": "Clint Huish",
-    "61-315-0160": "Michelle Davis",
-    "10-450-1203": "Jorge Soares",
-    "75-421-2310": "Abdul Ali",
-    "07-103-5621": "Michelle Davis"
-}
+def main():
+    # Create a dictionary with student IDs as
+    # the keys and student names as the values.
+    students = {
+        "42-039-4736": "Clint Huish",
+        "61-315-0160": "Michelle Davis",
+        "10-450-1203": "Jorge Soares",
+        "75-421-2310": "Abdul Ali",
+        "07-103-5621": "Michelle Davis"
+    }
 
-# Add an item to the dictionary.
-<em>students["81-298-9238"] = "Sama Patel"</em>
+    # Add an item to the dictionary.
+    <em>students["81-298-9238"] = "Sama Patel"</em>
 
-# Remove an item from the dictionary.
-students.pop("61-315-0160")
+    # Remove an item from the dictionary.
+    students.pop("61-315-0160")
 
-# Get the number of items in the dictionary and print it.
-length = len(students)
-print(length)
+    # Get the number of items in the dictionary and print it.
+    length = len(students)
+    print(length)
 
-# Print the entire dictionary.
-print(students)
+    # Print the entire dictionary.
+    print(students)
 
-# Get a student ID from the user.
-id = input("Enter a student ID: ")
+    # Get a student ID from the user.
+    id = input("Enter a student ID: ")
 
-# Check if the student ID is in the dictionary.
-if id in students:
+    # Check if the student ID is in the dictionary.
+    if id in students:
 
-    # Find the student ID in the dictionary and
-    # retrieve the corresponding student name.
-    <em>name = students[id]</em>
+        # Find the student ID in the dictionary and
+        # retrieve the corresponding student name.
+        <em>name = students[id]</em>
 
-    # Print the student's name.
-    print(name)
-else:
-    print("No such student")</pre></div>
+        # Print the student's name.
+        print(name)
+    else:
+        print("No such student")
 
-    <p><span class="cross" data-ref="ex1">Line&nbsp;14</span> in the
+
+# Call main to start this program.
+if __name__ == "__main__":
+    main()</pre></div>
+
+    <p><span class="cross" data-ref="ex1">Line&nbsp;15</span> in the
     previous code example, adds an item to the dictionary. To add an
     item to an existing dictionary, write code that follows this
     template:</p>
 <div class="pre"><pre class="python">dictionary_name[key] = value</pre></div>
-    <p>Notice that <span class="cross" data-ref="ex1">line&nbsp;14</span>
+    <p>Notice that <span class="cross" data-ref="ex1">line&nbsp;15</span>
     follows this template.</p>
 
-    <p><span class="cross" data-ref="ex1">Line&nbsp;34</span> in the
+    <p><span class="cross" data-ref="ex1">Line&nbsp;35</span> in the
     previous code example, finds a key and retrieves its corresponding
     value from a dictionary. To find a key and retrieve its
     corresponding value, write code that follows this template:</p>
 <div class="pre"><pre class="python">value = dictionary_name[key]</pre></div>
-    <p>Notice that <span class="cross" data-ref="ex1">line&nbsp;34</span>
+    <p>Notice that <span class="cross" data-ref="ex1">line&nbsp;35</span>
     follows this template.</p>
 
     <h3>Compound Values</h3>
@@ -148,38 +154,44 @@ else:
 <div class="pre"><pre class="python" id="ex2">
 # Example 2
 
-# Create a dictionary with student IDs as the keys
-# and student data stored in a list as the values.
-students = {
-    "42-039-4736": ["Clint", "Huish", "hui20001@byui.edu", 16],
-    "61-315-0160": ["Michelle", "Davis", "dav21012@byui.edu", 3],
-    "10-450-1203": ["Jorge", "Soares", "soa22005@byui.edu", 15],
-    "75-421-2310": ["Abdul", "Ali", "ali20003@byui.edu", 5],
-    "07-103-5621": ["Michelle", "Davis" "dav19008@byui.edu", 0]
-}
+def main():
+    # Create a dictionary with student IDs as the keys
+    # and student data stored in a list as the values.
+    students = {
+        "42-039-4736": ["Clint", "Huish", "hui20001@byui.edu", 16],
+        "61-315-0160": ["Michelle", "Davis", "dav21012@byui.edu", 3],
+        "10-450-1203": ["Jorge", "Soares", "soa22005@byui.edu", 15],
+        "75-421-2310": ["Abdul", "Ali", "ali20003@byui.edu", 5],
+        "07-103-5621": ["Michelle", "Davis" "dav19008@byui.edu", 0]
+    }
 
-# Add an item to the dictionary.
-students["81-298-9238"] = ["Sama", "Patel", "pat21004@byui.edu", 8]
+    # Add an item to the dictionary.
+    students["81-298-9238"] = ["Sama", "Patel", "pat21004@byui.edu", 8]
 
-# Get a student ID from the user.
-id = input("Enter a student ID: ")
+    # Get a student ID from the user.
+    id = input("Enter a student ID: ")
 
-# Check if the student ID is in the dictionary.
-if id in students:
+    # Check if the student ID is in the dictionary.
+    if id in students:
 
-    # Find the student ID in the dictionary and
-    # retrieve the corresponding value, which is a list.
-    value = students[id]
+        # Find the student ID in the dictionary and
+        # retrieve the corresponding value, which is a list.
+        value = students[id]
 
-    # Retrive the student's given name (first name) and
-    # surname (last name or family name) from the list.
-    given_name = value[0]
-    surname = value[1]
+        # Retrive the student's given name (first name) and
+        # surname (last name or family name) from the list.
+        given_name = value[0]
+        surname = value[1]
 
-    # Print the student's name.
-    print(f"{given_name} {surname}")
-else:
-    print("No such student")</pre></div>
+        # Print the student's name.
+        print(f"{given_name} {surname}")
+    else:
+        print("No such student")
+
+
+# Call main to start this program.
+if __name__ == "__main__":
+    main()</pre></div>
 
     <h3 id="findOne">Finding One Item</h3>
     <p>The reason Python dictionaries were developed is to make finding
@@ -194,36 +206,54 @@ else:
     return the <var>value</var> that corresponds to the <var>key</var>.
     Some students forget how easy it is to find items in a dictionary,
     and when asked to write code to find an item, they write complex
-    code like this example.</p>
+    code like
+    <span class="cross" data-ref="ex3">lines&nbsp;25&ndash;28</span>
+    in example&nbsp;3.</p>
 
 <div class="pre"><pre class="linenums"></pre>
 <pre class="python" id="ex3">
 # Example 3
 
-# Get a student ID from the user.
-id = input("Enter a student ID: ")
+def main():
+    # Create a dictionary with student IDs as the keys
+    # and student data stored in a list as the values.
+    students = {
+        "42-039-4736": ["Clint", "Huish", "hui20001@byui.edu", 16],
+        "61-315-0160": ["Michelle", "Davis", "dav21012@byui.edu", 3],
+        "10-450-1203": ["Jorge", "Soares", "soa22005@byui.edu", 15],
+        "75-421-2310": ["Abdul", "Ali", "ali20003@byui.edu", 5],
+        "07-103-5621": ["Michelle", "Davis" "dav19008@byui.edu", 0]
+    }
 
-name = None
+    # Get a student ID from the user.
+    id = input("Enter a student ID: ")
 
-<em># This is a difficult and slow way to find an item in a
-# dictionary. Don't write code like this to find an item
-# in a dictionary!</em>
+    name = None
 
-# For each item in the dictionary, check if
-# its key is the same as the variable id.
-for key, value in students.items():
-    if key == id:
-        name = value
-        break
+    <em># This is a difficult and slow way to find an item in a
+    # dictionary. Don't write code like this to find an item
+    # in a dictionary!</em>
 
-if name:
-    # Print the student name.
-    print(name)
-else:
-    print("No such student")</pre></div>
+    # For each item in the dictionary, check if
+    # its key is the same as the variable id.
+    for key, value in students.items():
+        if key == id:
+            name = value
+            break
+
+    if name:
+        # Print the student name.
+        print(name)
+    else:
+        print("No such student")
+
+
+# Call main to start this program.
+if __name__ == "__main__":
+    main()</pre></div>
 
     <p>Compare the <code>for</code> loop at
-    <span class="cross" data-ref="ex3">lines&nbsp;14&ndash;17</span> in
+    <span class="cross" data-ref="ex3">lines&nbsp;25&ndash;28</span> in
     the previous example to this one line of code.</p>
 <div class="pre"><pre class="python">    name = students[id]</pre></div>
 
@@ -240,22 +270,38 @@ else:
 <div class="pre"><pre class="python" id="ex4">
 # Example 4
 
-# Get a student ID from the user.
-id = input("Enter a student ID: ")
+def main():
+    # Create a dictionary with student IDs as the keys
+    # and student data stored in a list as the values.
+    students = {
+        "42-039-4736": ["Clint", "Huish", "hui20001@byui.edu", 16],
+        "61-315-0160": ["Michelle", "Davis", "dav21012@byui.edu", 3],
+        "10-450-1203": ["Jorge", "Soares", "soa22005@byui.edu", 15],
+        "75-421-2310": ["Abdul", "Ali", "ali20003@byui.edu", 5],
+        "07-103-5621": ["Michelle", "Davis" "dav19008@byui.edu", 0]
+    }
 
-<em># This is the correct way to find an item in a dictionary.</em>
+    # Get a student ID from the user.
+    id = input("Enter a student ID: ")
 
-# Check if the student ID is in the dictionary.
-if id in students:
+    <em># This is the correct way to find an item in a dictionary.</em>
 
-    # Find the student ID in the dictionary and
-    # retrieve the corresponding student name.
-    name = students[id]
+    # Check if the student ID is in the dictionary.
+    if id in students:
 
-    # Print the student's name.
-    print(name)
-else:
-    print("No such student")</pre></div>
+        # Find the student ID in the dictionary and
+        # retrieve the corresponding student name.
+        name = students[id]
+
+        # Print the student's name.
+        print(name)
+    else:
+        print("No such student")
+
+
+# Call main to start this program.
+if __name__ == "__main__":
+    main()</pre></div>
 
     <h3 id="processAll">Processing All Items</h3>
     <p>Occaisionally, you may need to write a program that processes all
@@ -266,30 +312,36 @@ else:
 <div class="pre"><pre class="python" id="ex5">
 # Example 5
 
-# Create a dictionary with student IDs as the keys
-# and student data stored in a list as the values.
-students = {
-    "42-039-4736": ["Clint", "Huish", "hui20001@byui.edu", 16],
-    "61-315-0160": ["Michelle", "Davis", "dav21012@byui.edu", 3],
-    "10-450-1203": ["Jorge", "Soares", "soa22005@byui.edu", 15],
-    "75-421-2310": ["Abdul", "Ali", "ali20003@byui.edu", 5],
-    "07-103-5621": ["Michelle", "Davis" "dav19008@byui.edu", 0],
-    "81-298-9238": ["Sama", "Patel", "pat21004@byui.edu", 8]
-}
+def main():
+    # Create a dictionary with student IDs as the keys
+    # and student data stored in a list as the values.
+    students = {
+        "42-039-4736": ["Clint", "Huish", "hui20001@byui.edu", 16],
+        "61-315-0160": ["Michelle", "Davis", "dav21012@byui.edu", 3],
+        "10-450-1203": ["Jorge", "Soares", "soa22005@byui.edu", 15],
+        "75-421-2310": ["Abdul", "Ali", "ali20003@byui.edu", 5],
+        "07-103-5621": ["Michelle", "Davis" "dav19008@byui.edu", 0],
+        "81-298-9238": ["Sama", "Patel", "pat21004@byui.edu", 8]
+    }
 
-total = 0
+    total = 0
 
-# For each item in the list add the number
-# of credits that the studen thas earned.
-<em>for inumber, value in students.items():</em>
+    # For each item in the list add the number
+    # of credits that the studen thas earned.
+    <em>for inumber, value in students.items():</em>
 
-    # Retrieve the number of credits from the value list.
-    credits = value[3]
+        # Retrieve the number of credits from the value list.
+        credits = value[3]
 
-    # Add the number of credits to the total.
-    total += credits
+        # Add the number of credits to the total.
+        total += credits
 
-print(f"Total credits earned by all students: {total}")</pre></div>
+    print(f"Total credits earned by all students: {total}")
+
+
+# Call main to start this program.
+if __name__ == "__main__":
+    main()</pre></div>
 
     <h3>Converting between Lists and Dictionaries</h3>
     <p>It is possible to convert two lists into a dictionary by using
@@ -309,28 +361,34 @@ print(f"Total credits earned by all students: {total}")</pre></div>
 <div class="pre"><pre class="python" id="ex6">
 # Example 6
 
-# Create a list that contains five student numbers.
-numbers = ["42-039-4736", "61-315-0160",
-        "10-450-1203", "75-421-2310", "07-103-5621"]
+def main():
+    # Create a list that contains five student numbers.
+    numbers = ["42-039-4736", "61-315-0160",
+            "10-450-1203", "75-421-2310", "07-103-5621"]
 
-# Create a list that contains five student names.
-names = ["Clint Huish", "Michelle Davis",
-        "Jorge Soares", "Abdul Ali", "Michelle Davis"]
+    # Create a list that contains five student names.
+    names = ["Clint Huish", "Michelle Davis",
+            "Jorge Soares", "Abdul Ali", "Michelle Davis"]
 
-# Convert the numbers list and names list into a dictionary.
-<em>student_dict = dict(zip(numbers, names))</em>
+    # Convert the numbers list and names list into a dictionary.
+    <em>student_dict = dict(zip(numbers, names))</em>
 
-# Print the entire student dictionary.
-print(student_dict)
+    # Print the entire student dictionary.
+    print(student_dict)
 
-# Convert the student dictionary into
-# two lists named keys and values.
-<em>keys = list(student_dict.keys())
-values = list(student_dict.values())</em>
+    # Convert the student dictionary into
+    # two lists named keys and values.
+    <em>keys = list(student_dict.keys())
+    values = list(student_dict.values())</em>
 
-# Print both lists.
-print(keys)
-print(values)</pre></div>
+    # Print both lists.
+    print(keys)
+    print(values)
+
+
+# Call main to start this program.
+if __name__ == "__main__":
+    main()</pre></div>
 
     <h2>Documentation</h2>
     <p>The following tutorials contain more information about

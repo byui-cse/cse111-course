@@ -76,7 +76,7 @@
         code and its comments carefully to understand the correct syntax
         and organization of a try-except-else-finally block.
 
-<div class="pre"><pre class="python" id="ex1">
+<div class="pre"><pre class="python">
 <em>try</em>:
     # Write normal code here. This block must include
     # code that falls into two groups:
@@ -152,21 +152,22 @@ We must order except blocks from most specific at the top to
         <code>finally</code> block could close that file.</div></li>
     </ol>
 
-    <h2>Common Exceptions</h2>
+    <h2>Common Exception Types</h2>
     <p>There are many different types of
     <a href="https://docs.python.org/3/library/exceptions.html">built-in
     exceptions</a> that may occur while a Python program is running.
-    This section shows how three types of exceptions may occur.</p>
+    This section shows how six types of exceptions may occur.</p>
 
     <h3>TypeError</h3>
     <p>The computer raises a <a href="https://docs.python.org/3/library/exceptions.html#TypeError"><code>TypeError</code></a>
     when the code that calls a function passes an argument with the
-    wrong type. The next code example attempts to pass a string of text
-    to the <code>round</code> function which causes the computer to
+    wrong type. The code in example&nbsp;1 attempts to pass a string of
+    text to the <code>round</code> function which causes the computer to
     raise <code>TypeError</code> as shown in the output below the code
     example.</p>
 
-<div class="pre"><pre class="python" id="ex2">
+<div class="pre"><pre class="python" id="ex1"># Example 1
+
 def main():
     try:
         integer = round("5.2")
@@ -175,10 +176,8 @@ def main():
     except TypeError as type_err:
         print(type_err)
 
-
-# Call the main function so that
-# this program will start executing.
-main()</pre></div>
+if __name__ == "__main__":
+    main()</pre></div>
 
 <pre class="console">&gt; python type_error.py
 type str doesn't define __round__ method</pre>
@@ -190,10 +189,11 @@ type str doesn't define __round__ method</pre>
     the computer to raise a <code>ValueError</code> is when the
     <code>int</code> function or <code>float</code> function is called
     to convert a string to a number but the string contains characters
-    that are not digits. The next code example and its output show a
-    <code>ValueError</code>.</p>
+    that are not digits. The code in example&nbsp;2 and its output show
+    a <code>ValueError</code>.</p>
 
-<div class="pre"><pre class="python" id="ex3">
+<div class="pre"><pre class="python" id="ex2"># Example 2
+
 def main():
     try:
         number = float(input("Please enter a number: "))
@@ -202,10 +202,8 @@ def main():
     except ValueError as val_err:
         print(val_err)
 
-
-# Call the main function so that
-# this program will start executing.
-main()</pre></div>
+if __name__ == "__main__":
+    main()</pre></div>
 
 <pre class="console">&gt; python value_error.py
 Please enter a number: <span class="input">45.7u</span>
@@ -213,10 +211,11 @@ could not convert string to float: '45.7u'</pre>
 
     <h3>ZeroDivisionError</h3>
     <p>The computer raises a <a href="https://docs.python.org/3/library/exceptions.html#ZeroDivisionError"><code>ZeroDivisionError</code></a>
-    when code attempts to divide a number by zero (0) as shown in the
-    next code example and its output.</p>
+    when code attempts to divide a number by zero (0) as shown in
+    example&nbsp;3 and its output.</p>
 
-<div class="pre"><pre class="python" id="ex4">
+<div class="pre"><pre class="python" id="ex3"># Example 3
+
 def main():
     try:
         players = int(input("Enter the number of players: "))
@@ -229,10 +228,8 @@ def main():
     except ZeroDivisionError as zero_div_err:
         print(zero_div_err)
 
-
-# Call the main function so that
-# this program will start executing.
-main()</pre></div>
+if __name__ == "__main__":
+    main()</pre></div>
 
 <pre class="console">&gt; python zero_div_error.py
 Enter the number of players: <span class="input">20</span>
@@ -243,12 +240,43 @@ division by zero</pre>
     <p>If we write code that tries to use an index that doesn't exist in
     a list, when the computer executes that code, the computer will
     raise an <a href="https://docs.python.org/3/library/exceptions.html#IndexError"><code>IndexError</code></a>.
-    For example, the following example code creates a list that contains
-    three surnames. Then the code attempts to print and change the
-    surname at index 3. Of course, both of these statements fail because
-    the list contains only three elements, and the last index is 2.</p>
+    The program in example&nbsp;4 creates a list that contains three
+    surnames. Then the program attempts to change the surname
+    at index 3. Of course, this statement fails because the list
+    contains only three elements, and the last index is 2.</p>
 
-<div class="pre"><pre class="python" id="ex5">
+<div class="pre"><pre class="python" id="ex4"># Example 4
+
+def main():
+    try:
+        # Create a list that contains three family names.
+        surnames = ["Smith", "Lopez", "Marsh"]
+
+        # Attempt to change the surname at index 3. Because there
+        # are only three names in the surnames list and therefore
+        # the last index is 2, this statement will fail and cause
+        # the computer to raise an IndexError.
+        surnames[3] = "Olsen"
+
+    except IndexError as index_err:
+        print(index_err)
+
+if __name__ == "__main__":
+    main()</pre></div>
+
+<pre class="console">&gt; python index_error.py
+list assignment index out of range</pre>
+
+    <p>The program in example&nbsp;5 is similar to example&nbsp;4, and
+    both programs cause the computer to raise an
+    <code>IndexError</code>. The program in example&nbsp;5 creates a
+    list that contains three surnames. Then the program attempts to
+    print the surname at index 3. Of course, this statement fails
+    because the list contains only three elements, and the last index is
+    2.</p>
+
+<div class="pre"><pre class="python" id="ex5"># Example 5
+
 def main():
     try:
         # Create a list that contains three family names.
@@ -260,29 +288,103 @@ def main():
         # the computer to raise an IndexError.
         print(surnames[3])
 
-        # Attempt to change the surname at index 3. Because there
-        # are only three names in the surnames list and therefore
-        # the last index is 2, this statement will fail and cause
-        # the computer to raise an IndexError.
-        surnames[3] = "Olsen"
-
     except IndexError as index_err:
         print(index_err)
 
-
-# Call the main function so that
-# this program will start executing.
-main()</pre></div>
+if __name__ == "__main__":
+    main()</pre></div>
 
 <pre class="console">&gt; python index_error.py
 list index out of range</pre>
 
-    <h2>Example</h2>
-    <p>The following code example contains <code>except</code> blocks to
-    handle two types of exceptions:&nbsp; <code>ValueError</code> and
-    <code>ZeroDivisionError</code>.</p>
+    <h3>KeyError</h3>
+    <p>If we write code that attempts to find a key in a dictionary and
+    that key doesn't exist in the dictionary as shown in example&nbsp;6,
+    then the computer will raise a <code>KeyError</code>.
 
-<div class="pre"><pre class="python" id="ex10">
+<div class="pre"><pre class="python" id="ex6"># Example 6
+
+def main():
+    try:
+        # Create a dictionary with student IDs as
+        # the keys and student names as the values.
+        students = {
+            "42-039-4736": "Clint Huish",
+            "61-315-0160": "Michelle Davis",
+            "10-450-1203": "Jorge Soares",
+            "75-421-2310": "Abdul Ali",
+            "07-103-5621": "Michelle Davis"
+        }
+
+        # Attempt to find the key "50-420-1021",
+        # which is not in the dictionary. This will
+        # cause the computer to raise a KeyError.
+        name = students["50-420-1021"]
+
+        print(name)
+
+    except KeyError as key_err:
+        print(type(key_err).__name__, key_err)
+
+if __name__ == "__main__":
+    main()</pre></div>
+
+<pre class="console">&gt; python key_error.py
+KeyError '50-420-1021'</pre>
+
+    <p>Of course, it is very unlikely that a programmer would write a
+    program that tries to find a hard-coded key that is not in a
+    dictionary. However, it is common for a user to enter a key that is
+    not in a dictionary. This is why the example code in lesson&nbsp;8
+    includes an <code>if</code> statement above the line of code that
+    searches the dictionary, like this:</p>
+
+<div class="pre"><pre class="python">
+    # Get a student ID from the user.
+    id = input("Enter a student ID: ")
+
+    # Check if the student ID is in the dictionary.
+    <em>if id in students:</em>
+
+        # Find the student ID in the dictionary and
+        # retrieve the corresponding student name.
+        name = students[id]
+
+        # Print the student's name.
+        print(name)
+    else:
+        print("No such student")</pre></div>
+
+    <h3>FileNotFoundError</h3>
+    <p>If we write a call to the <code>open</code> function that
+    attempts to open a file for reading and that file doesn't exist, the
+    computer will raise a <code>FileNotFoundError</code>. Example&nbsp;7
+    contains code where such an error might occur.</p>
+
+<div class="pre"><pre class="python" id="ex7"># Example 7
+
+def main():
+    try:
+        with open("products.vcs", "rt") as products_file:
+            for line in products_file:
+                print(line)
+
+    except FileNotFoundError as file_not_found_err:
+        print(file_not_found_err)
+
+if __name__ == "__main__":
+    main()</pre></div>
+
+<pre class="console">&gt; python file_not_found.py
+[Errno 2] No such file or directory: 'products.vcs'</pre>
+
+    <h2>Example</h2>
+    <p>Example&nbsp;8 contains a complete program with
+    <code>except</code> blocks to handle two types of exceptions:&nbsp;
+    <code>ValueError</code> and <code>ZeroDivisionError</code>.</p>
+
+<div class="pre"><pre class="python" id="ex8"># Example 8
+
 """Sam, who is the owner of Sam's Sandwich Shop, requested
 this program, which computes the number of sandwiches per
 employee that were made in his restaurant in one day.
@@ -296,10 +398,10 @@ def main():
 
         # Compute the number of sandwiches per employee
         # that were made today in the restaurant.
-        sands_per_employee = sandwiches / employees
+        sands_per_emp = sandwiches / employees
 
         # Print the results for the user to see.
-        print(f"{sands_per_employee} sandwiches per employee")
+        print(f"{sands_per_emp} sandwiches per employee")
 
     <em>except ValueError as val_err:</em>
         print()
@@ -314,32 +416,25 @@ def main():
         print("larger than 0 for the number of employees.")
 
 
-# Call the main function so that
-# this program will start executing.
-main()</pre></div>
+# Call main to start this program.
+if __name__ == "__main__":
+    main()</pre></div>
 
     <h2>Example - Reading from a File</h2>
-    <p>The example program shown below handles exceptions that might
+    <p>The program in example&nbsp;9 below handles exceptions that might
     occur when the program opens and reads from a file. This program
     contains only one <code>try</code> block, which begins at
-    <span class="cross" data-ref="ex3">line&nbsp;4</span>
-    and includes all the regular code in the main function.
-    This one try block has four <code>except</code> blocks at
-    <span class="cross" data-ref="ex3">lines&nbsp;40, 44,&nbsp;48,
-    and&nbsp;52</span>.</p>
-
-    <p>Each of the <code>except</code> blocks handles a different type
-    of exception. The first three <code>except</code> blocks handle
-    specific exceptions: <code>FileNotFoundError</code>,
-    <code>PermissionError</code>, and <code>ZeroDivisionError</code>.
-    The last <code>except</code> block handles
-    <code>RuntimeError</code>, which is a general exception.
-    <code>RuntimeError</code> is probably the most general type of
-    exception that we want to handle in a Python program. The
-    description above the first example program explains why.</p>
+    <span class="cross" data-ref="ex9">line&nbsp;7</span> and includes
+    all the regular code in the <code>main</code> function. This one
+    <code>try</code> block has four <code>except</code> blocks at
+    <span class="cross" data-ref="ex9">lines&nbsp;42,
+    46,&nbsp;and&nbsp;50</span> that handle
+    <code>FileNotFoundError</code>, <code>PermissionError</code>, and
+    <code>ZeroDivisionError</code>.</p>
 
 <div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex3">
+<pre class="python" id="ex9"># Example 9
+
 import csv
 
 
@@ -391,9 +486,6 @@ def main():
         print(f"Error: {filename} contains a"
                 " zero in the gallons column.")
 
-    <em>except RuntimeError as run_err:</em>
-        print(type(run_err).__name__, run_err, sep=": ")
-
 
 def miles_per_gallon(start_miles, end_miles, gallons):
     """Compute and return the average number of miles
@@ -405,25 +497,26 @@ def miles_per_gallon(start_miles, end_miles, gallons):
     return mpg
 
 
-# Call the main function so that
-# this program will start executing.
-main()</pre></div>
+# Call main to start this program.
+if __name__ == "__main__":
+    main()</pre></div>
 
     <h2 id="validate">Validating User Input</h2>
     <p>To <dfn>validate user input</dfn> means to check user input to
-    ensure it is in the correct format before using that input. The next
-    example program validates user input by handling exceptions. Notice
-    there are two <code>try</code> blocks in the program: one at
-    <span class="cross" data-ref="ex11">line&nbsp;2</span>
+    ensure it is in the correct format before using that input. The
+    program in example&nbsp;8 validates user input by handling
+    exceptions. Notice there are two <code>try</code> blocks in the
+    program: one at
+    <span class="cross" data-ref="ex8">line&nbsp;4</span>
     in the <code>main</code> function and another at
-    <span class="cross" data-ref="ex11">line&nbsp;30</span>
+    <span class="cross" data-ref="ex8">line&nbsp;32</span>
     in the <code>get_float</code> function.</p>
 
     <p>The <code>try</code> block at
-    <span class="cross" data-ref="ex11">line&nbsp;2</span>
+    <span class="cross" data-ref="ex8">line&nbsp;4</span>
     includes all the regular code in the <code>main</code> function. The
     except block at
-    <span class="cross" data-ref="ex11">line&nbsp;12</span>
+    <span class="cross" data-ref="ex8">line&nbsp;14</span>
     will handle all types of runtime exceptions.
     <code>RuntimeError</code> is probably the most general type of
     exception that we want to handle in a Python program.
@@ -432,16 +525,17 @@ main()</pre></div>
     <code>SyntaxError</code>, and we don't want to handle
     <code>SyntaxError</code>. Instead, we want our program to crash for
     a syntax error and print the line number where the syntax error
-    occurred. This is because syntax errors are caused by a programmer
-    mistyping code and not by bad user input or missing files. We want a
-    programmer to find and fix all syntax errors in a program long
-    before the program is given to users.</p>
+    occurred so a programmer can find and fix the syntax error. Syntax
+    errors are caused by a programmer mistyping code and not by bad user
+    input or missing files. We want a programmer to find and fix all
+    the syntax errors in a program long before the program is given to
+    users.</p>
 
     <p>The <code>try</code> block at
-    <span class="cross" data-ref="ex11">line&nbsp;30</span>
+    <span class="cross" data-ref="ex8">line&nbsp;32</span>
     is part of a loop that validates user input in the
     <code>get_float</code> function. Notice at
-    <span class="cross" data-ref="ex11">line&nbsp;44</span>
+    <span class="cross" data-ref="ex8">line&nbsp;47</span>
     that the <code>except</code> block handles
     <a href="https://docs.python.org/3/library/exceptions.html#ValueError"><code>ValueError</code></a>
     which is the type of exception that the
@@ -450,7 +544,8 @@ main()</pre></div>
     text contains characters that are not numeric.</p>
 
 <div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex11">
+<pre class="python" id="ex8"># Example 8
+
 def main():
     <em>try:</em>
         gender = input("Enter your gender (M or F): ")
@@ -491,9 +586,10 @@ def get_float(prompt, lower_bound, upper_bound):
                 print("Please enter another number.")
             else:
                 # If the computer gets to this line of code, the
-                # user entered a number between lower_bound and
-                # upper_bound, so exit the loop.
+                # user entered a valid number between lower_bound
+                # and upper_bound, so exit the loop.
                 break
+
         <em>except ValueError as val_err:</em>
             # The user entered at least one character that is
             # not part of a floating point number, so print a
@@ -516,9 +612,9 @@ def basal_metabolic_rate(gender, weight, height, age):
     return bmr
 
 
-# Call the main function so that
-# this program will start executing.
-main()</pre></div>
+# Call main to start this program.
+if __name__ == "__main__":
+    main()</pre></div>
 
     <h2>Documentation</h2>
     <p>If the concepts above seem vague, these tutorials may clear some

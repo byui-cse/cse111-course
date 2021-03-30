@@ -102,9 +102,9 @@ residences = <em>residences[retain]</em></pre></div>
     because they are accustomed to using functions while studying
     mathematics. In functional programming, functions are so important
     that we often pass functions into other functions. You did this in
-    lesson&nbsp;11 when you passed a function into the pandas
-    <code>apply</code> function. Here is a functional programming
-    solution to computing the average in Python:</p>
+    the checkpoint and team activity for lesson&nbsp;11. Here is a
+    functional programming solution to computing the average in
+    Python:</p>
 
 <div class="pre"><pre class="python" id="ex3">
 from functools import reduce
@@ -114,8 +114,8 @@ func_add = lambda a, b: a + b
 total = <em>reduce(func_add, numbers)</em>
 average =  total / len(numbers)</pre></div>
 
-    <p>Notice how this simple example uses three functions:
-    <code>reduce</code>, a lambda function, and <code>len</code>. Notice
+    <p>Notice how this simple example uses three functions:&nbsp; a
+    lambda function, <code>reduce</code>, and <code>len</code>. Notice
     also that the lambda function is passed into the <code>reduce</code>
     function. Passing a function into a function is one of the marks of
     functional programming.</p>
@@ -210,45 +210,51 @@ print(<em>column.name</em>, average)</pre></div>
     <a href="https://docs.python.org/3/tutorial/datastructures.html#more-on-lists">More on Lists</a>.</p>
 
     <p>Here is example code from the
-    <a href="../lesson03/prepare.html">prepare content</a>
-    of lesson&nbsp;3. Now that you know what an object is, that objects
+    <a href="../lesson07/prepare.html">prepare content</a>
+    of lesson&nbsp;7. Now that you know what an object is, that objects
     have methods, and that Python lists are objects, this example code
-    should make more sense than it did in lesson&nbsp;3. Notice that the
+    may make more sense than it did in lesson&nbsp;7. Notice that the
     <code>list.append</code> method is called on
-    <span class="cross" data-ref="ex5">lines&nbsp;5&ndash;7</span>.
+    <span class="cross" data-ref="ex5">lines&nbsp;6&ndash;8</span>.
     <code>list.insert</code> is called on
-    <span class="cross" data-ref="ex5">line&nbsp;10</span>;
+    <span class="cross" data-ref="ex5">line&nbsp;11</span>;
     <code>list.index</code> is called on
-    <span class="cross" data-ref="ex5">line&nbsp;13</span>;
+    <span class="cross" data-ref="ex5">line&nbsp;14</span>;
     <code>list.pop</code> is called on
-    <span class="cross" data-ref="ex5">line&nbsp;19</span>; and
+    <span class="cross" data-ref="ex5">line&nbsp;20</span>; and
     <code>list.remove</code> is called on
-    <span class="cross" data-ref="ex5">line&nbsp;22</span>.</p>
+    <span class="cross" data-ref="ex5">line&nbsp;23</span>.</p>
 
 <div class="pre"><pre class="linenums"></pre>
 <pre class="python" id="ex5">
-# Create an empty list that will hold fabric names.
-fabrics = []
+def main():
+    # Create an empty list that will hold fabric names.
+    fabrics = []
 
-# Add three elements at the end of the fabrics list.
-fabrics.append("velvet")
-fabrics.append("denim")
-fabrics.append("gingham")
+    # Add three elements at the end of the fabrics list.
+    fabrics.append("velvet")
+    fabrics.append("denim")
+    fabrics.append("gingham")
 
-# Insert an element at the beginning of the fabrics list.
-fabrics.insert(0, "chiffon")
+    # Insert an element at the beginning of the fabrics list.
+    fabrics.insert(0, "chiffon")
 
-# Get the index where velvet is stored in the fabrics list.
-i = fabrics.index("velvet")
+    # Get the index where velvet is stored in the fabrics list.
+    i = fabrics.index("velvet")
 
-# Replace velvet with taffeta.
-fabrics[i] = "taffeta"
+    # Replace velvet with taffeta.
+    fabrics[i] = "taffeta"
 
-# Remove the last element from the fabrics list.
-fabrics.pop()
+    # Remove the last element from the fabrics list.
+    fabrics.pop()
 
-# Remove denim from the fabrics list.
-fabrics.remove("denim")</pre></div>
+    # Remove denim from the fabrics list.
+    fabrics.remove("denim")
+
+
+# Call main to start this program.
+if __name__ == "__main__":
+    main()</pre></div>
 
 
     <h2>Python Dictionaries Are Objects</h2>
@@ -268,8 +274,8 @@ fabrics.remove("denim")</pre></div>
             <td>Returns a copy of the dictionary <var>d</var>.</td></tr>
         <tr><td>d.get(key)</td>
             <td>Returns the value of the specified <code>key</code>.
-            Calling the get method is almost equivalent to using
-            square brackets ([ and ]) to look up a value in a
+            Calling the get method is almost equivalent to using square
+            brackets ([&nbsp;and&nbsp;]) to find a key in a
             dictionary.</td></tr>
         <tr><td>d.items()</td>
             <td>Returns a list of the key value pairs in the dictionary
@@ -291,46 +297,53 @@ fabrics.remove("denim")</pre></div>
     <p>The following example code, which is from the
     <a href="../lesson03/prepare.html">prepare content</a>
     of lesson&nbsp;3, calls dictionary methods at
-    <span class="cross" data-ref="ex6">lines&nbsp;19,
-    27,&nbsp;and&nbsp;34</span>.</p>
+    <span class="cross" data-ref="ex6">lines&nbsp;20,
+    28,&nbsp;and&nbsp;36</span>.</p>
 
 <div class="pre"><pre class="linenums"></pre>
 <pre class="python" id="ex6">
-# Create a dictionary with student IDs as
-# the keys and student names as the values.
-students = {
-    "42-039-4736": "Clint Huish",
-    "61-315-0160": "Michelle Davis",
-    "10-450-1203": "Jorge Soares",
-    "75-421-2310": "Abdul Ali",
-    "07-103-5621": "Michelle Davis"
-}
+def main():
+    # Create a dictionary with student IDs as
+    # the keys and student names as the values.
+    students = {
+        "42-039-4736": "Clint Huish",
+        "61-315-0160": "Michelle Davis",
+        "10-450-1203": "Jorge Soares",
+        "75-421-2310": "Abdul Ali",
+        "07-103-5621": "Michelle Davis"
+    }
 
-# Add an item to the dictionary.
-students["81-298-9238"] = "Sama Patel"
+    # Add an item to the dictionary.
+    students["81-298-9238"] = "Sama Patel"
 
-# Get a student ID from the user.
-id = input("Enter a student ID: ")
+    # Get a student ID from the user.
+    id = input("Enter a student ID: ")
 
-# Lookup the student ID in the dictionary and
-# retrieve the corresponding student name.
-name = students.get(id)
+    # Lookup the student ID in the dictionary and
+    # retrieve the corresponding student name.
+    name = students.get(id)
 
-if name:
-    # Print the student name.
-    print(name)
+    if name:
+        # Print the student name.
+        print(name)
 
-    # Remove the student that the user
-    # specified from the dictionary.
-    students.pop(id)
-else:
-    print("No such student")
+        # Remove the student that the user
+        # specified from the dictionary.
+        students.pop(id)
+    else:
+        print("No such student")
 
-# Use a for loop to print each key value pair in the
-# dictionary. Of course, the code in the body of a loop can
-# do much more with each key value pair than simply print it.
-for key, value in students.items():
-    print(key, value)</pre></div>
+    # Use a for loop to print each key value pair in the
+    # dictionary. Of course, the code in the body of a loop
+    # can do much more with each key value pair than simply
+    # print it.
+    for key, value in students.items():
+        print(key, value)
+
+
+# Call main to start this program.
+if __name__ == "__main__":
+    main()</pre></div>
 </article>
 <footer>
     <small>Copyright &copy; 2020, Brigham Young University - Idaho. All

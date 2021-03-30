@@ -22,14 +22,12 @@ import math
 
 # Get the length from the user and
 # convert it to a floating point number.
-n = float(input("Length of pendulum (meters): "))
+length = float(input("Length of pendulum (meters): "))
 
 # Compute the time in seconds required for
 # the pendulum to swing back and forth.
-t = 2 * math.pi * math.sqrt(n / 9.81)
+time = 2 * math.pi * math.sqrt(length / 9.81)
 
-# Round the time to two places after the decimal.
-t = round(t, 2)
-
-# Display the time for the user to see.
-print(f"Time (seconds): {t}")
+# Display the time rounded to two digits
+# after the decimal for the user to see.
+print(f"Time (seconds): {time:.2f}")

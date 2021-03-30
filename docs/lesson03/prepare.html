@@ -145,15 +145,17 @@ def <var>function_name</var>(<var>param1</var>, <var>param2</var>, &hellip; <var
         as you wish to write inside of it. However, it is a good idea to
         limit functions to less than 60 lines of text.</p>
 
-        <p>Here is a function named <code>print_cylinder_volume()</code>
-        that gets two numbers from the user:&nbsp; <var>radius</var> and
-        <var>height</var> and uses those numbers to compute the volume
-        of a cylinder and then prints the volume for the user to
-        see.</p>
+        <p>Example&nbsp;1 contains a function named
+        <code>print_cylinder_volume()</code> that gets two numbers from
+        the user:&nbsp; <var>radius</var> and <var>height</var> and uses
+        those numbers to compute the volume of a cylinder and then
+        prints the volume for the user to see.</p>
 
-<div class="pre"><pre class="python" id="ex1">
+<div class="pre"><pre class="python" id="ex1"># Example 1
+
 import math
 
+# Define a function named print_cylinder_volume.
 def print_cylinder_volume():
     """Compute and print the volume of a cylinder."""
 
@@ -167,14 +169,16 @@ def print_cylinder_volume():
     # Print the volume of the cylinder.
     print(volume)</pre></div>
 
-    <p>Here is another version of the previous function. This second
-    version doesn't get the radius and height from the user. Instead it
-    accepts two parameters named <var>radius</var> and
-    <var>height</var>.</p>
+    <p>Example&nbsp;2 contains another version of the
+    <code>print_cylinder_volume</code> function. This second version
+    doesn't get the radius and height from the user. Instead it accepts
+    two parameters named <var>radius</var> and <var>height</var>.</p>
 
-<div class="pre"><pre class="python" id="ex2">
+<div class="pre"><pre class="python" id="ex2"># Example 2
+
 import math
 
+# Define a function named print_cylinder_volume.
 def print_cylinder_volume(<em>radius</em>, <em>height</em>):
     """Compute and print the volume of a cylinder.
 
@@ -199,18 +203,20 @@ text = input("Please enter your name: ")</pre></div>
 
         <p>To return a result from a function, simply type the keyword
         <code>return</code> followed by whatever result you want
-        returned to the calling function. The next code example contains
-        a third version of the cylinder volume function. Notice that
-        this third version returns the volume instead of printing it,
-        which makes the function more reusable. In this third version,
-        we changed the name of the function from
+        returned to the calling function. Example&nbsp;3 contains a
+        third version of the cylinder volume function. Notice that this
+        third version returns the volume instead of printing it, which
+        makes the function more reusable. In this third version, we
+        changed the name of the function from
         <code>print_cylinder_volume</code> to
         <code>compute_cylinder_volume</code> because this version
         doesn't print the volume but instead returns it.</p>
 
-<div class="pre"><pre class="python" id="ex3">
+<div class="pre"><pre class="python" id="ex3"># Example 3
+
 import math
 
+# Define a function named computer_cylinder_volume.
 def compute_cylinder_volume(radius, height):
     """Compute and return the volume of a cylinder.
 
@@ -229,10 +235,11 @@ def compute_cylinder_volume(radius, height):
 
         <li><div>In all previous Python programs that you wrote in CSE
         110 and 111, you wrote statements that were not in a function
-        like this simple program where the statements are not inside the
-        body of a function:
+        like the simple program in example&nbsp;4 where the statements
+        are not inside the body of a function:
 
-<div class="pre"><pre class="python">
+<div class="pre"><pre class="python" id="ex4"># Example 4
+
 # Get a value in miles and convert it to kilometers.
 miles = float(input("Please enter a distance in miles: "))
 km = miles * 1.60934
@@ -246,11 +253,13 @@ print(f"{miles} miles is {km} kilometers")</pre></div>
         <code>main</code> which will contain the beginning statements of
         the program. In addition, we will have one or more functions
         that perform calculations and other useful work and return a
-        value to the call point. For example, here is a complete program
-        that has a <code>main</code> function that calls the
+        value to the call point. Example&nbsp;5 contains a complete
+        program that has a <code>main</code> function that calls the
         <code>compute_cylinder_volume</code> function:</p>
 
-<div class="pre"><pre class="python" id="ex4">
+<div class="pre"><pre class="linenums"></pre>
+<pre class="python" id="ex5"># Example 5
+
 # Define a function that accepts two parameters.
 def compute_cylinder_volume(radius, height):
     """Compute and print the volume of a cylinder.
@@ -290,15 +299,23 @@ def main():
 # Start this program by
 # calling the main function.
 main()</pre></div>
-        </div></li>
+
+        Notice the call to the <code>main</code> function at
+        <span class="cross" data-ref="ex5">line&nbsp;41</span>
+        in exmaple&nbsp;5. Without that call to the <code>main</code>
+        function, when we run the program, the program would not do
+        anything. All of your future programs in CSE 111 will have a
+        function named <code>main</code> and will have a call to
+        <code>main</code> at the bottom of the program.</div></li>
 
         <li><div>While it's usually a good practice, you don't
         <em>have</em> to store the return value of a function in a
-        variable. Sometimes you'll see it used directly like in the
-        following example:
+        variable. Sometimes you'll see it used directly as shown in
+        example&nbsp;6.
 
 <div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex5">
+<pre class="python" id="ex6"># Example 6
+
 # Define the main function.
 def main():
     # Create two variables to hold the radius and height.
@@ -314,24 +331,30 @@ def main():
     if <em>compute_cylinder_volume(r, h)</em> &lt; 1000:
         print("That cylinder holds less than a liter.")
     else:
-        print("That cylinder holds a liter or more.")</pre></div>
+        print("That cylinder holds a liter or more.")
+
+
+# Start this program by
+# calling the main function.
+main()</pre></div>
 
         <p>Notice in the above example, we called the
         <code>compute_cylinder_volume</code> function twice, once at
-        <span class="cross" data-ref="ex5">line&nbsp;9</span>
+        <span class="cross" data-ref="ex6">line&nbsp;11</span>
         to print the volume and again at
-        <span class="cross" data-ref="ex5">line&nbsp;13</span>
+        <span class="cross" data-ref="ex6">line&nbsp;15</span>
         to check if the volume is less than a liter.Every time we call a
         function, the code inside the function body is executed. In the
         previous example, because the arguments are the same radius and
         height at both
-        <span class="cross" data-ref="ex5">lines&nbsp;9 and&nbsp;13</span>,
+        <span class="cross" data-ref="ex6">lines&nbsp;11 and&nbsp;15</span>,
         the result will be the same in both cases. So it would be faster
         to save the result in a variable and reuse the variable instead,
-        as shown in the next example.</p>
+        as shown in example&nbsp;7.</p>
 
 <div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex6">
+<pre class="python" id="ex7">#Example 7
+
 # Define the main function.
 def main():
     # Create two variables to hold the radius and height.
@@ -347,7 +370,12 @@ def main():
     if <em>vol</em> &lt; 1000:
         print("That cylinder holds less than a liter.")
     else:
-        print("That cylinder holds a liter or more.")</pre></div></div></li>
+        print("That cylinder holds a liter or more.")
+
+
+# Start this program by
+# calling the main function.
+main()</pre></div></div></li>
 
         <li><div><p>Some students have trouble visualizing what happens
         when the computer calls (executes) a function. The following
@@ -448,10 +476,10 @@ import math
     </ol>
 
     <p><strong>It is extremely important that you can write and call
-    functions.</strong> After watching the above videos, if the concepts
-    related to writing a function still seem confusing or vague to you,
-    watch the videos and read the list of concepts
-    <strong>again</strong>.</p>
+    functions.</strong> After watching the videos and reading the
+    concepts related to writing a function, if the concepts still seem
+    confusing or vague to you, watch the videos and read the list of
+    concepts <strong>again</strong>.</p>
 </article>
 <footer>
     <small>Copyright &copy; 2020, Brigham Young University - Idaho. All

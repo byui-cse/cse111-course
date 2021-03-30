@@ -42,6 +42,9 @@
     CSE 110 that you should review during this lesson.</p>
 
     <ol class="long">
+        <li><div>We use the <a href="https://docs.python.org/3/library/functions.html#input"><code>input()</code></a>
+        function to get input from a user in a terminal window.</div></li>
+
         <li><div>A <dfn>variable</dfn> is a location in a computer's
         memory where a program stores a value. A variable has a name, a
         data type, and a value. In Python, the value and data type of a
@@ -67,11 +70,8 @@
         <a href="https://docs.python.org/3/library/functions.html#float"><code>float()</code></a>
         function. The <code>int()</code> and <code>float()</code>
         functions are especially useful to convert user input, which is
-        always a string, from a string to a number. See the example
-        program below.</div></li>
-
-        <li><div>We use the <a href="https://docs.python.org/3/library/functions.html#input"><code>input()</code></a>
-        function to prompt a user for input.</div></li>
+        always a string, to a number. See the example program
+        below.</div></li>
 
         <li><div>Python has many arithmetic operators including power
         (**), negation (-), multiplication (*), division (/), floor
@@ -100,15 +100,18 @@
         <a href="https://docs.python.org/3/library/functions.html#print"><code>print()</code></a>
         function to display output to a user.</p>
 
-        <p>The following program gets input from the user, converts the
-        input to two numbers, computes the length of a cable from the
-        two numbers, rounds the length to two places after the decimal
-        point, and prints the rounded length for the user to see.</p>
+        <p>The Python program in example&nbsp;1 gets input from the
+        user, converts the input to two numbers, computes the length of
+        a cable from the two numbers, rounds the length to two places
+        after the decimal point, and prints the rounded length for the
+        user to see.</p>
 
 <div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex1">
-# This program computes the length of a cable given the distance
-# it will span and the distance it will sag or dip in the middle.
+<pre class="python" id="ex1"># Example 1
+
+# Given the distance that a cable will span and the distance
+# it will sag or dip in the middle, this program computes
+# the length of the cable.
 
 # Get user input and convert it from
 # strings to floating point numbers.
@@ -130,26 +133,25 @@ Distance the cable must span in meters: <span class="input">500</span>
 Distance the cable will sag or dip in meters: <span class="input">18.5</span>
 Length of cable in meters: 501.83</pre>
 
-        <p>The arithmetic that is written on
-        <span class="cross" data-ref="ex1">line&nbsp;10</span>
-        in the above code example comes from a well known formula. Given
-        the distance that a cable must span and the vertical distance
-        that the cable will be allowed to sag or dip in the middle of
-        the cable, the formula for calculating the length of the cable
-        is:</p>
+        <p>In example&nbsp;1, the arithmetic that is written on
+        <span class="cross" data-ref="ex1">line&nbsp;13</span>
+        comes from a well known formula. Given the distance that a cable
+        must span and the vertical distance that the cable will be
+        allowed to sag or dip in the middle of the cable, the formula
+        for calculating the length of the cable is:</p>
 
         <div class="block expr"><var>length</var> = <var>span</var> + <div class="fract"><div class="numer">8 <var>dip</var><sup>2</sup></div><div class="denom">3 <var>span</var></div></div></div>
         </div></li>
 
         <li><div>In Python, we use <code>if</code> statements to cause
         the computer to make decisions; <code>if</code> statements are
-        also called <dfn>selection</dfn> because the computer selects
-        one group of statements to execute and skips the other group of
-        statements.</div></li>
+        also called <dfn>selection</dfn> statements because the computer
+        selects one group of statements to execute and skips the other
+        group of statements.</div></li>
 
         <li><div>There are six comparison operators that we can use in
         an <code>if</code> statement:
-        <table><thead>
+        <table class="center"><thead>
         </thead><tbody>
             <tr><td>&lt;</td> <td>less than</td></tr>
             <tr><td>&lt;=</td> <td>less than or equal</td></tr>
@@ -158,9 +160,12 @@ Length of cable in meters: 501.83</pre>
             <tr><td>==</td> <td>equal to</td></tr>
             <tr><td>!=</td> <td>not equal to</td></tr>
         </tbody></table>
-        Here is example code that tests if a number is greater than 500.
+
+        Example&nbsp;2 contains Python code that checks if a number is
+        greater than 500.
 <div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex2">
+<pre class="python" id="ex2"># Example 2
+
 # Get an account balance as a number from the user.
 balance = float(input("Please enter the account balance: "))
 
@@ -176,17 +181,17 @@ print(balance)</pre></div>
         <p>If you have written programs in other programming languages
         such as JavaScript, Java, or C++, you always used curly braces
         to mark the start and end of the body of an <code>if</code>
-        statement. However, notice in the example code above that
+        statement. However, notice in example&nbsp;2 that
         <code>if</code> statements in Python do not use curly braces.
         Instead, we type a colon (:) after the comparison of the
         <code>if</code> statement as shown on
-        <span class="cross" data-ref="ex2">line&nbsp;6</span>
-        above. Then we indent all the statements that are in the body of
+        <span class="cross" data-ref="ex2">line&nbsp;8</span>.
+        Then we indent all the statements that are in the body of
         the <code>if</code> statement as shown on
-        <span class="cross" data-ref="ex2">lines&nbsp;7 and&nbsp;8</span>.
+        <span class="cross" data-ref="ex2">lines&nbsp;9 and&nbsp;10</span>.
         The body of the <code>if</code> statement ends with the first
         line of code that is not indented, like
-        <span class="cross" data-ref="ex2">line&nbsp;11</span>.</p>
+        <span class="cross" data-ref="ex2">line&nbsp;13</span>.</p>
 
         <p>It may seem strange to not use curly braces to mark the start
         and end of the body of an <code>if</code> statement. However,
@@ -197,12 +202,13 @@ print(balance)</pre></div>
 
         <li><div>Each <code>if</code> statement may have an
         <code>else</code> statement. We can combine <code>else</code> and
-        <code>if</code> into the keyword <code>elif</code> as shown on
-        <span class="cross" data-ref="ex3">lines&nbsp;7 and&nbsp;9</span>
-        in the following example code.
+        <code>if</code> into the keyword <code>elif</code> as shown in
+        example&nbsp;3 on
+        <span class="cross" data-ref="ex3">lines&nbsp;9 and&nbsp;11</span>.
 
 <div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex3">
+<pre class="python" id="ex3"># Example 3
+
 # Get the cost of an item from the user.
 cost = float(input("Please enter the cost: "))
 
@@ -224,13 +230,13 @@ cost -= discount
 print(f"After the discount, you will pay {cost}")</pre></div>
         </div></li>
 
-        <li><div>Python includes two <dfn>logic operators</dfn>:
-        <code>and</code>, <code>or</code> that we can use to combine two
-        comparisons. Python also includes the logical <code>not</code>
-        operator. Notice in Python that the logical operators are
-        literally the words: <code>and</code>, <code>or</code>,
-        <code>not</code> and not symbols as in other programming
-        languages:
+        <li><div>Python includes two <dfn>logic operators</dfn> which
+        are the keywords <code>and</code>, <code>or</code> that we
+        can use to combine two comparisons. Python also includes the
+        logical <code>not</code> operator. Notice in Python that the
+        logical operators are literally the words:&nbsp;
+        <code>and</code>, <code>or</code>, <code>not</code> and not
+        symbols as in other programming languages:
 <div class="pre"><pre class="python" id="ex4">
 if driver &gt;= 54 <em>or</em> (driver &gt;= 32 <em>and</em> passenger &gt;= 54):
     message = "Enjoy the ride!"</pre></div>
