@@ -34,91 +34,80 @@
     prepare for this meeting by completing the preparation material and
     the individual checkpoint assignment beforehand.</p>
 
-    <h2>Problem Statement</h2>
-    <p>In the United States, minor students are required by law to
-    attend school. There are 13 grade levels for students. Usually
-    students are assigned to a grade level based on their age on a
-    specific cutoff date, which is often October 1. Ages and grade
-    levels are shown in the following table:</p>
-
-    <table><thead>
-        <tr><th>Age<br>(years)</th> <th>Grade Level</th></tr>
-    </thead><tbody>
-        <tr><td class="number">5</td> <td>kindergarten</td></tr>
-        <tr><td class="number">6</td> <td>first</td></tr>
-        <tr><td class="number">7</td> <td>second</td></tr>
-        <tr><td class="number">8</td> <td>third</td></tr>
-        <tr><td class="number">9</td> <td>fourth</td></tr>
-        <tr><td class="number">10</td> <td>fifth</td></tr>
-        <tr><td class="number">11</td> <td>sixth</td></tr>
-        <tr><td class="number">12</td> <td>seventh</td></tr>
-        <tr><td class="number">13</td> <td>eighth</td></tr>
-        <tr><td class="number">14</td> <td>freshman</td></tr>
-        <tr><td class="number">15</td> <td>sophomore</td></tr>
-        <tr><td class="number">16</td> <td>junior</td></tr>
-        <tr><td class="number">17</td> <td>senior</td></tr>
-    <tbody></table>
-
-    <p>As an example, a student who is 7 years old on October 1 would be
-    assigned to second grade.</p>
+    <h2>Purpose</h2>
+    <p>Complete this individual team activity to reinforce in your mind
+    the concept that a function can be passed as an argument into
+    another function.</p>
 
     <h2>Helpful Documentation</h2>
     <ul class="long">
-        <li><div>The prepare content for this lesson explains Python
-        <a href="prepare.html#lambda">lambda functions</a>
-        and the pandas
-        <a href="prepare.html#apply"><code>apply</code> function</a>.</div></li>
-
-        <li><div>The official pandas reference for the
-        <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.apply.html"><code>apply</code> function</a>
-        briefly explains the <code>args</code> named parameter.</div></li>
+        <li><div>The <a href="prepare.html">prepare content</a> for this
+        lesson explains higher-order functions, nested functions, lambda
+        functions and how to call the
+        <a href="https://docs.python.org/3/library/functions.html#sorted"><code>sorted</code></a>
+        function.</div></li>
 
         <li><div>The <a href="../lesson09/prepare.html">prepare content</a>
-        for the first pandas lesson contains sample code for adding a
-        new column to a DataFrame and for counting values in a
-        DataFrame.</div></li>
+        for lesson 9 explains how to read the contents of a text file
+        into a list.</div></li>
     </ul>
 
     <h2>Assignment</h2>
-    <p>Do the following:</p>
+    <p>The CSV file named <code>pupils.csv</code> contains data about
+    100 students. Unfortunately, the data is not sorted. Write a program
+    that reads the contents of <code>pupils.csv</code> into a list,
+    sorts the list by birthday from oldest to youngest, and then prints
+    the list with the data about each student on a separate line. Do the
+    following:</p>
 
     <ol class="long">
-        <li><div>Download these two files:
-        <a download href="students.csv">students.csv</a> and
-        <a download href="grade_level.py">grade_level.py</a>
+        <li><div>Download these two files:&nbsp;
+        <a download href="pupils.csv">pupils.csv</a> and
+        <a download href="pupils.py">pupils.py</a>
         and save them in the same folder.</div></li>
 
-        <li><div>Open the <code>students.csv</code> file in VS Code and
-        notice that it has six columns: givenName, surname, birthdate,
-        parentGivenName, parentSurname, phone. Your program will add two
-        more columns named ageAtCutoff and gradeLevel.</div></li>
+        <li><div>Open the <code>pupils.csv</code> file in VS Code and
+        notice that it has three columns: givenName, surname, and
+        birthdate.</div></li>
 
-        <li><div>Open the <code>grade_level.py</code> file in VS Code.
-        Read the comments in the program and then complete the program
-        by replacing each <code>pass</code> statement with the correct
-        Python code.</div></li>
+        <li><div>Open the <code>pupils.py</code> file in VS Code. At the
+        bottom of the file write a function named
+        <code>print_list</code> that takes a list as a parameter and
+        prints the list with each element of the list on a separate
+        line.</li></div>
+
+        <li><div>Near the top of <code>pupils.py</code>, below the three
+        indexes, write the <code>main</code> function. Inside of the
+        <code>main</code> function, write statements to do the following:
+        <ol>
+            <li><div>Read the <code>pupils.csv</code> file into a list
+            named <var>students_list</var> by calling the
+            <code>read_compound_list</code> function.</div></li>
+            <li><div>Write a lambda function that will extract the
+            birthdate from a student.</div></li>
+            <li><div>Write a call to the <code>sorted</code> function
+            that will sort the <var>students_list</var> by birthdate
+            from oldest to youngest.</div></li>
+            <li><div>Print the <var>students_list</var> by calling the
+            <code>print_list</code> function.</div></li>
+        </ol></div></li>
+
+        <li><div>At the bottom of the <code>pupils.py</code> file write
+        a call to the <code>main</code> function.</div></li>
     </ol>
 
     <h3>Core Requirements</h3>
+    <p>Your program must contain the following:</p>
     <ol class="long">
-        <li><div>Your finished grade_level.py program must contain at
-        least the following:
-        <ol>
-            <li><div>four regular functions named <code>main</code>,
-            <code>add_columns</code>, <code>year_diff</code>, and
-            <code>grade_level_counts</code></div></li>
-            <li><div>one lambda function</div></li>
-            <li><div>two calls to the pandas <code>apply</code>
-            function</div></li>
-        </ol></div></li>
-
-        <li><div>Your program must add to the original data frame two
-        columns named ageAtCutoff and gradeLevel and must print the data
-        frame.</div></li>
-
-        <li><div>Your program must create and print a new pandas Series
-        that contains a count of the number of students assigned to each
-        grade level.</div></li>
+        <li><div>A function named <code>print_list</code> that takes a
+        list as a parameter and prints the list with each element of the
+        list on a separate line.</div></li>
+        <li><div>A function named <code>main</code> that calls
+        <code>read_compound_list</code> and
+        <code>print_list</code>.</div></li>
+        <li><div>Statements in the <code>main</code> function that sort
+        the <var>students_list</var> by birthdate from oldest to
+        youngest.</div></li>
     </ol>
 
     <h3>Stretch Challenges</h3>
@@ -127,53 +116,65 @@
     the stretch challenges are optional.</p>
 
     <ol class="long">
-        <li><div>Before printing the students data frame, sort it by
-        ageAtCutoff, surname, and givenName.</div></li>
+        <li><div>Within the <code>main</code> function, replace the code
+        that sorts the <var>students_list</var> by birthdate, with code
+        that sorts the <var>students_list</var> by given name.</div></li>
 
-        <li><div>Before printing the grade level counts series, sort it
-        by the normal ordering of grade levels which is shown in this
-        assignment in the table above.</div></li>
+        <li><div>Within the <code>main</code> function, replace the code
+        that sorts the <var>students_list</var> by birthdate, with code
+        that sorts the <var>students_list</var> by birth month and day.
+        In other words, the code should sort the
+        <var>students_list</var> by birthdate but ignore the year when a
+        student was born.</div></li>
     </ol>
 
     <h2>Sample Run</h2>
-<pre class="console">&gt; python teach_solution.py
-Cutoff date: 2020-10-01
+<pre class="console">&gt; python pupils.py
+Ordered from Oldest to Youngest
+['Cody', 'Gjoni', '2008-01-14']
+['Jakob', 'Moore', '2008-08-09']
+['Dylan', 'Bradford', '2008-10-11']
+['Chih-Yang', 'Olson', '2008-12-23']
+['Camdon', 'Radke', '2009-01-31']
+['Jacob', 'Ortiz', '2009-02-04']
+['Tanner', 'McAllister', '2009-02-13']
+['Aoi', 'Lee', '2009-02-22']
+['Colton', 'Kent', '2009-02-25']
+['Marco', 'Zeng', '2009-06-25']
+    &vellip;
 
-     givenName  surname  birthdate  ...  ageAtCutoff    gradeLevel
-11   Alexander  Bingham 2015-01-30  ...            5  kindergarten
-107     Joshua  Bingham 2015-05-22  ...            5  kindergarten
-152       Ryan   Bishop 2014-11-10  ...            5  kindergarten
-112     Bryson    Cheuk 2015-03-21  ...            5  kindergarten
-103   Giuliana    Child 2014-12-09  ...            5  kindergarten
-..         ...      ...        ...  ...          ...           ...
-116     Camdon    Radke 2009-01-31  ...           11         sixth
-82        Adam  Shelley 2009-03-14  ...           11         sixth
-36   Alexander     Sosa 2009-08-15  ...           11         sixth
-90      Lauren    Young 2009-06-18  ...           11         sixth
-146      Marco     Zeng 2009-06-25  ...           11         sixth
-[187 rows x 8 columns]
+Ordered by Given Name
+['Adam', 'Chase', '2009-08-04']
+['Aidan', 'Havens', '2014-08-12']
+['Alexander', 'Bingham', '2015-01-30']
+['Amarsanaa', 'Cromar', '2010-07-15']
+['Ammon', 'Reeder', '2014-11-22']
+['Andrea', 'Omokoh', '2014-11-08']
+['Aoi', 'Lee', '2009-02-22']
+['Aranza', 'Billman', '2012-12-08']
+['Benjamin', 'Rojas', '2010-12-24']
+['Brody', 'Wilson', '2013-10-29']
+    &vellip;
 
-kindergarten    18
-first           35
-second          28
-third           24
-fourth          28
-fifth           32
-sixth           22
-Name: gradeLevel, dtype: int32</pre>
+Ordered by Birth Month and Day
+['Mitchel', 'Elliott', '2010-01-03']
+['Nathan', 'Bowman', '2014-01-07']
+['Christian', 'White', '2015-01-09']
+['Manoel', 'Gonzalez', '2014-01-10']
+['Cody', 'Gjoni', '2008-01-14']
+['Curtis', 'Loveridge', '2011-01-14']
+['Alexander', 'Bingham', '2015-01-30']
+['Camdon', 'Radke', '2009-01-31']
+['Jacob', 'Ortiz', '2009-02-04']
+['Tanner', 'McAllister', '2009-02-13']
+    &vellip;</pre>
 
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each step
     in this testing procedure:</p>
     <ol class="test long">
-        <li><div>Download, examine, and run this Python file named
-        <a download href="test_grade_level.py"><code>test_grade_level.py</code></a>
-        that contains <code>pytest</code> test functions. Verify that
-        all the test functions pass. If they don't pass, fix the
-        mistakes in your code until they do pass.</div></li>
-
-        <li><div>Run your program. Ensure that your program's output
-        is similar to the sample run output.</div></li>
+        <li><div>Run your program. Ensure that your program's output is
+        sorted correctly.</div></li>
     </ol>
 
     <h2>Sample Solution</h2>

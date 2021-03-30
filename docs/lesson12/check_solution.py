@@ -1,39 +1,39 @@
 def main():
     try:
-        # Create and print a list named fruit.
-        fruit = ["pear", "banana", "apple", "mango"]
-        print(f"original: {fruit}")
+        # Create and print a list named fruit_list.
+        fruit_list = ["pear", "banana", "apple", "mango"]
+        print(f"original: {fruit_list}")
 
-        # Reverse and print the fruit list.
-        fruit.reverse()
-        print(f"reversed: {fruit}")
+        # Reverse and print the fruit_list list.
+        fruit_list.reverse()
+        print(f"reversed: {fruit_list}")
 
-        # Append "orange" to the end of the fruit list and print the list.
-        fruit.append("orange")
-        print(f"append orange: {fruit}")
+        # Append "orange" to the end of the fruit_list list and print the list.
+        fruit_list.append("orange")
+        print(f"append orange: {fruit_list}")
 
-        # Find where "apple" is located in the fruit list and insert
+        # Find where "apple" is located in the fruit_list list and insert
         # "cherry" before "apple" in the list and print the list.
-        pos = fruit.index("apple")
-        fruit.insert(pos, "cherry")
-        print(f"insert cherry: {fruit}")
+        pos = fruit_list.index("apple")
+        fruit_list.insert(pos, "cherry")
+        print(f"insert cherry: {fruit_list}")
 
-        # Remove "banana" from the fruit list and print the list.
-        fruit.remove("banana")
-        print(f"remove banana: {fruit}")
+        # Remove "banana" from the fruit_list list and print the list.
+        fruit_list.remove("banana")
+        print(f"remove banana: {fruit_list}")
 
-        # Pop (remove) the last element from the fruit
+        # Pop (remove) the last element from the fruit_list
         # list and print the popped element and the list.
-        last = fruit.pop()
-        print(f"pop: {last} {fruit}")
+        last = fruit_list.pop()
+        print(f"pop: {last} {fruit_list}")
 
-        # Sort and print the fruit list.
-        fruit.sort()
-        print(f"sorted: {fruit}")
+        # Sort and print the fruit_list list.
+        fruit_list.sort()
+        print(f"sorted: {fruit_list}")
 
-        # Clear and print the fruit list.
-        fruit.clear()
-        print(f"cleared: {fruit}")
+        # Clear and print the fruit_list list.
+        fruit_list.clear()
+        print(f"cleared: {fruit_list}")
 
     except RuntimeError as run_err:
         print(type(run_err).__name__, run_err, sep=": ")

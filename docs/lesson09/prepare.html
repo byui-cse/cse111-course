@@ -108,10 +108,10 @@
 def main():
     # Read the contents of a text file
     # named plants.txt into a list.
-    text_lines = read_list("plants.txt")
+    text_list = read_list("plants.txt")
 
     # Print the entire list.
-    print(text_lines)
+    print(text_list)
 
 
 def read_list(filename):
@@ -122,8 +122,8 @@ def read_list(filename):
     Parameter filename: the name of the text file to read
     Return: a list of strings
     """
-    # Create an empty list named text_lines.
-    text_lines = []
+    # Create an empty list named text_list.
+    text_list = []
 
     # Open the text file for reading and store a reference
     # to the opened file in a variable named text_file.
@@ -139,10 +139,10 @@ def read_list(filename):
 
             # Append the clean line of text
             # onto the end of the list.
-            text_lines.append(clean_line)
+            text_list.append(clean_line)
 
     # Return the list that contains the lines of text.
-    return text_lines
+    return text_list
 
 
 # Call main to start this program.

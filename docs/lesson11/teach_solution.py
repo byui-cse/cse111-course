@@ -1,132 +1,147 @@
-import pandas as pd
-from datetime import date
+import csv
 
 
-# A dictionary to map from ageAtCutoff to gradeLevel.
-level_dict = {
-# age : grade level
-    5 : "kindergarten",
-    6 : "first",
-    7 : "second",
-    8 : "third",
-    9 : "fourth",
-    10 : "fifth",
-    11 : "sixth",
-    12 : "seventh",
-    13 : "eighth",
-    14 : "freshman",
-    15 : "sophomore",
-    16 : "junior",
-    17 : "senior"
-}
+# Each row in the pupils.csv file contains three elements.
+# These are the indexes of the elements in each row.
+GIVEN_NAME_INDEX = 0
+SURNAME_INDEX = 1
+BIRTHDATE_INDEX = 2
 
 
 def main():
     try:
-        # Read the pupils.csv file and convert the
-        # birthdate column from a string to a datetime64.
-        df = pd.read_csv("pupils.csv", parse_dates=["birthdate"])
+        # Read the pupils.csv file into a compound list.
+        students_list = read_compound_list("pupils.csv")
 
-        # Create the cutoff date to be Oct 1 during
-        # the current year and print the cutoff date.
-        curr_year = date.today().year
-        cutoff = date(curr_year, 10, 1)
-        print(f"Cutoff date: {cutoff}")
-        print()
+        # As a debugging aid, print the students_list.
+        #print(students_list)
 
-        # Call the add_columns function and print
-        # the data frame with the two new columns.
-        df = add_columns(df, cutoff)
-        print(df)
-        print()
+        sorted_list_1 = sort_oldest_to_youngest(students_list)
+        print("Ordered from Oldest to Youngest")
+        print_list(sorted_list_1)
 
-        # Call the grade_level_counts function
-        # and print the new counts data frame.
-        counts = grade_level_counts(df)
-        print(counts)
+        sorted_list_2 = sort_by_given_name(students_list)
+        print("Ordered by Given Name")
+        print_list(sorted_list_2)
 
-    except RuntimeError as run_err:
-        print(type(run_err).__name__, run_err, sep=": ")
+        sorted_list_3 = sort_by_birth_month_day(students_list)
+        print("Ordered by Birth Month and Day")
+        print_list(sorted_list_3)
+
+    except (FileNotFoundError, PermissionError) as error:
+        print(type(error).__name__, error, sep=": ")
 
 
-def add_columns(df, cutoff):
-    """Add two columns named "ageAtCutoff" and "gradeLevel" to a
-    DataFrame and return the DataFrame with the new columns.
+def sort_oldest_to_youngest(students_list):
+    """Sort a list of students by their birthdate.
 
-    param df: The DataFrame to add two columns to
-    param cutoff: A date to use when computing the values in the
-        ageAtCutoff column.
-    return: The DataFrame with the two new columns.
+    Parameter
+        students_list: a list that contains small lists.
+            Each small list contains the given name,
+            surname, and birthdate of one student.
+    Return: a new list of students that is sorted by birthdate.
     """
-    # Add a column named ageAtCutoff to the data frame. To create the
-    # data for the new column, call the apply function on the birthdate
-    # column. Pass the year_diff function and the args named parameter
-    # to the apply function.
-    df["ageAtCutoff"] = df["birthdate"].apply(year_diff, args=(cutoff,))
+    # Define a lambda function that extracts a student's birthdate.
+    extract_birthdate = lambda student: student[BIRTHDATE_INDEX]
 
-    # Create a lambda function and store it in a variable named
-    # level_from_age. The lambda function must accept a student's
-    # age as a parameter and use the level_dict dictionary to find
-    # and return the student's grade level.
-    level_from_age = lambda age: level_dict[age]
+    # Call the sorted function to sort the
+    # list of students by their birthdate.
+    sorted_list = sorted(students_list, key=extract_birthdate)
 
-    # Add a column named gradeLevel to the data frame. To create
-    # the data for the new column, call the apply function on the
-    # ageAtCutoff column. Pass the level_from_age lambda function
-    # to the apply function.
-    df["gradeLevel"] = df["ageAtCutoff"].apply(level_from_age)
-
-    # Return the data frame that contains the two new columns.
-    return df
+    # Return the sorted list.
+    return sorted_list
 
 
-def grade_level_counts(df):
-    """Create and return a new Series that contains
-    number of pupils in each grade level.
+def sort_by_given_name(students_list):
+    """Sort a list of students by their given name.
+
+    Parameter
+        students_list: a list that contains small lists.
+            Each small list contains the given name,
+            surname, and birthdate of one student.
+    Return: a new list of students that is sorted by given name.
     """
-    # Call pandas value_counts function to create a new Series named
-    # counts that contains the number of pupils in each grade level.
-    counts = df["gradeLevel"].value_counts(sort=False)
+    # Define a lambda function that extracts a student's given name.
+    extract_given_name = lambda student: student[GIVEN_NAME_INDEX]
 
-    # The value_counts function orders the grade levels in the
-    # order that they are found in the original data frame which is
-    # probably not the order that a user wants to see them. Reorder
-    # the grade levels to be the same order as the level_dict.
-    counts = counts.reindex(level_dict.values(), copy=False)
+    # Call the sorted function to sort the
+    # list of students by their given name.
+    sorted_list = sorted(students_list, key=extract_given_name)
 
-    # The reindex function may add rows which
-    # have no count, so drop those rows.
-    counts.dropna(inplace=True)
-
-    # The reindex function may change the counts from
-    # integers to floats, so change them back to integers.
-    counts = counts.astype(int, copy=False)
-
-    # Return the counts Series.
-    return counts
+    # Return the sorted list.
+    return sorted_list
 
 
-def year_diff(before, after):
-    """Compute and return the difference in years between two dates.
+def sort_by_birth_month_day(students_list):
+    """Sort a list of students by their birth month and day.
+    In other words sort the list by their birthdate but ignore
+    the year of their birthdate.
 
-    param before: a datetime object
-    param after: another datetime object
-    return: an integer
+    Parameter
+        students_list: a list that contains small lists.
+            Each small list contains the given name,
+            surname, and birthdate of one student.
+    Return: a new list of students that is sorted by birth month and day.
     """
-    # Ensure that the date in before is earlier
-    # than or equal to the date in after.
-    if before > after:
-        before, after = after, before
+    # Define a nested function that extracts
+    # a student's birthdate without the year.
+    def extract_month_and_day(student):
+        birthdate_string = student[BIRTHDATE_INDEX]
+        month_and_day = birthdate_string[5:]
+        return month_and_day
 
-    # Compute the difference between the two dates in years.
-    years = after.year - before.year
+    # Call the sorted function to sort the list
+    # of students by their birth month and day.
+    sorted_list = sorted(students_list, key=extract_month_and_day)
 
-    # If necessary, subtract one from the difference.
-    if before.month > after.month or \
-        (before.month == after.month and before.day > after.day):
-        years -= 1
+    # Return the sorted list.
+    return sorted_list
 
-    return years
+
+def read_compound_list(filename):
+    """Read the text from a CSV file into a compound list.
+    The compound list will contain small lists. Each small
+    list will contain the data from one row of the CSV file.
+
+    Parameter
+        filename: the name of the CSV file to read.
+    Return: the compound list
+    """
+    # Create an empty list.
+    compound_list = []
+
+    # Open the CSV file for reading.
+    with open(filename, "rt") as csv_file:
+
+        # Use the csv module to create a reader
+        # object that will read from the opened file.
+        reader = csv.reader(csv_file)
+
+        # The first line of the CSV file contains column headings
+        # and not a student's I-Number and name, so this statement
+        # skips the first line of the CSV file.
+        next(reader)
+
+        # Process each row in the CSV file.
+        for row in reader:
+
+            # Append the current row at the end of the compound list.
+            compound_list.append(row)
+
+    return compound_list
+
+
+def print_list(compound_list):
+    """Print the elements in a compound list to
+    the terminal window for the user to see.
+
+    Parameter
+        compound_list: a list that contains other lists
+    Return: nothing
+    """
+    for element in compound_list:
+        print(element)
+    print()
 
 
 # If this file is executed like this:
