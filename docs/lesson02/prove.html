@@ -32,7 +32,7 @@
 
     <h2>Purpose</h2>
     <p>Prove that you can write a Python program that calls functions
-    and methods to get the current date and to write values to a text
+    and methods to get the current date and to append values to a text
     file.</p>
 
     <h2>Problem Statement</h2>
@@ -53,10 +53,10 @@
     <ol>
         <li><div>Gets the current date from the computer's
         clock.</div></li>
-        <li><div>Opens a file named <code>volumes.txt</code> for
+        <li><div>Opens a text file named <code>volumes.txt</code> for
         appending.</div></li>
-        <li><div>Appends to the end of the file one line of text that
-        contains the following five values:
+        <li><div>Appends to the end of the <code>volumes.txt</code> file
+        one line of text that contains the following five values:
         <ol>
             <li><div>current date</div></li>
             <li><div>width of the tire</div></li>
@@ -123,8 +123,8 @@
 
     <p>The following example code calls the <code>open</code> function
     to open a file for appending text and then calls the
-    <code>print</code> function three times to print three lines of text
-    to the file.</p>
+    <code>print</code> function two times to print two lines of text to
+    the file.</p>
 
 <div class="pre"><pre class="python" id="ex1">
 model = "GMC Acadia"
@@ -132,14 +132,12 @@ length = 193
 width = 75
 height = 67
 
-# Open a file named dimensions.txt in append mode.
+# Open a text file named dimensions.txt in append mode.
 with open("dimensions.txt", <em>"at"</em>) as dimens_file:
 
-    # Print a car's model, dimensions,
-    # and a blank line to the file.
+    # Print a car's model and dimensions to the file.
     print(model, <em>file=dimens_file</em>)
-    print(f"{length}, {width}, {height}", <em>file=dimens_file</em>)
-    print(<em>file=dimens_file</em>)</pre></div>
+    print(f"{length}, {width}, {height}", <em>file=dimens_file</em>)</pre></div>
 
     <h2>Sample Run</h2>
 <pre class="console">&gt; python tire_volume.py
