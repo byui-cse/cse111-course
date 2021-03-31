@@ -89,9 +89,9 @@
 <em>except ValueError as val_err:</em>
     # Code that the computer executes if the code in
     # the try block caused a ValueError to be raised.
-<em>except (TypeError, KeyError, NameError) as error:</em>
+<em>except (TypeError, KeyError, IndexError) as error:</em>
     # Code that the computer executes if the code in the try
-    # block raised a TypeError, KeyError, or NameError.
+    # block raised a TypeError, KeyError, or IndexError.
 <em>except Exception as excep:</em>
     # Code that the computer executes if the code in the
     # try block caused any exception to be raised that was
@@ -119,7 +119,7 @@
 <div class="pre"><pre class="python">except ValueError as val_err:</pre></div>
         Or each <code>except</code> block may handle several types of
         exceptions, such as:
-<div class="pre"><pre class="python">except (TypeError, KeyError, NameError) as error:</pre></div>
+<div class="pre"><pre class="python">except (TypeError, KeyError, IndexError) as error:</pre></div>
 Or one <code>except</code> block may handle all possible types of
 exceptions such as:
 <div class="pre"><pre class="python">except Exception as excep:</pre></div>
@@ -128,8 +128,27 @@ be raised, including <code>SystemExit</code>,
 <code>KeyboardInterrupt</code> and <code>GeneratorExit</code>
 such as:
 <div class="pre"><pre class="python">except:</pre></div>
-We must order except blocks from most specific at the top to
-        least specific (most general) at the bottom.</div></li>
+
+        <p>The Python programming language requires us to order
+        <code>except</code> blocks from most specific at the top to
+        least specific (most general) at the bottom. However, in most
+        programs, it is a bad idea to write <code>except</code> blocks
+        that are very general, including an <code>except</code> block
+        that handles all possible exception types and a bare
+        <code>except</code> block.</p>
+
+        <p>It is a bad idea to write an <code>except</code> block that
+        handles all types of exceptions because such a block will handle
+        <code>SyntaxError</code>. We don't want to handle
+        <code>SyntaxError</code>. Instead, we want our program to crash
+        for a syntax error and print the line number where the syntax
+        error occurred so that a programmer can find and fix the syntax
+        error. Syntax errors are caused by a programmer mistyping code
+        and not by bad user input or missing files. We want a programmer
+        to find and fix all the syntax errors in a program long before
+        the program is given to users.</div></li>
+
+
 
         <li><div>As shown in the example code above, following the
         <code>except</code> blocks, we may write an optional
@@ -505,37 +524,11 @@ if __name__ == "__main__":
     <p>To <dfn>validate user input</dfn> means to check user input to
     ensure it is in the correct format before using that input. The
     program in example&nbsp;8 validates user input by handling
-    exceptions. Notice there are two <code>try</code> blocks in the
-    program: one at
-    <span class="cross" data-ref="ex8">line&nbsp;4</span>
-    in the <code>main</code> function and another at
-    <span class="cross" data-ref="ex8">line&nbsp;32</span>
-    in the <code>get_float</code> function.</p>
-
-    <p>The <code>try</code> block at
-    <span class="cross" data-ref="ex8">line&nbsp;4</span>
-    includes all the regular code in the <code>main</code> function. The
-    except block at
-    <span class="cross" data-ref="ex8">line&nbsp;14</span>
-    will handle all types of runtime exceptions.
-    <code>RuntimeError</code> is probably the most general type of
-    exception that we want to handle in a Python program.
-    <code>Exception</code> is more general than
-    <code>RuntimeError</code>. However, <code>Exception</code> includes
-    <code>SyntaxError</code>, and we don't want to handle
-    <code>SyntaxError</code>. Instead, we want our program to crash for
-    a syntax error and print the line number where the syntax error
-    occurred so a programmer can find and fix the syntax error. Syntax
-    errors are caused by a programmer mistyping code and not by bad user
-    input or missing files. We want a programmer to find and fix all
-    the syntax errors in a program long before the program is given to
-    users.</p>
-
-    <p>The <code>try</code> block at
-    <span class="cross" data-ref="ex8">line&nbsp;32</span>
-    is part of a loop that validates user input in the
-    <code>get_float</code> function. Notice at
-    <span class="cross" data-ref="ex8">line&nbsp;47</span>
+    exceptions. Notice in the <code>get_float</code> function at
+    <span class="cross" data-ref="ex10">line&nbsp;28</span> there is a
+    <code>try</code> block. The <code>try</code> block is part of a loop
+    that validates user input in the <code>get_float</code> function.
+    Notice at <span class="cross" data-ref="ex10">line&nbsp;43</span>
     that the <code>except</code> block handles
     <a href="https://docs.python.org/3/library/exceptions.html#ValueError"><code>ValueError</code></a>
     which is the type of exception that the
@@ -544,21 +537,17 @@ if __name__ == "__main__":
     text contains characters that are not numeric.</p>
 
 <div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex8"># Example 8
+<pre class="python" id="ex10"># Example 10
 
 def main():
-    <em>try:</em>
-        gender = input("Enter your gender (M or F): ")
+    gender = input("Enter your gender (M or F): ")
 
-        weight = get_float("Enter your weight in kilograms: ", 20, 500)
-        height = get_float("Enter your height in centimeters: ", 60, 250)
-        age = get_float("Enter your age in years: ", 10, 120)
+    weight = get_float("Enter your weight in kilograms: ", 20, 500)
+    height = get_float("Enter your height in centimeters: ", 60, 250)
+    age = get_float("Enter your age in years: ", 10, 120)
 
-        bmr = basal_metabolic_rate(gender, weight, height, age)
-        print(f"Your basal metabolic rate is {bmr} calories per day.")
-
-    <em>except RuntimeError as run_err:</em>
-        print(type(run_err).__name__, run_err, sep=": ")
+    bmr = basal_metabolic_rate(gender, weight, height, age)
+    print(f"Your basal metabolic rate is {bmr} calories per day.")
 
 
 def get_float(prompt, lower_bound, upper_bound):

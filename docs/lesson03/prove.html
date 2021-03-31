@@ -117,12 +117,12 @@ def main():
     width = 800
     height = 500
 
-    # Create the root Tk object.
+    # Create the Tk root object.
     root = tk.Tk()
     root.geometry(f"{width}x{height}")
 
     # Create a Frame object.
-    frame = tk.Frame()
+    frame = tk.Frame(root)
     frame.master.title("Scene")
     frame.pack(fill=tk.BOTH, expand=1)
 

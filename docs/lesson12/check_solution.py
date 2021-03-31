@@ -35,8 +35,8 @@ def main():
         fruit_list.clear()
         print(f"cleared: {fruit_list}")
 
-    except RuntimeError as run_err:
-        print(type(run_err).__name__, run_err, sep=": ")
+    except IndexError as index_err:
+        print(type(index_err).__name__, index_err, sep=": ")
 
 
 # If this file is executed like this:
