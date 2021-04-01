@@ -1,61 +1,77 @@
 import math
 import tkinter as tk
-from number_entry import IntEntry, FloatEntry
+import number_entry as numy
 
 
 def main():
     # Create the Tk root object.
     root = tk.Tk()
 
-    # Call the create_main_window function which
-    # will create the main window of this program.
-    create_main_window(root)
+    # Create the main window. In tkinter,
+    # a window is also called a frm_main.
+    frm_main = tk.Frame(root)
+    frm_main.master.title("Heart Rate")
+    frm_main.pack(padx=4, pady=3, fill=tk.BOTH, expand=1)
+
+    # Call the populate_main_window function, which will add
+    # labels, text entry boxes, and buttons to the main window.
+    populate_main_window(frm_main)
 
     # Start the tkinter loop that processes user events
     # such as key presses and mouse button clicks.
     root.mainloop()
 
 
-def create_main_window(parent):
-    """Create the main window of this program.
+# The controls in a graphical user interface (GUI) are called widgets,
+# and each widget is an object. Because a GUI has many widgets and each
+# widget is an object, the code to make a GUI usually has many variables
+# to store the many objects. Because there are so many variable names,
+# programmers often adopt a naming convention to help a programmer keep
+# track of all the variables. One popular naming convention is to type a
+# three letter prefix in front of the names of all variables that store
+# GUI widgets, according to this list:
+#
+# frm: a frm_main (window) widget
+# lbl: a label widget that displays text for the user to see
+# ent: an entry widget where a user will type text or numbers
+# btn: a button widget that the user will click
+
+
+def populate_main_window(frm_main):
+    """Populate the main window of this program. In other words, put
+    the labels, text entry boxes, and buttons into the main window.
 
     Parameter
-        parent: the parent object of the main window
+        frm_main: the main window
     Return: nothing
     """
-    # Create the main window. In tkinter,
-    # a window is also called a frame.
-    frame = tk.Frame(parent)
-    frame.master.title("Tire Volume")
-    frame.pack(padx=4, pady=3, fill=tk.BOTH, expand=1)
-
     # Create labels for the text fields and the results.
-    lblWidth = tk.Label(frame, text="Width (mm):")
-    lblRatio = tk.Label(frame, text="Aspect Ratio:")
-    lblDiam = tk.Label(frame, text="Diameter (in):")
-    lblVol = tk.Label(frame, text="Volume (cubic cm):")
+    lbl_width = tk.Label(frm_main, text="Width (mm):")
+    lbl_ratio = tk.Label(frm_main, text="Aspect Ratio:")
+    lbl_diam = tk.Label(frm_main, text="Diameter (in):")
+    lbl_vol = tk.Label(frm_main, text="Volume (cubic cm):")
 
     # Create three text fields.
-    txtWidth = IntEntry(frame, 1, 300, width=5)
-    txtRatio = FloatEntry(frame, 1, 90, width=5)
-    txtDiam = FloatEntry(frame, 1, 30, width=5)
+    ent_width = numy.IntEntry(frm_main, 1, 300, width=5)
+    ent_ratio = numy.FloatEntry(frm_main, 1, 90, width=5)
+    ent_diam = numy.FloatEntry(frm_main, 1, 30, width=5)
 
     # Create a label to display the result.
-    lblResult = tk.Label(frame, width=8, anchor="w")
+    lbl_result = tk.Label(frm_main, width=8, anchor="w")
 
     # Create the Clear button.
-    btnClear = tk.Button(frame, text="Clear")
+    btn_clear = tk.Button(frm_main, text="Clear")
 
     # Layout all the labels, text fields, and buttons in a grid.
-    lblWidth.grid( row=0, column=0, padx=3, pady=2, sticky="e")
-    txtWidth.grid( row=0, column=1, padx=3, pady=2, sticky="w")
-    lblRatio.grid( row=1, column=0, padx=3, pady=2, sticky="e")
-    txtRatio.grid( row=1, column=1, padx=3, pady=2, sticky="w")
-    lblDiam.grid(  row=2, column=0, padx=3, pady=2, sticky="e")
-    txtDiam.grid(  row=2, column=1, padx=3, pady=2, sticky="w")
-    lblVol.grid(   row=3, column=0, padx=3, pady=2, sticky="e")
-    lblResult.grid(row=3, column=1, padx=3, pady=2, sticky="w")
-    btnClear.grid( row=3, column=2, padx=3, pady=2)
+    lbl_width.grid( row=0, column=0, padx=3, pady=2, sticky="e")
+    ent_width.grid( row=0, column=1, padx=3, pady=2, sticky="w")
+    lbl_ratio.grid( row=1, column=0, padx=3, pady=2, sticky="e")
+    ent_ratio.grid( row=1, column=1, padx=3, pady=2, sticky="w")
+    lbl_diam.grid(  row=2, column=0, padx=3, pady=2, sticky="e")
+    ent_diam.grid(  row=2, column=1, padx=3, pady=2, sticky="w")
+    lbl_vol.grid(   row=3, column=0, padx=3, pady=2, sticky="e")
+    lbl_result.grid(row=3, column=1, padx=3, pady=2, sticky="w")
+    btn_clear.grid( row=3, column=2, padx=3, pady=2)
 
 
     # This function is called each time the user releases a key.
@@ -63,47 +79,47 @@ def create_main_window(parent):
         """Compute the approximate volume of a tire in cubic cm."""
         try:
             # Get the user input.
-            w = txtWidth.get()
-            a = txtRatio.get()
-            d = txtDiam.get()
+            w = ent_width.get()
+            a = ent_ratio.get()
+            d = ent_diam.get()
 
             # Compute the tire volume.
             v = (math.pi * w * w * a * (w * a + 2540 * d)) / 10_000_000
 
             # Display the volume for the user to see.
-            lblResult.config(text=str(round(v, 1)))
+            lbl_result.config(text=str(round(v, 1)))
 
         except ValueError:
             # When the user deletes all the digits in one
             # of the text fields, clear the result labels.
-            lblResult.config(text="")
+            lbl_result.config(text="")
 
 
     # This function is called each time
     # the user clicks the "Clear" button.
     def clear():
         """Clear all the inputs and outputs."""
-        txtWidth.delete(0, tk.END)
-        txtRatio.delete(0, tk.END)
-        txtDiam.delete(0, tk.END)
-        lblResult.config(text="")
-        txtWidth.focus()
+        ent_width.delete(0, tk.END)
+        ent_ratio.delete(0, tk.END)
+        ent_diam.delete(0, tk.END)
+        lbl_result.config(text="")
+        ent_width.focus()
 
 
     # Bind the calc function to the three text fields
     # so that the calc function will be called when the
     # user changes the text in the text fields.
-    txtWidth.bind("<KeyRelease>", calc)
-    txtRatio.bind("<KeyRelease>", calc)
-    txtDiam.bind("<KeyRelease>", calc)
+    ent_width.bind("<KeyRelease>", calc)
+    ent_ratio.bind("<KeyRelease>", calc)
+    ent_diam.bind("<KeyRelease>", calc)
 
     # Bind the clear function to the clear button so
     # that the clear function will be called when the
     # user clicks the clear button.
-    btnClear.config(command=clear)
+    btn_clear.config(command=clear)
 
     # Give the keyboard focus to the width text field.
-    txtWidth.focus()
+    ent_width.focus()
 
 
 # If this file is executed like this:

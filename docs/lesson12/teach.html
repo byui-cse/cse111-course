@@ -49,8 +49,6 @@
         <li><div>Official documentation for the <a href="">tkinter module</a></div></li>
 
         <li><div>GUI <a href="https://www.tutorialspoint.com/python/python_gui_programming.htm">Programming with Tkinter</a></div></li>
-
-        <li><div>An <a href="https://effbot.org/tkinterbook/">Introduction to Tkinter</a></div></li>
     </ul>
 
     <h2>Assignment</h2>
@@ -66,11 +64,11 @@
         and save them in the same folder where you will save your Python
         program.</div></li>
 
-        <li><div>Open the <code>heart_rate.py</code> file in VS
-        Code and run it. Notice how running the program opens a GUI
-        where a user can enter his age and see heart rates for
-        exercising. Experiment with the GUI by entering different ages,
-        seeing the results, and clicking the "Clear" button.</div></li>
+        <li><div>Open the <code>heart_rate.py</code> file in VS Code and
+        run it. Notice how running the program opens a GUI where a user
+        can enter his age and see heart rates for exercising. Experiment
+        with the GUI by entering different ages, seeing the results, and
+        clicking the "Clear" button.</div></li>
 
         <li><div>Read the comments and examine the code in
         <code>heart_rate.py</code>. Notice the following:
@@ -83,21 +81,21 @@
             line&nbsp;5.</div></li>
 
             <li><div>The <code>main</code> function creates a
-            <code>tk.TK</code> root object named <var>app</var> and uses
-            that object to create a <code>HeartWindow</code>
-            object.</div></li>
+            <code>tk.TK</code> root object and uses that object to
+            create the main window for the program.</div></li>
 
-            <li><div>Beginning at line&nbsp;21, the
-            <code>HeartWindow.__init__</code> method creates labels,
-            text fields, and buttons and places them in a
+            <li><div>Beginning at line&nbsp;47, the
+            <code>populate_main_window</code> function creates labels,
+            text entry boxes, and buttons and places them in a
             grid.</div></li>
 
-            <li><div>Inside the <code>__init__</code> method, there
-            are two nested functions named <code>calc</code> and
-            <code>clear</code>. The <code>calc</code> function is called
-            each time the user enters a digit in the age text field. The
-            <code>clear</code> function is called each time the user
-            clicks the "Clear" button.</div></li>
+            <li><div>Inside the <code>populate_main_window</code>
+            function, there are two nested functions named
+            <code>calc</code> and <code>clear</code>. The
+            <code>calc</code> function is called each time the user
+            enters a digit in the age text field. The <code>clear</code>
+            function is called each time the user clicks the "Clear"
+            button.</div></li>
         </ol></div></li>
 
         <li><div>Choose a simple calculation or formula for your program
@@ -154,11 +152,12 @@
 
     <h2>Ponder</h2>
     <p>After you finish your program, examine the code in the
-    <code>__init__</code> function and realize that you wrote object
-    oriented code when you used objects such as <var>lblAge</var>,
-    <var>lblWidth</var>, <var>txtAge</var>, and <var>txtWidth</var> and
-    the dot operator to call methods such as <code>grid</code>,
-    <code>config</code>, <code>get</code>, and <code>clear</code>.</p>
+    <code>populate_main_window</code> function and realize that you
+    wrote object oriented code when you used objects such as
+    <var>lbl_age</var>, <var>lbl_width</var>, <var>txt_age</var>, and
+    <var>txt_width</var> and the dot operator to call methods such as
+    <code>grid</code>, <code>config</code>, <code>get</code>, and
+    <code>clear</code>.</p>
 
     <h2>Sample Solution</h2>
     <p>Please work diligently with your team for the one hour meeting.

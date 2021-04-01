@@ -50,6 +50,32 @@
         <li><div>The <a href="../lesson09/prepare.html">prepare content</a>
         for lesson 9 explains how to read the contents of a text file
         into a list.</div></li>
+
+        <li><div>A <dfn>compound list</dfn> is a list that contains
+        other lists. The following code example shows how to create a
+        compound list in Python. Notice that <var>students_list</var> is
+        a list that contains other lists.
+
+<div class="pre"><pre class="python">
+    students_list = [
+        # [given_name, surname, birthdate]
+        ["Tanner", "McAllister", "2009-02-13"],
+        ["Trevor", "Johnson", "2009-11-19"],
+        ["Emmanuel", "Mikami", "2013-10-30"],
+        ["Trevor", "Resendiz", "2011-12-19"],
+        ["John", "Tsuchiya", "2010-06-30"],
+        ["Nathan", "Johnson", "2013-03-03"],
+        ["Caleb", "Tsuchiya", "2011-10-03"],
+        ["Spencer", "Duffin", "2010-02-26"],
+        ["Shiekahadd", "Autran", "2012-03-22"],
+        ["Emmanuel", "Johnson", "2010-09-06"]
+    ]</pre></div>
+
+        The above code example creates a compound list in Python code.
+        It's also possible to read the contents of a CSV file into a
+        compound list. The <code>read_compound_list</code> function
+        given in this assignment does exactly that. It reads the
+        contents of a CSV file into a compound list.</div></li>
     </ul>
 
     <h2>Assignment</h2>
@@ -73,16 +99,18 @@
         <li><div>Open the <code>pupils.py</code> file in VS Code. At the
         bottom of the file write a function named
         <code>print_list</code> that takes a list as a parameter and
-        prints the list with each element of the list on a separate
+        prints each element of the list on a separate line. In other
+        words, this <code>print_list</code> function should include a
+        for each loop that prints each element on a separate
         line.</li></div>
 
         <li><div>Near the top of <code>pupils.py</code>, below the three
-        indexes, write the <code>main</code> function. Inside of the
+        indexes, write the <code>main</code> function. Inside the
         <code>main</code> function, write statements to do the following:
         <ol>
-            <li><div>Read the <code>pupils.csv</code> file into a list
-            named <var>students_list</var> by calling the
-            <code>read_compound_list</code> function.</div></li>
+            <li><div>Call the <code>read_compound_list</code> function
+            to read the <code>pupils.csv</code> file into a list named
+            <var>students_list</var>.</div></li>
             <li><div>Write a lambda function that will extract the
             birthdate from a student.</div></li>
             <li><div>Write a call to the <code>sorted</code> function

@@ -17,7 +17,7 @@ FATIGUE_COLUMN = 9
 def main():
     # Prompt the user for a filename and open that text file.
     filename = input("Name of file that contains NHTSA data: ")
-    with open(filename, "rt") as infile:
+    with open(filename, "rt") as text_file:
 
         # Prompt the user for a percentage.
         perc_reduc = float(input("Percent reduction of texting while driving [0, 100]: "))
@@ -31,7 +31,7 @@ def main():
 
         # Use the csv module to create a reader
         # object that will read from the opened file.
-        reader = csv.reader(infile)
+        reader = csv.reader(text_file)
 
         # The first line of the CSV file contains column headings
         # and not a student's I-Number and name, so this statement

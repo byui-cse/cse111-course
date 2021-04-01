@@ -70,13 +70,13 @@
     </tbody></table>
 
     <p>In a Python program, we can create a list by using square
-    brackets ([ and ]). We can determine the number of items in a list
-    by using the <code>len</code> function. We can retrieve an item from
-    a list and replace an item in a list using square brackets ([ and ])
-    and an index. Example&nbsp;1 is a code example that creates a list,
-    prints the length of the list, retrieves and prints one item from
-    the list, changes one item in the list, and then prints the entire
-    list.</p>
+    brackets ([&nbsp;and&nbsp;]). We can determine the number of items
+    in a list by using the <code>len</code> function. We can retrieve an
+    item from a list and replace an item in a list using square brackets
+    ([&nbsp;and&nbsp;]) and an index. Example&nbsp;1 contains a program
+    that creates a list, prints the length of the list, retrieves and
+    prints one item from the list, changes one item in the list, and
+    then prints the entire list.</p>
 
 <div class="pre"><pre class="python" id="ex1"># Example 1
 
@@ -99,7 +99,8 @@ def main():
     # Print the entire colors list.
     print(colors)
 
-main()</pre></div>
+if __name__ == "__main__":
+    main()</pre></div>
 
     <p>We can add an item to a list by using the <code>insert</code> and
     <code>append</code> methods. We can determine if an element is in a
@@ -146,7 +147,13 @@ def main()
     n = len(fabrics)
     print(f"The fabrics list contains {n} elements.")
 
-main()</pre></div>
+if __name__ == "__main__":
+    main()</pre></div>
+
+    <p>The lists in examples&nbsp;1 and&nbsp;2 store strings. Of course,
+    it is possible to store numbers in a list, too. In fact, Python
+    allows a programmer to store other data types in a list, including
+    other lists.</p>
 
     <h3>Repetition</h3>
     <p>We can cause a computer to repeat a group of statements by
@@ -174,7 +181,8 @@ def main():
     for i in range(100, 69, -3):
         print(i)
 
-main()</pre></div>
+if __name__ == "__main__":
+    main()</pre></div>
 
     <p>A <code>break</code> statement causes a loop to end early. In
     example&nbsp;4, there is a <code>for</code> loop that asks the user
@@ -185,12 +193,13 @@ main()</pre></div>
 <div class="pre"><pre class="python" id="ex4"># Example 4
 
 def main():
+    sum = 0
+
     # Get ten or fewer numbers from the user and add them
     # together. Notice that this loop uses underscore (_) as
     # the counting variable, which is a valid variable name.
     # Many programmers use underscore to indicate that the
     # variable will not be used within the body of the loop.
-    sum = 0
     for _ in range(10):
         n = float(input("Please enter a number: "))
         if n == 0:
@@ -198,13 +207,14 @@ def main():
         sum += n
     print(sum)
 
-main()</pre></div>
+if __name__ == "__main__":
+    main()</pre></div>
 
     <p>In example&nbsp;5, there is a <code>for</code> loop that iterates
     over the elements in a list. The code in the body of the loop is
     very small and simply prints an element from the list. However, we
     can write as much code as we need in the body of a loop to
-    repeatedly perform all manner of complex computations.</p>
+    repeatedly perform all sorts of complex computations.</p>
 
 <div class="pre"><pre class="python" id="ex5"># Example 5
 
@@ -218,7 +228,8 @@ def main():
     <em>for color in colors:
         print(color)</em>
 
-main()</pre></div>
+if __name__ == "__main__":
+    main()</pre></div>
 
     <h3 id="passByRef">Values and References</h3>
     <p>In Python, variables are processed differently based on their
@@ -234,7 +245,8 @@ main()</pre></div>
     <span class="varUse">x</span> += 1
     print(f"After changing x:  x {<span class="varUse">x</span>}  y {<span class="varUse">y</span>}")</span>
 
-main()</span></pre></div>
+if __name__ == "__main__":
+    main()</span></pre></div>
 
     The code in example&nbsp;6 will print this:
 <pre class="console">&gt; python example_6.py
@@ -283,7 +295,8 @@ After changing x:  <em>x 18  y 17</em></pre>
     <span class="varUse">lx</span>.append(5)
     print(f"After changing lx:  lx {<span class="varUse">lx</span>}  ly {<span class="varUse">ly</span>}")</span>
 
-main()</span></pre></div>
+if __name__ == "__main__":
+    main()</span></pre></div>
 
     Here is the output of the program in example&nbsp;7:
 

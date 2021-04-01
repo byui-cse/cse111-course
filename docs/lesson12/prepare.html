@@ -31,32 +31,35 @@
     <h1>12 Prepare: Using Objects</h1>
     <p>A <dfn>paradigm</dfn> is a way of thinking or a way of viewing
     the world. There are at least four main paradigms for programming a
-    computer: procedural, declarative, functional, and object-oriented.
-    During CSE 110 and 111, you used or encountered the first three of
-    these programming paradigms. During this lesson, you will be
-    introduced to the last: object-oriented.</p>
+    computer:&nbsp; procedural, declarative, functional, and
+    object-oriented. During CSE 110 and 111, you used or encountered the
+    first three of these programming paradigms. During this lesson, you
+    will be introduced to the last:&nbsp; object-oriented programming.</p>
 
-    <h2>Concepts</h2>
+    <h2>Programming Paradigms</h2>
     <h3>Procedural Programming</h3>
     <p>Procedural programming is a way of programming that focuses on
     the process or the steps to accomplish a task. For example, if we
     had 100 numbers and wanted to know the average value of those 100
     numbers, we could add the numbers and then divide by 100. This is
-    one process to compute the average of numbers: add them and divide
-    by the quantity of numbers. A Python procedural program for
-    computing the average looks like this:</p>
+    one process to compute the average of numbers:&nbsp; add them and
+    divide by the quantity of numbers. A Python procedural program for
+    computing the average is shown in example&nbsp;1.</p>
 
-<div class="pre"><pre class="python" id="ex1">
-numbers = [87, 95, 72, 92, 95, 88, 84]
-total = 0
-for x in numbers:
-    total += x
-average = total / len(numbers)</pre></div>
+<div class="pre"><pre class="python" id="ex1"># Example 1
 
-    <p>Notice that with procedural programming, we must code the process
-    or the steps that are necessary to complete a task. Procedural
-    programming is the type of programming that you did most often in
-    CSE 110 and 111.</p>
+def main():
+    numbers = [87, 95, 72, 92, 95, 88, 84]
+    total = 0
+    for x in numbers:
+        total += x
+    average = total / len(numbers)
+    print(average)</pre></div>
+
+    <p>Notice that with procedural programming, we must write the
+    process or the steps that are necessary to complete a task.
+    Procedural programming is the type of programming that you did most
+    often in CSE&nbsp;110 and&nbsp;111.</p>
 
     <h3>Declarative Programming</h3>
     <p>When we use declarative programming to program a computer, we do
@@ -64,32 +67,20 @@ average = total / len(numbers)</pre></div>
     we focus on what we want from the task, or in other words, we focus
     on the desired result. Continuing the example of the average, with
     declarative programming, we focus on exactly what numbers we want
-    averaged and tell the computer to compute that average for us. Many
-    of the commands in the <code>pandas</code> module are a form of
-    declarative programming. For example, using <code>pandas</code>, we
-    can command the computer to filter a DataFrame or to remove columns
-    from a DataFrame like this:</p>
+    averaged and tell the computer to compute that average for us. SQL
+    is a declarative programming language used with relational
+    databases. Example&nbsp;2 contains SQL code that causes the computer
+    to compute average of a column of numbers.</p>
 
-<div class="pre"><pre class="python" id="ex2">
-import pandas as pd
+<div class="pre"><pre class="python" id="ex2">-- Example 2
 
-# Read a DataFrame from the water.csv file.
-df = pd.read_csv("water.csv")
+SELECT AVG(numbers) FROM table;</pre></div>
 
-# Filter the DataFrame to only rows from residences.
-filter = (df["accountType"] == "Residence")
-residences = <em>df[filter]</em>
-
-# Remove all columns except meterNumber, readDate, and usage.
-retain = ["meterNumber", "readDate", "usage"]
-residences = <em>residences[retain]</em></pre></div>
-
-    <p>Notice in the above example, that the code does not contain the
-    steps required to filter a DataFrame or remove columns because
-    someone else already wrote the code that contains those steps.
-    Instead, the code contains commands that tell the computer what rows
-    or columns we want to keep in the data, and the computer executes
-    the steps necessary to do what we want. The term "declarative
+    <p>Notice in example&nbsp;2, that the code does not contain the
+    steps required to compute the average of numbers. Someone else
+    already wrote the code that contains those steps. Instead, the SQL
+    code contains a command that tells the computer to compute the
+    average of a column named <var>numbers</var>. The term "declarative
     programming" means that we write or declare what we want the
     computer to do. We do not tell the computer how to compute
     something. We declare what we want the computer to do, and the
@@ -102,84 +93,65 @@ residences = <em>residences[retain]</em></pre></div>
     because they are accustomed to using functions while studying
     mathematics. In functional programming, functions are so important
     that we often pass functions into other functions. You did this in
-    the checkpoint and team activity for lesson&nbsp;11. Here is a
-    functional programming solution to computing the average in
-    Python:</p>
+    the checkpoint and team activity for lesson&nbsp;11. Example&nbsp;3
+    contains a functional programming solution to computing the average
+    in Python.</p>
 
-<div class="pre"><pre class="python" id="ex3">
+<div class="pre"><pre class="python" id="ex3"># Example 3
+
 from functools import reduce
 
-numbers = [87, 95, 72, 92, 95, 88, 84]
-func_add = lambda a, b: a + b
-total = <em>reduce(func_add, numbers)</em>
-average =  total / len(numbers)</pre></div>
+def main():
+    numbers = [87, 95, 72, 92, 95, 88, 84]
+    func_add = lambda a, b: a + b
+    total = <em>reduce(func_add, numbers)</em>
+    average =  total / len(numbers)
+    print(average)</pre></div>
 
-    <p>Notice how this simple example uses three functions:&nbsp; a
-    lambda function, <code>reduce</code>, and <code>len</code>. Notice
-    also that the lambda function is passed into the <code>reduce</code>
-    function. Passing a function into a function is one of the marks of
-    functional programming.</p>
+    <p>Notice how example&nbsp;3 uses three functions:&nbsp; a lambda
+    function, the <code>reduce</code> function, and the <code>len</code>
+    function. Notice also that the lambda function is passed into the
+    <code>reduce</code> function. Passing a function into a function is
+    one of the marks of functional programming.</p>
 
     <h3>Object-Oriented Programming</h3>
-    <p>With object-oriented programming, we use objects to write a
-    program. An object is anything in the world that has these four
-    things:</p>
-    <ol>
-        <li><div>identity (a name or identification)</div></li>
-        <li><div>data (also known as attributes)</div></li>
-        <li><div>behavior (also known as methods or functions)</div></li>
-        <li><div>relationships to other objects</div></li>
-    </ol>
+    <p>Object-oriented programming is a programming paradigm based on
+    the concept of objects. An object is a piece of a program that
+    contains both data (also known as attributes) and functions (also
+    known as methods).</p>
 
     <p>When we write an object-oriented program, we combine data and
     functions together into objects. For example, if we were writing a
     registration program used for students to register for courses at a
     school, we would write code to create Student objects and Course
-    objects. Each Student object would have data like given_name,
-    family_name, phone_number, etc. and would have functions like
-    register, enroll, drop, withdraw, etc. Each Course object would have
-    data like course_code, title, description, list_of_students, etc.
-    and would have functions like get_students, take_role, etc.</p>
-
-    <p>The <code>pandas</code> module uses object-oriented programming
-    concepts as shown in the next code example that again computes the
-    average of a list of numbers.</p>
-
-<div class="pre"><pre class="python" id="ex4">
-import pandas as pd
-
-# Read the data in a CSV file and create a pandas DataFrame object.
-df = <em>pd.read_csv("water.csv")</em>
-
-# Extract a pandas Series object from the DataFrame object.
-column = df["usage"]
-
-# Call the mean method (function) that is in the column object.
-average = <em>column.mean()</em>
-
-# Print the column name attribute and the average.
-print(<em>column.name</em>, average)</pre></div>
-
-    <p>One of the marks of object-oriented programming is selecting
-    attributes and calling methods using the <dfn>dot operator</dfn> (a
-    period: .). The official name of the dot operator is <dfn>component
-    selector</dfn>, but almost no one calls it that because the term
-    "dot" is much easier to say than "component selector." Notice in the
-    previous example, the code uses the dot operator (.) to call the
-    <code>read_csv</code> method in the pandas module, to call the
-    <code>mean</code> method on the column, and to retrieve the column's
-    <code>name</code> attribute.</p>
+    objects. Each Student object would have data such as given_name,
+    family_name, and phone_number and would have functions such as
+    register, enroll, drop, and withdraw. Each Course object would have
+    data such as course_code, title, description, and list_of_students
+    and would have functions such as get_students and take_role.</p>
 
     <p>Python includes many built-in and standard objects that a
     programmer can use to write programs. In fact, you have already used
-    many objects in your programs. In Python, tuples, lists, sets, and
-    dictionaries are all objects and have attributes and methods. For
-    example, lists have many methods: <code>index</code>,
-    <code>count</code>, <code>clear</code>, <code>insert</code>,
-    <code>append</code>, <code>remove</code>, <code>pop</code>,
-    <code>extend</code>, <code>reverse</code>, and <code>copy</code>.
-    <code>csv</code> Readers and Writers are also objects, as are
-    <code>pandas</code> DataFrames and Series.</p>
+    many objects in your programs. Python lists and dictionaries are
+    objects and have attributes and methods. Readers and Writers from
+    the <code>csv</code> module are also objects.</p>
+
+    <p>One of the marks of object-oriented programming is selecting
+    attributes and calling methods using the <dfn>dot operator</dfn> (a
+    period). The official name of the dot operator is <dfn>component
+    selector</dfn>, but almost no one calls it that because the term
+    "dot" is much easier to say than "component selector." The code in
+    example&nbsp;4 uses the dot operator (.) to call the
+    <code>append</code> method.</p>
+
+<div class="pre"><pre class="python" id="ex4"># Example 4
+
+def main():
+    numbers = [87, 95, 72, 92, 95, 88, 84]
+    <em>numbers.append(78)</em>
+    <em>numbers.append(72)</em>
+
+</pre></div>
 
     <p>There are several types of commands that are commonly found in
     object-oriented programs. These types of commands are so common,
@@ -187,17 +159,17 @@ print(<em>column.name</em>, average)</pre></div>
     these types of commands are:</p>
 
     <ol class="long">
-        <li><div>Creating objects. For example:
+        <li><div>Creating objects, for example:
 <div class="pre"><pre class="python">obj = date.today()</pre></div>
         </div></li>
 
         <li><div>Accessing the attributes of an object using the dot
-        operator. For example:
-<div class="pre"><pre class="python">y = obj.year</pre></div>
+        operator, for example:
+<div class="pre"><pre class="python">year = obj.year</pre></div>
         </div></li>
 
         <li><div>Calling the methods of an object using the dot
-        operator. For example:
+        operator, for example:
 <div class="pre"><pre class="python">new_obj = obj.replace(year=2025)</pre></div>
         </div></li>
     </ol>
@@ -209,24 +181,25 @@ print(<em>column.name</em>, average)</pre></div>
     Tutorial titled
     <a href="https://docs.python.org/3/tutorial/datastructures.html#more-on-lists">More on Lists</a>.</p>
 
-    <p>Here is example code from the
+    <p>Example&nbsp;5 contains a program copied from the
     <a href="../lesson07/prepare.html">prepare content</a>
     of lesson&nbsp;7. Now that you know what an object is, that objects
     have methods, and that Python lists are objects, this example code
-    may make more sense than it did in lesson&nbsp;7. Notice that the
-    <code>list.append</code> method is called on
-    <span class="cross" data-ref="ex5">lines&nbsp;6&ndash;8</span>.
-    <code>list.insert</code> is called on
-    <span class="cross" data-ref="ex5">line&nbsp;11</span>;
-    <code>list.index</code> is called on
-    <span class="cross" data-ref="ex5">line&nbsp;14</span>;
-    <code>list.pop</code> is called on
-    <span class="cross" data-ref="ex5">line&nbsp;20</span>; and
-    <code>list.remove</code> is called on
-    <span class="cross" data-ref="ex5">line&nbsp;23</span>.</p>
+    should ake more sense than it did in lesson&nbsp;7. Notice that the
+    <code>append</code> method is called on
+    <span class="cross" data-ref="ex5">lines&nbsp;8&ndash;10</span>,
+    <code>insert</code> is called on
+    <span class="cross" data-ref="ex5">line&nbsp;13</span>,
+    <code>index</code> is called on
+    <span class="cross" data-ref="ex5">line&nbsp;16</span>,
+    <code>pop</code> is called on
+    <span class="cross" data-ref="ex5">line&nbsp;22</span>, and
+    <code>remove</code> is called on
+    <span class="cross" data-ref="ex5">line&nbsp;25</span>.</p>
 
 <div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex5">
+<pre class="python" id="ex5"># Example 5
+
 def main():
     # Create an empty list that will hold fabric names.
     fabrics = []
@@ -321,7 +294,7 @@ def main():
 
     # Lookup the student ID in the dictionary and
     # retrieve the corresponding student name.
-    name = students.get(id)
+    name = <em>students.get(id)</em>
 
     if name:
         # Print the student name.
@@ -329,7 +302,7 @@ def main():
 
         # Remove the student that the user
         # specified from the dictionary.
-        students.pop(id)
+        <em>students.pop(id)</em>
     else:
         print("No such student")
 
@@ -337,13 +310,20 @@ def main():
     # dictionary. Of course, the code in the body of a loop
     # can do much more with each key value pair than simply
     # print it.
-    for key, value in students.items():
+    for key, value in <em>students.items()</em>:
         print(key, value)
 
 
 # Call main to start this program.
 if __name__ == "__main__":
     main()</pre></div>
+
+    <h2>Summary</h2>
+    <p>This lesson is introducing you to object-oriented programming.
+    You are learning that an object has data (attributes) and functions
+    (methods) and that a programmer uses the dot operator (.) to access
+    the attributes and methods in an object. Python lists and
+    dictionaries are objects and contain attributes and methods.</p>
 </article>
 <footer>
     <small>Copyright &copy; 2020, Brigham Young University - Idaho. All

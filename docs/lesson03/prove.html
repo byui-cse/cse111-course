@@ -50,10 +50,10 @@
     have a user interface. Writing a program with a complete GUI is a
     large task. During this lesson and the next lesson, you will write a
     Python program that uses the <code>tkinter</code> library and
-    draws a semi-realistic scene in a graphical window similar to this
-    scene:</p>
+    draws a semi-realistic outdoor scene in a graphical window similar
+    to this scene:</p>
 
-    <p><img src="scene.png"
+    <p><img src="../lesson04/gallery/benjamin3.png"
     alt="A semi-realistic outdoor scene drawn by a Python program"></p>
 
     <h2>Scene Gallery</h2>
@@ -140,11 +140,11 @@ def draw_scene(canvas, scene_left, scene_top, scene_right, scene_bottom):
     """Draw a scene in the canvas. scene_left, scene_top,
     scene_right, and scene_bottom contain the extent in
     pixels of the region where the scene should be drawn.
-    Parameters:
-        scene_left - left side of the region; less than scene_right
-        scene_top - top of the region; less than scene_bottom
-        scene_right - right side of the region
-        scene_bottom - bottom of the region
+    Parameters
+        scene_left: left side of the region; less than scene_right
+        scene_top: top of the region; less than scene_bottom
+        scene_right: right side of the region
+        scene_bottom: bottom of the region
     Return: nothing
 
     If needed, the width and height of the
@@ -166,7 +166,7 @@ def draw_scene(canvas, scene_left, scene_top, scene_right, scene_bottom):
 
 def draw_pine_tree(canvas, peak_x, peak_y, height):
     """Draw a single pine tree.
-    Parameters:
+    Parameters
         canvas: The tkinter canvas where this
             function will draw a pine tree.
         peak_x, peak_y: The x and y location in pixels where

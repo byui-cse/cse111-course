@@ -478,6 +478,7 @@ article pre.python span.hiVarDef { background-color: orange; }
 article pre.python span.hiVarUse { background-color: yellow; }
 article pre.python span.hiError  { background-color: red; }
 
+
 article .cross {
 	text-decoration: underline var(--byui-blue) dotted;
 }

@@ -184,12 +184,11 @@ import csv
 
 
 def main():
-    # The indexes of the columns in the dentists.csv file.
+    # Indexes of some of the columns
+    # in the dentists.csv file.
     COMPANY_NAME_INDEX = 0
     ADDRESS_INDEX = 1
     PHONE_NUMBER_INDEX = 2
-    EMPLOYEES_INDEX = 3
-    PATIENTS_INDEX = 4
 
     # Read the contents of a CSV file named dentists.csv
     # into a dictionary named dentists. Use the phone
@@ -260,6 +259,12 @@ if __name__ == "__main__":
 
 import csv
 
+# Indexes of some of the columns
+# in the dentists.csv file.
+COMPANY_NAME_INDEX = 0
+NUM_EMPLOYEES_INDEX = 3
+NUM_PATIENTS_INDEX = 4
+
 
 def main():
     # Open a file named dentists.csv and store a reference
@@ -284,9 +289,9 @@ def main():
 
             # For the current row, retrieve the
             # values in columns 0, 3, and 4.
-            company = row[0]
-            num_employees = int(row[3])
-            num_patients = int(row[4])
+            company = row[COMPANY_NAME_INDEX]
+            num_employees = int(row[NUM_EMPLOYEES_INDEX])
+            num_patients = int(row[NUM_PATIENTS_INDEX])
 
             # Compute the number of patients per
             # employee for the current dental office.
