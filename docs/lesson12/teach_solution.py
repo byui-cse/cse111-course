@@ -86,8 +86,9 @@ def populate_main_window(frm_main):
             # Compute the tire volume.
             v = (math.pi * w * w * a * (w * a + 2540 * d)) / 10_000_000
 
-            # Display the volume for the user to see.
-            lbl_result.config(text=str(round(v, 1)))
+            # Display the volume rounded to one place after
+            # the decimal for the for the user to see.
+            lbl_result.config(text=f"{v:.1f}")
 
         except ValueError:
             # When the user deletes all the digits in one

@@ -16,14 +16,10 @@ age = int(text)
 
 # Compute the slowest and fastest beneficial
 # heart rates from the user's age.
-maxRate = 220 - age
-slowest = round(maxRate * 0.65)
-fastest = round(maxRate * 0.85)
+max_rate = 220 - age
+slowest = max_rate * 0.65
+fastest = max_rate * 0.85
 
-# Use f-strings to create a message for the user to see.
-message = \
-    f"When you exercise to strengthen your heart, you should keep\n" \
-    f"your heart rate between {slowest} and {fastest} beats per minute."
-
-# Print the message.
-print(message)
+# Use an f-string to create and print a message for the user to see.
+print("When you exercise to strengthen your heart, you should keep")
+print(f"your heart rate between {slowest:.0f} and {fastest:.0f} beats per minute.")

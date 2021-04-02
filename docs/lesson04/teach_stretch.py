@@ -34,7 +34,7 @@ def main():
 
         # Print the can size name, storage
         # efficiency, and cost efficiency.
-        print(name, store_eff, cost_eff)
+        print(f"{name} {store_eff:.1f} {cost_eff:.0f}")
 
         # If the storage efficiency of the current can size is
         # greater than the maximum storage efficiency, save then
@@ -67,7 +67,7 @@ def storage_efficiency(radius, height):
     """
     volume = cylinder_volume(radius, height)
     surf_area = cylinder_surface_area(radius, height)
-    efficiency = round(volume / surf_area, 1)
+    efficiency = volume / surf_area
     return efficiency
 
 
@@ -82,7 +82,7 @@ def cost_efficiency(radius, height, cost):
     Return: the cost efficiency of the steel can
     """
     volume = cylinder_volume(radius, height)
-    efficiency = round(volume / cost, 1)
+    efficiency = volume / cost
     return efficiency
 
 

@@ -278,10 +278,13 @@ def test_tire_volume():
     <div class="pre"><pre class="python">
 def write_file(filename, lines):
     """Create a file and write lines of text to it.
-    param lines: a list of strings.
+    Parameter
+        lines: a list of strings.
+    Return: nothing
     """
     with open(filename, "wt") as outfile:
-        print(*lines, sep="\n", file=outfile)</pre></div>
+        for text in lines:
+            print(text, file=outfile)</pre></div>
     <div class="pre"><pre class="python">
 import os
 
@@ -365,10 +368,11 @@ def filter_for_meter(df, meter_number):
     """Return a new DataFrame that contains only the rows where
     the meterNumber column equals the parameter meter_number.
 
-    param df: The DataFrame that this function will filter.
-    param meter_number: df will be filtered so that all the rows in the
-        new DataFrame will have this meter number.
-    return: A new DataFrame.
+    Parameters
+        df: The DataFrame that this function will filter.
+        meter_number: df will be filtered so that all the rows
+            in the new DataFrame will have this meter number.
+    Return: A new DataFrame.
     """
     filter = (df["meterNumber"] == meter_number)
     filtered_df = df[filter]

@@ -148,20 +148,20 @@ pytest.main(["-v", "--tb=no", "test_names.py"])
     </ol>
 
     <h2>Sample Run</h2>
-    <pre class="console">&gt; python teach_solution.py
+    <pre class="console">&gt; python test_names.py
 ========================= test session starts =========================
 platform win32 -- Python 3.8.5, pytest-6.1.1, py-1.9.0, pluggy-0.13.1
 rootdir: C:\Users\cse111\lesson05
 collected 3 items
 
-teach_solution.py::test_full_name <span class="fail">FAILED                         [ 33%]</span>
-teach_solution.py::test_family_name <span class="pass">PASSED                       [ 66%]</span>
-teach_solution.py::test_given_name <span class="fail">FAILED                        [100%]</span>
+test_names.py::test_full_name <span class="fail">FAILED                             [ 33%]</span>
+test_names.py::test_family_name <span class="pass">PASSED                           [ 66%]</span>
+test_names.py::test_given_name <span class="fail">FAILED                            [100%]</span>
 
 ======================= short test summary info =======================
-FAILED teach_solution.py::test_full_name - AssertionError:
+FAILED test_names.py::test_full_name - AssertionError:
     assert 'Smith-Jones;Penelope' == 'Smith-Jones; Penelope'
-FAILED teach_solution.py::test_given_name - AssertionError:
+FAILED test_names.py::test_given_name - AssertionError:
     assert 'mith-Jones; Penelope' == 'Penelope'
 <span class="fail">===================== 2 failed</span>, <span class="pass">1 passed</span> <span class="fail">in 0.14s =====================</span></pre>
 

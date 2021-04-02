@@ -83,13 +83,13 @@ def populate_main_window(frm_main):
 
             # Compute the user's slowest and
             # fastest beneficial heart rates.
-            slow = round(max_rate * 0.65)
-            fast = round(max_rate * 0.85)
+            slow = max_rate * 0.65
+            fast = max_rate * 0.85
 
             # Display the slowest and fastest benficial
             # heart rates for the user to see.
-            lbl_slow.config(text=f"{slow}")
-            lbl_fast.config(text=f"{fast}")
+            lbl_slow.config(text=f"{slow:.0f}")
+            lbl_fast.config(text=f"{fast:.0f}")
 
         except ValueError:
             # When the user deletes all the digits in the age

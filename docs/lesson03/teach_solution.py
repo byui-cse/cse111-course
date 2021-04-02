@@ -23,31 +23,27 @@ def main():
     pounds = float(input("Enter your weight in US pounds: "))
     inches = float(input("Enter your height in US inches: "))
 
-    # Call the compute_age function.
+    # Call the compute_age function to compute the user's age in years.
     years = compute_age(birthdate)
 
-    # Call the kg_from_lb function to convert from pounds to kilograms
-    # and then round the result to two digits after the decimal.
-    kg = round(kg_from_lb(pounds), 2)
+    # Call the kg_from_lb function to convert from pounds to kilograms.
+    kg = kg_from_lb(pounds)
 
-    # Call the cm_from_in function to convert from inches to centimeters
-    # and then round the result to one digit after the decimal.
-    cm = round(cm_from_in(inches), 1)
+    # Call the cm_from_in function to convert from inches to centimeters.
+    cm = cm_from_in(inches)
 
-    # Call the body_mass_index function and round
-    # its result to one digit after the decimal.
-    bmi = round(body_mass_index(kg, cm), 1)
+    # Call the body_mass_index function.
+    bmi = body_mass_index(kg, cm)
 
-    # Call the basal_metabolic_rate function and round
-    # its result to an integer.
-    bmr = round(basal_metabolic_rate(gender, kg, cm, years))
+    # Call the basal_metabolic_rate function.
+    bmr = basal_metabolic_rate(gender, kg, cm, years)
 
     # Print the results for the user to see.
-    print("Age (years):", years)
-    print("Weight (kg):", kg)
-    print("Height (cm):", cm)
-    print("Body mass index:", bmi)
-    print("Basal metabolic rate (kcal/day):", bmr)
+    print(f"Age (years): {years}")
+    print(f"Weight (kg): {kg:.2f}")
+    print(f"Height (cm): {cm:.1f}")
+    print(f"Body mass index: {bmi:.1f}")
+    print(f"Basal metabolic rate (kcal/day): {bmr:.0f}")
 
 
 def compute_age(birth):

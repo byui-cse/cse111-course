@@ -38,15 +38,9 @@ def main():
     # store the result in a variable named lp100k.
     lp100k = lp100k_from_mpg(mpg)
 
-    # Round the miles per gallon to one digit after the decimal.
-    mpg = round(mpg, 1)
-
-    # Round the liters per 100 km to two digits after the decimal.
-    lp100k = round(lp100k, 2)
-
     # Display the results for the user to see.
-    print(f"{mpg} miles per gallon")
-    print(f"{lp100k} liters per 100 kilometers")
+    print(f"{mpg:.1f} miles per gallon")
+    print(f"{lp100k:.2f} liters per 100 kilometers")
 
 
 def miles_per_gallon(start_miles, end_miles, amount_gallons):

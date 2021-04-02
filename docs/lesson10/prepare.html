@@ -404,7 +404,8 @@ if __name__ == "__main__":
 
 <div class="pre"><pre class="python" id="ex8"># Example 8
 
-"""Sam, who is the owner of Sam's Sandwich Shop, requested
+"""
+Sam, who is the owner of Sam's Sandwich Shop, requested
 this program, which computes the number of sandwiches per
 employee that were made in his restaurant in one day.
 """
@@ -443,11 +444,11 @@ if __name__ == "__main__":
     <p>The program in example&nbsp;9 below handles exceptions that might
     occur when the program opens and reads from a file. This program
     contains only one <code>try</code> block, which begins at
-    <span class="cross" data-ref="ex9">line&nbsp;7</span> and includes
+    <span class="cross" data-ref="ex9">line&nbsp;12</span> and includes
     all the regular code in the <code>main</code> function. This one
-    <code>try</code> block has four <code>except</code> blocks at
-    <span class="cross" data-ref="ex9">lines&nbsp;42,
-    46,&nbsp;and&nbsp;50</span> that handle
+    <code>try</code> block has three <code>except</code> blocks at
+    <span class="cross" data-ref="ex9">lines&nbsp;47,
+    51,&nbsp;and&nbsp;55</span> that handle
     <code>FileNotFoundError</code>, <code>PermissionError</code>, and
     <code>ZeroDivisionError</code>.</p>
 
@@ -455,6 +456,11 @@ if __name__ == "__main__":
 <pre class="python" id="ex9"># Example 9
 
 import csv
+
+DATE_INDEX = 0
+START_MILES_INDEX = 1
+END_MILES_INDEX = 2
+GALLONS_INDEX = 3
 
 
 def main():
@@ -481,10 +487,10 @@ def main():
                 # From the current row of the CSV file, get
                 # the date, the starting and ending odometer
                 # readings, and the number of gallons used.
-                date = row[0]
-                start_miles = float(row[1])
-                end_miles = float(row[2])
-                gallons = float(row[3])
+                date = row[DATE_INDEX]
+                start_miles = float(row[START_MILES_INDEX])
+                end_miles = float(row[END_MILES_INDEX])
+                gallons = float(row[GALLONS_INDEX])
 
                 # Call the miles_per_gallon function.
                 mpg = miles_per_gallon(start_miles, end_miles, gallons)

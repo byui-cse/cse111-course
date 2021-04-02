@@ -239,13 +239,13 @@ let simpleSpel = {
 	makeDict : function() {
 		let dict = {};
 		this.list.forEach(function(elem) {
-			dict[elem[0]] = elem[1];
+			let elem0 = elem[0];
+			let elem1 = elem[1];
+			dict[elem0] = elem1;
 			for (let i = 2;  i < elem.length;  ++i) {
 				let word, reword;
 				let suffix = elem[i];
 				if (suffix[0] == '-') {
-					let elem0 = elem[0];
-					let elem1 = elem[1];
 					let parts = suffix.split(' ');
 					let remove = parts[0].substring(1);
 					suffix = parts[1];
@@ -254,8 +254,8 @@ let simpleSpel = {
 					reword = elem1.substring(0, elem1.length - remlen) + suffix;
 				}
 				else {
-					word = elem[0] + suffix;
-					reword = elem[1] + suffix;
+					word = elem0 + suffix;
+					reword = elem1 + suffix;
 				}
 				dict[word] = reword;
 			}
