@@ -53,7 +53,7 @@ def compute_age(birth):
         a string in this format: YYYY-MM-DD
     Return: a person's age in years.
     """
-    birthday = datetime.datetime.strptime(birth, "%Y-%m-%d").date()
+    birthday = datetime.datetime.strptime(birth, "%Y-%m-%d")
     today = datetime.datetime.now()
 
     # Compute the difference between today and the birthday in years.

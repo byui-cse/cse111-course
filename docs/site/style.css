@@ -14,13 +14,22 @@
 }
 
 body {
-	font-family: "Open Sans", Arial, Helvetica, Verdana, sans-serif;
 	background-color: var(--light-bkgrnd);
 	color: var(--light-color);
 }
-body.dark {
-	background-color: var(--dark-bkgrnd);
-	color: var(--dark-color);
+@media screen {
+	body {
+		font-family: "Open Sans", Arial, Helvetica, Verdana, sans-serif;
+	}
+	body.dark {
+		background-color: var(--dark-bkgrnd);
+		color: var(--dark-color);
+	}
+}
+@media print {
+	body {
+		font-family: Garamond, Georgia, "Times New Roman", serif;
+	}
 }
 
 header {
@@ -67,10 +76,20 @@ header div.colorCtrl {
 /* Content */
 article {
 	margin: 1em auto;
-	max-width: 40em;
 	padding: 1em;
-	font-size: 110%;
-	line-height: 125%;
+}
+@media screen {
+	article {
+		max-width: 40em;
+		font-size: 110%;
+		line-height: 125%;
+	}
+}
+@media print {
+	article {
+		font-size: 100%;
+		line-height: 110%;
+	}
 }
 
 article h1 {
@@ -83,7 +102,7 @@ article h1 {
 
 article h2 {
 	clear: both;
-	font-size: 125%;
+	font-size: 130%;
 	font-weight: bold;
 	margin: 1.5em 0 0.25em 0;
 	padding-bottom: 0.25em;
@@ -92,6 +111,7 @@ article h2 {
 
 article h3 {
 	font-weight: bold;
+	font-size: 115%;
 	color: var(--byui-blue);
 	margin: 1em 0 0.5em 0;
 }
@@ -158,8 +178,10 @@ article li > div {
 	color: var(--light-color);
 	margin-left: 0.25em;
 }
-body.dark article li > div {
-	color: var(--dark-color);
+@media screen {
+	body.dark article li > div {
+		color: var(--dark-color);
+	}
 }
 
 article ul {

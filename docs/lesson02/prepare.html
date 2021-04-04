@@ -32,11 +32,10 @@
 
     <p>Because most useful computer programs are very large, programmers
     divide their programs into parts. Dividing a program into parts
-    makes it easier to write, debug, and understand the program. A
-    programmer can divide a Python program into modules, classes, and
-    functions. In this lesson, you will learn how to call existing
-    functions, and in the next lesson, you will learn how to write your
-    own functions.</p>
+    makes it easier to write, debug, and understand. A programmer can
+    divide a Python program into modules, classes, and functions. In
+    this lesson, you will learn how to call existing functions, and in
+    the next lesson, you will learn how to write your own functions.</p>
 
     <h2>Concepts</h2>
     <p>Here are the Python programming concepts and topics that you
@@ -76,9 +75,9 @@
         <li><div>A programmer uses a function by calling it (also known
         as invoking it). To <dfn>call</dfn> (or <dfn>invoke</dfn>) a
         function means to write code that causes the computer to execute
-        the code that is inside of that function. Regardless of the type
-        of function (built-in, standard, third-party, or user defined),
-        a function is called by writing its name followed by a set of
+        the code that is inside that function. Regardless of the type of
+        function (built-in, standard, third-party, or user defined), a
+        function is called by writing its name followed by a set of
         parentheses ( ). During CSE&nbsp;110 and&nbsp;111, you often
         wrote code that called the built-in <code>input</code> and
         <code>print</code> functions like this:
@@ -94,9 +93,10 @@ print(f"Hello {name}")</pre></div>
             <li><div>What the function does</div></li>
         </ol>
 
-        All of this information is normally available in online
-        documentation. For example, from the online Python documentation
-        about the <a href="https://docs.python.org/3/library/functions.html#input"><code>input</code></a>
+        These three pieces of information are normally available in
+        online documentation. For example, from the online Python
+        documentation about the
+        <a href="https://docs.python.org/3/library/functions.html#input"><code>input</code></a>
         function, we read this:
 
         <dl class="function">
@@ -194,7 +194,7 @@ print(r)</pre></div>
             calls the built-in <code>round</code> function and passes
             two arguments. Notice that the order of the arguments
             matches the order of the parameters. Specifically, the
-            number to be rounded (<var>n</var>) is the first argument
+            number to be rounded (<var>n</var>) is the first argument,
             and the number of digits after the decimal point (2) is the
             second argument.</div></li>
 
@@ -345,7 +345,7 @@ print(length, text2)</pre></div>
         To call the <code>len</code> function, we type the name of the
         function followed by a list of arguments. To call the
         <code>upper</code> method, we type the name of the object
-        (<code>text1</code>) and a period before the method name and
+        (<code>text1</code>) and a period, then the method name, and
         then a list of arguments.</p>
 
         <p>A method can receive arguments just like a function can.
@@ -357,8 +357,8 @@ print(length, text2)</pre></div>
     <p>A function is a group of statements that together perform one
     task. The computer will not execute the code in a function unless
     you write code that calls the function. In this lesson, you learned
-    how to call built-in functions, functions that are in modules, and
-    methods, which are functions that are in an object.</p>
+    how to call built-in functions, functions that are in a module, and
+    functions (methods) that belong to an object.</p>
 
     <ol>
         <li><div>To call a built-in function, write code that

@@ -34,25 +34,23 @@
 <article>
     <h1>04 Prepare: Function Details</h1>
     <p>During this lesson, you will learn additional details about
-    writing and calling functions. These details will help you
-    understand functions better and use them more effectively. These
-    details include variable scope, default parameter values, and
-    optional arguments.</p>
+    writing and calling functions. These details include variable scope,
+    default parameter values, and optional arguments and will help you
+    understand functions better and use them more effectively.</p>
 
     <h2 id="varScope">Variable Scope</h2>
     <p>The <dfn>scope</dfn> of a variable determines how long that
     variable exists and where it can be used. Within a Python program,
-    there are two categories of scope:  local and global. A variable has
-    <dfn>local scope</dfn> when it is defined (assigned a value) inside
-    a function. A variable has <dfn>global scope</dfn> when it is
-    defined outside of all functions. Here is a small Python program
-    that has two variables: <var>g</var> and <var>x</var>. <var>g</var>
-    is defined outside of all functions and therefore has global scope.
-    <var>x</var> is defined inside the function <code>main</code> and
-    therefore has local scope.</p>
+    there are two categories of scope:&nbsp; local and global. A
+    variable has <dfn>local scope</dfn> when it is defined (assigned a
+    value) inside a function. A variable has <dfn>global scope</dfn>
+    when it is defined outside of all functions. Here is a small Python
+    program that has two variables:&nbsp; <var>g</var> and <var>x</var>.
+    <var>g</var> is defined outside of all functions and therefore has
+    global scope. <var>x</var> is defined inside the <code>main</code>
+    function and therefore has local scope.</p>
 
-<div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex1">
+<div class="pre"><pre class="python" id="ex1">
 <span data-scope="global"># g is a global variable because it
 # is defined outside of all functions.
 <span class="varDef">g</span> = 25
@@ -70,7 +68,7 @@
     function’s header and exist for as long as their containing function
     is executing. A global variable (a variable with global scope) is
     defined outside of all functions, exists for as long as its
-    containing Python program is executing and can be used within all
+    containing Python program is executing, and can be used within all
     functions in its containing Python program.</p>
 
     <table><thead>
@@ -97,15 +95,14 @@
     and global scope. The variable <var>nShapes</var> is global because
     it is defined outside of all functions. Because it is a global
     variable, the code in the body of all functions may use the variable
-    <var>nShapes</var>. Within the function <code>square_area</code>,
+    <var>nShapes</var>. Within the <code>square_area</code> function,
     the parameter named <var>length</var> and the variable named
-    <var>area</var> both have local scope. Within the function
-    <code>rectangle_area</code>, the parameters named <var>width</var>
-    and <var>length</var> have local scope and the variable named
-    <var>area</var> has local scope.</p>
+    <var>area</var> both have local scope. Within the
+    <code>rectangle_area</code> function, the parameters named
+    <var>width</var> and <var>length</var> have local scope and the
+    variable named <var>area</var> has local scope.</p>
 
-<div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex2">
+<div class="pre"><pre class="python" id="ex2">
 <span data-scope="global"><span class="varDef">nShapes</span> = 0
 
 <span data-scope="square">def square_area(<span class="varDef">length</span>):
@@ -119,16 +116,16 @@
     <p>Because local variables are visible only within the function
     where they are defined, a programmer can define two variables with
     the same name as long as he defines them in different functions. In
-    the previous example, both of the functions <code>square_area</code>
-    and <code>rectangle_area</code> contain a parameter named
+    the previous example, both of the <code>square_area</code> and
+    <code>rectangle_area</code> functions contain a parameter named
     <var>length</var> and a variable named <var>area</var>. All four of
     these variables are entirely separate and do not conflict with each
     other in any way because the scope of each variable is local to the
     function where it is defined.</p>
 
     <p id="ex3descr">A common mistake that many programmers make is to
-    assume that a local variable can be used inside of other functions.
-    For example, the following Python code includes two functions named
+    assume that a local variable can be used inside other functions. For
+    example, the following Python code includes two functions named
     <code>main</code> and <code>circle_area</code>.
     <span class="cross" data-ref="ex3">Line&nbsp;4</span>
     in <code>main</code> defines a variable named <var>radius</var>.
@@ -195,20 +192,22 @@ main()</span></pre></div>
     in the header for the <code>arc_length</code> function, that the
     parameter <var>radius</var> does not have a default value but the
     parameter <var>degrees</var> has a default value of 360. This means
-    that when a programmer calls the <code>arc_length</code> function,
-    the programmer must pass a value for <var>radius</var> but is not
-    required to pass a value for <var>degrees</var>. At
+    that when a programmer writes code to call the
+    <code>arc_length</code> function, the programmer must pass a value
+    for <var>radius</var> but is not required to pass a value for
+    <var>degrees</var>. At
     <span class="cross" data-ref="ex4">line&nbsp;6</span>, the
-    programmer called the <code>arc_length</code> function and passed
-    4.7 for the <var>radius</var> parameter but did not pass a value for
-    the <var>degrees</var>, so during that call to
+    programmer wrote code to call the <code>arc_length</code> function
+    and passed 4.7 for the <var>radius</var> parameter but did not pass
+    a value for the <var>degrees</var>, so during that call to
     <code>arc_length</code>, the value of <var>degrees</var> will be the
-    default value from <span class="cross" data-ref="ex4">line&nbsp;17</span>
-    which is 360. At <span class="cross" data-ref="ex4">line&nbsp;11</span>,
-    the programmer called the <code>arc_length</code> function again and
-    passed two arguments:&nbsp; 6.2 and 270, so during that call to
-    <code>arc_length</code>, the value of <var>degrees</var> will be
-    270.</p>
+    default value from
+    <span class="cross" data-ref="ex4">line&nbsp;17</span>, which is
+    360. At <span class="cross" data-ref="ex4">line&nbsp;11</span>, the
+    programmer wrote code to call the <code>arc_length</code> function
+    again and passed two arguments:&nbsp; 6.2 and 270, so during that
+    call to <code>arc_length</code>, the value of <var>degrees</var>
+    will be 270.</p>
 
     <h2>Function Design</h2>
     <p>What are the properties of a good function?</p>

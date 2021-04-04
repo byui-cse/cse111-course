@@ -39,7 +39,7 @@
 
     <h2>Problem Statement</h2>
     <p>Health professionals who are helping a client achieve a healthy
-    body weight, sometimes use two computed values called body mass
+    body weight, sometimes use two computed measures named body mass
     index and basal metabolic rate.</p>
 
     <p>From the U.S. Centers for Disease Control and Prevention we read,
@@ -92,7 +92,8 @@
 
     <p>Use the following design to write your program. Write code for
     each function that contains the keyword <code>pass</code> and then
-    delete the keyword <code>pass</code>.</p>
+    delete the keyword <code>pass</code>. The <code>compute_age</code>
+    function is complete and correct, and you should not change it.</p>
 
 <div class="pre"><pre class="python">
 # Import datetime so that it can be
@@ -117,7 +118,7 @@ def compute_age(birth):
         a string in this format: YYYY-MM-DD
     Return: a person's age in years.
     """
-    birthday = datetime.datetime.strptime(birth, "%Y-%m-%d").date()
+    birthday = datetime.datetime.strptime(birth, "%Y-%m-%d")
     today = datetime.datetime.now()
 
     # Compute the difference between today and the birthday in years.
@@ -136,7 +137,7 @@ def kg_from_lb(lb):
     Parameter lb: a mass in US pounds.
     Return: the mass in kilograms.
     """
-    return
+    pass
 
 
 def cm_from_in(inch):
@@ -144,7 +145,7 @@ def cm_from_in(inch):
     Parameter inch: a length in inches.
     Return: the length in centimeters.
     """
-    return
+    pass
 
 
 def body_mass_index(weight, height):
@@ -154,7 +155,7 @@ def body_mass_index(weight, height):
         height must be in centimeters.
     Return: a person's body mass index.
     """
-    return
+    pass
 
 
 def basal_metabolic_rate(gender, weight, height, age):
@@ -165,7 +166,7 @@ def basal_metabolic_rate(gender, weight, height, age):
         age must be in years.
     Return: a person's basal metabolic rate in kcal per day.
     """
-    return
+    pass
 
 
 # Call the main function so that

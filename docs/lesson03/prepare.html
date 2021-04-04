@@ -48,6 +48,7 @@
     <h2>Concepts</h2>
     <p>Here are the Python programming concepts and topics that you
     should learn during this lesson:</p>
+
     <ol class="long">
         <li><div>A <dfn>function</dfn> is a group of statements that
         together perform one task. Broadly speaking, there are four
@@ -74,16 +75,62 @@
         correct term is programmer-defined function. Writing
         user-defined functions has several advantages, including:
         <ol>
-            <li><div>User-defined functions make your code more
-            reusable.</div></li>
-            <li><div>User-defined functions make your code easier to
-            understand and debug.</div></li>
-            <li><div>User-defined functions make your code easier to
-            change or add capabilities.</div></li>
+            <li><div>making your code more reusable</div></li>
+            <li><div>making your code easier to understand and debug</div></li>
+            <li><div>mkaing your code easier to change and add
+            capabilities</div></li>
         </ol></div></li>
 
-        <li><div>To write a user-defined function in Python, simply type
-        code that matches this template:
+        <li><div>In all previous Python programs that you wrote in
+        CSE&nbsp;110 and&nbsp;111, you wrote statements that were not in
+        a function like the simple program in example&nbsp;1.
+
+<div class="pre"><pre class="linenums"></pre>
+<pre class="python" id="ex1"># Example 1
+
+# Get a value in miles and convert it to kilometers.
+miles = float(input("Please enter a distance in miles: "))
+km = miles * 1.60934
+print(f"{miles} miles is {km} kilometers")</pre></div>
+
+        <p>Writing statements outside a function can lead to poor
+        organization within a large program. Professional software
+        developers write statements inside a function whenever possible.
+        Beginning with this lesson, we will write nearly all statements
+        inside a function. Also, each program will have a function named
+        <code>main</code> which will contain the beginning statements of
+        the program. In addition, each program will have one or more
+        functions that perform calculations and other useful work and
+        return a value to the call point. Example&nbsp;2 contains the
+        same Python program as example&nbsp;1 except most of the
+        statements are inside a function named <code>main</code>.</p>
+
+<div class="pre"><pre class="linenums"></pre>
+<pre class="python" id="ex2"># Example 2
+
+# Define a function named main.
+def main():
+    # Get a value in miles and convert it to kilometers.
+    miles = float(input("Please enter a distance in miles: "))
+    km = miles * 1.60934
+    print(f"{miles} miles is {km} kilometers")
+
+# Start this program by
+# calling the main function.
+main()</pre></div>
+
+        <p>Notice the call to the <code>main</code> function at
+        <span class="cross" data-ref="ex2">line&nbsp;12</span>
+        in example&nbsp;2. Without that call to the <code>main</code>
+        function, when we run the program, the program would not do
+        anything. All of your future programs in CSE&nbsp;111 will have
+        a function named <code>main</code> and will have a call to
+        <code>main</code> at the bottom of the program.</p>
+        </div></li>
+
+        <li><div>The <code>main</code> function in example&nbsp;2 is a
+        user-defined function. To write a user-defined function in
+        Python, simply type code that matches this template:
 
 <div class="pre"><pre class="python">
 def <var>function_name</var>(<var>param1</var>, <var>param2</var>, &hellip; <var>paramN</var>):
@@ -92,11 +139,9 @@ def <var>function_name</var>(<var>param1</var>, <var>param2</var>, &hellip; <var
         &vellip;
     <var>statementN</var>
     return <var>value</var></pre></div>
-        </div></li>
 
-        <li><div>The first line of a function is called the
-        <dfn>header</dfn> or <dfn>signature</dfn>, and it includes the
-        following:
+        The first line of a function is called the <dfn>header</dfn> or
+        <dfn>signature</dfn>, and it includes the following:
         <ol>
             <li><div>the keyword <code>def</code> (which is an
             abbreviation for "define")</div></li>
@@ -104,6 +149,7 @@ def <var>function_name</var>(<var>param1</var>, <var>param2</var>, &hellip; <var
             <li><div>the parameter list (with the parameters separated
             by commas)</div></li>
         </ol>
+
         Here is the header for a function named <code>draw_circle</code>
         that takes three parameters named <code>x</code>,
         <code>y</code>, and <code>radius</code>:
@@ -112,16 +158,17 @@ def <var>function_name</var>(<var>param1</var>, <var>param2</var>, &hellip; <var
 
         You could read the previous line of code as, "Define a function
         named <code>draw_circle</code> that takes three
-        parameters."</div></li>
+        parameters named <var>x</var>, <var>y</var>, and
+        <var>radius</var>."
 
-        <li><div>The <dfn>function name</dfn> must start with a letter
-        or the underscore (_). The rest of the name must be made of
-        letters, digits (0–9), or the underscore. A function name cannot
-        include spaces or other punctuation. A function name should be
+        <p>The <dfn>function name</dfn> must start with a letter or the
+        underscore (_). The rest of the name must be made of letters,
+        digits (0–9), or the underscore. A function name cannot include
+        spaces or other punctuation. A function name should be
         meaningful and should describe curtly what the function does.
-        Well-named functions almost always start with a verb.</div></li>
+        Well-named functions often start with a verb.</p>
 
-        <li id="param"><div>The parameter list contains data stored in
+        <p id="param">The parameter list contains data stored in
         variables that the function needs to complete its task. A
         <dfn>parameter</dfn> is a variable whose value comes from
         outside the function. One way to get input into a function is to
@@ -131,7 +178,8 @@ def <var>function_name</var>(<var>param1</var>, <var>param2</var>, &hellip; <var
         through parameters is much more flexible than asking the user
         for input because the input through parameters can come from the
         user or a file on a hard drive or the network or a sensor or
-        even another function.</div></li>
+        even another function.</p>
+        </div></li>
 
         <li><div><p>The statements inside a function are called the
         <dfn>body</dfn> of the function. Just like other block
@@ -141,17 +189,17 @@ def <var>function_name</var>(<var>param1</var>, <var>param2</var>, &hellip; <var
         function. The body of a function should begin with a
         <dfn>docstring</dfn> which is a triple quoted string that
         describes the function's purpose, parameters and return value.
-        The body of a function may contain as many statements
-        as you wish to write inside of it. However, it is a good idea to
-        limit functions to less than 60 lines of text.</p>
+        The body of a function may contain as many statements as you
+        wish to write inside of it. However, it is a good idea to limit
+        functions to less than 20 lines of code.</p>
 
-        <p>Example&nbsp;1 contains a function named
+        <p>Example&nbsp;3 contains a function named
         <code>print_cylinder_volume()</code> that gets two numbers from
         the user:&nbsp; <var>radius</var> and <var>height</var> and uses
         those numbers to compute the volume of a cylinder and then
         prints the volume for the user to see.</p>
 
-<div class="pre"><pre class="python" id="ex1"># Example 1
+<div class="pre"><pre class="python" id="ex3"># Example 3
 
 import math
 
@@ -169,12 +217,19 @@ def print_cylinder_volume():
     # Print the volume of the cylinder.
     print(volume)</pre></div>
 
-    <p>Example&nbsp;2 contains another version of the
+    <p>Becuase the <code>print_cylinder_volume</code> function in
+    example&nbsp;3 doesn't accept parameters, it must be called without
+    any arguments like this:</p>
+
+<div class="pre"><pre class="python">def main():
+    <em>print_cylinder_volume()</em></pre></div>
+
+    <p>Example&nbsp;4 contains another version of the
     <code>print_cylinder_volume</code> function. This second version
     doesn't get the radius and height from the user. Instead it accepts
     two parameters named <var>radius</var> and <var>height</var>.</p>
 
-<div class="pre"><pre class="python" id="ex2"># Example 2
+<div class="pre"><pre class="python" id="ex4"># Example 4
 
 import math
 
@@ -191,19 +246,27 @@ def print_cylinder_volume(<em>radius</em>, <em>height</em>):
 
     # Print the volume of the cylinder.
     print(volume)</pre></div>
+
+    <p>Because the second version of print_cylinder_volume function
+    accepts two parameters, it must be called with two arguments like
+    this:</p>
+
+<div class="pre"><pre class="python">def main():
+    <em>print_cylinder_volume(2.5, 4.1)</em></pre></div>
         </div></li>
 
         <li><div><p>Many functions that you've used in the past such as
         <code>input</code>, <code>float</code>, and <code>round</code>,
         <dfn>return</dfn> a result. When a function returns a result, we
-        usually store that result in a variable to use later like this:
+        usually write code to store that returned result in a variable
+        to use later in the program like this:
 
 <div class="pre"><pre class="python">
-text = input("Please enter your name: ")</pre></div>
+<em>text =</em> input("Please enter your name: ")</pre></div>
 
         <p>To return a result from a function, simply type the keyword
         <code>return</code> followed by whatever result you want
-        returned to the calling function. Example&nbsp;3 contains a
+        returned to the calling function. Example&nbsp;5 contains a
         third version of the cylinder volume function. Notice that this
         third version returns the volume instead of printing it, which
         makes the function more reusable. In this third version, we
@@ -212,7 +275,7 @@ text = input("Please enter your name: ")</pre></div>
         <code>compute_cylinder_volume</code> because this version
         doesn't print the volume but instead returns it.</p>
 
-<div class="pre"><pre class="python" id="ex3"># Example 3
+<div class="pre"><pre class="python" id="ex5"># Example 5
 
 import math
 
@@ -231,34 +294,25 @@ def compute_cylinder_volume(radius, height):
     # Return the volume of the cylinder so that the
     # volume can be used somewhere else in the program.
     <em>return volume</em></pre></div>
-        </div></li>
 
-        <li><div>In all previous Python programs that you wrote in
-        CSE&nbsp;110 and&nbsp;111, you wrote statements that were not in
-        a function like the simple program in example&nbsp;4 where the
-        statements are not inside the body of a function:
+        <p>Because the <code>compute_cylinder_volume</code> function in
+        example&nbsp;5 accepts two parameters and returns a value, it
+        could be called like this:</p>
 
-<div class="pre"><pre class="python" id="ex4"># Example 4
+<div class="pre"><pre class="python">def main():
+    <em>volume = compute_cylinder_volume(2.5, 4.1)</em></pre></div>
 
-# Get a value in miles and convert it to kilometers.
-miles = float(input("Please enter a distance in miles: "))
-km = miles * 1.60934
-print(f"{miles} miles is {km} kilometers")</pre></div>
-
-        <p>However, writing statements outside of a function can lead to
-        poor organization within a large program. Professional software
-        developers write statements inside a function whenever possible.
-        Beginning with this lesson, we will write nearly all statements
-        inside a function. Also, each program will have a function named
-        <code>main</code> which will contain the beginning statements of
-        the program. In addition, we will have one or more functions
-        that perform calculations and other useful work and return a
-        value to the call point. Example&nbsp;5 contains a complete
-        program that has a <code>main</code> function that calls the
-        <code>compute_cylinder_volume</code> function:</p>
+        <p>Example&nbsp;6 contains a complete program with two
+        functions, the first named <code>compute_cylinder_volume</code>
+        at <span class="cross" data-ref="ex6">line&nbsp;4</span> and
+        the seond named <code>main</code> at
+        <span class="cross" data-ref="ex6">line&nbsp;23</span>.
+        At <span class="cross" data-ref="ex6">line&nbsp;30</span>,
+        the <code>main</code> function calls the
+        <code>compute_cylinder_volume</code> function.</p>
 
 <div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex5"># Example 5
+<pre class="python" id="ex6"># Example 6
 
 # Define a function that accepts two parameters.
 def compute_cylinder_volume(radius, height):
@@ -272,9 +326,10 @@ def compute_cylinder_volume(radius, height):
     # Compute the volume of the cylinder.
     volume = math.pi * radius**2 * height
 
-    # Return the volume of the cylinder so that the volume can
-    # be used somewhere else in the program. The returned result
-    # will be available wherever this function was called.
+    # Return the volume of the cylinder so that the
+    # volume can be used somewhere else in the program.
+    # The returned result will be available wherever
+    # this function was called.
     return volume
 
 
@@ -286,35 +341,29 @@ def main():
 
     # Call the compute_cylinder_volume function and store
     # its return value in a variable to use later.
-    <em>vol = compute_cylinder_volume(r, h)</em>
+    <em>volume = compute_cylinder_volume(r, h)</em>
 
-    if vol &lt; 1000:
-        print(f"That cylinder holds {vol} cubic")
+    if volume &lt; 1000:
+        print(f"That cylinder holds {volume} cubic")
         print("centimeters, which is less than a liter.")
     else:
-        print(f"That cylinder holds {vol} cubic")
+        print(f"That cylinder holds {volume} cubic")
         print("centimeters, which is a liter or more.")
 
 
 # Start this program by
 # calling the main function.
 main()</pre></div>
-
-        Notice the call to the <code>main</code> function at
-        <span class="cross" data-ref="ex5">line&nbsp;41</span>
-        in exmaple&nbsp;5. Without that call to the <code>main</code>
-        function, when we run the program, the program would not do
-        anything. All of your future programs in CSE&nbsp;111 will have
-        a function named <code>main</code> and will have a call to
-        <code>main</code> at the bottom of the program.</div></li>
+        </div></li>
 
         <li><div>While it's usually a good practice, you don't
         <em>have</em> to store the return value of a function in a
         variable. Sometimes you'll see it used directly as shown in
-        example&nbsp;6.
+        example&nbsp;7 at
+        <span class="cross" data-ref="ex7">lines&nbsp;11 and&nbsp;15</span>.
 
 <div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex6"># Example 6
+<pre class="python" id="ex7"># Example 7
 
 # Define the main function.
 def main():
@@ -338,22 +387,24 @@ def main():
 # calling the main function.
 main()</pre></div>
 
-        <p>Notice in the above example, we called the
-        <code>compute_cylinder_volume</code> function twice, once at
-        <span class="cross" data-ref="ex6">line&nbsp;11</span>
-        to print the volume and again at
-        <span class="cross" data-ref="ex6">line&nbsp;15</span>
-        to check if the volume is less than a liter.Every time we call a
-        function, the code inside the function body is executed. In the
-        previous example, because the arguments are the same radius and
-        height at both
-        <span class="cross" data-ref="ex6">lines&nbsp;11 and&nbsp;15</span>,
-        the result will be the same in both cases. So it would be faster
-        to save the result in a variable and reuse the variable instead,
-        as shown in example&nbsp;7.</p>
+        <p>Notice in example&nbsp;7, there are two statements that call
+        the <code>compute_cylinder_volume</code> function, one at
+        <span class="cross" data-ref="ex7">line&nbsp;11</span>
+        to print the volume and another at
+        <span class="cross" data-ref="ex7">line&nbsp;15</span>
+        to check if the volume is less than a liter. Every time the
+        computer calls a function, the computer will execute the code
+        that is inside that function. In example&nbsp;7, because the
+        arguments are the same at both
+        <span class="cross" data-ref="ex7">lines&nbsp;11 and&nbsp;15</span>,
+        the returned result will be the same in both cases. So it would
+        be faster to save the result in a variable and reuse the
+        variable instead, as shown in example&nbsp;8 at
+        lines&nbsp;<span class="cross" data-ref="ex8">11,
+        13,&nbsp;and&nbsp;15</span>.</p>
 
 <div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex7">#Example 7
+<pre class="python" id="ex8">#Example 8
 
 # Define the main function.
 def main():
@@ -363,11 +414,11 @@ def main():
 
     # Call the compute_cylinder_volume function and store
     # its return value in a variable to use later.
-    <em>vol =</em> compute_cylinder_volume(r, h)
+    <em>volume =</em> compute_cylinder_volume(r, h)
 
-    print(f"The volume is: {<em>vol</em>}")
+    print(f"The volume is: {<em>volume</em>}")
 
-    if <em>vol</em> &lt; 1000:
+    if <em>volume</em> &lt; 1000:
         print("That cylinder holds less than a liter.")
     else:
         print("That cylinder holds a liter or more.")
@@ -423,40 +474,49 @@ import math
 -->
 
         <p>A computer will execute the statements in the previous
-        example in this order:</p>
+        example in the following order:</p>
         <ol>
-            <li><div>The statement at (1) is not inside of a function,
-            so the computer executes it when the program begins. This is
-            a call to the <code>main</code> function which causes the
-            computer to begin executing the statements inside of
-            <code>main</code> at (2).</div></li>
-            <li><div>The computer gets three numbers from the
-            user.</div></li>
+            <li><div>The statement at (1) is not inside a function, so
+            the computer executes it when the program begins. The
+            statement at (1) is a call to the <code>main</code> function
+            which causes the computer to begin executing the statements
+            inside <code>main</code> at (2).</div></li>
+
+            <li><div>At (2), the computer prints a description of the
+            program and gets three numbers from the user.</div></li>
+
             <li><div>The statement at (3) is a call to the
-            <code>triangle_area</code> function.</div></li>
-            <li><div>The computer copies the values in the arguments
+            <code>triangle_area</code> function which causes the
+            computer to copy the values in the arguments
             <var>side1</var>, <var>side2</var>, and <var>side3</var>
             into the parameters <var>a</var>, <var>b</var>, and
-            <var>c</var>, respectively and then begins executing the
+            <var>c</var>, respectively and then begin executing the
             statements inside the <code>triangle_area</code> function at
             (5).</div></li>
-            <li><div>The computer computes the area of a triangle.</div></li>
+
+            <li><div>At (5), the computer computes the area of a
+            triangle.</div></li>
+
             <li><div>The statement at (6) is a return statement which
             causes the computer to stop executing the
-            <code>triangle_area</code> function, to return a value to
-            the call point at (3), and to resume executing statements at
-            (8) after the call point.</div></li>
-            <li><div>The computer returns the value in the
-            <var>area</var> variable to the call point (3). At the call
-            point, the returned value is stored in the
-            <var>triarea</var> variable.</div></li>
-            <li><div>The computer prints the value that is in the
-            <var>triarea</var> variable for the user to see. This is the
-            last statement in the <code>main</code> function, so after
-            executing it, the computer resumes executing the statements
-            after the call point (1) to main.</div></li>
-            <li><div>There are no more statements after the call to
-            <code>main</code>, so the program is finished.</div></li>
+            <code>triangle_area</code> function, to return the computed
+            area to the call point at (3), and to resume executing
+            statements at the call point.</div></li>
+
+            <li><div>At the call point (3), the computer stores the
+            returned value in the <var>triarea</var>
+            variable.</div></li>
+
+            <li><div>At (8), the computer prints the value that is in
+            the <var>triarea</var> variable for the user to see. This is
+            the last statement in the <code>main</code> function, so
+            after executing it, the computer resumes executing the
+            statements after the call point (1) to
+            <code>main</code>.</div></li>
+
+            <li><div>At (9), there are no more statements after the call
+            to <code>main</code>, so the computer terminates the
+            program.</div></li>
         </ol></div></li>
 
         <li><div>The most <dfn>reusable functions</dfn> are ones that
@@ -469,10 +529,10 @@ import math
         for the user to see. The <code>triangle_area</code> function is
         very reusable in another program because it doesn't get user
         input or print output. Instead it takes three parameters,
-        performs a calculation, and returns a result to the calling
-        function. This second function is so reusable that it could be
-        included in a library of functions that compute the area and
-        volume of 2-D and 3-D geometric shapes.</div></li>
+        performs a calculation, and returns the result to the calling
+        function. The <code>triangle_area</code> function is so reusable
+        that it could be included in a library of functions that compute
+        the area and volume of 2-D and 3-D geometric shapes.</div></li>
     </ol>
 
     <p><strong>It is extremely important that you can write and call
