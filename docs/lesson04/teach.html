@@ -55,15 +55,15 @@
     can. The formulas for the volume and surface area of a cylinder
     are:</p>
 
-    <div class="block expr"><var>volume</var> = &pi;&thinsp;<var>r</var><sup>2</sup>&thinsp;<var>h</var></div>
-    <div class="block expr"><var>surface area</var> = 2&pi;&thinsp;<var>r</var>&thinsp;(<var>r</var> + <var>h</var>)</div>
+    <div class="block expr"><var>volume</var> = &pi;&thinsp;<var>radius</var><sup>2</sup>&thinsp;<var>height</var></div>
+    <div class="block expr"><var>surface_area</var> = 2&pi;&thinsp;<var>radius</var>&thinsp;(<var>radius</var> + <var>height</var>)</div>
 
     <ul>
         <li><div>&pi; is the constant PI, the ratio of the circumference
         of a circle divided by its diameter (use
         <code>math.pi</code>)</div></li>
-        <li><div><var>r</var> is the radius of the cylinder</div></li>
-        <li><div><var>h</var> is the height of the cylinder</div></li>
+        <li><div><var>radius</var> is the radius of the cylinder</div></li>
+        <li><div><var>height</var> is the height of the cylinder</div></li>
     </ul>
 
     <h2>Helpful Documentation</h2>
@@ -78,11 +78,6 @@
         <a href="https://docs.python.org/3/library/math.html"><code>math</code>
         module</a> contains mathematical constants and functions including
         <a href="https://docs.python.org/3/library/math.html#math.pi"><code>math.pi</code></a>.</div></li>
-
-        <li><div>The Python built-in
-        <a href="https://docs.python.org/3/library/functions.html#round"><code>round</code></a>
-        function can round numbers to integers or to a specified number
-        of digits after the decimal place.</div></li>
     </ul>
 
     <h2>Assignment</h2>
@@ -166,7 +161,7 @@
         <li><div>Your program must compute the surface area of all 12
         can sizes.</div></li>
         <li><div>Your program must compute and print the storage
-        capacity of all 12 can sizes.</div></li>
+        efficiency of all 12 can sizes.</div></li>
     </ol>
 
     <h3>Stretch Challenges</h3>
@@ -179,17 +174,21 @@
         <code>storage_efficiency</code> to your program. This function
         should call the <code>cylinder_volume</code> and
         <code>cylinder_surface_area</code> functions and then compute
-        and return the storage efficiency of a steel can
-        size.</div></li>
+        and return the storage efficiency of a steel can size. Replace
+        code in the <code>main</code> function with a call to the
+        <code>storage_efficiency</code> function as appropriate. Did
+        adding and calling the storage_efficiency function reduce the
+        number of lines of code in your program?</div></li>
 
-        <li><div>The table of can sizes that appears in the Core
-        Requiements section above includes a column that contains the
-        cost per can of each steel can size. Add another function to
-        your program named <code>cost_efficiency</code> that computes
-        and returns the volume of a steel can divided by its cost. Write
-        code to compute and print the cost efficiency for each can size.
-        Then visually examine the output and answer this question,
-        "Which can size has the highest cost efficiency?"</div></li>
+        <li><div>The table of can sizes that appears in the Assignment
+        section above includes a column that contains the cost per can
+        of each steel can size. Add another function to your program
+        named <code>cost_efficiency</code> that computes and returns the
+        volume of a steel can divided by its cost. Write code to call
+        the <code>cost_efficiency</code> function and print the cost
+        efficiency for each can size. Then visually examine the output
+        and answer this question, "Which can size has the highest cost
+        efficiency?"</div></li>
 
         <li><div>If you remember how to use lists and a for loop from
         CSE&nbsp;110, rewrite your <code>main</code> function so that it

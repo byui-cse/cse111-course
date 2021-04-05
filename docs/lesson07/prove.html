@@ -8,11 +8,14 @@
     <title>CSE 111 - Prove</title>
     <link rel="icon" type="image/png" href="../site/icon.png">
     <link rel="stylesheet" type="text/css" href="../site/style.css">
+    <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-database.js"></script>
     <script src="../site/url.js"></script>
     <script src="../site/urlWrite.js"></script>
     <script src="../site/color.js"></script>
+    <script src="../site/linenums.js"></script>
+    <script src="../site/hljs/highlight.pack.js"></script>
 </head>
 
 <body>
@@ -63,8 +66,8 @@
     calculator then prints the molar mass and the number of moles for
     the chemist to see.</p>
 
-    <p>There are 118 known elements. The symbols, names, and atomic
-    masses of all 118 elements are shown in the following table.</p>
+    <p>There are 118 known elements. The symbol, name, and atomic mass
+    of all 118 elements are shown in the following table.</p>
 
     <table class="center"><thead>
         <tr><th>Symbol</th> <th>Name</th> <th>Atomic Mass</th></tr>
@@ -193,7 +196,7 @@
     <ul class="long">
         <li><div>If you are interested in the chemistry concepts
         involved in a molar mass calculator, you can watch this Khan
-        Academy video:
+        Academy video:&nbsp;
         <a href="https://www.khanacademy.org/science/chemistry/atomic-structure-and-properties/introduction-to-compounds/v/worked-example-calculating-molar-mass-and-number-of-moles">Calculating molar mass and number of moles</a>.</div></li>
 
         <li><div>The prepare content for this lesson explains how to
@@ -213,8 +216,8 @@
     <h2>Assignment</h2>
     <p>During this lesson and the next lesson, you will write and test a
     molar mass calculator. During this lesson you will complete part of
-    the program by writing code to create a compound list that contains
-    data for all 118 known elements. Do the following:</p>
+    the calculator by writing code to create a compound list that
+    contains data for all 118 known elements. Do the following:</p>
 
     <ol class="long">
         <li><div>Using VS Code, open a new file and save it as
@@ -228,7 +231,7 @@
         like this:
 <div class="pre"><pre class="python">
     table = [
-        # [symbol, name, atomic mass]
+        # [symbol, name, atomic_mass]
         ["Ac", "Actinium", 227],
         ["Ag", "Silver", 107.8682],
         ["Al", "Aluminum", 26.9815386],
@@ -258,12 +261,22 @@
         for lesson&nbsp;5.</div></li>
 
         <li><div>Download the
-        <a download href="test_chemistry.py"><code>test_chemistry.py</code></a>
+        <a download href="test_chemistry_1.py"><code>test_chemistry_1.py</code></a>
         Python file and save it in the same folder where you saved your
         <code>chemistry.py</code> Python program.</div></li>
     </ol>
 
     <h2>Sample Runs</h2>
+<pre class="console">&gt; python test_chemistry_1.py
+========================= test session starts =========================
+platform win32 -- Python 3.8.5, pytest-6.1.1, py-1.9.0, pluggy-0.13.1
+rootdir: C:\Users\cse111\lesson07
+collected 1 item
+
+test_chemistry_1.py::test_make_periodic_table <span class="pass">PASSED             [100%]</span>
+
+<span class="pass">========================== 1 passed in 0.14s ==========================</span></pre>
+
 <pre class="console">&gt; python chemistry.py
 Ac
 Actinium
@@ -279,32 +292,22 @@ Americium
 243
   &vellip;</pre>
 
-<pre class="console">&gt; python test_chemistry.py
-========================= test session starts =========================
-platform win32 -- Python 3.8.5, pytest-6.1.1, py-1.9.0, pluggy-0.13.1
-rootdir: C:\Users\cse111\lesson07
-collected 1 item
-
-test_chemistry.py::test_make_periodic_table <span class="pass">PASSED               [100%]</span>
-
-<span class="pass">========================== 1 passed in 0.14s ==========================</span></pre>
-
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each step
     in this testing procedure:</p>
 
     <ol class="test long">
-        <li><div>Run your <code>chemistry.py</code> program and ensure
-        that your program's output matches the Sample Run output
-        above.</div></li>
-
-        <li><div>Run the <code>test_chemistry.py</code> program and
+        <li><div>Run the <code>test_chemistry_1.py</code> program and
         ensure that the <code>test_make_periodic_table</code> function
         passes. If it doesn't pass, there is a mistake in your
         <code>make_periodic_table</code> function. Read the output from
         <code>pytest</code>, fix the mistake, and run the
-        <code>test_chemistry.py</code> program again until the test
+        <code>test_chemistry_1.py</code> program again until the test
         function passes.</div></li>
+
+        <li><div>Run your <code>chemistry.py</code> program and ensure
+        that your program's output matches the Sample Run output
+        above.</div></li>
     </ol>
 
     <h2>Submission</h2>

@@ -50,23 +50,79 @@
         <em>automatically</em> verify that the program's functions are
         correct.</div></li>
 
-        <li><div><a href="https://docs.pytest.org/en/latest/reference.html"><code>pytest</code></a>
-        is a Python module that makes it easy to write and run test
-        functions. There are other Python testing modules besides
-        <code>pytest</code>, but <code>pytest</code> seems to be the
-        easiest. <code>pytest</code> is not a standard Python module. It
-        is a third-party module. This means that when you installed
-        Python on your computer, <code>pytest</code> was not installed,
-        and you will need to install pytest in order to use it.</div></li>
+        <li><div>In this course, you will write your test functions in a
+        Python file that is separate from your Python program. In other
+        words, you will keep normal program code and test code in
+        separate files.</div></li>
 
-        <li><div><code>pytest</code> allows us to write simple test
-        functions that use the built-in Python
-        <a href="https://docs.python.org/3/reference/simple_stmts.html#the-assert-statement"><code>assert</code></a>
-        statement to verify that a function returns a correct result.
-        For example, if we want to verify that the built-in
-        <code>min</code> function works correctly, we could write an
-        <code>assert</code> statement like this:
-<div class="pre"><pre class="python">assert min(7, -3, 0, 2) == -3</pre></div>
+        <li><div><p>In a computer program, an <dfn>assertion</dfn> is a
+        statement that causes the computer to check if a comparison is
+        true. When the computer checks the comparison, if the comparison
+        is true, the computer will continue to execute the code in the
+        program. However, if the comparison is false, the computer will
+        raise an <code>AssertionError</code> which will likely cause the
+        program to terminate. (In
+        <a href="../lesson10/prepare.html">lesson&nbsp;10</a>
+        you will learn how to write code to handle errors so that a
+        program won't terminate when the computer raises an error.)</p>
+
+        <p>A programmer writes assertions in a program to inform the
+        computer of comparisons that must be true in order for the
+        program to run successfully. The Python keyword to write an
+        assertion is <a href="https://docs.python.org/3/reference/simple_stmts.html#the-assert-statement"><code>assert</code></a>.
+        Imagine a program used by a bank to track account balances,
+        deposits, and withdrawals. A programmer might write the first
+        few lines of the <code>deposit</code> function like this:</p>
+
+<div class="pre"><pre class="python">
+def deposit(amount):
+    # In order for this program to work correctly and
+    # for the bank records to be correct, we must not
+    # allow someone to deposit a zero or negative amount.
+    assert amount &gt;= 0
+      &vellip;</pre></div>
+
+        <p>The <code>assert</code> statement in the previous example
+        will cause the computer to check if the <var>amount</var> is
+        greater than zero (0). If the amount is greater than zero, the
+        computer will continue to execute the program. However, if the
+        <var>amount</var> is zero or less (negative), the computer will
+        raise an <code>AssertionError</code> which will likely cause the
+        program to terminate.</p>
+
+        <p>A programmer can write any valid Python comparison in an
+        <code>assert</code> statement. Here are a few examples from
+        various unrelated programs:</p>
+
+<div class="pre"><pre class="python">
+    assert temperature &lt; 0
+
+    assert len(given_name) &gt; 0
+
+    assert balance == 0
+
+    assert school_year != "senior"</pre></div>
+        </div></li>
+
+        <li><div><a href="https://docs.pytest.org/en/latest/reference.html"><code>pytest</code></a>
+        is a third-part Python module that makes it easy to write and
+        run test functions. There are other Python testing modules
+        besides <code>pytest</code>, but <code>pytest</code> seems to be
+        the easiest. <code>pytest</code> is not a standard Python
+        module. It is a third-party module. This means that when you
+        installed Python on your computer, <code>pytest</code> was not
+        installed, and you will need to install <code>pytest</code> in
+        order to use it.
+
+        <code>pytest</code> allows a programmer to write simple test
+        functions that use the Python <code>assert</code> statement to
+        verify that a function returns a correct result. For example, if
+        we want to verify that the built-in <code>min</code> function
+        works correctly, we could write an <code>assert</code> statement
+        like this:
+<div class="pre"><pre class="python">
+    assert min(7, -3, 0, 2) == -3</pre></div>
+
         The previous line of code will cause the computer to first call
         the <code>min</code> function and pass 7, -3, 0, and 2 as
         arguments to the <code>min</code> function. The <code>min</code>
@@ -100,16 +156,13 @@
         to help us compare floating point numbers. For example, to test
         the <code>math.sqrt</code> function, we could write an
         <code>assert</code> statement like this:</p>
-<div class="pre"><pre class="python">assert math.sqrt(5) == approx(2.24, 0.01)</pre></div>
+<div class="pre"><pre class="python">
+    assert math.sqrt(5) == approx(2.24, 0.01)</pre></div>
+
         <p>The previous <code>assert</code> statement verifies that the
         value returned from <code>math.sqrt(5)</code> is within 1%
         (0.01) of 2.24.</p>
         </div></li>
-
-        <li><div>In this course, you will write your test functions in a
-        Python file that is separate from your Python program. In other
-        words, you will keep normal program code and test code in
-        separate files.</div></li>
 
         <li><div>To test a function you should do the following:
         <ol class="long">
@@ -130,13 +183,6 @@
             output to help you find and fix mistakes in both your
             program function and test function.</div></li>
         </ol></div></li>
-
-        <li><div><a href="https://docs.python.org/3/installing/index.html"><code>pip</code></a>
-        is a standard Python module that you can use to download and
-        install third-party modules. During the checkpoint of this
-        lesson, you will use <code>pip</code> to download and install
-        <code>pytest</code>, so that you can use <code>pytest</code> in
-        your test code.</div></li>
     </ol>
 
     <h2 id="example">Example</h2>
@@ -225,15 +271,15 @@ test_weather.py::test_cels_from_fahr <span class="pass">PASSED                  
     expected (correct) result all four times.</p>
 
     <h2 id="separate">Separating Program Code from Test Code</h2>
-    <p>As explained above, in CSE&nbsp;111, we will write test functions
-    in a different file than program functions. It is a good idea to
-    separate test functions and program functions. This separation makes
-    it easy to release a program to users without releasing the test
-    functions to them. (In general, users of a program don't want the
-    test functions.) One consequence of writing program functions and
-    test functions in separate files is that we must add an import
-    statement at the top of the test file that imports all the program
-    functions that will be tested.</p>
+    <p>As explained in concept #2 above, in CSE&nbsp;111, we will write
+    test functions in a different file than program functions. It is a
+    good idea to separate test functions and program functions. This
+    separation makes it easy to release a program to users without
+    releasing the test functions to them. (In general, users of a
+    program don't want the test functions.) One consequence of writing
+    program functions and test functions in separate files is that we
+    must add an import statement at the top of the test file that
+    imports all the program functions that will be tested.</p>
 
     <p>Line&nbsp;3 from <code>test_weather.py</code> above is an example
     of an import statement that imports functions from a program file.
@@ -242,7 +288,7 @@ test_weather.py::test_cels_from_fahr <span class="pass">PASSED                  
 <div class="pre"><pre class="python">from <var>file_name</var> import <var>function_1</var>, <var>function_2</var>, &hellip; <var>function_N</var></pre></div>
 
     <p>When the computer imports functions from a file, the computer
-    immediately executes all statements that are not written in a
+    immediately executes all statements that are not written inside a
     function. This includes the statement to call the <code>main</code>
     function:</p>
 
@@ -252,8 +298,8 @@ test_weather.py::test_cels_from_fahr <span class="pass">PASSED                  
 main()</pre></div>
 
     <p>This means that when we run our test functions, the computer will
-    import our program functions and at the same time, execute the call
-    to <code>main()</code> which will start the program executing.
+    import our program functions and at the same time, will execute the
+    call to <code>main()</code> which will start the program executing.
     However, we don't want the computer to execute the program while it
     is executing the test functions, so we have a problem. How can we
     get the computer to import the program functions without executing
@@ -278,7 +324,7 @@ if __name__ == "__main__":
     main()</pre></div>
 
     <p>Writing the <code>if</code> statment above the call to
-    <code>main()</code> is the correct way to write code to start our
+    <code>main()</code> is the correct way to write code to start a
     program. The Python programming language guarantees that when the
     computer imports the program functions (in order to test them), the
     comparison in the <code>if</code> statement will be false, so the

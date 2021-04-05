@@ -28,222 +28,252 @@
     <h2>CSE 111 | <span>Programming with Functions</span></h2>
 </header>
 <article>
-    <h1>08 Prove Assignment: Handling Errors</h1>
+    <h1>08 Prove Assignment: Dictionaries</h1>
 
     <h2>Overview</h2>
-    <p>Prove that you can write a function that handles exceptions with
-    <code>try</code> and <code>except</code> and that you can write a
-    test function to verify that another function raises exceptions when
-    it is supposed to.</p>
+    <p>Prove that you can write a Python program that uses a dictionary
+    and lists.</p>
 
     <h2>Problem Statement</h2>
-    <p>The molar mass of a substance is the mass in grams of one mole
-    (grams / mole) of the substance. In chemistry, a molar mass
-    calculator is a program that calculates the molar mass of a
-    substance. To use a molar mass calculator, a chemist enters the
-    formula for a molecule such as H2O or C6H12O6. The calculator splits
-    the formula into elements and for each element in the formula does
-    the following:</p>
+    <p>In chemistry, the molar mass of a substance is the mass in grams
+    of one mole of the substance (grams / mole). A mole is simply a
+    fixed very large quantity, specifically 602,214,179,000,000,000,000,000.
+    In chemistry, a molar mass calculator is a program that computes the
+    molar mass of a substance and the number of moles of a sample of
+    that substance. To use a molar mass calculator, a chemist enters two
+    inputs:</p>
     <ol>
-        <li><div>Sums the number of atoms of each element in the
-        formula.</div></li>
-        <li><div>Looks up the atomic mass of each element.</div></li>
-        <li><div>Multiplies the number of atoms by the atomic
-        mass.</div></li>
-        <li><div>Adds the product into the molar mass of the
-        molecule.</div></li>
+        <li><div>The formula for a molecule such as H<sub>2</sub>O
+        (water) or C<sub>6</sub>H<sub>12</sub>O<sub>6</sub>
+        (glucose)</div></li>
+        <li><div>The mass in grams of a sample.</div></li>
     </ol>
 
-    <p>All people, including chemists, occasionally make mistakes.
-    Sometimes, when using a molar mass calculator, a chemist will
-    mistype a formula for a molecule. For example, a chemist may
-    accidentally type "2HO" instead of "H2O" or "Cx6H12O6" instead of
-    "C6H12O6". When a person makes a mistake while using a program, a
-    good program will inform the person about the mistake and possibly
-    suggest how to fix the mistake. A molar mass calculator should
-    inform a chemist when the chemist mistypes a molecular formula.</p>
+    <p>The calculator computes the molar mass of the molecule by doing
+    the following for each element in the formula:</p>
+    <ol>
+        <li><div>Sum the number of atoms of each element in the
+        formula</div></li>
+        <li><div>Find the atomic mass of each element</div></li>
+        <li><div>Multiply the number of atoms by the atomic
+        mass</div></li>
+        <li><div>Add the product into the molar mass of the
+        molecule</div></li>
+    </ol>
+
+    <p>Then the calculator divides the mass of the sample by the molar
+    mass which results in the number of moles in the substance. The
+    calculator then prints the molar mass and the number of moles for
+    the chemist to see.</p>
 
     <h2>Helpful Documentation</h2>
     <ul class="long">
-        <li><div>The <a href="prepare.html">prepare</a> content for this
-        lesson explains how to wrap <code>try</code> and
-        <code>except</code> around a normal block of code.</div></li>
+        <li><div>The <a href="prepare.html">prepare content</a> for this
+        lesson explains how to create and use a dictionary in a Python
+        program.</div></li>
 
-        <li><div>This <a href="https://content.byui.edu/items/a9e60503-b5e7-40f0-bf48-ebf1a7441d25/1/example_08.mp4">short video</a>
-        shows a BYU-Idaho faculty member adding a <code>try</code> block
-        and <code>except</code> blocks to handle errors that might occur
-        while a program is executing.</div></li>
+        <li><div>The <a href="../lesson05/prepare.html">prepare</a>
+        content for lesson&nbsp;5 explains how to use
+        <code>pytest</code>, <code>assert</code>, and
+        <code>approx</code> to automatically verify that functions are
+        correct. It also contains an
+        <a href="../lesson05/prepare.html#example">example test function</a>
+        and links to additional documentation about
+        <code>pytest</code>.</div></li>
 
-        <li><div><p>During the previous lesson, you learned that
-        <code>pytest</code> allows you to use the standard Python
-        <code>assert</code> command to verify that a function returns
-        the correct value. But how can you write a test to verify that a
-        function raises an exception when it is supposed to? To learn
-        how to verify that a function raises an exception, read the
-        "<a href="https://docs.pytest.org/en/latest/assert.html#assertraises">Assertions about expected exceptions</a>"
-        section of the office <code>pytest</code> documentation.</p>
-
-        <p>From the "Assertions about expected exceptions" section, we
-        learn that the code to test that a function raises an error does
-        not need a <code>try</code> block but instead looks similar to
-        this template:</p>
-
-<div class="pre"><pre class="python">
-with pytest.raises(&lt;ExceptionType&gt;):
-    &lt;function_call_here(&lt;arguments_here&gt;)&gt;</pre></div>
-
-        <p>For example, to test that the <code>parse_formula</code>
-        function raises a <code>FormulaError</code> for two invalid
-        molecular formulas, you could write this Python code:</p>
-
-<div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex1">
-import pytest
-from chemistry import parse_formula, FormulaError
-
-def test_parse_formula():
-    with pytest.raises(FormulaError):
-        parse_formula("H2L4")
-    with pytest.raises(FormulaError):
-        parse_formula("H2)O3")</pre></div>
-
-        <p>In the previous example, the <code>with</code> blocks at
-        <span class="cross" data-ref="ex1">lines&nbsp;5&ndash;6</span>
-        and
-        <span class="cross" data-ref="ex1">lines&nbsp;7&ndash;8</span>
-        expect the <code>parse_formula</code> function to raise an
-        exception. Therefore, if the <code>parse_formula</code> function
-        raises an exception, the test will pass. If the
-        <code>parse_formula</code> function doesn't raise an exception,
-        the test will fail.</p></div></li>
+        <li><div><a href=""></a></div></li>
     </ul>
 
     <h2>Assignment</h2>
     <p>During this lesson, you will write and test the remaining parts
-    of a molar mass calculator. Specifically, you will add to an
-    existing test function, write one program function named
-    <code>main</code>, run the test functions, and also test your
-    completed calculator by using it like a chemist.</p>
+    of a molar mass calculator. Do the following:</p>
 
-    <p>Do the following:</p>
     <ol class="long">
-        <li><div><p>The following six chemical formulas all contain
-        errors, and the <code>parse_formula</code> function should raise
-        a <code>FormulaError</code> when it tries to parse them. In the
-        <code>test_chemistry.py</code> file from the previous lesson,
-        add code in the <code>test_parse</code> function to verify that
-        the <code>parse_formula</code> function raises a
-        <code>FormulaError</code> for each of them.</p>
+        <li><div>Change the compound list that is created in
+        make_periodic_table to a dictionary. Each item in the dictionary
+        should have a chemical symbol as the key and the chemical name
+        and molecular mass in a list as the value, like this:
+<div class="pre"><pre class="python">
+    table = {
+        # symbol: [name, atomic_mass]
+        "Ac": ["Actinium", 227],
+        "Ag": ["Silver", 107.8682],
+        "Al": ["Aluminum", 26.9815386],
+          &vellip;
+    }</pre></div>
+        </div></li>
 
-        <table class="center"><thead>
-            <tr><th>Formula</th></tr>
-        </thead><tbody>
-            <tr><td>L</td></tr>
-            <tr><td>4H</td></tr>
-            <tr><td>H2L4</td></tr>
-            <tr><td>-H</td></tr>
-            <tr><td>(H2O</td></tr>
-            <tr><td>H2)O3</td></tr>
-        </tbody></table></div></li>
+        <li><div>Copy and paste the following Python code into your
+        chemistry.py program. Be certain to not paste the code inside an
+        existing function.
 
-        <li><div>Run the four test functions in
-        <code>test_chemistry.py</code> and ensure that all four test
-        functions pass.</div></li>
+<div class="pre"><pre class="python">
+# These are the indexes of the
+# elements in the periodic table.
+NAME_INDEX = 0
+ATOMIC_MASS_INDEX = 1
 
-        <li><div>Using VS Code, open the <code>chemistry.py</code> file
-        from the previous lesson and at the bottom of the file, write a
-        function named <code>main</code> that does the following:
-        <ol>
-            <li><div>Gets a formula for a molecule from the
-            user.</div></li>
-            <li><div>Calls <code>parse_formula</code> to convert the
-            formula to a dictionary.</div></li>
-            <li><div>Calls <code>molar_mass</code> to calculate the
-            molar mass of the molecule.</div></li>
-            <li><div>Rounds the molar mass to five digits after the
-            decimal point and prints the rounded molar mass.</div></li>
-            <li><div>Gets a mass in grams from the user.</div></li>
-            <li><div>Divides the mass in grams by the molar mass which
-            results in a value in moles.</div></li>
-            <li><div>Prints the value in moles.</div></li>
-        </ol></div></li>
 
-        <li><div><p>Surround the code in <code>main</code> with
-        <code>try</code> and <code>except</code>. There should be two
-        <code>except</code> blocks, one to handle a
-        <code>FormulaError</code> and one to handle a
-        <code>ValueError</code>. Both <code>except</code> blocks should
-        print a suitable message that tells the chemist that she entered
-        a mistake.
+class FormulaError(ValueError):
+    """FormulaError is the type of error that
+    parse_formula will raise if a formula is invalid.
+    """
+    pass
 
-        <p>During the previous activities in this lesson, your
-        <code>except</code> code simply printed a message stating what
-        type of exception was raised. In this assignment, your
-        <code>except</code> code could use information stored inside the
-        <code>FormulaError</code> to help the chemist know what she
-        typed incorrectly as shown in the sample run section below. To
-        access the information stored inside an exception, use the
-        <code>formula_err.args</code> list. For example:</p>
 
-<div class="pre"><pre class="python" id="ex2">
-try:
-    &hellip;
-except FormulaError as formula_err:
-    # The FormulaError includes information inside its args list.
-    # formula_err.args[0] contains the message "invalid formula"
-    # formula_err.args[1] contains the incorrect formula
-    # formula_err.args[2] contains the index of the first mistake in the formula
-    print(formula_err.args[0])
-    print(formula_err.args[1])
-    print(formula_err.args[2])</pre></div></div></li>
+def parse_formula(formula, periodic_table):
+    """Convert a chemical formula for a molecule into a compound list
+    that stores the quantity of atoms of each element in the molecule.
+    For example, this function will convert "H2O" to [["H", 2], ["O", 1]]
+    and "PO4H2(CH2)12CH3" to [["P", 1], ["O", 4], ["H", 29], ["C", 13]]
+    """
+    def parse_quant(formula, index):
+        quant = 1
+        if index &lt; len(formula) and formula[index].isdecimal():
+            start = index
+            index += 1
+            while index &lt; len(formula) and formula[index].isdecimal():
+                index += 1
+            quant = int(formula[start:index])
+        return quant, index
 
-        <li><div>At the bottom of your <code>chemistry.py</code> file,
-        add this code to call the <code>main</code> function when your
-        program is executed.
-<div class="pre"><pre class="python" id="ex3">
-# If this file was executed like this:
-# python chemistry.py
-# then call the main function. However, if this file
-# was simply imported, then skip the call to main.
-if __name__ == "__main__":
-    main()</pre></div>
+    def get_quant(elems, symbol):
+        return 0 if symbol not in elems else elems[symbol]
 
-        <p>In previous lessons, the code that you wrote to call the
-        <code>main</code> function did not include an <code>if</code>
-        statement. However, if we use <code>pytest</code> to test the
-        functions in a program, then the test file (e.g.
-        <code>test_chemistry.py</code>) must import the functions that
-        are in the program file (e.g. <code>chemistry.py</code>). When
-        Python imports a file, it will execute all code that is not
-        inside a function which includes the call to <code>main</code>.
-        In other words, if we don't include the if statement when
-        calling main in a program and then import the program functions
-        into a test file, Python will execute our program instead of
-        correctly executing the test functions.</p></div></li>
+    def parse_r(formula, index, level):
+        start_index = index
+        start_level = level
+        elems = {}
+        while index &lt; len(formula):
+            ch = formula[index]
+            if ch == "(":
+                group, index = parse_r(formula, index + 1, level + 1)
+                quant, index = parse_quant(formula, index)
+                for symbol in group:
+                    prev = get_quant(elems, symbol)
+                    elems[symbol] = prev + group[symbol] * quant
+            elif ch.isalpha():
+                symbol = formula[index:index+2]
+                if symbol in periodic_table:
+                    index += 2
+                else:
+                    symbol = formula[index:index+1]
+                    if symbol in periodic_table:
+                        index += 1
+                    else:
+                        # Unknown symbol for an element
+                        raise FormulaError("invalid formula:", formula, index)
+                quant, index = parse_quant(formula, index)
+                prev = get_quant(elems, symbol)
+                elems[symbol] = prev + quant
+            elif ch == ")":
+                if level == 0:
+                    # Mismatched close parenthesis
+                    raise FormulaError("invalid formula:", formula, index)
+                level -= 1
+                index += 1
+                break
+            else:
+                # Illegal character: [^()0-9a-zA-Z] or decimal digit not
+                # preceded by an element symbol or close parenthesis
+                raise FormulaError("invalid formula:", formula, index)
+        if level &gt; 0 and level &gt;= start_level:
+            # Mismatched open parenthesis
+            raise FormulaError("invalid formula:", formula, start_index - 1)
+        return elems, index
+
+    # Return the compound list of element symbols and
+    # quantities. Each element in the compound list
+    # will be a list in this form: ["symbol", quantity]
+    elems, _ = parse_r(formula, 0, 0)
+    return list(elems.items())
+
+
+def compute_molar_mass(symbol_quantity_list, periodic_table):
+    """Compute and return the total molar mass of all the
+    elements listed in symbol_quantity_list. Each element in
+    symbol_quantity_list is a list in the form: ["symbol", quantity].
+
+    As an example, if symbol_quantity_list is [["H", 2], ["O", 1]],
+    this function will calculate and return
+    atomic_mass("H") * 2 + atomic_mass("O") * 1
+    1.00794 * 2 + 15.9994 * 1
+    18.01528
+    """
+    # For each element in the compound list:
+    #   Split the element into symbol and quantity.
+    #   Get the atomic mass for the symbol.
+    #   Multiply the atomic mass by the quantity.
+    #   Add the product into the total mass.
+    pass</pre></div>
+
+        The code that you pasted includes a function named
+        <code>parse_formula</code> that converts a chemical formula for
+        a molucule, such as "C13H16N2O2" (melatonin), into a compound
+        list, such as [["C", 13], ["H", 16], ["N", 2], ["O", 2]]. This
+        compound list is known as a symbol_quantity_list because it
+        contains the symbols of chemical elements and the quantity of
+        each element that appears in the chemical formula.</div></li>
+
+        <li><div>The code that you pasted also includes the header and
+        docstring for a function named <code>compute_molar_mass</code>.
+        Read the docstring and comment in the
+        <code>compute_molar_mass</code> function and write the code for
+        that function. Note that you can complete this step by writing
+        eight or fewer lines of code in the
+        <code>compute_molar_mass</code> function.</div></li>
+
+        <li><div>Modify the <code>main</code> function in your
+        <code>chemistry.py</code> program so that it does the following:
+
+<div class="pre"><pre class="python">
+    # Get a chemical formula for a molecule from the user.
+
+    # Get a mass in grams from the user.
+
+    # Call the make_periodic_table function and
+    # store the periodic table in a variable.
+
+    # Call the parse_formula function to convert the
+    # chemical formula given by the user to a compound
+    # list that stores element symbols and the quantity
+    # of atoms of each element in the molecule.
+
+    # Call the compute_molar_mass function to compute the
+    # molar mass of the molecule from the compound list.
+
+    # Compute the number of moles of the substance.
+
+    # Print the molar mass.
+
+    # Print the number of moles.</pre></div>
+        </div></li>
+
+        <li><div>Download the
+        <a download href="test_chemistry_2.py"><code>test_chemistry_2.py</code></a>
+        Python file and save it in the same folder where you saved your
+        <code>chemistry.py</code> Python program.</div></li>
+
+        <li><div></div></li>
     </ol>
 
     <h2>Sample Runs</h2>
+<pre class="console">&gt; python test_chemistry_2.py
+========================= test session starts =========================
+platform win32 -- Python 3.8.5, pytest-6.1.1, py-1.9.0, pluggy-0.13.1
+rootdir: C:\Users\cse111\lesson07
+collected 3 items
+
+test_chemistry_2.py::test_make_periodic_table <span class="pass">PASSED             [ 33%]</span>
+test_chemistry_2.py::test_parse_formula <span class="pass">PASSED                   [ 66%]</span>
+test_chemistry_2.py::test_compute_molar_mass <span class="pass">PASSED              [100%]</span>
+
+<span class="pass">========================== 3 passed in 0.17s ==========================</span></pre>
+
 <pre class="console">&gt; python chemistry.py
-Enter the molecular formula of the substance: <span class="input">CJ3COOH</span>
-Error invalid formula: CJ3COOH
-                        ^
-
-&gt; python chemistry.py
-Enter the molecular formula of the substance: <span class="input">C6H10O5)4</span>
-Error invalid formula: C6H10O5)4
-                              ^
-
-&gt; python chemistry.py
 Enter the molecular formula of the substance: <span class="input">C13H18O2</span>
-206.28082 grams/mole
-Enter the mass in grams of the substance: <span class="input">5k</span>
-Error: invalid number
-could not convert string to float: '5k'
-
-&gt; python chemistry.py
-Enter the molecular formula of the substance: <span class="input">C13H18O2</span>
-206.28082 grams/mole
 Enter the mass in grams of the substance: <span class="input">5.04</span>
+206.28082 grams/mole
 0.02443 moles</pre>
 
     <h2>Testing Procedure</h2>
@@ -251,24 +281,25 @@ Enter the mass in grams of the substance: <span class="input">5.04</span>
     step in this testing procedure:</p>
 
     <ol class="test long">
-        <li><div>Run all four tests in <code>test_chemistry.py</code>
-        and ensure that all four of them pass. If
-        <code>test_molar_mass</code> fails, review and debug the code
-        that you wrote in the <code>molar_mass</code> function in the
-        <code>chemistry.py</code> file.</div></li>
+        <li><div>Run the <code>test_chemistry_2.py</code> program and
+        ensure that all three of the test functions pass. If any of the
+        test functions don't pass, there is a mistake in your
+        <code>chemistry.py</code> program. Read the output from
+        <code>pytest</code>, fix the mistake, and run the
+        <code>test_chemistry_2.py</code> program again until the test
+        functions pass.</div></li>
 
-        <li><div>Run your finished program by running the
-        <code>chemistry.py</code> file. Enter the user input shown in
-        the Sample Runs section above. Ensure that your program prints
-        correct output.</div></li>
+        <li><div>Run your finished <code>chemistry.py</code> program.
+        Enter the user input shown in the Sample Runs section above.
+        Ensure that your program prints correct output.</div></li>
     </ol>
 
     <h2>Submission</h2>
     <p>To submit your program, return to I-Learn and do these two
     things:</p>
     <ol>
-        <li><div>Upload your two files: <code>chemistry.py</code> and
-        <code>test_chemistry.py</code> for feedback.</div></li>
+        <li><div>Upload your <code>chemistry.py</code> file for
+        feedback.</div></li>
         <li><div>Add a submission comment that specifies the grading
         category that best describes your program along with a one or
         two sentence justification for your choice. The grading criteria

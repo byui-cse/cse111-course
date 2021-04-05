@@ -36,23 +36,7 @@
     programmer tried to use variables that were defined in a different
     function.</p>
 
-    <h2>Helpful Documentation</h2>
-    <ol class="long">
-        <li><div>The prepare content for the previous lesson explains
-        what a <a href="../lesson03/prepare.html#param">parameter</a>
-        is.</div></li>
-
-        <li><div>The prepare content for a previous lesson explains
-        what an <a href="../lesson02/prepare.html#arg">argument</a>
-        is.</div></li>
-
-        <li><div>The prepare content for this lesson contains an
-        <a href="prepare.html#ex3descr">example program</a> with a mistake
-        similar to the mistake that is in the example code
-        below.</div></li>
-    </ol>
-
-    <h2>Assignment</h2>
+    <h2>Problem Statement</h2>
     <p>The following example Python program is supposed to ask the user
     for the radius and height of a right circular cone and then compute
     and print the volume of that cone. The code is almost correct, but
@@ -99,7 +83,7 @@ def main():
     # volume for the user to see.
     print(f"Radius: {radius}")
     print(f"Height: {height}")
-    print(f"Volume: {vol}")
+    print(f"Volume: {vol:.1f}")
 
 
 def cone_volume():
@@ -112,15 +96,31 @@ def cone_volume():
 # calling the main function.
 main()</pre></div>
 
+    <h2>Helpful Documentation</h2>
+    <ol class="long">
+        <li><div>The prepare content for the previous lesson explains
+        what a <a href="../lesson03/prepare.html#param">parameter</a>
+        is.</div></li>
+
+        <li><div>The prepare content for a previous lesson explains
+        what an <a href="../lesson02/prepare.html#arg">argument</a>
+        is.</div></li>
+
+        <li><div>The prepare content for this lesson contains an
+        <a href="prepare.html#ex3descr">example program</a> with a mistake
+        similar to the mistake that is in the example code
+        below.</div></li>
+    </ol>
+
+    <h2>Assignment</h2>
     <p>Do the following:</p>
     <ol class="long">
-        <li><div>Create a new file in VS Code and copy and paste all of
-        the example program above into that new file.</div></li>
+        <li><div>Using VS Code, open a new file. Copy and paste all of
+        the example program above into the new file. Save the new file
+        as <code>cone_volume.py</code></div></li>
 
-        <li><div>Save the new file as <code>cone_volume.py</code></div></li>
-
-        <li><div>Run the program. What error message do you see in the
-        terminal?</div></li>
+        <li><div>Run your <code>cone_volume.py</code> program. What
+        error message do you see in the terminal frame?</div></li>
 
         <li><div>Fix the <code>cone_volume</code> function which begins
         on <span class="cross" data-ref="ex1">line&nbsp;36</span> by
@@ -135,8 +135,8 @@ main()</pre></div>
         that is in <code>main</code> at
         <span class="cross" data-ref="ex1">line&nbsp;13</span> by adding
         two arguments. Because the <code>cone_volume</code> function has
-        two parameters (You added the two parameters in the previous
-        step.), each call to <code>cone_volume</code> must have two
+        two parameters (you added the two parameters in the previous
+        step), each call to <code>cone_volume</code> must have two
         arguments. What variable names should you use for the
         arguments?<br><br>
         Hint:&nbsp; the only variables that you can use must be defined

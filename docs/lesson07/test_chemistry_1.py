@@ -280,4 +280,4 @@ def check_element(actual, expected):
     assert actual[ATOMIC_MASS_INDEX] == approx(expected[ATOMIC_MASS_INDEX])
 
 
-pytest.main(["-v", "--tb=no", "test_chemistry.py"])
+pytest.main(["-v", "--tb=no", "test_chemistry_1.py"])
