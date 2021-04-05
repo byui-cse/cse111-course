@@ -60,8 +60,8 @@
         true. When the computer checks the comparison, if the comparison
         is true, the computer will continue to execute the code in the
         program. However, if the comparison is false, the computer will
-        raise an <code>AssertionError</code> which will likely cause the
-        program to terminate. (In
+        raise an <code>AssertionError</code>, which will likely cause
+        the program to terminate. (In
         <a href="../lesson10/prepare.html">lesson&nbsp;10</a>
         you will learn how to write code to handle errors so that a
         program won't terminate when the computer raises an error.)</p>
@@ -87,8 +87,8 @@ def deposit(amount):
         greater than zero (0). If the amount is greater than zero, the
         computer will continue to execute the program. However, if the
         <var>amount</var> is zero or less (negative), the computer will
-        raise an <code>AssertionError</code> which will likely cause the
-        program to terminate.</p>
+        raise an <code>AssertionError</code>, which will likely cause
+        the program to terminate.</p>
 
         <p>A programmer can write any valid Python comparison in an
         <code>assert</code> statement. Here are a few examples from
@@ -104,7 +104,7 @@ def deposit(amount):
     assert school_year != "senior"</pre></div>
         </div></li>
 
-        <li><div><a href="https://docs.pytest.org/en/latest/reference.html"><code>pytest</code></a>
+        <li><div><p><a href="https://docs.pytest.org/en/latest/reference.html"><code>pytest</code></a>
         is a third-part Python module that makes it easy to write and
         run test functions. There are other Python testing modules
         besides <code>pytest</code>, but <code>pytest</code> seems to be
@@ -112,26 +112,28 @@ def deposit(amount):
         module. It is a third-party module. This means that when you
         installed Python on your computer, <code>pytest</code> was not
         installed, and you will need to install <code>pytest</code> in
-        order to use it.
+        order to use it. During the checkpoint of this lesson, you will
+        use a standard Python module named <code>pip</code> to install
+        <code>pytest</code>.</p>
 
-        <code>pytest</code> allows a programmer to write simple test
+        <p><code>pytest</code> allows a programmer to write simple test
         functions that use the Python <code>assert</code> statement to
         verify that a function returns a correct result. For example, if
         we want to verify that the built-in <code>min</code> function
         works correctly, we could write an <code>assert</code> statement
-        like this:
+        like this:</p>
 <div class="pre"><pre class="python">
     assert min(7, -3, 0, 2) == -3</pre></div>
 
-        The previous line of code will cause the computer to first call
-        the <code>min</code> function and pass 7, -3, 0, and 2 as
+        <p>The previous line of code will cause the computer to first
+        call the <code>min</code> function and pass 7, -3, 0, and 2 as
         arguments to the <code>min</code> function. The <code>min</code>
         function will find the minimum value of its parameters and
         return that minimum value. Then the <code>assert</code>
         statement will compare the returned minimum value to -3. If the
         returned minimum value is not -3, the <code>assert</code>
         statement will raise an exception which will cause
-        <code>pytest</code> to print an error message.</div></li>
+        <code>pytest</code> to print an error message.</p></div></li>
 
         <li><div><p>Within a computer's memory, everything (all numbers,
         text, sound, pictures, movies, everything) is stored using the

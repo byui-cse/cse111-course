@@ -35,25 +35,29 @@
     writing test functions and running them with <code>pytest</code>.</p>
 
     <h2>Helpful Documentation</h2>
-    <p>This <a href="https://video.byui.edu/media/t/1_f72kfav3">short video</a>
-    shows a BYU-Idaho faculty member using the <code>pip</code> module
-    to install other Python modules.</p>
+    <ul class="long">
+        <li><div><a href="https://docs.python.org/3/installing/index.html"><code>pip</code></a>
+        is a standard Python module that you can use to download and
+        install third-party modules. During the checkpoint of this
+        lesson, you will use <code>pip</code> to download and install
+        <code>pytest</code>, so that you can use <code>pytest</code> in
+        your test code.</div></li>
 
-    <p>This <a href="https://content.byui.edu/items/a9e60503-b5e7-40f0-bf48-ebf1a7441d25/1/example_07.mp4">short video</a>
-    shows a BYU-Idaho faculty member writing two test functions and
-    using <code>pytest</code> to run them.</p>
+        <li><div>This <a href="https://video.byui.edu/media/t/1_f72kfav3">short video</a>
+        shows a BYU-Idaho faculty member using the <code>pip</code>
+        module to install other Python modules.</div></li>
 
-    <p>If you wish to learn more about installing modules using the
-    <code>pip</code> module, read the
-    <a href="https://docs.python.org/3/installing/index.html#basic-usage">Basic
-    usage</a> section of the official <code>pip</code> reference.</p>
+        <li><div>The <a href="prepare.html">prepare</a> content for this
+        lesson explains how to use <code>pytest</code>,
+        <code>assert</code>, and <code>approx</code> to automatically
+        verify that functions are correct. It also contains an <a
+        href="prepare.html#ex">example test function</a> and links to
+        additional documentation about <code>pytest</code>.</div></li>
 
-    <p>The <a href="prepare.html">prepare</a> content for this lesson
-    explains how to use <code>pytest</code>, <code>assert</code>, and
-    <code>approx</code> to automatically verify that functions are
-    correct. It also contains an <a href="prepare.html#ex">example test
-    function</a> and links to additional documentation about
-    <code>pytest</code>.</p>
+        <li><div>This <a href="https://content.byui.edu/items/a9e60503-b5e7-40f0-bf48-ebf1a7441d25/1/example_07.mp4">short video</a>
+        shows a BYU-Idaho faculty member writing two test functions and
+        using <code>pytest</code> to run them.</div></li>
+    </ul>
 
     <h2>Assignment</h2>
     <p>Write two test functions that test previously written functions.
@@ -61,15 +65,11 @@
 
     <p>Do the following:</p>
     <ol class="long">
-        <li><div>Download the <a download href="words.py">words.py</a>
-        Python file and save it in the same folder where you will save
-        your Python test program. Then open the downloaded file in VS
-        Code.</div></li>
-
-        <li><div>On the menu bar for VS Code, click "Terminal" and then
-        "New Terminal." This will open a terminal frame at the bottom of
-        the VS Code window. A terminal is a window or frame where a user
-        can type and execute computer commands.</div></li>
+        <li><div>Open VS Code and on the menu bar for VS Code, click
+        "Terminal" and then "New Terminal." This will open a terminal
+        frame at the bottom of the VS Code window. A terminal is a
+        window or frame where a user can type and execute computer
+        commands.</div></li>
 
         <li><div>Copy and paste the following command into the terminal
         frame and execute the command by pressing the Enter key. This
@@ -107,18 +107,24 @@
         <code>python</code> to <code>py</code>.</li></ul>
         </div></li>
 
-        <li><div>Notice the downloaded <code>words.py</code> file
-        contains two small functions named: <code>prefix</code> and
-        <code>suffix</code>. Notice also that each function has a
-        documentation string that describes what the function does. Read
-        the documentation strings for both functions.</div></li>
+        <li><div>Download the <a download href="words.py">words.py</a>
+        Python file and save it in the same folder where you will save
+        your Python test program.</div></li>
 
-        <li><div>Using VS Code open a new Python file and copy and paste
-        the following import statements at the top of the file.
+        <li><div>Open the downloaded <code>words.py</code> file in VS
+        Code. Notice the downloaded file contains two small functions
+        named:&nbsp; <code>prefix</code> and <code>suffix</code>. Notice
+        also that each function has a documentation string (a triple
+        quoted string at the top of a function) that describes what the
+        function does. Read the documentation strings for both
+        functions.</div></li>
+
+        <li><div>Using VS Code, open a new Python file and copy and
+        paste the following import statements at the top of the file.
 <div class="pre"><pre class="python">from words import prefix, suffix
 import pytest</pre></div>
         Save the file with the name <code>test_words.py</code> in the
-        same folder where you downloaded saved <code>words.py</code>
+        same folder where you saved the <code>words.py</code>
         file.</div></li>
 
         <li><div>In <code>test_words.py</code> write a function named
@@ -186,11 +192,11 @@ test_words.py::test_suffix <span class="pass">PASSED                            
 <span class="pass">========================== 2 passed in 0.09s ==========================</span></pre>
 
     <h2>Testing Procedure</h2>
-    <p>Verify that your program works correctly by following each step
-    in this testing procedure:</p>
+    <p>Verify that your test program works correctly by following each
+    step in this procedure:</p>
     <ol class="test">
-        <li><div>Run your program and ensure that your program's output
-        is similar to the sample run output.</div></li>
+        <li><div>Run your test program and ensure that your test
+        program's output is similar to the sample run output.</div></li>
     </ol>
 
     <h2>Sample Solution</h2>
