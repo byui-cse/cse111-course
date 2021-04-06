@@ -244,6 +244,11 @@ div.figure div {
 }
 
 
+article span.nowrap {
+	white-space: nowrap;
+}
+
+
 /* Mathematical Formulas */
 article div.expr {
 	white-space: nowrap;

@@ -5,4 +5,4 @@ def test_add_area_code():
     assert add_area_code("801-412-3210") == "801-412-3210"
     assert add_area_code("656-4771") == "208-656-4771"
 
-pytest.main(["-v", "--tb=no", "test_add_area_code.py"])
+pytest.main(["-v", "--tb=line", "-rN", "test_add_area_code.py"])

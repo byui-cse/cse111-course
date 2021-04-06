@@ -65,39 +65,42 @@
         Python file and save it in the same folder where you will save
         your Python test program. Then open the downloaded file in VS
         Code. Notice that the downloaded file contains three small
-        functions named: <code>full_name</code>,
-        <code>given_name</code>, and <code>family_name</code>. Notice
-        also that each function has a documentation string that
-        describes what the function does. Read the documentation strings
-        for all three functions. The code in the functions may contains
-        some mistakes.</div></li>
+        functions named: <code>make_full_name</code>,
+        <code>extract_given_name</code>, and
+        <code>extract_family_name</code>. Notice also that each function
+        has a documentation string (a triple quoted string immediately
+        below the function header) that describes what the function
+        does. Read the documentation strings for all three functions.
+        The code in the functions may contains some mistakes.</div></li>
 
-        <li><div>Using VS Code open a new Python file and copy and paste
-        the following import statements at the top of the file.
-<div class="pre"><pre class="python">from names import given_name, family_name, full_name
+        <li><div>Using VS Code, open a new Python file and copy and
+        paste the following import statements at the top of the file.
+<div class="pre"><pre class="python">from names import make_full_name, \
+    extract_given_name, extract_family_name
 import pytest</pre></div>
         Save the file with the name <code>test_names.py</code> in the
-        same folder where you downloaded and saved <code>names.py</code>.
+        same folder where you downloaded and saved the
+        <code>names.py</code> file.
 
-        <li><div>In <code>test_names.py</code> write a function named
-        <code>test_full_name</code> that takes no parameters. Write
+        <li><div>In <code>test_names.py</code>, write a function named
+        <code>test_make_full_name</code> that takes no parameters. Write
         <code>assert</code> statements inside this function to test the
-        value returned from the <code>full_name</code> function. If you
-        are not sure what the <code>full_name</code> function does or
-        how to test it, read the documentation string that is at the top
-        of the <code>full_name</code> function in the
+        value returned from the <code>make_full_name</code> function. If
+        you are not sure what the <code>make_full_name</code> function
+        does or how to test it, read the documentation string that is at
+        the top of the <code>make_full_name</code> function in the
         <code>names.py</code> file.</div></li>
 
         <li><div>In <code>test_names.py</code> write a function named
-        <code>test_family_name</code> that takes no parameters. Write
-        <code>assert</code> statements inside this function to test the
-        value returned from the <code>family_name</code>
-        function.</div></li>
+        <code>test_extract_family_name</code> that takes no parameters.
+        Write <code>assert</code> statements inside this function to
+        test the value returned from the
+        <code>extract_family_name</code> function.</div></li>
 
         <li><div>In <code>test_names.py</code> write a function named
-        <code>test_given_name</code> that takes no parameters. Write
-        <code>assert</code> statements inside this function to test the
-        value returned from the <code>given_name</code>
+        <code>test_extract_given_name</code> that takes no parameters.
+        Write <code>assert</code> statements inside this function to
+        test the value returned from the <code>extract_given_name</code>
         function.</div></li>
 
         <li><div>At the bottom of your <code>test_names.py</code> file,
@@ -105,16 +108,16 @@ import pytest</pre></div>
 <div class="pre"><pre class="python">
 # Call the main function that is part of pytest so that
 # the test functions in this file will start executing.
-pytest.main(["-v", "--tb=no", "test_names.py"])
-</pre></div></div></li>
+pytest.main(["-v", "--tb=line", "-rN", "test_names.py"])</pre></div>
+        </div></li>
 
         <li><div>Save your <code>test_names.py</code> file and run it by
         clicking the green run icon in VS Code.</div></li>
 
         <li><div>Read the output from <code>pytest</code> and use the
         output to help you find and fix any errors that are in your test
-        functions or the <code>full_name</code>,
-        <code>given_name</code>, and <code>family_name</code>
+        functions or the <code>make_full_name</code>,
+        <code>extract_given_name</code>, and <code>extract_family_name</code>
         functions.</div></li>
 
         <li><div>Repeat steps&nbsp;7 and&nbsp;8 until you have found and
@@ -124,15 +127,21 @@ pytest.main(["-v", "--tb=no", "test_names.py"])
 
     <h3>Core Requirements</h3>
     <ol class="long">
-        <li><div>Write <code>test_full_name</code> so that it tests
-        <code>full_name</code> with various names, including long names,
-        short names, and hyphenated names.</div></li>
-        <li><div>Write <code>test_given_name</code> so that it tests
-        <code>given_name</code> with various names, including long
-        names, short names, and hyphenated names.</div></li>
-        <li><div>Write <code>test_family_name</code> so that it tests
-        <code>family_name</code> with various names, including long
-        names, short names, and hyphenated names.</div></li>
+        <li><div>Write <code>test_make_full_name</code> so that it tests
+        <code>make_full_name</code> with various names, including long
+        names, short names, and hyphenated names. Fix the mistake in the
+        <code>make_full_name</code> function.</div></li>
+
+        <li><div>Write <code>test_extract_family_name</code> so that it
+        tests <code>extract_family_name</code> with various names,
+        including long names, short names, and hyphenated
+        names.</div></li>
+
+        <li><div>Write <code>test_extract_given_name</code> so that it
+        tests <code>extract_given_name</code> with various names,
+        including long names, short names, and hyphenated names. Fix the
+        mistake in the <code>extract_given_name</code>
+        function.</div></li>
     </ol>
 
     <h3>Stretch Challenges</h3>
@@ -141,40 +150,56 @@ pytest.main(["-v", "--tb=no", "test_names.py"])
     stretch challenges are optional.</p>
 
     <ol class="long">
-        <li><div>Fix the mistakes in the <code>full_name</code>
-        function.</div></li>
-        <li><div>Fix the mistakes in the <code>given_name</code>
-        function.</div></li>
+        <li><div><p>In the United States, mailing addresses are supposed
+        to be written
+        <br>in this form:&nbsp; <span class="nowrap"><var>number</var> <var>street</var>, <var>city</var>, <var>state</var> <var>zipcode</var></span>
+        <br>For example:&nbsp; <span class="nowrap">525 S Center St, Rexburg, ID 83460</span></p>
+
+        <p>Download and save this Python file named
+        <a download href="address.py">address.py</a>. Open a new Python
+        file named <code>test_address.py</code> and write a test
+        function named <code>test_extract_city</code> that verifies that
+        the <code>extract_city</code> function works correctly.</p>
+        </div></li>
+
+        <li><div>Write a test function named
+        <code>test_extract_state</code> that verifies that the
+        extract_state function works correctly.</div></li>
+
+        <li><div>Write a test function named
+        <code>test_extract_zipcode</code> that verifies that the
+        extract_zipcode function works correctly.</div></li>
     </ol>
 
     <h2>Sample Run</h2>
     <pre class="console">&gt; python test_names.py
 ========================= test session starts =========================
-platform win32 -- Python 3.8.5, pytest-6.1.1, py-1.9.0, pluggy-0.13.1
+platform win32 -- Python 3.8.6, pytest-6.1.2, py-1.9.0, pluggy-0.13.1
 rootdir: C:\Users\cse111\lesson05
 collected 3 items
 
-test_names.py::test_full_name <span class="fail">FAILED                             [ 33%]</span>
-test_names.py::test_family_name <span class="pass">PASSED                           [ 66%]</span>
-test_names.py::test_given_name <span class="fail">FAILED                            [100%]</span>
+test_names.py::test_make_full_name <span class="fail">FAILED                        [ 33%]</span>
+test_names.py::test_extract_family_name <span class="pass">PASSED                   [ 66%]</span>
+test_names.py::test_extract_given_name <span class="fail">FAILED                    [100%]</span>
 
-======================= short test summary info =======================
-FAILED test_names.py::test_full_name - AssertionError:
-    assert 'Smith-Jones;Penelope' == 'Smith-Jones; Penelope'
-FAILED test_names.py::test_given_name - AssertionError:
-    assert 'mith-Jones; Penelope' == 'Penelope'
+============================== FAILURES ===============================
+C:\Users\cse111\early-functions\docs\lesson05\teach_solution.py:6:
+AssertionError: assert 'Smith-Jones;Penelope' == 'Smith-Jones; Penelope'
+C:\Users\cse111\early-functions\docs\lesson05\names.py:29:
+ValueError: substring not found
 <span class="fail">===================== 2 failed</span>, <span class="pass">1 passed</span> <span class="fail">in 0.14s =====================</span></pre>
 
     <h2>Testing Procedure</h2>
-    <p>Repeat steps&nbsp;8 and&nbsp;9 above until you have found and
+    <p>Repeat steps&nbsp;7 and&nbsp;8 above until you have found and
     fixed all the mistakes in the <code>names.py</code> file and your
     tests pass.</p>
 
     <h2>Sample Solution</h2>
     <p>Please work diligently with your team for the one hour meeting.
     After the meeting is over, please compare your approach to the
-    <a download href="teach_solution.py">sample solution</a>. Please
-    <strong>do not look at the sample solution</strong> until you have
+    <a download href="teach_solution.py">sample solution</a> and
+    <a download href="teach_stretch.py">stretch solution</a>. Please
+    <strong>do not look at the sample solutions</strong> until you have
     either finished the program or diligently worked for at least one
     hour. At the end of the hour, if you are still struggling to
     complete the assignment, you may use the sample solution to help you

@@ -115,9 +115,9 @@
         Code. Notice the downloaded file contains two small functions
         named:&nbsp; <code>prefix</code> and <code>suffix</code>. Notice
         also that each function has a documentation string (a triple
-        quoted string at the top of a function) that describes what the
-        function does. Read the documentation strings for both
-        functions.</div></li>
+        quoted string immediately below a function header) that
+        describes what the function does. Read the documentation strings
+        for both functions.</div></li>
 
         <li><div>Using VS Code, open a new Python file and copy and
         paste the following import statements at the top of the file.
@@ -172,8 +172,8 @@ import pytest</pre></div>
 <div class="pre"><pre class="python">
 # Call the main function that is part of pytest so that
 # the test functions in this file will start executing.
-pytest.main(["-v", "--tb=no", "test_words.py"])
-</pre></div></div></li>
+pytest.main(["-v", "--tb=line", "-rN", "test_words.py"])</pre></div>
+        </div></li>
 
         <li><div>Save your <code>test_words.py</code> file and run it by
         clicking the green run icon in VS Code.</div></li>
@@ -182,7 +182,7 @@ pytest.main(["-v", "--tb=no", "test_words.py"])
     <h2>Sample Run</h2>
 <pre class="console">&gt; python test_words.py
 ========================= test session starts =========================
-platform win32 -- Python 3.8.5, pytest-6.1.1, py-1.9.0, pluggy-0.13.1
+platform win32 -- Python 3.8.6, pytest-6.1.2, py-1.9.0, pluggy-0.13.1
 rootdir: C:\Users\cse111\lesson05
 collected 2 items
 

@@ -232,7 +232,7 @@ def test_cels_from_fahr():
 
 # Call the main function that is part of pytest so that
 # the test functions in this file will start executing.
-pytest.main(["-v", "--tb=no", "test_weather.py"])</pre></div>
+pytest.main(["-v", "--tb=line", "-rN", "test_weather.py"])</pre></div>
 
     <p>Notice in <code>test_weather.py</code> at
     <span class="cross" data-ref="ex2">lines&nbsp;12&ndash;15</span>
@@ -256,7 +256,7 @@ pytest.main(["-v", "--tb=no", "test_weather.py"])</pre></div>
 
 <pre class="console">&gt; python test_weather.py
 ========================= test session starts =========================
-platform win32 -- Python 3.8.5, pytest-6.1.1, py-1.9.0, pluggy-0.13.1
+platform win32 -- Python 3.8.6, pytest-6.1.2, py-1.9.0, pluggy-0.13.1
 rootdir: C:\Users\cse111\lesson05
 collected 1 item
 
