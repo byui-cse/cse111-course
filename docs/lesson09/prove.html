@@ -27,13 +27,13 @@
 <article>
     <h1>09 Prove Milestone: Text Files</h1>
 
-    <h2>Overview</h2>
+    <h2>Purpose</h2>
     <p>Prove that you can write a Python program that reads CSV files
     and creates, populates, and uses dictionaries.</p>
 
     <h2>Problem Statement</h2>
     <p>A local grocery store subscribes to an online service that
-    enables their customers to order groceries online. After a customer
+    enables its customers to order groceries online. After a customer
     completes an order, the online service sends a CSV file that
     contains the customer's requests to the grocery store. The store
     needs you to write a program that reads the CSV file and prints (to
@@ -47,8 +47,9 @@
         files.</div></li>
 
         <li><div>The <a href="prepare.html">prepare content</a> for this
-        lesson shows how to read all the lines from a text file and how
-        to read the contents of a CSV file into a dictionary.</div></li>
+        lesson shows how to read the contents of a CSV file into a
+        dictionary and how to read and process a CSV file without
+        storing it in a dictionary.</div></li>
 
         <li><div>The prepare content for lesson&nbsp;8 explains how to
         <a href="../lesson09/prepare.html#findOne">find an item</a> in a
@@ -72,9 +73,9 @@
 
     <p>Do the following:</p>
     <ol class="long">
-        <li><div>Download both of these files:
-        <a download href="products.csv">products.csv</a> and
-        <a download href="request.csv">request.csv</a> and
+        <li><div>Download both of these files:&nbsp;
+        <a download href="products.csv"><code>products.csv</code></a> and
+        <a download href="request.csv"><code>request.csv</code></a> and
         save them into the same folder where you will save your Python
         program.</div></li>
 
@@ -90,9 +91,9 @@
 
         <li><div><p>In <code>receipt.py</code>, write a function named
         <code>read_products</code> that will open the
-        <code>products.csv</code> file for reading and use a csv.reader
-        to read each row and populate a dictionary named
-        <var>products</var> with the contents of the
+        <code>products.csv</code> file for reading and use a
+        <code>csv.reader</code> to read each row and populate a
+        dictionary named <var>products</var> with the contents of the
         <code>products.csv</code> file.</p>
 
         <p>Recall that each item in a dictionary has a key and a value.
@@ -114,6 +115,13 @@
             <tr><td class="center">&vellip;</td> <td class="center">&vellip;</td></tr>
         <tbody></table></div></li>
 
+        <li><div>In your <code>receipt.py</code> program, after the code
+        that populates the <var>products</var> dictionary, write a line
+        of code to print the entire <var>products</var> dictionary. Run
+        your program and verify that your printed dictionary contains
+        all the data that is in the <code>products.csv</code>
+        file.</div></li>
+
         <li><div>Open the <code>request.csv</code> file in VS Code and
         examine it. Notice that each row contains only two values, a
         product number and a quantity.</div></li>
@@ -132,13 +140,6 @@
             <li><div>Print the product name, requested quantity, and
             product price.</div></li>
         </ol></div></li>
-
-        <li><div>In your <code>receipt.py</code> program, write after the code
-        that populates the <var>products</var> dictionary, write a line
-        of code to print the entire <var>products</var> dictionary. Run
-        your program and verify that your printed dictionary contains
-        all the data that is in the <code>products.csv</code>
-        file.</div></li>
     </ol>
 
     <h2>Sample Run</h2>

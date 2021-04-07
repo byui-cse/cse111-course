@@ -44,9 +44,9 @@
     does <em>not</em> focus on the process or steps to accomplish a
     task. Instead, with declarative programming, a programmer focuses on
     what she wants from the computer, or in other words, she focuses on
-    the desired results. If you have ever written SQL code, then you
-    have used declarative programming. The SQL programming language is a
-    good example of a declarative language. When writing SQL code, a
+    the desired results. The SQL programming language is a good example
+    of a declarative language. If you have ever written SQL code, then
+    you have used declarative programming. When writing SQL code, a
     programmer writes code to tell the computer what she wants in the
     results but not the steps the computer must follow to get those
     results.</p>
@@ -118,16 +118,15 @@ if __name__ == "__main__":
         doesn't use higher-order functions.</p>
 
         <p>Python includes a built-in higher-order function named
-        <code>map</code> that will process all of the elements in a list
+        <code>map</code> that will process all the elements in a list
         and return a new list that contains the results. The
         <a href="https://docs.python.org/3/library/functions.html#map"><code>map</code> function</a>
         accepts a function and a list as arguments and contains a loop
-        inside of it, so that when a programmer calls the
-        <code>map</code> function, he doesn't need to write a loop. The
-        <code>map</code> function is a higher-order function because it
-        accepts a function as an argument. Consider the program in
-        example&nbsp;2 that produces the same results as
-        example&nbsp;1:</p>
+        inside it, so that when a programmer calls the <code>map</code>
+        function, he doesn't need to write a loop. The <code>map</code>
+        function is a higher-order function because it accepts a
+        function as an argument. Consider the program in example&nbsp;2
+        that produces the same results as example&nbsp;1.</p>
 
 <div class="pre"><pre class="linenums"></pre>
 <pre class="python" id="ex2"># Example 2
@@ -161,11 +160,12 @@ if __name__ == "__main__":
         <p>Notice that example&nbsp;2, doesn't contain a for each loop.
         Instead, at <span class="cross" data-ref="ex2">line&nbsp;11</span>,
         it contains a call to the <code>map</code> function. Remember
-        that the <code>map</code> function has a loop inside of it, so
-        that the programmer who calls <code>map</code>, doesn't have to
-        write the loop. Notice also at line&nbsp;11, that the first
-        argument to the <code>map</code> function is the name of the
-        <code>cels_from_fahr</code> function. In other words, at
+        that the <code>map</code> function has a loop inside it, so that
+        the programmer who calls <code>map</code>, doesn't have to write
+        the loop. Notice also at
+        <span class="cross" data-ref="ex2">line&nbsp;11</span> that the
+        first argument to the <code>map</code> function is the name of
+        the <code>cels_from_fahr</code> function. In other words, at
         line&nbsp;11, we are passing the <code>cels_from_fahr</code>
         function into the <code>map</code> function, so that
         <code>map</code> will call <code>cels_from_fahr</code> for each
@@ -257,6 +257,26 @@ def main():
 # Call main to start this program.
 if __name__ == "__main__":
     main()</pre></div>
+
+        <p>Some students are confused by the statement that a lambda
+        function is an anonymous function (a function without a name).
+        Looking at the lambda function in example&nbsp;4 on
+        <span class="cross" data-ref="ex4">line&nbsp;12</span>, it
+        appears that the lambda function is named
+        <var>cels_from_fahr</var>. However, <var>cels_from_fahr</var> is
+        the name of a variable, not the name of the lambda function. The
+        lambda function has no name. This distinction may seem trivial
+        until we see an example of an inline lambda function. Notice in
+        the next example that the lambda function is defined inside the
+        parentheses for the <code>map</code> function.</p>
+
+<div class="pre"><pre class="python">
+    # Convert each Fahrenheit temperature to Celsius and store
+    # the Celsius temperatures in a list named cels_temps.
+    cels_temps = list(map(
+            <em>lambda fahr: round((fahr - 32) * 5 / 9, 1)</em>,
+            fahr_temps))
+</pre></div>
 
         <p>To write a lambda function write code that follows this
         template:</p>
@@ -376,12 +396,11 @@ if __name__ == "__main__":
     main()</pre></div>
 
     <h2>Example - Sorting a Compound List</h2>
-    <p>Python includes a built-in function named <code>sorted</code>
-    that accepts a list as an argument and returns a new sorted list.
-    Calling the <code>sorted</code> function is straightforward for
-    a simple list such as a list of strings or a list of numbers as
-    shown in example&nbsp;6. The output of example&nbsp;6 is shown
-    immediately after example&nbsp;6.</p>
+    <p>Python includes a built-in higher-order function named
+    <code>sorted</code> that accepts a list as an argument and returns a
+    new sorted list. Calling the <code>sorted</code> function is
+    straightforward for a simple list such as a list of strings or a
+    list of numbers as shown in example&nbsp;6 and its output.</p>
 
 <div class="pre"><pre class="linenums"></pre>
 <pre class="python" id="ex6"># Example 6
@@ -424,18 +443,19 @@ if __name__ == "__main__":
     country name or perhaps we want it sorted by population. The element
     that we want a list sorted by is known as the <dfn>key
     element</dfn>. If we want to use the <code>sorted</code> function to
-    sort a compound list, we must tell it which element is the key
-    element, which we do by passing a small function as an argument into
-    the <code>sorted</code> function. This small function is called the
-    <dfn>key function</dfn> and extracts the key element from a
-    list as shown in example&nbsp;7.</p>
+    sort a compound list, we must tell the <code>sorted</code> function
+    which element is the key element, which we do by passing a small
+    function as an argument into the <code>sorted</code> function. This
+    small function is called the <dfn>key function</dfn> and extracts
+    the key element from a list as shown in example&nbsp;7.</p>
 
     <p>Notice at <span class="cross" data-ref="ex7">line&nbsp;26</span>
-    there is a lambda function that extracts the population from a
-    country. Then at <span class="cross" data-ref="ex7">line&nbsp;29</span>
-    that lambda function is passed to the <code>sorted</code> function
-    so that the <code>sorted</code> function will sort the list of
-    countries by the population.</p>
+    in example&nbsp;7, there is a lambda function that extracts the
+    population from a country. Then at
+    <span class="cross" data-ref="ex7">line&nbsp;29</span> that lambda
+    function is passed to the <code>sorted</code> function so that the
+    <code>sorted</code> function will sort the list of countries by the
+    population.</p>
 
 <div class="pre"><pre class="linenums"></pre>
 <pre class="python" id="ex7"># Example 7
@@ -510,7 +530,7 @@ List of countries sorted by population
     used as the key by the sorted function at
     <span class="cross" data-ref="ex8">line&nbsp;25</span>. Notice in
     the output from example&nbsp;8 that the students are sorted by
-    surname and then by first name.</p>
+    surname and then by given name.</p>
 
 <div class="pre"><pre class="linenums"></pre>
 <pre class="python" id="ex8"># Example 8

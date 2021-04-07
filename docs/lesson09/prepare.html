@@ -95,10 +95,10 @@
     method.</p>
 
     <p>Example&nbsp;1 contains a program that opens a text file for
-    reading at <span class="cross" data-ref="ex1">line&nbsp;24</span>
+    reading at <span class="cross" data-ref="ex1">line&nbsp;25</span>
     and then reads the text in the file one line at a time. In the body
     of the <code>for</code> loop at
-    <span class="cross" data-ref="ex1">lines&nbsp;28&ndash;36</span>,
+    <span class="cross" data-ref="ex1">lines&nbsp;29&ndash;37</span>,
     the code removes surrounding white space from each line of text and
     then stores each line of text in a list.</p>
 
@@ -155,10 +155,10 @@ if __name__ == "__main__":
     text file that contains tabular data with each row on a separate
     line and each cell (column) separated by a comma. The following
     example shows the contents of a CSV file that stores information
-    about dental offices in Rexburg, Idaho. Notice that the first row of
-    the file contains column headings, the next four rows contain
-    information about four dental offices, and each row contains five
-    columns separated by commas.</p>
+    about dental offices. Notice that the first row of the file contains
+    column headings, the next four rows contain information about four
+    dental offices, and each row contains five columns separated by
+    commas.</p>
 
 <div class="pre"><pre class="csv">
 Company Name,Address,Phone Number,Employees,Patients
@@ -207,7 +207,8 @@ def read_dict(filename, key_column_index):
         filename: the name of the CSV file to read.
         key_column_index: the index of the column
             to use as the keys in the dictionary.
-    Return: a dictionary that contains the contents of the CSV file.
+    Return: a dictionary that contains
+        the contents of the CSV file.
     """
     # Create an empty dictionary that will
     # store the data from the CSV file.
@@ -250,11 +251,12 @@ if __name__ == "__main__":
     the contents in a dictionary. However, it is not always necessary to
     store the contents of a CSV file in a dictionary. Sometimes a
     program simply needs to use the values in the CSV file in
-    calculations but doesn't need to store the contents of the CSV
-    file. In such a situation, the program will still use a for loop
-    but will not use a dictionary. The next code example processes each
-    line in the dentists.csv file to determine which dental office has
-    the most patients per employee, but it doesn't use a dictionary.</p>
+    calculations but doesn't need to store the contents of the CSV file.
+    In such a situation, the program will still use a for loop but will
+    not use a dictionary. The next code example processes each line in
+    the <code>dentists.csv</code> file to determine which dental office
+    has the most patients per employee, but it doesn't use a
+    dictionary.</p>
 
 <div class="pre"><pre class="python" id="ex3"># Example 3
 

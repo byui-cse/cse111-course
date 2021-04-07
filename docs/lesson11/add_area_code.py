@@ -33,7 +33,7 @@ def add_area_code(phone_number):
         "ddd-dddd" or "ddd-ddd-dddd"
     Return: a string of digits formated as "ddd-ddd-dddd"
     """
-    return
+    pass
 
 
 def read_list(filename):

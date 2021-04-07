@@ -32,7 +32,7 @@
     <p>Errors and exceptional situations sometimes occur while a program
     is running. Such errors include attempting to read from a file that
     does not exist, a connection error when connecting to a server on
-    the network, data that cannot be found on a server, and calculations
+    a network, data that cannot be found on a server, and calculations
     that produce undefined results. A well written program doesn't crash
     when an error occurs but instead handles errors in a graceful manner
     that may include adjusting to an error, printing an error message
@@ -168,7 +168,9 @@ such as:
         usually contains "clean up" code that frees resources that the
         code in the <code>try</code> block used. For example, if the
         code in the <code>try</code> block opens a file, the code in the
-        <code>finally</code> block could close that file.</div></li>
+        <code>finally</code> block could close that file. In
+        CSE&nbsp;111, you probably won't need to write a
+        <code>finally</code> block.</div></li>
     </ol>
 
     <h2>Common Exception Types</h2>
@@ -206,10 +208,10 @@ type str doesn't define __round__ method</pre>
     when the code that calls a function passes an argument with the
     correct type but with an invalid value. A common event that causes
     the computer to raise a <code>ValueError</code> is when the
-    <code>int</code> function or <code>float</code> function is called
-    to convert a string to a number but the string contains characters
-    that are not digits. The code in example&nbsp;2 and its output show
-    a <code>ValueError</code>.</p>
+    <code>int</code> function or <code>float</code> function tries to
+    convert a string to a number but the string contains characters that
+    are not digits. The code in example&nbsp;2 and its output show a
+    <code>ValueError</code>.</p>
 
 <div class="pre"><pre class="python" id="ex2"># Example 2
 
@@ -529,7 +531,7 @@ if __name__ == "__main__":
     <h2 id="validate">Validating User Input</h2>
     <p>To <dfn>validate user input</dfn> means to check user input to
     ensure it is in the correct format before using that input. The
-    program in example&nbsp;8 validates user input by handling
+    program in example&nbsp;10 validates user input by handling
     exceptions. Notice in the <code>get_float</code> function at
     <span class="cross" data-ref="ex10">line&nbsp;28</span> there is a
     <code>try</code> block. The <code>try</code> block is part of a loop

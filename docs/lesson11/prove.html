@@ -31,7 +31,7 @@
 <article>
     <h1>11 Prove Milestone: Significant Python Program</h1>
 
-    <h2>Overview</h2>
+    <h2>Purpose</h2>
     <p>Prove that you can write a significant Python program that is
     well organized and solves a real-world problem. Your program must
     include multiple functions that you verify are correct with test
@@ -69,12 +69,12 @@
 
         <li><div>A program with a complete graphical user interface
         (GUI), including windows, frames, labels, text fields, and
-        buttons. Use <code>tkinter</code> or <code>kivy</code>. The team
-        assignment in the next lesson will show you how to write code
-        for a simple GUI.</div></li>
+        buttons. Use either the <code>tkinter</code> or <code>kivy</code>
+        module. The team assignment in the next lesson will show you how
+        to write code for a simple GUI.</div></li>
 
-        <li><div>A program that reads the text of a book and counts how
-        often each word occurs in the book.</div></li>
+        <li><div>A program that reads a text file and counts how often
+        each word occurs in the file.</div></li>
 
         <li><div>A program that reads English text from a file and
         converts strangely spelled words to a simpler spelling that more
@@ -86,7 +86,7 @@
 
         <li><div>A program that uses <code>pandas</code> to process a
         data set like the water meter reading data set and produces
-        charts that help people to visualize information about the data
+        charts that help people visualize information about the data
         set.</div></li>
 
         <li><div>A program to reorganize or rename all the files in a
@@ -107,7 +107,8 @@
         death.</div></li>
 
         <li><div>A program that retrieves data from a a server on the
-        internet.</div></li>
+        internet. The Python <code>requests</code> module contains
+        functions that retrieve data from a server.</div></li>
 
         <li><div>A program that retrieves data from a relational
         database.</div></li>
@@ -124,17 +125,17 @@
     <h2>Testing Procedure</h2>
     <p>You should follow good coding practices by writing test functions
     and running them with <code>pytest</code> to verify that your
-    program functions works correctly. Many students believe that the
+    program functions work correctly. Many students believe that the
     program functions they write cannot be tested with test functions
-    and pytest. Such claims are simply false. Here are just some of the
-    reasons that students have claimed make their program functions
-    untestable and example code that shows such claims are false.</p>
+    and <code>pytest</code>. Such claims are simply false. Here are just
+    some of the reasons that students have claimed make their program
+    functions untestable and example code that shows such claims are
+    false.</p>
 
     <h3>My function can't be tested because it:</h3>
-
-    <div class="expand">
-    <div class="title">Calculates numbers</div>
-    <div class="pre"><pre class="python">
+    <ul class="long">
+        <li><div>Calculates numbers
+<div class="pre"><pre class="python">
 def payment(amt, ar, y, ppy):
     """Computes and returns the payment amount
     for a loan with a fixed annual interest rate.
@@ -143,15 +144,15 @@ def payment(amt, ar, y, ppy):
     n = y * ppy
     p = amt * r / (1 - (1 + r) ** -n)
     return round(p, 2)</pre></div>
-    <div class="pre"><pre class="python">
+<div class="pre"><pre class="python">
 def test_payment():
     """Verify that the payment function works correctly."""
     assert payment(10_000, 0.07, 4, 12) == 239.46
-    assert payment(80_000, 0.04, 15, 4) == 1779.56</pre></div></div>
+    assert payment(80_000, 0.04, 15, 4) == 1779.56</pre></div>
+        </div></li>
 
-    <div class="expand">
-    <div class="title">Processes text instead of numbers</div>
-    <div class="pre"><pre class="python">
+        <li><div>Processes text instead of numbers
+<div class="pre"><pre class="python">
 def prefix(s1, s2):
     """Return the prefix, if any, that appears in both s1 and s2. In
     other words, return a string of the characters that appear at the
@@ -167,7 +168,7 @@ def prefix(s1, s2):
             break
         i += 1
     return s1[0:i]</pre></div>
-    <div class="pre"><pre class="python">
+<div class="pre"><pre class="python">
 def test_prefix():
     """Verify that the prefix function works correctly."""
     assert prefix("", "") == ""
@@ -178,11 +179,11 @@ def test_prefix():
     assert prefix("dogmatic", "dog") == "dog"
     assert prefix("jump", "joyous") == "j"
     assert prefix("unwise", "ungrateful") == "un"
-    assert prefix("Disable", "dIstasteful") == "dis"</pre></div></div>
+    assert prefix("Disable", "dIstasteful") == "dis"</pre></div>
+        </div></li>
 
-    <div class="expand">
-    <div class="title">Gets user input from a terminal</div>
-    <div class="pre"><pre class="python">
+        <li><div>Gets user input from a terminal
+<div class="pre"><pre class="python">
 def get_int(prompt, min, max):
     """Prompt the user for an integer, verify that it is
     between min and max inclusive, and return the integer.
@@ -201,7 +202,7 @@ def get_int(prompt, min, max):
         except ValueError as val_err:
             print(f"Invalid integer: {text}. Please try again.")
     return num</pre></div>
-    <div class="pre"><pre class="python">
+<div class="pre"><pre class="python">
 from io import StringIO
 import re
 import sys
@@ -229,53 +230,53 @@ def test_get_int(monkeypatch):
             prompt + "\\s*"
     output = stdout.getvalue()
     assert re.compile(pattern).match(output) != None
-    assert num == 8</pre></div></div>
+    assert num == 8</pre></div>
+        </div></li>
 
-    <div class="expand">
-    <div class="title">Gets user input from a GUI</div>
-    <div class="pre"><pre class="python">
-"""In order to test a program that gets user input from a graphical
-user interface, separate the event functions (the ones that are
-executed when a user types a value in a text field) into two
-functions. Move the calculations out of an event function and into a
-calculation function that takes parameters, performs a calculation,
-and returns a result. Then write a test function for the new
-calculation function."""
+        <li><div>Gets user input from a GUI
+<div class="pre"><pre class="python">
+"""
+In order to test a program that gets user input from a graphical user
+interface, separate the event functions (the ones that are executed
+when a user types a value in a text field) into two functions. Move
+the calculations out of an event function and into a calculation
+function that takes parameters, performs a calculation, and returns a
+result. Then write a test function for the new calculation function.
+"""
+    # This function is called each time the user releases a key.
+    def calc(event):
+        try:
+            # Get the user input.
+            w = txtWidth.get()
+            a = txtRatio.get()
+            d = txtDiam.get()
 
-        # This function is called each time the user releases a key.
-        def calc(event):
-            try:
-                # Get the user input.
-                w = txtWidth.get()
-                a = txtRatio.get()
-                d = txtDiam.get()
+            # Compute the tire volume.
+            v = tire_volume(w, a, d)
 
-                # Compute the tire volume.
-                v = tire_volume(w, a, d)
+            # Display the volume for the user to see.
+            lblResult.config(text=f"{v:.1}")
 
-                # Display the volume for the user to see.
-                lblResult.config(text=str(round(v, 1)))
-
-            except ValueError:
-                # When the user deletes all the digits in one
-                # of the text fields, clear the result labels.
-                    lblResult.config(text="")
+        except ValueError:
+            # When the user deletes all the digits in one
+            # of the text fields, clear the result labels.
+                lblResult.config(text="")
 
 
-    def tire_volume(width, ratio, diam):
-        """Compute and return the approximate volume of a tire."""
-        vol = (math.pi * width * width * ratio *
-                (widith * ratio + 2540 * diam)) / 10_000_000
-        return vol</pre></div>
-    <div class="pre"><pre class="python">
+def tire_volume(width, ratio, diam):
+    """Compute and return the approximate volume of a tire."""
+    vol = (math.pi * width * width * ratio *
+            (widith * ratio + 2540 * diam)) / 10_000_000
+    return vol</pre></div>
+<div class="pre"><pre class="python">
 def test_tire_volume():
     """Verify that the tire_volume function works correctly."""
     assert tire_volume(185, 60, 14) == approx(30101.58, 0.01)
-    assert tire_volume(205, 60, 15) == approx(39924.49, 0.01)</pre></div></div>
+    assert tire_volume(205, 60, 15) == approx(39924.49, 0.01)</pre></div>
+        </div></li>
 
-    <div class="expand">
-    <div class="title">Writes to a file</div>
-    <div class="pre"><pre class="python">
+        <li><div>Writes to a file
+<div class="pre"><pre class="python">
 def write_file(filename, lines):
     """Create a file and write lines of text to it.
     Parameter
@@ -285,7 +286,7 @@ def write_file(filename, lines):
     with open(filename, "wt") as outfile:
         for text in lines:
             print(text, file=outfile)</pre></div>
-    <div class="pre"><pre class="python">
+<div class="pre"><pre class="python">
 import os
 
 def test_write_file():
@@ -320,11 +321,11 @@ def test_write_file():
     os.remove(filename)
 
     # Verify that write_file correctly wrote the fruits.txt file.
-    assert lines == written</pre></div></div>
+    assert lines == written</pre></div>
+        </div></li>
 
-    <div class="expand">
-    <div class="title">Reads from a file</div>
-    <div class="pre"><pre class="python">
+        <li><div>Reads from a file
+<div class="pre"><pre class="python">
 def read_file(filename):
     """Reads and returns the contents
     of a text file as a list of strings.
@@ -341,7 +342,7 @@ def read_file(filename):
     lines = string.splitlines()
 
     return lines</pre></div>
-    <div class="pre"><pre class="python">
+<div class="pre"><pre class="python">
 import os
 
 def test_read_file():
@@ -359,11 +360,11 @@ def test_read_file():
     os.remove(filename)
 
     # Verify that read_file read the file correctly.
-    assert read == lines</pre></div></div>
+    assert read == lines</pre></div>
+        </div></li>
 
-    <div class="expand">
-    <div class="title">Uses pandas</div>
-    <div class="pre"><pre class="python">
+    <li><div>Uses the <code>pandas</code> module
+<div class="pre"><pre class="python">
 def filter_for_meter(df, meter_number):
     """Return a new DataFrame that contains only the rows where
     the meterNumber column equals the parameter meter_number.
@@ -377,7 +378,7 @@ def filter_for_meter(df, meter_number):
     filter = (df["meterNumber"] == meter_number)
     filtered_df = df[filter]
     return filtered_df</pre></div>
-    <div class="pre"><pre class="python">
+<div class="pre"><pre class="python">
 import pandas as pd
 
 def test_filter_for_meter():
@@ -397,26 +398,27 @@ def test_filter_for_meter():
     # Verify that all the meter numbers in the
     # filtered data frame are the correct number.
     for value in filtered_df["meterNumber"]:
-        assert value == meter_num</pre></div></div>
+        assert value == meter_num</pre></div>
+        </div></li>
 
-    <div class="expand">
-    <div class="title">My code is so good that it doesn't need to be tested.</div>
-    <div class="pre">Good luck with that attitude, hot shot. In all
-    seriousness, how do you know your code is good? Besides, no matter
-    how good of a programmer you are, you still make mistakes. It is
-    better to find those mistakes yourself by writing and running tests
-    than it is to make users of your software find your
-    mistakes.</div></div>
+        <li><div><p>My code is so good that it doesn't need to be
+        tested.</p>
+
+        <p>Good luck with that attitude, hot shot. In all seriousness,
+        how do you know your code is good? Besides, no matter how good
+        of a programmer you are, you still make mistakes. It is better
+        to find those mistakes yourself by writing and running tests
+        than it is to make users of your software find your
+        mistakes.</p>
+        </div></li>
 
     <h2>Submission</h2>
-    <p>At the end of this lesson, you must complete this lesson's Prove:
-    Milestone quiz in I-Learn. Your teacher or teaching assistant will
-    grade your work according to this rubric:</p>
+    <p>At the end of this lesson and lessons&nbsp;12 and&nbsp;13, you
+    must submit a description or your work, and your teacher or teaching
+    assistant will grade your work according to the following
+    rubrics.</p>
 
-    <p>At the end of each lesson: 11, 12, and 13, you must submit a
-    description or your work, and your teacher or teaching assistant will
-    grade your work according to this rubric:</p>
-
+    <h3>Lesson 11 Rubric</h3>
     <ol class="long">
         <li><div>Proposal&mdash;40%: Does your proposal adequately
         answer the questions in the template?</div></li>
@@ -438,6 +440,88 @@ def test_filter_for_meter():
             <li><div>A description or list of the work that you finished
             on your program.</div></li>
         </ol></div></li>
+    </ol>
+
+    <h3>Lesson 12 Rubric</h3>
+    <ol class="long">
+        <li><div>Time&mdash;50%: Did you spend at least three hours on
+        your Python program or test functions during the current
+        lesson?</div></li>
+
+        <li><div>Orgainization&mdash;20%:
+        <ol>
+            <li><div>Is your program organized into multiple
+            functions?</div></li>
+            <li><div>Does each function in your program perform just one
+            task?</div></li>
+        </ol>
+
+        <li><div>Progress&mdash;20%: Did you complete some significant
+        part of your program during the current week?</div></li>
+
+        <li><div>Description&mdash;10%: Is the description of your work
+        for this lesson complete and easily understandable? Your
+        description should include the following:
+        <ol>
+            <li><div>A list of the function names in your
+            program.</div></li>
+            <li><div>A list of the test function names in your test
+            code.</div></li>
+            <li><div>A list of the documentation that you read, the
+            videos that you watched, and the coding experiments that you
+            tried.</div></li>
+            <li><div>A description or list of the work that you finished
+            on your program.</div></li>
+        </ol>
+    </ol>
+
+    <h3>Lesson 13 Rubric</h3>
+    <ol class="long">
+        <li><div>Time&mdash;50%: Did you spend at least six hours on
+        your Python program or test functions during the current
+        lesson?</div></li>
+
+        <li><div>Description&mdash;10%: Is the description of your work
+        for this lesson complete and easily understandable? Your
+        description should include the following:
+        <ol>
+            <li><div>A list of the function names in your
+            program.</div></li>
+            <li><div>A list of the test function names in your test
+            code.</div></li>
+            <li><div>A list of the documentation that you read, the
+            videos that you watched, and the coding experiments that you
+            tried.</div></li>
+            <li><div>A description or list of the work that you finished
+            on your program.</div></li>
+        </ol>
+
+        <li><div>Python program file&mdash;25%: Upload your Python
+        program. Your teacher will evaluate it according to these
+        criteria:
+        <ol>
+            <li><div>Your program is divided into functions and each
+            function performs one task only.</div></li>
+            <li><div>Your program effectively uses existing Python
+            modules such as math, random, requests, pandas, and
+            tkinter.</div></li>
+            <li><div>Your program performs a significant real world
+            task.</div></li>
+        </ol>
+
+        <li><div>Python test file&mdash;15%: Upload your Python test
+        file. Your teacher will evaluate it according to these criteria:
+        <ol>
+            <li><div>Each testable program function is covered (tested)
+            by one test function. (Some functions, especially main and
+            those that create GUIs are difficult to test and don't need
+            to have a corresponding test function.)</div></li>
+            <li><div>Each test function completely exercises (tests) its
+            corresponding program function. In other words, the test
+            function calls the program function multiple times with
+            different arguments, including unusual or unexpected
+            values.</div></li>
+        </ol>
     </ol>
 </article>
 <footer>

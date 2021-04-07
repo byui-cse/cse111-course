@@ -71,21 +71,21 @@ def main():
     averaged and tell the computer to compute that average for us. SQL
     is a declarative programming language used with relational
     databases. Example&nbsp;2 contains SQL code that causes the computer
-    to compute average of a column of numbers.</p>
+    to compute the average of a column of numbers.</p>
 
 <div class="pre"><pre class="python" id="ex2">-- Example 2
 
 SELECT AVG(numbers) FROM table;</pre></div>
 
     <p>Notice in example&nbsp;2, that the code does not contain the
-    steps required to compute the average of numbers. Someone else
-    already wrote the code that contains those steps. Instead, the SQL
-    code contains a command that tells the computer to compute the
-    average of a column named <var>numbers</var>. The term "declarative
-    programming" means that we write or declare what we want the
-    computer to do. We do not tell the computer how to compute
-    something. We declare what we want the computer to do, and the
-    computer determines how to do it and then does it.</p>
+    steps required to compute the average. Someone else already wrote
+    the code that contains those steps. Instead, the SQL code contains a
+    command that tells the computer to compute the average of a column
+    named <var>numbers</var>. The term "declarative programming" means
+    that we write or declare what we want the computer to do. We do not
+    tell the computer how to compute something. We declare what we want
+    the computer to do, and the computer determines how to do it and
+    then does it.</p>
 
     <h3>Functional Programming</h3>
     <p>When we use functional programming to program a computer, we
@@ -123,7 +123,7 @@ def main():
 
     <p>When we write an object-oriented program, we combine data and
     functions together into objects. For example, if we were writing a
-    registration program used for students to register for courses at a
+    registration program used by students to register for courses at a
     school, we would write code to create Student objects and Course
     objects. Each Student object would have data such as given_name,
     family_name, and phone_number and would have functions such as
@@ -177,16 +177,15 @@ def main():
 
     <h2>Python Lists Are Objects</h2>
     <p>In Python, lists are objects with attributes and methods, and a
-    programmer can modify the contents of a list by calling those
-    methods. The list methods are documented in a section of the Python
-    Tutorial titled
+    programmer can modify a list by calling those methods. The list
+    methods are documented in a section of the Python Tutorial titled
     <a href="https://docs.python.org/3/tutorial/datastructures.html#more-on-lists">More on Lists</a>.</p>
 
     <p>Example&nbsp;5 contains a program copied from the
     <a href="../lesson07/prepare.html">prepare content</a>
     of lesson&nbsp;7. Now that you know what an object is, that objects
     have methods, and that Python lists are objects, this example code
-    should ake more sense than it did in lesson&nbsp;7. Notice that the
+    should make more sense than it did in lesson&nbsp;7. Notice that the
     <code>append</code> method is called on
     <span class="cross" data-ref="ex5">lines&nbsp;8&ndash;10</span>,
     <code>insert</code> is called on
@@ -233,10 +232,10 @@ if __name__ == "__main__":
 
     <h2>Python Dictionaries Are Objects</h2>
     <p>Python dictionaries are objects with attributes and methods, and
-    a programmer can modify the contents of a dictionary by calling those
-    methods. There doesn't seem to be an official Python web page that
-    documents the dictionary methods, so here is a list of the built-in
-    dictionary methods:</p>
+    a programmer can modify a dictionary by calling those methods. There
+    doesn't seem to be an official Python web page that documents the
+    dictionary methods, so here is a list of the built-in dictionary
+    methods:</p>
 
     <table><thead>
         <tr><th>Method</th> <th>Description</th></tr>
@@ -323,7 +322,7 @@ if __name__ == "__main__":
     <p>This lesson is introducing you to object-oriented programming.
     You are learning that an object has data (attributes) and functions
     (methods) and that a programmer uses the dot operator (.) to access
-    the attributes and methods in an object. Python lists and
+    the attributes and call the methods in an object. Python lists and
     dictionaries are objects and contain attributes and methods.</p>
 </article>
 <footer>

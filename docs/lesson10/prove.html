@@ -30,14 +30,14 @@
 <article>
     <h1>10 Prove Assignment: Handling Exceptions</h1>
 
-    <h2>Overview</h2>
+    <h2>Purpose</h2>
     <p>Prove that you can write a Python program that handles
     exceptions, including FileNotFoundError, PermissionError, and
     KeyError.</p>
 
     <h2>Problem Statement</h2>
     <p>A local grocery store subscribes to an online service that
-    enables their customers to order groceries online. After a customer
+    enables its customers to order groceries online. After a customer
     completes an order, the online service sends a CSV file to the
     grocery store. The store needs you to write a program that reads the
     CSV file and prints (to the terminal window) a receipt that lists
@@ -45,28 +45,23 @@
     and the total.</p>
 
     <h2>Helpful Documentation</h2>
-    <ol class="long">
+    <ul class="long">
         <li><div>The <a href="prepare.html">prepare</a> content for this
         lesson explains how to handle exceptions.</div></li>
 
-    <p><a href="https://content.byui.edu/items/a9e60503-b5e7-40f0-bf48-ebf1a7441d25/1/example_04.mp4">This video</a>
-    shows a BYU-Idaho faculty member writing code that prints the
-    current date and time formatted so that users can easily read
-    it.</p>
-
-    <p>The <code>datetime</code> module contains the
-    <a href="https://docs.python.org/3/library/datetime.html#datetime.datetime.now"><code>now</code> method</a>,
-    which will get the current date and time from your computer's
-    operating system. To get the current date and time from your
-    computer's operating system, import the <code>datetime</code> module
-    and add this code to your program:</p>
+        <li><div><p>The <code>datetime</code> module contains the
+        <a href="https://docs.python.org/3/library/datetime.html#datetime.datetime.now"><code>now</code> method</a>,
+        which will get the current date and time from your computer's
+        operating system. To get the current date and time from your
+        computer's operating system, import the <code>datetime</code>
+        module and add this code to your program:</p>
 
 <div class="pre"><pre class="python">
-import datetime
+from datetime import datetime
 
-# Get the current date and time from the datetime
-# module which gets it from the operating system.
-current_date_and_time = datetime.datetime.now()
+# Get the current date and time from the
+# datetime.now method in the datetime module.
+<em>current_date_and_time = datetime.now()</em>
 </pre></div>
 
     <p>After the computer executes the above code, the variable
@@ -77,12 +72,6 @@ current_date_and_time = datetime.datetime.now()
     readable by a user. For example:</p>
 
 <div class="pre"><pre class="python">
-import datetime
-
-# Get the current date and time from the datetime
-# module which gets it from the operating system.
-current_date_and_time = datetime.datetime.now()
-
 # Format the current date and time to include only
 # the day of the week, the hour, and the minute.
 string = <em>current_date_and_time.strftime("%A %I:%M %p")</em>
@@ -90,15 +79,22 @@ string = <em>current_date_and_time.strftime("%A %I:%M %p")</em>
 # Print the formatted string.
 print(string)</pre></div>
 
-    <p>In the previous example, the string sequences that begin with the
-    percent symbol (%) are called format codes. The
-    <code>strftime</code> format codes and their meaning are listed in
-    <a ref="https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes">this document</a>.
-    When executed, the previous example will print the current date and
-    time to the terminal window like this:</p>
+        <p>In the previous example, the string sequences that begin with
+        the percent symbol (%) are called format codes. The
+        <code>strftime</code> format codes and their meaning are listed
+        in <a href="https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes">this document</a>.
+        When executed, the previous example will print the current date
+        and time to the terminal window like this:</p>
 
 <pre class="console">&gt; python example.py
 Tuesday 01:23 PM</pre>
+        </div></li>
+
+        <li><div><a href="https://content.byui.edu/items/a9e60503-b5e7-40f0-bf48-ebf1a7441d25/1/example_04.mp4">This video</a>
+        shows a BYU-Idaho faculty member writing code that prints the
+        current date and time formatted so that users can easily read
+        it.</div></li>
+    </ul>
 
     <h2>Assignment</h2>
     <p>During the prove assignment for lesson&nbsp;9, you wrote the part

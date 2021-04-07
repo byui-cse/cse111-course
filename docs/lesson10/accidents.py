@@ -76,7 +76,7 @@ def estimate_reduction(row, behavior_key, perc_reduc):
 
 
 # If this file was executed like this:
-# > python teach_solution.py
+# > python accidents.py
 # then call the main function. However, if this file
 # was simply imported, then skip the call to main.
 if __name__ == "__main__":

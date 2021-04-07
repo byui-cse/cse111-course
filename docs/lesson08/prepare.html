@@ -53,37 +53,6 @@
     after they are created. Dictionaries were invented to enable
     computers to find items quickly.</p>
 
-    <p>Dictionaries are similar to lists in a few ways. The following
-    table shows the similarities and differences of lists and
-    dictionaries.</p>
-
-    <table class="center"><thead>
-        <tr><th></th> <th>Lists</th> <th>Dictionaries</th></tr>
-    </thead><tbody>
-        <tr>
-        <th>Similar</th>
-        <td><p>A list can store many elements. Each element in a
-        list does not have to be unique.</p></td>
-        <td><p>A dictionary can store many items. Each item is a key
-        value pair. Each key within a dictionary must be unique.</p></td></tr>
-
-        <tr>
-        <th>Same</th>
-        <td><p>Lists are mutable, meaning a program can add and remove
-        elements after a list is created.</p></td>
-        <td><p>Dictionaries are mutable, meaning a program can add and
-        remove items after a dictionary is created.</p></td></tr>
-
-        <tr>
-        <th>Different</th>
-        <td><p>Lists were designed for efficiently storing elements.
-        Lists use less memory than dictionaries. However, finding an
-        element in a list is relatively slow.</p></td>
-        <td><p>Dictionaries were designed for quickly finding items.
-        Finding an item in a dictionary is fast. However, dictionaries
-        use more memory than lists.</p></td></tr>
-    </tbody></table>
-
     <p>The following table represents a dictionary that contains five
     items (five key value pairs) Notice that each of the keys is
     unique.</p>
@@ -377,6 +346,79 @@ if __name__ == "__main__":
 
 <div class="pre"><pre class="python">
     for key, value in students.items():</pre></div>
+
+    <h3>Dictionaries Are Similar to Lists</h3>
+    <p>Dictionaries are similar to lists in a few ways. The following
+    table shows the similarities and differences of lists and
+    dictionaries.</p>
+
+    <table class="center"><thead>
+        <tr><th></th> <th>Lists</th> <th>Dictionaries</th></tr>
+    </thead><tbody>
+        <tr>
+        <th>Similar</th>
+        <td><p>A list can store many elements. Each element in a
+        list does not have to be unique.</p></td>
+        <td><p>A dictionary can store many items. Each item is a key
+        value pair. Each key within a dictionary must be unique.</p></td></tr>
+
+        <tr>
+        <th>Different</th>
+        <td><p>Each element in a list does not have to be unique.</p></td>
+        <td><p>Each item in a dictionary is a key value pair. Each key
+        within a dictionary must be unique. Each value does not have to
+        be unique.</p></td></tr>
+
+        <tr>
+        <th>Different</th>
+        <td><p>Lists were designed for efficiently storing elements.
+        Lists use less memory than dictionaries. However, finding an
+        element in a list is relatively slow.</p></td>
+        <td><p>Dictionaries were designed for quickly finding items.
+        Finding an item in a dictionary is fast. However, dictionaries
+        use more memory than lists.</p></td></tr>
+
+        <tr>
+        <th>Same</th>
+        <td><p>Lists are mutable, meaning a program can add and remove
+        elements after a list is created.</p></td>
+        <td><p>Dictionaries are mutable, meaning a program can add and
+        remove items after a dictionary is created.</p></td></tr>
+
+        <tr>
+        <th>Same</th>
+        <td><p>Lists are passed by reference into a function.</p></td>
+        <td><p>Dictionaries are passed by reference into a
+        function.</p></td></tr>
+
+        <tr>
+        <th>Different</th>
+        <td><p>A programmer uses square brackets ([&nbsp;and&nbsp;]) to
+        create a list.</p></td>
+        <td><p>A programmer uses curly braces ({&nbsp;and&nbsp;}) to
+        create a dictionary.</p></td></tr>
+
+        <tr>
+        <th>Different</th>
+        <td><p>A programmer calls the <code>append</code> and
+        <code>insert</code> methods to add an element to a list.</p></td>
+        <td><p>A programmer uses square brackets ([&nbsp;and&nbsp;]) to
+        add an item to a dictionary.</p></td></tr>
+
+        <tr>
+        <th>Similar</th>
+        <td><p>A programmer uses square brackets ([&nbsp;and&nbsp;]) and
+        an index to retrieve an element from a list.</p></td>
+        <td><p>A programmer uses square brackets ([&nbsp;and&nbsp;]) and
+        a key to retrieve a value from a dictionary.</p></td></tr>
+
+        <tr>
+        <th>Similar</th>
+        <td><p>A programmer uses square brackets ([&nbsp;and&nbsp;]) and
+        an index to replace an element in a list.</p></td>
+        <td><p>A programmer uses square brackets ([&nbsp;and&nbsp;]) and
+        a key to replace a value in a dictionary.</p></td></tr>
+    </tbody></table>
 
     <h3>Converting between Lists and Dictionaries</h3>
     <p>It is possible to convert two lists into a dictionary by using

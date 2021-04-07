@@ -71,16 +71,38 @@
         <li><div>The <a href="prepare.html">prepare content</a> for this
         lesson explains how to call a function and a method.</div></li>
 
-        <li><div>These two Microsoft videos explain how to use methods
-        from the standard <code>datetime</code> module.
+        <li><div>The <a href="https://docs.python.org/3/library/datetime.html#datetime.datetime.now"><code>datetime.now()</code></a>
+        method from the <code>datetime</code> module returns the current
+        local date and time as a <code>datetime</code> object. Here is
+        an excerpt from the official documentation for the
+        <code>datetime.now</code> method:
+        <dl class="function">
+            <dt><code>datetime.now(tz=None)</code></dt>
+            <dd><p>Return the current local date and time.</p>
+            <p><var>tz</var> is optional, but if it not
+            <code>None</code>, it must be <code>tzinfo</code> (time zone
+            information) object</p></dd>
+        </dl>
+
+        <p>The following Python code will import the
+        <code>datetime</code> class from the <code>datetime</code>
+        module and will call the <code>datetime.now</code> method to get
+        the current date and time from a computer's operating
+        system.</p>
+<div class="pre"><pre class="python">
+from datetime import datetime
+
+# Get the current date and time from the
+# datetime.now method in the datetime module.
+current_date_and_time = datetime.now()</pre></div>
+
+        <p>These two Microsoft videos explain how to use methods from
+        the standard <code>datetime</code> module.</p>
         <ul>
             <li><div><a href="https://www.youtube.com/watch?v=o1dlxoHxdHU&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=15">Date data types</a></div></li>
             <li><div><a href="https://www.youtube.com/watch?v=Zs9u8TAv4_k&list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6&index=16">Demo: Dates</a></div></li>
-        </ul></div></li>
-
-        <li><div>The <a href="https://docs.python.org/3/library/datetime.html#datetime.datetime.now"><code>datetime.now()</code></a>
-        method from the <code>datetime</code> module returns the current
-        local date and time as a <code>datetime</code> object.</div></li>
+        </ul>
+        </div></li>
 
         <li><div>The built-in <a href="https://docs.python.org/3/library/functions.html#open"><code>open()</code></a>
         function opens a file for reading or writing. Here is an excerpt
@@ -112,19 +134,12 @@
             <var>sep</var>, <var>end</var>, <var>file</var> and
             <var>flush</var>, if present, must be given as named
             arguments.</dd>
-        </dl></div></li>
+        </dl>
 
-        <!--
-        <li><div>This <a href="https://content.byui.edu/items/a9e60503-b5e7-40f0-bf48-ebf1a7441d25/1/example_02.mp4">short video</a>
-        shows a BYU-Idaho faculty member solving a problem that is
-        similar to this prove assignment.</div></li>
-        -->
-    </ul>
-
-    <p>The following example code calls the <code>open</code> function
-    to open a file for appending text and then calls the
-    <code>print</code> function two times to print two lines of text to
-    the file.</p>
+        <p>The following example code calls the <code>open</code>
+        function to open a file for appending text and then calls the
+        <code>print</code> function two times to print two lines of text
+        to the file.</p>
 
 <div class="pre"><pre class="python" id="ex1">
 model = "GMC Acadia"
@@ -138,6 +153,14 @@ with open("dimensions.txt", <em>"at"</em>) as dimens_file:
     # Print a car's model and dimensions to the file.
     print(model, <em>file=dimens_file</em>)
     print(f"{length}, {width}, {height}", <em>file=dimens_file</em>)</pre></div>
+        </div></li>
+
+        <!--
+        <li><div>This <a href="https://content.byui.edu/items/a9e60503-b5e7-40f0-bf48-ebf1a7441d25/1/example_02.mp4">short video</a>
+        shows a BYU-Idaho faculty member solving a problem that is
+        similar to this prove assignment.</div></li>
+        -->
+    </ul>
 
     <h2>Sample Run</h2>
 <pre class="console">&gt; python tire_volume.py

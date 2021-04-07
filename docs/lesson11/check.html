@@ -28,26 +28,35 @@
     <h1>11 Checkpoint: Functional Programming</h1>
 
     <h2>Purpose</h2>
-    <p>Complete this individual checkpoint assignment to reinforce in
-    your mind the concept that a function can be passed as an argument
-    into another function.</p>
+    <p>Reinforce in your mind the concept that a function can be passed
+    as an argument into another function.</p>
 
     <h2>Problem Statement</h2>
     <p>Phone numbers in the U.S. are often stored as ten digits and two
-    dashes in this format: "ddd-ddd-dddd" where each <var>d</var> is a
-    digit. The first three digits are called the area code. For example,
-    for many years, 208 was the area code for all phone numbers from the
-    state of Idaho and 801 and 435 were the two area codes for phone
-    numbers in the state of Utah. Some people when entering their phone
-    number will not enter the area code and assume that other people
-    will know the correct area code.</p>
+    dashes in this format:&nbsp; "ddd-ddd-dddd" where each <var>d</var>
+    is a digit. The first three digits are called the area code. For
+    example, for many years, 208 was the area code for all phone numbers
+    in the state of Idaho and 801 and 435 were the two area codes for
+    phone numbers in the state of Utah. Some people, when entering their
+    phone number, will not enter the area code and assume that other
+    people will know the correct area code.</p>
 
     <h2>Helpful Documentation</h2>
-    <p>The <a href="prepare.html">prepare content</a> for this lesson
-    explains higher-order functions, nested functions, lambda functions
-    and how to call the
-    <a href="https://docs.python.org/3/library/functions.html#map"><code>map</code></a>
-    function.</p>
+    <ul class="long">
+        <li><div>The <a href="prepare.html">prepare content</a> for this
+        lesson explains higher-order functions, nested functions, lambda
+        functions, and how to call the
+        <a href="https://docs.python.org/3/library/functions.html#map"><code>map</code></a>
+        function.</div></li>
+
+        <li><div><a href="../lesson09/file_setup.html">This article</a>
+        explains how to setup VS Code so that your Python program can
+        read from text files.</div></li>
+
+        <li><div>The <a href="../lesson09/prepare.html">prepare content</a>
+        for lesson&nbsp;9 explains how to read the contents of a text
+        file into a list.</div></li>
+    </ul>
 
     <h2>Assignment</h2>
     <p>Write a program named <code>add_area_code.py</code> that reads
@@ -116,7 +125,8 @@
         <a download href="test_add_area_code.py"><code>test_add_area_code.py</code></a>
         that contains <code>pytest</code> test functions. Verify that
         all the test functions pass. If they don't pass, fix the
-        mistakes in your code until they pass.</div></li>
+        mistakes in your code in <code>add_area_code.py</code> until
+        they pass.</div></li>
 
         <li><div>Run your program, which should print the list of
         corrected phone numbers. Examine the corrected phone numbers and
@@ -127,15 +137,15 @@
     <p>In the <code>main</code> function, look at the line of code that
     calls the <code>map</code> function. Think about the fact that the
     <code>map</code> function will call the <code>add_area_code</code>
-    function once for each element in the phone_numbers list, and the
-    <code>add_area_code</code> function will add the area code "208-" at
-    the beginning of the phone number if necessary.</p>
+    function once for each element in the <var>phone_numbers</var> list,
+    and the <code>add_area_code</code> function will add the area code
+    "208-" at the beginning of each phone number if necessary.</p>
 
     <h2>Sample Solution</h2>
     <p>When your program is finished, view the <a download
     href="check_solution.py">sample solution</a> for this assignment to
     compare your solution to that one. Before looking at the sample
-    solution, you should work to complete this checkpoint program first.
+    solution, you should work to complete this checkpoint program.
     However, if you have worked on it for at least an hour and are still
     having problems, feel free to use the sample solution to help you
     finish your program.</p>
