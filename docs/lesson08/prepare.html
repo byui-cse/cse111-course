@@ -44,15 +44,49 @@
     should learn during this lesson:</p>
 
     <h3>Dictionaries</h3>
-    <p>Within a Python program, we can store many items in a
+    <p>Within a Python program, a program can store many items in a
     <a href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">dictionary</a>.
-    Dictionaries are mutable, meaning they can be changed after they are
-    created. In a dictionary, items are stored as key value pairs. All
-    keys within a dictionary must be unique. In other words, no key can
-    appear more than once in a dictionary. Values within a dictionary do
-    not have to be unique. The following table shows a dictionary that
-    contains five items (five key value pairs) Notice that each of the
-    keys is unique.</p>
+    Each item in a dictionary is a key value pair. Each key within a
+    dictionary must be unique. In other words, no key can appear more
+    than once in a dictionary. Values within a dictionary do not have to
+    be unique. Dictionaries are mutable, meaning they can be changed
+    after they are created. Dictionaries were invented to enable
+    computers to find items quickly.</p>
+
+    <p>Dictionaries are similar to lists in a few ways. The following
+    table shows the similarities and differences of lists and
+    dictionaries.</p>
+
+    <table class="center"><thead>
+        <tr><th></th> <th>Lists</th> <th>Dictionaries</th></tr>
+    </thead><tbody>
+        <tr>
+        <th>Similar</th>
+        <td><p>A list can store many elements. Each element in a
+        list does not have to be unique.</p></td>
+        <td><p>A dictionary can store many items. Each item is a key
+        value pair. Each key within a dictionary must be unique.</p></td></tr>
+
+        <tr>
+        <th>Same</th>
+        <td><p>Lists are mutable, meaning a program can add and remove
+        elements after a list is created.</p></td>
+        <td><p>Dictionaries are mutable, meaning a program can add and
+        remove items after a dictionary is created.</p></td></tr>
+
+        <tr>
+        <th>Different</th>
+        <td><p>Lists were designed for efficiently storing elements.
+        Lists use less memory than dictionaries. However, finding an
+        element in a list is relatively slow.</p></td>
+        <td><p>Dictionaries were designed for quickly finding items.
+        Finding an item in a dictionary is fast. However, dictionaries
+        use more memory than lists.</p></td></tr>
+    </tbody></table>
+
+    <p>The following table represents a dictionary that contains five
+    items (five key value pairs) Notice that each of the keys is
+    unique.</p>
 
     <table class="center"><thead>
         <tr><th colspan="2">items</th> <th></th></tr>
@@ -65,16 +99,17 @@
         <tr><td>10-450-1203</td> <td>Jorge Soares</td>
             <td class="center">items</td></tr>
         <tr><td>75-421-2310</td> <td>Abdul Ali</td>
-            <td class="center"></td></tr>
+            <td class="center">|</td></tr>
         <tr><td>07-103-5621</td> <td>Michelle Davis</td>
             <td class="center">&darr;</td></tr>
     </tbody></table>
 
-    <p>We can create a dictionary by using curly braces ({ and }). We
-    can add an item to a dictionary and find an item in a dictionary by
-    using the square brackets ([&nbsp;and&nbsp;]) and a key. The
-    following code example shows how to create a dictionary, add an
-    item, remove an item, and find an item in a dictionary.</p>
+    <p>We can create a dictionary by using curly braces
+    ({&nbsp;and&nbsp;}). We can add an item to a dictionary and find an
+    item in a dictionary by using square brackets ([&nbsp;and&nbsp;])
+    and a key. The following code example shows how to create a
+    dictionary, add an item, remove an item, and find an item in a
+    dictionary.</p>
 
 <div class="pre"><pre class="linenums"></pre>
 <pre class="python" id="ex1"># Example 1
@@ -127,7 +162,7 @@ if __name__ == "__main__":
     previous code example, adds an item to the dictionary. To add an
     item to an existing dictionary, write code that follows this
     template:</p>
-<div class="pre"><pre class="python"><var>dictionary_name</var>[<var>key</var>] = <var>value</var></pre></div>
+<div class="pre"><pre class="python">    <var>dictionary_name</var>[<var>key</var>] = <var>value</var></pre></div>
     <p>Notice that <span class="cross" data-ref="ex1">line&nbsp;15</span>
     follows this template.</p>
 
@@ -135,7 +170,7 @@ if __name__ == "__main__":
     previous code example, finds a key and retrieves its corresponding
     value from a dictionary. To find a key and retrieve its
     corresponding value, write code that follows this template:</p>
-<div class="pre"><pre class="python"><var>value</var> = <var>dictionary_name</var>[<var>key</var>]</pre></div>
+<div class="pre"><pre class="python">    <var>value</var> = <var>dictionary_name</var>[<var>key</var>]</pre></div>
     <p>Notice that <span class="cross" data-ref="ex1">line&nbsp;35</span>
     follows this template.</p>
 
@@ -144,10 +179,10 @@ if __name__ == "__main__":
     such as an integer. A <dfn>compound value</dfn> is a value that has
     parts, such as a list. In example&nbsp;1 above, the
     <var>students</var> dictionary has simple keys and values. Each key
-    is a single string and each value is a single string. It is possible
-    to store compound values in a dictionary. Example&nbsp;2 shows a
-    <var>students</var> dictionary where each value is a Python list.
-    Because each list contains multiple parts, we say that the
+    is a single string, and each value is a single string. It is
+    possible to store compound values in a dictionary. Example&nbsp;2
+    shows a <var>students</var> dictionary where each value is a Python
+    list. Because each list contains multiple parts, we say that the
     dictionary stores compound values.</p>
 
 <div class="pre"><pre class="python" id="ex2"># Example 2
@@ -156,6 +191,7 @@ def main():
     # Create a dictionary with student IDs as the keys
     # and student data stored in a list as the values.
     students = {
+        # student_ID: [given_name, surname, email_address, credits]
         "42-039-4736": ["Clint", "Huish", "hui20001@byui.edu", 16],
         "61-315-0160": ["Michelle", "Davis", "dav21012@byui.edu", 3],
         "10-450-1203": ["Jorge", "Soares", "soa22005@byui.edu", 15],
@@ -171,7 +207,7 @@ def main():
     in a dictionary, a programmer needs to write just one line of code
     that follows this template:</p>
 
-<div class="pre"><pre class="python"><var>value</var> = <var>dictionary_name</var>[<var>key</var>]</pre></div>
+<div class="pre"><pre class="python">    <var>value</var> = <var>dictionary_name</var>[<var>key</var>]</pre></div>
 
     <p>That one line of code will cause the computer to search the
     dictionary until it finds the <var>key</var>. Then the computer will
@@ -179,7 +215,7 @@ def main():
     Some students forget how easy it is to find items in a dictionary,
     and when asked to write code to find an item, they write complex
     code like
-    <span class="cross" data-ref="ex3">lines&nbsp;24&ndash;27</span>
+    <span class="cross" data-ref="ex3">lines&nbsp;25&ndash;28</span>
     in example&nbsp;3.</p>
 
 <div class="pre"><pre class="linenums"></pre>
@@ -189,6 +225,7 @@ def main():
     # Create a dictionary with student IDs as the keys
     # and student data stored in a list as the values.
     students = {
+        # student_ID: [given_name, surname, email_address, credits]
         "42-039-4736": ["Clint", "Huish", "hui20001@byui.edu", 16],
         "61-315-0160": ["Michelle", "Davis", "dav21012@byui.edu", 3],
         "10-450-1203": ["Jorge", "Soares", "soa22005@byui.edu", 15],
@@ -213,7 +250,7 @@ def main():
 </pre></div>
 
     <p>Compare the <code>for</code> loop at
-    <span class="cross" data-ref="ex3">lines&nbsp;24&ndash;27</span> in
+    <span class="cross" data-ref="ex3">lines&nbsp;25&ndash;28</span> in
     the previous example to this one line of code.</p>
 <div class="pre"><pre class="python">    value = students[id]</pre></div>
 
@@ -234,6 +271,7 @@ def main():
     # Create a dictionary with student IDs as the keys
     # and student data stored in a list as the values.
     students = {
+        # student_ID: [given_name, surname, email_address, credits]
         "42-039-4736": ["Clint", "Huish", "hui20001@byui.edu", 16],
         "61-315-0160": ["Michelle", "Davis", "dav21012@byui.edu", 3],
         "10-450-1203": ["Jorge", "Soares", "soa22005@byui.edu", 15],
@@ -257,7 +295,7 @@ def main():
         # retrieve the corresponding value, which is a list.
         value = students[id]
 
-        # Retrive the student's given name (first name) and
+        # Retrieve the student's given name (first name) and
         # surname (last name or family name) from the list.
         given_name = value[GIVEN_NAME_INDEX]
         surname = value[SURNAME_INDEX]
@@ -275,7 +313,8 @@ if __name__ == "__main__":
     <h3 id="processAll">Processing All Items</h3>
     <p>Occaisionally, you may need to write a program that processes all
     the items in a dictionary. Processing all the items in a dictionary
-    is done using a <code>for</code> loop and the
+    is different than finding one item in a dictionary. Processing all
+    the items is done using a <code>for</code> loop and the
     <code>dict.items()</code> method as shown in example&nbsp;5 on
     <span class="cross" data-ref="ex5">line&nbsp;25</span>.</p>
 
@@ -290,7 +329,7 @@ def main():
         "61-315-0160": ["Michelle", "Davis", "dav21012@byui.edu", 3],
         "10-450-1203": ["Jorge", "Soares", "soa22005@byui.edu", 15],
         "75-421-2310": ["Abdul", "Ali", "ali20003@byui.edu", 5],
-        "07-103-5621": ["Michelle", "Davis" "dav19008@byui.edu", 0],
+        "07-103-5621": ["Michelle", "Davis", "dav19008@byui.edu", 0],
         "81-298-9238": ["Sama", "Patel", "pat21004@byui.edu", 8]
     }
 
@@ -303,8 +342,10 @@ def main():
     total = 0
 
     # For each item in the list add the number
-    # of credits that the studen thas earned.
-    <em>for inumber, value in students.items():</em>
+    # of credits that the student has earned.
+    <em>for item in students.items():</em>
+        key = item[0]
+        value = item[1]
 
         # Retrieve the number of credits from the value list.
         credits = value[CREDITS_INDEX]
@@ -318,6 +359,24 @@ def main():
 # Call main to start this program.
 if __name__ == "__main__":
     main()</pre></div>
+
+    <p>As with all the example code in CSE&nbsp;111, example&nbsp;5
+    contains working Python code. Even though the code works, Python
+    includes a nice shortcut called unpacking that enables a programmer
+    to combine lines&nbsp;25&ndash;27 into a single line of code.
+    Instead of writing lines&nbsp;25&ndash;27, like this:</p>
+
+<div class="pre"><pre class="python">
+    for item in students.items():
+        key = item[0]
+        value = item[1]</pre></div>
+
+    <p>We can write one line of code that combines the three lines of
+    code and unpacks the item in the <code>for</code> statement like
+    this:</p>
+
+<div class="pre"><pre class="python">
+    for key, value in students.items():</pre></div>
 
     <h3>Converting between Lists and Dictionaries</h3>
     <p>It is possible to convert two lists into a dictionary by using

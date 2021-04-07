@@ -31,8 +31,9 @@
 </header>
 <article>
     <h1>07 Prepare: Lists and Repetition</h1>
-    <p>During this lesson, you will learn about lists and use them in
-    Python programs.</p>
+    <p>During this lesson, you will learn how to store many items in a
+    Python list. Also, you will learn that lists are passed into a
+    function differently than numbers are passed.</p>
 
     <h2>Videos</h2>
     <p>Watch these videos about lists and repetition in Python.</p>
@@ -42,10 +43,8 @@
     </ul>
 
     <h2>Concepts</h2>
-    <p>During this lesson, you should learn how to use lists to store
-    many items in a Python program. You should also understand that
-    lists are passed into a function differently than numbers are
-    passed.</p>
+    <p>Here are the Python programming concepts and topics that you
+    should learn during this lesson:</p>
 
     <h3 id="lists">Lists</h3>
     <p>Within a Python program, we can store many elements in a
@@ -258,11 +257,12 @@ def main():
 if __name__ == "__main__":
     main()</pre></div>
 
-    <p>In example&nbsp;6, there is a <code>for</code> loop that iterates
-    over the elements in a list. The code in the body of the loop is
-    very small and simply prints an element from the list. However, we
-    can write as much code as we need in the body of a loop to
-    repeatedly perform all sorts of complex computations.</p>
+    <p>In example&nbsp;6 below, there is a <code>for</code> loop that
+    processes all the elements in a list. The code in the body of the
+    <code>for</code> loop is very small and simply prints an element
+    from the list. However, we can write as much code as we need in the
+    body of a loop to repeatedly perform all sorts of computations for
+    each element in the list.</p>
 
 <div class="pre"><pre class="python" id="ex6"># Example 6
 
@@ -282,9 +282,9 @@ if __name__ == "__main__":
     main()</pre></div>
 
     <h3 id="passByRef">Values and References</h3>
-    <p>In Python, variables are processed differently based on their
-    data type. For example, here is a small Python program that contains
-    two integer variables named <var>x</var> and <var>y</var>.</p>
+    <p>In a Python program, the computer assigns values to variables
+    differently based on their data type. Consider the small program in
+    example&nbsp;7 and the output of that program:</p>
 <div class="pre"><pre class="linenums"></pre>
 <pre class="python" id="ex7"># Example 7
 
@@ -299,12 +299,13 @@ if __name__ == "__main__":
 if __name__ == "__main__":
     main()</span></pre></div>
 
-    The code in example&nbsp;7 will print this:
 <pre class="console">&gt; python example_7.py
 Before changing x: x 17  y 17
 After changing x:  <em>x 18  y 17</em></pre>
 
-    Within the example&nbsp;7 code:
+    <p>The program in example&nbsp;7 contains two integer variables
+    named <var>x</var> and <var>y</var>. Within the example&nbsp;7
+    program</p>
     <ul>
         <li><div>The statement on
         <span class="cross" data-ref="ex7">line&nbsp;4</span>
@@ -333,8 +334,8 @@ After changing x:  <em>x 18  y 17</em></pre>
 
     <p>Example&nbsp;8 shows a small Python program that contains two
     variables named <var>lx</var> and <var>ly</var> that each refer to a
-    list. This second program is similar to the first program, but it
-    processes lists instead of integers.</p>
+    list. This program is similar to the previous program, but it has
+    two lists instead of two integers.</p>
 
 <div class="pre"><pre class="linenums"></pre>
 <pre class="python" id="ex8"># Example 8
@@ -350,15 +351,13 @@ After changing x:  <em>x 18  y 17</em></pre>
 if __name__ == "__main__":
     main()</span></pre></div>
 
-    Here is the output of the program in example&nbsp;8:
-
 <pre class="console">&gt; python example_8.py
 Before changing lx: lx [7, -2]  ly [7, -2]
 After changing lx:  <em>lx [7, -2, 5]  ly [7, -2, 5]</em></pre>
 
-    From the output of example&nbsp;8, we see there is a big difference
-    between the way a Python program assigns integers and the way it
-    assigns lists. Within the second program:
+    <p>From the output of example&nbsp;8, we see there is a big
+    difference between the way a Python program assigns integers and the
+    way it assigns lists. Within the program in example&nbsp;8</p>
     <ul>
         <li><div>The statement on
         <span class="cross" data-ref="ex8">line&nbsp;4</span>
@@ -390,11 +389,12 @@ After changing lx:  <em>lx [7, -2, 5]  ly [7, -2, 5]</em></pre>
     variable <var>lx</var> can be seen through variable
     <var>ly</var>.</p>
 
-    <p>When a computer executes a Python statement to assign the value
-    of a boolean, integer, or float variable to another variable
-    (<code>y = x</code>), the computer copies <em>the value</em> of one
-    variable into the other. However, when a computer executes a Python
-    statement to assign the value of a list variable to another variable
+    <p>From examples&nbsp;7 and&nbsp;8, we learn that when a computer
+    executes a Python statement to assign the value of a boolean,
+    integer, or float variable to another variable (<code>y = x</code>),
+    the computer copies <em>the value</em> of one variable into the
+    other. However, when a computer executes a Python statement to
+    assign the value of a list variable to another variable
     (<code>ly = lx</code>), the computer does not copy <em>the
     value</em> but instead copies <em>the reference</em> so that both
     variables refer to the same value in memory.</p>
@@ -444,7 +444,7 @@ After changing lx:  <em>lx [7, -2, 5]  ly [7, -2, 5]</em></pre>
 if __name__ == "__main__":
     main()</span></pre></div>
 
-    Within example&nbsp;9
+    <p>Within example&nbsp;9</p>
     <ul>
         <li><div>The statement on
         <span class="cross" data-ref="ex9">line&nbsp;5</span> assigns
@@ -480,7 +480,7 @@ Before calling modify_args(): x 5  <em>lx [7, -2]</em>
     After changing n and alist:  n 6  alist [7, -2, 4]
 After calling modify_args():  x 5  <em>lx [7, -2, 4]</em></pre>
 
-    <p>From the output of the example&nbsp;9, we see that modifying an
+    <p>From the output of example&nbsp;9, we see that modifying an
     integer parameter changes the integer within the called function
     only. However, modifying a list parameter changes the list within
     the called function and within the calling function. Why? Because

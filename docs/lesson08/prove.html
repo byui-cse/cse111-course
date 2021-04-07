@@ -63,8 +63,11 @@
 
     <p>Then the calculator divides the mass of the sample by the molar
     mass which results in the number of moles in the substance. The
-    calculator then prints the molar mass and the number of moles for
-    the chemist to see.</p>
+    calculator then prints two results for the chemist to see:</p>
+    <ol>
+        <li><div>the molar mass</div></li>
+        <li><div>the number of moles</div></li>
+    </ol>
 
     <h2>Helpful Documentation</h2>
     <ul class="long">
@@ -90,9 +93,10 @@
 
     <ol class="long">
         <li><div>Change the compound list that is created in
-        make_periodic_table to a dictionary. Each item in the dictionary
-        should have a chemical symbol as the key and the chemical name
-        and molecular mass in a list as the value, like this:
+        your <code>make_periodic_table</code> function to a dictionary.
+        Each item in the dictionary should have a chemical symbol as the
+        key and the chemical name and atomic mass in a list as the
+        value, like this:
 <div class="pre"><pre class="python">
     table = {
         # symbol: [name, atomic_mass]
@@ -104,8 +108,8 @@
         </div></li>
 
         <li><div>Copy and paste the following Python code into your
-        chemistry.py program. Be certain to not paste the code inside an
-        existing function.
+        <code>chemistry.py</code> program. Be certain to not paste the
+        code inside an existing function.
 
 <div class="pre"><pre class="python">
 # These are the indexes of the
@@ -210,18 +214,19 @@ def compute_molar_mass(symbol_quantity_list, periodic_table):
         The code that you pasted includes a function named
         <code>parse_formula</code> that converts a chemical formula for
         a molucule, such as "C13H16N2O2" (melatonin), into a compound
-        list, such as [["C", 13], ["H", 16], ["N", 2], ["O", 2]]. This
-        compound list is known as a symbol_quantity_list because it
-        contains the symbols of chemical elements and the quantity of
-        each element that appears in the chemical formula.</div></li>
+        list, such as [["C", 13], ["H", 16], ["N", 2], ["O", 2]]. In the
+        code that you pasted, this compound list is known as a
+        <var>symbol_quantity_list</var> because it contains the symbols
+        of chemical elements and the quantity of each element that
+        appears in the chemical formula.</div></li>
 
         <li><div>The code that you pasted also includes the header and
         docstring for a function named <code>compute_molar_mass</code>.
         Read the docstring and comment in the
         <code>compute_molar_mass</code> function and write the code for
-        that function. Note that you can complete this step by writing
-        eight or fewer lines of code in the
-        <code>compute_molar_mass</code> function.</div></li>
+        that function. Note that you can complete the
+        <code>compute_molar_mass</code> function by writing eight or
+        fewer lines of code.</div></li>
 
         <li><div>Modify the <code>main</code> function in your
         <code>chemistry.py</code> program so that it does the following:
@@ -253,8 +258,6 @@ def compute_molar_mass(symbol_quantity_list, periodic_table):
         <a download href="test_chemistry_2.py"><code>test_chemistry_2.py</code></a>
         Python file and save it in the same folder where you saved your
         <code>chemistry.py</code> Python program.</div></li>
-
-        <li><div></div></li>
     </ol>
 
     <h2>Sample Runs</h2>

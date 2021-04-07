@@ -55,22 +55,22 @@
         parameter values</a>.</div></li>
 
         <li><div><p>Within a Python program, when a number is passed as
-        an argument to a function, the computer copies the number in the
-        argument into the parameter. In other words, the parameter gets
-        a copy of the value that is in the argument. This idea of
+        an argument to a function, the computer copies the number from
+        the argument into the parameter. In other words, the parameter
+        gets a copy of the value that is in the argument. This idea of
         passing a copy of an argument into a parameter is known as
         <dfn>pass by value</dfn>.</p>
 
-        <p>In Python, when a list or dictionary is passed as an argument
-        to a function, the computer does <em>not</em> copy the list or
-        dictionary. Instead, the computer passes a reference to the list
-        or dictionary into the function. This means the argument and
-        parameter refer to the same list or dictionary. This idea of
-        passing a reference into a parameter is known as <dfn>pass by
-        reference</dfn>. With pass by reference, if a called function
-        changes a list that was passed into the function, this will of
-        course change the list in the calling function because both the
-        argument and parameter refer to the same list.</p>
+        <p>In Python, when a list is passed as an argument to a
+        function, the computer does <em>not</em> copy the list. Instead,
+        the computer passes a reference to the list into the function.
+        This means the argument and parameter refer to the same list.
+        This idea of passing a reference into a parameter is known as
+        <dfn>pass by reference</dfn>. With pass by reference, if a
+        called function changes a list that was passed into the
+        function, this will of course change the list in the calling
+        function because both the argument and parameter refer to the
+        same list.</p>
 
         <p>The prepare content for this lesson includes a section about
         passing arguments <a href="prepare.html#passByRef">by value and by reference</a>.</p></div></li>
@@ -87,9 +87,11 @@
     </ul>
 
     <h2>Assignment</h2>
-    <p>Write a Python program named <code>random_numbers.py</code> with
-    two functions named <code>append_random_numbers</code> and
-    <code>main</code> as follows:</p>
+    <p>Write a Python program named <code>random_numbers.py</code> that
+    creates a list of numbers, appends more numbers onto the list, and
+    prints the list. The program must have two functions named
+    <code>append_random_numbers</code> and <code>main</code> as
+    follows:</p>
 
     <ol class="long">
         <li><div><code>append_random_numbers</code>
@@ -103,8 +105,7 @@
             <li><div>Rounds the <var>quantity</var> pseudo random
             numbers to one digit after the decimal.</div></li>
             <li><div>Appends the <var>quantity</var> pseudo random
-            numbers onto the end of the <var>numbers_list</var>
-            list.</div></li>
+            numbers onto the end of the <var>numbers_list</var>.</div></li>
         </ol></div></li>
 
         <li><div><code>main</code>
@@ -139,7 +140,7 @@
 
         <li><div>The <var>append_random_numbers</var> function includes
         a loop that appends <var>quantity</var> random numbers at the
-        end of a list.</div></li>
+        end of <var>numbers_list</var>.</div></li>
 
         <li><div>The <code>main</code> function calls
         <code>append_random_numbers</code> twice, first with one
@@ -152,10 +153,6 @@
     the stretch challenges are optional.</p>
 
     <ol class="long">
-        <li><div>Add something or change something in your program that
-        you think would make your program better, easier for the user,
-        more elegant, or more fun. Be creative.</div></li>
-
         <li><div>Add a function named <code>append_random_words</code>
         that meets the following criteria:
         <ol>
@@ -167,6 +164,10 @@
             list of words and appends the selected words at the end of
             <var>words_list</var>.</div></li>
         </ol></div></li>
+
+        <li><div>Add something or change something in your program that
+        you think would make your program better, easier for the user,
+        more elegant, or more fun. Be creative.</div></li>
     </ol>
 
     <h2>Sample Run</h2>
