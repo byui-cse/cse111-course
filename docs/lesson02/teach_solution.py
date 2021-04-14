@@ -7,7 +7,7 @@ discount the customer's purchase by 10%.
 
 # Import the datatime module so that
 # it can be used in this program.
-import datetime
+from datetime import datetime
 
 # The discount rate is 10% and the sales tax rate is 6%.
 DISC_RATE = 0.10
@@ -19,7 +19,7 @@ subtotal = float(text)
 
 # Call the now() method to get the current date and
 # time as a datetime object from the computer's clock.
-current = datetime.datetime.now()
+current = datetime.now()
 
 # Call the isoweekday() method to get the day
 # of the week from the current datetime object.

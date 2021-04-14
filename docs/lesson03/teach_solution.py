@@ -13,7 +13,7 @@ Write a Python program named fitness.py that does the following:
 
 # Import datetime so that it can be
 # used to compute a person's age.
-import datetime
+from datetime import datetime
 
 
 def main():
@@ -53,8 +53,8 @@ def compute_age(birth):
         a string in this format: YYYY-MM-DD
     Return: a person's age in years.
     """
-    birthday = datetime.datetime.strptime(birth, "%Y-%m-%d")
-    today = datetime.datetime.now()
+    birthday = datetime.strptime(birth, "%Y-%m-%d")
+    today = datetime.now()
 
     # Compute the difference between today and the birthday in years.
     years = today.year - birthday.year

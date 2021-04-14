@@ -1,6 +1,6 @@
 import csv
 import math
-import datetime
+from datetime import datetime
 
 
 def main():
@@ -29,7 +29,7 @@ def main():
 
     # Get the current date and time from the datetime
     # module which gets it from the operating system.
-    current_date_and_time = datetime.datetime.now()
+    current_date_and_time = datetime.now()
 
     # Format the current date and time to include only
     # the day of the week, the hour, and the minute.
