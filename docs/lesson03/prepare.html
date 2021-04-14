@@ -221,8 +221,7 @@ def print_cylinder_volume():
     example&nbsp;3 doesn't accept parameters, it must be called without
     any arguments like this:</p>
 
-<div class="pre"><pre class="python">def main():
-    <em>print_cylinder_volume()</em></pre></div>
+<div class="pre"><pre class="python">    print_cylinder_volume()</pre></div>
 
     <p>Example&nbsp;4 contains another version of the
     <code>print_cylinder_volume</code> function. This second version
@@ -251,8 +250,7 @@ def print_cylinder_volume(<em>radius</em>, <em>height</em>):
     accepts two parameters, it must be called with two arguments like
     this:</p>
 
-<div class="pre"><pre class="python">def main():
-    <em>print_cylinder_volume(2.5, 4.1)</em></pre></div>
+<div class="pre"><pre class="python">    print_cylinder_volume(2.5, 4.1)</pre></div>
         </div></li>
 
         <li><div><p>Many functions that you've used in the past such as
@@ -261,8 +259,7 @@ def print_cylinder_volume(<em>radius</em>, <em>height</em>):
         usually write code to store that returned result in a variable
         to use later in the program like this:
 
-<div class="pre"><pre class="python">
-<em>text =</em> input("Please enter your name: ")</pre></div>
+<div class="pre"><pre class="python">    <em>text =</em> input("Please enter your name: ")</pre></div>
 
         <p>To return a result from a function, simply type the keyword
         <code>return</code> followed by whatever result you want
@@ -299,20 +296,21 @@ def compute_cylinder_volume(radius, height):
         example&nbsp;5 accepts two parameters and returns a value, it
         could be called like this:</p>
 
-<div class="pre"><pre class="python">def main():
-    <em>volume = compute_cylinder_volume(2.5, 4.1)</em></pre></div>
+<div class="pre"><pre class="python">     volume = compute_cylinder_volume(2.5, 4.1)</pre></div>
 
         <p>Example&nbsp;6 contains a complete program with two
         functions, the first named <code>compute_cylinder_volume</code>
-        at <span class="cross" data-ref="ex6">line&nbsp;4</span> and
+        at <span class="cross" data-ref="ex6">line&nbsp;6</span> and
         the seond named <code>main</code> at
-        <span class="cross" data-ref="ex6">line&nbsp;23</span>.
-        At <span class="cross" data-ref="ex6">line&nbsp;30</span>,
+        <span class="cross" data-ref="ex6">line&nbsp;25</span>.
+        At <span class="cross" data-ref="ex6">line&nbsp;32</span>,
         the <code>main</code> function calls the
         <code>compute_cylinder_volume</code> function.</p>
 
 <div class="pre"><pre class="linenums"></pre>
 <pre class="python" id="ex6"># Example 6
+
+import math
 
 # Define a function that accepts two parameters.
 def compute_cylinder_volume(radius, height):
@@ -336,19 +334,22 @@ def compute_cylinder_volume(radius, height):
 # Define the main function.
 def main():
     # Create two variables to hold the radius and height.
-    r = float(input("Enter the radius in centimeters: "))
-    h = float(input("Enter the height in centimeters: "))
+    radius = float(input("Enter the radius in centimeters: "))
+    height = float(input("Enter the height in centimeters: "))
 
     # Call the compute_cylinder_volume function and store
     # its return value in a variable to use later.
-    <em>volume = compute_cylinder_volume(r, h)</em>
+    <em>volume = compute_cylinder_volume(radius, height)</em>
 
     if volume &lt; 1000:
         print(f"That cylinder holds {volume} cubic")
         print("centimeters, which is less than a liter.")
+    elif volume &gt; 1000:
+        print(f"That cylinder holds {volume} cubic")
+        print("centimeters, which is more than a liter.")
     else:
         print(f"That cylinder holds {volume} cubic")
-        print("centimeters, which is a liter or more.")
+        print("centimeters, which is exactly one liter.")
 
 
 # Start this program by
@@ -368,40 +369,44 @@ main()</pre></div>
 # Define the main function.
 def main():
     # Create two variables to hold the radius and height.
-    r = float(input("Enter the radius in centimeters: "))
-    h = float(input("Enter the height in centimeters: "))
+    radius = float(input("Enter the radius in centimeters: "))
+    height = float(input("Enter the height in centimeters: "))
 
     # Call the compute_cylinder_volume function
     # and immediately print its return value.
-    print( <em>compute_cylinder_volume(r, h)</em> )
+    print( <em>compute_cylinder_volume(radius, height)</em> )
 
     # Call the compute_cylinder_volume function again
     # and use its return value in an if statement.
-    if <em>compute_cylinder_volume(r, h)</em> &lt; 1000:
+    if <em>compute_cylinder_volume(radius, height)</em> &lt; 1000:
         print("That cylinder holds less than a liter.")
+    elif <em>compute_cylinder_volume(radius, height)</em> &gt; 1000:
+        print("That cylinder holds more than a liter.")
     else:
-        print("That cylinder holds a liter or more.")
+        print("That cylinder holds exactly one liter.")
 
 
 # Start this program by
 # calling the main function.
 main()</pre></div>
 
-        <p>Notice in example&nbsp;7, there are two statements that call
-        the <code>compute_cylinder_volume</code> function, one at
+        <p>Notice in example&nbsp;7, there are three statements that
+        call the <code>compute_cylinder_volume</code> function, one at
         <span class="cross" data-ref="ex7">line&nbsp;11</span>
-        to print the volume and another at
+        to print the volume, another at
         <span class="cross" data-ref="ex7">line&nbsp;15</span>
-        to check if the volume is less than a liter. Every time the
+        to check if the volume is less than a liter, and yet another at
+        <span class="cross" data-ref="ex7">line&nbsp;17</span>
+        to check if the volume is greater than a liter. Every time the
         computer calls a function, the computer will execute the code
         that is inside that function. In example&nbsp;7, because the
-        arguments are the same at both
-        <span class="cross" data-ref="ex7">lines&nbsp;11 and&nbsp;15</span>,
-        the returned result will be the same in both cases. So it would
-        be faster to save the result in a variable and reuse the
-        variable instead, as shown in example&nbsp;8 at
-        lines&nbsp;<span class="cross" data-ref="ex8">11,
-        13,&nbsp;and&nbsp;15</span>.</p>
+        arguments are the same at
+        <span class="cross" data-ref="ex7">lines&nbsp;11,
+        15&nbsp;and&nbsp;17</span>, the returned result will be the same
+        in all three cases. So it would be faster to save the result in
+        a variable and reuse the variable instead, as shown in
+        example&nbsp;8 at lines&nbsp;<span class="cross"
+        data-ref="ex8">11, 13,&nbsp;15, and&nbsp;17</span>.</p>
 
 <div class="pre"><pre class="linenums"></pre>
 <pre class="python" id="ex8">#Example 8
@@ -409,19 +414,21 @@ main()</pre></div>
 # Define the main function.
 def main():
     # Create two variables to hold the radius and height.
-    r = float(input("Enter the radius in centimeters: "))
-    h = float(input("Enter the height in centimeters: "))
+    radius = float(input("Enter the radius in centimeters: "))
+    height = float(input("Enter the height in centimeters: "))
 
     # Call the compute_cylinder_volume function and store
     # its return value in a variable to use later.
-    <em>volume =</em> compute_cylinder_volume(r, h)
+    <em>volume =</em> compute_cylinder_volume(radius, height)
 
-    print(f"The volume is: {<em>volume</em>}")
+    print(f"The volume is: {<em>volume</em>} cubic centimeters.")
 
     if <em>volume</em> &lt; 1000:
         print("That cylinder holds less than a liter.")
+    elif <em>volume</em> &gt; 1000:
+        print("That cylinder holds more than a liter.")
     else:
-        print("That cylinder holds a liter or more.")
+        print("That cylinder holds exactly one liter.")
 
 
 # Start this program by
