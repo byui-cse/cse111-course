@@ -35,10 +35,10 @@
     and lists.</p>
 
     <h2>Problem Statement</h2>
-    <p>In chemistry, the molar mass of a substance is the mass in grams
-    of one mole of the substance (grams / mole). A mole is simply a
-    fixed very large quantity, specifically 602,214,179,000,000,000,000,000.
-    In chemistry, a molar mass calculator is a program that computes the
+    <p>In chemistry, the molar mass of a sample is the mass in grams of
+    one mole of the sample (grams / mole). A mole is simply a fixed very
+    large quantity, specifically 602,214,179,000,000,000,000,000. In
+    chemistry, a molar mass calculator is a program that computes the
     molar mass of a substance and the number of moles of a sample of
     that substance. To use a molar mass calculator, a chemist enters two
     inputs:</p>
@@ -62,7 +62,7 @@
     </ol>
 
     <p>Then the calculator divides the mass of the sample by the molar
-    mass which results in the number of moles in the substance. The
+    mass which results in the number of moles in the sample. The
     calculator then prints two results for the chemist to see:</p>
     <ol>
         <li><div>the molar mass</div></li>
@@ -83,8 +83,6 @@
         <a href="../lesson05/prepare.html#example">example test function</a>
         and links to additional documentation about
         <code>pytest</code>.</div></li>
-
-        <li><div><a href=""></a></div></li>
     </ul>
 
     <h2>Assignment</h2>
@@ -204,7 +202,7 @@ def compute_molar_mass(symbol_quantity_list, periodic_table):
     1.00794 * 2 + 15.9994 * 1
     18.01528
     """
-    # For each element in the compound list:
+    # For each element in the symbol_quantity_list:
     #   Split the element into symbol and quantity.
     #   Get the atomic mass for the symbol.
     #   Multiply the atomic mass by the quantity.
@@ -247,7 +245,7 @@ def compute_molar_mass(symbol_quantity_list, periodic_table):
     # Call the compute_molar_mass function to compute the
     # molar mass of the molecule from the compound list.
 
-    # Compute the number of moles of the substance.
+    # Compute the number of moles of the sample.
 
     # Print the molar mass.
 
@@ -274,8 +272,8 @@ test_chemistry_2.py::test_compute_molar_mass <span class="pass">PASSED          
 <span class="pass">========================== 3 passed in 0.17s ==========================</span></pre>
 
 <pre class="console">&gt; python chemistry.py
-Enter the molecular formula of the substance: <span class="input">C13H18O2</span>
-Enter the mass in grams of the substance: <span class="input">5.04</span>
+Enter the molecular formula of the sample: <span class="input">C13H18O2</span>
+Enter the mass in grams of the sample: <span class="input">5.04</span>
 206.28082 grams/mole
 0.02443 moles</pre>
 

@@ -182,6 +182,7 @@ def test_compute_molar_mass():
 
     assert compute_molar_mass([], periodic_table) == 0
     assert compute_molar_mass([["O",2]], periodic_table) == approx(31.9988)
+    assert compute_molar_mass([["C",6],["H",6]], periodic_table) == approx(78.11184)
     assert compute_molar_mass([["C",13], ["H",16], ["N",2], ["O",2]], periodic_table) == approx(232.27834)
 
 
