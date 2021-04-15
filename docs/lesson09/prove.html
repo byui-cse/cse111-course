@@ -99,8 +99,7 @@
         <p>Recall that each item in a dictionary has a key and a value.
         Each item in the <var>products</var> dictionary must have a
         product number as the key and a list with the product name and
-        price as the value. This organization is shown in the following
-        table.</p>
+        price as the value as shown in the following table.</p>
 
         <table class="center"><thead>
             <tr><th colspan="2">Products</th></tr>
@@ -114,13 +113,6 @@
             <tr><td>"C013"</td> <td>["twix candy bar", 0.85]</td></tr>
             <tr><td class="center">&vellip;</td> <td class="center">&vellip;</td></tr>
         <tbody></table></div></li>
-
-        <li><div>In your <code>receipt.py</code> program, after the code
-        that populates the <var>products</var> dictionary, write a line
-        of code to print the entire <var>products</var> dictionary. Run
-        your program and verify that your printed dictionary contains
-        all the data that is in the <code>products.csv</code>
-        file.</div></li>
 
         <li><div>Open the <code>request.csv</code> file in VS Code and
         examine it. Notice that each row contains only two values, a
@@ -140,24 +132,20 @@
             <li><div>Print the product name, requested quantity, and
             product price.</div></li>
         </ol></div></li>
+
+        <li><div>In your <code>receipt.py</code> program, write a
+        function named main that calls does the following:
+        <ol>
+            <li><div>Calls the <code>read_products</code> function and
+            stores the products dictionary in a variable named
+            <var>products</var>.</div></li>
+
+            <li><div>Prints the <var>products</var> dictionary.</div></li>
+
+            <li><div>Calls the <code>process_request</code>
+            function.</div></li>
+        </ol></div></li>
     </ol>
-
-    <h2>Sample Run</h2>
-<pre class="console">&gt; python receipt.py
-
-Products
-{'D150': ['1 gallon milk', 2.85],
-'D083': ['1 cup yogurt', 0.75],
-'P143': ['1 lb baby carrots', 1.39],
-'W231': ['32 oz granola', 3.21],
-'W112': ['wheat bread', 2.55],
-'C013': ['twix candy bar', 0.85]}
-
-Requested Items
-1 gallon milk: 2 @ 2.85
-32 oz granola: 1 @ 3.21
-1 cup yogurt: 4 @ 0.75
-twix candy bar: 2 @ 0.85</pre>
 
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each step
@@ -166,10 +154,35 @@ twix candy bar: 2 @ 0.85</pre>
     <ol class="test">
         <li><div>Run your program and verify that it prints the
         <var>products</var> dictionary and requested items as shown in
-        the Sample Run section above. The output of your program should
-        contain the same data as above but does not have to be formatted
-        exactly the same as above.</div></li>
+        the Sample Run section below.</div></li>
     </ol>
+
+    <h2>Sample Run</h2>
+<pre class="console">&gt; python receipt.py
+
+Products
+D150 ['1 gallon milk', '2.85']
+D083 ['1 cup yogurt', '0.75']
+D215 ['1 lb cheddar cheese', '3.35']
+P019 ['iceberg lettuce', '1.15']
+P020 ['green leaf lettuce', '1.79']
+P021 ['butterhead lettuce', '1.83']
+P025 ['8 oz arugula', '2.19']
+P143 ['1 lb baby carrots', '1.39']
+W231 ['32 oz granola', '3.21']
+W112 ['wheat bread', '2.55']
+C013 ['twix candy bar', '0.85']
+H001 ['8 rolls toilet tissue', '6.45']
+H014 ['facial tissue', '2.49']
+H020 ['aluminum foil', '2.39']
+H021 ['12 oz dish soap', '3.19']
+H025 ['toilet cleaner', '4.50']
+
+Requested Items
+1 gallon milk: 2 @ 2.85
+32 oz granola: 1 @ 3.21
+1 cup yogurt: 4 @ 0.75
+twix candy bar: 2 @ 0.85</pre>
 
     <h2>Submission</h2>
     <p>On or before the due date, return to I-Learn and report your

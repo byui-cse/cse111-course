@@ -46,7 +46,7 @@
         <li><div>The formula for a molecule such as H<sub>2</sub>O
         (water) or C<sub>6</sub>H<sub>12</sub>O<sub>6</sub>
         (glucose)</div></li>
-        <li><div>The mass in grams of a sample.</div></li>
+        <li><div>The mass in grams of a sample such as 7.21.</div></li>
     </ol>
 
     <p>The calculator computes the molar mass of the molecule by doing
@@ -106,16 +106,10 @@
         </div></li>
 
         <li><div>Copy and paste the following Python code into your
-        <code>chemistry.py</code> program. Be certain to not paste the
+        <code>chemistry.py</code> program. Be certain not to paste the
         code inside an existing function.
 
 <div class="pre"><pre class="python">
-# These are the indexes of the
-# elements in the periodic table.
-NAME_INDEX = 0
-ATOMIC_MASS_INDEX = 1
-
-
 class FormulaError(ValueError):
     """FormulaError is the type of error that
     parse_formula will raise if a formula is invalid.
@@ -191,6 +185,12 @@ def parse_formula(formula, periodic_table):
     return list(elems.items())
 
 
+# These are the indexes of the
+# elements in the periodic table.
+NAME_INDEX = 0
+ATOMIC_MASS_INDEX = 1
+
+
 def compute_molar_mass(symbol_quantity_list, periodic_table):
     """Compute and return the total molar mass of all the
     elements listed in symbol_quantity_list. Each element in
@@ -251,11 +251,26 @@ def compute_molar_mass(symbol_quantity_list, periodic_table):
 
     # Print the number of moles.</pre></div>
         </div></li>
+    </ol>
 
-        <li><div>Download the
-        <a download href="test_chemistry_2.py"><code>test_chemistry_2.py</code></a>
+    <h2>Testing Procedure</h2>
+    <p>Verify that your program works correctly by following each
+    step in this testing procedure:</p>
+
+    <ol class="test long">
+        <li><div>Download the <a download href="test_chemistry_2.py"><code>test_chemistry_2.py</code></a>
         Python file and save it in the same folder where you saved your
-        <code>chemistry.py</code> Python program.</div></li>
+        <code>chemistry.py</code> Python program. Run the
+        <code>test_chemistry_2.py</code> program and ensure that all
+        three of the test functions pass. If any of the test functions
+        don't pass, there is a mistake in your <code>chemistry.py</code>
+        program. Read the output from <code>pytest</code>, fix the
+        mistake, and run the <code>test_chemistry_2.py</code> program
+        again until the test functions pass.</div></li>
+
+        <li><div>Run your finished <code>chemistry.py</code> program.
+        Enter the user input shown in the Sample Runs section below.
+        Ensure that your program prints correct output.</div></li>
     </ol>
 
     <h2>Sample Runs</h2>
@@ -276,24 +291,6 @@ Enter the molecular formula of the sample: <span class="input">C13H18O2</span>
 Enter the mass in grams of the sample: <span class="input">5.04</span>
 206.28082 grams/mole
 0.02443 moles</pre>
-
-    <h2>Testing Procedure</h2>
-    <p>Verify that your program works correctly by following each
-    step in this testing procedure:</p>
-
-    <ol class="test long">
-        <li><div>Run the <code>test_chemistry_2.py</code> program and
-        ensure that all three of the test functions pass. If any of the
-        test functions don't pass, there is a mistake in your
-        <code>chemistry.py</code> program. Read the output from
-        <code>pytest</code>, fix the mistake, and run the
-        <code>test_chemistry_2.py</code> program again until the test
-        functions pass.</div></li>
-
-        <li><div>Run your finished <code>chemistry.py</code> program.
-        Enter the user input shown in the Sample Runs section above.
-        Ensure that your program prints correct output.</div></li>
-    </ol>
 
     <h2>Submission</h2>
     <p>To submit your program, return to I-Learn and do these two
