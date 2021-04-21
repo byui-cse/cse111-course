@@ -1,48 +1,60 @@
-def prefix(s1, s2):
-    """Return the prefix, if any, that appears in both s1 and s2. In
-    other words, return a string of the characters that appear at the
-    beginning of both s1 and s2. For example, if s1 is "inconceivable"
-    and s2 is "inconvenient", this function will return "incon".
+def prefix(string1, string2):
+    """Return the prefix, if any, that appears in both string1 and
+    string2. In other words, return a string of the characters that
+    appear at the beginning of both string1 and string2. For example, if
+    string1 is "inconceivable" and string2 is "inconvenient", this
+    function will return "incon".
+
+    Parameters
+        string1: a string of text
+        string2: another string of text
     """
     # Convert both strings to lower case.
-    s1 = s1.lower()
-    s2 = s2.lower()
+    string1 = string1.lower()
+    string2 = string2.lower()
 
     # Repeat until the computer finds two
     # characters that are not the same.
     i = 0
-    limit = min(len(s1), len(s2))
+    limit = min(len(string1), len(string2))
     while i < limit:
-        if s1[i] != s2[i]:
+        if string1[i] != string2[i]:
             break
         i += 1
 
-    # Extract a substring from s1 and return it.
-    return s1[0:i]
+    # Extract a substring from string1 and return it.
+    pre = string1[0 : i]
+    return pre
 
 
-def suffix(s1, s2):
-    """Return the suffix, if any, that appears in both s1 and s2. In
-    other words, return a string of the characters that appear at the
-    end of both s1 and s2. For example, if s1 is "hilarious" and s2 is
-    "nefarious", this function will return "arious".
+def suffix(string1, string2):
+    """Return the suffix, if any, that appears in both string1 and
+    string2. In other words, return a string of the characters that
+    appear at the end of both string1 and string2. For example, if
+    string1 is "hilarious" and string2 is "nefarious", this function
+    will return "arious".
+
+    Parameters
+        string1: a string of text
+        string2: another string of text
     """
     # Convert both strings to lower case.
-    s1 = s1.lower()
-    s2 = s2.lower()
+    string1 = string1.lower()
+    string2 = string2.lower()
 
     # Start from the end of both strings.
-    i1 = len(s1) - 1
-    i2 = len(s2) - 1
+    i1 = len(string1) - 1
+    i2 = len(string2) - 1
 
     # Repeat until the computer finds two
     # characters that are not the same.
-    limit = min(len(s1), len(s2))
+    limit = min(len(string1), len(string2))
     for _ in range(limit):
-        if s1[i1] != s2[i2]:
+        if string1[i1] != string2[i2]:
             break
         i1 -= 1
         i2 -= 1
 
-    # Extract a substring from s1 and return it.
-    return s1[i1 + 1:]
+    # Extract a substring from string1 and return it.
+    suf = string1[i1+1 : ]
+    return suf
