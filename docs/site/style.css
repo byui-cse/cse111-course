@@ -299,15 +299,13 @@ article div.expr span.abs:after {
 article div.expr .paren:before {
 	padding-left: 0.1em;
 	content: '\28';
+	font-size: xx-large;
+	font-weight: 100;
 }
 
 article div.expr .paren:after {
 	padding-left: 0.1em;
 	content: '\29';
-}
-
-article div.expr div.paren:before,
-article div.expr div.paren:after {
 	font-size: xx-large;
 	font-weight: 100;
 }
