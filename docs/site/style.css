@@ -394,6 +394,13 @@ article div.collaps div.pre {
 	display: block;
 }
 
+article div.search {
+	margin: 1em auto;
+	border: 1px solid var(--border);
+	padding: 0.25em 0.5em;
+	white-space: pre-line;
+}
+
 /* Code Highlighting */
 article code {
 	font-family: Menlo, Monaco, Consolas, monospace;
