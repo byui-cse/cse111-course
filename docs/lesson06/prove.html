@@ -14,7 +14,6 @@
     <script src="../site/url.js"></script>
     <script src="../site/urlWrite.js"></script>
     <script src="../site/color.js"></script>
-    <script src="../site/linenums.js"></script>
     <script src="../site/hljs/highlight.pack.js"></script>
 </head>
 
@@ -28,28 +27,175 @@
     <h2>CSE 111 | <span>Programming with Functions</span></h2>
 </header>
 <article>
-    <h1>06 Prove Assignment: Troubleshooting Functions</h1>
+    <h1>06 Prove Milestone: Troubleshooting Functions</h1>
 
     <h2>Purpose</h2>
+    <p>Prove that you can write a Python program and write and run test
+    functions to help you find and fix mistakes.</p>
 
     <h2>Problem Statement</h2>
+    <p>The <dfn>Turing test</dfn>, named after Alan Turing, is a test of a
+    computer's ability to make conversation that is indistinguishable
+    from human conversation. A computer that could pass the Turing test
+    would need to understand sentences typed by a human and respond with
+    sentences that make sense.</p>
 
     <h2>Helpful Documentation</h2>
-    <ul class="long">
-    </ul>
+    <p>The <a href="prepare.html">prepare</a> content for this lesson
+    explains how to troubleshoot functions and entire programs that are not
+    working correctly.</p>
 
     <h2>Assignment</h2>
+    <p>Write the second half of a Python program that generates simple
+    English sentences. During this lesson, you will write and test
+    functions that generate sentences with four parts: a determiner, a
+    noun, a verb, and a prepositional phrase such as these sentences:</p>
 
-    <h2>Sample Runs</h2>
+    <blockquote>One girl talked for the car.<br>
+    Some dogs drank above many adults.<br>
+    One bird drinks off one child.<br>
+    Some children laugh at many dogs.<br>
+    The child will run on the car.<br>
+    Some adults will talk about some cats.</blockquote>
+
+    <p>After this lesson, your program must include at least these
+    six functions:</p>
+    <ul>
+        <li><div><code>main</code></div></li>
+        <li><div><code>get_determiner</code></div></li>
+        <li><div><code>get_noun</code></div></li>
+        <li><div><code>get_verb</code></div></li>
+        <li><div><code>get_prepositional_phrase</code></div></li>
+        <li><div><code>get_preposition</code></div></li>
+    </ul>
+    <p>You may add other functions if you want. The
+    <code>get_preposition</code> function must randomly choose a
+    preposition from a list and return the randomly chosen prepostion.
+    The <code>get_prepositional_phrase</code> function must make a
+    prepositional phrase by calling the <code>get_preposition</code>,
+    <code>get_determiner</code>, and <code>get_noun</code> functions.</p>
+
+    <p>Do the following:</p>
+    <ol class="long">
+        <li><div>Use the <code>get_determiner</code> function from the
+        previous lesson as an example to help you write the
+        <code>get_preposition</code> function. The
+        <code>get_preposition</code> function must have the following
+        header and fulfill the requirements of its comment.
+
+<div class="pre"><pre class="python">
+def get_preposition():
+    """Return a randomly chosen preposition
+    from this list of prepositions:
+        "about", "above", "across", "after", "along",
+        "around", "at", "before", "behind", "below",
+        "beyond", "by", "despite", "except", "for",
+        "from", "in", "into", "near", "of",
+        "off", "on", "onto", "out", "over",
+        "past", "to", "under", "with", "without"
+
+    Return: a randomly chosen preposition.
+    """</div></pre>
+        </div></li>
+
+        <li><div>Write the <code>get_prepositional_phrase</code>
+        function to have the following header and fulfill the
+        requirements of its comment.
+<div class="pre"><pre class="python">
+def get_prepositional_phrase(quantity):
+    """Build and return a prepositional phrase composed of three words:
+    a preposition, a determiner, and a noun by calling the
+    get_preposition, get_determiner, and get_noun functions.
+
+    Parameter
+        quantity: an integer that determines if the
+            determiner and nouns are singular or plural.
+    Return: a prepositional phrase.
+    """</div></pre>
+        </div></li>
+
+        <li><div>Write the <code>main</code> function and any other
+        functions that you think are necessary for your program to
+        generate and print six more sentences with these characteristics:
+        <table><thead>
+            <tr><th></th> <th>Noun Quantity</th> <th>Verb Tense</th></tr>
+        </thead><tbody>
+            <tr><td>a.</td> <td>singular</td> <td>past</td></tr>
+            <tr><td>b.</td> <td>plural</td> <td>past</td></tr>
+            <tr><td>c.</td> <td>singular</td> <td>present</td></tr>
+            <tr><td>d.</td> <td>plural</td> <td>present</td></tr>
+            <tr><td>e.</td> <td>singular</td> <td>future</td></tr>
+            <tr><td>f.</td> <td>plural</td> <td>future</td></tr>
+        </tbody></table>
+        </div></li>
+    </ol>
+
+    <h2>Sample Run</h2>
+    <p>Because your program will randomly choose the determiners, nouns,
+    verbs, and prepositional phrases, your program will generate
+    different sentences than the ones shown here.</p>
+
+<pre class="console">&gt; python sentences.py
+The cat laughed.
+Some girls thought.
+One man eats.
+Many dogs run.
+The woman will think.
+Many men will write.
+One girl talked for the car.
+Some dogs drank above many adults.
+One bird drinks off one child.
+Some children laugh at many dogs.
+The child will run on the car.
+Some adults will talk about some cats.</pre>
 
     <h2>Testing Procedure</h2>
+    <p>Verify that the <code>get_preposition</code> and
+    <code>get_prepositional_phrase</code> functions in
+    <code>sentences.py</code> work correctly by writing two test
+    functions named <code>test_get_preposition</code> and
+    <code>test_get_prepositional_phrase</code> in the
+    <code>test_sentences.py</code> file.</p>
+
+    <p>Perhaps you are wondering what code you should write in the
+    <code>test_get_prepositional_phrase</code> function. To answer that
+    question, ask yourself, "What do we know about the
+    <code>get_prepositional_phrase</code> function?" From its
+    description, we know the <code>get_prepositional_phrase</code>
+    function returns a phrase made of three words: a preposition, a
+    determiner, and a noun. So you could write code in the
+    <code>test_get_prepositional_phrase</code> that calls the
+    <code>get_prepositional_phrase</code> function and then calls the
+    Python string
+    <a href="https://docs.python.org/3/library/stdtypes.html#str.split"><code>split</code> method</a>
+    to split the returned phrase into its three words and check each of
+    the three words.</p>
+
+<pre class="console">&gt; python test_sentences.py
+========================= test session starts =========================
+platform win32 -- Python 3.8.6, pytest-6.1.2, py-1.9.0, pluggy-0.13.1
+rootdir: C:\Users\cse111\lesson06
+collected 5 items
+
+test_sentences.py::test_get_determiner <span class="pass">PASSED                    [ 20%]</span>
+test_sentences.py::test_get_noun <span class="pass">PASSED                          [ 40%]</span>
+test_sentences.py::test_get_verb <span class="pass">PASSED                          [ 60%]</span>
+test_sentences.py::test_get_preposition <span class="pass">PASSED                   [ 80%]</span>
+test_sentences.py::test_get_prepositional_phrase <span class="pass">PASSED          [100%]</span>
+
+<span class="pass">========================== 5 passed in 0.10s ==========================</span></pre>
+
+    <h2>Ponder</h2>
+    <p>How hard would it be to modify your program to pass the Turing
+    test?</p>
 
     <h2>Submission</h2>
     <p>To submit your program, return to I-Learn and do these two
     things:</p>
     <ol>
-        <li><div>Upload your two files: <code>chemistry.py</code> and
-        <code>test_chemistry.py</code> for feedback.</div></li>
+        <li><div>Upload your <code>sentences.py</code> and
+        <code>test_sentences.py</code> files for feedback.</div></li>
+
         <li><div>Add a submission comment that specifies the grading
         category that best describes your program along with a one or
         two sentence justification for your choice. The grading criteria
