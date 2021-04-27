@@ -42,8 +42,8 @@
 
     <p>Write a Python program that generates simple English sentences.
     During this lesson, you will write and test functions that generate
-    sentences with three parts: a determiner (article), a noun, and a
-    verb, such as these sentences:</p>
+    sentences with three parts: a determiner (sometimes known as an
+    article), a noun, and a verb, such as these sentences:</p>
 
     <blockquote>The cat laughed.<br>
     Some girls thought.<br>
@@ -63,8 +63,8 @@
     The child will run on the car.<br>
     Some adults will talk about some cats.</blockquote>
 
-    <p>After this lesson, your program must include at least these
-    four functions:</p>
+    <p>For this milestone assignment, your program must include at least
+    these four functions:</p>
     <ul>
         <li><div><code>main</code></div></li>
         <li><div><code>get_determiner</code></div></li>
@@ -91,6 +91,8 @@
         commas like this list of strings:
 
 <div class="pre"><pre class="python">
+    # Create a list of strings and assign
+    # the list to a variable named words.
     words = ["boy", "girl", "cat", "dog", "bird", "house"]</pre></div>
         </div></li>
 
@@ -101,7 +103,13 @@
         that element. The choice function is easy to call like this:
 <div class="pre"><pre class="python">import random
 
+    # Create a list of strings and assign
+    # the list to a variable named words.
     words = ["boy", "girl", "cat", "dog", "bird", "house"]
+
+    # Call the random.choice function which will choose
+    # one string from the words list. Store the chosen
+    # string in a variable named word.
     word = <em>random.choice(words)</em></pre></div>
         </div></li>
 
@@ -136,7 +144,7 @@ def get_determiner(quantity):
     Parameter
         quantity: an integer. If quantity == 1, this function will
             return a determiner for a singular noun. Otherwise this
-            function will return a determiner for a pluaral noun.
+            function will return a determiner for a plural noun.
     Return: a randomly chosen determiner.
     """
     if quantity == 1:
@@ -147,6 +155,7 @@ def get_determiner(quantity):
     # Randomly choose and return a determiner.
     word = random.choice(words)
     return word</pre></div>
+        </div></li>
 
         <li><div>Use the <code>get_determiner</code> function as an
         example to help you write the <code>get_noun</code> function.
@@ -167,7 +176,7 @@ def get_noun(quantity):
         quantity: an integer that determines if the
             returned noun is singular or plural.
     Return: a randomly chosen noun.
-    """</div></pre>
+    """</pre></div>
         </div></li>
 
         <li><div>Use the <code>get_determiner</code> function as an
@@ -200,7 +209,7 @@ def get_verb(quantity, tense):
         tense: a string that determines the verb conjugation,
             either "past", "present" or "future".
     Return: a randomly chosen verb.
-    """</div></pre>
+    """</pre></div>
         </div></li>
 
         <li><div>Write the <code>main</code> function and any other
