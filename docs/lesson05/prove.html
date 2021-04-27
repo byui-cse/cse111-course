@@ -135,8 +135,9 @@ def get_determiner(quantity):
 
     Parameter
         quantity: an integer. If quantity == 1, this function will
-        return a determiner for a singular noun. Otherwise this
-        function will return a determiner for a pluaral noun.
+            return a determiner for a singular noun. Otherwise this
+            function will return a determiner for a pluaral noun.
+    Return: a randomly chosen determiner.
     """
     if quantity == 1:
         words = ["the", "one"]
@@ -165,6 +166,7 @@ def get_noun(quantity):
     Parameter
         quantity: an integer that determines if the
             returned noun is singular or plural.
+    Return: a randomly chosen noun.
     """</div></pre>
         </div></li>
 
@@ -197,6 +199,7 @@ def get_verb(quantity, tense):
             verb is singular or plural.
         tense: a string that determines the verb conjugation,
             either "past", "present" or "future".
+    Return: a randomly chosen verb.
     """</div></pre>
         </div></li>
 

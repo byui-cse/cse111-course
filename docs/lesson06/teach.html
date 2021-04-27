@@ -38,38 +38,145 @@
     the individual checkpoint assignment beforehand.</p>
 
     <h2>Problem Statement</h2>
+    <p>The Rosenberg self-esteem scale is a self-esteem measure
+    developed by the sociologist Morris Rosenberg in 1965. It is still
+    used in social-science research today. To complete the measure, a
+    person completes a survey with the following ten statments.</p>
+
+    <ol>
+        <li><div>I feel that I am a person of worth, at least on an
+        equal plane with others.</div></li>
+        <li><div>I feel that I have a number of good qualities.</div></li>
+        <li><div>All in all, I am inclined to feel that I am a
+        failure.</div></li>
+        <li><div>I am able to do things as well as most other
+        people.</div></li>
+        <li><div>I feel I do not have much to be proud of.</div></li>
+        <li><div>I take a positive attitude toward myself.</div></li>
+        <li><div>On the whole, I am satisfied with myself.</div></li>
+        <li><div>I wish I could have more respect for myself.</div></li>
+        <li><div>I certainly feel useless at times.</div></li>
+        <li><div>At times I think I am no good at all.</div></li>
+    </ol>
+
+    <p>The person responds to each statement by choosing one of these
+    four options: strongly disagree, disagree, agree, or strongly agree.
+    The answer to each statement is worth 0&ndash;3 points, meaning the
+    highest possible score is <span class="inline expr">10 * 3 = 30</span>
+    points. If a person scores less than 15 points, the person may have
+    a problematic low self-esteem.</p>
+
+    <p>Notice that five of the statements (numbers 1, 2, 4, 6, 7) are
+    positive and are scored like this:</p>
+    <table class="center"><thead>
+        <tr><th>Choice</th> <th>Points</th></tr>
+    </thead><tbody>
+        <tr><td>Strongly Disagree</td> <td class="number">0</td></tr>
+        <tr><td>Disagree</td> <td class="number">1</td></tr>
+        <tr><td>Agree</td> <td class="number">2</td></tr>
+        <tr><td>Strongly Agree</td> <td class="number">3</td></tr>
+    </tbody></table>
+
+    <p>The other five statements (numbers 3, 5, 8, 9, 10) are
+    negative and are scored like this:</p>
+    <table class="center"><thead>
+        <tr><th>Choice</th> <th>Points</th></tr>
+    </thead><tbody>
+        <tr><td>Strongly Disagree</td> <td class="number">3</td></tr>
+        <tr><td>Disagree</td> <td class="number">2</td></tr>
+        <tr><td>Agree</td> <td class="number">1</td></tr>
+        <tr><td>Strongly Agree</td> <td class="number">0</td></tr>
+    </tbody></table>
 
     <h2>Helpful Documentation</h2>
+    <p><a href="ttps://content.byui.edu/items/a9e60503-b5e7-40f0-bf48-ebf1a7441d25/1/debug_mpg.mp4">This video</a>
+    shows how to use the debugger in VS Code to find mistakes in a
+    program.</p>
 
     <h2>Assignment</h2>
+    <p>Write a Python program named <code>esteem.py</code> that
+    implements the Rosenberg self-esteem scale. Your program must ask
+    the user to respond to each of the ten statments with D, d, a, or A
+    which mean strongly disagree, disagree, agree, and strongly agree.
+    Your program must compute the score for each answer and sum and
+    display the person's total score. It is a good idea to think about
+    how you will split this program into functions before you begin
+    writing the program.</p>
 
     <h3>Core Requirements</h3>
+    <ol>
+        <li><div>Your program prints the introductory text as shown in
+        the Sample Run section below.</div></li>
+        <li><div>Your program prints each of the ten statements and gets
+        a response from the user.</div></li>
+        <li><div>Your program computes the score for each response and
+        sums all the scores and displays the total score.</div></li>
+    </ol>
 
     <h3>Stretch Challenges</h3>
     <p>If your team finishes the core requirements in less than an
     hour, complete one or more of these stretch challenges. Note that
     the stretch challenges are optional.</p>
+    <ol>
+        <li><div>Write a program that implements the
+        <a href="https://openpsychometrics.org/tests/NR-6/">Nature
+        Relatedness Scale</a></div></li>
+    </ol>
 
     <h2>Sample Run</h2>
+<pre class="console"> &gt; python esteem.py
+This program is an implementaiton of the Rosenberg Self-Esteem Scale.
+This program will show you ten statements that you could possibly
+apply to yourself. Please rate how much you agree with each of the
+statements by responding with one of these four letters:
+
+D means you strongly disagree with the statement.
+d means you disagree with the statement.
+a means you agree with the statement.
+A means you strongly agree with the statement.
+
+1. I feel that I am a person of worth, at least on an equal plane with
+others.
+Enter D, d, a, or A: <span class="input">A</span>
+2. I feel that I have a number of good qualities.
+Enter D, d, a, or A: <span class="input">A</span>
+3. All in all, I am inclined to feel that I am a failure.
+Enter D, d, a, or A: <span class="input">D</span>
+4. I am able to do things as well as most other people.
+Enter D, d, a, or A: <span class="input">a</span>
+5. I feel I do not have much to be proud of.
+Enter D, d, a, or A: <span class="input">d</span>
+6. I take a positive attitude toward myself.
+Enter D, d, a, or A: <span class="input">a</span>
+7. On the whole, I am satisfied with myself.
+Enter D, d, a, or A: <span class="input">a</span>
+8. I wish I could have more respect for myself.
+Enter D, d, a, or A: <span class="input">a</span>
+9. I certainly feel useless at times.
+Enter D, d, a, or A: <span class="input">a</span>
+10. At times I think I am no good at all.
+Enter D, d, a, or A: <span class="input">d</span>
+
+Your score is 21.
+A score below 15 may indicate problematic low self-esteem.</pre>
 
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each step
     in this testing procedure:</p>
     <ol class="test">
+        <li><div>Use the debugger in VS Code to step through your
+        program and verfiy that it works correctly.</div></li>
     </ol>
 
     <h2>Sample Solution</h2>
     <p>Please work diligently with your team for the one hour meeting.
-    After the meeting is over, please compare your approach to this
-    <a download href="teach_solution1.py">first sample solution</a> or
-    to this
-    <a download href="teach_solution2.py">second sample solution</a>
-    which is better organized because it is split into three more
-    functions than the first solution. Please <strong>do not look at the
-    sample solutions</strong> until you have either finished the program
-    or diligently worked for at least one hour. At the end of the hour,
-    if you are still struggling to complete the assignment, you may use
-    the sample solution to help you finish.</p>
+    After the meeting is over, please compare your approach to the
+    <a download href="teach_solution.py">sample solution</a>. Please
+    <strong>do not look at the sample solution</strong> until you have
+    either finished the program or diligently worked for at least one
+    hour. At the end of the hour, if you are still struggling to
+    complete the assignment, you may use the sample solution to help you
+    finish.</p>
 
     <h2>Submission</h2>
     <p>When you have finished the activity, please report your progress
