@@ -19,11 +19,11 @@ subtotal = float(text)
 
 # Call the now() method to get the current date and
 # time as a datetime object from the computer's clock.
-current = datetime.now()
+current_date_and_time = datetime.now()
 
-# Call the isoweekday() method to get the day
-# of the week from the current datetime object.
-weekday = current.isoweekday()
+# Call the isoweekday() method to get the day of
+# the week from the current_date_and_time object.
+weekday = current_date_and_time.isoweekday()
 
 # if the subtotal is greater than 50 and
 # today is Tuesday or Wednesday, compute the discount.

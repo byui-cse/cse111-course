@@ -266,31 +266,30 @@ def compute_molar_mass(symbol_quantity_list, periodic_table):
         don't pass, there is a mistake in your <code>chemistry.py</code>
         program. Read the output from <code>pytest</code>, fix the
         mistake, and run the <code>test_chemistry_2.py</code> program
-        again until the test functions pass.</div></li>
-
-        <li><div>Run your finished <code>chemistry.py</code> program.
-        Enter the user input shown in the Sample Runs section below.
-        Ensure that your program prints correct output.</div></li>
-    </ol>
-
-    <h2>Sample Runs</h2>
+        again until the test functions pass.
 <pre class="console">&gt; python test_chemistry_2.py
-========================= test session starts =========================
-platform win32 -- Python 3.8.6, pytest-6.1.2, py-1.9.0, pluggy-0.13.1
+======================= test session starts =======================
+platform win32--Python 3.8.6, pytest-6.1.2, py-1.9.0, pluggy-0.13.1
 rootdir: C:\Users\cse111\lesson07
 collected 3 items
 
-test_chemistry_2.py::test_make_periodic_table <span class="pass">PASSED             [ 33%]</span>
-test_chemistry_2.py::test_parse_formula <span class="pass">PASSED                   [ 66%]</span>
-test_chemistry_2.py::test_compute_molar_mass <span class="pass">PASSED              [100%]</span>
+test_chemistry_2.py::test_make_periodic_table <span class="pass">PASSED         [ 33%]</span>
+test_chemistry_2.py::test_parse_formula <span class="pass">PASSED               [ 66%]</span>
+test_chemistry_2.py::test_compute_molar_mass <span class="pass">PASSED          [100%]</span>
 
-<span class="pass">========================== 3 passed in 0.17s ==========================</span></pre>
+<span class="pass">======================== 3 passed in 0.17s ========================</span></pre>
+        </div></li>
 
+        <li><div>Run your finished <code>chemistry.py</code> program.
+        Enter the user input shown below. Ensure that your program
+        prints correct output.
 <pre class="console">&gt; python chemistry.py
 Enter the molecular formula of the sample: <span class="input">C13H18O2</span>
 Enter the mass in grams of the sample: <span class="input">5.04</span>
 206.28082 grams/mole
 0.02443 moles</pre>
+        </div></li>
+    </ol>
 
     <h2>Submission</h2>
     <p>To submit your program, return to I-Learn and do these two

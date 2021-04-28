@@ -14,6 +14,7 @@
     <script src="../site/url.js"></script>
     <script src="../site/urlWrite.js"></script>
     <script src="../site/color.js"></script>
+    <script src="../site/linenums.js"></script>
     <script src="../site/hljs/highlight.pack.js"></script>
 </head>
 
@@ -46,10 +47,11 @@
     working correctly.</p>
 
     <h2>Assignment</h2>
-    <p>Write the second half of a Python program that generates simple
-    English sentences. During this lesson, you will write and test
-    functions that generate sentences with four parts: a determiner, a
-    noun, a verb, and a prepositional phrase such as these sentences:</p>
+    <p>Write the second half of the Python program that you began in
+    lesson&nbsp;5, a program that generates simple English sentences.
+    During this lesson, you will write and test functions that generate
+    sentences with four parts: a determiner, a noun, a verb, and a
+    prepositional phrase such as these sentences:</p>
 
     <blockquote>One girl talked for the car.<br>
     Some dogs drank above many adults.<br>
@@ -114,9 +116,12 @@ def get_prepositional_phrase(quantity):
     """</pre></div>
         </div></li>
 
-        <li><div>Write the <code>main</code> function and any other
-        functions that you think are necessary for your program to
-        generate and print six more sentences with these characteristics:
+        <li><div>Add code to the <code>main</code> function and write
+        any other functions that you think are necessary for your
+        program to generate and print six more sentences with the
+        following characteristics. Each of these six additional
+        functions must include a prepositional phrase.
+
         <table><thead>
             <tr><th></th> <th>Noun Quantity</th> <th>Verb Tense</th></tr>
         </thead><tbody>
@@ -128,12 +133,60 @@ def get_prepositional_phrase(quantity):
             <tr><td>f.</td> <td>plural</td> <td>future</td></tr>
         </tbody></table>
         </div></li>
+
+        <li><div><p>In the <code>test_sentences.py</code> file write two
+        functions named <code>test_get_preposition</code> and
+        <code>test_get_prepositional_phrase</code> that test the
+        <code>get_preposition</code> and
+        <code>get_prepositional_phrase</code> functions.</p>
+
+        <p>Perhaps you are wondering what code you should write in the
+        <code>test_get_prepositional_phrase</code> function. To answer
+        that question, ask yourself, "What do we know about the
+        <code>get_prepositional_phrase</code> function?" From its
+        description, we know the <code>get_prepositional_phrase</code>
+        function returns a phrase made of three words: a preposition, a
+        determiner, and a noun. So you could write code in the
+        <code>test_get_prepositional_phrase</code> function that calls
+        the <code>get_prepositional_phrase</code> function and then
+        calls the Python string
+    <a href="https://docs.python.org/3/library/stdtypes.html#str.split"><code>split</code> method</a>
+        to split the returned phrase into its three words and check each
+        of the three words.</p>
+        </div></li>
     </ol>
 
-    <h2>Sample Run</h2>
-    <p>Because your program will randomly choose the determiners, nouns,
-    verbs, and prepositional phrases, your program will generate
-    different sentences than the ones shown here.</p>
+    <h2>Testing Procedure</h2>
+    <p>Verify that your test program works correctly by following each
+    step in this procedure:</p>
+
+    <ol class="test">
+        <li><div>Run your <code>test_sentences.py</code> program and
+        verify that all five of the test functions pass. If one or more
+        of the tests don't pass, find and fix the mistakes in your
+        program functions or test functions until the tests pass as
+        shown in this output:
+
+<pre class="console">&gt; python test_sentences.py
+======================= test session starts =======================
+platform win32--Python 3.8.6, pytest-6.1.2, py-1.9.0, pluggy-0.13.1
+rootdir: C:\Users\cse111\lesson06
+collected 5 items
+
+test_sentences.py::test_get_determiner <span class="pass">PASSED                [ 20%]</span>
+test_sentences.py::test_get_noun <span class="pass">PASSED                      [ 40%]</span>
+test_sentences.py::test_get_verb <span class="pass">PASSED                      [ 60%]</span>
+test_sentences.py::test_get_preposition <span class="pass">PASSED               [ 80%]</span>
+test_sentences.py::test_get_prepositional_phrase <span class="pass">PASSED      [100%]</span>
+
+<span class="pass">======================== 5 passed in 0.10s ========================</span></pre>
+        </div></li>
+
+        <li><div>Run your sentences.py program and ensure that your
+        program's output is similar to the sample run output shown here.
+        Because your program will randomly choose the determiners,
+        nouns, verbs, and prepositions, your program will generate
+        different sentences than the ones shown here.
 
 <pre class="console">&gt; python sentences.py
 The cat laughed.
@@ -148,42 +201,8 @@ One bird drinks off one child.
 Some children laugh at many dogs.
 The child will run on the car.
 Some adults will talk about some cats.</pre>
-
-    <h2>Testing Procedure</h2>
-    <p>Verify that the <code>get_preposition</code> and
-    <code>get_prepositional_phrase</code> functions in
-    <code>sentences.py</code> work correctly by writing two test
-    functions named <code>test_get_preposition</code> and
-    <code>test_get_prepositional_phrase</code> in the
-    <code>test_sentences.py</code> file.</p>
-
-    <p>Perhaps you are wondering what code you should write in the
-    <code>test_get_prepositional_phrase</code> function. To answer that
-    question, ask yourself, "What do we know about the
-    <code>get_prepositional_phrase</code> function?" From its
-    description, we know the <code>get_prepositional_phrase</code>
-    function returns a phrase made of three words: a preposition, a
-    determiner, and a noun. So you could write code in the
-    <code>test_get_prepositional_phrase</code> that calls the
-    <code>get_prepositional_phrase</code> function and then calls the
-    Python string
-    <a href="https://docs.python.org/3/library/stdtypes.html#str.split"><code>split</code> method</a>
-    to split the returned phrase into its three words and check each of
-    the three words.</p>
-
-<pre class="console">&gt; python test_sentences.py
-========================= test session starts =========================
-platform win32 -- Python 3.8.6, pytest-6.1.2, py-1.9.0, pluggy-0.13.1
-rootdir: C:\Users\cse111\lesson06
-collected 5 items
-
-test_sentences.py::test_get_determiner <span class="pass">PASSED                    [ 20%]</span>
-test_sentences.py::test_get_noun <span class="pass">PASSED                          [ 40%]</span>
-test_sentences.py::test_get_verb <span class="pass">PASSED                          [ 60%]</span>
-test_sentences.py::test_get_preposition <span class="pass">PASSED                   [ 80%]</span>
-test_sentences.py::test_get_prepositional_phrase <span class="pass">PASSED          [100%]</span>
-
-<span class="pass">========================== 5 passed in 0.10s ==========================</span></pre>
+        </div></li>
+    </ol>
 
     <h2>Ponder</h2>
     <p>How hard would it be to modify your program to pass the Turing

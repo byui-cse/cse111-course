@@ -171,10 +171,15 @@ pytest.main(["-v", "--tb=line", "-rN", "test_names.py"])</pre></div>
         extract_zipcode function works correctly.</div></li>
     </ol>
 
+    <h2>Testing Procedure</h2>
+    <p>Repeat steps&nbsp;7 and&nbsp;8 above until you have found and
+    fixed all the mistakes in the <code>names.py</code> file and your
+    tests pass.</p>
+
     <h2>Sample Run</h2>
     <pre class="console">&gt; python test_names.py
 ========================= test session starts =========================
-platform win32 -- Python 3.8.6, pytest-6.1.2, py-1.9.0, pluggy-0.13.1
+platform win32--Python 3.8.6, pytest-6.1.2, py-1.9.0, pluggy-0.13.1
 rootdir: C:\Users\cse111\lesson05
 collected 3 items
 
@@ -188,11 +193,6 @@ AssertionError: assert 'Smith-Jones;Penelope' == 'Smith-Jones; Penelope'
 C:\Users\cse111\early-functions\docs\lesson05\names.py:29:
 ValueError: substring not found
 <span class="fail">===================== 2 failed</span>, <span class="pass">1 passed</span> <span class="fail">in 0.14s =====================</span></pre>
-
-    <h2>Testing Procedure</h2>
-    <p>Repeat steps&nbsp;7 and&nbsp;8 above until you have found and
-    fixed all the mistakes in the <code>names.py</code> file and your
-    tests pass.</p>
 
     <h2>Sample Solution</h2>
     <p>Please work diligently with your team for the one hour meeting.

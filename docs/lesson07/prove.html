@@ -269,32 +269,6 @@
         <code>chemistry.py</code> Python program.</div></li>
     </ol>
 
-    <h2>Sample Runs</h2>
-<pre class="console">&gt; python test_chemistry_1.py
-========================= test session starts =========================
-platform win32 -- Python 3.8.6, pytest-6.1.2, py-1.9.0, pluggy-0.13.1
-rootdir: C:\Users\cse111\lesson07
-collected 1 item
-
-test_chemistry_1.py::test_make_periodic_table <span class="pass">PASSED             [100%]</span>
-
-<span class="pass">========================== 1 passed in 0.14s ==========================</span></pre>
-
-<pre class="console">&gt; python chemistry.py
-Ac
-Actinium
-227
-Ag
-Silver
-107.8682
-Al
-Aluminum
-26.9815386
-Am
-Americium
-243
-  &vellip;</pre>
-
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each step
     in this testing procedure:</p>
@@ -306,11 +280,35 @@ Americium
         <code>make_periodic_table</code> function. Read the output from
         <code>pytest</code>, fix the mistake, and run the
         <code>test_chemistry_1.py</code> program again until the test
-        function passes.</div></li>
+        function passes.
+<pre class="console">&gt; python test_chemistry_1.py
+======================= test session starts =======================
+platform win32--Python 3.8.6, pytest-6.1.2, py-1.9.0, pluggy-0.13.1
+rootdir: C:\Users\cse111\lesson07
+collected 1 item
+
+test_chemistry_1.py::test_make_periodic_table <span class="pass">PASSED         [100%]</span>
+
+<span class="pass">======================== 1 passed in 0.14s ========================</span></pre>
+        </div></li>
 
         <li><div>Run your <code>chemistry.py</code> program and ensure
-        that your program's output matches the Sample Run output
-        above.</div></li>
+        that your program's output matches the following output. The
+        three vertical dots (&vellip;) in the output below are called a
+        vertical ellipsis and mean the output continues. Your program
+        shouldn't print the vertical ellipsis. Instead, your program
+        should print the rest of the output.
+<pre class="console">&gt; python chemistry.py
+['Ac', 'Actinium', 227]
+['Ag', 'Silver', 107.8682]
+['Al', 'Aluminum', 26.9815386]
+['Am', 'Americium', 243]
+['Ar', 'Argon', 39.948]
+['As', 'Arsenic', 74.9216]
+['At', 'Astatine', 210]
+['Au', 'Gold', 196.966569]
+  &vellip;</pre>
+        </div></li>
     </ol>
 
     <h2>Submission</h2>

@@ -14,6 +14,7 @@
     <script src="../site/url.js"></script>
     <script src="../site/urlWrite.js"></script>
     <script src="../site/color.js"></script>
+    <script src="../site/linenums.js"></script>
     <script src="../site/hljs/highlight.pack.js"></script>
 </head>
 
@@ -226,31 +227,17 @@ def get_verb(quantity, tense):
             <tr><td>f.</td> <td>plural</td> <td>future</td></tr>
         </tbody></table>
         </div></li>
-    </ol>
 
-    <h2>Sample Run</h2>
-    <p>Because your program will randomly choose the determiners, nouns,
-    and verbs, your program will generate different sentences than the
-    ones shown here.</p>
-
-<pre class="console">&gt; python sentences.py
-The cat laughed.
-Some girls thought.
-One man eats.
-Many dogs run.
-The woman will think.
-Many men will write.</pre>
-
-    <h2>Testing Procedure</h2>
-    <p>Verify that the <code>get_determiner</code>,
-    <code>get_noun</code>, and <code>get_verb</code> functions in
-    <code>sentences.py</code> work correctly by writing three test
-    functions named <code>test_get_determiner</code>,
-    <code>test_get_noun</code>, and <code>test_get_verb</code>, in a
-    file named <code>test_sentences.py</code>. Each of these three test
-    functions must test one of the program functions. The following
-    example contains code for the <code>test_get_determiner</code>
-    function.</p>
+        <li><div>In a new file named test_sentences.py, write three test
+        functions named <code>test_get_determiner</code>,
+        <code>test_get_noun</code>, and <code>test_get_verb</code>.
+        Each of these three test functions must test one of the program
+        functions: <code>get_determiner</code>, <code>get_noun</code>,
+        and <code>get_verb</code>. The following example contains code
+        for the <code>test_get_determiner</code> function. Copy and
+        paste the code into your <code>test_sentences.py</code> file and
+        use it as an example to help you write
+        <code>test_get_noun</code> and <code>test_get_verb</code>.
 
 <div class="pre"><pre class="python">
 from sentences import get_determiner, get_noun, get_verb
@@ -280,18 +267,48 @@ def test_get_determiner():
         # Verify that the word returned from get_determiner
         # is one of the words in the plural_determiners list.
         assert word in plural_determiners</pre></div>
+        </div></li>
+    </ol>
+
+    <h2>Testing Procedure</h2>
+    <p>Verify that your test program works correctly by following each
+    step in this procedure:</p>
+
+    <ol class="test">
+        <li><div>Run your <code>test_sentences.py</code> program and
+        verify that all three of the test functions pass. If one or more
+        of the tests don't pass, find and fix the mistakes in your
+        program functions or test functions until the tests pass as
+        shown in this output:
 
 <pre class="console">&gt; python test_sentences.py
-========================= test session starts =========================
-platform win32 -- Python 3.8.6, pytest-6.1.2, py-1.9.0, pluggy-0.13.1
+======================= test session starts =======================
+platform win32--Python 3.8.6, pytest-6.1.2, py-1.9.0, pluggy-0.13.1
 rootdir: C:\Users\cse111\lesson05
 collected 3 items
 
-test_sentences.py::test_get_determiner <span class="pass">PASSED                    [ 33%]</span>
-test_sentences.py::test_get_noun <span class="pass">PASSED                          [ 66%]</span>
-test_sentences.py::test_get_verb <span class="pass">PASSED                          [100%]</span>
+test_sentences.py::test_get_determiner <span class="pass">PASSED                [ 33%]</span>
+test_sentences.py::test_get_noun <span class="pass">PASSED                      [ 66%]</span>
+test_sentences.py::test_get_verb <span class="pass">PASSED                      [100%]</span>
 
-<span class="pass">========================== 3 passed in 0.10s ==========================</span></pre>
+<span class="pass">======================== 3 passed in 0.10s ========================</span></pre>
+        </div></li>
+
+        <li><div>Run your <code>sentences.py</code> program and ensure
+        that your program's output is similar to the sample run output
+        shown here. Because your program will randomly choose the
+        determiners, nouns, and verbs, your program will generate
+        different sentences than the ones shown here.
+
+<pre class="console">&gt; python sentences.py
+The cat laughed.
+Some girls thought.
+One man eats.
+Many dogs run.
+The woman will think.
+Many men will write.</pre>
+        </div></li>
+    </ol>
 
     <h2>Submission</h2>
     <p>On or before the due date, return to I-Learn and report your

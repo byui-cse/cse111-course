@@ -90,10 +90,12 @@
         the current date and time from a computer's operating
         system.</p>
 <div class="pre"><pre class="python">
+# Import the datatime module so that
+# it can be used in this program.
 from datetime import datetime
 
-# Get the current date and time from the
-# datetime.now method in the datetime module.
+# Call the now() method to get the current date and
+# time as a datetime object from the computer's clock.
 current_date_and_time = datetime.now()</pre></div>
 
         <p>These two Microsoft videos explain how to use methods from
@@ -162,20 +164,12 @@ with open("dimensions.txt", <em>"at"</em>) as dimens_file:
         -->
     </ul>
 
-    <h2>Sample Run</h2>
-<pre class="console">&gt; python tire_volume.py
-Enter the width of the tire in mm (ex 205): <span class="input">185</span>
-Enter the aspect ratio of the tire (ex 60): <span class="input">50</span>
-Enter the diameter of the wheel in inches (ex 15): <span class="input">14</span>
-
-The approximate volume is 24090.1 milliliters</pre>
-
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each step
     in this testing procedure:</p>
     <ol class="test long">
         <li><div>Run your program using the input shown in the sample
-        run section above. Ensure that your program's output matches the
+        run section below. Ensure that your program's output matches the
         sample run output. Use VS Code to open the
         <code>volumes.txt</code> file and verify that the last line of
         text in the file looks like this except the date will be
@@ -190,6 +184,14 @@ The approximate volume is 24090.1 milliliters</pre>
 <pre class="file">2021-03-18, 185, 50, 14, 24090.1
 2021-04-16, 205, 60, 15, 39924.5</pre></div></li>
     </ol>
+
+    <h2>Sample Run</h2>
+<pre class="console">&gt; python tire_volume.py
+Enter the width of the tire in mm (ex 205): <span class="input">185</span>
+Enter the aspect ratio of the tire (ex 60): <span class="input">50</span>
+Enter the diameter of the wheel in inches (ex 15): <span class="input">14</span>
+
+The approximate volume is 24090.1 milliliters</pre>
 
     <h2>Exceeding the Requirements</h2>
     <p>Here are a few suggestions for additional features you could add

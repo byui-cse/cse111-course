@@ -19,7 +19,7 @@ def main():
         # Compare the user's guess to the answer.
         if guess < answer:
             prompt = f"{guess} is too low. Please enter another integer: "
-        elif guess > answer:
+        elif guess < answer:
             prompt = f"{guess} is too high. Please enter another integer: "
 
     print()

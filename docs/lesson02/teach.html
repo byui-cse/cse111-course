@@ -91,11 +91,11 @@ from datetime import datetime
 
 # Call the now() method to get the current date and
 # time as a datetime object from the computer's clock.
-current = datetime.now()
+current_date_and_time = datetime.now()
 
-# Call the isoweekday() method to get the day
-# of the week from the current datetime object.
-weekday = current.isoweekday()
+# Call the isoweekday() method to get the day of
+# the week from the current_date_and_time object.
+weekday = current_date_and_time.isoweekday()
 
 print(weekday)</pre></div>
 
@@ -137,6 +137,33 @@ print(weekday)</pre></div>
         "done" for the price.</div></li>
     </ol>
 
+    <h2>Testing Procedure</h2>
+    <p>Verify that your program works correctly by following each
+    step in this testing procedure:</p>
+    <ol class="test long">
+        <li><div>If today is any day other than Tuesday or Wednesday,
+        run your program using the input shown in the "Run on a Monday"
+        section below. Ensure that your program's output matches the
+        sample run output. If today is Tuesday or Wednesday, run your
+        program using the input in the "Run on a Tuesday"
+        section.</div></li>
+
+        <li><div>Is there a simple way to test your program for all the
+        days of the week without testing on seven consecutive days and
+        without changing your computer's system date? Hint: In your
+        program immediately after these three lines of code:
+
+<div class="pre"><pre class="python">
+# Call the isoweekday() method to get the day
+# of the week from the current datetime object.
+weekday = current.isoweekday()</pre></div>
+
+        temporarily add a line of code like this one:
+
+<div class="pre"><pre class="python">weekday = 3</pre></div>
+        </div></li>
+    </ol>
+
     <h2>Sample Runs</h2>
     <h3>Run on a Monday</h3>
 <pre class="console">&gt; python discount.py
@@ -160,33 +187,6 @@ Please enter the subtotal: <span class="input">55.20</span>
 Discount amount: 5.52
 Sales tax amount: 2.98
 Total: 52.66</pre>
-
-    <h2>Testing Procedure</h2>
-    <p>Verify that your program works correctly by following each
-    step in this testing procedure:</p>
-    <ol class="test long">
-        <li><div>If today is any day other than Tuesday or Wednesday,
-        run your program using the input shown in the "Run on a Monday"
-        section above. Ensure that your program's output matches the
-        sample run output. If today is Tuesday or Wednesday, run your
-        program using the input in the "Run on a Tuesday"
-        section.</div></li>
-
-        <li><div>Is there a simple way to test your program for all the
-        days of the week without testing on seven consecutive days and
-        without changing your computer's system date? Hint: In your
-        program immediately after these three lines of code:
-
-<div class="pre"><pre class="python">
-# Call the isoweekday() method to get the day
-# of the week from the current datetime object.
-weekday = current.isoweekday()</pre></div>
-
-        temporarily add a line of code like this one:
-
-<div class="pre"><pre class="python">weekday = 3</pre></div>
-        </div></li>
-    </ol>
 
     <h2>Sample Solution</h2>
     <p>Please work diligently with your team for the one hour meeting.
