@@ -144,7 +144,7 @@ def get_determiner(quantity):
 
     Parameter
         quantity: an integer. If quantity == 1, this function will
-            return a determiner for a singular noun. Otherwise this
+            return a determiner for a single noun. Otherwise this
             function will return a determiner for a plural noun.
     Return: a randomly chosen determiner.
     """
@@ -165,7 +165,7 @@ def get_determiner(quantity):
 <div class="pre"><pre class="python">
 def get_noun(quantity):
     """Return a randomly chosen noun. If quantity == 1, this
-    function will return one of these ten singular nouns:
+    function will return one of these ten single nouns:
         "adult", "bird", "boy", "car", "cat",
         "child", "dog", "girl", "man", "woman"
     Otherwise, this function will return one of these ten
@@ -175,7 +175,7 @@ def get_noun(quantity):
 
     Parameter
         quantity: an integer that determines if the
-            returned noun is singular or plural.
+            returned noun is single or plural.
     Return: a randomly chosen noun.
     """</pre></div>
         </div></li>
@@ -206,7 +206,7 @@ def get_verb(quantity, tense):
 
     Parameter
         quantity: an integer that determines if the returned
-            verb is singular or plural.
+            verb is single or plural.
         tense: a string that determines the verb conjugation,
             either "past", "present" or "future".
     Return: a randomly chosen verb.
@@ -219,11 +219,11 @@ def get_verb(quantity, tense):
         <table><thead>
             <tr><th></th> <th>Noun Quantity</th> <th>Verb Tense</th></tr>
         </thead><tbody>
-            <tr><td>a.</td> <td>singular</td> <td>past</td></tr>
+            <tr><td>a.</td> <td>single</td> <td>past</td></tr>
             <tr><td>b.</td> <td>plural</td> <td>past</td></tr>
-            <tr><td>c.</td> <td>singular</td> <td>present</td></tr>
+            <tr><td>c.</td> <td>single</td> <td>present</td></tr>
             <tr><td>d.</td> <td>plural</td> <td>present</td></tr>
-            <tr><td>e.</td> <td>singular</td> <td>future</td></tr>
+            <tr><td>e.</td> <td>single</td> <td>future</td></tr>
             <tr><td>f.</td> <td>plural</td> <td>future</td></tr>
         </tbody></table>
         </div></li>
@@ -245,22 +245,26 @@ import pytest
 
 
 def test_get_determiner():
-    # Test the singular determiners.
-    singular_determiners = ["the", "one"]
+    # 1. Test the single determiners.
+
+    single_determiners = ["the", "one"]
+
     # This loop will repeat the statements inside it 4 times.
+    # If a loop's counting variable is not used inside the
+    # body of the loop, many programmers will use underscore
+    # (_) as the variable name for the counting variable.
     for _ in range(4):
         word = get_determiner(1)
 
         # Verify that the word returned from get_determiner is
-        # one of the words in the singular_determiners list.
-        assert word in singular_determiners
+        # one of the words in the single_determiners list.
+        assert word in single_determiners
 
-    # If a loop's counting variable is not used inside the
-    # body of the loop, many programmers will use underscore
-    # (_) as the variable name for the counting variable.
+    # 2. Test the plural determiners.
 
-    # Test the plural determiners.
     plural_determiners = ["some", "many"]
+
+    # This loop will repeat the statements inside it 4 times.
     for _ in range(4):
         word = get_determiner(2)
 
@@ -295,9 +299,23 @@ test_sentences.py::test_get_verb <span class="pass">PASSED                      
         </div></li>
 
         <li><div>Run your <code>sentences.py</code> program and ensure
-        that your program's output is similar to the sample run output
-        shown here. Because your program will randomly choose the
-        determiners, nouns, and verbs, your program will generate
+        that your program outputs six sentences with the following
+        characteristics:
+
+        <table><thead>
+            <tr><th></th> <th>Noun Quantity</th> <th>Verb Tense</th></tr>
+        </thead><tbody>
+            <tr><td>a.</td> <td>single</td> <td>past</td></tr>
+            <tr><td>b.</td> <td>plural</td> <td>past</td></tr>
+            <tr><td>c.</td> <td>single</td> <td>present</td></tr>
+            <tr><td>d.</td> <td>plural</td> <td>present</td></tr>
+            <tr><td>e.</td> <td>single</td> <td>future</td></tr>
+            <tr><td>f.</td> <td>plural</td> <td>future</td></tr>
+        </tbody></table>
+
+        Your program's output should be similar to the sample run output
+        shown here. However, because your program will randomly choose
+        the determiners, nouns, and verbs, your program will generate
         different sentences than the ones shown here.
 
 <pre class="console">&gt; python sentences.py

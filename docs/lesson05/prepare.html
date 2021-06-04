@@ -31,11 +31,11 @@
     <h1>05 Prepare: Testing Functions</h1>
     <p>During this lesson, you will learn to use a more systematic
     approach to developing code. Specifically, you will learn how to
-    write test functions that automatically verify that other functions
-    are correct. You will learn how to use a Python module named
-    <code>pytest</code> to run your test functions, and you will learn
-    how to read the output of <code>pytest</code> to help you find and
-    fix mistakes in your code.</p>
+    write test functions that automatically verify that program
+    functions are correct. You will learn how to use a Python module
+    named <code>pytest</code> to run your test functions, and you will
+    learn how to read the output of <code>pytest</code> to help you find
+    and fix mistakes in your code.</p>
 
     <h2>Concepts</h2>
     <p>Here are the Python programming concepts and topics that you
@@ -50,9 +50,9 @@
         <em>automatically</em> verify that the program's functions are
         correct.</div></li>
 
-        <li><div>In this course, you will write your test functions in a
-        Python file that is separate from your Python program. In other
-        words, you will keep normal program code and test code in
+        <li id="2"><div>In this course, you will write test functions in
+        a Python file that is separate from your Python program. In
+        other words, you will keep normal program code and test code in
         separate files.</div></li>
 
         <li><div><p>In a computer program, an <dfn>assertion</dfn> is a
@@ -74,16 +74,20 @@
         deposits, and withdrawals. A programmer might write the first
         few lines of the <code>deposit</code> function like this:</p>
 
-<div class="pre"><pre class="python">
+<div class="pre"><pre class="linenums"></pre>
+<pre class="python" id="ex1">
 def deposit(amount):
     # In order for this program to work correctly and
     # for the bank records to be correct, we must not
     # allow someone to deposit a zero or negative amount.
-    assert amount &gt;= 0
-      &vellip;</pre></div>
+    assert amount &gt; 0
+      &vellip;</pre>
+</div>
 
-        <p>The <code>assert</code> statement in the previous example
-        will cause the computer to check if the <var>amount</var> is
+        <p>The <code>assert</code> statement at
+        <span class="cross" data-ref="ex1">line&nbsp;5</span> in the
+        previous example will cause the computer to check if the
+        <var>amount</var> is
         greater than zero (0). If the amount is greater than zero, the
         computer will continue to execute the program. However, if the
         <var>amount</var> is zero or less (negative), the computer will
@@ -94,7 +98,7 @@ def deposit(amount):
         <code>assert</code> statement. Here are a few examples from
         various unrelated programs:</p>
 
-<div class="pre"><pre class="python">
+<div class="pre"><pre class="python" id="ex2">
     assert temperature &lt; 0
 
     assert len(given_name) &gt; 0
@@ -105,7 +109,7 @@ def deposit(amount):
         </div></li>
 
         <li><div><p><a href="https://docs.pytest.org/en/latest/reference/reference.html"><code>pytest</code></a>
-        is a third-part Python module that makes it easy to write and
+        is a third-party Python module that makes it easy to write and
         run test functions. There are other Python testing modules
         besides <code>pytest</code>, but <code>pytest</code> seems to be
         the easiest. <code>pytest</code> is not a standard Python
@@ -122,7 +126,7 @@ def deposit(amount):
         we want to verify that the built-in <code>min</code> function
         works correctly, we could write an <code>assert</code> statement
         like this:</p>
-<div class="pre"><pre class="python">
+<div class="pre"><pre class="python" id="ex3">
     assert min(7, -3, 0, 2) == -3</pre></div>
 
         <p>The previous line of code will cause the computer to first
@@ -158,7 +162,7 @@ def deposit(amount):
         to help us compare floating point numbers. For example, to test
         the <code>math.sqrt</code> function, we could write an
         <code>assert</code> statement like this:</p>
-<div class="pre"><pre class="python">
+<div class="pre"><pre class="python" id="ex4">
     assert math.sqrt(5) == approx(2.24, 0.01)</pre></div>
 
         <p>The previous <code>assert</code> statement verifies that the
@@ -195,7 +199,7 @@ def deposit(amount):
     <code>weather.py</code>:</p>
 
 <div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex1"># weather.py
+<pre class="python" id="ex5"># weather.py
 
 def cels_from_fahr(fahr):
     """Convert a temperature in Fahrenheit to
@@ -206,15 +210,16 @@ def cels_from_fahr(fahr):
 
     <p>We want to test the <code>cels_from_fahr</code> function. From
     the function header at
-    <span class="cross" data-ref="ex1">line&nbsp;3</span> in
+    <span class="cross" data-ref="ex5">line&nbsp;3</span> in
     <code>weather.py</code>, we see that <code>cels_from_fahr</code>
     takes one parameter named <var>fahr</var>. To adequately test this
     function, we should call it with at least the following:&nbsp; a
-    negative number, zero, and a positive number, so we write a test
-    function in a separate file named <code>test_weather.py</code>:</p>
+    negative number, zero, and a positive number, so in a separate file
+    named <code>test_weather.py</code> we write a test function named
+    <code>test_cels_from_fahr</code> as follows:</p>
 
 <div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex2"># test_weather.py
+<pre class="python" id="ex6"># test_weather.py
 
 from weather import cels_from_fahr
 from pytest import approx
@@ -235,7 +240,7 @@ def test_cels_from_fahr():
 pytest.main(["-v", "--tb=line", "-rN", "test_weather.py"])</pre></div>
 
     <p>Notice in <code>test_weather.py</code> at
-    <span class="cross" data-ref="ex2">lines&nbsp;12&ndash;15</span>
+    <span class="cross" data-ref="ex6">lines&nbsp;12&ndash;15</span>
     that the test function
     <code>test_cels_from_fahr</code>
     calls the program function <code>cels_from_fahr</code> four
@@ -245,7 +250,7 @@ pytest.main(["-v", "--tb=line", "-rN", "test_weather.py"])</pre></div>
 
     <p>After writing the test function, we use <code>pytest</code> to
     run the test function. At
-    <span class="cross" data-ref="ex2">line&nbsp;19</span>,
+    <span class="cross" data-ref="ex6">line&nbsp;19</span>,
     instead of writing a call to the <code>main</code> function as we do
     in program files, we write a call to <code>pytest.main</code>. In
     CSE&nbsp;111, in all test files, we will write a call to
@@ -273,15 +278,16 @@ test_weather.py::test_cels_from_fahr <span class="pass">PASSED                  
     expected (correct) result all four times.</p>
 
     <h2 id="separate">Separating Program Code from Test Code</h2>
-    <p>As explained in concept #2 above, in CSE&nbsp;111, we will write
-    test functions in a different file than program functions. It is a
-    good idea to separate test functions and program functions. This
-    separation makes it easy to release a program to users without
-    releasing the test functions to them. (In general, users of a
-    program don't want the test functions.) One consequence of writing
-    program functions and test functions in separate files is that we
-    must add an import statement at the top of the test file that
-    imports all the program functions that will be tested.</p>
+    <p>As explained in <a href="#2">concept #2</a> above, in
+    CSE&nbsp;111, we will write test functions in a separate file from
+    program functions. It is a good idea to separate test functions and
+    program functions because the separation makes it easy to release a
+    program to users without releasing the test functions to them. (In
+    general, users of a program don't want the test functions.) One
+    consequence of writing program functions and test functions in
+    separate files is that we must add an import statement at the top of
+    the test file that imports all the program functions that will be
+    tested.</p>
 
     <p>Line&nbsp;3 from <code>test_weather.py</code> above is an example
     of an import statement that imports functions from a program file.
