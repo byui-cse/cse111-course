@@ -24,6 +24,7 @@ cse111.linenums = {
 		}
 	},
 
+
 	addCrossRefs : function() {
 		let getNumbers = function(target) {
 			const space = /(\s|&nbsp;|<br>)+/g;
@@ -56,17 +57,17 @@ cse111.linenums = {
 			return numbers;
 		};
 
-		let getElements = function(target) {
+		let getAllLineNumbers = function(target) {
 			let refId = target.getAttribute('data-ref');
 			let code = document.getElementById(refId);
-			let linenums = code.previousElementSibling;
-			return linenums.children;
+			let lineNumDiv = code.previousElementSibling;
+			return lineNumDiv.children;
 		};
 
-		let getByContent = function(elements, content) {
+		let getLineNumber = function(lineNumbers, content) {
 			let found;
-			for (let i = 0;  i < elements.length;  ++i) {
-				let elem = elements[i];
+			for (let i = 0;  i < lineNumbers.length;  ++i) {
+				let elem = lineNumbers[i];
 				if (elem.innerText == content) {
 					found = elem;
 					break;
@@ -77,30 +78,68 @@ cse111.linenums = {
 
 		let on = function(event) {
 			let target = event.target;
-			let elements = getElements(target);
+			let lineNumbers = getAllLineNumbers(target);
 			let numbers = getNumbers(target);
 			for (let i = 0;  i < numbers.length;  ++i) {
 				let number = '' + numbers[i];
-				let elem = getByContent(elements, number);
+				let elem = getLineNumber(lineNumbers, number);
 				elem.classList.add('hi');
 			}
 		};
 
 		let off = function(event) {
 			let target = event.target;
-			let elements = getElements(target);
-			for (let i = 0;  i < elements.length;  ++i) {
-				elements[i].classList.remove('hi');
+			let lineNumbers = getAllLineNumbers(target);
+			let numbers = getNumbers(target);
+			for (let i = 0;  i < numbers.length;  ++i) {
+				let number = '' + numbers[i];
+				let elem = getLineNumber(lineNumbers, number);
+				elem.classList.remove('hi');
 			}
 		};
 
-		let elems = document.getElementsByClassName('cross');
-		for (let i = 0;  i < elems.length;  ++i) {
-			let elem = elems[i];
-			elem.addEventListener('mouseover', on);
-			elem.addEventListener('mouseout', off);
+		let toggle = function(event) {
+			let target = event.target;
+			let state = target.getAttribute('data-on');
+			if (state == null) {
+				// Highlights are on because the user moved the mouse
+				// into the target before clicking on it. Because the
+				// user clicked on the target, set the highlights to
+				// stay on after the user moves out of the target.
+				target.removeEventListener('mouseover', on);
+				target.removeEventListener('mouseout', off);
+				target.setAttribute('data-on', 'true');
+				target.setAttribute('title', 'Click to turn highlights off.');
+			}
+			else {
+				// Highlights are on because the user clicked on the
+				// target. The user has now clicked on the target again,
+				// so turn the highlights off.
+				let lineNumbers = getAllLineNumbers(target);
+				let numbers = getNumbers(target);
+				for (let i = 0;  i < numbers.length;  ++i) {
+					let number = '' + numbers[i];
+					let elem = getLineNumber(lineNumbers, number);
+					elem.classList.remove('hi');
+				}
+				target.removeAttribute('data-on');
+				target.addEventListener('mouseover', on);
+				target.addEventListener('mouseout', off);
+				target.setAttribute('title', 'Move mouse over to turn highlights on.\nClick to keep highlights on.');
+			}
+		};
+
+		// Add event handlers to each span that has a class of 'cross'.
+		let targets = document.getElementsByClassName('cross');
+		for (let i = 0;  i < targets.length;  ++i) {
+			let target = targets[i];
+			target.addEventListener('mouseover', on);
+			target.addEventListener('mouseout', off);
+			target.addEventListener('click', toggle);
+			target.setAttribute('title', 'Move mouse over to turn highlights on.\nClick to keep highlights on.');
 		}
 	},
+
 
 	addCopyButtons : function() {
 		const copyFunc = function(event) {
