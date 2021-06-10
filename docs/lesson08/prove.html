@@ -117,7 +117,7 @@ class FormulaError(ValueError):
     pass
 
 
-def parse_formula(formula, periodic_table):
+def parse_formula(formula, periodic_table_dict):
     """Convert a chemical formula for a molecule into a compound list
     that stores the quantity of atoms of each element in the molecule.
     For example, this function will convert "H2O" to [["H", 2], ["O", 1]]
@@ -150,11 +150,11 @@ def parse_formula(formula, periodic_table):
                     elems[symbol] = prev + group[symbol] * quant
             elif ch.isalpha():
                 symbol = formula[index:index+2]
-                if symbol in periodic_table:
+                if symbol in periodic_table_dict:
                     index += 2
                 else:
                     symbol = formula[index:index+1]
-                    if symbol in periodic_table:
+                    if symbol in periodic_table_dict:
                         index += 1
                     else:
                         # Unknown symbol for an element
@@ -191,7 +191,7 @@ NAME_INDEX = 0
 ATOMIC_MASS_INDEX = 1
 
 
-def compute_molar_mass(symbol_quantity_list, periodic_table):
+def compute_molar_mass(symbol_quantity_list, periodic_table_dict):
     """Compute and return the total molar mass of all the
     elements listed in symbol_quantity_list. Each element in
     symbol_quantity_list is a list in the form: ["symbol", quantity].
@@ -230,6 +230,7 @@ def compute_molar_mass(symbol_quantity_list, periodic_table):
         <code>chemistry.py</code> program so that it does the following:
 
 <div class="pre"><pre class="python">
+def main():
     # Get a chemical formula for a molecule from the user.
 
     # Get a mass in grams from the user.

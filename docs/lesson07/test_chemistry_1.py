@@ -18,167 +18,270 @@ def test_make_periodic_table():
     Return: nothing
     """
     # Call the make_periodic_table and store the returned
-    # periodic table in a variable named period_table.
-    periodic_table = make_periodic_table()
+    # periodic table in a variable named period_table_list.
+    periodic_table_list = make_periodic_table()
 
     # Create a key function that will be used by the sorted method.
-    by_symbol = lambda element: element[SYMBOL_INDEX]
+    by_name = lambda element: element[NAME_INDEX]
 
-    # Sort the periodic table by the element symbols.
-    periodic_table = sorted(periodic_table, key=by_symbol)
+    # Sort the periodic table by the element names.
+    periodic_table_list = sorted(periodic_table_list, key=by_name)
 
     # Check each element in the sorted periodic table.
-    check_element(periodic_table, ["Ac", "Actinium", 227])
-    check_element(periodic_table, ["Ag", "Silver", 107.8682])
-    check_element(periodic_table, ["Al", "Aluminum", 26.9815386])
-    check_element(periodic_table, ["Am", "Americium", 243])
-    check_element(periodic_table, ["Ar", "Argon", 39.948])
-    check_element(periodic_table, ["As", "Arsenic", 74.9216])
-    check_element(periodic_table, ["At", "Astatine", 210])
-    check_element(periodic_table, ["Au", "Gold", 196.966569])
-    check_element(periodic_table, ["B", "Boron", 10.811])
-    check_element(periodic_table, ["Ba", "Barium", 137.327])
-    check_element(periodic_table, ["Be", "Beryllium", 9.012182])
-    check_element(periodic_table, ["Bh", "Bohrium", 272])
-    check_element(periodic_table, ["Bi", "Bismuth", 208.9804])
-    check_element(periodic_table, ["Bk", "Berkelium", 247])
-    check_element(periodic_table, ["Br", "Bromine", 79.904])
-    check_element(periodic_table, ["C", "Carbon", 12.0107])
-    check_element(periodic_table, ["Ca", "Calcium", 40.078])
-    check_element(periodic_table, ["Cd", "Cadmium", 112.411])
-    check_element(periodic_table, ["Ce", "Cerium", 140.116])
-    check_element(periodic_table, ["Cf", "Californium", 251])
-    check_element(periodic_table, ["Cl", "Chlorine", 35.453])
-    check_element(periodic_table, ["Cm", "Curium", 247])
-    check_element(periodic_table, ["Cn", "Copernicium", 285])
-    check_element(periodic_table, ["Co", "Cobalt", 58.933195])
-    check_element(periodic_table, ["Cr", "Chromium", 51.9961])
-    check_element(periodic_table, ["Cs", "Cesium", 132.9054519])
-    check_element(periodic_table, ["Cu", "Copper", 63.546])
-    check_element(periodic_table, ["Db", "Dubnium", 268])
-    check_element(periodic_table, ["Ds", "Darmstadtium", 281])
-    check_element(periodic_table, ["Dy", "Dysprosium", 162.5])
-    check_element(periodic_table, ["Er", "Erbium", 167.259])
-    check_element(periodic_table, ["Es", "Einsteinium", 252])
-    check_element(periodic_table, ["Eu", "Europium", 151.964])
-    check_element(periodic_table, ["F", "Fluorine", 18.9984032])
-    check_element(periodic_table, ["Fe", "Iron", 55.845])
-    check_element(periodic_table, ["Fl", "Flerovium", 289])
-    check_element(periodic_table, ["Fm", "Fermium", 257])
-    check_element(periodic_table, ["Fr", "Francium", 223])
-    check_element(periodic_table, ["Ga", "Gallium", 69.723])
-    check_element(periodic_table, ["Gd", "Gadolinium", 157.25])
-    check_element(periodic_table, ["Ge", "Germanium", 72.64])
-    check_element(periodic_table, ["H", "Hydrogen", 1.00794])
-    check_element(periodic_table, ["He", "Helium", 4.002602])
-    check_element(periodic_table, ["Hf", "Hafnium", 178.49])
-    check_element(periodic_table, ["Hg", "Mercury", 200.59])
-    check_element(periodic_table, ["Ho", "Holmium", 164.93032])
-    check_element(periodic_table, ["Hs", "Hassium", 270])
-    check_element(periodic_table, ["I", "Iodine", 126.90447])
-    check_element(periodic_table, ["In", "Indium", 114.818])
-    check_element(periodic_table, ["Ir", "Iridium", 192.217])
-    check_element(periodic_table, ["K", "Potassium", 39.0983])
-    check_element(periodic_table, ["Kr", "Krypton", 83.798])
-    check_element(periodic_table, ["La", "Lanthanum", 138.90547])
-    check_element(periodic_table, ["Li", "Lithium", 6.941])
-    check_element(periodic_table, ["Lr", "Lawrencium", 262])
-    check_element(periodic_table, ["Lu", "Lutetium", 174.9668])
-    check_element(periodic_table, ["Lv", "Livermorium", 293])
-    check_element(periodic_table, ["Mc", "Moscovium", 288])
-    check_element(periodic_table, ["Md", "Mendelevium", 258])
-    check_element(periodic_table, ["Mg", "Magnesium", 24.305])
-    check_element(periodic_table, ["Mn", "Manganese", 54.938045])
-    check_element(periodic_table, ["Mo", "Molybdenum", 95.96])
-    check_element(periodic_table, ["Mt", "Meitnerium", 276])
-    check_element(periodic_table, ["N", "Nitrogen", 14.0067])
-    check_element(periodic_table, ["Na", "Sodium", 22.98976928])
-    check_element(periodic_table, ["Nb", "Niobium", 92.90638])
-    check_element(periodic_table, ["Nd", "Neodymium", 144.242])
-    check_element(periodic_table, ["Ne", "Neon", 20.1797])
-    check_element(periodic_table, ["Nh", "Nihonium", 284])
-    check_element(periodic_table, ["Ni", "Nickel", 58.6934])
-    check_element(periodic_table, ["No", "Nobelium", 259])
-    check_element(periodic_table, ["Np", "Neptunium", 237])
-    check_element(periodic_table, ["O", "Oxygen", 15.9994])
-    check_element(periodic_table, ["Og", "Oganesson", 294])
-    check_element(periodic_table, ["Os", "Osmium", 190.23])
-    check_element(periodic_table, ["P", "Phosphorus", 30.973762])
-    check_element(periodic_table, ["Pa", "Protactinium", 231.03588])
-    check_element(periodic_table, ["Pb", "Lead", 207.2])
-    check_element(periodic_table, ["Pd", "Palladium", 106.42])
-    check_element(periodic_table, ["Pm", "Promethium", 145])
-    check_element(periodic_table, ["Po", "Polonium", 209])
-    check_element(periodic_table, ["Pr", "Praseodymium", 140.90765])
-    check_element(periodic_table, ["Pt", "Platinum", 195.084])
-    check_element(periodic_table, ["Pu", "Plutonium", 244])
-    check_element(periodic_table, ["Ra", "Radium", 226])
-    check_element(periodic_table, ["Rb", "Rubidium", 85.4678])
-    check_element(periodic_table, ["Re", "Rhenium", 186.207])
-    check_element(periodic_table, ["Rf", "Rutherfordium", 267])
-    check_element(periodic_table, ["Rg", "Roentgenium", 280])
-    check_element(periodic_table, ["Rh", "Rhodium", 102.9055])
-    check_element(periodic_table, ["Rn", "Radon", 222])
-    check_element(periodic_table, ["Ru", "Ruthenium", 101.07])
-    check_element(periodic_table, ["S", "Sulfur", 32.065])
-    check_element(periodic_table, ["Sb", "Antimony", 121.76])
-    check_element(periodic_table, ["Sc", "Scandium", 44.955912])
-    check_element(periodic_table, ["Se", "Selenium", 78.96])
-    check_element(periodic_table, ["Sg", "Seaborgium", 271])
-    check_element(periodic_table, ["Si", "Silicon", 28.0855])
-    check_element(periodic_table, ["Sm", "Samarium", 150.36])
-    check_element(periodic_table, ["Sn", "Tin", 118.71])
-    check_element(periodic_table, ["Sr", "Strontium", 87.62])
-    check_element(periodic_table, ["Ta", "Tantalum", 180.94788])
-    check_element(periodic_table, ["Tb", "Terbium", 158.92535])
-    check_element(periodic_table, ["Tc", "Technetium", 98])
-    check_element(periodic_table, ["Te", "Tellurium", 127.6])
-    check_element(periodic_table, ["Th", "Thorium", 232.03806])
-    check_element(periodic_table, ["Ti", "Titanium", 47.867])
-    check_element(periodic_table, ["Tl", "Thallium", 204.3833])
-    check_element(periodic_table, ["Tm", "Thulium", 168.93421])
-    check_element(periodic_table, ["Ts", "Tennessine", 294])
-    check_element(periodic_table, ["U", "Uranium", 238.02891])
-    check_element(periodic_table, ["V", "Vanadium", 50.9415])
-    check_element(periodic_table, ["W", "Tungsten", 183.84])
-    check_element(periodic_table, ["Xe", "Xenon", 131.293])
-    check_element(periodic_table, ["Y", "Yttrium", 88.90585])
-    check_element(periodic_table, ["Yb", "Ytterbium", 173.054])
-    check_element(periodic_table, ["Zn", "Zinc", 65.38])
-    check_element(periodic_table, ["Zr", "Zirconium", 91.224])
+    i = 0
+    check_element(periodic_table_list[i], ['Ac', 'Actinium', 227])
+    i += 1
+    check_element(periodic_table_list[i], ['Al', 'Aluminum', 26.9815386])
+    i += 1
+    check_element(periodic_table_list[i], ['Am', 'Americium', 243])
+    i += 1
+    check_element(periodic_table_list[i], ['Sb', 'Antimony', 121.76])
+    i += 1
+    check_element(periodic_table_list[i], ['Ar', 'Argon', 39.948])
+    i += 1
+    check_element(periodic_table_list[i], ['As', 'Arsenic', 74.9216])
+    i += 1
+    check_element(periodic_table_list[i], ['At', 'Astatine', 210])
+    i += 1
+    check_element(periodic_table_list[i], ['Ba', 'Barium', 137.327])
+    i += 1
+    check_element(periodic_table_list[i], ['Bk', 'Berkelium', 247])
+    i += 1
+    check_element(periodic_table_list[i], ['Be', 'Beryllium', 9.012182])
+    i += 1
+    check_element(periodic_table_list[i], ['Bi', 'Bismuth', 208.9804])
+    i += 1
+    check_element(periodic_table_list[i], ['Bh', 'Bohrium', 272])
+    i += 1
+    check_element(periodic_table_list[i], ['B', 'Boron', 10.811])
+    i += 1
+    check_element(periodic_table_list[i], ['Br', 'Bromine', 79.904])
+    i += 1
+    check_element(periodic_table_list[i], ['Cd', 'Cadmium', 112.411])
+    i += 1
+    check_element(periodic_table_list[i], ['Ca', 'Calcium', 40.078])
+    i += 1
+    check_element(periodic_table_list[i], ['Cf', 'Californium', 251])
+    i += 1
+    check_element(periodic_table_list[i], ['C', 'Carbon', 12.0107])
+    i += 1
+    check_element(periodic_table_list[i], ['Ce', 'Cerium', 140.116])
+    i += 1
+    check_element(periodic_table_list[i], ['Cs', 'Cesium', 132.9054519])
+    i += 1
+    check_element(periodic_table_list[i], ['Cl', 'Chlorine', 35.453])
+    i += 1
+    check_element(periodic_table_list[i], ['Cr', 'Chromium', 51.9961])
+    i += 1
+    check_element(periodic_table_list[i], ['Co', 'Cobalt', 58.933195])
+    i += 1
+    check_element(periodic_table_list[i], ['Cn', 'Copernicium', 285])
+    i += 1
+    check_element(periodic_table_list[i], ['Cu', 'Copper', 63.546])
+    i += 1
+    check_element(periodic_table_list[i], ['Cm', 'Curium', 247])
+    i += 1
+    check_element(periodic_table_list[i], ['Ds', 'Darmstadtium', 281])
+    i += 1
+    check_element(periodic_table_list[i], ['Db', 'Dubnium', 268])
+    i += 1
+    check_element(periodic_table_list[i], ['Dy', 'Dysprosium', 162.5])
+    i += 1
+    check_element(periodic_table_list[i], ['Es', 'Einsteinium', 252])
+    i += 1
+    check_element(periodic_table_list[i], ['Er', 'Erbium', 167.259])
+    i += 1
+    check_element(periodic_table_list[i], ['Eu', 'Europium', 151.964])
+    i += 1
+    check_element(periodic_table_list[i], ['Fm', 'Fermium', 257])
+    i += 1
+    check_element(periodic_table_list[i], ['Fl', 'Flerovium', 289])
+    i += 1
+    check_element(periodic_table_list[i], ['F', 'Fluorine', 18.9984032])
+    i += 1
+    check_element(periodic_table_list[i], ['Fr', 'Francium', 223])
+    i += 1
+    check_element(periodic_table_list[i], ['Gd', 'Gadolinium', 157.25])
+    i += 1
+    check_element(periodic_table_list[i], ['Ga', 'Gallium', 69.723])
+    i += 1
+    check_element(periodic_table_list[i], ['Ge', 'Germanium', 72.64])
+    i += 1
+    check_element(periodic_table_list[i], ['Au', 'Gold', 196.966569])
+    i += 1
+    check_element(periodic_table_list[i], ['Hf', 'Hafnium', 178.49])
+    i += 1
+    check_element(periodic_table_list[i], ['Hs', 'Hassium', 270])
+    i += 1
+    check_element(periodic_table_list[i], ['He', 'Helium', 4.002602])
+    i += 1
+    check_element(periodic_table_list[i], ['Ho', 'Holmium', 164.93032])
+    i += 1
+    check_element(periodic_table_list[i], ['H', 'Hydrogen', 1.00794])
+    i += 1
+    check_element(periodic_table_list[i], ['In', 'Indium', 114.818])
+    i += 1
+    check_element(periodic_table_list[i], ['I', 'Iodine', 126.90447])
+    i += 1
+    check_element(periodic_table_list[i], ['Ir', 'Iridium', 192.217])
+    i += 1
+    check_element(periodic_table_list[i], ['Fe', 'Iron', 55.845])
+    i += 1
+    check_element(periodic_table_list[i], ['Kr', 'Krypton', 83.798])
+    i += 1
+    check_element(periodic_table_list[i], ['La', 'Lanthanum', 138.90547])
+    i += 1
+    check_element(periodic_table_list[i], ['Lr', 'Lawrencium', 262])
+    i += 1
+    check_element(periodic_table_list[i], ['Pb', 'Lead', 207.2])
+    i += 1
+    check_element(periodic_table_list[i], ['Li', 'Lithium', 6.941])
+    i += 1
+    check_element(periodic_table_list[i], ['Lv', 'Livermorium', 293])
+    i += 1
+    check_element(periodic_table_list[i], ['Lu', 'Lutetium', 174.9668])
+    i += 1
+    check_element(periodic_table_list[i], ['Mg', 'Magnesium', 24.305])
+    i += 1
+    check_element(periodic_table_list[i], ['Mn', 'Manganese', 54.938045])
+    i += 1
+    check_element(periodic_table_list[i], ['Mt', 'Meitnerium', 276])
+    i += 1
+    check_element(periodic_table_list[i], ['Md', 'Mendelevium', 258])
+    i += 1
+    check_element(periodic_table_list[i], ['Hg', 'Mercury', 200.59])
+    i += 1
+    check_element(periodic_table_list[i], ['Mo', 'Molybdenum', 95.96])
+    i += 1
+    check_element(periodic_table_list[i], ['Mc', 'Moscovium', 288])
+    i += 1
+    check_element(periodic_table_list[i], ['Nd', 'Neodymium', 144.242])
+    i += 1
+    check_element(periodic_table_list[i], ['Ne', 'Neon', 20.1797])
+    i += 1
+    check_element(periodic_table_list[i], ['Np', 'Neptunium', 237])
+    i += 1
+    check_element(periodic_table_list[i], ['Ni', 'Nickel', 58.6934])
+    i += 1
+    check_element(periodic_table_list[i], ['Nh', 'Nihonium', 284])
+    i += 1
+    check_element(periodic_table_list[i], ['Nb', 'Niobium', 92.90638])
+    i += 1
+    check_element(periodic_table_list[i], ['N', 'Nitrogen', 14.0067])
+    i += 1
+    check_element(periodic_table_list[i], ['No', 'Nobelium', 259])
+    i += 1
+    check_element(periodic_table_list[i], ['Og', 'Oganesson', 294])
+    i += 1
+    check_element(periodic_table_list[i], ['Os', 'Osmium', 190.23])
+    i += 1
+    check_element(periodic_table_list[i], ['O', 'Oxygen', 15.9994])
+    i += 1
+    check_element(periodic_table_list[i], ['Pd', 'Palladium', 106.42])
+    i += 1
+    check_element(periodic_table_list[i], ['P', 'Phosphorus', 30.973762])
+    i += 1
+    check_element(periodic_table_list[i], ['Pt', 'Platinum', 195.084])
+    i += 1
+    check_element(periodic_table_list[i], ['Pu', 'Plutonium', 244])
+    i += 1
+    check_element(periodic_table_list[i], ['Po', 'Polonium', 209])
+    i += 1
+    check_element(periodic_table_list[i], ['K', 'Potassium', 39.0983])
+    i += 1
+    check_element(periodic_table_list[i], ['Pr', 'Praseodymium', 140.90765])
+    i += 1
+    check_element(periodic_table_list[i], ['Pm', 'Promethium', 145])
+    i += 1
+    check_element(periodic_table_list[i], ['Pa', 'Protactinium', 231.03588])
+    i += 1
+    check_element(periodic_table_list[i], ['Ra', 'Radium', 226])
+    i += 1
+    check_element(periodic_table_list[i], ['Rn', 'Radon', 222])
+    i += 1
+    check_element(periodic_table_list[i], ['Re', 'Rhenium', 186.207])
+    i += 1
+    check_element(periodic_table_list[i], ['Rh', 'Rhodium', 102.9055])
+    i += 1
+    check_element(periodic_table_list[i], ['Rg', 'Roentgenium', 280])
+    i += 1
+    check_element(periodic_table_list[i], ['Rb', 'Rubidium', 85.4678])
+    i += 1
+    check_element(periodic_table_list[i], ['Ru', 'Ruthenium', 101.07])
+    i += 1
+    check_element(periodic_table_list[i], ['Rf', 'Rutherfordium', 267])
+    i += 1
+    check_element(periodic_table_list[i], ['Sm', 'Samarium', 150.36])
+    i += 1
+    check_element(periodic_table_list[i], ['Sc', 'Scandium', 44.955912])
+    i += 1
+    check_element(periodic_table_list[i], ['Sg', 'Seaborgium', 271])
+    i += 1
+    check_element(periodic_table_list[i], ['Se', 'Selenium', 78.96])
+    i += 1
+    check_element(periodic_table_list[i], ['Si', 'Silicon', 28.0855])
+    i += 1
+    check_element(periodic_table_list[i], ['Ag', 'Silver', 107.8682])
+    i += 1
+    check_element(periodic_table_list[i], ['Na', 'Sodium', 22.98976928])
+    i += 1
+    check_element(periodic_table_list[i], ['Sr', 'Strontium', 87.62])
+    i += 1
+    check_element(periodic_table_list[i], ['S', 'Sulfur', 32.065])
+    i += 1
+    check_element(periodic_table_list[i], ['Ta', 'Tantalum', 180.94788])
+    i += 1
+    check_element(periodic_table_list[i], ['Tc', 'Technetium', 98])
+    i += 1
+    check_element(periodic_table_list[i], ['Te', 'Tellurium', 127.6])
+    i += 1
+    check_element(periodic_table_list[i], ['Ts', 'Tennessine', 294])
+    i += 1
+    check_element(periodic_table_list[i], ['Tb', 'Terbium', 158.92535])
+    i += 1
+    check_element(periodic_table_list[i], ['Tl', 'Thallium', 204.3833])
+    i += 1
+    check_element(periodic_table_list[i], ['Th', 'Thorium', 232.03806])
+    i += 1
+    check_element(periodic_table_list[i], ['Tm', 'Thulium', 168.93421])
+    i += 1
+    check_element(periodic_table_list[i], ['Sn', 'Tin', 118.71])
+    i += 1
+    check_element(periodic_table_list[i], ['Ti', 'Titanium', 47.867])
+    i += 1
+    check_element(periodic_table_list[i], ['W', 'Tungsten', 183.84])
+    i += 1
+    check_element(periodic_table_list[i], ['U', 'Uranium', 238.02891])
+    i += 1
+    check_element(periodic_table_list[i], ['V', 'Vanadium', 50.9415])
+    i += 1
+    check_element(periodic_table_list[i], ['Xe', 'Xenon', 131.293])
+    i += 1
+    check_element(periodic_table_list[i], ['Yb', 'Ytterbium', 173.054])
+    i += 1
+    check_element(periodic_table_list[i], ['Y', 'Yttrium', 88.90585])
+    i += 1
+    check_element(periodic_table_list[i], ['Zn', 'Zinc', 65.38])
+    i += 1
+    check_element(periodic_table_list[i], ['Zr', 'Zirconium', 91.224])
+    i += 1
 
 
-def check_element(periodic_table, expected):
-    """Verify that the periodic_table contains the
-    expected element and that the name and atomic mass
-    in the table for the expected element are correct.
+def check_element(actual, expected):
+    name = expected[NAME_INDEX]
+    assert actual[NAME_INDEX] == name, \
+         f"{name} is missing from the periodic table."
 
-    Parameters
-        periodic_table: a compound list that contains one
-            list for each of the 118 known chemical elements.
-        expected: a list that contains the symbol, name, and
-            atomic mass for one expected chemical element.
-    Return: nothing
-    """
-    exp_name = expected[NAME_INDEX]
+    exp_symbol = expected[SYMBOL_INDEX]
+    act_symbol = actual[SYMBOL_INDEX]
+    assert act_symbol == exp_symbol, \
+         f"incorrect symbol for {name}: expected {exp_symbol} but found {act_symbol}."
 
-    found = False
-    for actual in periodic_table:
-        if actual[SYMBOL_INDEX] == expected[SYMBOL_INDEX]:
-            found = True
-
-            # Verify that the name is correct.
-            assert actual[NAME_INDEX] == exp_name
-
-            # Verify that the atomic mass is correct.
-            act_mass = actual[ATOMIC_MASS_INDEX]
-            exp_mass = expected[ATOMIC_MASS_INDEX]
-            assert act_mass == approx(exp_mass), \
-                    f"incorrect atomic mass for {exp_name}: expected {exp_mass} but found {act_mass}"
-            break
-
-    # Verify that the expected element is in the periodic_table.
-    assert found, f"{exp_name} is missing from the table."
+    # Verify that the atomic mass is correct.
+    act_mass = actual[ATOMIC_MASS_INDEX]
+    exp_mass = expected[ATOMIC_MASS_INDEX]
+    assert act_mass == approx(exp_mass), \
+            f"incorrect atomic mass for {name}: expected {exp_mass} but found {act_mass}"
 
 
 pytest.main(["-v", "--tb=line", "-rN", "test_chemistry_1.py"])
