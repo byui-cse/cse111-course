@@ -285,7 +285,14 @@ article div.expr .baseline {
 article div.expr sup,
 article div.expr sub {
 	margin-left: 0.12em;
-	font-size: small;
+}
+
+article div.expr div.supsub {
+	font-size: smaller;
+	margin-left: 0.12em;
+	line-height: 0.8em;
+	vertical-align: -0.35em;
+	text-align: left;
 }
 
 article div.expr span.abs:before,
