@@ -37,47 +37,50 @@
     CSE&nbsp;110 that you should review during this lesson.</p>
 
     <ol class="long">
-        <li><div>We use the <a href="https://docs.python.org/3/library/functions.html#input"><code>input()</code></a>
+        <li><div>A <dfn>comment</dfn> in a computer program is a note or
+        description that is supposed to help a programmer understand the
+        program. Computers ignore comments in a program. In Python, a
+        comment begins with the hash symbol (#) and extends to the end
+        of the current line.</div></li>
+
+        <li id="input"><div>We use the <a href="https://docs.python.org/3/library/functions.html#input"><code>input()</code></a>
         function to get input from a user in a terminal window.</div></li>
 
         <li><div>A <dfn>variable</dfn> is a location in a computer's
         memory where a program stores a value. A variable has a name, a
         data type, and a value. In Python, the value and data type of a
-        variable may change while the computer is executing a
-        program.</div></li>
-
-        <li><div>In Python, we assign a value to a variable by using the
+        variable may change while the computer is executing a program.
+        In Python, we assign a value to a variable by using the
         assignment operator, which is the equals symbol (=).</div></li>
 
-        <li><div>Python has many data types including <code>str</code>,
-        <code>bool</code>, <code>int</code>, <code>float</code>,
-        <code>list</code>, <code>dict</code>, <code>function</code>, and
-        <code>type</code>. <a download href="data_types.py">This
-        program</a> demonstrates many of the Python data
-        types.</div></li>
+        <li id="data_types"><div><p>Python has many data types including
+        <code>str</code>, <code>bool</code>, <code>int</code>,
+        <code>float</code>, <code>list</code>, <code>dict</code>,
+        <code>function</code>, and <code>type</code>. This program named
+        <a download href="data_types.py">data_types.py</a> demonstrates
+        many of the Python data types.</p>
 
-        <li><div>It is possible to convert between many of the data
-        types. For example, to convert from any data type to a string,
-        we use the <a href="https://docs.python.org/3/library/functions.html#func-str"><code>str()</code></a>
+        <p>It is possible to convert between many of the data types. For
+        example, to convert from any data type to a string, we use the
+        <a href="https://docs.python.org/3/library/functions.html#func-str"><code>str()</code></a>
         function. To convert from a string to an integer, we use the
         <a href="https://docs.python.org/3/library/functions.html#int"><code>int()</code></a>
         function, and to convert from a string to a float, we use the
         <a href="https://docs.python.org/3/library/functions.html#float"><code>float()</code></a>
         function. The <code>int()</code> and <code>float()</code>
         functions are especially useful to convert user input, which is
-        always a string, to a number. See the program in example&nbsp;1
-        below.</div></li>
+        always a string, to a number. See the program in
+        <a href="#ex1">example&nbsp;1</a> below.</p></div></li>
 
-        <li><div>Python has many arithmetic operators including power
-        (**), negation (-), multiplication (*), division (/), floor
-        division (//), modulo (%), addition (+), and subtraction
-        (-).</div></li>
+        <li id="arith"><div><p>Python has many arithmetic operators
+        including power (**), negation (-), multiplication (*), division
+        (/), floor division (//), modulo (%), addition (+), and
+        subtraction (-).</p>
 
-        <li><div><p>When we write an arithmetic expression that contains
-        more than one operator, the computer executes the operators
-        according to their precedence, also known as the order of
-        operations. This table shows the precedence for the arithmetic
-        operators.</p>
+        <p>When we write an arithmetic expression that contains more
+        than one operator, the computer executes the operators according
+        to their precedence, also known as the order of operations. This
+        table shows the precedence for the arithmetic operators.</p>
 
         <table class="center"><thead>
             <tr><th>Operators</th> <th>Description</th> <th>Precedence</th></tr>
@@ -101,22 +104,29 @@
         the same precedence, the computer evaluates the operators from
         left to right. For example, in the arithmetic expression
         <div class="inline expr">x / y * c</div> the computer will first
-        divide <var>x</var> by <var>y</var> then multiply that result by
-        <var>c</var>. If you need the computer to evaluate a lower
-        precedence operator before a higher precedence one, you can add
-        parentheses to the expression to change the evaluation order.
-        The computer will always evaluate arithmetic that is inside
-        parentheses first because parentheses have the highest
+        divide <var>x</var> by <var>y</var> and then multiply that
+        result by <var>c</var>. If you need the computer to evaluate a
+        lower precedence operator before a higher precedence one, you
+        can add parentheses to the expression to change the evaluation
+        order. The computer will always evaluate arithmetic that is
+        inside parentheses first because parentheses have the highest
         precedence of all the arithmetic operators.</div></div></li>
 
-        <li><div><p>We use the
+        <li id="print"><div><p>In a Python program, we use the
         <a href="https://docs.python.org/3/library/functions.html#print"><code>print()</code></a>
-        function to display output to a user.</p>
+        function to display output to a user. The easiest way to print
+        both text and numbers together is to use a
+        <a href="https://docs.python.org/3/tutorial/inputoutput.html#formatted-string-literals">formatted string literal</a>
+        (also known as an f-string).</p>
 
-        <p>The Python program in example&nbsp;1 gets input from the
-        user, converts the input to two numbers, computes the length of
-        a cable from the two numbers, and prints the length rounded to
-        two places after the decimal point.</p>
+        <p>The Python program in example&nbsp;1 gets input from the user
+        and converts the input to two numbers on
+        <span class="cross" data-ref="ex1">lines&nbsp;9 and&nbsp;10</span>.
+        Then at <span class="cross" data-ref="ex1">line&nbsp;13</span>
+        the program computes the length of a cable from the two numbers.
+        Finally at <span class="cross" data-ref="ex1">line&nbsp;17</span>,
+        the program uses an f-string to print the length rounded to two
+        places after the decimal point.</p>
 
 <div class="pre"><pre class="linenums"></pre>
 <pre class="python" id="ex1"># Example 1
@@ -152,14 +162,15 @@ Length of cable in meters: 501.83</pre>
         <div class="block expr"><var>length</var> = <var>span</var> + <div class="fract"><div class="numer">8 <var>dip</var><sup>2</sup></div><div class="denom">3 <var>span</var></div></div></div>
         </div></li>
 
-        <li><div>In Python, we use <code>if</code> statements to cause
-        the computer to make decisions; <code>if</code> statements are
-        also called <dfn>selection</dfn> statements because the computer
-        selects one group of statements to execute and skips the other
-        group of statements.</div></li>
+        <li><div><p>In Python, we use <code>if</code> statements to
+        cause the computer to make decisions; <code>if</code> statements
+        are also called <dfn>selection</dfn> statements because the
+        computer selects one group of statements to execute and skips
+        the other group of statements.</p>
 
-        <li><div>There are six comparison operators that we can use in
-        an <code>if</code> statement:
+        <p>There are six comparison operators that we can use in an
+        <code>if</code> statement:</p>
+
         <table class="center"><thead>
         </thead><tbody>
             <tr><td>&lt;</td> <td>less than</td></tr>
@@ -170,8 +181,8 @@ Length of cable in meters: 501.83</pre>
             <tr><td>!=</td> <td>not equal to</td></tr>
         </tbody></table>
 
-        Example&nbsp;2 contains Python code that checks if a number is
-        greater than 500.
+        <p>Example&nbsp;2 contains Python code that checks if a number
+        is greater than 500.</p>
 <div class="pre"><pre class="linenums"></pre>
 <pre class="python" id="ex2"># Example 2
 
