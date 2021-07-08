@@ -72,32 +72,31 @@
         Functions</a> section of the official Python online
         reference.</div></li>
 
-        <li><div>A programmer uses a function by calling it (also known
-        as invoking it). To <dfn>call</dfn> (or <dfn>invoke</dfn>) a
-        function means to write code that causes the computer to execute
-        the code that is inside that function. Regardless of the type of
-        function (built-in, standard, third-party, or user-defined), a
-        function is called by writing its name followed by a set of
-        parentheses ( ). During CSE&nbsp;110 and&nbsp;111, you often
-        wrote code that called the built-in <code>input</code> and
-        <code>print</code> functions like this:
+        <li><div><p>A programmer uses a function by calling it (also
+        known as invoking it). To <dfn>call</dfn> (or <dfn>invoke</dfn>)
+        a function means to write code that causes the computer to
+        execute the code that is inside that function. Regardless of the
+        type of function (built-in, standard, third-party, or
+        user-defined), a function is called by writing its name followed
+        by a set of parentheses ( ). During CSE&nbsp;110 and&nbsp;111,
+        you often wrote code that called the built-in <code>input</code>
+        and <code>print</code> functions like this:</p>
+
 <div class="pre"><pre class="python">name = input("Please enter your name: ")
 print(f"Hello {name}")</pre></div>
-        </div></li>
 
-        <li><div>To correctly call a function you must know the
-        following:
+        <p>To call a function you must know the following:</p>
         <ol>
             <li><div>The name of the function</div></li>
             <li><div>The parameters that the function takes</div></li>
             <li><div>What the function does</div></li>
         </ol>
 
-        These three pieces of information are normally available in
+        <p>These three pieces of information are normally available in
         online documentation. For example, from the online Python
-        documentation about the
+        documentation about the</p>
         <a href="https://docs.python.org/3/library/functions.html#input"><code>input</code></a>
-        function, we read this:
+        function, we read this:</p>
 
         <dl class="function">
             <dt><code>input(prompt)</code></dt>
@@ -107,7 +106,7 @@ print(f"Hello {name}")</pre></div>
             as a string.</dd>
         </dl>
 
-        From this short description, we know the following:
+        <p>From this short description, we know the following:</p>
         <ol>
             <li><div>The name of the function is
             <code>input</code>.</div></li>
@@ -186,26 +185,27 @@ print(r)</pre></div>
         In the previous example,
         <ul>
             <li><div>The code on
-            <span class="cross" data-ref="ex1">line&nbsp;1</span>
-            calls both the <code>input</code> and <code>float</code>
-            built-in functions.</div></li>
+            <span class="cross" data-ref="ex1">line&nbsp;1</span> causes
+            the computer to call the built-in <code>input</code>
+            function and then call the built-in <code>float</code>
+            function.</div></li>
 
             <li><div><span class="cross" data-ref="ex1">Line&nbsp;2</span>
-            calls the built-in <code>round</code> function and passes
-            two arguments. Notice that the order of the arguments
-            matches the order of the parameters. Specifically, the
-            number to be rounded (<var>n</var>) is the first argument,
-            and the number of digits after the decimal point (2) is the
-            second argument.</div></li>
+            causes the computer to call the built-in <code>round</code>
+            function and pass two arguments. Notice that the order of
+            the arguments matches the order of the parameters.
+            Specifically, the number to be rounded (<var>n</var>) is the
+            first argument, and the number of digits after the decimal
+            point (2) is the second argument.</div></li>
 
             <li><div><span class="cross" data-ref="ex1">Line&nbsp;3</span>
-            calls the built-in <code>print</code> function to print the
-            rounded number.</div></li>
+            causes the computer to call the built-in <code>print</code>
+            function to print the rounded number.</div></li>
         </ul></div></li>
 
         <li id="optArgs"><div>When calling a function or method, some
-        arguments are optional. Again consider the description of the
-        built-in <code>round</code> function:
+        arguments are <dfn>optional</dfn>. Again consider the
+        description of the built-in <code>round</code> function:
 
         <dl class="function">
             <dt><code>round(number, ndigits)</code></dt>

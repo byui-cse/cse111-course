@@ -134,6 +134,7 @@ main()</pre></div>
 
 <div class="pre"><pre class="python">
 def <var>function_name</var>(<var>param1</var>, <var>param2</var>, &hellip; <var>paramN</var>):
+    """<var>documentation string</var>"""
     <var>statement1</var>
     <var>statement2</var>
         &vellip;
@@ -187,11 +188,11 @@ def <var>function_name</var>(<var>param1</var>, <var>param2</var>, &hellip; <var
         <code>while</code>, and <code>for</code>, all of which end with
         a colon (:), you must indent the statements inside the body of a
         function. The body of a function should begin with a
-        <dfn>docstring</dfn> which is a triple quoted string that
-        describes the function's purpose, parameters and return value.
-        The body of a function may contain as many statements as you
-        wish to write inside of it. However, it is a good idea to limit
-        functions to less than 20 lines of code.</p>
+        <dfn>documentation string</dfn> which is a triple quoted string
+        that describes the function's purpose, parameters and return
+        value. The body of a function may contain as many statements as
+        you wish to write inside of it. However, it is a good idea to
+        limit functions to less than 20 lines of code.</p>
 
         <p>Example&nbsp;3 contains a function named
         <code>print_cylinder_volume()</code> that gets two numbers from
