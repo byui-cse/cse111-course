@@ -67,18 +67,19 @@
     because they are defined within a function, specifically within a
     function’s header and exist for as long as their containing function
     is executing. A global variable (a variable with global scope) is
-    defined outside of all functions, exists for as long as its
-    containing Python program is executing, and can be used within all
-    functions in its containing Python program.</p>
+    defined outside all functions, exists for as long as its containing
+    Python program is executing, and can be used within all functions in
+    its containing Python program.</p>
 
     <table><thead>
-        <tr><th colspan="3">Python Variable Scope</th></tr>
+        <tr><th style="min-width:8em"></th>
+            <th colspan="2">Python Variable Scope</th></tr>
         <tr><td></td> <th scope="col">Local</th>
             <th scope="col">Global</th></tr>
     </thead><tbody>
         <tr><th scope="row">Where to Define</th>
             <td>Inside a function</td>
-            <td>Outside of all functions</td></tr>
+            <td>Outside all functions</td></tr>
         <tr><th scope="row">Owner</th>
             <td>The function where the variable is defined</td>
             <td>The Python file where the variable is defined</td></tr>
@@ -86,7 +87,7 @@
             <td>Only as long as its containing function is
             executing</td>
             <td>As long as its containing program is executing</td></tr>
-        <tr><th scope="row">Where<br>Usable</th>
+        <tr><th scope="row">Where Usable</th>
             <td>Only inside the function where it is defined</td>
             <td>In all functions of the Python program</td></tr>
     </tbody></table>
@@ -209,7 +210,7 @@ main()</span></pre></div>
     call to <code>arc_length</code>, the value of <var>degrees</var>
     will be 270.</p>
 
-    <h2>Function Design</h2>
+    <h2 id="func_design">Function Design</h2>
     <p>What are the properties of a good function?</p>
 
     <p>There are many things to consider when writing a function, and
@@ -221,10 +222,10 @@ main()</span></pre></div>
 
     <ul class="long">
         <li><div>A good function is understandable by other programmers.
-        One way to make a function understandable is to write a comment
-        at the top of the function that describes the function, its
-        parameters, and its return value and to write comments in the
-        body of the function as needed.</div></li>
+        One way to make a function understandable is to write a
+        documentation string at the top of the function that describes
+        the function, its parameters, and its return value and to write
+        comments in the body of the function as needed.</div></li>
         <li><div>A good function performs a single task that the
         programmer can describe, and the function's name matches its
         task.</div></li>
