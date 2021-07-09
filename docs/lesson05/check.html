@@ -120,38 +120,51 @@
         for both functions.</div></li>
 
         <li><div>Using VS Code, open a new Python file and copy and
-        paste the following import statements at the top of the file.
-<div class="pre"><pre class="python">from words import prefix, suffix
-import pytest</pre></div>
+        paste the following code into the new file.
+
+<div class="pre"><pre class="python">
+"""Verify that the prefix and suffix functions work correctly."""
+
+from words import prefix, suffix
+import pytest
+
+
+def test_prefix():
+    """Verify that the prefix function works correctly."""
+    assert prefix("", "") == ""
+    assert prefix("", "correct") == ""
+    assert prefix("clear", "") == ""
+    assert prefix("happy", "funny") == ""
+    assert prefix("cat", "catalog") == "cat"
+    assert prefix("dogmatic", "dog") == "dog"
+    assert prefix("jump", "joyous") == "j"
+    assert prefix("unwise", "ungrateful") == "un"
+    assert prefix("Disable", "dIstasteful") == "dis"
+
+
+# Call the main function that is part of pytest so that
+# the test functions in this file will start executing.
+pytest.main(["-v", "--tb=line", "-rN", "test_words.py"])</pre></div>
+
         Save the file with the name <code>test_words.py</code> in the
         same folder where you saved the <code>words.py</code>
         file.</div></li>
 
-        <li><div>In <code>test_words.py</code> write a function named
-        <code>test_prefix</code> that takes no parameters and contains
-        <code>assert</code> statements for these nine calls to
-        <code>prefix</code>:
-        <table><thead>
-            <tr><th colspan="2">Parameters</th>
-                <th rowspan="2">Return<br>Value</th></tr>
-            <tr><th>s1</th> <th>s2</th></tr>
-        </thead><tbody>
-            <tr><td>""</td> <td>""</td> <td>""</td></tr>
-            <tr><td>""</td> <td>"correct"</td> <td>""</td></tr>
-            <tr><td>"clear"</td> <td>""</td> <td>""</td></tr>
-            <tr><td>"happy"</td> <td>"funny"</td> <td>""</td></tr>
-            <tr><td>"cat"</td> <td>"catalog"</td> <td>"cat"</td></tr>
-            <tr><td>"dogmatic"</td> <td>"dog"</td> <td>"dog"</td></tr>
-            <tr><td>"jump"</td> <td>"joyous"</td> <td>"j"</td></tr>
-            <tr><td>"unwise"</td> <td>"ungrateful"</td> <td>"un"</td></tr>
-            <tr><td>"Disable"</td> <td>"dIstasteful"</td> <td>"dis"</td></tr>
-        </tbody></table></div></li>
+        <li><div>In <code>test_words.py</code> examine the
+        <code>test_prefix</code> function. Notice that it takes no
+        parameters and contains nine <code>assert</code> statements.
+        Each assert statement calls the <code>prefix</code> function and
+        then compares the value returned from the <code>prefix</code>
+        function to the expected value.</div></li>
 
         <li><div>In <code>test_words.py</code> write a function named
-        <code>test_suffix</code> that takes no parameters and contains
-        <code>assert</code> statements for these nine calls to
-        <code>suffix</code>:
-        <table><thead>
+        <code>test_suffix</code> that is similar to the
+        <code>test_prefix</code> function. The <code>test_suffix</code>
+        function should take no parameters and contain nine
+        <code>assert</code> statements that call the <code>suffix</code>
+        function with these parameters:
+
+        <table class="center"><thead>
             <tr><th colspan="2">Parameters</th>
                 <th rowspan="2">Return<br>Value</th></tr>
             <tr><th>s1</th> <th>s2</th></tr>
@@ -166,14 +179,6 @@ import pytest</pre></div>
             <tr><td>"tired"</td> <td>"fatigued"</td> <td>"ed"</td></tr>
             <tr><td>"swimming"</td> <td>"FLYING"</td> <td>"ing"</td></tr>
         </tbody></table></div></li>
-
-        <li><div>At the bottom of your <code>test_words.py</code> file,
-        write a call to the <code>pytest.main</code> function like this:
-<div class="pre"><pre class="python">
-# Call the main function that is part of pytest so that
-# the test functions in this file will start executing.
-pytest.main(["-v", "--tb=line", "-rN", "test_words.py"])</pre></div>
-        </div></li>
 
         <li><div>Save your <code>test_words.py</code> file and run it by
         clicking the green run icon in VS Code.</div></li>
