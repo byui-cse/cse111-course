@@ -174,10 +174,13 @@ Cornerstone Family Dental,44 S Center Street,208-356-4240,8,1453
     program in example&nbsp;2 shows how to open a CSV file and use the
     <code>csv</code> module to read the data and store it in a
     dictionary. Remember that each item in a dictionary is a key value
-    pair. Notice in example&nbsp;2 that the dental office phone numbers
-    are used as the keys in the dictionary.</p>
+    pair. Notice in example&nbsp;2, because of
+    <span class="cross" data-ref="ex2">lines&nbsp;16,
+    56,&nbsp;and&nbsp;60</span> that the code is using the dental office
+    phone numbers as the keys in the dictionary.</p>
 
-<div class="pre"><pre class="python" id="ex2"># Example 2
+<div class="pre"><pre class="linenums"></pre>
+<pre class="python" id="ex2"># Example 2
 
 import csv
 
@@ -230,8 +233,8 @@ def read_dict(filename, key_column_index):
         # The reader object returns each row as a list.
         for row in reader:
 
-            # From the current row, retrieve
-            # the column that contains the key.
+            # From the current row, retrieve the data
+            # from the column that contains the key.
             key = row[key_column_index]
 
             # Store the data from the current row

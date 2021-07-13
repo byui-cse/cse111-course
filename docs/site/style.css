@@ -116,7 +116,14 @@ article h3 {
 	margin: 1em 0 0.5em 0;
 }
 
-article p {
+article h4 {
+	font-weight: bold;
+	font-size: 100%;
+	margin: 1em 0 0.5em 0;
+}
+
+article p,
+article iframe {
 	margin: 0 0 1em 0;
 }
 
@@ -129,6 +136,12 @@ article blockquote {
 article a:link { color: var(--byui-blue); }
 article a:visited { color: purple; }
 article a:active { color: red; }
+
+article a.video:after {
+	margin-left: 0.3em;
+	vertical-align: middle;
+	content: url("play.png");
+}
 
 article audio {
 	float: right;
