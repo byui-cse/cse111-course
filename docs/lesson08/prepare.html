@@ -45,13 +45,13 @@
 
     <h3>Dictionaries</h3>
     <p>Within a Python program, a program can store many items in a
-    <a href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">dictionary</a>.
-    Each item in a dictionary is a key value pair. Each key within a
-    dictionary must be unique. In other words, no key can appear more
-    than once in a dictionary. Values within a dictionary do not have to
-    be unique. Dictionaries are mutable, meaning they can be changed
-    after they are created. Dictionaries were invented to enable
-    computers to find items quickly.</p>
+    <dfn>dictionary</dfn></a>. Each <dfn>item</dfn> in a dictionary is a
+    key value pair. Each <dfn>key</dfn> within a dictionary must be
+    unique. In other words, no key can appear more than once in a
+    dictionary. Values within a dictionary do not have to be unique.
+    Dictionaries are mutable, meaning they can be changed after they are
+    created. Dictionaries were invented to enable computers to find
+    items quickly.</p>
 
     <p>The following table represents a dictionary that contains five
     items (five key value pairs) Notice that each of the keys is
@@ -119,6 +119,7 @@ def main():
 
         # Print the student's name.
         print(name)
+
     else:
         print("No such student")
 
@@ -184,7 +185,7 @@ def main():
     Some students forget how easy it is to find items in a dictionary,
     and when asked to write code to find an item, they write complex
     code like
-    <span class="cross" data-ref="ex3">lines&nbsp;25&ndash;28</span>
+    <span class="cross" data-ref="ex3">lines&nbsp;24&ndash;28</span>
     in example&nbsp;3.</p>
 
 <div class="pre"><pre class="linenums"></pre>
@@ -219,7 +220,7 @@ def main():
 </pre></div>
 
     <p>Compare the <code>for</code> loop at
-    <span class="cross" data-ref="ex3">lines&nbsp;25&ndash;28</span> in
+    <span class="cross" data-ref="ex3">lines&nbsp;24&ndash;28</span> in
     the previous example to this one line of code.</p>
 <div class="pre"><pre class="python">    value = students[id]</pre></div>
 
@@ -271,6 +272,7 @@ def main():
 
         # Print the student's name.
         print(f"{given_name} {surname}")
+
     else:
         print("No such student")
 
@@ -331,7 +333,7 @@ if __name__ == "__main__":
 
     <p>As with all the example code in CSE&nbsp;111, example&nbsp;5
     contains working Python code. Even though the code works, we can
-    combine <span class="cross" ref="ex5">lines&nbsp;25&ndash;27</span>
+    combine ylines&nbsp;25&ndash;27</span>
     into a single line of code by using a Python shortcut called
     unpacking. Instead of writing lines&nbsp;25&ndash;27, like this:</p>
 
@@ -346,6 +348,50 @@ if __name__ == "__main__":
 
 <div class="pre"><pre class="python">
     for key, value in students.items():</pre></div>
+
+    <p>Example&nbsp;6 contains the same code as example&nbsp;5 except
+    example&nbsp;6 uses the Python unpacking shortcut at
+    <span class="cross" data-ref="ex6">line&nbsp;25</span>.</p>
+
+<div class="pre"><pre class="linenums"></pre>
+<pre class="python" id="ex6"># Example 6
+
+def main():
+    # Create a dictionary with student IDs as the keys
+    # and student data stored in a list as the values.
+    students = {
+        "42-039-4736": ["Clint", "Huish", "hui20001@byui.edu", 16],
+        "61-315-0160": ["Michelle", "Davis", "dav21012@byui.edu", 3],
+        "10-450-1203": ["Jorge", "Soares", "soa22005@byui.edu", 15],
+        "75-421-2310": ["Abdul", "Ali", "ali20003@byui.edu", 5],
+        "07-103-5621": ["Michelle", "Davis", "dav19008@byui.edu", 0],
+        "81-298-9238": ["Sama", "Patel", "pat21004@byui.edu", 8]
+    }
+
+    # These are the indexes of the elements in the value lists.
+    GIVEN_NAME_INDEX = 0
+    SURNAME_INDEX = 1
+    EMAIL_INDEX = 2
+    CREDITS_INDEX = 3
+
+    total = 0
+
+    # For each item in the list add the number
+    # of credits that the student has earned.
+    <em>for key, value in students.items():</em>
+
+        # Retrieve the number of credits from the value list.
+        credits = value[CREDITS_INDEX]
+
+        # Add the number of credits to the total.
+        total += credits
+
+    print(f"Total credits earned by all students: {total}")
+
+
+# Call main to start this program.
+if __name__ == "__main__":
+    main()</pre></div>
 
     <h3>Dictionaries Are Similar to Lists</h3>
     <p>Dictionaries are similar to lists in a few ways. The following
@@ -436,7 +482,7 @@ if __name__ == "__main__":
     converts the dictionary into two lists.</p>
 
 <div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex6"># Example 6
+<pre class="python" id="ex7"># Example 7
 
 def main():
     # Create a list that contains five student numbers.
@@ -472,7 +518,9 @@ if __name__ == "__main__":
     dictionaries in Python.</p>
 
     <ul class="links">
-        <li><div><a href="https://realpython.com/python-dicts/">Dictionaries in Python</a>.</div></li>
+        <li><div>Official Python tutorial about
+        <a href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">dictionaries</a></div></li>
+        <li><div>RealPython tutorial <a href="https://realpython.com/python-dicts/">Dictionaries in Python</a></div></li>
     </ul>
 </article>
 <footer>
