@@ -17,37 +17,54 @@ FATIGUE_COLUMN = 9
 def main():
     try:
         # Prompt the user for a filename and open that text file.
-        infile = get_input_file("Name of file that contains NHTSA data: ")
+        filename = input("Name of file that contains NHTSA data: ")
+        with open(filename, "rt") as infile:
 
-        # Prompt the user for a percentage.
-        perc_reduc = get_float(
-                "Percent reduction of texting while driving [0, 100]: ",
-                0, 100)
+            # Get a percentage from the user.
+            perc_reduc = get_float(
+                    "Percent reduction of texting while driving [0, 100]: ",
+                    0, 100)
 
-        # Call the process_csv_file function so that
-        # it will process each row in the CSV file.
-        process_csv_file(infile, perc_reduc)
+            print()
+            print(f"With a {perc_reduc}% reduction in using a cell phone while",
+                    "driving, approximately this number of injuries and",
+                    "deaths would have been prevented in the USA.", sep="\n")
+            print()
+            print("Year, Injuries, Deaths")
 
-    finally:
-        if infile is not None:
-            # Close the text file.
-            infile.close()
+            # Use the csv module to create a reader
+            # object that will read from the opened file.
+            reader = csv.reader(infile)
 
+            # The first line of the CSV file contains column headings
+            # and not a student's I-Number and name, so this statement
+            # skips the first line of the CSV file.
+            next(reader)
 
-def get_input_file(prompt):
-    """Prompt the user for a filename and
-    return a corresponding open text file.
-    """
-    infile = None
-    while infile == None:
-        filename = input(prompt)
-        try:
-            infile = open(filename, "rt")
-        except (FileNotFoundError, PermissionError) as error:
-            print(error)
-            print("Please choose a different file.")
-    print()
-    return infile
+            # Process each row in the CSV file.
+            for row in reader:
+                year = row[YEAR_COLUMN]
+
+                # Call the estimate_reduction function.
+                injur, fatal = estimate_reduction(row, PHONE_COLUMN, perc_reduc)
+
+                # Print the estimated reductions in injuries and fatalities.
+                print(year, injur, fatal, sep=", ")
+
+    except (FileNotFoundError, PermissionError) as error:
+        print(error)
+        print("Please choose a different file.")
+
+    except ValueError as val_err:
+        print("Error:", val_err)
+
+    except (csv.Error, KeyError) as error:
+        print(f"Error: line {reader.line_num} of {infile.name} is"
+                " formatted incorrectly.")
+
+    except ZeroDivisionError as zero_div_err:
+        print(f"Error: line {reader.line_num} of {infile.name} contains"
+                " 0 in the 'Fatal Crashes' or 'Cell Phone Use' column.")
 
 
 def get_float(prompt, lower_bound, upper_bound):
@@ -73,49 +90,6 @@ def get_float(prompt, lower_bound, upper_bound):
             print("Error:", val_err)
     print()
     return number
-
-
-def process_csv_file(infile, perc_reduc):
-    """Process each row in the CSV file.
-
-    Parameters
-        infile: an open CSV file
-        perc_reduc: a number between 0 and 100
-    Return: nothing
-    """
-    try:
-        print(f"With a {perc_reduc}% reduction in using a cell phone while",
-                "driving, approximately this number of injuries and",
-                "deaths would have been prevented in the USA.", sep="\n")
-        print()
-        print("Year, Injuries, Deaths")
-
-        # Use the csv module to create a reader
-        # object that will read from the opened file.
-        reader = csv.reader(infile)
-
-        # The first line of the CSV file contains column headings
-        # and not a student's I-Number and name, so this statement
-        # skips the first line of the CSV file.
-        next(reader)
-
-        # Process each row in the CSV file.
-        for row in reader:
-            year = row[YEAR_COLUMN]
-
-            # Call the estimate_reduction function.
-            injur, fatal = estimate_reduction(row, PHONE_COLUMN, perc_reduc)
-
-            # Print the estimated reductions in injuries and fatalities.
-            print(year, injur, fatal, sep=", ")
-
-    except (csv.Error, KeyError) as error:
-        print(f"Error: line {reader.line_num} of {infile.name} is"
-                " formatted incorrectly.")
-
-    except ZeroDivisionError as zero_div_err:
-        print(f"Error: line {reader.line_num} of {infile.name} contains"
-                " 0 in the 'Fatal Crashes' or 'Cell Phone Use' column.")
 
 
 def estimate_reduction(row, behavior_key, perc_reduc):

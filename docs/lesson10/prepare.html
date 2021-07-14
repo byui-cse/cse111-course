@@ -30,21 +30,27 @@
 <article>
     <h1>10 Prepare: Handling Exceptions</h1>
     <p>Errors and exceptional situations sometimes occur while a program
-    is running. Such errors include attempting to read from a file that
-    does not exist, a connection error when connecting to a server on
-    a network, data that cannot be found on a server, and calculations
-    that produce undefined results. A well written program doesn't crash
-    when an error occurs but instead handles errors in a graceful manner
-    that may include adjusting to an error, printing an error message
-    for the user to see, and saving an error message to a log file.
-    During this lesson, you will learn to write code that handles errors
-    that may occur while your Python program is running.</p>
+    is running. Such errors include a program attempting to read from a
+    file that doesn't exist, a connection error when connecting to a
+    server on a network, data that cannot be found on a server, and
+    calculations that produce undefined results. A well written program
+    doesn't crash when an error occurs but instead handles errors in a
+    graceful manner that may include adjusting to an error, printing an
+    error message for the user to see, and saving an error message to a
+    log file. During this lesson, you will learn to write code that
+    handles errors that may occur while your Python program is
+    running.</p>
 
     <h2>Videos</h2>
-    <p>Watch these videos from Microsoft about error handling.</p>
-    <ul class="links">
-        <li><div><a href="https://channel9.msdn.com/Series/Intro-to-Python-Development/Python-for-Beginners-17-of-44-Error-Handling">Error Handling Concepts</a></div></li>
-        <li><div><a href="https://channel9.msdn.com/Series/Intro-to-Python-Development/Python-for-Beginners-18-of-44-Demo-Error-Handling">Error Handling Demo</a></div></li>
+    <p>Watch these two short videos from Microsoft about error handling.</p>
+    <ul class="long">
+        <li><div><a href="https://channel9.msdn.com/Series/Intro-to-Python-Development/Python-for-Beginners-17-of-44-Error-Handling">Error Handling Concepts (13 minutes)</a>
+        <iframe src="https://channel9.msdn.com/Series/Intro-to-Python-Development/Python-for-Beginners-17-of-44-Error-Handling/player" width="960" height="540" allowFullScreen frameBorder="0" title="Python for Beginners [17 of 44] Error Handling - Microsoft Channel 9 Video"></iframe>
+        </div></li>
+
+        <li><div><a href="https://channel9.msdn.com/Series/Intro-to-Python-Development/Python-for-Beginners-18-of-44-Demo-Error-Handling">Error Handling Demonstration (4 minutes)</a>
+        <iframe src="https://channel9.msdn.com/Series/Intro-to-Python-Development/Python-for-Beginners-18-of-44-Demo-Error-Handling/player" width="960" height="540" allowFullScreen frameBorder="0" title="Python for Beginners [18 of 44] Demo: Error Handling - Microsoft Channel 9 Video"></iframe>
+        </div></li>
     </ul>
 
     <h2>Concepts</h2>
@@ -76,7 +82,9 @@
         code and its comments carefully to understand the correct syntax
         and organization of a try-except-else-finally block.
 
-<div class="pre"><pre class="python">
+<div class="pre"><pre class="linenums"></pre>
+<pre class="python" id="ex1"># Example 1
+
 <em>try</em>:
     # Write normal code here. This block must include
     # code that falls into two groups:
@@ -109,8 +117,8 @@
     # try, except, and else blocks regardless of whether
     # an exception was raised or not.</pre></div></div></li>
 
-        <li><div>As shown in the example code above, when we want to
-        write code that will handle exceptions, we first write a
+        <li><div>As shown in example&nbsp;1 above, when we want to write
+        code that will handle exceptions, we first write a
         <code>try</code> block, and we put into that <code>try</code>
         block the normal code that might cause an exception.
         Then we write <code>except</code> blocks to handle the
@@ -139,38 +147,39 @@ such as:
 
         <p>It is a bad idea to write an <code>except</code> block that
         handles all types of exceptions because such a block will handle
-        <code>SyntaxError</code>. We don't want to handle
-        <code>SyntaxError</code>. Instead, we want our program to crash
-        for a syntax error and print the line number where the syntax
-        error occurred so that a programmer can find and fix the syntax
-        error. Syntax errors are caused by a programmer mistyping code
-        and not by bad user input or missing files. We want a programmer
-        to find and fix all the syntax errors in a program long before
-        the program is given to users.</div></li>
+        <code>SyntaxError</code>. Normally, a program should not handle
+        <code>SyntaxError</code>. Instead, a program should crash for a
+        syntax error and print the line number where the syntax error
+        occurred so that a programmer can find and fix the syntax error.
+        Syntax errors are caused by a programmer mistyping code and not
+        by bad user input or missing files. We want a programmer to find
+        and fix all the syntax errors in a program long before the
+        program is given to users.</div></li>
 
+        <li><div>As shown at
+        <span class="cross" data-ref="ex1">line&nbsp;26</span> in
+        example&nbsp;1 above, following the <code>except</code> blocks,
+        we may write an optional <code>else</code> block which the
+        computer will execute if the <code>try</code> block does not
+        raise any exceptions. It is uncommon to need to write code in
+        the <code>else</code> block of <code>try</code> and
+        <code>except</code>, and professional programmers almost never
+        do it.</div></li>
 
-
-        <li><div>As shown in the example code above, following the
-        <code>except</code> blocks, we may write an optional
-        <code>else</code> block which the computer will execute if the
-        <code>try</code> block does not raise any exceptions. It is
-        uncommon to need to write code in the <code>else</code> block of
-        <code>try</code> and <code>except</code>, and professional
-        programmers almost never do it.</div></li>
-
-        <li><div>As shown in the example code above, at the end of the
-        exception handling code, we may write an optional
-        <code>finally</code> block. The <code>finally</code> block
-        contains code that the computer executes after all the other
-        code in the <code>try</code>, <code>except</code>, and
-        <code>else</code> blocks regardless of whether an exception was
-        raised or not. The code in the <code>finally</code> block
-        usually contains "clean up" code that frees resources that the
-        code in the <code>try</code> block used. For example, if the
-        code in the <code>try</code> block opens a file, the code in the
-        <code>finally</code> block could close that file. In
-        CSE&nbsp;111, you probably won't need to write a
-        <code>finally</code> block.</div></li>
+        <li><div>As shown at
+        <span class="cross" data-ref="ex1">line&nbsp;30</span> in
+        example&nbsp;1 above, at the end of the exception handling code,
+        we may write an optional <code>finally</code> block. The
+        <code>finally</code> block contains code that the computer
+        executes after all the other code in the <code>try</code>,
+        <code>except</code>, and <code>else</code> blocks regardless of
+        whether an exception was raised or not. The code in the
+        <code>finally</code> block usually contains "clean up" code that
+        frees resources that the code in the <code>try</code> block
+        used. For example, if the code in the <code>try</code> block
+        opens a file, the code in the <code>finally</code> block could
+        close that file. In CSE&nbsp;111, you probably won't need to
+        write a <code>finally</code> block.</div></li>
     </ol>
 
     <h2>Common Exception Types</h2>
@@ -182,12 +191,12 @@ such as:
     <h3>TypeError</h3>
     <p>The computer raises a <a href="https://docs.python.org/3/library/exceptions.html#TypeError"><code>TypeError</code></a>
     when the code that calls a function passes an argument with the
-    wrong type. The code in example&nbsp;1 attempts to pass a string of
+    wrong type. The code in example&nbsp;2 attempts to pass a string of
     text to the <code>round</code> function which causes the computer to
     raise <code>TypeError</code> as shown in the output below the code
     example.</p>
 
-<div class="pre"><pre class="python" id="ex1"># Example 1
+<div class="pre"><pre class="python" id="ex2"># Example 2
 
 def main():
     try:
@@ -210,10 +219,10 @@ type str doesn't define __round__ method</pre>
     the computer to raise a <code>ValueError</code> is when the
     <code>int</code> function or <code>float</code> function tries to
     convert a string to a number but the string contains characters that
-    are not digits. The code in example&nbsp;2 and its output show a
+    are not digits. The code in example&nbsp;3 and its output show a
     <code>ValueError</code>.</p>
 
-<div class="pre"><pre class="python" id="ex2"># Example 2
+<div class="pre"><pre class="python" id="ex3"># Example 3
 
 def main():
     try:
@@ -232,10 +241,10 @@ could not convert string to float: '45.7u'</pre>
 
     <h3>ZeroDivisionError</h3>
     <p>The computer raises a <a href="https://docs.python.org/3/library/exceptions.html#ZeroDivisionError"><code>ZeroDivisionError</code></a>
-    when code attempts to divide a number by zero (0) as shown in
-    example&nbsp;3 and its output.</p>
+    when a program attempts to divide a number by zero (0) as shown in
+    example&nbsp;4 and its output.</p>
 
-<div class="pre"><pre class="python" id="ex3"># Example 3
+<div class="pre"><pre class="python" id="ex4"># Example 4
 
 def main():
     try:
@@ -261,12 +270,13 @@ division by zero</pre>
     <p>If we write code that tries to use an index that doesn't exist in
     a list, when the computer executes that code, the computer will
     raise an <a href="https://docs.python.org/3/library/exceptions.html#IndexError"><code>IndexError</code></a>.
-    The program in example&nbsp;4 creates a list that contains three
-    surnames. Then the program attempts to change the surname
-    at index 3. Of course, this statement fails because the list
+    The program in example&nbsp;5 creates a list that contains three
+    surnames. Then the program attempts to change the surname at
+    index&nbsp;3. Of course, this statement fails and causes the
+    computer to raise an <code>IndexError</code> because the list
     contains only three elements, and the last index is 2.</p>
 
-<div class="pre"><pre class="python" id="ex4"># Example 4
+<div class="pre"><pre class="python" id="ex5"># Example 5
 
 def main():
     try:
@@ -288,15 +298,15 @@ if __name__ == "__main__":
 <pre class="console">&gt; python index_error.py
 list assignment index out of range</pre>
 
-    <p>The program in example&nbsp;5 is similar to example&nbsp;4, and
+    <p>The program in example&nbsp;6 is similar to example&nbsp;5, and
     both programs cause the computer to raise an
-    <code>IndexError</code>. The program in example&nbsp;5 creates a
+    <code>IndexError</code>. The program in example&nbsp;6 creates a
     list that contains three surnames. Then the program attempts to
-    print the surname at index 3. Of course, this statement fails
+    print the surname at index&nbsp;3. Of course, this statement fails
     because the list contains only three elements, and the last index is
     2.</p>
 
-<div class="pre"><pre class="python" id="ex5"># Example 5
+<div class="pre"><pre class="python" id="ex6"># Example 6
 
 def main():
     try:
@@ -320,10 +330,10 @@ list index out of range</pre>
 
     <h3>KeyError</h3>
     <p>If we write code that attempts to find a key in a dictionary and
-    that key doesn't exist in the dictionary as shown in example&nbsp;6,
+    that key doesn't exist in the dictionary as shown in example&nbsp;7,
     then the computer will raise a <code>KeyError</code>.
 
-<div class="pre"><pre class="python" id="ex6"># Example 6
+<div class="pre"><pre class="python" id="ex7"># Example 7
 
 def main():
     try:
@@ -373,16 +383,17 @@ KeyError '50-420-1021'</pre>
 
         # Print the student's name.
         print(name)
+
     else:
         print("No such student")</pre></div>
 
     <h3>FileNotFoundError</h3>
     <p>If we write a call to the <code>open</code> function that
     attempts to open a file for reading and that file doesn't exist, the
-    computer will raise a <code>FileNotFoundError</code>. Example&nbsp;7
+    computer will raise a <code>FileNotFoundError</code>. Example&nbsp;8
     contains code where such an error might occur.</p>
 
-<div class="pre"><pre class="python" id="ex7"># Example 7
+<div class="pre"><pre class="python" id="ex8"># Example 8
 
 def main():
     try:
@@ -400,11 +411,11 @@ if __name__ == "__main__":
 [Errno 2] No such file or directory: 'products.vcs'</pre>
 
     <h2>Example</h2>
-    <p>Example&nbsp;8 contains a complete program with
+    <p>Example&nbsp;9 contains a complete program with
     <code>except</code> blocks to handle two types of exceptions:&nbsp;
     <code>ValueError</code> and <code>ZeroDivisionError</code>.</p>
 
-<div class="pre"><pre class="python" id="ex8"># Example 8
+<div class="pre"><pre class="python" id="ex9"># Example 9
 
 """
 Sam, who is the owner of Sam's Sandwich Shop, requested
@@ -443,19 +454,19 @@ if __name__ == "__main__":
     main()</pre></div>
 
     <h2>Example - Reading from a File</h2>
-    <p>The program in example&nbsp;9 below handles exceptions that might
-    occur when the program opens and reads from a file. This program
-    contains only one <code>try</code> block, which begins at
-    <span class="cross" data-ref="ex9">line&nbsp;12</span> and includes
+    <p>The program in example&nbsp;10 below handles exceptions that
+    might occur when the program opens and reads from a file. This
+    program contains only one <code>try</code> block, which begins at
+    <span class="cross" data-ref="ex10">line&nbsp;12</span> and includes
     all the regular code in the <code>main</code> function. This one
     <code>try</code> block has three <code>except</code> blocks at
-    <span class="cross" data-ref="ex9">lines&nbsp;47,
+    <span class="cross" data-ref="ex10">lines&nbsp;47,
     51,&nbsp;and&nbsp;55</span> that handle
     <code>FileNotFoundError</code>, <code>PermissionError</code>, and
     <code>ZeroDivisionError</code>.</p>
 
 <div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex9"># Example 9
+<pre class="python" id="ex10"># Example 10
 
 import csv
 
@@ -531,12 +542,12 @@ if __name__ == "__main__":
     <h2 id="validate">Validating User Input</h2>
     <p>To <dfn>validate user input</dfn> means to check user input to
     ensure it is in the correct format before using that input. The
-    program in example&nbsp;10 validates user input by handling
+    program in example&nbsp;11 validates user input by handling
     exceptions. Notice in the <code>get_float</code> function at
-    <span class="cross" data-ref="ex10">line&nbsp;28</span> there is a
+    <span class="cross" data-ref="ex11">line&nbsp;28</span> there is a
     <code>try</code> block. The <code>try</code> block is part of a loop
     that validates user input in the <code>get_float</code> function.
-    Notice at <span class="cross" data-ref="ex10">line&nbsp;43</span>
+    Notice at <span class="cross" data-ref="ex11">line&nbsp;43</span>
     that the <code>except</code> block handles
     <a href="https://docs.python.org/3/library/exceptions.html#ValueError"><code>ValueError</code></a>
     which is the type of exception that the
@@ -545,7 +556,7 @@ if __name__ == "__main__":
     text contains characters that are not numeric.</p>
 
 <div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex10"># Example 10
+<pre class="python" id="ex11"># Example 11
 
 def main():
     gender = input("Enter your gender (M or F): ")
