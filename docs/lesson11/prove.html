@@ -159,6 +159,7 @@ def payment(amt, ar, y, ppy):
     n = y * ppy
     p = amt * r / (1 - (1 + r) ** -n)
     return round(p, 2)</pre></div>
+
 <div class="pre"><pre class="python">
 def test_payment():
     """Verify that the payment function works correctly."""
@@ -183,6 +184,7 @@ def prefix(s1, s2):
             break
         i += 1
     return s1[0:i]</pre></div>
+
 <div class="pre"><pre class="python">
 def test_prefix():
     """Verify that the prefix function works correctly."""
@@ -217,6 +219,7 @@ def get_int(prompt, min, max):
         except ValueError as val_err:
             print(f"Invalid integer: {text}. Please try again.")
     return num</pre></div>
+
 <div class="pre"><pre class="python">
 from io import StringIO
 import re
@@ -283,6 +286,7 @@ def tire_volume(width, ratio, diam):
     vol = (math.pi * width * width * ratio *
             (widith * ratio + 2540 * diam)) / 10_000_000
     return vol</pre></div>
+
 <div class="pre"><pre class="python">
 def test_tire_volume():
     """Verify that the tire_volume function works correctly."""
@@ -301,6 +305,7 @@ def write_file(filename, lines):
     with open(filename, "wt") as outfile:
         for text in lines:
             print(text, file=outfile)</pre></div>
+
 <div class="pre"><pre class="python">
 import os
 
@@ -357,6 +362,7 @@ def read_file(filename):
     lines = string.splitlines()
 
     return lines</pre></div>
+
 <div class="pre"><pre class="python">
 import os
 
@@ -378,7 +384,7 @@ def test_read_file():
     assert read == lines</pre></div>
         </div></li>
 
-    <li><div>Uses the <code>pandas</code> module
+        <li><div>Uses the <code>pandas</code> module
 <div class="pre"><pre class="python">
 def filter_for_meter(df, meter_number):
     """Return a new DataFrame that contains only the rows where
@@ -393,6 +399,7 @@ def filter_for_meter(df, meter_number):
     filter = (df["meterNumber"] == meter_number)
     filtered_df = df[filter]
     return filtered_df</pre></div>
+
 <div class="pre"><pre class="python">
 import pandas as pd
 
@@ -416,8 +423,8 @@ def test_filter_for_meter():
         assert value == meter_num</pre></div>
         </div></li>
 
-        <li><div><p>My code is so good that it doesn't need to be
-        tested.</p>
+        <li><div>
+        <p>My code is so good that it doesn't need to be tested.</p>
 
         <p>Good luck with that attitude, hot shot. In all seriousness,
         how do you know your code is good? Besides, no matter how good
@@ -471,6 +478,7 @@ def test_filter_for_meter():
             <li><div>Does each function in your program perform just one
             task?</div></li>
         </ol>
+        </div></li>
 
         <li><div>Progress&mdash;20%: Did you complete some significant
         part of your program during the current week?</div></li>
@@ -489,6 +497,7 @@ def test_filter_for_meter():
             <li><div>A description or list of the work that you finished
             on your program.</div></li>
         </ol>
+        </div></li>
     </ol>
 
     <h3>Lesson 13 Rubric</h3>
@@ -511,6 +520,7 @@ def test_filter_for_meter():
             <li><div>A description or list of the work that you finished
             on your program.</div></li>
         </ol>
+        </div></li>
 
         <li><div>Python program file&mdash;25%: Upload your Python
         program. Your teacher will evaluate it according to these
@@ -524,6 +534,7 @@ def test_filter_for_meter():
             <li><div>Your program performs a significant real world
             task.</div></li>
         </ol>
+        </div></li>
 
         <li><div>Python test file&mdash;15%: Upload your Python test
         file. Your teacher will evaluate it according to these criteria:
@@ -538,6 +549,7 @@ def test_filter_for_meter():
             different arguments, including unusual or unexpected
             values.</div></li>
         </ol>
+        </div></li>
     </ol>
 </article>
 <footer>
