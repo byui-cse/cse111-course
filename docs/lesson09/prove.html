@@ -118,23 +118,9 @@
         examine it. Notice that each row contains only two values, a
         product number and a quantity.</div></li>
 
-        <li><div>In your <code>receipt.py</code> program, write another
-        function named <code>process_request</code> that will open the
-        <code>request.csv</code> file for reading. In the
-        <code>process_request</code> function, write a loop that will
-        read and process each row from the <code>request.csv</code>
-        file. Within the body of the loop, your program must do the
-        following for each row:
-        <ol>
-            <li><div>Use the requested product number to find the
-            corresponding item in <var>products</var>
-            dictionary.</div></li>
-            <li><div>Print the product name, requested quantity, and
-            product price.</div></li>
-        </ol></div></li>
-
-        <li><div>In your <code>receipt.py</code> program, write a
-        function named <code>main</code> that does the following:
+        <li><div><p>In your <code>receipt.py</code> program, write
+        another function named <code>main</code> that does the
+        following:</p>
         <ol>
             <li><div>Calls the <code>read_products</code> function and
             stores the products dictionary in a variable named
@@ -142,9 +128,25 @@
 
             <li><div>Prints the <var>products</var> dictionary.</div></li>
 
-            <li><div>Calls the <code>process_request</code>
-            function.</div></li>
+            <li><div>Opens the <code>request.csv</code> file for
+            reading.</div></li>
+
+            <li><div>Contains a loop that reads and processes each row
+            from the <code>request.csv</code> file. Within the body of
+            the loop, your program must do the following for each row:
+            <ol>
+                <li><div>Use the requested product number to find the
+                corresponding item in <var>products</var>
+                dictionary.</div></li>
+                <li><div>Print the product name, requested quantity, and
+                product price.</div></li>
+            </ol></div></li>
         </ol></div></li>
+
+        <p>Your program should not read the <code>request.csv</code>
+        file into a dictionary but should instead read and process each
+        row similar to <a href="prepare.html#ex3">example&nbsp;3</a> in
+        the prepare content for this lesson.</p></div></li>
     </ol>
 
     <h2>Testing Procedure</h2>

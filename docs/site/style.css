@@ -137,10 +137,44 @@ article a:link { color: var(--byui-blue); }
 article a:visited { color: purple; }
 article a:active { color: red; }
 
-article a.video:after {
-	margin-left: 0.3em;
+article ul.references,
+article ul.tutorials,
+article ul.videos {
+	list-style-type: none;
+	margin-left: 1.5em;
+}
+
+article ul.references > li {
+	background-image: url("reference.png");
+	background-repeat: no-repeat;
+	min-height: 30px;
+	padding-left: 22px;
+}
+
+article ul.tutorials > li {
+	background-image: url("tutorial.png");
+	background-repeat: no-repeat;
+	min-height: 30px;
+	padding-left: 22px;
+}
+
+article ul.videos > li {
+	background-image: url("video.png");
+	background-repeat: no-repeat;
+	min-height: 30px;
+	padding-left: 34px;
+}
+
+/*
+article ul.references a:before {
+	margin-right: 0.4em;
 	vertical-align: middle;
-	content: url("play.png");
+	content: url("reference.png");
+}
+*/
+
+article span.duration {
+	font-size: smaller;
 }
 
 article audio {
