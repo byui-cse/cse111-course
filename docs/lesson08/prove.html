@@ -139,15 +139,15 @@ def parse_formula(formula, periodic_table_dict):
     def parse_r(formula, index, level):
         start_index = index
         start_level = level
-        elems = {}
+        elem_dict = {}
         while index &lt; len(formula):
             ch = formula[index]
             if ch == "(":
-                group, index = parse_r(formula, index + 1, level + 1)
+                group_dict, index = parse_r(formula, index+1, level+1)
                 quant, index = parse_quant(formula, index)
-                for symbol in group:
-                    prev = get_quant(elems, symbol)
-                    elems[symbol] = prev + group[symbol] * quant
+                for symbol in group_dict:
+                    prev = get_quant(elem_dict, symbol)
+                    elem_dict[symbol] = prev + group_dict[symbol] * quant
             elif ch.isalpha():
                 symbol = formula[index:index+2]
                 if symbol in periodic_table_dict:
@@ -157,32 +157,40 @@ def parse_formula(formula, periodic_table_dict):
                     if symbol in periodic_table_dict:
                         index += 1
                     else:
-                        # Unknown symbol for an element
-                        raise FormulaError("invalid formula:", formula, index)
+                        raise FormulaError(
+                            "invalid formula, unknown element symbol:",
+                            formula, index)
                 quant, index = parse_quant(formula, index)
-                prev = get_quant(elems, symbol)
-                elems[symbol] = prev + quant
+                prev = get_quant(elem_dict, symbol)
+                elem_dict[symbol] = prev + quant
             elif ch == ")":
                 if level == 0:
-                    # Mismatched close parenthesis
-                    raise FormulaError("invalid formula:", formula, index)
+                    raise FormulaError(
+                        "invalid formula, unmatched close parenthesis:",
+                        formula, index)
                 level -= 1
                 index += 1
                 break
             else:
-                # Illegal character: [^()0-9a-zA-Z] or decimal digit not
-                # preceded by an element symbol or close parenthesis
-                raise FormulaError("invalid formula:", formula, index)
+                if ch.isdecimal():
+                    # Decimal digit not preceded by an
+                    # element symbol or close parenthesis
+                    message = "invalid formula:"
+                else:
+                    # Illegal character: [^()0-9a-zA-Z]
+                    message = "invalid formula, illegal character:"
+                raise FormulaError(message, formula, index)
         if level &gt; 0 and level &gt;= start_level:
-            # Mismatched open parenthesis
-            raise FormulaError("invalid formula:", formula, start_index - 1)
-        return elems, index
+            raise FormulaError(
+                "invalid formula, unmatched open parenthesis:",
+                formula, start_index - 1)
+        return elem_dict, index
 
     # Return the compound list of element symbols and
     # quantities. Each element in the compound list
     # will be a list in this form: ["symbol", quantity]
-    elems, _ = parse_r(formula, 0, 0)
-    return list(elems.items())
+    elem_dict, _ = parse_r(formula, 0, 0)
+    return list(elem_dict.items())
 
 
 # These are the indexes of the

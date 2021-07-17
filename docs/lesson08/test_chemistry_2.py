@@ -183,7 +183,7 @@ def test_compute_molar_mass():
     assert compute_molar_mass([], periodic_table_dict) == 0
     assert compute_molar_mass([["O",2]], periodic_table_dict) == approx(31.9988)
     assert compute_molar_mass([["C",6],["H",6]], periodic_table_dict) == approx(78.11184)
-    assert compute_molar_mass([["C",13], ["H",16], ["N",2], ["O",2]], periodic_table_dict) == approx(232.27834)
+    assert compute_molar_mass([["C",13],["H",16],["N",2],["O",2]], periodic_table_dict) == approx(232.27834)
 
 
 pytest.main(["-v", "--tb=line", "-rN", "test_chemistry_2.py"])
