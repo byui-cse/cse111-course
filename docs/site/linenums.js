@@ -26,7 +26,7 @@ cse111.linenums = {
 
 
 	addCrossRefs : function() {
-		let getNumbers = function(target) {
+		let getReferences = function(target) {
 			const space = /(\s|&nbsp;|<br>)+/g;
 
 			// Notice the dash and en dash in the character class.
@@ -34,27 +34,27 @@ cse111.linenums = {
 
 			let text = target.innerText;
 			let candidates = text.split(space);
-			let numbers = [];
+			let references = [];
 			for (let i = 0;  i < candidates.length;  ++i) {
 				let candidate = candidates[i];
 				if (dash.test(candidate)) {
 					let limits = candidate.split(dash);
 					let start = parseInt(limits[0]);
 					let end = parseInt(limits[1]);
-					if (! (Number.isNaN(start) || Number.isNaN(start))) {
+					if (! (Number.isNaN(start) || Number.isNaN(end))) {
 						for (let j = start;  j <= end;  ++j) {
-							numbers.push(j);
+							references.push(j);
 						}
 					}
 				}
 				else {
 					let linenum = parseInt(candidate);
 					if (! Number.isNaN(linenum)) {
-						numbers.push(linenum);
+						references.push(linenum);
 					}
 				}
 			}
-			return numbers;
+			return references;
 		};
 
 		let getAllLineNumbers = function(target) {
@@ -64,11 +64,26 @@ cse111.linenums = {
 			return lineNumDiv.children;
 		};
 
-		let getLineNumber = function(lineNumbers, content) {
+		let findLineNumber = function(lineNumbers, key) {
 			let found;
-			for (let i = 0;  i < lineNumbers.length;  ++i) {
-				let elem = lineNumbers[i];
-				if (elem.innerText == content) {
+			// The lineNumbers are sequential (sorted), so use
+			// binary search to find one line numbers element.
+			let left = 0;
+			let right = lineNumbers.length - 1;
+			while (left <= right) {
+				// Compute the index of the middle of the current interval.
+				let mid = left + ((right - left) >>> 1);
+
+				// Compare the value in the middle of the interval to the key.
+				let elem = lineNumbers[mid];
+				let cmp = key - parseInt(elem.innerText);
+				if (cmp > 0) {
+					left = mid + 1;
+				}
+				else if (cmp < 0) {
+					right = mid - 1;
+				}
+				else {
 					found = elem;
 					break;
 				}
@@ -77,23 +92,25 @@ cse111.linenums = {
 		};
 
 		let on = function(event) {
+			/** Turn on highlighting for one or more line numbers. */
 			let target = event.target;
 			let lineNumbers = getAllLineNumbers(target);
-			let numbers = getNumbers(target);
-			for (let i = 0;  i < numbers.length;  ++i) {
-				let number = '' + numbers[i];
-				let elem = getLineNumber(lineNumbers, number);
+			let references = getReferences(target);
+			for (let i = 0;  i < references.length;  ++i) {
+				let number = references[i];
+				let elem = findLineNumber(lineNumbers, number);
 				elem.classList.add('hi');
 			}
 		};
 
 		let off = function(event) {
+			/** Turn off highlighting for one or more line numbers. */
 			let target = event.target;
 			let lineNumbers = getAllLineNumbers(target);
-			let numbers = getNumbers(target);
-			for (let i = 0;  i < numbers.length;  ++i) {
-				let number = '' + numbers[i];
-				let elem = getLineNumber(lineNumbers, number);
+			let references = getReferences(target);
+			for (let i = 0;  i < references.length;  ++i) {
+				let number = references[i];
+				let elem = findLineNumber(lineNumbers, number);
 				elem.classList.remove('hi');
 			}
 		};
@@ -116,10 +133,10 @@ cse111.linenums = {
 				// target. The user has now clicked on the target again,
 				// so turn the highlights off.
 				let lineNumbers = getAllLineNumbers(target);
-				let numbers = getNumbers(target);
-				for (let i = 0;  i < numbers.length;  ++i) {
-					let number = '' + numbers[i];
-					let elem = getLineNumber(lineNumbers, number);
+				let references = getReferences(target);
+				for (let i = 0;  i < references.length;  ++i) {
+					let number = references[i];
+					let elem = findLineNumber(lineNumbers, number);
 					elem.classList.remove('hi');
 				}
 				target.removeAttribute('data-on');
