@@ -44,20 +44,22 @@
         comment begins with the hash symbol (#) and extends to the end
         of the current line.</div></li>
 
-        <li id="input"><div>We use the <a href="https://docs.python.org/3/library/functions.html#input"><code>input()</code></a>
+        <li id="input"><div>In a Python program, we use the
+        <a href="https://docs.python.org/3/library/functions.html#input"><code>input()</code></a>
         function to get input from a user in a terminal window.</div></li>
 
         <li><div>A <dfn>variable</dfn> is a location in a computer's
         memory where a program stores a value. A variable has a name, a
-        data type, and a value. In Python, the value and data type of a
-        variable may change while the computer is executing a program.
-        In Python, we assign a value to a variable by using the
-        assignment operator, which is the equals symbol (=).</div></li>
+        data type, and a value. In Python, we assign a value to a
+        variable by using the assignment operator, which is the equals
+        symbol (=). The value and data type of a variable may change
+        while the computer is executing a program.</div></li>
 
-        <li id="data_types"><div><p>Python has many data types including
-        <code>str</code>, <code>bool</code>, <code>int</code>,
-        <code>float</code>, <code>list</code>, <code>dict</code>,
-        <code>function</code>, and <code>type</code>. This program named
+        <li id="data_types"><div><p>Python has many <dfn>data
+        types</dfn> including <code>str</code>, <code>bool</code>,
+        <code>int</code>, <code>float</code>, <code>list</code>,
+        <code>dict</code>, <code>function</code>, and <code>type</code>.
+        This program named
         <a download href="data_types.py">data_types.py</a> demonstrates
         many of the Python data types.</p>
 
@@ -73,10 +75,10 @@
         always a string, to a number. See the program in
         <a href="#ex1">example&nbsp;1</a> below.</p></div></li>
 
-        <li id="arith"><div><p>Python has many arithmetic operators
-        including power (**), negation (-), multiplication (*), division
-        (/), floor division (//), modulo (%), addition (+), and
-        subtraction (-).</p>
+        <li id="arith"><div><p>Python has many <dfn>arithmetic
+        operators</dfn> including power (**), negation (-),
+        multiplication (*), division (/), floor division (//), modulo
+        (%), addition (+), and subtraction (-).</p>
 
         <p>When we write an arithmetic expression that contains more
         than one operator, the computer executes the operators according
@@ -163,6 +165,82 @@ Length of cable in meters: 501.83</pre>
         <div class="block expr"><var>length</var> = <var>span</var> + <div class="fract"><div class="numer">8 <var>dip</var><sup>2</sup></div><div class="denom">3 <var>span</var></div></div></div>
         </div></li>
 
+        <li><div><p>The Python programming language includes many
+        <dfn>augmented assignment operators</dfn> (also known as
+        shorthand operators). All the shorthand operators have the same
+        precedence as the assignment operator (=). Here is a list of
+        some of the Python shorthand operators:</p>
+
+<div class="pre"><pre class="python">**=  *=  /=  //=  %=  +=  -=</pre></div>
+
+        <p>To understand what the shorthand operators do and why Python
+        includes them, imagine a program that computes the price of a
+        pizza. The price of a large pizza with cheese and no other
+        toppings is $10.95. The price for each topping, such as ham,
+        peperoni, olives, and pineapple is $1.45. Here is a short
+        example program that asks the user for the number of toppings
+        and computes the price of a pizza:</p>
+
+<div class="pre"><pre class="linenums"></pre>
+<pre class="python" id="ex2"># Example 2
+
+# Compute the total price of a pizza.
+
+# The base price of a large pizza is $10.95
+price = 10.95
+
+# Ask the user for the number of toppings.
+number_of_toppings = int(input("How many toppings? "))
+
+# Compute the cost of the toppings.
+price_per_topping = 1.45
+toppings_cost = number_of_toppings * price_per_topping
+
+# Add the cost of the toppings to the price of the pizza.
+<em>price = price + toppings_cost</em>
+
+# Print the price for the user to see.
+print(f"Price: ${price:.2f}")</pre></div>
+
+        <p>The statement at
+        <span class="cross" data-ref="ex2">line&nbsp;16</span> in
+        example&nbsp;2 causes the computer to get the value in the
+        <var>price</var> variable which is 10.95, then add the cost of
+        the toppings to 10.95, and then store the sum back into the
+        <var>price</var> variable. Python includes a shorthand operator
+        that combines addition (+) and assignment (=) into one operator
+        (+=). We can use this shorthand operator to rewrite line&nbsp;16
+        like this:</p>
+<div class="pre"><pre class="python">price += toppings_cost</pre></div>
+
+        <p>This statement with the shorthand operator is equivalent to
+        the statement on line&nbsp;16 of example&nbsp;2, meaning the two
+        statements cause the computer to do the same thing.
+        Example&nbsp;3 contains the same program as example&nbsp;2 but
+        uses the shorthand operator += at
+        <span class="cross" data-ref="ex3">line&nbsp;16</span>.</p></div></li>
+
+<div class="pre"><pre class="linenums"></pre>
+<pre class="python" id="ex3"># Example 3
+
+# Compute the total price of a pizza.
+
+# The base price of a large pizza is $10.95
+price = 10.95
+
+# Ask the user for the number of toppings.
+number_of_toppings = int(input("How many toppings? "))
+
+# Compute the cost of the toppings.
+price_per_topping = 1.45
+toppings_cost = number_of_toppings * price_per_topping
+
+# Add the cost of the toppings to the price of the pizza.
+<em>price += toppings_cost</em>
+
+# Print the price for the user to see.
+print(f"Price: ${price:.2f}")</pre></div>
+
         <li><div><p>In Python, we use <code>if</code> statements to
         cause the computer to make decisions; <code>if</code> statements
         are also called <dfn>selection</dfn> statements because the
@@ -182,10 +260,10 @@ Length of cable in meters: 501.83</pre>
             <tr><td>!=</td> <td>not equal to</td></tr>
         </tbody></table>
 
-        <p>Example&nbsp;2 contains Python code that checks if a number
+        <p>Example&nbsp;4 contains Python code that checks if a number
         is greater than 500.</p>
 <div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex2"># Example 2
+<pre class="python" id="ex4"># Example 4
 
 # Get an account balance as a number from the user.
 balance = float(input("Please enter the account balance: "))
@@ -202,17 +280,17 @@ print(balance)</pre></div>
         <p>If you have written programs in other programming languages
         such as JavaScript, Java, or C++, you always used curly braces
         to mark the start and end of the body of an <code>if</code>
-        statement. However, notice in example&nbsp;2 that
+        statement. However, notice in example&nbsp;4 that
         <code>if</code> statements in Python do not use curly braces.
         Instead, we type a colon (:) after the comparison of the
         <code>if</code> statement as shown on
-        <span class="cross" data-ref="ex2">line&nbsp;8</span>.
+        <span class="cross" data-ref="ex4">line&nbsp;8</span>.
         Then we indent all the statements that are in the body of
         the <code>if</code> statement as shown on
-        <span class="cross" data-ref="ex2">lines&nbsp;9 and&nbsp;10</span>.
+        <span class="cross" data-ref="ex4">lines&nbsp;9 and&nbsp;10</span>.
         The body of the <code>if</code> statement ends with the first
         line of code that is not indented, like
-        <span class="cross" data-ref="ex2">line&nbsp;13</span>.</p>
+        <span class="cross" data-ref="ex4">line&nbsp;13</span>.</p>
 
         <p>It may seem strange to not use curly braces to mark the start
         and end of the body of an <code>if</code> statement. However,

@@ -479,11 +479,11 @@ def main():
 
     # Define a lambda function that will be used as the
     # key function by the sorted function. The lambda
-    # function extracts the population data from each
+    # function extracts the population data from a
     # country so that the population will be used for
     # sorting the list of countries.
     POPULATION_INDEX = 2
-    popul_func = lambda country: country[POPULATION_INDEX]
+    popul_func = <em>lambda country: country[POPULATION_INDEX]</em>
 
     # Sort the list of countries by the population.
     sorted_list = sorted(countries, <em>key=popul_func</em>)

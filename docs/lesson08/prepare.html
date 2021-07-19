@@ -34,7 +34,6 @@
 
     <h2>Video</h2>
     <p>Watch this video about dictionaries in Python.</p>
-
     <ul class="videos">
         <li><div><a href="https://realpython.com/lessons/dictionary-python/">Dictionaries</a> <span class="duration">(6 minutes)</span></div></li>
     </ul>
@@ -403,16 +402,21 @@ if __name__ == "__main__":
     </thead><tbody>
         <tr>
         <th>Similar</th>
-        <td><p>A list can store many elements. Each element in a
-        list does not have to be unique.</p></td>
-        <td><p>A dictionary can store many items. Each item is a key
-        value pair. Each key within a dictionary must be unique.</p></td></tr>
+        <td><p>A list can store many elements.</p></td>
+        <td><p>A dictionary can store many items.</p></td></tr>
+
+        <tr>
+        <th>Same</th>
+        <td><p>Lists are mutable, meaning a program can add and remove
+        elements after a list is created.</p></td>
+        <td><p>Dictionaries are mutable, meaning a program can add and
+        remove items after a dictionary is created.</p></td></tr>
 
         <tr>
         <th>Different</th>
         <td><p>Each element in a list does not have to be unique.</p></td>
         <td><p>Each item in a dictionary is a key value pair. Each key
-        within a dictionary must be unique. Each value does not have to
+        must be unique within a dictionary. Each value does not have to
         be unique.</p></td></tr>
 
         <tr>
@@ -423,13 +427,6 @@ if __name__ == "__main__":
         <td><p>Dictionaries were designed for quickly finding items.
         Finding an item in a dictionary is fast. However, dictionaries
         use more memory than lists.</p></td></tr>
-
-        <tr>
-        <th>Same</th>
-        <td><p>Lists are mutable, meaning a program can add and remove
-        elements after a list is created.</p></td>
-        <td><p>Dictionaries are mutable, meaning a program can add and
-        remove items after a dictionary is created.</p></td></tr>
 
         <tr>
         <th>Same</th>
@@ -446,8 +443,9 @@ if __name__ == "__main__":
 
         <tr>
         <th>Different</th>
-        <td><p>A programmer calls the <code>append</code> and
-        <code>insert</code> methods to add an element to a list.</p></td>
+        <td><p>A programmer calls the <code>insert</code> and
+        <code>append</code> methods to add an element to a
+        list.</p></td>
         <td><p>A programmer uses square brackets ([&nbsp;and&nbsp;]) to
         add an item to a dictionary.</p></td></tr>
 
