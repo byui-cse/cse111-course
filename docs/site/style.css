@@ -2,28 +2,58 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
 
 :root {
+	--left-litest:  #d58eaf;   /* magenta (sort of) */
+	--left-lite:    #b15983;
+	--left-mid:     #8e2f5c;
+	--left-dark:    #6a123c;
+	--left-darkest: #470022;
+
+	--point-litest:  #ffffaa;  /* yellow (sort of) */
+	--point-lite:    #d4d46a;
+	--point-mid:     #aaaa39;
+	--point-dark:    #808015;
+	--point-darkest: #555500;
+
+	--right-litest:  #867db0;  /* purple (sort of) */
+	--right-lite:    #5d5393;
+	--right-mid:     #3c3176;
+	--right-dark:    #231858;
+	--right-darkest: #10073b;
+
 	--byui-blue: #0076b6;
 
-	--light-bkgrnd: #fefefe;
-	--light-color: #040404;
+	--light-bk-color: #fefefe;
+	--light-fg-color: #040404;
 
-	--dark-bkgrnd: black;
-	--dark-color: #b8b8b8;
+	--dark-bk-color: black;
+	--dark-fg-color: #b8b8b8;
 
 	--border: #707070;
+
+	--link-before-fg-color: var(--byui-blue);
+	--link-active-fg-color: red;
+	--link-visited-fg-color: purple;
+
+	--dfn-fg-color: coral;
+	--strong-fg-color: coral;
+	--user-input-bk-color: coral;
+	--user-input-fg-color: white;
+
+	--bullet-fg-color: var(--byui-blue);
+	--line-number-bk-color: var(--byui-blue);
 }
 
 body {
-	background-color: var(--light-bkgrnd);
-	color: var(--light-color);
+	background-color: var(--light-bk-color);
+	color: var(--light-fg-color);
 }
 @media screen {
 	body {
 		font-family: "Open Sans", Arial, Helvetica, Verdana, sans-serif;
 	}
 	body.dark {
-		background-color: var(--dark-bkgrnd);
-		color: var(--dark-color);
+		background-color: var(--dark-bk-color);
+		color: var(--dark-fg-color);
 	}
 }
 @media print {
@@ -95,14 +125,13 @@ article {
 article h1 {
 	clear: both;
 	text-align: center;
-	font-size: 150%;
-	line-height: 1.5em;
-	margin: 0 0 0.5em 0;
+	font-size: 175%;
+	margin: 0 0 1em 0;
 }
 
 article h2 {
 	clear: both;
-	font-size: 130%;
+	font-size: 150%;
 	font-weight: bold;
 	margin: 1.5em 0 0.25em 0;
 	padding-bottom: 0.25em;
@@ -111,14 +140,14 @@ article h2 {
 
 article h3 {
 	font-weight: bold;
-	font-size: 115%;
+	font-size: 130%;
 	color: var(--byui-blue);
-	margin: 1em 0 0.5em 0;
+	margin: 1.5em 0 0.5em 0;
 }
 
 article h4 {
 	font-weight: bold;
-	font-size: 100%;
+	font-size: 110%;
 	margin: 1em 0 0.5em 0;
 }
 
@@ -129,13 +158,92 @@ article iframe {
 
 article blockquote {
 	margin: 1em 1em 1em 1em;
-	border-left: 0.12em solid var(--byui-blue);
+	border-left: 0.12em solid var(--bullet-fg-color);
 	padding: 0 0 0 0.5em;
 }
 
-article a:link { color: var(--byui-blue); }
-article a:visited { color: purple; }
-article a:active { color: red; }
+article a:link { color: var(--link-before-fg-color); }
+article a:active { color: var(--link-active-fg-color); }
+article a:visited { color: var(--link-visited-fg-color); }
+
+article span.duration {
+	font-size: smaller;
+}
+
+article audio {
+	float: right;
+}
+
+article em {
+	font-style: italic;
+}
+
+article strong {
+	font-weight: bold;
+	font-style: italic;
+	color: var(--strong-fg-color);
+}
+
+article dfn {
+	color: var(--dfn-fg-color)
+}
+
+article var {
+	font-style: italic;
+}
+
+/* Lists */
+article ol {
+	margin: 0 0 1em 2em;
+	list-style-type: decimal;
+}
+
+article ol > li ol > li ol {
+	list-style-type: lower-roman;
+}
+
+article ol > li ol {
+	list-style-type: lower-alpha;
+}
+
+article ol.long > li {
+	margin-bottom: 1em;
+}
+
+article li {
+	color: var(--bullet-fg-color);
+}
+
+article li > div {
+	color: var(--light-fg-color);
+	margin-left: 0.25em;
+}
+@media screen {
+	body.dark article li > div {
+		color: var(--dark-fg-color);
+	}
+}
+
+article ul {
+	margin: 0 0 1em 2em;
+	list-style-type: disc;
+}
+
+article ul.long > li {
+	margin-bottom: 1em;
+}
+
+article li ul {
+	list-style-type: circle;
+}
+
+article ul.links {
+	list-style-type: "»";
+}
+
+article ul.links > li {
+	padding-left: 0.3em;
+}
 
 article ul.references,
 article ul.tutorials,
@@ -165,105 +273,18 @@ article ul.videos > li {
 	padding-left: 34px;
 }
 
-/*
-article ul.references a:before {
-	margin-right: 0.4em;
-	vertical-align: middle;
-	content: url("reference.png");
-}
-*/
-
-article span.duration {
-	font-size: smaller;
-}
-
-article audio {
-	float: right;
-}
-
-article em {
-	font-style: italic;
-}
-
-article strong {
-	font-weight: bold;
-	font-style: italic;
-	color: coral;
-}
-
-article dfn {
-	color: coral;
-}
-
-article var {
-	font-style: italic;
-}
-
-/* Lists */
-article ol {
-	margin: 0 0 1em 2em;
-	list-style-type: decimal;
-}
-
-article ol > li ol > li ol {
-	list-style-type: lower-roman;
-}
-
-article ol > li ol {
-	list-style-type: lower-alpha;
-}
-
-article ol.long > li {
-	margin-bottom: 1em;
-}
-
-article li {
-	color: var(--byui-blue);
-}
-
-article li > div {
-	color: var(--light-color);
-	margin-left: 0.25em;
-}
-@media screen {
-	body.dark article li > div {
-		color: var(--dark-color);
-	}
-}
-
-article ul {
-	margin: 0 0 1em 2em;
-	list-style-type: disc;
-}
-
-article ul.long > li {
-	margin-bottom: 1em;
-}
-
-article li ul {
-	list-style-type: circle;
-}
-
-article ul.links {
-	list-style-type: "»";
-}
-
-article ul.links > li {
-	padding-left: 0.3em;
-}
-
 article ul.note {
 	list-style-type: "*";
 }
 
 article ul.note > li {
 	padding-left: 0.4em;
-	color: var(--byui-blue);
+	color: var(--bullet-fg-color);
 }
 
 article dl.function {
 	margin: 1em 1em 1em 1em;
-	border-left: 0.12em solid var(--byui-blue);
+	border-left: 0.12em solid var(--bullet-fg-color);
 	padding: 0 0 0 0.5em;
 }
 
@@ -275,17 +296,17 @@ article dl.function dd {
 /* Figures */
 div.figure {
 	float: right;
-	margin: 0 0 1em 1em
+	margin: 0 0 1em 1em;
 	page-break-inside: avoid;
 }
 
 div.figure img {
-	width: 100%
+	width: 100%;
 	page-break-after: avoid;
 }
 
 div.figure div {
-	margin: 0.75em 0 0 0
+	margin: 0.75em 0 0 0;
 	font-size: 90%;
 	page-break-before: avoid;
 }
@@ -483,8 +504,8 @@ article pre.console span.input {
 	position: relative;
 	border: 1px solid var(--border);
 	padding: 0 0.25em;
-	background-color: coral;
-	color: white;
+	background-color: var(--user-input-bk-color);
+	color: var(--user-input-fg-color);
 }
 
 /* Tooltip for user input spans inside the console pre elements. */
@@ -494,8 +515,8 @@ article pre.console span.input:before {
 	top: 70%;
 	left: -5em;
 	border: 1px solid var(--border);
-	background-color: var(--light-bkgrnd);
-	color: var(--light-color);
+	background-color: var(--light-bk-color);
+	color: var(--light-fg-color);
 	font-size: small;
 	padding: 0.1em 0.3em;
 	content: "User input";
@@ -551,7 +572,7 @@ article div.pre > pre.linenums {
 }
 
 article div.pre > pre.linenums > .hi {
-	background-color: var(--byui-blue);
+	background-color: var(--line-number-bk-color);
 	color: white;
 }
 
@@ -566,7 +587,7 @@ article pre.python span.hiError  { background-color: red; }
 
 
 article .cross {
-	text-decoration: underline var(--byui-blue) dotted;
+	text-decoration: underline var(--link-before-fg-color) dotted;
 }
 
 
