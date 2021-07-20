@@ -116,15 +116,15 @@
 <em>finally:</em>
     # Code that is executed after all the other code in
     # try, except, and else blocks regardless of whether
-    # an exception was raised or not.</pre></div></div></li>
+    # an exception was raised or not.</pre></div>
 
-        <li><div>As shown in example&nbsp;1 above, when we want to write
-        code that will handle exceptions, we first write a
-        <code>try</code> block, and we put into that <code>try</code>
-        block the normal code that might cause an exception.
-        Then we write <code>except</code> blocks to handle the
-        exceptions. Each <code>except</code> block may handle one type
-        of exception such as:
+        <p>As shown in example&nbsp;1 above, when we want to write code
+        that will handle exceptions, we first write a <code>try</code>
+        block, and we put into that <code>try</code> block the normal
+        code that might cause an exception. Then we write
+        <code>except</code> blocks to handle the exceptions. Each
+        <code>except</code> block may handle one type of exception such
+        as:</p>
 <div class="pre"><pre class="python">except ValueError as val_err:</pre></div>
         Or each <code>except</code> block may handle several types of
         exceptions, such as:
@@ -296,7 +296,7 @@ def main():
 if __name__ == "__main__":
     main()</pre></div>
 
-<pre class="console">&gt; python index_error.py
+<pre class="console">&gt; python index_error_write.py
 list assignment index out of range</pre>
 
     <p>The program in example&nbsp;6 is similar to example&nbsp;5, and
@@ -326,7 +326,7 @@ def main():
 if __name__ == "__main__":
     main()</pre></div>
 
-<pre class="console">&gt; python index_error.py
+<pre class="console">&gt; python index_error_read.py
 list index out of range</pre>
 
     <h3>KeyError</h3>
@@ -411,7 +411,37 @@ if __name__ == "__main__":
 <pre class="console">&gt; python file_not_found.py
 [Errno 2] No such file or directory: 'products.vcs'</pre>
 
-    <h2>Example</h2>
+    <h3>PermissionError</h3>
+    <p>Nearly all computer operating systems, such as Microsoft Windows,
+    Mac OS X, and Linux, allow multiple people to use a single computer.
+    Because people need to store private data in files on a computer,
+    the operating systems implement file access permission rules. These
+    rules help to prevent unauthorized access to files.</p>
+
+    <p>If we write a call to the <code>open</code> function that
+    attempts to open a file and the person executing our program doesn't
+    have permission to access the file, the computer will raise a
+    <code>PermissionError</code>. Example&nbsp;9 contains code where
+    such an error might occur.</p>
+
+<div class="pre"><pre class="python" id="ex9"># Example 9
+
+def main():
+    try:
+        with open("contacts.csv", "rt") as contacts_file:
+            for line in contacts_file:
+                print(line)
+
+    except PermissionError as perm_err:
+        print(perm_err)
+
+if __name__ == "__main__":
+    main()</pre></div>
+
+<pre class="console">&gt; python permission_error.py
+[Errno 13] Permission denied: 'contacts.csv'</pre>
+
+    <h2>Example: Arithmetic</h2>
     <p>Example&nbsp;9 contains a complete program with
     <code>except</code> blocks to handle two types of exceptions:&nbsp;
     <code>ValueError</code> and <code>ZeroDivisionError</code>.</p>
@@ -454,7 +484,7 @@ def main():
 if __name__ == "__main__":
     main()</pre></div>
 
-    <h2>Example - Reading from a File</h2>
+    <h2>Example: Reading from a File</h2>
     <p>The program in example&nbsp;10 below handles exceptions that
     might occur when the program opens and reads from a file. This
     program contains only one <code>try</code> block, which begins at
