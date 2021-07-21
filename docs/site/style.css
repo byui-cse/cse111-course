@@ -2,26 +2,6 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
 
 :root {
-	--left-litest:  #d58eaf;   /* magenta (sort of) */
-	--left-lite:    #b15983;
-	--left-mid:     #8e2f5c;
-	--left-dark:    #6a123c;
-	--left-darkest: #470022;
-
-	--point-litest:  #ffffaa;  /* yellow (sort of) */
-	--point-lite:    #d4d46a;
-	--point-mid:     #aaaa39;
-	--point-dark:    #808015;
-	--point-darkest: #555500;
-
-	--right-litest:  #867db0;  /* purple (sort of) */
-	--right-lite:    #5d5393;
-	--right-mid:     #3c3176;
-	--right-dark:    #231858;
-	--right-darkest: #10073b;
-
-	--byui-blue: #0076b6;
-
 	--light-bk-color: #fefefe;
 	--light-fg-color: #040404;
 
@@ -30,30 +10,46 @@
 
 	--border: #707070;
 
+	--coral: rgba(255, 127, 80, 1);
+	--light-coral: rgba(255, 127, 80, 0.07);
+	--dark-coral: rgba(255, 127, 80, 0.13);
+
+	--byui-blue: rgba(0, 118, 182, 1);
+	--light-byui-blue: rgba(0, 118, 182, 0.07);
+	--dark-byui-blue: rgba(0, 118, 182, 0.2);
+
 	--link-before-fg-color: var(--byui-blue);
 	--link-active-fg-color: red;
 	--link-visited-fg-color: purple;
 
-	--dfn-fg-color: coral;
-	--strong-fg-color: coral;
-	--user-input-bk-color: coral;
+	--dfn-fg-color: var(--coral);
+	--strong-fg-color: var(--coral);
+	--user-input-bk-color: var(--coral);
 	--user-input-fg-color: white;
 
 	--bullet-fg-color: var(--byui-blue);
-	--line-number-bk-color: var(--byui-blue);
+	--line-number-hilite: var(--byui-blue);
 }
 
-body {
-	background-color: var(--light-bk-color);
-	color: var(--light-fg-color);
-}
 @media screen {
 	body {
+		--bk-color: var(--light-bk-color);
+		--fg-color: var(--light-fg-color);
+
+		--python-bk-color: var(--light-coral);
+		--console-bk-color: var(--light-byui-blue);
+
+		background-color: var(--bk-color);
+		color: var(--fg-color);
+
 		font-family: "Open Sans", Arial, Helvetica, Verdana, sans-serif;
 	}
 	body.dark {
-		background-color: var(--dark-bk-color);
-		color: var(--dark-fg-color);
+		--bk-color: var(--dark-bk-color);
+		--fg-color: var(--dark-fg-color);
+
+		--python-bk-color: var(--dark-coral);
+		--console-bk-color: var(--dark-byui-blue);
 	}
 }
 @media print {
@@ -215,13 +211,8 @@ article li {
 }
 
 article li > div {
-	color: var(--light-fg-color);
+	color: var(--fg-color);
 	margin-left: 0.25em;
-}
-@media screen {
-	body.dark article li > div {
-		color: var(--dark-fg-color);
-	}
 }
 
 article ul {
@@ -476,7 +467,6 @@ article div.search {
 	white-space: pre-line;
 }
 
-/* Code Highlighting */
 article code {
 	font-family: Menlo, Monaco, Consolas, monospace;
 	white-space: nowrap;
@@ -497,6 +487,7 @@ article code em {
 article pre.console {
 	margin: 1em auto;
 	border: 1px solid var(--border);
+	background-color: var(--console-bk-color);
 	padding: 0.25em 0.5em;
 }
 
@@ -537,17 +528,19 @@ article pre.console span.fail {
 /* Containers for line numbers and Python source code */
 article div.pre {
 	display: table;
+	position: relative;
 	margin: 1em auto 1em 0;
 	border: 1px solid var(--border);
+	background-color: var(--python-bk-color);
 	padding: 0.25em 0.5em;
-	position: relative;
 }
 
 article div.pre > button.copy {
 	position: absolute;
-	top: 0.25em;
+	top: 0.5em;
 	right: 0.25em;
 	visibility: hidden;
+	background-color: var(--light-bk-color);
 }
 
 article div.pre > button.copy > img {
@@ -566,13 +559,13 @@ article div.pre > pre {
 }
 
 article div.pre > pre.linenums {
-	padding-right: 1.5em;
+	padding-right: 1.25em;
 	text-align: right;
 	color: var(--border);
 }
 
 article div.pre > pre.linenums > .hi {
-	background-color: var(--line-number-bk-color);
+	background-color: var(--line-number-hilite);
 	color: white;
 }
 
