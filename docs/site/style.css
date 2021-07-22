@@ -108,13 +108,12 @@ article {
 	article {
 		max-width: 40em;
 		font-size: 110%;
-		line-height: 125%;
+		line-height: 1.4;
 	}
 }
 @media print {
 	article {
 		font-size: 100%;
-		line-height: 110%;
 	}
 }
 
@@ -349,7 +348,7 @@ article div.expr sub {
 article div.expr div.supsub {
 	font-size: smaller;
 	margin-left: 0.12em;
-	line-height: 0.8em;
+	line-height: 0.8;
 	vertical-align: -0.35em;
 	text-align: left;
 }
@@ -475,7 +474,7 @@ article code {
 
 article pre {
 	font-family: Menlo, Monaco, Consolas, monospace;
-	line-height: 1.1em;
+	line-height: 1.15;
 }
 
 article pre em,
@@ -629,7 +628,5 @@ article table.list > tbody > tr > td.label {
 footer {
 	margin: 1em auto;
 	max-width: 40em;
-	padding: 1em;
 	font-size: 90%;
-	line-height: 100%;
 }
