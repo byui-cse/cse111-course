@@ -151,7 +151,6 @@ def main():
     numbers = [87, 95, 72, 92, 95, 88, 84]
     <em>numbers.append(78)</em>
     <em>numbers.append(72)</em>
-
 </pre></div>
 
     <p>There are several types of commands that are commonly found in
@@ -245,7 +244,7 @@ if __name__ == "__main__":
             <var>d</var>.</td></tr>
         <tr><td>d.copy()</td>
             <td>Returns a copy of the dictionary <var>d</var>.</td></tr>
-        <tr><td>d.get(key)</td>
+        <tr><td>d.get(<var>key</var>)</td>
             <td>Returns the value of the specified <code>key</code>.
             Calling the get method is almost equivalent to using square
             brackets ([&nbsp;and&nbsp;]) to find a key in a
@@ -256,10 +255,10 @@ if __name__ == "__main__":
         <tr><td>d.keys()</td>
             <td>Returns a list that contains the keys that are in the
             dictionary <var>d</var>.</td></tr>
-        <tr><td>d.pop(key)</td>
+        <tr><td>d.pop(<var>key</var>)</td>
             <td>Removes the element with the specified <var>key</var>
             from the dictionary <var>d</var>.</td></tr>
-        <tr><td>d.update(other)</td>
+        <tr><td>d.update(<var>other</var>)</td>
             <td>Updates the dictionary <var>d</var> with the key value
             pairs that are in the <var>other</var> dictionary.</td></tr>
         <tr><td>d.values()</td>
@@ -267,14 +266,15 @@ if __name__ == "__main__":
             <var>d</var>.</td></tr>
     </tbody></table>
 
-    <p>The following example code, which is from the
-    <a href="../lesson03/prepare.html">prepare content</a>
-    of lesson&nbsp;3, calls dictionary methods at
-    <span class="cross" data-ref="ex6">lines&nbsp;20,
-    28,&nbsp;and&nbsp;36</span>.</p>
+    <p>The following example code, which is similar to
+    <a href="../lesson08/prepare.html#ex1">example&nbsp;1</a>
+    from the prepare content of lesson&nbsp;8, calls dictionary methods
+    at <span class="cross" data-ref="ex6">lines&nbsp;22,
+    30,&nbsp;and&nbsp;38</span>.</p>
 
 <div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex6">
+<pre class="python" id="ex6"># Example 6
+
 def main():
     # Create a dictionary with student IDs as
     # the keys and student names as the values.
