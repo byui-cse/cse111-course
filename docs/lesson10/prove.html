@@ -49,45 +49,62 @@
         <li><div>The <a href="prepare.html">prepare content </a>for this
         lesson explains how to handle exceptions.</div></li>
 
-        <li><div><p>The <code>datetime</code> module contains the
-        <a href="https://docs.python.org/3/library/datetime.html#datetime.datetime.now"><code>now</code> method</a>,
-        which will get the current date and time from your computer's
-        operating system. To get the current date and time from your
-        computer's operating system, import the <code>datetime</code>
-        module and call the <code>datetime.now</code> method. Then use
-        an f-string to format and print the current date and time as
-        shown in this example code:</p>
+        <li><div>The <a href="https://docs.python.org/3/library/datetime.html#datetime.datetime.now"><code>datetime.now()</code></a>
+        method from the standard Python <code>datetime</code> module
+        will get the current date and time from your computer's
+        operating system. Here is an excerpt from the official
+        documentation for the <code>datetime.now</code> method:
+        <dl class="function">
+            <dt><code>datetime.now(tz=None)</code></dt>
+            <dd><p>Return the current local date and time.</p>
+            <p><var>tz</var> is optional, but if it not
+            <code>None</code>, it must be <code>tzinfo</code> (time zone
+            information) object</p></dd>
+        </dl>
 
-<div class="pre"><pre class="python">
-# Import the datatime module so that
-# it can be used in this program.
+        <p>These two Microsoft videos explain how to use methods from
+        the standard <code>datetime</code> module.</p>
+        <ul class="videos">
+            <li><div><a href="https://channel9.msdn.com/Series/Intro-to-Python-Development/Python-for-Beginners-15-of-44-Date-Data-Types">Date data types</a> <span class="duration">(8 minutes)</span></div></li>
+
+            <li><div><a href="https://channel9.msdn.com/Series/Intro-to-Python-Development/Python-for-Beginners-16-of-44-Demo-Dates">Demonstration: Dates</a> <span class="duration">(9 minutes)</span></div></li>
+        </ul>
+
+        <p>The following Python code imports the <code>datetime</code>
+        class from the <code>datetime</code> module and calls the
+        <code>datetime.now</code> method to get the current date and
+        time from a computer's operating system. Then it uses an
+        f-string to format and print the current date and time.</p>
+
+<div class="pre"><pre class="linenums"></pre>
+<pre class="python" id="ex1">
+# Import the datatime class from the datetime
+# module so that it can be used in this program.
 from datetime import datetime
 
 # Call the now() method to get the current date and
 # time as a datetime object from the computer's clock.
 current_date_and_time = datetime.now()
 
-# Format and print the current date and time to include
-# only the day of the week, the hour, and the minute.
+# Print the current day of the week and the current time.
 print(f"{current_date_and_time:%A %I:%M %p}")</pre></div>
 
-        <p>After the computer executes the above code, the variable
-        <var>current_date_and_time</var> will hold the current date and
-        time. In the previous example, the string sequences that begin
-        with the percent symbol (%) are called format codes. The format
-        codes and their meaning are listed
-        in <a href="https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes">this document</a>.
-        When executed, the previous example will print the current date
-        and time to the terminal window like this:</p>
+        <p>After the computer executes
+        <span class="cross" data-ref="ex1">line&nbsp;7</span> in the
+        above code, the variable <var>current_date_and_time</var> will
+        hold the current date and
+        time. Within the f-string at
+        <span class="cross" data-ref="ex1">line&nbsp;10</span>,
+        the string sequences that begin with the percent symbol (%) are
+        called format codes. The format codes and their meaning are
+        listed in
+        <a href="https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes">this document</a>.
+        When executed, the previous example code will print the current
+        date and time to the terminal window like this:</p>
 
-<pre class="console">&gt; python example.py
+<pre class="console">&gt; python date_example.py
 Tuesday 01:23 PM</pre>
         </div></li>
-
-        <li><div><a href="https://content.byui.edu/items/a9e60503-b5e7-40f0-bf48-ebf1a7441d25/1/example_04.mp4">This video</a>
-        <span class="duration">(23 minutes)</span> shows a BYU-Idaho
-        faculty member writing code that prints the current date and
-        time formatted so that users can easily read it.</div></li>
     </ul>
 
     <h2>Assignment</h2>
