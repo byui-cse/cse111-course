@@ -35,7 +35,6 @@ cse111.solution = {
 
 
     getCode : function(href) {
-
         const showCode = function(url, code) {
             const filename = cse111.solution.getFilename(url);
             code = entityFromChar(code.trim());
@@ -48,7 +47,6 @@ cse111.solution = {
             const color = base + '/site/color.js';
             const linenums = base + '/site/linenums.js';
             const hljs = base + '/site/hljs/highlight.pack.js';
-			console.log('hljs: ' + hljs);
 
             const html =
 ['<!DOCTYPE html>',
@@ -136,6 +134,9 @@ cse111.solution = {
         .catch(function(error) {
             console.log(JSON.stringify(error));
         });
+
+		// Cancel the default action of the <a> tag.
+		return false;
     },
 
 
