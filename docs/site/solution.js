@@ -35,10 +35,9 @@ cse111.solution = {
 
 
     getCode : function(href) {
-		const getFilename = cse111.solution.getFilename;
 
         const showCode = function(url, code) {
-            const filename = url.replace('^.+/', '');
+            const filename = cse111.solution.getFilename(url);
             code = entityFromChar(code.trim());
 
 			const href = window.location.href;
