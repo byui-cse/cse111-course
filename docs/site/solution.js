@@ -72,7 +72,7 @@ cse111.solution = {
 '\t\t<div class="upper">BYU</div>',
 '\t\t<div class="lower">Idaho</div>',
 '\t</div>',
-'\t<h1>CSE 111 | <span>Programming with Functions</span></h1>',
+'\t<h2>CSE 111 | <span>Programming with Functions</span></h2>',
 '</header>',
 '',
 '<article class="solution">',
