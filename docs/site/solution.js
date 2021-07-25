@@ -88,7 +88,7 @@ cse111.solution = {
 '</footer>',
 '</body>',
 '</html>'].join('\n');
-            let win = window.open();  //'text/html', true);
+            let win = window.open();
             let doc = win.document;
             doc.write(html);
             doc.close();
