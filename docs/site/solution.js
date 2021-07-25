@@ -41,7 +41,7 @@ cse111.solution = {
             const filename = getFilename(href);
             code = entityFromChar(code.trim());
 
-            const base = window.location.origin + '/viewproto/site/';
+            const base = window.location.origin + '/site/';
             const icon = base + 'icon.png';
             const style = base + 'style.css';
             const codestyle = base + 'hljs/vscode.css';
