@@ -19,6 +19,7 @@
 	--dark-byui-blue: rgba(0, 118, 182, 0.2);
 
 	--link-before-fg-color: var(--byui-blue);
+	--link-hover-fg-color: var(--coral);
 	--link-active-fg-color: red;
 	--link-visited-fg-color: purple;
 
@@ -110,6 +111,9 @@ article {
 		font-size: 110%;
 		line-height: 1.4;
 	}
+	article.solution {
+		max-width: none;
+	}
 }
 @media print {
 	article {
@@ -122,6 +126,9 @@ article h1 {
 	text-align: center;
 	font-size: 175%;
 	margin: 0 0 1em 0;
+}
+article.solution h1 {
+	font-size: 150%;
 }
 
 article h2 {
@@ -158,6 +165,7 @@ article blockquote {
 }
 
 article a:link { color: var(--link-before-fg-color); }
+article a:hover { color: var(--link-hover-fg-color); }
 article a:active { color: var(--link-active-fg-color); }
 article a:visited { color: var(--link-visited-fg-color); }
 

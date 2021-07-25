@@ -10,9 +10,11 @@ cse111.url.modifyLinks = function() {
 	let links = document.getElementsByTagName('a');
 	for (let i = 0, len = links.length;  i < len;  ++i) {
 		let link = links[i];
-		let href = link.href;
-		href = 'javascript:cse111.url.openLink("' + href + '")';
-		link.setAttribute('href', href);
+		if (! link.classList.contains('solution')) {
+			let href = link.href;
+			href = 'javascript:cse111.url.openLink("' + href + '")';
+			link.setAttribute('href', href);
+		}
 	}
 };
 
