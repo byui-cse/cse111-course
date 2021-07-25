@@ -37,29 +37,19 @@ cse111.solution = {
     getCode : function(href) {
 		const getFilename = cse111.solution.getFilename;
 
-        const showCode = function(href, code) {
-			const origin = window.location.origin;
-			const pathname = window.location.pathname;
-			const directory = pathname.replace(/\/[^\/]+\/[^\/]+$/, '');
-			const base = origin + directory;
-			console.log('origin: ' + origin);
-			console.log('pathname: ' + pathname);
-			console.log('directory: ' + directory);
-			console.log('base: ' + base);
-
+        const showCode = function(url, code) {
+            const filename = url.replace('^.+/', '');
             code = entityFromChar(code.trim());
-			href = href.replace(new RegExp('^base'), '');
-            const filename = href.replace('^.+/', '');
-			console.log('href: ' + href);
-			console.log('filename: ' + filename);
 
-            //const base = window.location.origin + '/cse111-course/site/';
-            //const icon = base + 'icon.png';
-            //const style = base + 'style.css';
-            //const codestyle = base + 'hljs/vscode.css';
-            //const color = base + 'color.js';
-            //const linenums = base + 'linenums.js';
-            //const hljs = base + 'hljs/highlight.pack.js';
+			const href = window.location.href;
+			const base = href.replace(/\/[^\/]+\/[^\/]+$/, '');
+            const icon = base + '/site/icon.png';
+            const style = base + '/site/style.css';
+            const codestyle = base + '/site/hljs/vscode.css';
+            const color = base + '/site/color.js';
+            const linenums = base + '/site/linenums.js';
+            const hljs = base + '/site/hljs/highlight.pack.js';
+			console.log('hljs: ' + hljs);
 
             const html =
 ['<!DOCTYPE html>',
@@ -68,13 +58,12 @@ cse111.solution = {
 '<head>',
 '\t<meta charset="UTF-8">',
 '\t<title>' + filename + '</title>',
-'\t<base href="' + base + '">',
-'\t<link rel="icon" type="image/png" href="site/icon.png">',
-'\t<link rel="stylesheet" type="text/css" href="site/style.css">',
-'\t<link rel="stylesheet" type="text/css" href="site/codestyle.css">',
-'\t<script src="site/color.js"><\x2fscript>',
-'\t<script src="site/linenums.js"><\x2fscript>',
-'\t<script src="site/hljs/highlight.pack.js"><\x2fscript>',
+'\t<link rel="icon" type="image/png" href="' + icon + '">',
+'\t<link rel="stylesheet" type="text/css" href="' + style + '">',
+'\t<link rel="stylesheet" type="text/css" href="' + codestyle + '">',
+'\t<script src="' + color + '"><\x2fscript>',
+'\t<script src="' + linenums + '"><\x2fscript>',
+'\t<script src="' + hljs + '"><\x2fscript>',
 '\t',
 '</head>',
 '',
@@ -89,7 +78,7 @@ cse111.solution = {
 '</header>',
 '',
 '<article class="solution">',
-'\t<h1>' + filename + ' <a download title="Download ' + filename + '" href="' + href + '">[&darr;]</a></h1>',
+'\t<h1>' + filename + ' <a download title="Download ' + filename + '" href="' + url + '">[&darr;]</a></h1>',
 '\t<div class="pre">',
 '<pre class="linenums"></pre>',
 '<pre class="python">' + code + '</pre>',
