@@ -208,14 +208,23 @@ cse111.url.showCode = function(href, code) {
 	const filename = getFilename(href);
 	code = entityFromChar(code.trim());
 
-	const loc = window.location.href;
-	const base = loc.replace(/\/[^\/]+\/[^\/]+$/, '');
+	//const loc = window.location.href;
+	//const base = loc.replace(/\/[^\/]+\/[^\/]+$/, '');
+	const base = href.replace(/\/[^\/]+\/[^\/]+$/, '');
 	const icon = base + '/site/icon.png';
 	const style = base + '/site/style.css';
 	const codestyle = base + '/site/hljs/vscode.css';
 	const color = base + '/site/color.js';
 	const linenums = base + '/site/linenums.js';
 	const hljs = base + '/site/hljs/highlight.pack.js';
+
+	console.log('base: ' + JSON.stringify(base));
+	console.log('icon: ' + JSON.stringify(icon));
+	console.log('style: ' + JSON.stringify(style));
+	console.log('codestyle: ' + JSON.stringify(codestyle));
+	console.log('color: ' + JSON.stringify(color));
+	console.log('linenums: ' + JSON.stringify(linenums));
+	console.log('hljs: ' + JSON.stringify(hljs));
 
 	const html =
 ['<!DOCTYPE html>',
