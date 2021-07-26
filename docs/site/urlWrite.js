@@ -10,7 +10,6 @@
  * window. */
 
 cse111.url.openDoc = function() {
-	console.log('openDoc()');
 	this.writeView(document.referrer, window.location.href);
 };
 
@@ -21,13 +20,11 @@ cse111.url.protocol = /[^:]+:\/+/;
 
 /** Records that a user viewed a document. */
 cse111.url.writeView = function(source, target) {
-	console.log('writeView(' + JSON.stringify(source) + ', ' + JSON.stringify(target) + ')');
 	try {
 		const byuicse = this.byuicse;
 		const protocol = this.protocol;
 
 		const abbreviate = function(url) {
-			console.log('    abbreviate(' + JSON.stringify(url) + ')');
 			let remove = byuicse.test(url) ? byuicse : protocol;
 			let abbrev = url.replace(remove, '');
 			return abbrev;
@@ -56,7 +53,6 @@ cse111.url.writeView = function(source, target) {
 /** Modifies all <a> tags (links) so that they perform as described at
  * the top of this file. */
 cse111.url.modifyLinks = function() {
-	console.log('modifyLinks()');
 	const self = this;
 
 	const openSolutionLink = function(event) {
@@ -64,9 +60,7 @@ cse111.url.modifyLinks = function() {
 		event.preventDefault();
 
 		const link = event.currentTarget;
-		//const href = link.getAttribute('href');
-		const href = link.href;
-		console.log('openSolutionLink(' + JSON.stringify(href) + ')');
+		const href = link.href;  // Get the absolute href.
 		self.openSolutionLink(href);
 
 		// Cancel the default action of the <a> tag.
@@ -78,9 +72,7 @@ cse111.url.modifyLinks = function() {
 		event.preventDefault();
 
 		const link = event.currentTarget;
-		//const href = link.getAttribute('href');
-		const href = link.href;
-		console.log('openDownloadLink(' + JSON.stringify(href) + ')');
+		const href = link.href;  // Get the absolute href.
 		self.writeView(window.location.href, href);
 		window.open(href);
 
@@ -93,9 +85,7 @@ cse111.url.modifyLinks = function() {
 		event.preventDefault();
 
 		const link = event.currentTarget;
-		//const href = link.getAttribute('href');
-		const href = link.href;
-		console.log('openExternalLink(' + JSON.stringify(href) + ')');
+		const href = link.href;  // Get the absolute href.
 		self.writeView(window.location.href, href);
 		window.open(href, '_blank');
 
@@ -108,9 +98,7 @@ cse111.url.modifyLinks = function() {
 		event.preventDefault();
 
 		const link = event.currentTarget;
-		//const href = link.getAttribute('href');
-		const href = link.href;
-		console.log('openOtherLink(' + JSON.stringify(href) + ')');
+		const href = link.href;  // Get the absolute href.
 		window.open(href, '_blank');
 
 		// Cancel the default action of the <a> tag.
@@ -120,13 +108,13 @@ cse111.url.modifyLinks = function() {
 	const links = document.getElementsByTagName('a');
 	for (let i = 0, len = links.length;  i < len;  ++i) {
 		const link = links[i];
-		const href = link.href;
-		console.log('    href: ' + JSON.stringify(href));
+		const href = link.href;  // Get the absolute href.
 
 		if (link.classList.contains('solution')) {
 			// Process an <a class="solution"> element.
+
+			// Get the relative href.
 			const hrefAttr = link.getAttribute('href');
-			//const filename = this.getFilename(href);
 
 			link.addEventListener('click', openSolutionLink);
 			link.setAttribute('title', 'View ' + hrefAttr);
@@ -142,11 +130,6 @@ cse111.url.modifyLinks = function() {
 			let next = link.nextSibling;
 			parent.insertBefore(document.createTextNode(' '), next);
 			parent.insertBefore(downlink, next);
-
-			console.log('    hrefAttr: ' + JSON.stringify(hrefAttr));
-			console.log('    href again: ' + JSON.stringify(href));
-			console.log('    link href: ' + JSON.stringify(link.href));
-			console.log('    downlink href: ' + JSON.stringify(downlink.href));
 		}
 		else if (link.hasAttribute('download')) {
 			// Process an <a download> element.
@@ -165,7 +148,6 @@ cse111.url.modifyLinks = function() {
 
 
 cse111.url.openSolutionLink = function(href) {
-	console.log('openSolutionLink(' + JSON.stringify(href) + ')');
 	const self = this;
 	fetch(href)
 	.then(function(response) {
@@ -191,9 +173,11 @@ cse111.url.openSolutionLink = function(href) {
 /** Shows the code that was retrieved by the
  * openSolutionLink function in a new tab. */
 cse111.url.showCode = function(href, code) {
-	console.log('showCode(' + JSON.stringify(href) + ', )');
 	this.writeView(window.location.href, href);
-	console.log('showCode 2');
+
+	const getFilename = function(path) {
+		return path.substring(path.lastIndexOf('/') + 1);
+	};
 
 	/** Converts the characters &, <, and > to HTML entities and
 	 * converts non-ascii charaters to HTML entity sequences. */
@@ -221,8 +205,7 @@ cse111.url.showCode = function(href, code) {
 		return encoded;
 	};
 
-	console.log('showCode 3');
-	const filename = this.getFilename(href);
+	const filename = getFilename(href);
 	code = entityFromChar(code.trim());
 
 	const loc = window.location.href;
@@ -278,12 +261,6 @@ cse111.url.showCode = function(href, code) {
 	let doc = win.document;
 	doc.write(html);
 	doc.close();
-};
-
-
-cse111.url.getFilename = function(path) {
-	console.log('    getFilename(' + JSON.stringify(path) + ')')
-	return path.substring(path.lastIndexOf('/') + 1);
 };
 
 
