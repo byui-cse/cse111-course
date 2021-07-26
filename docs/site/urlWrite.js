@@ -218,7 +218,6 @@ cse111.url.showCode = function(href, code) {
 	const linenums = base + '/site/linenums.js';
 	const hljs = base + '/site/hljs/highlight.pack.js';
 
-	console.log('base: ' + JSON.stringify(base));
 	console.log('icon: ' + JSON.stringify(icon));
 	console.log('style: ' + JSON.stringify(style));
 
@@ -228,13 +227,14 @@ cse111.url.showCode = function(href, code) {
 '<html lang="en-us">',
 '<head>',
 '\t<meta charset="UTF-8">',
+'\t<meta name="viewport" content="width=device-width, initial-scale=1.0">',
 '\t<title>' + filename + '</title>',
-'\t<link rel="icon" type="image/png" href="' + icon + '">',
+'\t<link rel="icon" type="image/png" href="https://byui-cse.github.io/cse111-course/site/icon.png">',
 '\t<link rel="stylesheet" type="text/css" href="' + style + '">',
 '\t<link rel="stylesheet" type="text/css" href="' + codestyle + '">',
-'\t<script src="' + color + '"><\x2fscript>',
-'\t<script src="' + linenums + '"><\x2fscript>',
-'\t<script src="' + hljs + '"><\x2fscript>',
+'\t<script src="' + color + '"></script>',
+'\t<script src="' + linenums + '"></script>',
+'\t<script src="' + hljs + '"></script>',
 '\t',
 '</head>',
 '',
@@ -262,6 +262,7 @@ cse111.url.showCode = function(href, code) {
 '</footer>',
 '</body>',
 '</html>'].join('\n');
+	console.log(JSON.stringify(html));
 	let win = window.open();
 	let doc = win.document;
 	doc.open();
