@@ -117,13 +117,14 @@ cse111.url.modifyLinks = function() {
 	for (let i = 0, len = links.length;  i < len;  ++i) {
 		const link = links[i];
 		const href = link.href;
+		console.log('    href: ' + JSON.stringify(href));
 
 		if (link.classList.contains('solution')) {
 			// Process an <a class="solution"> element.
 			const filename = this.getFilename(href);
 
 			link.addEventListener('click', openSolutionLink);
-			link.setAttribute('title', 'View ' + filename);
+			//link.setAttribute('title', 'View ' + filename);
 
 			let downlink = document.createElement('a');
 			downlink.setAttribute('download', '');
