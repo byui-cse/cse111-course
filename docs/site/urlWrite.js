@@ -27,6 +27,7 @@ cse111.url.writeView = function(source, target) {
 		const protocol = this.protocol;
 
 		const abbreviate = function(url) {
+			console.log('    abbreviate(' + url + ')');
 			let remove = byuicse.test(url) ? byuicse : protocol;
 			let abbrev = url.replace(remove, '');
 			return abbrev;
@@ -47,7 +48,7 @@ cse111.url.writeView = function(source, target) {
 		setTimeout(function() { db.goOffline(); }, 2000);
 	}
 	catch (ex) {
-		console.log(JSON.stringify(ex));
+		console.log('Error: ' + JSON.stringify(ex));
 	}
 };
 
@@ -71,7 +72,7 @@ cse111.url.modifyLinks = function() {
 		const link = event.currentTarget;
 		const href = link.getAttribute('href');
 		console.log('openDownloadLink(' + href + ')');
-		self.writeView(document.referrer, href);
+		self.writeView(window.location.href, href);
 		window.open(href);
 		// Cancel the default action of the <a> tag.
 		event.preventDefault();
@@ -82,7 +83,7 @@ cse111.url.modifyLinks = function() {
 		const link = event.currentTarget;
 		const href = link.getAttribute('href');
 		console.log('openExternalLink(' + href + ')');
-		self.writeView(document.referrer, href);
+		self.writeView(window.location.href, href);
 		window.open(href, '_blank');
 		// Cancel the default action of the <a> tag.
 		event.preventDefault();
