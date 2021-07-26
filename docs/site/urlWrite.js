@@ -64,7 +64,8 @@ cse111.url.modifyLinks = function() {
 		event.preventDefault();
 
 		const link = event.currentTarget;
-		const href = link.getAttribute('href');
+		//const href = link.getAttribute('href');
+		const href = link.href;
 		console.log('openSolutionLink(' + JSON.stringify(href) + ')');
 		self.openSolutionLink(href);
 
@@ -77,7 +78,8 @@ cse111.url.modifyLinks = function() {
 		event.preventDefault();
 
 		const link = event.currentTarget;
-		const href = link.getAttribute('href');
+		//const href = link.getAttribute('href');
+		const href = link.href;
 		console.log('openDownloadLink(' + JSON.stringify(href) + ')');
 		self.writeView(window.location.href, href);
 		window.open(href);
@@ -91,7 +93,8 @@ cse111.url.modifyLinks = function() {
 		event.preventDefault();
 
 		const link = event.currentTarget;
-		const href = link.getAttribute('href');
+		//const href = link.getAttribute('href');
+		const href = link.href;
 		console.log('openExternalLink(' + JSON.stringify(href) + ')');
 		self.writeView(window.location.href, href);
 		window.open(href, '_blank');
@@ -105,7 +108,8 @@ cse111.url.modifyLinks = function() {
 		event.preventDefault();
 
 		const link = event.currentTarget;
-		const href = link.getAttribute('href');
+		//const href = link.getAttribute('href');
+		const href = link.href;
 		console.log('openOtherLink(' + JSON.stringify(href) + ')');
 		window.open(href, '_blank');
 
@@ -121,6 +125,7 @@ cse111.url.modifyLinks = function() {
 
 		if (link.classList.contains('solution')) {
 			// Process an <a class="solution"> element.
+			const hrefAttr = link.getAttribute('href');
 			const filename = this.getFilename(href);
 
 			link.addEventListener('click', openSolutionLink);
@@ -129,7 +134,7 @@ cse111.url.modifyLinks = function() {
 			downlink.setAttribute('download', '');
 			downlink.setAttribute('title', 'Download ' + filename);
 			downlink.addEventListener('click', openDownloadLink);
-			downlink.setAttribute('href', href);
+			downlink.setAttribute('href', hrefAttr);
 			downlink.innerHTML = '[&darr;]';
 
 			let parent = link.parentNode;
@@ -137,6 +142,7 @@ cse111.url.modifyLinks = function() {
 			parent.insertBefore(document.createTextNode(' '), next);
 			parent.insertBefore(downlink, next);
 
+			console.log('    hrefAttr: ' + JSON.stringify(href));
 			console.log('    href again: ' + JSON.stringify(href));
 			console.log('    link href: ' + JSON.stringify(link.href));
 			console.log('    downlink href: ' + JSON.stringify(downlink.href));
