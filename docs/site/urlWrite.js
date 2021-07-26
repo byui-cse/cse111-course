@@ -10,7 +10,7 @@
  * window. */
 
 cse111.url.openDoc = function() {
-	//console.log('openDoc()');
+	console.log('openDoc()');
 	this.writeView(document.referrer, window.location.href);
 };
 
@@ -77,7 +77,7 @@ cse111.url.modifyLinks = function() {
 
 		const link = event.currentTarget;
 		const href = link.getAttribute('href');
-		//console.log('openDownloadLink(' + href + ')');
+		console.log('openDownloadLink(' + href + ')');
 		self.writeView(window.location.href, href);
 		window.open(href);
 
@@ -91,7 +91,7 @@ cse111.url.modifyLinks = function() {
 
 		const link = event.currentTarget;
 		const href = link.getAttribute('href');
-		//console.log('openExternalLink(' + href + ')');
+		console.log('openExternalLink(' + href + ')');
 		self.writeView(window.location.href, href);
 		window.open(href, '_blank');
 
@@ -105,7 +105,7 @@ cse111.url.modifyLinks = function() {
 
 		const link = event.currentTarget;
 		const href = link.getAttribute('href');
-		//console.log('openOtherLink(' + href + ')');
+		console.log('openOtherLink(' + href + ')');
 		window.open(href, '_blank');
 
 		// Cancel the default action of the <a> tag.
