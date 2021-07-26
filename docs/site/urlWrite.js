@@ -221,10 +221,6 @@ cse111.url.showCode = function(href, code) {
 	console.log('base: ' + JSON.stringify(base));
 	console.log('icon: ' + JSON.stringify(icon));
 	console.log('style: ' + JSON.stringify(style));
-	console.log('codestyle: ' + JSON.stringify(codestyle));
-	console.log('color: ' + JSON.stringify(color));
-	console.log('linenums: ' + JSON.stringify(linenums));
-	console.log('hljs: ' + JSON.stringify(hljs));
 
 	const html =
 ['<!DOCTYPE html>',
@@ -268,6 +264,7 @@ cse111.url.showCode = function(href, code) {
 '</html>'].join('\n');
 	let win = window.open();
 	let doc = win.document;
+	doc.open();
 	doc.write(html);
 	doc.close();
 };
