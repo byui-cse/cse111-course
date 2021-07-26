@@ -125,7 +125,6 @@ cse111.url.modifyLinks = function() {
 
 			link.addEventListener('click', openSolutionLink);
 			//link.setAttribute('title', 'View ' + filename);
-
 			let downlink = document.createElement('a');
 			downlink.setAttribute('download', '');
 			downlink.setAttribute('title', 'Download ' + filename);
@@ -137,6 +136,10 @@ cse111.url.modifyLinks = function() {
 			let next = link.nextSibling;
 			parent.insertBefore(document.createTextNode(' '), next);
 			parent.insertBefore(downlink, next);
+
+			console.log('    href again: ' + JSON.stringify(href));
+			console.log('    link href: ' + JSON.stringify(link.href));
+			console.log('    downlink href: ' + JSON.stringify(downlink.href));
 		}
 		else if (link.hasAttribute('download')) {
 			// Process an <a download> element.
