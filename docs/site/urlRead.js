@@ -62,13 +62,13 @@ cse111.url.copyCSV = function() {
 		return s;
 	}
 
-	let self = this;
+	const self = this;
 	let urls = self.allViews;
 	if (urls) {
 		let text = 'URL,Date,Time,Time Zone Offset,Referrer\n';
 		for (let url in urls) {
 			let views = urls[url];
-			url = self.decode(url);
+			url = self.decodeURL(url);
 			for (let key in views) {
 				let view = views[key];
 				let when = new Date(view.when);
@@ -82,7 +82,7 @@ cse111.url.copyCSV = function() {
 				}
 				let referrer = '';
 				if (view.hasOwnProperty('referrer') && view.referrer.length>0) {
-					referrer = self.decode(view.referrer);
+					referrer = self.decodeURL(view.referrer);
 				}
 				text += '"' + url + '",'
 					+ date + ','
@@ -105,7 +105,7 @@ cse111.url.copyCSV = function() {
 
 
 cse111.url.readViews = function(startId, endId, listId) {
-	let self = this;
+	const self = this;
 	let db = self.initDatabase();
 	db.ref('/views').get().then(
 	function(snapshot) {
@@ -115,7 +115,7 @@ cse111.url.readViews = function(startId, endId, listId) {
 		for (let url in urls) {
 			let views = urls[url];
 
-			url = self.decode(url);
+			url = self.decodeURL(url);
 			let link = self.createElem('a');
 			link.setAttribute('href', url);
 			link.appendChild(self.createText(url));
@@ -135,7 +135,7 @@ cse111.url.readViews = function(startId, endId, listId) {
 
 				if (view.hasOwnProperty('referrer') && view.referrer.length>0) {
 					div.appendChild(self.createText(' referrer: '));
-					let referrer = self.decode(view.referrer);
+					let referrer = self.decodeURL(view.referrer);
 					let link = self.createElem('a',
 							null, null, {'href':referrer});
 					link.appendChild(self.createText(referrer));

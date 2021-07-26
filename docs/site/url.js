@@ -42,35 +42,49 @@ cse111.url = {
 		':':'%3a', ';':'%3b',  '=':'%3d', '?':'%3f',
 		'[':'%5b', '\\':'%5c', ']':'%5d'
 	},
-
+	symbolsRegex : null,
 	encodings : null,
+	encodingsRegex : null,
 
 	makeEncodings : function() {
 		let encodings = this.encodings;
 		if (! encodings) {
+			const keys = Object.keys(this.symbols).join('');
+			this.symbolsRegex = new RegExp('[' + keys + ']', 'g');
+
 			encodings = {};
+			let values = [];
 			let symbols = this.symbols;
 			for (let symbol in symbols) {
-				encodings[symbols[symbol]] = symbol;
+				let value = symbols[symbol];
+				encodings[value] = symbol;
+				values.push(value.replace('%', ''));
 			}
 			this.encodings = encodings;
+			this.encodingsRegex = new RegExp('%('+ values.join('|') +')', 'g');
 		}
 	},
 
-	encode : function(url) {
-		return this.translate(url, this.symbols);
+	encodeURL : function(url) {
+		//return this.translate(url, this.symbols);
+		const symbols = this.symbols;
+		return url.replace(this.symbolsRegex,
+				function(match0) { return symbols[match0]; });
 	},
 
-	decode : function(url) {
-		return this.translate(url, this.encodings);
-	},
-
-	translate : function(url, dict) {
-		for (let key in dict) {
-			url = url.replaceAll(key, dict[key]);
-		}
-		return url;
+	decodeURL : function(url) {
+		//return this.translate(url, this.encodings);
+		const encodings = this.encodings;
+		return url.replace(this.encodingsRegex,
+				function(match0) { return encodings[match0]; });
 	}
+
+	//translate : function(url, dict) {
+	//	for (let key in dict) {
+	//		url = url.replaceAll(key, dict[key]);
+	//	}
+	//	return url;
+	//}
 };
 
 
