@@ -60,43 +60,55 @@ cse111.url.modifyLinks = function() {
 	const self = this;
 
 	const openSolutionLink = function(event) {
+		// Cancel the default action of the <a> tag.
+		event.preventDefault();
+
 		const link = event.currentTarget;
 		const href = link.getAttribute('href');
 		self.openSolutionLink(href);
+
 		// Cancel the default action of the <a> tag.
-		event.preventDefault();
 		return false;
 	};
 
 	const openDownloadLink = function(event) {
+		// Cancel the default action of the <a> tag.
+		event.preventDefault();
+
 		const link = event.currentTarget;
 		const href = link.getAttribute('href');
 		//console.log('openDownloadLink(' + href + ')');
 		self.writeView(window.location.href, href);
 		window.open(href);
+
 		// Cancel the default action of the <a> tag.
-		event.preventDefault();
 		return false;
 	};
 
 	const openExternalLink = function(event) {
+		// Cancel the default action of the <a> tag.
+		event.preventDefault();
+
 		const link = event.currentTarget;
 		const href = link.getAttribute('href');
 		//console.log('openExternalLink(' + href + ')');
 		self.writeView(window.location.href, href);
 		window.open(href, '_blank');
+
 		// Cancel the default action of the <a> tag.
-		event.preventDefault();
 		return false;
 	};
 
 	const openOtherLink = function(event) {
+		// Cancel the default action of the <a> tag.
+		event.preventDefault();
+
 		const link = event.currentTarget;
 		const href = link.getAttribute('href');
 		//console.log('openOtherLink(' + href + ')');
 		window.open(href, '_blank');
+
 		// Cancel the default action of the <a> tag.
-		event.preventDefault();
 		return false;
 	};
 
@@ -145,13 +157,18 @@ cse111.url.openSolutionLink = function(href) {
 	const self = this;
 	fetch(href)
 	.then(function(response) {
-		response.text()
-		.then(function(text) {
-			self.showCode(href, text);
-		})
-		.catch(function(error) {
-			console.log('Error: ' + JSON.stringify(error));
-		});
+		if (response.ok) {
+			response.text()
+			.then(function(text) {
+				self.showCode(href, text);
+			})
+			.catch(function(error) {
+				console.log('Error: ' + JSON.stringify(error));
+			});
+		}
+		else {
+			throw Error(response.statusText);
+		}
 	})
 	.catch(function(error) {
 		console.log('Error: ' + JSON.stringify(error));
