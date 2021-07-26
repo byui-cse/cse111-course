@@ -21,13 +21,13 @@ cse111.url.protocol = /[^:]+:\/+/;
 
 /** Records that a user viewed a document. */
 cse111.url.writeView = function(source, target) {
-	console.log('writeView(' + source + ', ' + target + ')');
+	console.log('writeView(' + JSON.stringify(source) + ', ' + JSON.stringify(target) + ')');
 	try {
 		const byuicse = this.byuicse;
 		const protocol = this.protocol;
 
 		const abbreviate = function(url) {
-			console.log('    abbreviate(' + url + ')');
+			console.log('    abbreviate(' + JSON.stringify(url) + ')');
 			let remove = byuicse.test(url) ? byuicse : protocol;
 			let abbrev = url.replace(remove, '');
 			return abbrev;
@@ -65,6 +65,7 @@ cse111.url.modifyLinks = function() {
 
 		const link = event.currentTarget;
 		const href = link.getAttribute('href');
+		console.log('openSolutionLink(' + JSON.stringify(href) + ')');
 		self.openSolutionLink(href);
 
 		// Cancel the default action of the <a> tag.
@@ -77,7 +78,7 @@ cse111.url.modifyLinks = function() {
 
 		const link = event.currentTarget;
 		const href = link.getAttribute('href');
-		console.log('openDownloadLink(' + href + ')');
+		console.log('openDownloadLink(' + JSON.stringify(href) + ')');
 		self.writeView(window.location.href, href);
 		window.open(href);
 
@@ -91,7 +92,7 @@ cse111.url.modifyLinks = function() {
 
 		const link = event.currentTarget;
 		const href = link.getAttribute('href');
-		console.log('openExternalLink(' + href + ')');
+		console.log('openExternalLink(' + JSON.stringify(href) + ')');
 		self.writeView(window.location.href, href);
 		window.open(href, '_blank');
 
@@ -105,7 +106,7 @@ cse111.url.modifyLinks = function() {
 
 		const link = event.currentTarget;
 		const href = link.getAttribute('href');
-		console.log('openOtherLink(' + href + ')');
+		console.log('openOtherLink(' + JSON.stringify(href) + ')');
 		window.open(href, '_blank');
 
 		// Cancel the default action of the <a> tag.
@@ -153,7 +154,7 @@ cse111.url.modifyLinks = function() {
 
 
 cse111.url.openSolutionLink = function(href) {
-	console.log('openSolutionLink(' + href + ')');
+	console.log('openSolutionLink(' + JSON.stringify(href) + ')');
 	const self = this;
 	fetch(href)
 	.then(function(response) {
@@ -179,7 +180,7 @@ cse111.url.openSolutionLink = function(href) {
 /** Shows the code that was retrieved by the
  * openSolutionLink function in a new tab. */
 cse111.url.showCode = function(href, code) {
-	console.log('showCode(' + href + ', )');
+	console.log('showCode(' + JSON.stringify(href) + ', )');
 	self.writeView(window.location.href, href);
 
 	/** Converts the characters &, <, and > to HTML entities and
@@ -268,6 +269,7 @@ cse111.url.showCode = function(href, code) {
 
 
 cse111.url.getFilename = function(path) {
+	console.log('    getFilename(' + JSON.stringify(path) + ')')
 	return path.substring(path.lastIndexOf('/') + 1);
 };
 
