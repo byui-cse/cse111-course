@@ -126,13 +126,14 @@ cse111.url.modifyLinks = function() {
 		if (link.classList.contains('solution')) {
 			// Process an <a class="solution"> element.
 			const hrefAttr = link.getAttribute('href');
-			const filename = this.getFilename(href);
+			//const filename = this.getFilename(href);
 
 			link.addEventListener('click', openSolutionLink);
-			//link.setAttribute('title', 'View ' + filename);
+			link.setAttribute('title', 'View ' + hrefAttr);
+
 			let downlink = document.createElement('a');
 			downlink.setAttribute('download', '');
-			downlink.setAttribute('title', 'Download ' + filename);
+			downlink.setAttribute('title', 'Download ' + hrefAttr);
 			downlink.addEventListener('click', openDownloadLink);
 			downlink.setAttribute('href', hrefAttr);
 			downlink.innerHTML = '[&darr;]';
@@ -142,7 +143,7 @@ cse111.url.modifyLinks = function() {
 			parent.insertBefore(document.createTextNode(' '), next);
 			parent.insertBefore(downlink, next);
 
-			console.log('    hrefAttr: ' + JSON.stringify(href));
+			console.log('    hrefAttr: ' + JSON.stringify(hrefAttr));
 			console.log('    href again: ' + JSON.stringify(href));
 			console.log('    link href: ' + JSON.stringify(link.href));
 			console.log('    downlink href: ' + JSON.stringify(downlink.href));
@@ -191,7 +192,8 @@ cse111.url.openSolutionLink = function(href) {
  * openSolutionLink function in a new tab. */
 cse111.url.showCode = function(href, code) {
 	console.log('showCode(' + JSON.stringify(href) + ', )');
-	self.writeView(window.location.href, href);
+	this.writeView(window.location.href, href);
+	console.log('showCode 2');
 
 	/** Converts the characters &, <, and > to HTML entities and
 	 * converts non-ascii charaters to HTML entity sequences. */
@@ -219,6 +221,7 @@ cse111.url.showCode = function(href, code) {
 		return encoded;
 	};
 
+	console.log('showCode 3');
 	const filename = this.getFilename(href);
 	code = entityFromChar(code.trim());
 
