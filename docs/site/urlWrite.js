@@ -112,11 +112,7 @@ cse111.url.modifyLinks = function() {
 			link.addEventListener('click', openSolutionLink);
 			link.setAttribute('title', 'View ' + filename);
 
-			//const call = 'javascript:cse111.url.getCode("'+ href +'")';
-			//link.setAttribute('href', call);
-
 			let downlink = document.createElement('a');
-			//downlink.className = 'download';
 			downlink.setAttribute('download', '');
 			downlink.setAttribute('title', 'Download ' + filename);
 			downlink.addEventListener('click', openDownloadLink);
@@ -139,9 +135,6 @@ cse111.url.modifyLinks = function() {
 		else {
 			// Process any other <a> element.
 			link.addEventListener('click', openOtherLink);
-			//const href = link.href;
-			//const call = 'javascript:cse111.url.openLink(event, "'+ href +'")';
-			//link.setAttribute('href', call);
 		}
 	}
 };
@@ -249,7 +242,6 @@ cse111.url.showCode = function(href, code) {
 '</footer>',
 '</body>',
 '</html>'].join('\n');
-	//let win = window.open('', '_blank');
 	let win = window.open();
 	let doc = win.document;
 	doc.write(html);
@@ -260,24 +252,6 @@ cse111.url.showCode = function(href, code) {
 cse111.url.getFilename = function(path) {
 	return path.substring(path.lastIndexOf('/') + 1);
 };
-
-/*
-cse111.url.openLink = function(event, url) {
-	let test1 = this.byuicse.test(url);
-	let test2 = this.protocol.test(url);
-	let external = !test1 && test2;
-	if (external) {
-		cse111.url.writeView(window.location.href, url);
-	}
-
-	const link = event.currentTarget;
-	const name = link.hasAttribute('download') ? undefined : '_blank';
-	window.open(url, name);
-
-	// Cancel the default action of the <a> tag.
-	return false;
-};
-*/
 
 
 window.addEventListener('DOMContentLoaded', function(){cse111.url.openDoc();});
