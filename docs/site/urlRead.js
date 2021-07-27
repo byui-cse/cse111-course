@@ -38,7 +38,7 @@ cse111.url.signIn = function(successFunc) {
 			console.log(msg);
 			self.getById('user').innerHTML = 'Welcome ' + user.displayName;
 			self.getById('signIn').style.display = 'none';
-			cse111.url.readViews('start', 'end', 'views');
+			cse111.url.readViews();
 		}
 		else {
 			self.getById('user').innerHTML = 'Not signed in';
@@ -104,14 +104,14 @@ cse111.url.copyCSV = function() {
 };
 
 
-cse111.url.readViews = function(startId, endId, listId) {
+cse111.url.readViews = function() {
 	const self = this;
 	let db = self.initDatabase();
 	db.ref('/views').get().then(
 	function(snapshot) {
 		let urls = snapshot.val();
 		self.allViews = urls;
-		let outer = self.getById(listId);
+		let outer = self.getById('views');
 		for (let url in urls) {
 			let views = urls[url];
 
@@ -166,6 +166,9 @@ cse111.url.readViews = function(startId, endId, listId) {
 cse111.url.clearAll = function() {
 	let db = self.initDatabase();
 	db.ref('/views').remove();
+	let outer = self.getById('views');
+	outer.innerHTML = "";
+	this.readViews();
 };
 
 
