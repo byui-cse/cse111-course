@@ -21,13 +21,10 @@ cse111.url.protocol = /[^:]+:\/+/;
 /** Records that a user viewed a document. */
 cse111.url.writeView = function(source, target) {
 	try {
-		console.log('writeView(' + JSON.stringify(source)
-					+ ', ' + JSON.stringify(target) + ')');
 		const byuicse = this.byuicse;
 		const protocol = this.protocol;
 
 		const abbreviate = function(url) {
-			console.log('    abbreviate(' + JSON.stringify(url) + ')');
 			let remove = byuicse.test(url) ? byuicse : protocol;
 			let abbrev = url.replace(remove, '');
 			return abbrev;
@@ -35,24 +32,17 @@ cse111.url.writeView = function(source, target) {
 
 		source = this.encodeURL(abbreviate(source));
 		target = this.encodeURL(abbreviate(target));
-		console.log('    writeView 2');
 		const tzo = new Date().getTimezoneOffset();
 
-		console.log('    writeView 3');
 		let db = this.initDatabase();
-		console.log('    writeView 4');
 		let ref = db.ref('/views/' + target);
-		console.log('    writeView 5');
 		let obj = {
 			'referrer':source,
 			'when':firebase.database.ServerValue.TIMESTAMP,
 			'tzo':tzo
 		};
-		console.log('    writeView 6');
 		ref.push(obj);
-		console.log('    writeView 7');
 		setTimeout(function() { db.goOffline(); }, 2000);
-		console.log('    writeView 8');
 	}
 	catch (ex) {
 		console.log('Error: ' + ex.toString());

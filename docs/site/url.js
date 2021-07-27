@@ -7,9 +7,7 @@ if (!window.hasOwnProperty('cse111')) {
 
 cse111.url = {
 	initFirebase : function() {
-		console.log("initFirebase()");
 		if (! firebase.apps.length) {
-			console.log("    initFirebase() 2");
 			let config = {
 				apiKey: 'AIzaSyAnFi9Z3H4V1yaC1JMDtxuuoNdMecLFw-k',
 				authDomain: 'cse111.firebaseapp.com',
@@ -19,26 +17,20 @@ cse111.url = {
 				appId: '1:735777231553:web:6579714c57ba923839ba40'
 			};
 
-			console.log("    initFirebase() 3");
 			// Initialize Firebase realtime database.
 			firebase.initializeApp(config);
-			console.log("    initFirebase() 4");
 		}
 	},
 
 	database : null,
 
 	initDatabase : function() {
-		console.log("initDatabase()");
 		let db = this.database;
 		if (! db) {
 			this.initFirebase();
-			console.log("    initDatabase() 2");
 			db = this.database = firebase.database();
 		}
-		console.log("    initDatabase() 3");
 		db.goOnline();
-		console.log("    initDatabase() 4");
 		return db;
 	},
 
