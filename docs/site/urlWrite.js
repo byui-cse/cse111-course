@@ -55,7 +55,7 @@ cse111.url.writeView = function(source, target) {
 		console.log('    writeView 8');
 	}
 	catch (ex) {
-		console.log('Error: ' + JSON.stringify(ex));
+		console.log('Error: ' + ex.toString());
 	}
 };
 
@@ -167,7 +167,7 @@ cse111.url.openSolutionLink = function(href) {
 				self.showCode(href, text);
 			})
 			.catch(function(error) {
-				console.log('Error: ' + JSON.stringify(error));
+				console.log('Error: ' + error);
 			});
 		}
 		else {
@@ -175,7 +175,7 @@ cse111.url.openSolutionLink = function(href) {
 		}
 	})
 	.catch(function(error) {
-		console.log('Error: ' + JSON.stringify(error));
+		console.log('Error: ' + error);
 	});
 };
 
