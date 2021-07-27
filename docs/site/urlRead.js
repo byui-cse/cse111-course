@@ -163,6 +163,12 @@ cse111.url.readViews = function(startId, endId, listId) {
 };
 
 
+cse111.url.clearAll = function() {
+	let db = self.initDatabase();
+	db.ref('/views').remove();
+};
+
+
 cse111.url.createElem = function(tagName, id, clss, attrs) {
 	let elem = document.createElement(tagName);
 	if (id) {
