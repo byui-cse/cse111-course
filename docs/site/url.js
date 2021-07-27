@@ -7,6 +7,7 @@ if (!window.hasOwnProperty('cse111')) {
 
 cse111.url = {
 	initFirebase : function() {
+		console.log("initFirebase()");
 		if (! firebase.apps.length) {
 			let config = {
 				apiKey: 'AIzaSyAnFi9Z3H4V1yaC1JMDtxuuoNdMecLFw-k',
@@ -25,12 +26,16 @@ cse111.url = {
 	database : null,
 
 	initDatabase : function() {
+		console.log("initDatabase()");
 		let db = this.database;
 		if (! db) {
 			this.initFirebase();
+			console.log("initDatabase() 2");
 			db = this.database = firebase.database();
 		}
+		console.log("initDatabase() 3");
 		db.goOnline();
+		console.log("initDatabase() 4");
 		return db;
 	},
 
