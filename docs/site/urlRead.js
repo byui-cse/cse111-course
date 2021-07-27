@@ -164,9 +164,9 @@ cse111.url.readViews = function() {
 
 
 cse111.url.clearAll = function() {
-	let db = self.initDatabase();
+	let db = this.initDatabase();
 	db.ref('/views').remove();
-	let outer = self.getById('views');
+	let outer = this.getById('views');
 	outer.innerHTML = "";
 	this.readViews();
 };
