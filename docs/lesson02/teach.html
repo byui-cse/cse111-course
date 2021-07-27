@@ -47,64 +47,18 @@
     Tuesday and Wednesday, if a customer's subtotal is $50 or greater,
     the store will discount the customer's subtotal by 10%.</p>
 
-    <h2>Helpful Documentation</h2>
-    <ul class="long">
-        <li><div>The <a href="prepare.html">prepare content</a> for this
-        lesson explains how to call a function and a method.</div></li>
-
-        <li><div><p>These two Microsoft videos explain how to use
-        methods from the standard <code>datetime</code> module.</p>
-
-        <ul class="videos">
-            <li><div><a href="https://channel9.msdn.com/Series/Intro-to-Python-Development/Python-for-Beginners-15-of-44-Date-Data-Types">Date data types</a> <span class="duration">(8 minutes)</span></div></li>
-
-            <li><div><a href="https://channel9.msdn.com/Series/Intro-to-Python-Development/Python-for-Beginners-16-of-44-Demo-Dates">Demonstration: Dates</a> <span class="duration">(9 minutes)</span></div></li>
-        </ul>
-        </div></li>
-
-        <li><div>The <a href="https://docs.python.org/3/library/datetime.html#datetime.datetime.now"><code>now()</code></a>
-        method from the datetime class returns the current local date
-        and time as a datetime object.</div></li>
-
-        <li><div>The <a href="https://docs.python.org/3/library/datetime.html#datetime.datetime.isoweekday"><code>isoweekday()</code></a>
-        method that is part of all datetime objects returns the day of the
-        week as an integer, where Monday is 1 and Sunday is 7.</div></li>
-    </ul>
-
     <h2>Assignment</h2>
-    <p>Write a Python program named <code>discount.py</code> that takes
-    a customer's subtotal as input. If the subtotal is $50 or greater
-    and today is Tuesday or Wednesday, your program must subtract 10%
-    from the subtotal. Your program must then compute the total amount
-    due by adding sales tax of 6% to the subtotal. Your program must
-    print the discount amount if applicable, the sales tax amount, and
-    the total amount due.</p>
+    <p>Write a Python program named <code>discount.py</code> that gets
+    a customer's subtotal as input and gets the current day of the week
+    from your computer's clock. Your program must <strong>not</strong>
+    ask the user to enter the day of the week. Instead, it must get the
+    day of the week from your computer's clock.</p>
 
-    <p>Your program must <strong>not</strong> ask the user to enter the
-    day of the week. Instead, it must get the day of the week from your
-    computer's clock. The standard Python <code>datetime</code> module
-    contains functions that your program can call to get the current day
-    of the week from your computer's clock. The following code example
-    shows how to do that.</p>
-
-<div class="pre"><pre class="python" id="ex1">
-# Import the datatime module so that
-# it can be used in this program.
-from datetime import datetime
-
-# Call the now() method to get the current date and
-# time as a datetime object from the computer's clock.
-current_date_and_time = datetime.now()
-
-# Call the isoweekday() method to get the day of
-# the week from the current_date_and_time object.
-weekday = current_date_and_time.isoweekday()
-
-print(weekday)</pre></div>
-
-    <p>If you use the above code, the variable <var>weekday</var>
-    will hold 1 if today is Monday, 2 if today is Tuesday, and so on
-    to 7 if today is Sunday.</p>
+    <p>If the subtotal is $50 or greater and today is Tuesday or
+    Wednesday, your program must subtract 10% from the subtotal. Your
+    program must then compute the total amount due by adding sales tax
+    of 6% to the subtotal. Your program must print the discount amount
+    if applicable, the sales tax amount, and the total amount due.</p>
 
     <h3>Core Requirements</h3>
     <ol class="long">
@@ -139,6 +93,75 @@ print(weekday)</pre></div>
         subtotal. This loop should repeat until the user enters the word
         "done" for the price.</div></li>
     </ol>
+
+    <h2>Helpful Documentation</h2>
+    <ul class="long">
+        <li><div>The <a href="prepare.html">prepare content</a> for this
+        lesson explains how to call a function and a method.</div></li>
+
+        <li><div><p>The <a href="https://docs.python.org/3/library/datetime.html#datetime.datetime.now"><code>datetime.now()</code></a>
+        method from the standard Python <code>datetime</code> module
+        will get the current date and time from your computer's
+        operating system. Here is an excerpt from the official
+        documentation for the <code>datetime.now</code> method:</p>
+        <dl class="function">
+            <dt><code>datetime.now(tz=None)</code></dt>
+            <dd><p>Return the current local date and time.</p>
+            <p><var>tz</var> is optional, but if it not
+            <code>None</code>, it must be <code>tzinfo</code> (time zone
+            information) object</p></dd>
+        </dl>
+
+        <p>The <a href="https://docs.python.org/3/library/datetime.html#datetime.datetime.weekday"><code>weekday()</code></a>
+        method will get an integer that represents the day of the week
+        from a <code>datetime</code> object. Here is an excerpt from the
+        official documentation for the <code>weekday</code> method:</p>
+        <dl class="function">
+            <dt><code>dt.weekday()</code></dt>
+            <dd><p>Return the day of the week as an integer, where
+            Monday is 0 and Sunday is 6.</p></dd>
+        </dl>
+
+        <p>These two Microsoft videos explain how to use methods from
+        the standard <code>datetime</code> module.</p>
+        <ul class="videos">
+            <li><div><a href="https://channel9.msdn.com/Series/Intro-to-Python-Development/Python-for-Beginners-15-of-44-Date-Data-Types">Date data types</a> <span class="duration">(8 minutes)</span></div></li>
+
+            <li><div><a href="https://channel9.msdn.com/Series/Intro-to-Python-Development/Python-for-Beginners-16-of-44-Demo-Dates">Demonstration: Dates</a> <span class="duration">(9 minutes)</span></div></li>
+        </ul>
+
+        <p>The following Python code imports the <code>datetime</code>
+        class from the <code>datetime</code> module, calls the
+        <code>datetime.now</code> method to get the current date and
+        time from a computer's operating system, and then calls the
+        weekday method get the day of the week as an integer.</p>
+
+<div class="pre"><pre class="linenums"></pre>
+<pre class="python" id="ex1">
+# Import the datatime class from the datetime
+# module so that it can be used in this program.
+from datetime import datetime
+
+# Call the now() method to get the current date and
+# time as a datetime object from the computer's clock.
+current_date_and_time = datetime.now()
+
+# Call the weekday() method to get the day of the
+# week from the current_date_and_time object.
+day_of_week = current_date_and_time.weekday()
+
+# Print the day of the week for the user to see.
+print(day_of_week)</pre></div>
+
+        <p>After the computer executes
+        <span class="cross" data-ref="ex1">line&nbsp;7</span> in the
+        above code, the variable <var>current_date_and_time</var> will
+        hold the current date and time. After the computer executes
+        <span class="cross" data-ref="ex1">line&nbsp;11</span>, the
+        day_of_week variable will hold 0 if today is Monday, 1 if today
+        is Tuesday, and so on to 6 if today is Sunday.</p>
+        </div></li>
+    </ul>
 
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each

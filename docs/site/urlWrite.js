@@ -119,17 +119,26 @@ cse111.url.modifyLinks = function() {
 			link.addEventListener('click', openSolutionLink);
 			link.setAttribute('title', 'View ' + hrefAttr);
 
+			// Create a new <a download> element.
 			let downlink = document.createElement('a');
 			downlink.setAttribute('download', '');
 			downlink.setAttribute('title', 'Download ' + hrefAttr);
-			//downlink.addEventListener('click', openDownloadLink);
 			downlink.setAttribute('href', hrefAttr);
 			downlink.innerHTML = '[&darr;]';
 
+			// Insert the new element after the current
+			// <a class="solution"> element.
 			let parent = link.parentNode;
 			let next = link.nextSibling;
 			parent.insertBefore(document.createTextNode(' '), next);
 			parent.insertBefore(downlink, next);
+
+			// document.getElementsByTagName returns a live list of
+			// elements. This means that the newly created element will
+			// be processed the next time through this loop. The next
+			// time through this loop, the code in this loop will add
+			// the openDownloadLink function as a click listener to the
+			// newly created element.
 		}
 		else if (link.hasAttribute('download')) {
 			// Process an <a download> element.
@@ -208,8 +217,6 @@ cse111.url.showCode = function(href, code) {
 	const filename = getFilename(href);
 	code = entityFromChar(code.trim());
 
-	//const loc = window.location.href;
-	//const base = loc.replace(/\/[^\/]+\/[^\/]+$/, '');
 	const base = href.replace(/\/[^\/]+\/[^\/]+$/, '');
 	const icon = base + '/site/icon.png';
 	const style = base + '/site/style.css';
@@ -226,7 +233,7 @@ cse111.url.showCode = function(href, code) {
 '\t<meta charset="UTF-8">',
 '\t<meta name="viewport" content="width=device-width, initial-scale=1.0">',
 '\t<title>' + filename + '</title>',
-'\t<link rel="icon" type="image/png" href="https://byui-cse.github.io/cse111-course/site/icon.png">',
+'\t<link rel="icon" type="image/png" href="' + icon + '">',
 '\t<link rel="stylesheet" type="text/css" href="' + style + '">',
 '\t<link rel="stylesheet" type="text/css" href="' + codestyle + '">',
 '\t<script src="' + color + '"></script>',
