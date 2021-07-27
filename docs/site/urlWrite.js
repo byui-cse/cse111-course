@@ -106,7 +106,7 @@ cse111.url.modifyLinks = function() {
 	};
 
 	const links = document.getElementsByTagName('a');
-	for (let i = 0, len = links.length;  i < len;  ++i) {
+	for (let i = 0;  i < links.length;  ++i) {
 		const link = links[i];
 		const href = link.href;  // Get the absolute href.
 
@@ -122,7 +122,7 @@ cse111.url.modifyLinks = function() {
 			let downlink = document.createElement('a');
 			downlink.setAttribute('download', '');
 			downlink.setAttribute('title', 'Download ' + hrefAttr);
-			downlink.addEventListener('click', openDownloadLink);
+			//downlink.addEventListener('click', openDownloadLink);
 			downlink.setAttribute('href', hrefAttr);
 			downlink.innerHTML = '[&darr;]';
 
