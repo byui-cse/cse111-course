@@ -9,7 +9,12 @@
     <link rel="icon" type="image/png" href="site/icon.png">
     <link rel="stylesheet" type="text/css" href="site/style.css">
     <style>
-        tbody > tr > th { padding-top: 1em; }
+        tbody > tr > th {
+            font-weight: bold;
+            font-size: 120%;
+            color: var(--byui-blue);
+            padding: 1.5em 0 0.5em 0;
+        }
         tbody > tr > td { padding-top: 0.3em; }
         tbody > tr > td:first-child { min-width: 10em; }
     </style>
@@ -27,7 +32,7 @@
         <div class="upper">BYU</div>
         <div class="lower">Idaho</div>
     </div>
-    <h2>CSE 111 | <span>Programming with Functions</span></h2>
+    CSE 111 | <span>Programming with Functions</span>
 </header>
 <article>
     <h1>Course Materials</h1>
@@ -48,23 +53,23 @@
         <tr><td><a href="lesson01/dev_env.html">Development environment</a></td>
             <td></td>
             <td></td>
-            <td><a download href="lesson01/sample.py">sample</a></td></tr>
+            <td><a class="solution" href="lesson01/sample.py">sample</a></td></tr>
 
         <tr><td><a href="lesson01/prepare.html">Prepare</a></td>
             <td></td>
             <td>input, data types, arithmetic, f-strings, print, if, logic</td>
-            <td><a download href="lesson01/data_types_demo.py">data_types</a></td></tr>
+            <td><a class="solution" href="lesson01/data_types_demo.py">data_types</a></td></tr>
 
         <tr><td><a href="lesson01/check.html">Prepare: Checkpoint</a></td>
             <td>exercise heart rates</td>
             <td>input, int, arithmetic, f-strings, print</td>
-            <td><a download href="lesson01/check_solution.py">check</a></td></tr>
+            <td><a class="solution" href="lesson01/check_solution.py">check</a></td></tr>
 
         <tr><td><a href="lesson01/teach.html">Teach: Class Activity</a><br>
             (for campus sections)</td>
             <td>pendulum</td>
             <td>input, float, arithmetic, f-strings, print</td>
-            <td><a download href="lesson01/teach_solution.py">teach</a></td></tr>
+            <td><a class="solution" href="lesson01/teach_solution.py">teach</a></td></tr>
 
         <tr><td><a href="lesson01/prove.html">Prove: Milestone</a></td>
             <td>tire volume</td>
@@ -81,16 +86,16 @@
         <tr><td><a href="lesson02/check.html">Prepare: Checkpoint</a></td>
             <td>items per box</td>
             <td>math.ceil</td>
-            <td><a download href="lesson02/check_solution.py">check</a></td></tr>
+            <td><a class="solution" href="lesson02/check_solution.py">check</a></td></tr>
 
         <tr><td><a href="lesson02/teach.html">Teach: Team Activity</a></td>
             <td>purchase discount</td>
-            <td>selection, datetime.now</td>
-            <td><a download href="lesson02/teach_solution.py">teach</a></td></tr>
+            <td>selection, datetime.now, datetime.weekday</td>
+            <td><a class="solution" href="lesson02/teach_solution.py">teach</a></td></tr>
 
         <tr><td><a href="lesson02/prove.html">Prove: Assignment</a></td>
             <td>tire volume</td>
-            <td>datetime.now, open, print</td>
+            <td>datetime.now, datetime format codes, open, print</td>
             <td><a href="overview/prove.html">prove</a></td></tr>
 
         <tr><th colspan="4">Lesson 3 - Writing Functions</th></tr>
@@ -103,12 +108,12 @@
         <tr><td><a href="lesson03/check.html">Prepare: Checkpoint</a></td>
             <td>fuel efficiency</td>
             <td>writing functions, main</td>
-            <td><a download href="lesson03/check_solution.py">check</a></td></tr>
+            <td><a class="solution" href="lesson03/check_solution.py">check</a></td></tr>
 
         <tr><td><a href="lesson03/teach.html">Teach: Team Activity</a></td>
             <td>fitness: body mass index, basal metabolic rate</td>
             <td>writing functions, main</td>
-            <td><a download href="lesson03/teach_solution.py">teach</a></td></tr>
+            <td><a class="solution" href="lesson03/teach_solution.py">teach</a></td></tr>
 
         <tr><td><a href="lesson03/prove.html">Prove: Milestone</a></td>
             <td>draw a scene</td>
@@ -127,12 +132,12 @@
             <td>variable scope: fix a program with a broken function
             that tries to use variables that are defined in another
             function</td>
-            <td><a download href="lesson04/check_solution.py">check</a></td></tr>
+            <td><a class="solution" href="lesson04/check_solution.py">check</a></td></tr>
 
         <tr><td><a href="lesson04/teach.html">Teach: Team Activity</a></td>
             <td>storage efficiency of steel cans</td>
             <td>writing functions, local variables, calling functions</td>
-            <td><a download href="lesson04/teach_solution.py">teach</a></td></tr>
+            <td><a class="solution" href="lesson04/teach_solution.py">teach</a></td></tr>
 
         <tr><td><a href="lesson04/prove.html">Prove: Assignment</a></td>
             <td>complete the scene</td>
@@ -149,12 +154,12 @@
         <tr><td><a href="lesson05/check.html">Prepare: Checkpoint</a></td>
             <td>prefix and suffix</td>
             <td>pytest, assert, test string functions</td>
-            <td><a download href="lesson05/check_solution.py">check</a></td></tr>
+            <td><a class="solution" href="lesson05/check_solution.py">check</a></td></tr>
 
         <tr><td><a href="lesson05/teach.html">Teach: Team Activity</a></td>
             <td>given name, surname, full name</td>
             <td>pytest, assert, test string functions, fix errors in functions</td>
-            <td><a download href="lesson05/teach_solution.py">teach</a></td></tr>
+            <td><a class="solution" href="lesson05/teach_solution.py">teach</a></td></tr>
 
         <tr><td><a href="lesson05/prove.html">Prove: Milestone</a></td>
             <td>English parts of speech, generate a sentence</td>
@@ -176,7 +181,7 @@
         <tr><td><a href="lesson06/teach.html">Teach: Team Activity</a></td>
             <td>self-esteem measure</td>
             <td>debugger</td>
-            <td><a download href="lesson06/teach_solution.py">teach</a></td></tr>
+            <td><a class="solution" href="lesson06/teach_solution.py">teach</a></td></tr>
 
         <tr><td><a href="lesson06/prove.html">Prove: Assignment</a></td>
             <td>English parts of speech, generate a sentence</td>
@@ -192,13 +197,13 @@
         <tr><td><a href="lesson07/check.html">Prepare: Checkpoint</a></td>
             <td></td>
             <td>demonstration of pass by value and reference</td>
-            <td><a download href="lesson07/check_solution.py">check</a></td></tr>
+            <td><a class="solution" href="lesson07/check_solution.py">check</a></td></tr>
 
         <tr><td><a href="lesson07/teach.html">Teach: Team Activity</a></td>
             <td>pseudo random numbers</td>
             <td>lists, append, write a function with default parameter
                 values, call a function with optional arguments</td>
-            <td><a download href="lesson07/teach_solution.py">teach</a></td></tr>
+            <td><a class="solution" href="lesson07/teach_solution.py">teach</a></td></tr>
 
         <tr><td><a href="lesson07/prove.html">Prove: Milestone</a></td>
             <td>molar mass calculator, molecules, elements</td>
@@ -215,13 +220,13 @@
         <tr><td><a href="lesson08/check.html">Prepare: Checkpoint</a></td>
             <td>vehicles</td>
             <td>in operator, use a key to retrieve a value</td>
-            <td><a download href="lesson08/check_solution.py">check</a></td></tr>
+            <td><a class="solution" href="lesson08/check_solution.py">check</a></td></tr>
 
         <tr><td><a href="lesson08/teach.html">Teach: Team Activity</a></td>
             <td>family history</td>
             <td>retrieve a value from a dictionary, process all items in
             a dictionary, lists, indexes</td>
-            <td><a download href="lesson08/teach_solution.py">teach</a></td></tr>
+            <td><a class="solution" href="lesson08/teach_solution.py">teach</a></td></tr>
 
         <tr><td><a href="lesson08/prove.html">Prove: Assignment</a></td>
             <td>molar mass calculator, molecules, elements</td>
@@ -238,12 +243,12 @@
         <tr><td><a href="lesson09/check.html">Prepare: Checkpoint</a></td>
             <td>Canadian Provinces</td>
             <td>text files, for loop, lists, append, pop, count</td>
-            <td><a download href="lesson09/check_solution.py">check</a></td></tr>
+            <td><a class="solution" href="lesson09/check_solution.py">check</a></td></tr>
 
         <tr><td><a href="lesson09/teach.html">Teach: Team Activity</a></td>
             <td>student IDs</td>
             <td>csv module, dictionaries</td>
-            <td><a download href="lesson09/teach_solution.py">teach</a></td></tr>
+            <td><a class="solution" href="lesson09/teach_solution.py">teach</a></td></tr>
 
         <tr><td><a href="lesson09/prove.html">Prove: Milestone</a></td>
             <td>grocery store</td>
@@ -262,18 +267,19 @@
             <td>text file and line number</td>
             <td>exception handling, FileNotFoundError, PermissionError,
                 ValueError, IndexError</td>
-            <td><a download href="lesson10/check_solution.py">check</a></td></tr>
+            <td><a class="solution" href="lesson10/check_solution.py">check</a></td></tr>
 
         <tr><td><a href="lesson10/teach.html">Teach: Team Activity</a></td>
             <td>vehicle accidents</td>
             <td>exception handling, FileNotFoundError, PermissionError,
                 ValueError, csv.Error, KeyError, ZeroDivisionError</td>
-            <td><a download href="lesson10/teach_solution.py">teach</a></td></tr>
+            <td><a class="solution" href="lesson10/teach_solution.py">teach</a></td></tr>
 
         <tr><td><a href="lesson10/prove.html">Prove: Assignment</a></td>
             <td>grocery store</td>
-            <td>summation, round, datetime, strftime, try, except,
-            FileNotFoundError, PermissionError, KeyError</td>
+            <td>summation, round, datetime.now, datetime format codes,
+            try, except, FileNotFoundError, PermissionError,
+            KeyError</td>
             <td><a href="overview/prove.html">prove</a></td></tr>
 
         <tr><th colspan="4">Lesson 11 - Functional Programming</th></tr>
@@ -287,14 +293,14 @@
             <td>U.S. phone numbers</td>
             <td>higher-order functions, map function, read a text file
             into a list</td>
-            <td><a download href="lesson11/check_solution.py">check</a></td></tr>
+            <td><a class="solution" href="lesson11/check_solution.py">check</a></td></tr>
 
         <tr><td><a href="lesson11/teach.html">Teach: Team Activity</a></td>
             <td>student given name, surname, and birthdate</td>
             <td>higher-order functions, nested functions, lambda
             functions, sorted function, read a CSV file into a compound
             list</td>
-            <td><a download href="lesson11/teach_solution.py">teach</a></td></tr>
+            <td><a class="solution" href="lesson11/teach_solution.py">teach</a></td></tr>
 
         <tr><td><a href="lesson11/prove.html">Prove: Milestone</a></td>
             <td colspan="2">student chosen Python program</td>
@@ -310,14 +316,14 @@
         <tr><td><a href="lesson12/check.html">Prepare: Checkpoint</a></td>
             <td>fruit</td>
             <td>modify a list using object oriented programming</td>
-            <td><a download href="lesson12/check_solution.py">check</a></td></tr>
+            <td><a class="solution" href="lesson12/check_solution.py">check</a></td></tr>
 
         <tr><td><a href="lesson12/teach.html">Teach: Team Activity</a></td>
             <td>GUI</td>
             <td>creating objects, accessing attributes, calling
                 methods</td>
-            <td><a download href="lesson12/heart_rate.py">heart_rate</a>
-                <a download href="lesson12/teach_solution.py">teach</a></td></tr>
+            <td><a class="solution" href="lesson12/heart_rate.py">heart_rate</a>
+                <a class="solution" href="lesson12/teach_solution.py">teach</a></td></tr>
 
         <tr><td><a href="lesson12/prove.html">Prove: Milestone</a></td>
             <td colspan="2">student chosen Python program</td>

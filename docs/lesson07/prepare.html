@@ -318,10 +318,10 @@ Before changing x: x 17  y 17
 After changing x:  <em>x 18  y 17</em></pre>
 
     <p>The program in example&nbsp;7 contains two integer variables
-    named <var>x</var> and <var>y</var>. Within the example&nbsp;7
-    program</p>
+    named <var>x</var> and <var>y</var>. The program in example&nbsp;7
+    does the following:</p>
     <ul>
-        <li><div>The statement on
+        <li><div>The statement at
         <span class="cross" data-ref="ex7">line&nbsp;4</span>
         stores the value 17 into the variable <var>x</var>.</div></li>
         <li><div><span class="cross" data-ref="ex7">Line&nbsp;5</span>
@@ -371,9 +371,10 @@ After changing lx:  <em>lx [7, -2, 5]  ly [7, -2, 5]</em></pre>
 
     <p>From the output of example&nbsp;8, we see there is a big
     difference between the way a Python program assigns integers and the
-    way it assigns lists. Within the program in example&nbsp;8</p>
+    way it assigns lists. The program in example&nbsp;8 does the
+    following:</p>
     <ul>
-        <li><div>The statement on
+        <li><div>The statement at
         <span class="cross" data-ref="ex8">line&nbsp;4</span>
         creates a list and stores a reference to that list in the
         variable <var>lx</var>.</div></li>
@@ -458,9 +459,9 @@ After changing lx:  <em>lx [7, -2, 5]  ly [7, -2, 5]</em></pre>
 if __name__ == "__main__":
     main()</span></pre></div>
 
-    <p>Within example&nbsp;9</p>
+    <p>The program in example&nbsp;9 does the following:</p>
     <ul>
-        <li><div>The statement on
+        <li><div>The statement at
         <span class="cross" data-ref="ex9">line&nbsp;5</span> assigns
         the value 5 to a variable named <var>x</var>.</div></li>
         <li><div><span class="cross" data-ref="ex9">Line&nbsp;6</span>
@@ -508,24 +509,25 @@ After calling modify_args():  x 5  <em>lx [7, -2, 4]</em></pre>
     <h3>Rationale for Pass by Reference</h3>
     <p>Why are lists passed into a function by reference? To understand
     the answer to this question, consider the work a computer would have
-    to do if lists were passed by value as numbers are. When a computer
-    passes a number variable to a function the computer copies the value
-    of that variable into the parameter of the called function. This
-    works well for numbers because each number variable occupies a small
-    amount of the computer's memory. Making a copy of a number is quick,
-    and the copy doesn't use a large amount of memory. However, a list
-    may contain millions of elements and therefore occupy a large amount
-    of the computer's memory. If lists were passed into a function by
-    value, the computer would have to make a copy of a list each time it
-    is passed into a function. If a list were large, copying the list
-    would take a relatively long time and would unnecessarily use a lot
-    of the computer's memory. Therefore, to avoid making unnecessary
-    copies, lists (and other large data types) are passed into a
-    function by reference.</p>
+    to do if lists were passed by value. When a computer passes a number
+    variable to a function, the number is passed by value which means
+    the computer copies the value of the number variable into the
+    parameter of the called function. This works well for numbers
+    because each number variable occupies a small amount of the
+    computer's memory. Making a copy of a number is fast, and the copy
+    uses a small amount of memory. However, a list may contain millions
+    of elements and therefore occupy a large amount of the computer's
+    memory. If lists were passed into a function by value, the computer
+    would have to make a copy of a list each time it is passed into a
+    function. If a list is large, copying the list takes a relatively
+    long time and uses a lot of the computer's memory. Therefore, to
+    make programs fast and use less memory, lists (and other large data
+    types) are passed into a function by reference.</p>
 
     <h2>Tutorials</h2>
-    <p>The following tutorials contain more information about lists and
-    repetition in Python.</p>
+    <p>If the concepts in this prepare content seem confusing to you,
+    reading these tutorials may help you better understand the
+    concepts.</p>
 
     <ul class="tutorials">
         <li><div><a href="https://realpython.com/courses/lists-tuples-python/">Lists in Python</a></div></li>
