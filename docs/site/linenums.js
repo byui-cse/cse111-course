@@ -7,6 +7,20 @@ if (!window.hasOwnProperty('cse111')) {
 }
 
 cse111.linenums = {
+	addTitles : function() {
+		const elems = document.querySelectorAll('pre.console');
+		for (let i = 0;  i < elems.length;  ++i) {
+			let pre = elems[i];
+			pre.setAttribute('title', 'Terminal Window');
+
+			const spans = pre.querySelectorAll('span.input');
+			for (let i = 0;  i < spans.length;  ++i) {
+				spans[i].setAttribute('title', 'User input');
+			}
+		}
+	},
+
+
 	addLineNumbers : function() {
 		const newline = /<br>|\n/g;
 		const elems = document.getElementsByClassName('linenums');
@@ -42,7 +56,8 @@ cse111.linenums = {
 			document.removeEventListener('copy', listener);
 		};
 
-		const elems = document.getElementsByClassName('pre');
+		//const elems = document.getElementsByClassName('pre');
+		const elems = document.querySelectorAll('div.pre');
 		for (let i = 0;  i < elems.length;  ++i) {
 			let image = document.createElement('img');
 			image.setAttribute('src', '../site/copy.png');
@@ -191,6 +206,7 @@ cse111.linenums = {
 	}
 };
 
+window.addEventListener('DOMContentLoaded', cse111.linenums.addTitles);
 window.addEventListener('DOMContentLoaded', cse111.linenums.addLineNumbers);
 window.addEventListener('DOMContentLoaded', cse111.linenums.addCopyButtons);
 window.addEventListener('DOMContentLoaded', cse111.linenums.addCrossRefs);

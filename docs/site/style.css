@@ -154,6 +154,7 @@ article h4 {
 }
 
 article p,
+article div.p,
 article iframe {
 	margin: 0 0 1em 0;
 }
@@ -323,13 +324,13 @@ article div.expr {
 	font-size: large;
 }
 
-article div.expr.inline {
+article div.inline.expr {
 	display: inline-block;
 	margin: 0 0.5em;
 	vertical-align: baseline;
 }
 
-article div.expr.block {
+article div.block.expr {
 	margin: 1em 0;
 	vertical-align: middle;
 }
@@ -338,10 +339,6 @@ article div.expr div {
 	display: inline-block;
 	vertical-align: middle;
 	text-align: center;
-}
-
-article div.expr.middle {
-	vertical-align: middle;
 }
 
 article div.expr .baseline {
@@ -507,6 +504,7 @@ article pre.console span.input {
 }
 
 /* Tooltip for user input spans inside the console pre elements. */
+/*
 article pre.console span.input:before {
 	display: none;
 	position: absolute;
@@ -515,7 +513,7 @@ article pre.console span.input:before {
 	border: 1px solid var(--border);
 	background-color: var(--light-bk-color);
 	color: var(--light-fg-color);
-	font-size: small;
+	font-size: smaller;
 	padding: 0.1em 0.3em;
 	content: "User input";
 }
@@ -523,6 +521,7 @@ article pre.console span.input:hover:before {
 	display: block;
 	z-index: 50;
 }
+*/
 
 article pre.console span.pass {
 	color: green;
@@ -618,6 +617,14 @@ article table > tbody > tr > th {
 	vertical-align: top;
 	text-align: left;
 	font-weight: bold;
+}
+
+article table.prec > tbody > tr > td {
+    border: 1px solid var(--border);
+}
+article table.prec > tbody > tr > td.prec {
+    border: none;
+    text-align: center;
 }
 
 article table.list > tbody > tr > td {
