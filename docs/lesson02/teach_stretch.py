@@ -15,17 +15,15 @@ SALES_TAX_RATE = 0.06
 
 subtotal = 0
 
-done = False
-while not done:
+text = ""
+while text.lower() != "done":
     # Get the price from the user.
     text = input("Please enter the price: ")
-    if text.lower() == "done":
-        done = True
-    else:
+    if text.lower() != "done":
         price = float(text)
 
         # Get the quantity from the user.
-        quantity = int(input("Plesae enter the quantity: "))
+        quantity = int(input("Please enter the quantity: "))
 
         subtotal += price * quantity
 

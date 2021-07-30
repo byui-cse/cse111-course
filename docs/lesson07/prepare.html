@@ -214,8 +214,10 @@ if __name__ == "__main__":
 
     <h3>Repetition</h3>
     <p>We can cause a computer to repeat a group of statements by
-    writing <code>for</code> and <code>while</code> loops. A
-    <code>for</code> loop iterates over a range of numbers, such as
+    writing <code>for</code> and <code>while</code> loops.</p>
+
+    <h4>for</h4>
+    <p>A <code>for</code> loop iterates over a range of numbers, such as
     <code>range(3, 10)</code> or a sequence, such as a list. A
     <code>while</code> loop is more flexible than a <code>for</code>
     loop and repeats while some condition is true. Example&nbsp;4 shows
@@ -226,11 +228,11 @@ if __name__ == "__main__":
 <div class="pre"><pre class="python" id="ex4"># Example 4
 
 def main():
-    # Count from zero to nine by ones.
+    # Count from zero to nine by one.
     for i in range(10):
         print(i)
 
-    # Count from zero to eight by twos.
+    # Count from zero to eight by two.
     for i in range(0, 10, 2):
         print(i)
 
@@ -243,46 +245,65 @@ def main():
 if __name__ == "__main__":
     main()</pre></div>
 
+    <h4>break</h4>
     <p>A <code>break</code> statement causes a loop to end early. In
-    example&nbsp;5, there is a <code>for</code> loop that asks the user
-    to input ten numbers one at a time. However, the loop will terminate
-    early if the user enters a zero (0) because of the
-    <code>break</code> statement.</p>
+    example&nbsp;5 at
+    <span class="cross" data-ref="ex5">line&nbsp;8</span>, there is a
+    <code>for</code> loop that asks the user to input ten numbers one at
+    a time. However, the loop will terminate early if the user enters a
+    zero (0) because of the <code>break</code> statement at
+    <span class="cross" data-ref="ex5">line&nbsp;11</span>. The
+    <code>for</code> loop in example&nbsp;5 uses underscore (_) as the
+    counting variable, which is a valid variable name in Python. Many
+    Python programmers use underscore as the name of the counting
+    variable to indicate that the counting variable will not be used
+    within the body of the loop.</p>
 
-<div class="pre"><pre class="python" id="ex5"># Example 5
+<div class="pre"><pre class="linenums"></pre>
+<pre class="python" id="ex5"># Example 5
 
 def main():
     sum = 0
 
-    # Get ten or fewer numbers from the user and add them
-    # together. Notice that this loop uses underscore (_) as
-    # the counting variable, which is a valid variable name.
-    # Many programmers use underscore to indicate that the
-    # variable will not be used within the body of the loop.
-    for _ in range(10):
-        n = float(input("Please enter a number: "))
-        if n == 0:
+    # Get ten or fewer numbers from the user and
+    # add them together.
+    <em>for _ in range(10):</em>
+        number = float(input("Please enter a number: "))
+        if number == 0:
             <em>break</em>
-        sum += n
-    print(sum)
+        sum += number
+
+    # Print the sum of the numbers for the user to see.
+    print(f"sum: {sum}")
 
 
 # Call main to start this program.
 if __name__ == "__main__":
     main()</pre></div>
 
-    <p>In example&nbsp;6 below, there is a <code>for</code> loop that
-    processes all the elements in a list. The code in the body of the
-    <code>for</code> loop is very small and simply prints an element
-    from the list. However, we can write as much code as we need in the
-    body of a loop to repeatedly perform all sorts of computations for
-    each element in the list.</p>
+<pre class="console">&gt; python add_numbers.py
+Please enter a number: 6
+Please enter a number: 4
+Please enter a number: -2
+Please enter a number: 0
+sum: 8.0</pre>
 
-<div class="pre"><pre class="python" id="ex6"># Example 6
+    <h4>for each</h4>
+    <p>In example&nbsp;6 at
+    <span class="cross" data-ref="ex6">line&nbsp;10</span>,
+    there is a <code>for</code> loop that processes all the elements in
+    a list. The code in the body of the <code>for</code> loop is very
+    small and simply prints one element from the list each time through
+    the loop. However, we can write as much code as we need in the body
+    of a loop to repeatedly perform all sorts of computations for each
+    element in the list.</p>
+
+<div class="pre"><pre class="linenums"></pre>
+<pre class="python" id="ex6"># Example 6
 
 def main():
     # Create a list.
-    colors = ["red", "orange", "yellow", "green", "blue", "indigo"]
+    colors = ["red", "orange", "yellow", "green", "blue"]
 
     # Use a for loop to print each element in the list.
     # Of course, the code in the body of a loop can do
@@ -295,12 +316,85 @@ def main():
 if __name__ == "__main__":
     main()</pre></div>
 
+<pre class="console">&gt; python print_colors.py
+red
+orange
+yellow
+green
+blue</pre>
+
+    <h4>while</h4>
+    <p>The program in example&nbsp;7 is a number guessing game that
+    repeatedly asks the user to guess a number between 1 and 100. At
+    <span class="cross" data-ref="ex7">line&nbsp;21</span> the program
+    includes a <code>while</code> loop, which will cause the computer to
+    repeatedly execute the statements at
+    <span class="cross" data-ref="ex7">lines&nbsp;22&ndash;34</span>.
+    The while loop will end when the user enters the correct number.</p>
+
+<div class="pre"><pre class="linenums"></pre>
+<pre class="python" id="ex7"># Example 7
+
+import random
+
+
+def main():
+    print("I'm thinking of a number between 1 and 100.")
+    print("Try to guess it!")
+    print()
+
+    # Prepare a string that the input function will show to
+    # the user during the first iteration of the while loop.
+    prompt = "Please enter an integer between 1 and 100: "
+
+    # Get a random integer between 1 and 100.
+    answer = random.randint(1, 100)
+
+    guess = -1
+    attempts = 0
+
+    <em>while guess != answer:</em>
+        # Get a guess from the user.
+        guess = int(input(prompt))
+        attempts += 1
+
+        # Compare the user's guess to the answer.
+        if guess &lt; answer:
+            guide = "low"
+        elif guess &gt; answer:
+            guide = "high"
+
+        # Prepare a string that the input function will show to
+        # the user during the next iteration of the while loop.
+        prompt = f"{guess} is too {guide}. Please enter another integer: "
+
+    print()
+    print(f"{guess} is correct!")
+    print(f"You used {attempts} guesses to guess the number.")
+
+
+# Call main to start this program.
+if __name__ == "__main__":
+    main()</pre></div>
+
+<pre class="console">&gt; python number_guess.py
+I'm thinking of a number between 1 and 100.
+Try to guess it!
+
+Please enter an integer between 1 and 100: 50
+50 is too low. Please enter another integer: 75
+75 is too high. Please enter another integer: 62
+62 is too high. Please enter another integer: 56
+
+56 is correct!
+You used 4 guesses to guess the number.</pre>
+
     <h3 id="passByRef">Values and References</h3>
     <p>In a Python program, the computer assigns values to variables
     differently based on their data type. Consider the small program in
-    example&nbsp;7 and the output of that program:</p>
+    example&nbsp;8 and the output of that program:</p>
 <div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex7"># Example 7
+<pre class="python" id="ex8"># Example 8
 
 <span data-scope="global"><span data-scope="main">def main():
     <span class="varDef">x</span> = 17
@@ -313,46 +407,46 @@ if __name__ == "__main__":
 if __name__ == "__main__":
     main()</span></pre></div>
 
-<pre class="console">&gt; python example_7.py
+<pre class="console">&gt; python example_8.py
 Before changing x: x 17  y 17
 After changing x:  <em>x 18  y 17</em></pre>
 
-    <p>The program in example&nbsp;7 contains two integer variables
-    named <var>x</var> and <var>y</var>. The program in example&nbsp;7
+    <p>The program in example&nbsp;8 contains two integer variables
+    named <var>x</var> and <var>y</var>. The program in example&nbsp;8
     does the following:</p>
     <ul>
         <li><div>The statement at
-        <span class="cross" data-ref="ex7">line&nbsp;4</span>
+        <span class="cross" data-ref="ex8">line&nbsp;4</span>
         stores the value 17 into the variable <var>x</var>.</div></li>
-        <li><div><span class="cross" data-ref="ex7">Line&nbsp;5</span>
+        <li><div><span class="cross" data-ref="ex8">Line&nbsp;5</span>
         copies the value that is in the variable <var>x</var> into the
         variable <var>y</var>.</div></li>
-        <li><div><span class="cross" data-ref="ex7">Line&nbsp;6</span>
+        <li><div><span class="cross" data-ref="ex8">Line&nbsp;6</span>
         prints the values of <var>x</var> and <var>y</var> which are
         both 17.</div></li>
-        <li><div><span class="cross" data-ref="ex7">Line&nbsp;7</span>
+        <li><div><span class="cross" data-ref="ex8">Line&nbsp;7</span>
         adds one to the value of <var>x</var>, making its value 18
         instead of 17.</div></li>
-        <li><div><span class="cross" data-ref="ex7">Line&nbsp;8</span>
+        <li><div><span class="cross" data-ref="ex8">Line&nbsp;8</span>
         prints the values of <var>x</var> and <var>y</var>. The value of
         <var>x</var> was changed to 18. The value of <var>y</var>
         remained unchanged.</div></li>
     </ul>
 
-    <p>Why did <span class="cross" data-ref="ex7">line&nbsp;7</span>
+    <p>Why did <span class="cross" data-ref="ex8">line&nbsp;7</span>
     (<code>x += 1</code>) change the value of <var>x</var> but not
     change the value of <var>y</var>? Because
-    <span class="cross" data-ref="ex7">line&nbsp;5</span>
+    <span class="cross" data-ref="ex8">line&nbsp;5</span>
     copied <em>the value</em> that was in <var>x</var> into
     <var>y</var>.</p>
 
-    <p>Example&nbsp;8 shows a small Python program that contains two
+    <p>Example&nbsp;9 shows a small Python program that contains two
     variables named <var>lx</var> and <var>ly</var> that each refer to a
     list. This program is similar to the previous program, but it has
     two lists instead of two integers.</p>
 
 <div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex8"># Example 8
+<pre class="python" id="ex9"># Example 9
 
 <span data-scope="global"><span data-scope="main">def main():
     <span class="varDef">lx</span> = [7, -2]
@@ -365,31 +459,31 @@ After changing x:  <em>x 18  y 17</em></pre>
 if __name__ == "__main__":
     main()</span></pre></div>
 
-<pre class="console">&gt; python example_8.py
+<pre class="console">&gt; python example_9.py
 Before changing lx: lx [7, -2]  ly [7, -2]
 After changing lx:  <em>lx [7, -2, 5]  ly [7, -2, 5]</em></pre>
 
-    <p>From the output of example&nbsp;8, we see there is a big
+    <p>From the output of example&nbsp;9, we see there is a big
     difference between the way a Python program assigns integers and the
-    way it assigns lists. The program in example&nbsp;8 does the
+    way it assigns lists. The program in example&nbsp;9 does the
     following:</p>
     <ul>
         <li><div>The statement at
-        <span class="cross" data-ref="ex8">line&nbsp;4</span>
+        <span class="cross" data-ref="ex9">line&nbsp;4</span>
         creates a list and stores a reference to that list in the
         variable <var>lx</var>.</div></li>
-        <li><div><span class="cross" data-ref="ex8">Line&nbsp;5</span>
+        <li><div><span class="cross" data-ref="ex9">Line&nbsp;5</span>
         copies the reference in the variable <var>lx</var> into the
         variable <var>ly</var>. Line&nbsp;5 does not create a copy of
         the list but instead causes both the variables <var>lx</var> and
         <var>ly</var> to refer to the same list.</div></li>
-        <li><div><span class="cross" data-ref="ex8">Line&nbsp;6</span>
+        <li><div><span class="cross" data-ref="ex9">Line&nbsp;6</span>
         prints the values of <var>lx</var> and <var>ly</var>. Notice
         that their values are the same as we expect them to be because
         of line&nbsp;5.</div></li>
-        <li><div><span class="cross" data-ref="ex8">Line&nbsp;7</span>
+        <li><div><span class="cross" data-ref="ex9">Line&nbsp;7</span>
         appends the number 5 onto the list <var>lx</var>.</div></li>
-        <li><div><span class="cross" data-ref="ex8">Line&nbsp;8</span>
+        <li><div><span class="cross" data-ref="ex9">Line&nbsp;8</span>
         prints the values of <var>lx</var> and <var>ly</var> again.
         Notice in the output that when <var>lx</var> and <var>ly</var>
         are printed the second time, it appears that the number 5 was
@@ -404,7 +498,7 @@ After changing lx:  <em>lx [7, -2, 5]  ly [7, -2, 5]</em></pre>
     variable <var>lx</var> can be seen through variable
     <var>ly</var>.</p>
 
-    <p>From examples&nbsp;7 and&nbsp;8, we learn that when a computer
+    <p>From examples&nbsp;8 and&nbsp;9, we learn that when a computer
     executes a Python statement to assign the value of a boolean,
     integer, or float variable to another variable (<code>y = x</code>),
     the computer copies <em>the value</em> of one variable into the
@@ -418,11 +512,11 @@ After changing lx:  <em>lx [7, -2, 5]  ly [7, -2, 5]</em></pre>
     (boolean, integer, float) and copies the reference for other data
     types (list and others) has important implications for passing
     arguments into functions. Consider the Python program in
-    example&nbsp;9 with two functions named <code>main</code> and
+    example&nbsp;10 with two functions named <code>main</code> and
     <code>modify_args</code>.</p>
 
 <div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex9"># Example 9
+<pre class="python" id="ex10"># Example 10
 
 <span data-scope="global"><span data-scope="main">def main():
     print("main()")
@@ -459,26 +553,26 @@ After changing lx:  <em>lx [7, -2, 5]  ly [7, -2, 5]</em></pre>
 if __name__ == "__main__":
     main()</span></pre></div>
 
-    <p>The program in example&nbsp;9 does the following:</p>
+    <p>The program in example&nbsp;10 does the following:</p>
     <ul>
         <li><div>The statement at
-        <span class="cross" data-ref="ex9">line&nbsp;5</span> assigns
+        <span class="cross" data-ref="ex10">line&nbsp;5</span> assigns
         the value 5 to a variable named <var>x</var>.</div></li>
-        <li><div><span class="cross" data-ref="ex9">Line&nbsp;6</span>
+        <li><div><span class="cross" data-ref="ex10">Line&nbsp;6</span>
         assigns a list to a variable named <var>lx</var>.</div></li>
-        <li><div><span class="cross" data-ref="ex9">Line&nbsp;7 </span>
+        <li><div><span class="cross" data-ref="ex10">Line&nbsp;7 </span>
         prints the values of <var>x</var> and <var>lx</var> before they
         are passed to the <var>modify_args</var> function.</div></li>
-        <li><div><span class="cross" data-ref="ex9">Line&nbsp;11</span>
+        <li><div><span class="cross" data-ref="ex10">Line&nbsp;11</span>
         calls the <code>modify_args</code> function and passes
         <var>x</var> and <var>lx</var> to that function.</div></li>
         <li><div>Within the <code>modify_args</code> function,
-        <span class="cross" data-ref="ex9">line&nbsp;28</span>
+        <span class="cross" data-ref="ex10">line&nbsp;28</span>
         changes the value of the parameter <var>n</var> by adding one to
-        it, and <span class="cross" data-ref="ex9">line&nbsp;29</span>
+        it, and <span class="cross" data-ref="ex10">line&nbsp;29</span>
         changes the value of <var>alist</var> by appending the number 4
         onto it.</div></li>
-        <li><div><span class="cross" data-ref="ex9">Line&nbsp;13</span>
+        <li><div><span class="cross" data-ref="ex10">Line&nbsp;13</span>
         prints the values of <var>x</var> and <var>lx</var> after they
         were passed to the <code>modify_args</code> function. Notice in
         the output below that the value of <var>x</var> was not changed
@@ -487,7 +581,7 @@ if __name__ == "__main__":
         function.</div></li>
     </ul>
 
-<pre class="console">&gt; python example_9.py
+<pre class="console">&gt; python example_10.py
 main()
 Before calling modify_args(): x 5  <em>lx [7, -2]</em>
     modify_args(n, alist)
@@ -495,7 +589,7 @@ Before calling modify_args(): x 5  <em>lx [7, -2]</em>
     After changing n and alist:  n 6  alist [7, -2, 4]
 After calling modify_args():  x 5  <em>lx [7, -2, 4]</em></pre>
 
-    <p>From the output of example&nbsp;9, we see that modifying an
+    <p>From the output of example&nbsp;10, we see that modifying an
     integer parameter changes the integer within the called function
     only. However, modifying a list parameter changes the list within
     the called function and within the calling function. Why? Because
@@ -517,12 +611,12 @@ After calling modify_args():  x 5  <em>lx [7, -2, 4]</em></pre>
     computer's memory. Making a copy of a number is fast, and the copy
     uses a small amount of memory. However, a list may contain millions
     of elements and therefore occupy a large amount of the computer's
-    memory. If lists were passed into a function by value, the computer
+    memory. If lists were passed by value into a function, the computer
     would have to make a copy of a list each time it is passed into a
     function. If a list is large, copying the list takes a relatively
-    long time and uses a lot of the computer's memory. Therefore, to
-    make programs fast and use less memory, lists (and other large data
-    types) are passed into a function by reference.</p>
+    long time and uses a lot of the computer's memory for the copy.
+    Therefore, to make programs fast and use less memory, lists (and
+    other large data types) are passed into a function by reference.</p>
 
     <h2>Tutorials</h2>
     <p>If the concepts in this prepare content seem confusing to you,

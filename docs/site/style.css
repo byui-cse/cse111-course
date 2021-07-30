@@ -503,26 +503,6 @@ article pre.console span.input {
 	color: var(--user-input-fg-color);
 }
 
-/* Tooltip for user input spans inside the console pre elements. */
-/*
-article pre.console span.input:before {
-	display: none;
-	position: absolute;
-	top: 70%;
-	left: -5em;
-	border: 1px solid var(--border);
-	background-color: var(--light-bk-color);
-	color: var(--light-fg-color);
-	font-size: smaller;
-	padding: 0.1em 0.3em;
-	content: "User input";
-}
-article pre.console span.input:hover:before {
-	display: block;
-	z-index: 50;
-}
-*/
-
 article pre.console span.pass {
 	color: green;
 }
@@ -585,7 +565,8 @@ article pre.python span.hiVarUse { background-color: yellow; }
 article pre.python span.hiError  { background-color: red; }
 
 
-article .cross {
+article span.cross {
+	cursor: pointer;
 	text-decoration: underline var(--link-before-fg-color) dotted;
 }
 
