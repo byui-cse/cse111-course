@@ -44,6 +44,7 @@
 		color: var(--fg-color);
 
 		font-family: "Open Sans", Arial, Helvetica, Verdana, sans-serif;
+		font-size: 110%;
 	}
 	body.dark {
 		--bk-color: var(--dark-bk-color);
@@ -64,39 +65,49 @@ header {
 	background-color: var(--byui-blue);
 	color: white;
 }
-header div.logo {
+header a:link,
+header a:hover,
+header a:active,
+header a:visited {
+	text-decoration: none;
+	color: inherit;
+}
+header > a.logo {
 	display: inline-block;
-	margin-right: 1em;
+	margin-right: 1.5em;
 	vertical-align: middle;
 	font-family: Georgia, Palatino, "Book Antiqua", serif;
 	text-transform: uppercase;
 	max-width: 5.5em;
 }
-header div.logo div.upper {
-	margin-bottom: -0.05em;
-	font-size: 160%;
+header > a.logo > div:first-child {
+	margin-bottom: -0.02em;
+	font-size: 150%;
 	font-weight: bolder;
 	text-align: center;
 }
-header div.logo div.lower {
+header > a.logo > div:last-child {
 	border-top: 1px solid;
+	padding-top: 0.11em;
+	font-size: 94%;
 	font-weight: lighter;
 	letter-spacing: 0.08em;
 	text-align: center;
 }
-header h2 {
+header > h2 {
 	display: inline-block;
 	vertical-align: middle;
-	font-size: 150%;
+	font-size: 125%;
 	font-weight: normal;
+	white-space: normal;
 }
-header h2 span {
+header > h2 > a {
 	white-space: nowrap;
 }
-header div.colorCtrl {
+header > div.colorCtrl {
 	float: right;
 	cursor: pointer;
-	margin: 0.5em 0 0 1em;
+	margin: 0.25em 0 0 1.5em;
 	font-size: 125%;
 }
 
@@ -107,10 +118,12 @@ article {
 }
 @media screen {
 	article {
-		max-width: 40em;
-		font-size: 110%;
 		line-height: 1.4;
+		max-width: 40em;
 	}
+
+	/* article.solution is used by the generated
+	 * HTML files that show program solutions. */
 	article.solution {
 		max-width: none;
 	}
@@ -624,5 +637,5 @@ article table.list > tbody > tr > td.label {
 footer {
 	margin: 1em auto;
 	max-width: 40em;
-	font-size: 90%;
+	font-size: 80%;
 }
