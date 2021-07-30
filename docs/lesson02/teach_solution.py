@@ -21,13 +21,13 @@ subtotal = float(text)
 # time as a datetime object from the computer's clock.
 current_date_and_time = datetime.now()
 
-# Call the isoweekday() method to get the day of
-# the week from the current_date_and_time object.
-weekday = current_date_and_time.isoweekday()
+# Call the weekday() method to get the day of the
+# week from the current_date_and_time object.
+weekday = current_date_and_time.weekday()
 
 # if the subtotal is greater than 50 and
 # today is Tuesday or Wednesday, compute the discount.
-if subtotal >= 50 and (weekday == 2 or weekday == 3):
+if subtotal >= 50 and (weekday == 1 or weekday == 2):
     discount = round(subtotal * DISC_RATE, 2)
     print(f"Discount amount: {discount}")
     subtotal -= discount

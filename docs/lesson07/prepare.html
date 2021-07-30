@@ -137,6 +137,7 @@ def main():
 
     # Insert an element at the beginning of the fabrics list.
     fabrics.insert(0, "chiffon")
+    print(fabrics)
 
     # Determine if gingham is in the fabrics list.
     if "gingham" in fabrics:
@@ -159,11 +160,18 @@ def main():
     # Get the length of the fabrics list and print it.
     n = len(fabrics)
     print(f"The fabrics list contains {n} elements.")
+    print(fabrics)
 
 
 # Call main to start this program.
 if __name__ == "__main__":
     main()</pre></div>
+
+<pre class="console">&gt; python fabrics.py
+['chiffon', 'velvet', 'denim', 'gingham']
+gingham is in the list.
+The fabrics list contains 2 elements.
+['chiffon', 'taffeta']</pre>
 
     <p>The lists in examples&nbsp;1 and&nbsp;2 store strings. Of course,
     it is possible to store numbers in a list, too. In fact, Python

@@ -345,6 +345,10 @@ toppings_cost = number_of_toppings * price_per_topping
 # Print the price for the user to see.
 print(f"Price: ${price:.2f}")</pre></div>
 
+<pre class="console">&gt; python pizza.py
+How many toppings? <span class="input">3</span>
+Price: $15.30</pre>
+
         <li><div><p>In Python, we use <code>if</code> statements to
         cause the computer to make decisions; <code>if</code> statements
         are also called <dfn>selection</dfn> statements because the
@@ -354,8 +358,7 @@ print(f"Price: ${price:.2f}")</pre></div>
         <p>There are six comparison operators that we can use in an
         <code>if</code> statement:</p>
 
-        <table class="center"><thead>
-        </thead><tbody>
+        <table class="center"><tbody>
             <tr><td>&lt;</td> <td>less than</td></tr>
             <tr><td>&lt;=</td> <td>less than or equal</td></tr>
             <tr><td>&gt;</td> <td>greater than</td></tr>
@@ -441,7 +444,7 @@ cost -= discount
 print(f"After the discount, you will pay {cost}")</pre></div>
 
 <pre class="console">&gt; python discount.py
-Please enter the cost: 300
+Please enter the cost: <span class="input">300</span>
 After the discount, you will pay 246.0</pre>
         </div></li>
 

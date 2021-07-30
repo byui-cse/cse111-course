@@ -40,13 +40,13 @@ print()
 # time as a datetime object from the computer's clock.
 current_date_and_time = datetime.now()
 
-# Call the isoweekday() method to get the day of
-# the week from the current_date_and_time object.
-weekday = current_date_and_time.isoweekday()
+# Call the weekday() method to get the day of the
+# week from the current_date_and_time object.
+weekday = current_date_and_time.weekday()
 
 # if the subtotal is greater than 50 and
 # today is Tuesday or Wednesday, compute the discount.
-if weekday == 2 or weekday == 3:
+if weekday == 1 or weekday == 2:
     if subtotal < 50:
         insufficient = 50 - subtotal
         print(f"To receive the discount, add {insufficient} to your order.")

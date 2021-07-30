@@ -83,8 +83,13 @@
         you often wrote code that called the built-in <code>input</code>
         and <code>print</code> functions like this:</p>
 
-<div class="pre"><pre class="python">name = input("Please enter your name: ")
+<div class="pre"><pre class="python" id="ex1">
+name = input("Please enter your name: ")
 print(f"Hello {name}")</pre></div>
+
+<pre class="console">&gt; python example_1.py
+Please enter your name: <span class="input">Miyuki</span>
+Hello Miyuki</pre>
 
         <p>To call a function you must know the following:</p>
         <ol>
@@ -178,20 +183,24 @@ print(f"Hello {name}")</pre></div>
         prints the rounded number.
 
 <div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex1">
+<pre class="python" id="ex2">
 n = float(input("Please enter a number: "))
 r = round(n, 2)
 print(r)</pre></div>
 
+<pre class="console">&gt; python example_2.py
+Please enter a number: <span class="input">95.716</span>
+95.72</pre>
+
         In the previous example,
         <ul>
             <li><div>The code on
-            <span class="cross" data-ref="ex1">line&nbsp;1</span> causes
+            <span class="cross" data-ref="ex2">line&nbsp;1</span> causes
             the computer to call the built-in <code>input</code>
             function and then call the built-in <code>float</code>
             function.</div></li>
 
-            <li><div><span class="cross" data-ref="ex1">Line&nbsp;2</span>
+            <li><div><span class="cross" data-ref="ex2">Line&nbsp;2</span>
             causes the computer to call the built-in <code>round</code>
             function and pass two arguments. Notice that the order of
             the arguments matches the order of the parameters.
@@ -199,7 +208,7 @@ print(r)</pre></div>
             first argument, and the number of digits after the decimal
             point (2) is the second argument.</div></li>
 
-            <li><div><span class="cross" data-ref="ex1">Line&nbsp;3</span>
+            <li><div><span class="cross" data-ref="ex2">Line&nbsp;3</span>
             causes the computer to call the built-in <code>print</code>
             function to print the rounded number.</div></li>
         </ul></div></li>
@@ -245,12 +254,15 @@ print(r)</pre></div>
         by a vertical bar (|). Notice the named arguments <var>sep</var>
         and <var>flush</var>.
 
-<div class="pre"><pre class="python" id="ex2">
+<div class="pre"><pre class="python" id="ex3">
 x = "sun"
 y = "moon"
 z = "stars"
 print(x, y, z, sep="|", flush=True)</pre></div>
         </div></li>
+
+<pre class="console">&gt; python example_3.py
+sun|moon|stars</pre>
 
         <li><div>A Python <dfn>module</dfn> is a collection of related
         functions. The Python <dfn>standard library</dfn> includes many
@@ -287,10 +299,12 @@ print(x, y, z, sep="|", flush=True)</pre></div>
         then type <code>math.</code> in front of <code>sqrt</code> like
         this:
 
-<div class="pre"><pre class="python">import math
+<div class="pre"><pre class="python" id="ex4">import math
 
 r = math.sqrt(71)
 print(r)</pre></div>
+<pre class="console">&gt; python example_4.py
+8.426149773176359</pre>
 
         In the above example, 71 is the argument that will be passed
         through the parameter <var>x</var> into the
@@ -317,7 +331,7 @@ print(r)</pre></div>
         string and prints the string in all upper case characters.</p>
 
 <div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex3">
+<pre class="python" id="ex5">
 # Get a string of text from the user.
 text1 = input("Enter a motivational quote: ")
 
@@ -334,15 +348,19 @@ text2 = <em>text1.upper()</em>
 # upper case for the user to see.
 print(length, text2)</pre></div>
 
+<pre class="console">&gt; python example_5.py
+Enter a motivational quote: <span class="input">Rise, take up thy bed, and walk.</span>
+32 RISE, TAKE UP THY BED, AND WALK.</pre>
+
         <p>Notice the code on
-        <span class="cross" data-ref="ex3">line&nbsp;6</span>
+        <span class="cross" data-ref="ex5">line&nbsp;6</span>
         calls the built-in <code>len</code> function and the code on
-        <span class="cross" data-ref="ex3">line&nbsp;10</span>
+        <span class="cross" data-ref="ex5">line&nbsp;10</span>
         calls the string <code>upper</code> method. Compare the function
         call in
-        <span class="cross" data-ref="ex3">line&nbsp;6</span>
+        <span class="cross" data-ref="ex5">line&nbsp;6</span>
         to the method call in
-        <span class="cross" data-ref="ex3">line&nbsp;10</span>.
+        <span class="cross" data-ref="ex5">line&nbsp;10</span>.
         To call the <code>len</code> function, we type the name of the
         function followed by a list of arguments. To call the
         <code>upper</code> method, we type the name of the object
