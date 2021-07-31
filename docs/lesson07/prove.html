@@ -36,13 +36,15 @@
     compound list.</p>
 
     <h2>Problem Statement</h2>
-    <p>In chemistry, the molar mass of a substance is the mass in grams
-    of one mole of the substance (grams / mole). A mole is simply a
-    fixed very large quantity, specifically 602,214,076,000,000,000,000,000
-    (usually written as 6.02214076 &times; 10<sup>23</sup>). A molar
-    mass calculator is a program that computes the molar mass of a
-    substance and the number of moles of a sample of that substance. To
-    use a molar mass calculator, a chemist enters two inputs:</p>
+    <p>In chemistry, the <dfn>molar mass</dfn> of a substance is the
+    mass in grams of one mole of the substance (grams / mole). A
+    <dfn>mole</dfn> is simply a fixed very large quantity, specifically
+    602,214,076,000,000,000,000,000 (usually written as 6.02214076
+    &times; 10<sup>23</sup>). A molar mass calculator is a program that
+    computes the molar mass of a substance and the number of moles of a
+    sample of that substance. To use a molar mass calculator, a chemist
+    enters two inputs:</p>
+
     <ul>
         <li><div>The formula for a molecule, such as H<sub>2</sub>O
         (water) or C<sub>6</sub>H<sub>12</sub>O<sub>6</sub>
@@ -56,20 +58,79 @@
         <li><div>Sum the number of atoms of each element in the
         formula</div></li>
         <li><div>Find the atomic mass of each element</div></li>
-        <li><div>Multiply the number of atoms by the atomic
+        <li><div>Multiply the number of atoms by their atomic
         mass</div></li>
         <li><div>Add the product into the molar mass of the
         molecule</div></li>
     </ol>
 
     <p>Then the calculator divides the mass of the sample by the molar
-    mass which results in the number of moles in the substance. The
+    mass which results in the number of moles in the sample. The
     calculator then prints two results for the chemist to see:</p>
     <ul>
         <li><div>the molar mass</div></li>
         <li><div>the number of moles</div></li>
     </ul>
 
+    <h3>Example</h3>
+    <p>As an example, consider a sample of glucose
+    (C<sub>6</sub>H<sub>12</sub>O<sub>6</sub>) with a mass of 12.37
+    grams. To use a molar mass calculator, a chemist would enter</p>
+    <ul>
+        <li><div><span class="input">C6H12O6</span></div></li>
+        <li><div><span class="input">12.37 grams</span></div></li>
+    </ul>
+    <p>The calculator would compute the molar mass of glucose by doing
+    the following:</p>
+    <ol class="long">
+        <li><div>Sum the number of atoms of each element in the
+        formula for glucose:<br>
+        6 carbon atoms<br>
+        12 hydrogen atoms<br>
+        6 oxygen atoms</div></li>
+
+        <li><div>Find the atomic mass of each element:
+            <table><thead>
+                <tr><th>Symbol</th> <th>Name</th> <th>Atomic Mass</th></tr>
+            </thead><tbody>
+                <tr><td>C</td> <td>Carbon</td> <td>12.0107</td></tr>
+                <tr><td>H</td> <td>Hydrogen</td> <td>1.00794</td></tr>
+                <tr><td>O</td> <td>Oxygen</td> <td>15.9994</td></tr>
+            </tbody></table>
+        </div></li>
+
+        <li><div>Multiply the number of atoms by their atomic mass:
+            <table><tbody>
+                <tr><td class="number">6</td> <td>&times;</td>
+                    <td>12.0107</td> <td>=</td> <td>72.0642</td></tr>
+                <tr><td class="number">12</td> <td>&times;</td>
+                    <td>1.00794</td> <td>=</td> <td>12.09528</td></tr>
+                <tr><td class="number">6</td> <td>&times;</td>
+                    <td>15.9994</td> <td>=</td> <td>95.9964</td></tr>
+            </tbody></table>
+        </div></li>
+
+        <li><div>Add the results of the multiplications to get the molar mass
+        of glucose:
+        <div>72.0642 + 12.09528 + 95.9964 = 180.15588 grams/mole</div>
+        </div></li>
+    </ol>
+
+    <p>Then the calculator would divide the mass of the sample of
+    glucose by the molar mass of glucose which results in the
+    number of moles in the sample:</p>
+    <div class="block expr"><div class="fract"><div class="numer">12.37 grams</div><div class="denom">180.15588 grams/mole</div></div> = 0.06866 moles</div>
+
+    <p>The calculator would then print two results for the chemist to
+    see:</p>
+    <ul>
+        <li><div>the molar mass of glucose:&nbsp; 180.15588
+        grams/mole</div></li>
+        <li><div>the number of moles in the sample:&nbsp; 0.06866
+        moles</div></li>
+    </ul>
+
+    <h3>Table of Elements</h3>
     <p>There are 118 known elements. The symbol, name, and atomic mass
     of all 118 elements are shown in the following table.</p>
 
@@ -196,6 +257,12 @@
         <tr><td>"Zr",</td> <td>"Zirconium",</td> <td>91.224</td></tr>
     </tbody></table>
 
+    <h2>Assignment</h2>
+    <p>During this lesson and the next lesson, you will write and test a
+    molar mass calculator. During this lesson, you will complete part of
+    the calculator by writing code to create a compound list that
+    contains data for all 118 known elements.</p>
+
     <h2>Helpful Documentation</h2>
     <ul class="long">
         <li><div>If you are interested in the chemistry concepts
@@ -218,12 +285,8 @@
         <code>pytest</code>.</div></li>
     </ul>
 
-    <h2>Assignment</h2>
-    <p>During this lesson and the next lesson, you will write and test a
-    molar mass calculator. During this lesson, you will complete part of
-    the calculator by writing code to create a compound list that
-    contains data for all 118 known elements. Do the following:</p>
-
+    <h2>Steps</h2>
+    <p>Do the following:</p>
     <ol class="long">
         <li><div>Using VS Code, create a new file and save it as
         <code>chemistry.py</code></div></li>
@@ -258,17 +321,12 @@
         table with each individual element on a separate
         line.</div></li>
 
-        <li><div>At the bottom of the <code>chemistry.py</code> file,
+        <li><div>At the bottom of your <code>chemistry.py</code> file,
         add a call to the <code>main</code> function. Be certain to
         protect the call to <code>main</code> with an <code>if</code>
         statement as taught in the
         <a href="../lesson05/prepare.html#separate">prepare content</a>
         for lesson&nbsp;5.</div></li>
-
-        <li><div>Download the
-        <a download href="test_chemistry_1.py"><code>test_chemistry_1.py</code></a>
-        Python file and save it in the same folder where you saved your
-        <code>chemistry.py</code> Python program.</div></li>
     </ol>
 
     <h2>Testing Procedure</h2>
@@ -276,13 +334,18 @@
     in this testing procedure:</p>
 
     <ol class="test long">
-        <li><div>Run the <code>test_chemistry_1.py</code> program and
-        ensure that the <code>test_make_periodic_table</code> function
-        passes. If it doesn't pass, there is a mistake in your
+        <li><div>Download the <a download
+        href="test_chemistry_1.py"><code>test_chemistry_1.py</code></a>
+        Python file and save it in the same folder where you saved your
+        <code>chemistry.py</code> program. Run the
+        <code>test_chemistry_1.py</code> file and ensure that the
+        <code>test_make_periodic_table</code> function passes. If it
+        doesn't pass, there is a mistake in your
         <code>make_periodic_table</code> function. Read the output from
         <code>pytest</code>, fix the mistake, and run the
-        <code>test_chemistry_1.py</code> program again until the test
+        <code>test_chemistry_1.py</code> file again until the test
         function passes.
+
 <pre class="console">&gt; python test_chemistry_1.py
 ======================= test session starts =======================
 platform win32--Python 3.8.6, pytest-6.1.2, py-1.9.0, pluggy-0.13.1

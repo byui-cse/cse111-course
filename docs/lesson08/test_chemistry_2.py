@@ -17,11 +17,11 @@ def test_make_periodic_table():
     Parameters: none
     Return: nothing
     """
-    # Call the make_periodic_table and store the returned
-    # periodic table in a variable named period_table.
+    # Call the make_periodic_table function and store the returned
+    # dictionary in a variable named periodic_table_dict.
     periodic_table_dict = make_periodic_table()
 
-    # Check each element in the sorted periodic table.
+    # Check each item in the periodic table dictionary.
     check_element(periodic_table_dict["Ac"], ["Actinium", 227])
     check_element(periodic_table_dict["Ag"], ["Silver", 107.8682])
     check_element(periodic_table_dict["Al"], ["Aluminum", 26.9815386])
