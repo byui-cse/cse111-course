@@ -443,11 +443,11 @@ if __name__ == "__main__":
 [Errno 13] Permission denied: 'contacts.csv'</pre>
 
     <h2>Example: Arithmetic</h2>
-    <p>Example&nbsp;9 contains a complete program with
+    <p>Example&nbsp;10 contains a complete program with
     <code>except</code> blocks to handle two types of exceptions:&nbsp;
     <code>ValueError</code> and <code>ZeroDivisionError</code>.</p>
 
-<div class="pre"><pre class="python" id="ex9"># Example 9
+<div class="pre"><pre class="python" id="ex10"># Example 10
 
 """
 Sam, who is the owner of Sam's Sandwich Shop, requested
@@ -466,17 +466,16 @@ def main():
         sands_per_emp = sandwiches / employees
 
         # Print the results for the user to see.
-        print(f"{sands_per_emp} sandwiches per employee")
+        print(f"{sands_per_emp:.1f} sandwiches per employee")
 
     <em>except ValueError as val_err:</em>
-        print()
-        print(val_err)
-        print("Error: you entered text that is not an integer.")
-        print("Please run the program again and enter an integer.")
+        print(f"Error: {val_err}")
+        print("You entered text that is not an integer. Please")
+        print("run the program again and enter an integer.")
 
     <em>except ZeroDivisionError as zero_div_err:</em>
-        print()
-        print("Error: you entered 0 for the number of employees.")
+        print(f"Error: {zero_div_err}")
+        print("You entered 0 for the number of employees.")
         print("Please run the program again and enter an integer")
         print("larger than 0 for the number of employees.")
 
@@ -485,20 +484,39 @@ def main():
 if __name__ == "__main__":
     main()</pre></div>
 
+<pre class="console">&gt; python example_10.py
+Number of sandwiches that were made today: <span class="input">35u</span>
+Error: invalid literal for int() with base 10: '35u'
+You entered text that is not an integer. Please
+run the program again and enter an integer.
+
+&gt; python example_10.py
+Number of sandwiches that were made today: <span class="input">350</span>
+Number of employees who worked today: <span class="input">0</span>
+Error: division by zero
+You entered 0 for the number of employees.
+Please run the program again and enter an integer
+larger than 0 for the number of employees.
+
+&gt; python example_10.py
+Number of sandwiches that were made today: <span class="input">350</span>
+Number of employees who worked today: <span class="input">8</span>
+43.8 sandwiches per employee</pre>
+
     <h2>Example: Reading from a File</h2>
-    <p>The program in example&nbsp;10 below handles exceptions that
+    <p>The program in example&nbsp;11 below handles exceptions that
     might occur when the program opens and reads from a file. This
     program contains only one <code>try</code> block, which begins at
-    <span class="cross" data-ref="ex10">line&nbsp;12</span> and includes
+    <span class="cross" data-ref="ex11">line&nbsp;12</span> and includes
     all the regular code in the <code>main</code> function. This one
     <code>try</code> block has three <code>except</code> blocks at
-    <span class="cross" data-ref="ex10">lines&nbsp;47,
+    <span class="cross" data-ref="ex11">lines&nbsp;47,
     51,&nbsp;and&nbsp;55</span> that handle
     <code>FileNotFoundError</code>, <code>PermissionError</code>, and
     <code>ZeroDivisionError</code>.</p>
 
 <div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex10"># Example 10
+<pre class="python" id="ex11"># Example 11
 
 import csv
 
@@ -574,12 +592,12 @@ if __name__ == "__main__":
     <h2 id="validate">Validating User Input</h2>
     <p>To <dfn>validate user input</dfn> means to check user input to
     ensure it is in the correct format before using that input. The
-    program in example&nbsp;11 validates user input by handling
+    program in example&nbsp;12 validates user input by handling
     exceptions. Notice in the <code>get_float</code> function at
-    <span class="cross" data-ref="ex11">line&nbsp;28</span> there is a
+    <span class="cross" data-ref="ex12">line&nbsp;28</span> there is a
     <code>try</code> block. The <code>try</code> block is part of a loop
     that validates user input in the <code>get_float</code> function.
-    Notice at <span class="cross" data-ref="ex11">line&nbsp;43</span>
+    Notice at <span class="cross" data-ref="ex12">line&nbsp;43</span>
     that the <code>except</code> block handles
     <a href="https://docs.python.org/3/library/exceptions.html#ValueError"><code>ValueError</code></a>
     which is the type of exception that the
@@ -588,7 +606,7 @@ if __name__ == "__main__":
     text contains characters that are not numeric.</p>
 
 <div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex11"># Example 11
+<pre class="python" id="ex12"># Example 12
 
 def main():
     gender = input("Enter your gender (M or F): ")

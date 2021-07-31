@@ -42,19 +42,19 @@
     <p>Here are the Python programming concepts and topics that you
     should learn during this lesson:</p>
     <ol class="long">
-        <li><div>During previous lessons, you tested your programs by
-        running them, typing user input, reading the output, and
-        verifying that the output was correct. This is a valid way to
-        test a program. However, it is time consuming, tedious, and
+        <li id="1"><div><p>During previous lessons, you tested your
+        programs by running them, typing user input, reading the output,
+        and verifying that the output was correct. This is a valid way
+        to test a program. However, it is time consuming, tedious, and
         error prone. A much better way to test a program is to test its
-        functions individually and to write test functions that
-        <em>automatically</em> verify that the program's functions are
-        correct.</div></li>
+        functions individually and to write <dfn>test functions</dfn>
+        that <em>automatically</em> verify that the program's functions
+        are correct.</p>
 
-        <li id="2"><div>In this course, you will write test functions in
-        a Python file that is separate from your Python program. In
-        other words, you will keep normal program code and test code in
-        separate files.</div></li>
+        <p>In this course, you will write test functions in a Python
+        file that is separate from your Python program. In other words,
+        you will keep normal program code and test code in separate
+        files.</p></div></li>
 
         <li><div><p>In a computer program, an <dfn>assertion</dfn> is a
         statement that causes the computer to check if a comparison is
@@ -279,7 +279,7 @@ test_weather.py::test_cels_from_fahr <span class="pass">PASSED                  
     expected (correct) result all four times.</p>
 
     <h2 id="separate">Separating Program Code from Test Code</h2>
-    <p>As explained in <a href="#2">concept #2</a> above, in
+    <p>As explained in <a href="#1">concept&nbsp;#1</a> above, in
     CSE&nbsp;111, we will write test functions in a separate file from
     program functions. It is a good idea to separate test functions and
     program functions because the separation makes it easy to release a
@@ -290,9 +290,10 @@ test_weather.py::test_cels_from_fahr <span class="pass">PASSED                  
     the test file that imports all the program functions that will be
     tested.</p>
 
-    <p>Line&nbsp;3 from <code>test_weather.py</code> above is an example
-    of an import statement that imports functions from a program file.
-    Line&nbsp;3 matches this template:</p>
+    <p><span class="cross" data-ref="ex6">Line&nbsp;3</span> from
+    <code>test_weather.py</code> above is an example of an import
+    statement that imports functions from a program file. Line&nbsp;3
+    matches this template:</p>
 
 <div class="pre"><pre class="python">from <var>file_name</var> import <var>function_1</var>, <var>function_2</var>, &hellip; <var>function_N</var></pre></div>
 

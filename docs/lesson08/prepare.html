@@ -102,10 +102,11 @@ def main():
 
     # Get the number of items in the dictionary and print it.
     length = len(students)
-    print(length)
+    print(f"length: {length}")
 
     # Print the entire dictionary.
     print(students)
+    print()
 
     # Get a student ID from the user.
     id = input("Enter a student ID: ")
@@ -128,6 +129,15 @@ def main():
 if __name__ == "__main__":
     main()</pre></div>
 
+<pre class="console">&gt; python example_1.py
+length: 5
+{'42-039-4736': 'Clint Huish', '10-450-1203': 'Jorge Soares',
+'75-421-2310': 'Abdul Ali', '07-103-5621': 'Michelle Davis',
+'81-298-9238': 'Sama Patel'}
+
+Enter a student ID: <span class="input">10-450-1203</span>
+Jorge Soares</pre>
+
     <p><span class="cross" data-ref="ex1">Line&nbsp;15</span> in the
     previous code example, adds an item to the dictionary. To add an
     item to an existing dictionary, write code that follows this
@@ -136,12 +146,12 @@ if __name__ == "__main__":
     <p>Notice that <span class="cross" data-ref="ex1">line&nbsp;15</span>
     follows this template.</p>
 
-    <p><span class="cross" data-ref="ex1">Line&nbsp;35</span> in the
+    <p><span class="cross" data-ref="ex1">Line&nbsp;36</span> in the
     previous code example, finds a key and retrieves its corresponding
     value from a dictionary. To find a key and retrieve its
     corresponding value, write code that follows this template:</p>
 <div class="pre"><pre class="python">    <var>value</var> = <var>dictionary_name</var>[<var>key</var>]</pre></div>
-    <p>Notice that <span class="cross" data-ref="ex1">line&nbsp;35</span>
+    <p>Notice that <span class="cross" data-ref="ex1">line&nbsp;36</span>
     follows this template.</p>
 
     <h3>Compound Values</h3>
@@ -281,6 +291,14 @@ def main():
 if __name__ == "__main__":
     main()</pre></div>
 
+<pre class="console">&gt; python example_4.py
+Enter a student ID: <span class="input">61-315-0160</span>
+Michelle Davis
+
+&gt; python example_4.py
+Enter a student ID: <span class="input">25-143-1202</span>
+No such student</pre>
+
     <h3 id="processAll">Processing All Items</h3>
     <p>Occaisionally, you may need to write a program that processes all
     the items in a dictionary. Processing all the items in a dictionary
@@ -330,6 +348,9 @@ def main():
 # Call main to start this program.
 if __name__ == "__main__":
     main()</pre></div>
+
+<pre class="console">&gt; python example_5.py
+Total credits earned by all students: 47</pre>
 
     <p>As with all the example code in CSE&nbsp;111, example&nbsp;5
     contains working Python code. Even though the code works, we can
@@ -392,6 +413,9 @@ def main():
 # Call main to start this program.
 if __name__ == "__main__":
     main()</pre></div>
+
+<pre class="console">&gt; python example_6.py
+Total credits earned by all students: 47</pre>
 
     <h3>Dictionaries Are Similar to Lists</h3>
     <p>Dictionaries are similar to lists in a few ways. The following
@@ -496,7 +520,8 @@ def main():
     <em>student_dict = dict(zip(numbers, names))</em>
 
     # Print the entire student dictionary.
-    print(student_dict)
+    print("Dictionary:", student_dict)
+    print()
 
     # Convert the student dictionary into
     # two lists named keys and values.
@@ -504,13 +529,25 @@ def main():
     values = list(student_dict.values())</em>
 
     # Print both lists.
-    print(keys)
-    print(values)
+    print("Keys:", keys)
+    print()
+    print("Values:", values)
 
 
 # Call main to start this program.
 if __name__ == "__main__":
     main()</pre></div>
+
+<pre class="console">&gt; python example_7.py
+Dictionary: {'42-039-4736': 'Clint Huish',
+'61-315-0160': 'Michelle Davis', '10-450-1203': 'Jorge Soares',
+'75-421-2310': 'Abdul Ali', '07-103-5621': 'Michelle Davis'}
+
+Keys: ['42-039-4736', '61-315-0160', '10-450-1203',
+'75-421-2310', '07-103-5621']
+
+Values: ['Clint Huish', 'Michelle Davis', 'Jorge Soares',
+'Abdul Ali', 'Michelle Davis']</pre>
 
     <h2>Tutorials</h2>
     <p>The following tutorials contain more information about

@@ -43,7 +43,8 @@ cse111.linenums = {
 		const copyFunc = function(event) {
 			const button = event.currentTarget;
 			const div = button.parentElement;
-			const pre = div.getElementsByClassName('python')[0];
+			const elems = div.getElementsByTagName('pre');
+			const pre = elems[elems.length - 1];
 			const text = pre.textContent;
 
 			// Copy the text to the clipboard.
@@ -56,7 +57,6 @@ cse111.linenums = {
 			document.removeEventListener('copy', listener);
 		};
 
-		//const elems = document.getElementsByClassName('pre');
 		const elems = document.querySelectorAll('div.pre');
 		for (let i = 0;  i < elems.length;  ++i) {
 			let image = document.createElement('img');

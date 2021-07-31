@@ -150,6 +150,10 @@ def read_list(filename):
 if __name__ == "__main__":
     main()</pre></div>
 
+<pre class="console">&gt; python example_1.py
+['baobab', 'kangaroo paw', 'eucalyptus', 'heliconia', 'tulip',
+'chupasangre cactus', 'prickly pear cactus', 'ginkgo biloba']</pre>
+
     <h3 id="csvFiles">CSV Files</h3>
     <p>Many computer systems import and export data in CSV files. CSV is
     an acronym for comma separated values. A <dfn>CSV file</dfn> is a
@@ -176,7 +180,7 @@ Cornerstone Family Dental,44 S Center Street,208-356-4240,8,1453
     <code>csv</code> module to read the data and store it in a
     dictionary. Remember that each item in a dictionary is a key value
     pair. Notice in example&nbsp;2, because of
-    <span class="cross" data-ref="ex2">lines&nbsp;16,
+    lines&nbsp;<span class="cross" data-ref="ex2">16,
     56,&nbsp;and&nbsp;60</span> that the code is using the dental office
     phone numbers as the keys in the dictionary.</p>
 
@@ -250,6 +254,12 @@ def read_dict(filename, key_column_index):
 if __name__ == "__main__":
     main()</pre></div>
 
+<pre class="console">&gt; python example_2.py
+{'208-359-2224': ['Eagle Rock Dental Care', '556 Trejo Suite C', '20&hellip;],
+'208-359-1500': ['Apple Tree Dental', '33 Winn Drive Suite 2', '208-&hellip;],
+'208-356-5600': ['Rockhouse Dentistry', '106 E 1st N', '208-356-5600&hellip;],
+'208-356-4240': ['Cornerstone Family Dental', '44 S Center Street', &hellip;]}</pre>
+
     <p>The previous example reads the contents of a CSV file and stores
     the contents in a dictionary. However, it is not always necessary to
     store the contents of a CSV file in a dictionary. Sometimes a
@@ -317,6 +327,9 @@ def main():
 # Call main to start this program.
 if __name__ == "__main__":
     main()</pre></div>
+
+<pre class="console">&gt; python example_3.py
+Cornerstone Family Dental has 181.6 patients per employee</pre>
 
     <h2>Tutorials</h2>
     <p>If any of the concepts or topics in the previous section seem
