@@ -42,11 +42,47 @@
     would need to understand sentences typed by a human and respond with
     sentences that make sense.</p>
 
+    <p>In English and many other languages, <dfn>grammatical
+    number</dfn> is an attribute of nouns, pronouns, adjectives, and
+    verbs that expresses count distinctions, such as "one", "two",
+    "some", or "many". The grammatical number of the words in a sentence
+    must match. In English, there are two categories of grammatical
+    number: single and plural. For example, here are three English
+    sentences that contain <dfn>single</dfn> nouns, pronouns,
+    adjectives, and verbs:</p>
+
+    <blockquote>The boy laughs.<br>
+    One dog eats.<br>
+    She drinks water.</blockquote>
+
+    <p>Here are three English sentences that contain <dfn>plural</dfn>
+    nouns, pronouns, adjectives, and verbs:</p>
+
+    <blockquote>Two birds fly.<br>
+    Some animals eat grass.<br>
+    Many cars are red.</blockquote>
+
+    <p><dfn>Grammatical tense</dfn> is an attribute of verbs that
+    expresses when an action happened. Many languages include past,
+    present, and future tenses. For example, here are three English
+    sentences, the first with past tense, the second with present tense,
+    and the third with future tense:</p>
+
+    <blockquote>The cat walked.</br>
+    The cat walks.<br>
+    The cat will walk.</blockquote>
+
+    <h2>Assignment</h2>
     <p>Write a Python program that generates simple English sentences.
     During this lesson, you will write and test functions that generate
-    sentences with three parts: a determiner (sometimes known as an
-    article), a noun, and a verb, such as these sentences:</p>
+    sentences with three parts:</p>
+    <ol>
+        <li><div>a determiner (sometimes known as an article)</div></li>
+        <li><div>a noun</div></li>
+        <li><div>a verb</div></li>
+    </ol>
 
+    <p>For example:</p>
     <blockquote>The cat laughed.<br>
     Some girls thought.<br>
     One man eats.<br>
@@ -128,7 +164,7 @@ word = <em>random.choice(words)</em></pre></div>
         <code>pytest</code> to run them.</div></li>
     </ul>
 
-    <h2>Assignment</h2>
+    <h2>Steps</h2>
     <p>Do the following:</p>
     <ol class="long">
         <li><div>Using VS Code, create a new file, import the
@@ -137,20 +173,23 @@ word = <em>random.choice(words)</em></pre></div>
 
         <li><div>Copy and paste the following
         <code>get_determiner</code> function into your program.
+
 <div class="pre"><pre class="python">
-def get_determiner(quantity):
-    """Return a randomly chosen determiner. A determiner is a word
-    like "the", "a", "one", "two", "some", "many". If quantity == 1,
-    this function will return either "the" or "one". Otherwise
-    this function will return either "some" or "many".
+def get_determiner(grammatical_number):
+    """Return a randomly chosen determiner. A determiner is
+    a word like "the", "a", "one", "two", "some", "many".
+    If grammatical_number == 1, this function will return
+    either "the" or "one". Otherwise this function will
+    return either "some" or "many".
 
     Parameter
-        quantity: an integer. If quantity == 1, this function will
-            return a determiner for a single noun. Otherwise this
+        grammatical_number: an integer.
+            If grammatical_number == 1, this function will return
+            a determiner for a single noun. Otherwise this
             function will return a determiner for a plural noun.
     Return: a randomly chosen determiner.
     """
-    if quantity == 1:
+    if grammatical_number == 1:
         words = ["the", "one"]
     else:
         words = ["some", "many"]
@@ -163,21 +202,24 @@ def get_determiner(quantity):
         <li><div>Use the <code>get_determiner</code> function as an
         example to help you write the <code>get_noun</code> function.
         The <code>get_noun</code> function must have the following
-        header and fulfill the requirements of its comment.
+        header and fulfill the requirements of the following
+        documentation string.
+
 <div class="pre"><pre class="python">
-def get_noun(quantity):
-    """Return a randomly chosen noun. If quantity == 1, this
-    function will return one of these ten single nouns:
+def get_noun(grammatical_number):
+    """Return a randomly chosen noun.
+    If grammatical_number == 1, this function will
+    return one of these ten single nouns:
         "adult", "bird", "boy", "car", "cat",
         "child", "dog", "girl", "man", "woman"
-    Otherwise, this function will return one of these ten
-    plural nouns:
+    Otherwise, this function will return one of these
+    ten plural nouns:
         "adults", "birds", "boys", "cars", "cats",
         "children", "dogs", "girls", "men", "women"
 
     Parameter
-        quantity: an integer that determines if the
-            returned noun is single or plural.
+        grammatical_number: an integer that determines
+            if the returned noun is single or plural.
     Return: a randomly chosen noun.
     """</pre></div>
         </div></li>
@@ -185,41 +227,44 @@ def get_noun(quantity):
         <li><div>Use the <code>get_determiner</code> function as an
         example to help you write the <code>get_verb</code> function.
         The <code>get_verb</code> function must have the following
-        header and fulfill the requirements of its comment.
+        header and fulfill the requirements of the following
+        documentation string.
+
 <div class="pre"><pre class="python">
-def get_verb(quantity, tense):
+def get_verb(grammatical_number, tense):
     """Return a randomly chosen verb. If tense is "past", this
     function will return one of these ten verbs:
         "drank", "ate", "grew", "laughed", "thought",
         "ran", "slept", "talked", "walked", "wrote"
-    If tense is "present" and quantity is 1, this function will
-    return one of these ten verbs:
+    If tense is "present" and grammatical_number is 1, this
+    function will return one of these ten verbs:
         "drinks", "eats", "grows", "laughs", "thinks",
         "runs", "sleeps", "talks", "walks", "writes"
-    If tense is "present" and quantity is NOT 1, this function
-    will return one of these ten verbs:
+    If tense is "present" and grammatical_number is NOT 1,
+    this function will return one of these ten verbs:
         "drink", "eat", "grow", "laugh", "think",
         "run", "sleep", "talk", "walk", "write"
-    If tense is "future", this function will return one of these
-    ten verbs:
+    If tense is "future", this function will return one of
+    these ten verbs:
         "will drink", "will eat", "will grow", "will laugh",
         "will think", "will run", "will sleep", "will talk",
         "will walk", "will write"
 
     Parameter
-        quantity: an integer that determines if the returned
-            verb is single or plural.
+        grammatical_number: an integer that determines if the
+            returned verb is single or plural.
         tense: a string that determines the verb conjugation,
             either "past", "present" or "future".
     Return: a randomly chosen verb.
     """</pre></div>
         </div></li>
 
-        <li><div>Write the <code>main</code> function and any other
+        <li><div><p>Write the <code>main</code> function and any other
         functions that you think are necessary for your program to
-        generate and print six sentences with these characteristics:
+        generate and print six sentences with these characteristics:</p>
+
         <table><thead>
-            <tr><th></th> <th>Noun Quantity</th> <th>Verb Tense</th></tr>
+            <tr><th></th> <th>Grammatical Number</th> <th>Verb Tense</th></tr>
         </thead><tbody>
             <tr><td>a.</td> <td>single</td> <td>past</td></tr>
             <tr><td>b.</td> <td>plural</td> <td>past</td></tr>
@@ -234,7 +279,7 @@ def get_verb(quantity, tense):
         functions named <code>test_get_determiner</code>,
         <code>test_get_noun</code>, and <code>test_get_verb</code>.
         Each of these three test functions must test one of the program
-        functions: <code>get_determiner</code>, <code>get_noun</code>,
+        functions:&nbsp; <code>get_determiner</code>, <code>get_noun</code>,
         and <code>get_verb</code>. The following example contains code
         for the <code>test_get_determiner</code> function. Copy and
         paste the code into your <code>test_sentences.py</code> file and

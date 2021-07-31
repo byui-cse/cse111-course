@@ -42,19 +42,29 @@
     would need to understand sentences typed by a human and respond with
     sentences that make sense.</p>
 
-    <h2>Helpful Documentation</h2>
-    <p>The <a href="prepare.html">prepare content</a> for this lesson
-    explains how to troubleshoot functions and entire programs that are not
-    working correctly.</p>
+    <p>In English, a <dfn>preposition</dfn> is a word used to express
+    spatial or temporal relations, such as "in", "over", and "before". A
+    <dfn>prepositional phrase</dfn> is group of words that begins with a
+    preposition and includes a noun. For example:</p>
+
+    <blockquote>above the water<br>
+    in the kitchen<br>
+    after the meeting</blockquote>
 
     <h2>Assignment</h2>
     <p>Write the second half of the Python program that you began in the
     previous lesson's <a href="../lesson05/prove.html">prove milestone</a>,
     a program that generates simple English sentences. During this
     lesson, you will write and test functions that generate sentences
-    with four parts: a determiner, a noun, a verb, and a prepositional
-    phrase such as these sentences:</p>
+    with four parts:</p>
+    <ol>
+        <li><div>a determiner</div></li>
+        <li><div>a noun</div></li>
+        <li><div>a verb</div></li>
+        <li><div>a prepositional phrase </div></li>
+    </ol>
 
+    <p>For example:</p>
     <blockquote>One girl talked for the car.<br>
     Some dogs drank above many adults.<br>
     One bird drinks off one child.<br>
@@ -72,6 +82,7 @@
         <li><div><code>get_prepositional_phrase</code></div></li>
         <li><div><code>get_preposition</code></div></li>
     </ul>
+
     <p>You may add other functions if you want. The
     <code>get_preposition</code> function must randomly choose a
     preposition from a list and return the randomly chosen preposition.
@@ -79,13 +90,20 @@
     prepositional phrase by calling the <code>get_preposition</code>,
     <code>get_determiner</code>, and <code>get_noun</code> functions.</p>
 
+    <h2>Helpful Documentation</h2>
+    <p>The <a href="prepare.html">prepare content</a> for this lesson
+    explains how to troubleshoot functions and entire programs that are not
+    working correctly.</p>
+
+    <h2>Steps</h2>
     <p>Do the following:</p>
     <ol class="long">
         <li><div>Use the <code>get_determiner</code> function from the
         previous lesson as an example to help you write the
         <code>get_preposition</code> function. The
         <code>get_preposition</code> function must have the following
-        header and fulfill the requirements of its comment.
+        header and fulfill the requirements of the following
+        documentation string.
 
 <div class="pre"><pre class="python">
 def get_preposition():
@@ -104,7 +122,8 @@ def get_preposition():
 
         <li><div>Write the <code>get_prepositional_phrase</code>
         function to have the following header and fulfill the
-        requirements of its comment.
+        requirements of the following documentation string.
+
 <div class="pre"><pre class="python">
 def get_prepositional_phrase(quantity):
     """Build and return a prepositional phrase composed of three
@@ -118,14 +137,14 @@ def get_prepositional_phrase(quantity):
     """</pre></div>
         </div></li>
 
-        <li><div>Add code to the <code>main</code> function and write
+        <li><div><p>Add code to the <code>main</code> function and write
         any other functions that you think are necessary for your
         program to generate and print six more sentences with the
         following characteristics. Each of these six additional
-        functions must include a prepositional phrase.
+        functions must include a prepositional phrase.</p>
 
         <table><thead>
-            <tr><th></th> <th>Noun Quantity</th> <th>Verb Tense</th></tr>
+            <tr><th></th> <th>Grammatical Number</th> <th>Verb Tense</th></tr>
         </thead><tbody>
             <tr><td>a.</td> <td>singular</td> <td>past</td></tr>
             <tr><td>b.</td> <td>plural</td> <td>past</td></tr>
