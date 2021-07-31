@@ -117,7 +117,11 @@
 
         <li><div>Open the <code>request.csv</code> file in VS Code and
         examine it. Notice that each row contains only two values, a
-        product number and a quantity.</div></li>
+        product number and a quantity. Notice also that product number
+        D083 appears twice in the file. It appears twice because the
+        customer who created the order in the <code>request.csv</code>
+        file added four yogurts to his order and then later added three
+        more yogurts to his order.</div></li>
 
         <li><div><p>In your <code>receipt.py</code> program, write
         another function named <code>main</code> that does the
@@ -137,7 +141,7 @@
             the loop, your program must do the following for each row:
             <ol>
                 <li><div>Use the requested product number to find the
-                corresponding item in <var>products</var>
+                corresponding item in the <var>products</var>
                 dictionary.</div></li>
                 <li><div>Print the product name, requested quantity, and
                 product price.</div></li>
@@ -148,13 +152,42 @@
         file into a dictionary but should instead read and process each
         row similar to <a href="prepare.html#ex3">example&nbsp;3</a> in
         the prepare content for this lesson.</p></div></li>
+
+        <li><div>At the bottom of your <code>receipt.py</code> file,
+        add a call to the <code>main</code> function. Be certain to
+        protect the call to <code>main</code> with an <code>if</code>
+        statement as taught in the
+        <a href="../lesson05/prepare.html#separate">prepare content</a>
+        for lesson&nbsp;5.</div></li>
     </ol>
 
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each step
     in this testing procedure:</p>
 
-    <ol class="test">
+    <ol class="test long">
+        <li><div>Download the <a download
+        href="test_products.py"><code>test_products.py</code></a>
+        file and save it in the same folder where you saved your
+        <code>receipt.py</code> program. Run the
+        <code>test_products.py</code> file and ensure that the
+        <code>test_read_products</code> function passes. If it doesn't
+        pass, there is a mistake in your <code>read_products</code>
+        function. Read the output from <code>pytest</code>, fix the
+        mistake, and run the <code>test_products.py</code> file again
+        until the test function passes.
+
+<pre class="console">&gt; python test_products.py
+======================= test session starts =======================
+platform win32--Python 3.8.6, pytest-6.1.2, py-1.9.0, pluggy-0.13.1
+rootdir: C:\Users\cse111\lesson09
+collected 1 item
+
+test_products.py::test_read_products <span class="pass">PASSED                  [100%]</span>
+
+<span class="pass">======================== 1 passed in 0.12s ========================</span></pre>
+        </div></li>
+
         <li><div>Run your program and verify that it prints the
         <var>products</var> dictionary and requested items as shown in
         the Sample Run section below.</div></li>
@@ -164,28 +197,29 @@
 <pre class="console">&gt; python receipt.py
 
 Products
-D150 ['1 gallon milk', '2.85']
-D083 ['1 cup yogurt', '0.75']
-D215 ['1 lb cheddar cheese', '3.35']
-P019 ['iceberg lettuce', '1.15']
-P020 ['green leaf lettuce', '1.79']
-P021 ['butterhead lettuce', '1.83']
-P025 ['8 oz arugula', '2.19']
-P143 ['1 lb baby carrots', '1.39']
-W231 ['32 oz granola', '3.21']
-W112 ['wheat bread', '2.55']
-C013 ['twix candy bar', '0.85']
-H001 ['8 rolls toilet tissue', '6.45']
-H014 ['facial tissue', '2.49']
-H020 ['aluminum foil', '2.39']
-H021 ['12 oz dish soap', '3.19']
-H025 ['toilet cleaner', '4.50']
+D150 ['1 gallon milk', 2.85]
+D083 ['1 cup yogurt', 0.75]
+D215 ['1 lb cheddar cheese', 3.35]
+P019 ['iceberg lettuce', 1.15]
+P020 ['green leaf lettuce', 1.79]
+P021 ['butterhead lettuce', 1.83]
+P025 ['8 oz arugula', 2.19]
+P143 ['1 lb baby carrots', 1.39]
+W231 ['32 oz granola', 3.21]
+W112 ['wheat bread', 2.55]
+C013 ['twix candy bar', 0.85]
+H001 ['8 rolls toilet tissue', 6.45]
+H014 ['facial tissue', 2.49]
+H020 ['aluminum foil', 2.39]
+H021 ['12 oz dish soap', 3.19]
+H025 ['toilet cleaner', 4.5]
 
 Requested Items
-1 gallon milk: 2 @ 2.85
-32 oz granola: 1 @ 3.21
+wheat bread: 2 @ 2.55
 1 cup yogurt: 4 @ 0.75
-twix candy bar: 2 @ 0.85</pre>
+32 oz granola: 1 @ 3.21
+twix candy bar: 2 @ 0.85
+1 cup yogurt: 3 @ 0.75</pre>
 
     <h2>Submission</h2>
     <p>On or before the due date, return to I-Learn and report your
