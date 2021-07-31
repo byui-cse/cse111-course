@@ -107,6 +107,10 @@ miles = float(input("Please enter a distance in miles: "))
 km = miles * 1.60934
 print(f"{miles} miles is {km} kilometers")</pre></div>
 
+<pre class="console">&gt; python example_1.py
+Please enter a distance in miles: <span class="input">3.1</span>
+3.1 miles is 4.988954 kilometers</pre>
+
         <p>Writing statements outside a function can lead to poor
         organization within a large program. Professional software
         developers write statements inside a function whenever possible.
@@ -132,6 +136,10 @@ def main():
 # Start this program by
 # calling the main function.
 main()</pre></div>
+
+<pre class="console">&gt; python example_2.py
+Please enter a distance in miles: <span class="input">3.1</span>
+3.1 miles is 4.988954 kilometers</pre>
 
         <p>Notice the call to the <code>main</code> function at
         <span class="cross" data-ref="ex2">line&nbsp;12</span>
@@ -220,11 +228,13 @@ import math
 
 # Define a function named print_cylinder_volume.
 def print_cylinder_volume():
-    """Compute and print the volume of a cylinder."""
-
+    """Compute and print the volume of a cylinder.
+    Parameters: none
+    Return: nothing
+    """
     # Get the radius and height from the user.
-    radius = float(input("Please enter the radius of a cylinder: "))
-    height = float(input("Please enter the height of a cylinder: "))
+    radius = float(input("Enter the radius of a cylinder: "))
+    height = float(input("Enter the height of a cylinder: "))
 
     # Compute the volume of the cylinder.
     volume = math.pi * radius**2 * height
@@ -250,10 +260,10 @@ import math
 # Define a function named print_cylinder_volume.
 def print_cylinder_volume(<em>radius</em>, <em>height</em>):
     """Compute and print the volume of a cylinder.
-
     Parameters
         radius: the radius of the cylinder
         height: the height of the cylinder
+    Return: nothing
     """
     # Compute the volume of the cylinder.
     volume = math.pi * radius**2 * height
@@ -294,7 +304,6 @@ import math
 # Define a function named computer_cylinder_volume.
 def compute_cylinder_volume(radius, height):
     """Compute and return the volume of a cylinder.
-
     Parameters
         radius: the radius of the cylinder
         height: the height of the cylinder
@@ -330,7 +339,6 @@ import math
 # Define a function that accepts two parameters.
 def compute_cylinder_volume(radius, height):
     """Compute and print the volume of a cylinder.
-
     Parameters
         radius: the radius of the cylinder
         height: the height of the cylinder
@@ -370,13 +378,19 @@ def main():
 # Start this program by
 # calling the main function.
 main()</pre></div>
+
+<pre class="console">&gt; python example_6.py
+Enter the radius in centimeters: <span class="input">3</span>
+Enter the height in centimeters: <span class="input">8</span>
+That cylinder holds 226.194671 cubic
+centimeters, which is less than a liter.</pre>
         </div></li>
 
         <li><div>While it's usually a good practice, you don't
         <em>have</em> to store the return value of a function in a
         variable. Sometimes you'll see it used directly as shown in
-        example&nbsp;7 at
-        <span class="cross" data-ref="ex7">lines&nbsp;11 and&nbsp;15</span>.
+        example&nbsp;7 at lines
+        <span class="cross" data-ref="ex7">11,&nbsp;15, and&nbsp;17</span>.
 
 <div class="pre"><pre class="linenums"></pre>
 <pre class="python" id="ex7"># Example 7
