@@ -56,7 +56,15 @@ def main():
     for x in numbers:
         total += x
     average = total / len(numbers)
-    print(average)</pre></div>
+    print(f"average: {average:.2f}")
+
+
+# Call main to start this program.
+if __name__ == "__main__":
+    main()</pre></div>
+
+<pre class="console">&gt; python example_1.py
+average: 87.57</pre>
 
     <p>Notice that with procedural programming, we must write the
     process or the steps that are necessary to complete a task.
@@ -108,7 +116,15 @@ def main():
     func_add = lambda a, b: a + b
     total = <em>reduce(func_add, numbers)</em>
     average =  total / len(numbers)
-    print(average)</pre></div>
+    print(f"average: {average:.2f}")
+
+
+# Call main to start this program.
+if __name__ == "__main__":
+    main()</pre></div>
+
+<pre class="console">&gt; python example_3.py
+average: 87.57</pre>
 
     <p>Notice how example&nbsp;3 uses three functions:&nbsp; a lambda
     function, the <code>reduce</code> function, and the <code>len</code>
@@ -152,7 +168,15 @@ def main():
     numbers = [87, 95, 72, 92, 95, 88, 84]
     <em>numbers.append(78)</em>
     <em>numbers.append(72)</em>
-</pre></div>
+    print(numbers)
+
+
+# Call main to start this program.
+if __name__ == "__main__":
+    main()</pre></div>
+
+<pre class="console">&gt; python example_4.py
+[87, 95, 72, 92, 95, 88, 84, 78, 72]</pre>
 
     <p>There are several types of commands that are commonly found in
     object-oriented programs. These types of commands are so common,
@@ -182,21 +206,21 @@ day_of_week = obj.weekday()</pre></div>
     methods are documented in a section of the Python Tutorial titled
     <a href="https://docs.python.org/3/tutorial/datastructures.html#more-on-lists">More on Lists</a>.</p>
 
-    <p>Example&nbsp;5 contains a program copied from the
-    <a href="../lesson07/prepare.html">prepare content</a>
-    of lesson&nbsp;7. Now that you know what an object is, that objects
-    have methods, and that Python lists are objects, this example code
-    should make more sense than it did in lesson&nbsp;7. Notice that the
-    <code>append</code> method is called on
+    <p>Example&nbsp;5 contains a program that is similar to
+    <a href="../lesson07/prepare.html#ex2">example&nbsp;2</a> in the
+    prepare content of lesson&nbsp;7. Now that you know what an object
+    is, that objects have methods, and that Python lists are objects,
+    this example code should make more sense than it did in
+    lesson&nbsp;7. Notice that the <code>append</code> method is called on
     <span class="cross" data-ref="ex5">lines&nbsp;8&ndash;10</span>,
     <code>insert</code> is called on
     <span class="cross" data-ref="ex5">line&nbsp;13</span>,
     <code>index</code> is called on
-    <span class="cross" data-ref="ex5">line&nbsp;16</span>,
+    <span class="cross" data-ref="ex5">line&nbsp;17</span>,
     <code>pop</code> is called on
-    <span class="cross" data-ref="ex5">line&nbsp;22</span>, and
+    <span class="cross" data-ref="ex5">line&nbsp;24</span>, and
     <code>remove</code> is called on
-    <span class="cross" data-ref="ex5">line&nbsp;25</span>.</p>
+    <span class="cross" data-ref="ex5">line&nbsp;27</span>.</p>
 
 <div class="pre"><pre class="linenums"></pre>
 <pre class="python" id="ex5"># Example 5
@@ -212,24 +236,31 @@ def main():
 
     # Insert an element at the beginning of the fabrics list.
     fabrics.insert(0, "chiffon")
+    print(fabrics)
 
     # Get the index where velvet is stored in the fabrics list.
     i = fabrics.index("velvet")
 
     # Replace velvet with taffeta.
     fabrics[i] = "taffeta"
+    print(fabrics)
 
     # Remove the last element from the fabrics list.
     fabrics.pop()
 
     # Remove denim from the fabrics list.
     fabrics.remove("denim")
+    print(fabrics)
 
 
 # Call main to start this program.
 if __name__ == "__main__":
     main()</pre></div>
 
+<pre class="console">&gt; python example_5.py
+['chiffon', 'velvet', 'denim', 'gingham']
+['chiffon', 'taffeta', 'denim', 'gingham']
+['chiffon', 'taffeta']</pre>
 
     <h2>Python Dictionaries Are Objects</h2>
     <p>Python dictionaries are objects with attributes and methods, and
@@ -271,8 +302,8 @@ if __name__ == "__main__":
     <p>The following example code, which is similar to
     <a href="../lesson08/prepare.html#ex1">example&nbsp;1</a>
     from the prepare content of lesson&nbsp;8, calls dictionary methods
-    at <span class="cross" data-ref="ex6">lines&nbsp;22,
-    30,&nbsp;and&nbsp;38</span>.</p>
+    at lines&nbsp;<span class="cross" data-ref="ex6">20,
+    28,&nbsp;and&nbsp;37</span>.</p>
 
 <div class="pre"><pre class="linenums"></pre>
 <pre class="python" id="ex6"># Example 6
@@ -285,11 +316,9 @@ def main():
         "61-315-0160": "Michelle Davis",
         "10-450-1203": "Jorge Soares",
         "75-421-2310": "Abdul Ali",
-        "07-103-5621": "Michelle Davis"
+        "07-103-5621": "Michelle Davis",
+        "81-298-9238": "Sama Patel"
     }
-
-    # Add an item to the dictionary.
-    students["81-298-9238"] = "Sama Patel"
 
     # Get a student ID from the user.
     id = input("Enter a student ID: ")
@@ -307,6 +336,7 @@ def main():
         <em>students.pop(id)</em>
     else:
         print("No such student")
+    print()
 
     # Use a for loop to print each key value pair in the
     # dictionary. Of course, the code in the body of a loop
@@ -319,6 +349,16 @@ def main():
 # Call main to start this program.
 if __name__ == "__main__":
     main()</pre></div>
+
+<pre class="console">&gt; python example_6.py
+Enter a student ID: <span class="input">81-298-9238</span>
+Sama Patel
+
+42-039-4736 Clint Huish
+61-315-0160 Michelle Davis
+10-450-1203 Jorge Soares
+75-421-2310 Abdul Ali
+07-103-5621 Michelle Davis</pre>
 
     <h2>Summary</h2>
     <p>This lesson is introducing you to object-oriented programming.

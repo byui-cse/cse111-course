@@ -111,6 +111,10 @@ def cels_from_fahr(fahr):
 if __name__ == "__main__":
     main()</pre></div>
 
+<pre class="console">&gt; python example_1.py
+Fahrenheit: [72, 65, 71, 75, 82, 87, 68]
+Celsius: [22.2, 18.3, 21.7, 23.9, 27.8, 30.6, 20.0]</pre>
+
         <p>At <span class="cross" data-ref="ex1">lines&nbsp;12&ndash;14</span>
         in example&nbsp;1, there is a for each loop that converts each
         Fahrenheit temperature to Celsius and then appends the Celsius
@@ -157,6 +161,10 @@ def cels_from_fahr(fahr):
 # Call main to start this program.
 if __name__ == "__main__":
     main()</pre></div>
+
+<pre class="console">&gt; python example_2.py
+Fahrenheit: [72, 65, 71, 75, 82, 87, 68]
+Celsius: [22.2, 18.3, 21.7, 23.9, 27.8, 30.6, 20.0]</pre>
 
         <p>Notice that example&nbsp;2, doesn't contain a for each loop.
         Instead, at <span class="cross" data-ref="ex2">line&nbsp;11</span>,
@@ -222,6 +230,10 @@ def main():
 if __name__ == "__main__":
     main()</pre></div></div></li>
 
+<pre class="console">&gt; python example_3.py
+Fahrenheit: [72, 65, 71, 75, 82, 87, 68]
+Celsius: [22.2, 18.3, 21.7, 23.9, 27.8, 30.6, 20.0]</pre>
+
         <li id="lambda"><div>A Python <dfn>lambda function</dfn> is a
         small anonymous function, meaning a small function without a
         name. A lambda function is always a small function because the
@@ -258,6 +270,10 @@ def main():
 # Call main to start this program.
 if __name__ == "__main__":
     main()</pre></div>
+
+<pre class="console">&gt; python example_4.py
+Fahrenheit: [72, 65, 71, 75, 82, 87, 68]
+Celsius: [22.2, 18.3, 21.7, 23.9, 27.8, 30.6, 20.0]</pre>
 
         <p>Some students are confused by the statement that a lambda
         function is an anonymous function (a function without a name).
@@ -305,19 +321,19 @@ if __name__ == "__main__":
 
     <p>Example&nbsp;5 contains a program that uses the <code>map</code>
     and <code>filter</code> functions to complete the requirements of
-    checkpoint&nbsp;9. The example program works by doing the
-    following:</p>
+    <a href="../lesson09/check.html">checkpoint&nbsp;9</a>. The example
+    program works by doing the following:</p>
     <ol>
         <li><div>Calling the <code>map</code> function at
-        <span class="cross" data-ref="ex5">line&nbsp;41</span> to
+        <span class="cross" data-ref="ex5">line&nbsp;42</span> to
         convert all elements that are "AB" to "Alberta."</div></li>
 
         <li><div>Calling the <code>filter</code> function at
-        <span class="cross" data-ref="ex5">line&nbsp;57</span> to
+        <span class="cross" data-ref="ex5">line&nbsp;55</span> to
         remove all elements that are not "Alberta."</div></li>
 
         <li><div>Calling the <code>len</code> function at
-        <span class="cross" data-ref="ex5">line&nbsp;64</span> to count
+        <span class="cross" data-ref="ex5">line&nbsp;63</span> to count
         the number of elements that remain in the filtered
         list.</div></li>
     </ol>
@@ -352,6 +368,7 @@ def main():
     ]
 
     # As a debugging aid, print the entire list.
+    print("Original list of provinces:")
     print(provinces_list)
     print()
 
@@ -365,22 +382,20 @@ def main():
     # calling the map function and passing the ablerta_from_ab
     # function and provinces_list into the map function.
     new_list = list(<em>map(alberta_from_ab, provinces_list)</em>)
+    print("List of provinces after AB was changed to Alberta:")
     print(new_list)
     print()
 
     # Define a nested function that returns True if
     # province_name is Alberta and returns False otherwise.
     def is_alberta(province_name):
-        if province_name == "Alberta":
-            result = True
-        else:
-            result = False
-        return result
+        return province_name == "Alberta"
 
     # Filter the new list to only those provinces that
     # are "Alberta" by calling the filter function and
     # passing the is_alberta function and new_list.
     filtered_list = list(<em>filter(is_alberta, new_list)</em>)
+    print("List filtered to Alberta only:")
     print(filtered_list)
     print()
 
@@ -395,6 +410,51 @@ def main():
 # Call main to start this program.
 if __name__ == "__main__":
     main()</pre></div>
+
+<pre class="console">&gt; python example_5.py
+
+Original list of provinces:
+['Alberta', 'Ontario', 'Prince Edward Island', 'Ontario', 'Quebec',
+'Saskatchewan', 'AB', 'Nova Scotia', 'Alberta', 'Northwest
+Territories', 'Saskatchewan', 'Nunavut', 'Nova Scotia', 'Prince Edward
+Island', 'Alberta', 'Nova Scotia', 'Prince Edward Island',
+'Saskatchewan', 'Nova Scotia', 'Newfoundland and Labrador', 'Ontario',
+'Ontario', 'Ontario', 'British Columbia', 'Ontario', 'Nova Scotia',
+'Prince Edward Island', 'Saskatchewan', 'Newfoundland and Labrador',
+'Ontario', 'Ontario', 'Manitoba', 'British Columbia', 'Ontario',
+'Alberta', 'Saskatchewan', 'Ontario', 'Manitoba', 'Ontario', 'New
+Brunswick', 'Yukon', 'British Columbia', 'Yukon', 'Newfoundland and
+Labrador', 'Manitoba', 'Ontario', 'Yukon', 'British Columbia', 'Yukon',
+'Ontario', 'AB', 'Newfoundland and Labrador', 'Nova Scotia', 'Yukon',
+'Northwest Territories', 'Nunavut', 'Yukon', 'Nunavut', 'Ontario',
+'British Columbia', 'AB', 'Saskatchewan', 'Prince Edward Island',
+'Saskatchewan', 'Prince Edward Island', 'Alberta', 'Ontario',
+'Alberta', 'Manitoba', 'AB', 'British Columbia', 'Alberta']
+
+List of provinces after AB was changed to Alberta:
+['Alberta', 'Ontario', 'Prince Edward Island', 'Ontario', 'Quebec',
+'Saskatchewan', 'Alberta', 'Nova Scotia', 'Alberta', 'Northwest
+Territories', 'Saskatchewan', 'Nunavut', 'Nova Scotia', 'Prince Edward
+Island', 'Alberta', 'Nova Scotia', 'Prince Edward Island',
+'Saskatchewan', 'Nova Scotia', 'Newfoundland and Labrador', 'Ontario',
+'Ontario', 'Ontario', 'British Columbia', 'Ontario', 'Nova Scotia',
+'Prince Edward Island', 'Saskatchewan', 'Newfoundland and Labrador',
+'Ontario', 'Ontario', 'Manitoba', 'British Columbia', 'Ontario',
+'Alberta', 'Saskatchewan', 'Ontario', 'Manitoba', 'Ontario', 'New
+Brunswick', 'Yukon', 'British Columbia', 'Yukon', 'Newfoundland and
+Labrador', 'Manitoba', 'Ontario', 'Yukon', 'British Columbia', 'Yukon',
+'Ontario', 'Alberta', 'Newfoundland and Labrador', 'Nova Scotia',
+'Yukon', 'Northwest Territories', 'Nunavut', 'Yukon', 'Nunavut',
+'Ontario', 'British Columbia', 'Alberta', 'Saskatchewan', 'Prince
+Edward Island', 'Saskatchewan', 'Prince Edward Island', 'Alberta',
+'Ontario', 'Alberta', 'Manitoba', 'Alberta', 'British Columbia',
+'Alberta']
+
+List filtered to Alberta only:
+['Alberta', 'Alberta', 'Alberta', 'Alberta', 'Alberta', 'Alberta',
+'Alberta', 'Alberta', 'Alberta', 'Alberta', 'Alberta']
+
+Alberta occurs 11 times in the modified list.</pre>
 
     <h2>Example - Sorting a Compound List</h2>
     <p>Python includes a built-in higher-order function named
