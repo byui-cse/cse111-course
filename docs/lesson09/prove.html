@@ -148,10 +148,24 @@
             </ol></div></li>
         </ol>
 
-        <p>Your program should not read the <code>request.csv</code>
-        file into a dictionary but should instead read and process each
-        row similar to <a href="prepare.html#ex3">example&nbsp;3</a> in
-        the prepare content for this lesson.</p>
+        <p>Because product number D083 appears twice in the
+        <code>request.csv</code> file, your program must not read the
+        <code>request.csv</code> file into a dictionary. Recall that
+        each key in a dictionary is unique. If your program reads the
+        <code>request.csv</code> file into a dictionary, when your
+        program reads line 3 of the <code>request.csv</code> file, your
+        program will put a request for four yogurts into the dictionary.
+        Then when your program reads line 6 of the
+        <code>request.csv</code> file, your program will replace the
+        request for four yogurts with a request for three yogurts. In
+        other words, if your program reads the <code>request.csv</code>
+        file into a dictionary, your program will think that the
+        customer ordered only three yogurts instead of the seven
+        (4&nbsp;+&nbsp;3) that he ordered. Therefore, your program must
+        not read the <code>request.csv</code> file into a dictionary but
+        should instead read and process each row similar to
+        <a href="prepare.html#ex3">example&nbsp;3</a> in the prepare
+        content for this lesson.</p>
         </div></li>
 
         <li><div>At the bottom of your <code>receipt.py</code> file,
