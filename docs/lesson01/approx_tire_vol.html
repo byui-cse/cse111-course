@@ -24,6 +24,7 @@
     </a>
     <h2><a href="https://byui.instructure.com">CSE 111</a> |
         <a href="../index.html">Programming with Functions</a></h2>
+</header>
 <article>
     <h1>01 Formula: Approximate Volume of a Tire</h1>
 
@@ -54,7 +55,7 @@
         <li><div>The second number is the aspect ratio of the tire,
         which we will call <var>A</var>. The height <var>H</var> of the
         sidewall of a tire is computed with this formula:
-        <div class="block expr"><var>H</var> = <div class="fract"><div class="numer"><var>A</var></div><div class="denom">100</div></div><var>W</var></div>
+        <div class="block expr"><var>H</var> = <div class="fract"><div><var>A</var></div><div>100</div></div><var>W</var></div>
         </div></li>
 
         <li><div>The third number is the diameter of the wheel in
@@ -64,7 +65,7 @@
         by 25.4. Also, we need the radius of the wheel and not its
         diameter, so we divide the diameter by 2. This means the formula
         for the radius of the wheel is:
-        <div class="block expr"><var>r</var><sub>wheel</sub> = <div class="fract"><div class="numer">25.4&thinsp;<var>D</var></div><div class="denom">2</div></div></div>
+        <div class="block expr"><var>r</var><sub>wheel</sub> = <div class="fract"><div>25.4&thinsp;<var>D</var></div><div>2</div></div></div>
         </div></li>
     </ol>
 
@@ -84,19 +85,19 @@
 
     <div class="block expr"><var>volume</var><sub>tire</sub> &nbsp;&cong;&nbsp; &pi;&thinsp;<var>W</var>&thinsp;<var>H</var><div class="paren">2&thinsp;<var>r</var><sub>wheel</sub> &nbsp;+&nbsp; <var>H</var></div></div>
 
-    <div class="block expr"><var>volume</var><sub>tire</sub> &nbsp;&cong;&nbsp; &pi;&thinsp;<var>W</var>&thinsp;<div class="fract"><div class="numer"><var>A</var></div><div class="denom">100</div></div><var>W</var><div class="paren">2&thinsp;<div class="fract"><div class="numer">25.4&thinsp;<var>D</var></div><div class="denom">2</div></div> &nbsp;+&nbsp; <div class="fract"><div class="numer"><var>A</var></div><div class="denom">100</div></div><var>W</var></div></div>
+    <div class="block expr"><var>volume</var><sub>tire</sub> &nbsp;&cong;&nbsp; &pi;&thinsp;<var>W</var>&thinsp;<div class="fract"><div><var>A</var></div><div>100</div></div><var>W</var><div class="paren">2&thinsp;<div class="fract"><div>25.4&thinsp;<var>D</var></div><div>2</div></div> &nbsp;+&nbsp; <div class="fract"><div><var>A</var></div><div>100</div></div><var>W</var></div></div>
 
-    <div class="block expr"><var>volume</var><sub>tire</sub> &nbsp;&cong;&nbsp; <div class="fract"><div class="numer">&pi;&thinsp;<var>W</var><sup>2</sup>&thinsp;<var>A</var></div><div class="denom">100</div></div><div class="paren">25.4&thinsp;<var>D</var> &nbsp;+&nbsp; <div class="fract"><div class="numer"><var>W</var>&thinsp;<var>A</var></div><div class="denom">100</div></div></div></div>
+    <div class="block expr"><var>volume</var><sub>tire</sub> &nbsp;&cong;&nbsp; <div class="fract"><div>&pi;&thinsp;<var>W</var><sup>2</sup>&thinsp;<var>A</var></div><div>100</div></div><div class="paren">25.4&thinsp;<var>D</var> &nbsp;+&nbsp; <div class="fract"><div><var>W</var>&thinsp;<var>A</var></div><div>100</div></div></div></div>
 
-    <div class="block expr"><var>volume</var><sub>tire</sub> &nbsp;&cong;&nbsp; <div class="fract"><div class="numer">&pi;&thinsp;<var>W</var><sup>2</sup>&thinsp;<var>A</var></div><div class="denom">100</div></div><div class="paren"><div class="fract"><div class="numer">(100) (25.4&thinsp;<var>D</var>)</div><div class="denom">100</div></div> &nbsp;+&nbsp; <div class="fract"><div class="numer"><var>W</var>&thinsp;<var>A</var></div><div class="denom">100</div></div></div></div>
+    <div class="block expr"><var>volume</var><sub>tire</sub> &nbsp;&cong;&nbsp; <div class="fract"><div>&pi;&thinsp;<var>W</var><sup>2</sup>&thinsp;<var>A</var></div><div>100</div></div><div class="paren"><div class="fract"><div>(100) (25.4&thinsp;<var>D</var>)</div><div>100</div></div> &nbsp;+&nbsp; <div class="fract"><div><var>W</var>&thinsp;<var>A</var></div><div>100</div></div></div></div>
 
-    <div class="block expr"><var>volume</var><sub>tire</sub> &nbsp;&cong;&nbsp; <div class="fract"><div class="numer">&pi;&thinsp;<var>W</var><sup>2</sup>&thinsp;<var>A</var></div><div class="denom">100</div></div><div class="paren"><div class="fract"><div class="numer">2540&thinsp;<var>D</var> &nbsp;+&nbsp; <var>W</var>&thinsp;<var>A</var></div><div class="denom">100</div></div></div></div>
+    <div class="block expr"><var>volume</var><sub>tire</sub> &nbsp;&cong;&nbsp; <div class="fract"><div>&pi;&thinsp;<var>W</var><sup>2</sup>&thinsp;<var>A</var></div><div>100</div></div><div class="paren"><div class="fract"><div>2540&thinsp;<var>D</var> &nbsp;+&nbsp; <var>W</var>&thinsp;<var>A</var></div><div>100</div></div></div></div>
 
-    <div class="block expr"><var>volume</var><sub>tire</sub> &nbsp;&cong;&nbsp; <div class="fract"><div class="numer">&pi;&thinsp;<var>W</var><sup>2</sup>&thinsp;<var>A</var><div class="paren">2540&thinsp;<var>D</var> &nbsp;+&nbsp; <var>W</var>&thinsp;<var>A</var></div></div><div class="denom">10,000</div></div> [cubic millimeters]</div>
+    <div class="block expr"><var>volume</var><sub>tire</sub> &nbsp;&cong;&nbsp; <div class="fract"><div>&pi;&thinsp;<var>W</var><sup>2</sup>&thinsp;<var>A</var><div class="paren">2540&thinsp;<var>D</var> &nbsp;+&nbsp; <var>W</var>&thinsp;<var>A</var></div></div><div>10,000</div></div> [cubic millimeters]</div>
 
     <p>However, we want the answer expressed in liters, not cubic millimeters, so we divide by 1,000,000. Therefore, the volume of a tire is approximated by this formula:</p>
 
-    <div class="block expr"><var>volume</var><sub>tire</sub> &nbsp;&cong;&nbsp; <div class="fract"><div class="numer">&pi;&thinsp;<var>W</var><sup>2</sup>&thinsp;<var>A</var><div class="paren">2540&thinsp;<var>D</var> &nbsp;+&nbsp; <var>W</var>&thinsp;<var>A</var></div></div><div class="denom">10,000,000,000</div></div> [liters]</div>
+    <div class="block expr"><var>volume</var><sub>tire</sub> &nbsp;&cong;&nbsp; <div class="fract"><div>&pi;&thinsp;<var>W</var><sup>2</sup>&thinsp;<var>A</var><div class="paren">2540&thinsp;<var>D</var> &nbsp;+&nbsp; <var>W</var>&thinsp;<var>A</var></div></div><div>10,000,000,000</div></div> [liters]</div>
 </article>
 <footer>
     <small>Copyright &copy; 2020, Brigham Young University - Idaho. All

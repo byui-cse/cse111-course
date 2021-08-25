@@ -430,6 +430,17 @@ article div.expr div.fract > div.denom {
 	padding-top: 0.1em;
 }
 
+article div.expr div.fract > div:first-child {
+	display: block;
+}
+
+article div.expr div.fract > div:last-child {
+	display: block;
+	margin-top: 0.25em;
+	border-top: 1px solid;
+	padding-top: 0.1em;
+}
+
 article div.expr div.sum {
 	margin-right: 0.15em;
 }
@@ -501,8 +512,10 @@ article code em {
 	font-style: normal;
 }
 
+/* Container for console (terminal) input and output. */
 article pre.console {
-	margin: 1em auto;
+	/*margin: 1em auto;*/
+	margin: 1em 0 1em 1.5em;
 	border: 1px solid var(--border);
 	background-color: var(--console-bk-color);
 	padding: 0.25em 0.5em;
@@ -528,7 +541,7 @@ article pre.console span.fail {
 article div.pre {
 	display: table;
 	position: relative;
-	margin: 1em auto 1em 0;
+	margin: 1em auto 1em 1.5em;
 	border: 1px solid var(--border);
 	background-color: var(--python-bk-color);
 	padding: 0.25em 0.5em;

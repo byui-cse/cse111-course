@@ -124,7 +124,7 @@
         <li><div>Using VS Code, open a new Python file and copy and
         paste the following code into the new file.
 
-<div class="pre"><pre class="python">
+<div class="pre" id="ex1"><pre class="python">
 """Verify that the prefix and suffix functions work correctly."""
 
 from words import prefix, suffix
@@ -197,15 +197,15 @@ pytest.main(["-v", "--tb=line", "-rN", "test_words.py"])</pre></div>
 
     <h2>Sample Run</h2>
 <pre class="console">&gt; python test_words.py
-========================= test session starts =========================
+======================= test session starts ========================
 platform win32--Python 3.8.6, pytest-6.1.2, py-1.9.0, pluggy-0.13.1
 rootdir: C:\Users\cse111\lesson05
 collected 2 items
 
-test_words.py::test_prefix <span class="pass">PASSED                                [ 50%]</span>
-test_words.py::test_suffix <span class="pass">PASSED                                [100%]</span>
+test_words.py::test_prefix <span class="pass">PASSED                             [ 50%]</span>
+test_words.py::test_suffix <span class="pass">PASSED                             [100%]</span>
 
-<span class="pass">========================== 2 passed in 0.09s ==========================</span></pre>
+<span class="pass">======================== 2 passed in 0.09s =========================</span></pre>
 
     <h2>Sample Solution</h2>
     <p>When your program is finished, view the <a class="solution"

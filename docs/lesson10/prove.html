@@ -108,8 +108,9 @@
         time from a computer's operating system. Then it uses an
         f-string to format and print the current date and time.</p>
 
-<div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex1">
+<div class="pre" id="ex1"><pre class="linenums"></pre>
+<pre class="python"># Example 1
+
 # Import the datatime class from the datetime
 # module so that it can be used in this program.
 from datetime import datetime
@@ -122,10 +123,10 @@ current_date_and_time = datetime.now()
 print(f"{current_date_and_time:%A %I:%M %p}")</pre></div>
 
         <p>After the computer executes
-        <span class="cross" data-ref="ex1">line&nbsp;7</span> in the
+        <span class="cross" data-ref="ex1">line&nbsp;9</span> in the
         above code, the variable <var>current_date_and_time</var> will
         hold the current date and time. Within the f-string at
-        <span class="cross" data-ref="ex1">line&nbsp;10</span>,
+        <span class="cross" data-ref="ex1">line&nbsp;12</span>,
         the string sequences that begin with the percent symbol (%) are
         called format codes. The format codes and their meaning are
         listed in
@@ -133,7 +134,7 @@ print(f"{current_date_and_time:%A %I:%M %p}")</pre></div>
         When executed, the previous example code will print the current
         date and time to the terminal window like this:</p>
 
-<pre class="console">&gt; python date_example.py
+<pre class="console" data-for="ex1">&gt; python example_1.py
 Tuesday 01:23 PM</pre>
         </div></li>
     </ul>

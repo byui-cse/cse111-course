@@ -75,8 +75,8 @@
         deposits, and withdrawals. A programmer might write the first
         few lines of the <code>deposit</code> function like this:</p>
 
-<div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex1">
+<div class="pre" id="ex1"><pre class="linenums"></pre>
+<pre class="python">
 def deposit(amount):
     # In order for this program to work correctly and
     # for the bank records to be correct, we must not
@@ -99,7 +99,7 @@ def deposit(amount):
         <code>assert</code> statement. Here are a few examples from
         various unrelated programs:</p>
 
-<div class="pre"><pre class="python" id="ex2">
+<div class="pre" id="ex2"><pre class="python">
     assert temperature &lt; 0
 
     assert len(given_name) &gt; 0
@@ -127,7 +127,7 @@ def deposit(amount):
         we want to verify that the built-in <code>min</code> function
         works correctly, we could write an <code>assert</code> statement
         like this:</p>
-<div class="pre"><pre class="python" id="ex3">
+<div class="pre" id="ex3"><pre class="python">
     assert min(7, -3, 0, 2) == -3</pre></div>
 
         <p>The previous line of code will cause the computer to first
@@ -163,7 +163,7 @@ def deposit(amount):
         to help us compare floating point numbers. For example, to test
         the <code>math.sqrt</code> function, we could write an
         <code>assert</code> statement like this:</p>
-<div class="pre"><pre class="python" id="ex4">
+<div class="pre" id="ex4"><pre class="python">
     assert math.sqrt(5) == approx(2.24, 0.01)</pre></div>
 
         <p>The previous <code>assert</code> statement verifies that the
@@ -199,8 +199,8 @@ def deposit(amount):
     part of a larger Python program in a file named
     <code>weather.py</code>:</p>
 
-<div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex5"># weather.py
+<div class="pre" id="ex5"><pre class="linenums"></pre>
+<pre class="python"># weather.py
 
 def cels_from_fahr(fahr):
     """Convert a temperature in Fahrenheit to
@@ -219,8 +219,8 @@ def cels_from_fahr(fahr):
     named <code>test_weather.py</code> we write a test function named
     <code>test_cels_from_fahr</code> as follows:</p>
 
-<div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex6"># test_weather.py
+<div class="pre" id="ex6"><pre class="linenums"></pre>
+<pre class="python"># test_weather.py
 
 from weather import cels_from_fahr
 from pytest import approx
@@ -260,9 +260,9 @@ pytest.main(["-v", "--tb=line", "-rN", "test_weather.py"])</pre></div>
     <code>pytest</code> runs the test functions, it will produce output
     that tells us if the tests passed or failed like this:</p>
 
-<pre class="console">&gt; python test_weather.py
+<pre class="console" data-for="ex6">&gt; python test_weather.py
 ========================= test session starts =========================
-platform win32 -- Python 3.8.6, pytest-6.1.2, py-1.9.0, pluggy-0.13.1
+platform win32--Python 3.8.6, pytest-6.1.2, py-1.9.0, pluggy-0.13.1
 rootdir: C:\Users\cse111\lesson05
 collected 1 item
 

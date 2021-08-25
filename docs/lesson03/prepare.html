@@ -99,15 +99,15 @@
         CSE&nbsp;110 and&nbsp;111, you wrote statements that were not in
         a function like the simple program in example&nbsp;1.
 
-<div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex1"># Example 1
+<div class="pre" id="ex1"><pre class="linenums"></pre>
+<pre class="python"># Example 1
 
 # Get a value in miles and convert it to kilometers.
 miles = float(input("Please enter a distance in miles: "))
 km = miles * 1.60934
 print(f"{miles} miles is {km} kilometers")</pre></div>
 
-<pre class="console">&gt; python example_1.py
+<pre class="console" data-for="ex1">&gt; python example_1.py
 Please enter a distance in miles: <span class="input">3.1</span>
 3.1 miles is 4.988954 kilometers</pre>
 
@@ -123,8 +123,8 @@ Please enter a distance in miles: <span class="input">3.1</span>
         same Python program as example&nbsp;1 except most of the
         statements are inside a function named <code>main</code>.</p>
 
-<div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex2"># Example 2
+<div class="pre" id="ex2"><pre class="linenums"></pre>
+<pre class="python"># Example 2
 
 # Define a function named main.
 def main():
@@ -137,7 +137,7 @@ def main():
 # calling the main function.
 main()</pre></div>
 
-<pre class="console">&gt; python example_2.py
+<pre class="console" data-for="ex2">&gt; python example_2.py
 Please enter a distance in miles: <span class="input">3.1</span>
 3.1 miles is 4.988954 kilometers</pre>
 
@@ -222,7 +222,8 @@ def <var>function_name</var>(<var>param1</var>, <var>param2</var>, &hellip; <var
         those numbers to compute the volume of a cylinder and then
         prints the volume for the user to see.</p>
 
-<div class="pre"><pre class="python" id="ex3"># Example 3
+<div class="pre" id="ex3">
+<pre class="python"># Example 3
 
 import math
 
@@ -253,7 +254,8 @@ def print_cylinder_volume():
     doesn't get the radius and height from the user. Instead, it accepts
     two parameters named <var>radius</var> and <var>height</var>.</p>
 
-<div class="pre"><pre class="python" id="ex4"># Example 4
+<div class="pre" id="ex4">
+<pre class="python"># Example 4
 
 import math
 
@@ -297,7 +299,8 @@ def print_cylinder_volume(<em>radius</em>, <em>height</em>):
         <code>compute_cylinder_volume</code> because this version
         doesn't print the volume but instead returns it.</p>
 
-<div class="pre"><pre class="python" id="ex5"># Example 5
+<div class="pre" id="ex5">
+<pre class="python"># Example 5
 
 import math
 
@@ -325,14 +328,14 @@ def compute_cylinder_volume(radius, height):
         <p>Example&nbsp;6 contains a complete program with two
         functions, the first named <code>compute_cylinder_volume</code>
         at <span class="cross" data-ref="ex6">line&nbsp;6</span> and
-        the seond named <code>main</code> at
-        <span class="cross" data-ref="ex6">line&nbsp;25</span>.
-        At <span class="cross" data-ref="ex6">line&nbsp;32</span>,
+        the second named <code>main</code> at
+        <span class="cross" data-ref="ex6">line&nbsp;24</span>.
+        At <span class="cross" data-ref="ex6">line&nbsp;31</span>,
         the <code>main</code> function calls the
         <code>compute_cylinder_volume</code> function.</p>
 
-<div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex6"># Example 6
+<div class="pre" id="ex6"><pre class="linenums"></pre>
+<pre class="python"># Example 6
 
 import math
 
@@ -379,7 +382,7 @@ def main():
 # calling the main function.
 main()</pre></div>
 
-<pre class="console">&gt; python example_6.py
+<pre class="console" data-for="ex6">&gt; python example_6.py
 Enter the radius in centimeters: <span class="input">3</span>
 Enter the height in centimeters: <span class="input">8</span>
 That cylinder holds 226.194671 cubic
@@ -392,8 +395,8 @@ centimeters, which is less than a liter.</pre>
         example&nbsp;7 at lines
         <span class="cross" data-ref="ex7">11,&nbsp;15, and&nbsp;17</span>.
 
-<div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex7"># Example 7
+<div class="pre" id="ex7"><pre class="linenums"></pre>
+<pre class="python"># Example 7
 
 # Define the main function.
 def main():
@@ -429,16 +432,16 @@ main()</pre></div>
         to check if the volume is greater than a liter. Every time the
         computer calls a function, the computer will execute the code
         that is inside that function. In example&nbsp;7, because the
-        arguments are the same at
-        <span class="cross" data-ref="ex7">lines&nbsp;11,
-        15&nbsp;and&nbsp;17</span>, the returned result will be the same
-        in all three cases. So it would be faster to save the result in
-        a variable and reuse the variable instead, as shown in
-        example&nbsp;8 at lines&nbsp;<span class="cross"
-        data-ref="ex8">11, 13,&nbsp;15, and&nbsp;17</span>.</p>
+        arguments are the same at lines
+        <span class="cross" data-ref="ex7">11,&nbsp;15 and&nbsp;17</span>,
+        the returned result will be the same in all three cases. So it
+        would be faster to save the result in a variable and reuse the
+        variable instead, as shown in example&nbsp;8 at lines
+        <span class="cross" data-ref="ex8">11,&nbsp;13,&nbsp;15,
+        and&nbsp;17</span>.</p>
 
-<div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex8">#Example 8
+<div class="pre" id="ex8"><pre class="linenums"></pre>
+<pre class="python">#Example 8
 
 # Define the main function.
 def main():
@@ -474,11 +477,11 @@ main()</pre></div></div></li>
         returned result to a variable. The circled numbers show the
         order in which the events happen in the computer.</p>
 
-        <img src="call.png"
+        <img src="call.png" style="margin-left:2em"
         alt="A diagram showing a call to a function and a value returned from that function"
         title="A diagram showing a call to a function and a value returned from that function">
 <!--
-<div class="pre"><pre class="python" id="ex7">
+<div class="pre" id="ex9"><pre class="python">
 import math
 
 <b>def main()</b>:

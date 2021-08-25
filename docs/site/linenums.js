@@ -7,23 +7,26 @@ if (!window.hasOwnProperty('cse111')) {
 }
 
 cse111.linenums = {
-	addTitles : function() {
-		const elems = document.querySelectorAll('pre.console');
-		for (let i = 0;  i < elems.length;  ++i) {
-			let pre = elems[i];
-			pre.setAttribute('title', 'Terminal Window');
-
-			const spans = pre.querySelectorAll('span.input');
-			for (let i = 0;  i < spans.length;  ++i) {
-				spans[i].setAttribute('title', 'User input');
-			}
+	/** Resizes each pre.console[data-for] element so that its width is
+	 * the same as the width of the div.pre > pre.python for which it
+	 * shows user input and program output. Making their widths the same
+	 * helps the reader to see that they go together. */
+	resizeConsoles : function() {
+		const consoles = document.querySelectorAll('pre.console[data-for]');
+		for (let i = 0;  i < consoles.length;  ++i) {
+			let console = consoles[i];
+			let id = console.getAttribute('data-for');
+			let divElem = document.getElementById(id);
+			let width = window.getComputedStyle(divElem).getPropertyValue('width');
+			console.style.width = width;
 		}
 	},
 
 
+	/** Adds line numbers to all pre.linenums elements. */
 	addLineNumbers : function() {
 		const newline = /<br>|\n/g;
-		const elems = document.getElementsByClassName('linenums');
+		const elems = document.querySelectorAll('pre.linenums');
 		for (let i = 0;  i < elems.length;  ++i) {
 			let elem = elems[i];
 			let code = elem.nextElementSibling.innerHTML;
@@ -73,6 +76,20 @@ cse111.linenums = {
 	},
 
 
+	addTitles : function() {
+		const elems = document.querySelectorAll('pre.console');
+		for (let i = 0;  i < elems.length;  ++i) {
+			let pre = elems[i];
+			pre.setAttribute('title', 'Terminal Window');
+
+			const spans = pre.querySelectorAll('span.input');
+			for (let i = 0;  i < spans.length;  ++i) {
+				spans[i].setAttribute('title', 'User input');
+			}
+		}
+	},
+
+
 	addCrossRefs : function() {
 		let getReferences = function(target) {
 			const space = /(\s|&nbsp;|<br>)+/g;
@@ -107,36 +124,16 @@ cse111.linenums = {
 
 		let getAllLineNumbers = function(target) {
 			let refId = target.getAttribute('data-ref');
-			let code = document.getElementById(refId);
-			let lineNumDiv = code.previousElementSibling;
+			let preDiv = document.getElementById(refId);
+			let lineNumDiv = preDiv.firstChild;
 			return lineNumDiv.children;
 		};
 
 		let findLineNumber = function(lineNumbers, key) {
-			let found;
-			// The lineNumbers are sequential (sorted), so use
-			// binary search to find one line numbers element.
-			let left = 0;
-			let right = lineNumbers.length - 1;
-			while (left <= right) {
-				// Compute the index of the middle of the current interval.
-				let mid = left + ((right - left) >>> 1);
-
-				// Compare the value in the middle of the interval to the key.
-				let elem = lineNumbers[mid];
-				let cmp = key - parseInt(elem.innerText);
-				if (cmp > 0) {
-					left = mid + 1;
-				}
-				else if (cmp < 0) {
-					right = mid - 1;
-				}
-				else {
-					found = elem;
-					break;
-				}
-			}
-			return found;
+			// The line numbers begin with 1 at index 0 and are
+			// sequential, so it's easy to find and return the
+			// span with the desired line number.
+			return lineNumbers[key - 1];
 		};
 
 		let on = function(event) {
@@ -195,7 +192,7 @@ cse111.linenums = {
 		};
 
 		// Add event handlers to each span that has a class of 'cross'.
-		let targets = document.getElementsByClassName('cross');
+		let targets = document.querySelectorAll('span.cross');
 		for (let i = 0;  i < targets.length;  ++i) {
 			let target = targets[i];
 			target.addEventListener('mouseover', on);
@@ -206,7 +203,8 @@ cse111.linenums = {
 	}
 };
 
-window.addEventListener('DOMContentLoaded', cse111.linenums.addTitles);
 window.addEventListener('DOMContentLoaded', cse111.linenums.addLineNumbers);
 window.addEventListener('DOMContentLoaded', cse111.linenums.addCopyButtons);
+window.addEventListener('DOMContentLoaded', cse111.linenums.resizeConsoles);
+window.addEventListener('DOMContentLoaded', cse111.linenums.addTitles);
 window.addEventListener('DOMContentLoaded', cse111.linenums.addCrossRefs);

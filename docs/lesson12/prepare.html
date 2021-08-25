@@ -48,7 +48,7 @@
     divide by the quantity of numbers. A Python procedural program for
     computing the average is shown in example&nbsp;1.</p>
 
-<div class="pre"><pre class="python" id="ex1"># Example 1
+<div class="pre" id="ex1"><pre class="python"># Example 1
 
 def main():
     numbers = [87, 95, 72, 92, 95, 88, 84]
@@ -63,7 +63,7 @@ def main():
 if __name__ == "__main__":
     main()</pre></div>
 
-<pre class="console">&gt; python example_1.py
+<pre class="console" data-for="ex1">&gt; python example_1.py
 average: 87.57</pre>
 
     <p>Notice that with procedural programming, we must write the
@@ -82,7 +82,7 @@ average: 87.57</pre>
     databases. Example&nbsp;2 contains SQL code that causes the computer
     to compute the average of a column of numbers.</p>
 
-<div class="pre"><pre class="python" id="ex2">-- Example 2
+<div class="pre" id="ex2"><pre class="python">-- Example 2
 
 SELECT AVG(numbers) FROM table;</pre></div>
 
@@ -107,7 +107,7 @@ SELECT AVG(numbers) FROM table;</pre></div>
     contains a functional programming solution to computing the average
     in Python.</p>
 
-<div class="pre"><pre class="python" id="ex3"># Example 3
+<div class="pre" id="ex3"><pre class="python"># Example 3
 
 from functools import reduce
 
@@ -123,7 +123,7 @@ def main():
 if __name__ == "__main__":
     main()</pre></div>
 
-<pre class="console">&gt; python example_3.py
+<pre class="console" data-for="ex3">&gt; python example_3.py
 average: 87.57</pre>
 
     <p>Notice how example&nbsp;3 uses three functions:&nbsp; a lambda
@@ -162,7 +162,7 @@ average: 87.57</pre>
     example&nbsp;4 uses the dot operator (.) to call the
     <code>append</code> method.</p>
 
-<div class="pre"><pre class="python" id="ex4"># Example 4
+<div class="pre" id="ex4"><pre class="python"># Example 4
 
 def main():
     numbers = [87, 95, 72, 92, 95, 88, 84]
@@ -175,7 +175,7 @@ def main():
 if __name__ == "__main__":
     main()</pre></div>
 
-<pre class="console">&gt; python example_4.py
+<pre class="console" data-for="ex4">&gt; python example_4.py
 [87, 95, 72, 92, 95, 88, 84, 78, 72]</pre>
 
     <p>There are several types of commands that are commonly found in
@@ -222,8 +222,8 @@ day_of_week = obj.weekday()</pre></div>
     <code>remove</code> is called on
     <span class="cross" data-ref="ex5">line&nbsp;27</span>.</p>
 
-<div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex5"># Example 5
+<div class="pre" id="ex5"><pre class="linenums"></pre>
+<pre class="python"># Example 5
 
 def main():
     # Create an empty list that will hold fabric names.
@@ -257,7 +257,7 @@ def main():
 if __name__ == "__main__":
     main()</pre></div>
 
-<pre class="console">&gt; python example_5.py
+<pre class="console" data-for="ex5">&gt; python example_5.py
 ['chiffon', 'velvet', 'denim', 'gingham']
 ['chiffon', 'taffeta', 'denim', 'gingham']
 ['chiffon', 'taffeta']</pre>
@@ -305,8 +305,8 @@ if __name__ == "__main__":
     at lines&nbsp;<span class="cross" data-ref="ex6">20,
     28,&nbsp;and&nbsp;37</span>.</p>
 
-<div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex6"># Example 6
+<div class="pre" id="ex6"><pre class="linenums"></pre>
+<pre class="python"># Example 6
 
 def main():
     # Create a dictionary with student IDs as
@@ -350,7 +350,7 @@ def main():
 if __name__ == "__main__":
     main()</pre></div>
 
-<pre class="console">&gt; python example_6.py
+<pre class="console" data-for="ex6">&gt; python example_6.py
 Enter a student ID: <span class="input">81-298-9238</span>
 Sama Patel
 

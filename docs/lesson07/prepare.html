@@ -84,7 +84,7 @@
     prints one item from the list, changes one item in the list, and
     then prints the entire list.</p>
 
-<div class="pre"><pre class="python" id="ex1"># Example 1
+<div class="pre" id="ex1"><pre class="python"># Example 1
 
 def main():
     # Create a list that contains five words.
@@ -110,7 +110,7 @@ def main():
 if __name__ == "__main__":
     main()</pre></div>
 
-<pre class="console">&gt; python example_1.py
+<pre class="console" data-for="ex1">&gt; python example_1.py
 5
 green
 ['yellow', 'red', 'green', 'purple', 'blue']</pre>
@@ -124,7 +124,7 @@ green
     <code>remove</code>. Example&nbsp;2 shows how to create a list and
     add, find, and remove items from a list.</p>
 
-<div class="pre"><pre class="python" id="ex2"># Example 2
+<div class="pre" id="ex2"><pre class="python"># Example 2
 
 def main():
     # Create an empty list that will hold fabric names.
@@ -167,7 +167,7 @@ def main():
 if __name__ == "__main__":
     main()</pre></div>
 
-<pre class="console">&gt; python fabrics.py
+<pre class="console" data-for="ex2">&gt; python fabrics.py
 ['chiffon', 'velvet', 'denim', 'gingham']
 gingham is in the list.
 The fabrics list contains 2 elements.
@@ -185,7 +185,7 @@ The fabrics list contains 2 elements.
     inner list from the compound list, and retrieve an individual number
     from the inner list.</p>
 
-<div class="pre"><pre class="python" id="ex3"># Example 3
+<div class="pre" id="ex3"><pre class="python"># Example 3
 
 def main():
     # Create a compound list that stores smaller lists.
@@ -218,7 +218,7 @@ def main():
 if __name__ == "__main__":
     main()</pre></div>
 
-<pre class="console">&gt; python example_3.py
+<pre class="console" data-for="ex3">&gt; python example_3.py
 height: 2.3</pre>
 
     <h3>Repetition</h3>
@@ -227,23 +227,23 @@ height: 2.3</pre>
 
     <h4>for</h4>
     <p>A <code>for</code> loop iterates over a range of numbers, such as
-    <code>range(3, 10)</code> or a sequence, such as a list. A
-    <code>while</code> loop is more flexible than a <code>for</code>
-    loop and repeats while some condition is true. Example&nbsp;4 shows
-    three <code>for</code> loops that iterate over a range of numbers.
-    Notice that just like <code>if</code> statements in Python, the body
-    of a loop starts and ends with indentation.</p>
+    <code>range(3, 10)</code> or a sequence, such as a list.
+    Example&nbsp;4 shows three <code>for</code> loops that iterate over
+    a range of numbers. Notice that just like <code>if</code> statements
+    in Python, the body of a loop starts and ends with indentation.</p>
 
-<div class="pre"><pre class="python" id="ex4"># Example 4
+<div class="pre" id="ex4"><pre class="python"># Example 4
 
 def main():
     # Count from zero to nine by one.
     for i in range(10):
         print(i)
+    print()
 
     # Count from zero to eight by two.
     for i in range(0, 10, 2):
         print(i)
+    print()
 
     # Count from 100 down to 70 by three.
     for i in range(100, 69, -3):
@@ -253,6 +253,27 @@ def main():
 # Call main to start this program.
 if __name__ == "__main__":
     main()</pre></div>
+
+<pre class="console" data-for="ex4">&gt; python example_4.py
+0
+1
+2
+&vellip;
+8
+9
+
+0
+2
+4
+6
+8
+
+100
+97
+94
+ &vellip;
+73
+70</pre>
 
     <h4>break</h4>
     <p>A <code>break</code> statement causes a loop to end early. In
@@ -268,8 +289,8 @@ if __name__ == "__main__":
     variable to indicate that the counting variable will not be used
     within the body of the loop.</p>
 
-<div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex5"># Example 5
+<div class="pre" id="ex5"><pre class="linenums"></pre>
+<pre class="python"># Example 5
 
 def main():
     sum = 0
@@ -290,7 +311,7 @@ def main():
 if __name__ == "__main__":
     main()</pre></div>
 
-<pre class="console">&gt; python add_numbers.py
+<pre class="console" data-for="ex5">&gt; python add_numbers.py
 Please enter a number: 6
 Please enter a number: 4
 Please enter a number: -2
@@ -307,8 +328,8 @@ sum: 8.0</pre>
     of a loop to repeatedly perform all sorts of computations for each
     element in the list.</p>
 
-<div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex6"># Example 6
+<div class="pre" id="ex6"><pre class="linenums"></pre>
+<pre class="python"># Example 6
 
 def main():
     # Create a list.
@@ -325,7 +346,7 @@ def main():
 if __name__ == "__main__":
     main()</pre></div>
 
-<pre class="console">&gt; python print_colors.py
+<pre class="console" data-for="ex6">&gt; python print_colors.py
 red
 orange
 yellow
@@ -333,16 +354,18 @@ green
 blue</pre>
 
     <h4>while</h4>
-    <p>The program in example&nbsp;7 is a number guessing game that
-    repeatedly asks the user to guess a number between 1 and 100. At
+    <p>A <code>while</code> loop is more flexible than a
+    <code>for</code> loop and repeats while some condition is true. The
+    program in example&nbsp;7 is a number guessing game that repeatedly
+    asks the user to guess a number between 1 and 100. At
     <span class="cross" data-ref="ex7">line&nbsp;21</span> the program
     includes a <code>while</code> loop, which will cause the computer to
     repeatedly execute the statements at
     <span class="cross" data-ref="ex7">lines&nbsp;22&ndash;34</span>.
     The while loop will end when the user enters the correct number.</p>
 
-<div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex7"># Example 7
+<div class="pre" id="ex7"><pre class="linenums"></pre>
+<pre class="python"># Example 7
 
 import random
 
@@ -386,7 +409,7 @@ def main():
 if __name__ == "__main__":
     main()</pre></div>
 
-<pre class="console">&gt; python number_guess.py
+<pre class="console" data-for="ex7">&gt; python number_guess.py
 I'm thinking of a number between 1 and 100.
 Try to guess it!
 
@@ -402,8 +425,8 @@ You used 4 guesses to guess the number.</pre>
     <p>In a Python program, the computer assigns values to variables
     differently based on their data type. Consider the small program in
     example&nbsp;8 and the output of that program:</p>
-<div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex8"># Example 8
+<div class="pre" id="ex8"><pre class="linenums"></pre>
+<pre class="python"># Example 8
 
 <span data-scope="global"><span data-scope="main">def main():
     <span class="varDef">x</span> = 17
@@ -416,7 +439,7 @@ You used 4 guesses to guess the number.</pre>
 if __name__ == "__main__":
     main()</span></pre></div>
 
-<pre class="console">&gt; python example_8.py
+<pre class="console" data-for="ex8">&gt; python example_8.py
 Before changing x: x 17  y 17
 After changing x:  <em>x 18  y 17</em></pre>
 
@@ -454,8 +477,8 @@ After changing x:  <em>x 18  y 17</em></pre>
     list. This program is similar to the previous program, but it has
     two lists instead of two integers.</p>
 
-<div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex9"># Example 9
+<div class="pre" id="ex9"><pre class="linenums"></pre>
+<pre class="python"># Example 9
 
 <span data-scope="global"><span data-scope="main">def main():
     <span class="varDef">lx</span> = [7, -2]
@@ -468,7 +491,7 @@ After changing x:  <em>x 18  y 17</em></pre>
 if __name__ == "__main__":
     main()</span></pre></div>
 
-<pre class="console">&gt; python example_9.py
+<pre class="console" data-for="ex9">&gt; python example_9.py
 Before changing lx: lx [7, -2]  ly [7, -2]
 After changing lx:  <em>lx [7, -2, 5]  ly [7, -2, 5]</em></pre>
 
@@ -524,8 +547,8 @@ After changing lx:  <em>lx [7, -2, 5]  ly [7, -2, 5]</em></pre>
     example&nbsp;10 with two functions named <code>main</code> and
     <code>modify_args</code>.</p>
 
-<div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex10"># Example 10
+<div class="pre" id="ex10"><pre class="linenums"></pre>
+<pre class="python"># Example 10
 
 <span data-scope="global"><span data-scope="main">def main():
     print("main()")
@@ -590,7 +613,7 @@ if __name__ == "__main__":
         function.</div></li>
     </ul>
 
-<pre class="console">&gt; python example_10.py
+<pre class="console" data-for="ex10">&gt; python example_10.py
 main()
 Before calling modify_args(): x 5  <em>lx [7, -2]</em>
     modify_args(n, alist)

@@ -103,8 +103,8 @@
     the code removes surrounding white space from each line of text and
     then stores each line of text in a list.</p>
 
-<div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex1"># Example 1
+<div class="pre" id="ex1"><pre class="linenums"></pre>
+<pre class="python"># Example 1
 
 def main():
     # Read the contents of a text file
@@ -150,7 +150,7 @@ def read_list(filename):
 if __name__ == "__main__":
     main()</pre></div>
 
-<pre class="console">&gt; python example_1.py
+<pre class="console" data-for="ex1">&gt; python example_1.py
 ['baobab', 'kangaroo paw', 'eucalyptus', 'heliconia', 'tulip',
 'chupasangre cactus', 'prickly pear cactus', 'ginkgo biloba']</pre>
 
@@ -159,11 +159,11 @@ if __name__ == "__main__":
     an acronym for comma separated values. A <dfn>CSV file</dfn> is a
     text file that contains tabular data with each row on a separate
     line and each cell (column) separated by a comma. The following
-    example shows the contents of a CSV file that stores information
-    about dental offices. Notice that the first row of the file contains
-    column headings, the next four rows contain information about four
-    dental offices, and each row contains five columns separated by
-    commas.</p>
+    example shows the contents of a CSV file named
+    <code>dentists.csv</code> that stores information about dental
+    offices. Notice that the first row of the file contains column
+    headings, the next four rows contain information about four dental
+    offices, and each row contains five columns separated by commas.</p>
 
 <div class="pre"><pre class="csv">
 Company Name,Address,Phone Number,Employees,Patients
@@ -184,8 +184,8 @@ Cornerstone Family Dental,44 S Center Street,208-356-4240,8,1453
     56,&nbsp;and&nbsp;60</span> that the code is using the dental office
     phone numbers as the keys in the dictionary.</p>
 
-<div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex2"># Example 2
+<div class="pre" id="ex2"><pre class="linenums"></pre>
+<pre class="python"># Example 2
 
 import csv
 
@@ -255,10 +255,10 @@ if __name__ == "__main__":
     main()</pre></div>
 
 <pre class="console">&gt; python example_2.py
-{'208-359-2224': ['Eagle Rock Dental Care', '556 Trejo Suite C', '20&hellip;],
-'208-359-1500': ['Apple Tree Dental', '33 Winn Drive Suite 2', '208-&hellip;],
-'208-356-5600': ['Rockhouse Dentistry', '106 E 1st N', '208-356-5600&hellip;],
-'208-356-4240': ['Cornerstone Family Dental', '44 S Center Street', &hellip;]}</pre>
+{'208-359-2224': ['Eagle Rock Dental Care', '556 Trejo Suite C', '&hellip;],
+'208-359-1500': ['Apple Tree Dental', '33 Winn Drive Suite 2', '20&hellip;],
+'208-356-5600': ['Rockhouse Dentistry', '106 E 1st N', '208-356-56&hellip;],
+'208-356-4240': ['Cornerstone Family Dental', '44 S Center Street'&hellip;]}</pre>
 
     <p>The previous example reads the contents of a CSV file and stores
     the contents in a dictionary. However, it is not always necessary to
@@ -271,7 +271,7 @@ if __name__ == "__main__":
     has the most patients per employee, but it doesn't use a
     dictionary.</p>
 
-<div class="pre"><pre class="python" id="ex3"># Example 3
+<div class="pre" id="ex3"><pre class="python"># Example 3
 
 import csv
 
@@ -328,7 +328,7 @@ def main():
 if __name__ == "__main__":
     main()</pre></div>
 
-<pre class="console">&gt; python example_3.py
+<pre class="console" data-for="ex3">&gt; python example_3.py
 Cornerstone Family Dental has 181.6 patients per employee</pre>
 
     <h2>Tutorials</h2>

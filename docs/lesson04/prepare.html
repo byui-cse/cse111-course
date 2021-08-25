@@ -51,7 +51,7 @@
     global scope. <var>x</var> is defined inside the <code>main</code>
     function and therefore has local scope.</p>
 
-<div class="pre"><pre class="python" id="ex1">
+<div class="pre" id="ex1"><pre class="python">
 <span data-scope="global"># g is a global variable because it
 # is defined outside of all functions.
 <span class="varDef">g</span> = 25
@@ -104,7 +104,7 @@
     <var>width</var> and <var>length</var> have local scope and the
     variable named <var>area</var> has local scope.</p>
 
-<div class="pre"><pre class="python" id="ex2">
+<div class="pre" id="ex2"><pre class="python">
 <span data-scope="global"><span class="varDef">nShapes</span> = 0
 
 <span data-scope="square">def square_area(<span class="varDef">length</span>):
@@ -139,8 +139,8 @@
     another function. The local variables from <code>main</code> cannot
     be used inside <code>circle_area</code>.</p>
 
-<div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex3"># Example 3
+<div class="pre" id="ex3"><pre class="linenums"></pre>
+<pre class="python"># Example 3
 
 <span data-scope="global">import <span class="varDef">math</span>
 
@@ -158,10 +158,10 @@
 
 main()</span></pre></div>
 
-<pre class="console">&gt; python example_3.py
+<pre class="console" data-for="ex3">&gt; python example_3.py
 Enter the radius of a circle: <span class="input">4.17</span>
 Traceback (most recent call last):
-  File "c:\Users\cse111\example_3.py", line 17, in &gt;module&lt;
+  File "c:\Users\cse111\example_3.py", line 17, in &lt;module&gt;
     main()
   File "c:\Users\cse111\example_3.py", line 7, in main
     area = circle_area()
@@ -176,8 +176,8 @@ NameError: name 'radius' is not defined</pre>
     lines&nbsp;<span class="cross" data-ref="ex4">10 and&nbsp;7</span>
     in example&nbsp;4.</p>
 
-<div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex4"># Example 4
+<div class="pre" id="ex4"><pre class="linenums"></pre>
+<pre class="python"># Example 4
 
 <span data-scope="global">import <span class="varDef">math</span>
 
@@ -195,7 +195,7 @@ NameError: name 'radius' is not defined</pre>
 
 main()</span></pre></div>
 
-<pre class="console">&gt; python example_4.py
+<pre class="console" data-for="ex4">&gt; python example_4.py
 Enter the radius of a circle: <span class="input">4.17</span>
 area: 54.6</pre>
 
@@ -206,8 +206,8 @@ area: 54.6</pre>
     corresponding parameter gets its default value. Consider this
     example Python code:</p>
 
-<div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex5"># Example 5
+<div class="pre" id="ex5"><pre class="linenums"></pre>
+<pre class="python"># Example 5
 
 <span data-scope="global">import <span class="varDef">math</span>
 
@@ -234,7 +234,7 @@ area: 54.6</pre>
 
 main()</span></pre></div>
 
-<pre class="console">&gt; python example_5.py
+<pre class="console" data-for="ex5">&gt; python example_5.py
 len1: 29.5
 len2: 22.1</pre>
 

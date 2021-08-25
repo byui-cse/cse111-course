@@ -84,8 +84,8 @@
         code and its comments carefully to understand the correct syntax
         and organization of a try-except-else-finally block.
 
-<div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex1"># Example 1
+<div class="pre" id="ex1"><pre class="linenums"></pre>
+<pre class="python"># Example 1
 
 <em>try</em>:
     # Write normal code here. This block must include
@@ -198,7 +198,7 @@ such as:
     raise <code>TypeError</code> as shown in the output below the code
     example.</p>
 
-<div class="pre"><pre class="python" id="ex2"># Example 2
+<div class="pre" id="ex2"><pre class="python"># Example 2
 
 def main():
     try:
@@ -224,7 +224,7 @@ type str doesn't define __round__ method</pre>
     are not digits. The code in example&nbsp;3 and its output show a
     <code>ValueError</code>.</p>
 
-<div class="pre"><pre class="python" id="ex3"># Example 3
+<div class="pre" id="ex3"><pre class="python"># Example 3
 
 def main():
     try:
@@ -237,7 +237,7 @@ def main():
 if __name__ == "__main__":
     main()</pre></div>
 
-<pre class="console">&gt; python value_error.py
+<pre class="console" data-for="ex3">&gt; python value_error.py
 Please enter a number: <span class="input">45.7u</span>
 could not convert string to float: '45.7u'</pre>
 
@@ -246,7 +246,7 @@ could not convert string to float: '45.7u'</pre>
     when a program attempts to divide a number by zero (0) as shown in
     example&nbsp;4 and its output.</p>
 
-<div class="pre"><pre class="python" id="ex4"># Example 4
+<div class="pre" id="ex4"><pre class="python"># Example 4
 
 def main():
     try:
@@ -263,7 +263,7 @@ def main():
 if __name__ == "__main__":
     main()</pre></div>
 
-<pre class="console">&gt; python zero_div_error.py
+<pre class="console" data-for="ex4">&gt; python zero_div_error.py
 Enter the number of players: <span class="input">20</span>
 Enter the number of teams: <span class="input">0</span>
 division by zero</pre>
@@ -278,7 +278,7 @@ division by zero</pre>
     computer to raise an <code>IndexError</code> because the list
     contains only three elements, and the last index is 2.</p>
 
-<div class="pre"><pre class="python" id="ex5"># Example 5
+<div class="pre" id="ex5"><pre class="python"># Example 5
 
 def main():
     try:
@@ -297,7 +297,7 @@ def main():
 if __name__ == "__main__":
     main()</pre></div>
 
-<pre class="console">&gt; python index_error_write.py
+<pre class="console" data-for="ex5">&gt; python index_error_write.py
 list assignment index out of range</pre>
 
     <p>The program in example&nbsp;6 is similar to example&nbsp;5, and
@@ -308,7 +308,7 @@ list assignment index out of range</pre>
     because the list contains only three elements, and the last index is
     2.</p>
 
-<div class="pre"><pre class="python" id="ex6"># Example 6
+<div class="pre" id="ex6"><pre class="python"># Example 6
 
 def main():
     try:
@@ -327,7 +327,7 @@ def main():
 if __name__ == "__main__":
     main()</pre></div>
 
-<pre class="console">&gt; python index_error_read.py
+<pre class="console" data-for="ex6">&gt; python index_error_read.py
 list index out of range</pre>
 
     <h3>KeyError</h3>
@@ -335,7 +335,7 @@ list index out of range</pre>
     that key doesn't exist in the dictionary as shown in example&nbsp;7,
     then the computer will raise a <code>KeyError</code>.
 
-<div class="pre"><pre class="python" id="ex7"># Example 7
+<div class="pre" id="ex7"><pre class="python"># Example 7
 
 def main():
     try:
@@ -362,7 +362,7 @@ def main():
 if __name__ == "__main__":
     main()</pre></div>
 
-<pre class="console">&gt; python key_error.py
+<pre class="console" data-for="ex7">&gt; python key_error.py
 KeyError '50-420-1021'</pre>
 
     <p>Of course, it is very unlikely that a programmer would write a
@@ -395,7 +395,7 @@ KeyError '50-420-1021'</pre>
     computer will raise a <code>FileNotFoundError</code>. Example&nbsp;8
     contains code where such an error might occur.</p>
 
-<div class="pre"><pre class="python" id="ex8"># Example 8
+<div class="pre" id="ex8"><pre class="python"># Example 8
 
 def main():
     try:
@@ -409,7 +409,7 @@ def main():
 if __name__ == "__main__":
     main()</pre></div>
 
-<pre class="console">&gt; python file_not_found.py
+<pre class="console" data-for="ex8">&gt; python file_not_found.py
 [Errno 2] No such file or directory: 'products.vcs'</pre>
 
     <h3>PermissionError</h3>
@@ -425,7 +425,7 @@ if __name__ == "__main__":
     <code>PermissionError</code>. Example&nbsp;9 contains code where
     such an error might occur.</p>
 
-<div class="pre"><pre class="python" id="ex9"># Example 9
+<div class="pre" id="ex9"><pre class="python"># Example 9
 
 def main():
     try:
@@ -439,7 +439,7 @@ def main():
 if __name__ == "__main__":
     main()</pre></div>
 
-<pre class="console">&gt; python permission_error.py
+<pre class="console" data-for="ex9">&gt; python permission_error.py
 [Errno 13] Permission denied: 'contacts.csv'</pre>
 
     <h2>Example: Arithmetic</h2>
@@ -447,7 +447,7 @@ if __name__ == "__main__":
     <code>except</code> blocks to handle two types of exceptions:&nbsp;
     <code>ValueError</code> and <code>ZeroDivisionError</code>.</p>
 
-<div class="pre"><pre class="python" id="ex10"># Example 10
+<div class="pre" id="ex10"><pre class="python"># Example 10
 
 """
 Sam, who is the owner of Sam's Sandwich Shop, requested
@@ -484,7 +484,7 @@ def main():
 if __name__ == "__main__":
     main()</pre></div>
 
-<pre class="console">&gt; python example_10.py
+<pre class="console" data-for="ex10">&gt; python example_10.py
 Number of sandwiches that were made today: <span class="input">35u</span>
 Error: invalid literal for int() with base 10: '35u'
 You entered text that is not an integer. Please
@@ -515,8 +515,8 @@ Number of employees who worked today: <span class="input">8</span>
     <code>FileNotFoundError</code>, <code>PermissionError</code>, and
     <code>ZeroDivisionError</code>.</p>
 
-<div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex11"># Example 11
+<div class="pre" id="ex11"><pre class="linenums"></pre>
+<pre class="python"># Example 11
 
 import csv
 
@@ -605,8 +605,8 @@ if __name__ == "__main__":
     function raises when it tries to convert text to a number but the
     text contains characters that are not numeric.</p>
 
-<div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex12"># Example 12
+<div class="pre" id="ex12"><pre class="linenums"></pre>
+<pre class="python"># Example 12
 
 def main():
     gender = input("Enter your gender (M or F): ")

@@ -79,8 +79,8 @@
         higher-order function but instead uses a for each loop to
         convert a list of temperatures from Fahrenheit to Celsius.
 
-<div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex1"># Example 1
+<div class="pre" id="ex1"><pre class="linenums"></pre>
+<pre class="python"># Example 1
 
 def main():
     fahr_temps = [72, 65, 71, 75, 82, 87, 68]
@@ -111,7 +111,7 @@ def cels_from_fahr(fahr):
 if __name__ == "__main__":
     main()</pre></div>
 
-<pre class="console">&gt; python example_1.py
+<pre class="console" data-for="ex1">&gt; python example_1.py
 Fahrenheit: [72, 65, 71, 75, 82, 87, 68]
 Celsius: [22.2, 18.3, 21.7, 23.9, 27.8, 30.6, 20.0]</pre>
 
@@ -133,8 +133,8 @@ Celsius: [22.2, 18.3, 21.7, 23.9, 27.8, 30.6, 20.0]</pre>
         function as an argument. Consider the program in example&nbsp;2
         that produces the same results as example&nbsp;1.</p>
 
-<div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex2"># Example 2
+<div class="pre" id="ex2"><pre class="linenums"></pre>
+<pre class="python"># Example 2
 
 def main():
     fahr_temps = [72, 65, 71, 75, 82, 87, 68]
@@ -162,7 +162,7 @@ def cels_from_fahr(fahr):
 if __name__ == "__main__":
     main()</pre></div>
 
-<pre class="console">&gt; python example_2.py
+<pre class="console" data-for="ex2">&gt; python example_2.py
 Fahrenheit: [72, 65, 71, 75, 82, 87, 68]
 Celsius: [22.2, 18.3, 21.7, 23.9, 27.8, 30.6, 20.0]</pre>
 
@@ -201,8 +201,8 @@ Celsius: [22.2, 18.3, 21.7, 23.9, 27.8, 30.6, 20.0]</pre>
         that the <code>cels_from_fahr</code> function is nested inside
         the <code>main</code> function.
 
-<div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex3"># Example 3
+<div class="pre" id="ex3"><pre class="linenums"></pre>
+<pre class="python"># Example 3
 
 def main():
 
@@ -230,7 +230,7 @@ def main():
 if __name__ == "__main__":
     main()</pre></div>
 
-<pre class="console">&gt; python example_3.py
+<pre class="console" data-for="ex3">&gt; python example_3.py
 Fahrenheit: [72, 65, 71, 75, 82, 87, 68]
 Celsius: [22.2, 18.3, 21.7, 23.9, 27.8, 30.6, 20.0]</pre>
         </div></li>
@@ -246,8 +246,8 @@ Celsius: [22.2, 18.3, 21.7, 23.9, 27.8, 30.6, 20.0]</pre>
         of example&nbsp;4. It takes one parameter named <var>fahr</var>
         and computes and returns the corresponding Celsius temperature.
 
-<div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex4"># Example 4
+<div class="pre" id="ex4"><pre class="linenums"></pre>
+<pre class="python"># Example 4
 
 def main():
     fahr_temps = [72, 65, 71, 75, 82, 87, 68]
@@ -272,7 +272,7 @@ def main():
 if __name__ == "__main__":
     main()</pre></div>
 
-<pre class="console">&gt; python example_4.py
+<pre class="console" data-for="ex4">&gt; python example_4.py
 Fahrenheit: [72, 65, 71, 75, 82, 87, 68]
 Celsius: [22.2, 18.3, 21.7, 23.9, 27.8, 30.6, 20.0]</pre>
 
@@ -339,8 +339,8 @@ Celsius: [22.2, 18.3, 21.7, 23.9, 27.8, 30.6, 20.0]</pre>
         list.</div></li>
     </ol>
 
-<div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex5">
+<div class="pre" id="ex5"><pre class="linenums"></pre>
+<pre class="python">
 # Example 5
 
 def main():
@@ -412,7 +412,7 @@ def main():
 if __name__ == "__main__":
     main()</pre></div>
 
-<pre class="console">&gt; python example_5.py
+<pre class="console" data-for="ex5">&gt; python example_5.py
 
 Original list of provinces:
 ['Alberta', 'Ontario', 'Prince Edward Island', 'Ontario', 'Quebec',
@@ -464,8 +464,8 @@ Alberta occurs 11 times in the modified list.</pre>
     straightforward for a simple list such as a list of strings or a
     list of numbers as shown in example&nbsp;6 and its output.</p>
 
-<div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex6"># Example 6
+<div class="pre" id="ex6"><pre class="linenums"></pre>
+<pre class="python"># Example 6
 
 def main():
     # Create a list that contains country names and print the list.
@@ -481,7 +481,7 @@ def main():
 if __name__ == "__main__":
     main()</pre></div>
 
-<pre class="console">&gt; python countries.py
+<pre class="console" data-for="ex6">&gt; python countries.py
 ['Mexico', 'France', 'Ghana', 'Brazil', 'Japan']
 ['Brazil', 'France', 'Ghana', 'Japan', 'Mexico']</pre>
 
@@ -519,8 +519,8 @@ if __name__ == "__main__":
     <code>sorted</code> function will sort the list of countries by the
     population.</p>
 
-<div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex7"># Example 7
+<div class="pre" id="ex7"><pre class="linenums"></pre>
+<pre class="python"># Example 7
 
 def main():
     # Create a list that contains data about countries.
@@ -560,7 +560,7 @@ def main():
 if __name__ == "__main__":
     main()</pre></div>
 
-<pre class="console">&gt; python countries.py
+<pre class="console" data-for="ex7">&gt; python countries.py
 Original unsorted list of countries
 ['Mexico', 1972550, 126014024, 21362]
 ['France', 640679, 67399000, 45454]
@@ -594,8 +594,8 @@ List of countries sorted by population
     the output from example&nbsp;8 that the students are sorted by
     surname and then by given name.</p>
 
-<div class="pre"><pre class="linenums"></pre>
-<pre class="python" id="ex8"># Example 8
+<div class="pre" id="ex8"><pre class="linenums"></pre>
+<pre class="python"># Example 8
 
 def main():
     # Create a list that contains data about young students.
@@ -630,7 +630,7 @@ def main():
 if __name__ == "__main__":
     main()</pre></div>
 
-<pre class="console">&gt; python students.py
+<pre class="console" data-for="ex8">&gt; python students.py
 ['Alex', 'Harris', 5.8]
 ['Lily', 'Harris', 6.7]
 ['Sean', 'Li', 5.6]
