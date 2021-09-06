@@ -63,96 +63,43 @@
     <p>Here are the Python programming concepts and topics that you
     should learn during this lesson:</p>
 
-    <ol class="long">
-        <li><div>A <dfn>function</dfn> is a group of statements that
-        together perform one task. Broadly speaking, there are four
-        types of functions in Python which are:
-        <ol>
-            <li><div>Built-in functions</div></li>
-            <li><div>Standard library functions</div></li>
-            <li><div>Third-party functions</div></li>
-            <li><div>User-defined functions</div></li>
-        </ol>
-        In the previous lesson, you learned how to call the first two
-        types of functions. In lesson&nbsp;5, you'll learn how to
-        install third-party modules and call third-party functions. In
-        this lesson, you'll learn how to write and call user-defined
-        functions.</div></li>
+    <h3>What Is a Function?</h3>
+    <p>A <dfn>function</dfn> is a group of statements that together
+    perform one task. Broadly speaking, there are four types of
+    functions in Python which are:</p>
+    <ol>
+        <li><div>Built-in functions</div></li>
+        <li><div>Standard library functions</div></li>
+        <li><div>Third-party functions</div></li>
+        <li><div>User-defined functions</div></li>
+    </ol>
 
-        <li><div>A <dfn>user-defined function</dfn> is a function that
-        is not a built-in function, a standard function, or a
-        third-party function. A user-defined function is written by a
-        programmer like yourself as part of a program. For some students
-        the term "user-defined function" is confusing because the user
-        of a program does not define the function. Instead, the
-        programmer (you) define user-defined functions. Perhaps a more
-        correct term is programmer-defined function. Writing
-        user-defined functions has several advantages, including:
-        <ol>
-            <li><div>making your code more reusable</div></li>
-            <li><div>making your code easier to understand and debug</div></li>
-            <li><div>mkaing your code easier to change and add
-            capabilities</div></li>
-        </ol></div></li>
+    <p>In the previous lesson, you learned how to call the first two
+    types of functions. In lesson&nbsp;5, you'll learn how to install
+    third-party modules and call third-party functions. In this lesson,
+    you'll learn how to write and call user-defined
+    functions.</p>
 
-        <li><div>In all previous Python programs that you wrote in
-        CSE&nbsp;110 and&nbsp;111, you wrote statements that were not in
-        a function like the simple program in example&nbsp;1.
+    <h3>What Is a User-Defined Function?</h3>
+    <p>A <dfn>user-defined function</dfn> is a function that is not a
+    built-in function, a standard function, or a third-party function. A
+    user-defined function is written by a programmer like yourself as
+    part of a program. For some students the term "user-defined
+    function" is confusing because the user of a program doesn't define
+    the function. Instead, the programmer (you) define user-defined
+    functions. Perhaps a more correct term is programmer-defined
+    function. Writing user-defined functions has several advantages,
+    including:</p>
+    <ol>
+        <li><div>making your code more reusable</div></li>
+        <li><div>making your code easier to understand and debug</div></li>
+        <li><div>mkaing your code easier to change and add
+        capabilities</div></li>
+    </ol>
 
-<div class="pre" id="ex1"><pre class="linenums"></pre>
-<pre class="python"># Example 1
-
-# Get a value in miles and convert it to kilometers.
-miles = float(input("Please enter a distance in miles: "))
-km = miles * 1.60934
-print(f"{miles} miles is {km} kilometers")</pre></div>
-
-<pre class="console" data-for="ex1">&gt; python example_1.py
-Please enter a distance in miles: <span class="input">3.1</span>
-3.1 miles is 4.988954 kilometers</pre>
-
-        <p>Writing statements outside a function can lead to poor
-        organization within a large program. Professional software
-        developers write statements inside a function whenever possible.
-        Beginning with this lesson, we will write nearly all statements
-        inside a function. Also, each program will have a function named
-        <code>main</code> which will contain the beginning statements of
-        the program. In addition, each program will have one or more
-        functions that perform calculations and other useful work and
-        return a value to the call point. Example&nbsp;2 contains the
-        same Python program as example&nbsp;1 except most of the
-        statements are inside a function named <code>main</code>.</p>
-
-<div class="pre" id="ex2"><pre class="linenums"></pre>
-<pre class="python"># Example 2
-
-# Define a function named main.
-def main():
-    # Get a value in miles and convert it to kilometers.
-    miles = float(input("Please enter a distance in miles: "))
-    km = miles * 1.60934
-    print(f"{miles} miles is {km} kilometers")
-
-# Start this program by
-# calling the main function.
-main()</pre></div>
-
-<pre class="console" data-for="ex2">&gt; python example_2.py
-Please enter a distance in miles: <span class="input">3.1</span>
-3.1 miles is 4.988954 kilometers</pre>
-
-        <p>Notice the call to the <code>main</code> function at
-        <span class="cross" data-ref="ex2">line&nbsp;12</span>
-        in example&nbsp;2. Without that call to the <code>main</code>
-        function, when we run the program, the program would not do
-        anything. All of your future programs in CSE&nbsp;111 will have
-        a function named <code>main</code> and will have a call to
-        <code>main</code> at the bottom of the program.</p>
-        </div></li>
-
-        <li><div>The <code>main</code> function in example&nbsp;2 is a
-        user-defined function. To write a user-defined function in
-        Python, simply type code that matches this template:
+    <h3>How to Write a User-Defined Function</h3>
+    <p>To write a user-defined function in Python, simply type code
+    that matches this template:</p>
 
 <div class="pre"><pre class="python">
 def <var>function_name</var>(<var>param1</var>, <var>param2</var>, &hellip; <var>paramN</var>):
@@ -163,67 +110,52 @@ def <var>function_name</var>(<var>param1</var>, <var>param2</var>, &hellip; <var
     <var>statementN</var>
     return <var>value</var></pre></div>
 
-        The first line of a function is called the <dfn>header</dfn> or
-        <dfn>signature</dfn>, and it includes the following:
-        <ol>
-            <li><div>the keyword <code>def</code> (which is an
-            abbreviation for "define")</div></li>
-            <li><div>the function name</div></li>
-            <li><div>the parameter list (with the parameters separated
-            by commas)</div></li>
-        </ol>
+    <p>The first line of a function is called the <dfn>header</dfn> or
+    <dfn>signature</dfn>, and it includes the following:
+    <ol>
+        <li><div>the keyword <code>def</code> (which is an
+        abbreviation for "define")</div></li>
+        <li><div>the function name</div></li>
+        <li><div>the parameter list (with the parameters separated
+        by commas)</div></li>
+    </ol>
 
-        Here is the header for a function named <code>draw_circle</code>
-        that takes three parameters named <code>x</code>,
-        <code>y</code>, and <code>radius</code>:
+    <p>Here is the header for a function named <code>draw_circle</code>
+    that takes three parameters named <code>x</code>, <code>y</code>,
+    and <code>radius</code>:</p>
 
 <div class="pre"><pre class="python">def draw_circle(x, y, radius):</pre></div>
 
-        You could read the previous line of code as, "Define a function
-        named <code>draw_circle</code> that takes three
-        parameters named <var>x</var>, <var>y</var>, and
-        <var>radius</var>."
+    <p>You could read the previous line of code as, "Define a function
+    named <code>draw_circle</code> that takes three parameters named
+    <var>x</var>, <var>y</var>, and <var>radius</var>."</p>
 
-        <p>The <dfn>function name</dfn> must start with a letter or the
-        underscore (_). The rest of the name must be made of letters,
-        digits (0–9), or the underscore. A function name cannot include
-        spaces or other punctuation. A function name should be
-        meaningful and should describe curtly what the function does.
-        Well-named functions often start with a verb.</p>
+    <p>The <dfn>function name</dfn> must start with a letter or the
+    underscore (_). The rest of the name must be made of letters, digits
+    (0–9), or the underscore. A function name cannot include spaces or
+    other punctuation. A function name should be meaningful and should
+    describe curtly what the function does. Well-named functions often
+    start with a verb.</p>
 
-        <p id="param">The parameter list contains data stored in
-        variables that the function needs to complete its task. A
-        <dfn>parameter</dfn> is a variable whose value comes from
-        outside the function. One way to get input into a function is to
-        ask the user for input by calling the built-in Python
-        <code>input</code> function. Another way to get input into a
-        function is through the function's parameters. Getting input
-        through parameters is much more flexible than asking the user
-        for input because the input through parameters can come from the
-        user or a file on a hard drive or the network or a sensor or
-        even another function.</p>
-        </div></li>
+    <p>The statements inside a function are called the <dfn>body</dfn>
+    of the function. Just like other block statements, such as
+    <code>if</code>, <code>else</code>, <code>while</code>, and
+    <code>for</code>, all of which end with a colon (:), you must indent
+    the statements inside the body of a function. The body of a function
+    should begin with a <dfn>documentation string</dfn> which is a
+    triple quoted string that describes the function's purpose,
+    parameters and return value. The body of a function may contain as
+    many statements as you wish to write inside of it. However, it is a
+    good idea to limit functions to less than 20 lines of code.</p>
 
-        <li><div><p>The statements inside a function are called the
-        <dfn>body</dfn> of the function. Just like other block
-        statements, such as <code>if</code>, <code>else</code>,
-        <code>while</code>, and <code>for</code>, all of which end with
-        a colon (:), you must indent the statements inside the body of a
-        function. The body of a function should begin with a
-        <dfn>documentation string</dfn> which is a triple quoted string
-        that describes the function's purpose, parameters and return
-        value. The body of a function may contain as many statements as
-        you wish to write inside of it. However, it is a good idea to
-        limit functions to less than 20 lines of code.</p>
+    <p>Example&nbsp;1 contains a function named
+    <code>print_cylinder_volume()</code> with no parameters that gets
+    two numbers from the user:&nbsp; <var>radius</var> and
+    <var>height</var> and uses those numbers to compute the volume of a
+    cylinder and then prints the volume for the user to see.</p>
 
-        <p>Example&nbsp;3 contains a function named
-        <code>print_cylinder_volume()</code> that gets two numbers from
-        the user:&nbsp; <var>radius</var> and <var>height</var> and uses
-        those numbers to compute the volume of a cylinder and then
-        prints the volume for the user to see.</p>
-
-<div class="pre" id="ex3">
-<pre class="python"># Example 3
+<div class="pre" id="ex1">
+<pre class="python"># Example 1
 
 import math
 
@@ -241,21 +173,45 @@ def print_cylinder_volume():
     volume = math.pi * radius**2 * height
 
     # Print the volume of the cylinder.
-    print(volume)</pre></div>
+    print(f"Volume: {volume:.2f}")</pre></div>
 
     <p>Becuase the <code>print_cylinder_volume</code> function in
-    example&nbsp;3 doesn't accept parameters, it must be called without
+    example&nbsp;1 doesn't accept parameters, it must be called without
     any arguments like this:</p>
 
 <div class="pre"><pre class="python">    print_cylinder_volume()</pre></div>
 
-    <p>Example&nbsp;4 contains another version of the
-    <code>print_cylinder_volume</code> function. This second version
-    doesn't get the radius and height from the user. Instead, it accepts
-    two parameters named <var>radius</var> and <var>height</var>.</p>
+    <h3>How to Make a User-Defined Function Reusable</h3>
+    <p>Because the <code>print_cylinder_volume</code> function in
+    example&nbsp;1 gets input from a user and prints its results to a
+    terminal window, it can be used only in a program that runs when a
+    user is present. It can't be used in a program that runs
+    automatically and gets input from a file or the network or a sensor.
+    In other words, the <code>print_cylinder_volume</code> function in
+    example&nbsp;1 is not reusable in other programs. The most
+    <dfn>reusable functions</dfn> are ones that take parameters, perform
+    calculations, and return a value but <em>do not perform user input
+    and output</em>.</p>
 
-<div class="pre" id="ex4">
-<pre class="python"># Example 4
+    <p id="param">The parameter list in a function's header contains
+    data stored in variables that the function needs to complete its
+    task. A <dfn>parameter</dfn> is a variable whose value comes from
+    outside the function. One way to get input into a function is to ask
+    the user for input by calling the built-in Python <code>input</code>
+    function. Another way to get input into a function is through the
+    function's parameters. Getting input through parameters is much more
+    flexible than asking the user for input because the input through
+    parameters can come from the user or a file on a hard drive or the
+    network or a sensor or even another function.</p>
+
+    <p>Example&nbsp;2 contains another version of the
+    <code>print_cylinder_volume</code> function. This second version
+    doesn't get the radius and height from the user. Instead, it gets
+    input through its two parameters named <var>radius</var> and
+    <var>height</var>.</p>
+
+<div class="pre" id="ex2">
+<pre class="python"># Example 2
 
 import math
 
@@ -273,34 +229,25 @@ def print_cylinder_volume(<em>radius</em>, <em>height</em>):
     # Print the volume of the cylinder.
     print(volume)</pre></div>
 
-    <p>Because the second version of print_cylinder_volume function
-    accepts two parameters, it must be called with two arguments like
-    this:</p>
+    <p>Because the second version of <code>print_cylinder_volume</code>
+    function accepts two parameters, it must be called with two
+    arguments like this:</p>
 
 <div class="pre"><pre class="python">    print_cylinder_volume(2.5, 4.1)</pre></div>
-        </div></li>
 
-        <li><div><p>Many functions that you've used in the past such as
-        <code>input</code>, <code>float</code>, and <code>round</code>,
-        <dfn>return</dfn> a result. When a function returns a result, we
-        usually write code to store that returned result in a variable
-        to use later in the program like this:
+    <p>To <dfn>return</dfn> a result from a function, simply type the
+    keyword <code>return</code> followed by whatever result you want
+    returned to the calling function. Example&nbsp;3 contains a third
+    version of the cylinder volume function. Notice that the version in
+    example&nbsp;3 returns the volume instead of printing it, which
+    makes the function more reusable. Notice also in example&nbsp;3 that
+    we changed the name of the function from
+    <code>print_cylinder_volume</code> to
+    <code>compute_cylinder_volume</code> because this version doesn't
+    print the volume but instead returns it.</p>
 
-<div class="pre"><pre class="python">    <em>text =</em> input("Please enter your name: ")</pre></div>
-
-        <p>To return a result from a function, simply type the keyword
-        <code>return</code> followed by whatever result you want
-        returned to the calling function. Example&nbsp;5 contains a
-        third version of the cylinder volume function. Notice that this
-        third version returns the volume instead of printing it, which
-        makes the function more reusable. In this third version, we
-        changed the name of the function from
-        <code>print_cylinder_volume</code> to
-        <code>compute_cylinder_volume</code> because this version
-        doesn't print the volume but instead returns it.</p>
-
-<div class="pre" id="ex5">
-<pre class="python"># Example 5
+<div class="pre" id="ex3">
+<pre class="python"># Example 3
 
 import math
 
@@ -319,20 +266,114 @@ def compute_cylinder_volume(radius, height):
     # volume can be used somewhere else in the program.
     <em>return volume</em></pre></div>
 
-        <p>Because the <code>compute_cylinder_volume</code> function in
-        example&nbsp;5 accepts two parameters and returns a value, it
-        could be called like this:</p>
+    <p>Many functions that you've used in the past such as
+    <code>input</code>, <code>float</code>, and <code>round</code>,
+    return a result. When a function returns a result, we usually write
+    code to store that returned result in a variable to use later in the
+    program like this:</p>
+
+<div class="pre"><pre class="python">    <em>text =</em> input("Please enter your name: ")</pre></div>
+
+    <p>Because the <code>compute_cylinder_volume</code> function in
+    example&nbsp;3 accepts two parameters and returns a value, it
+    could be called like this:</p>
 
 <div class="pre"><pre class="python">     volume = compute_cylinder_volume(2.5, 4.1)</pre></div>
 
-        <p>Example&nbsp;6 contains a complete program with two
-        functions, the first named <code>compute_cylinder_volume</code>
-        at <span class="cross" data-ref="ex6">line&nbsp;6</span> and
-        the second named <code>main</code> at
-        <span class="cross" data-ref="ex6">line&nbsp;24</span>.
-        At <span class="cross" data-ref="ex6">line&nbsp;31</span>,
-        the <code>main</code> function calls the
-        <code>compute_cylinder_volume</code> function.</p>
+    <h3>The User-Defined Function Named main</h3>
+    <p>In all previous Python programs that you wrote in CSE&nbsp;110
+    and&nbsp;111, you wrote statements that were not in a function like
+    the simple program in example&nbsp;4.
+
+<div class="pre" id="ex4"><pre class="linenums"></pre>
+<pre class="python"># Example 4
+
+import math
+
+# Get the radius and height from the user.
+radius = float(input("Enter the radius of a cylinder: "))
+height = float(input("Enter the height of a cylinder: "))
+
+# Compute the volume of the cylinder.
+volume = math.pi * radius**2 * height
+
+# Print the volume of the cylinder.
+print(f"Volume: {volume:.2f}")</pre></div>
+
+<pre class="console" data-for="ex4">&gt; python example_4.py
+Enter the radius in centimeters: <span class="input">3</span>
+Enter the height in centimeters: <span class="input">8</span>
+Volume: 226.19</pre>
+
+    <p>Writing statements outside a function can lead to poor
+    organization within a large program. Professional software
+    developers write statements inside a function whenever possible.
+    Beginning with this lesson, we will write nearly all statements
+    inside a user-defined function. Also, each program will have a
+    user-defined function named <code>main</code> which will contain the
+    beginning statements of the program. In addition, each program will
+    have one or more user-defined functions that perform calculations
+    and other useful work and return a value to the call point.
+    Example&nbsp;5 contains the same Python program as example&nbsp;4
+    except most of the statements are inside a user-defined function
+    named <code>main</code>.</p>
+
+<div class="pre" id="ex5"><pre class="linenums"></pre>
+<pre class="python"># Example 5
+
+import math
+
+# Define a function named main.
+def main():
+    # Get the radius and height from the user.
+    radius = float(input("Enter the radius of a cylinder: "))
+    height = float(input("Enter the height of a cylinder: "))
+
+    # Compute the volume of the cylinder.
+    volume = math.pi * radius**2 * height
+
+    # Print the volume of the cylinder.
+    print(f"Volume: {volume:.2f}")
+
+# Start this program by
+# calling the main function.
+main()</pre></div>
+
+<pre class="console" data-for="ex5">&gt; python example_5.py
+Enter the radius in centimeters: <span class="input">3</span>
+Enter the height in centimeters: <span class="input">8</span>
+Volume: 226.19</pre>
+
+    <p>Notice the call to the <code>main</code> function at
+    <span class="cross" data-ref="ex5">line&nbsp;19</span> in
+    example&nbsp;5. Without that call to the <code>main</code> function,
+    when we run the program, the program will not do anything. All of
+    your future programs in CSE&nbsp;111 will have a user-defined
+    function named <code>main</code> and will have a call to
+    <code>main</code> at the bottom of the program.</p>
+
+    <h3>A Complete Program with a Reusable User-Defined Function</h3>
+    <p>If you look closely at the code in examples&nbsp;1 and&nbsp;5,
+    you will realize that both programs have the same problem, namely
+    both the <code>print_cylinder_volume</code> function in
+    example&nbsp;1 and the <code>main</code> function in example&nbsp;5
+    are not reusable because both of them get input from a user and
+    print to a terminal window. A better way to write the program in
+    examples&nbsp;1 and&nbsp;5 is to separate the program into two
+    functions, one named <code>main</code> and one named
+    <code>compute_cylinder_volume</code> as shown in example&nbsp;6.
+
+    <p>Example&nbsp;6 contains a complete program with two functions,
+    the first named <code>compute_cylinder_volume</code>
+    at <span class="cross" data-ref="ex6">line&nbsp;6</span> and the
+    second named <code>main</code>
+    at <span class="cross" data-ref="ex6">line&nbsp;24</span>.
+    At <span class="cross" data-ref="ex6">line&nbsp;31</span>,
+    the <code>main</code> function calls the
+    <code>compute_cylinder_volume</code> function. Notice that the
+    <code>compute_cylinder_volume</code> function gets its input through
+    parameters and returns a value which makes this function reusable in
+    other programs, including programs that run without a user.</p>
 
 <div class="pre" id="ex6"><pre class="linenums"></pre>
 <pre class="python"># Example 6
@@ -360,22 +401,15 @@ def compute_cylinder_volume(radius, height):
 # Define the main function.
 def main():
     # Create two variables to hold the radius and height.
-    radius = float(input("Enter the radius in centimeters: "))
-    height = float(input("Enter the height in centimeters: "))
+    radius = float(input("Enter the radius of a cylinder: "))
+    height = float(input("Enter the height of a cylinder: "))
 
     # Call the compute_cylinder_volume function and store
     # its return value in a variable to use later.
     <em>volume = compute_cylinder_volume(radius, height)</em>
 
-    if volume &lt; 1000:
-        print(f"That cylinder holds {volume} cubic")
-        print("centimeters, which is less than a liter.")
-    elif volume &gt; 1000:
-        print(f"That cylinder holds {volume} cubic")
-        print("centimeters, which is more than a liter.")
-    else:
-        print(f"That cylinder holds {volume} cubic")
-        print("centimeters, which is exactly one liter.")
+    # Print the volume of the cylinder.
+    print(f"Volume: {volume:.2f}")
 
 
 # Start this program by
@@ -385,15 +419,13 @@ main()</pre></div>
 <pre class="console" data-for="ex6">&gt; python example_6.py
 Enter the radius in centimeters: <span class="input">3</span>
 Enter the height in centimeters: <span class="input">8</span>
-That cylinder holds 226.194671 cubic
-centimeters, which is less than a liter.</pre>
-        </div></li>
+Volume: 226.19</pre>
 
-        <li><div>While it's usually a good practice, you don't
-        <em>have</em> to store the return value of a function in a
-        variable. Sometimes you'll see it used directly as shown in
-        example&nbsp;7 at lines
-        <span class="cross" data-ref="ex7">11,&nbsp;15, and&nbsp;17</span>.
+    <h3>Storing a Returned Value</h3>
+    <p>While it's usually a good practice, you don't <em>have</em> to
+    store the value that is returned from a function in a variable.
+    Sometimes you'll see it used directly as shown in example&nbsp;7 at
+    lines <span class="cross" data-ref="ex7">11,&nbsp;15, and&nbsp;17</span>.
 
 <div class="pre" id="ex7"><pre class="linenums"></pre>
 <pre class="python"># Example 7
@@ -422,23 +454,29 @@ def main():
 # calling the main function.
 main()</pre></div>
 
-        <p>Notice in example&nbsp;7, there are three statements that
-        call the <code>compute_cylinder_volume</code> function, one at
-        <span class="cross" data-ref="ex7">line&nbsp;11</span>
-        to print the volume, another at
-        <span class="cross" data-ref="ex7">line&nbsp;15</span>
-        to check if the volume is less than a liter, and yet another at
-        <span class="cross" data-ref="ex7">line&nbsp;17</span>
-        to check if the volume is greater than a liter. Every time the
-        computer calls a function, the computer will execute the code
-        that is inside that function. In example&nbsp;7, because the
-        arguments are the same at lines
-        <span class="cross" data-ref="ex7">11,&nbsp;15 and&nbsp;17</span>,
-        the returned result will be the same in all three cases. So it
-        would be faster to save the result in a variable and reuse the
-        variable instead, as shown in example&nbsp;8 at lines
-        <span class="cross" data-ref="ex8">11,&nbsp;13,&nbsp;15,
-        and&nbsp;17</span>.</p>
+<pre class="console" data-for="ex7">&gt; python example_7.py
+Enter the radius in centimeters: <span class="input">3</span>
+Enter the height in centimeters: <span class="input">8</span>
+226.194671
+That cylinder holds less than a liter.</pre>
+
+    <p>Notice in example&nbsp;7, there are three statements that call
+    the <code>compute_cylinder_volume</code> function, one at
+    <span class="cross" data-ref="ex7">line&nbsp;11</span>
+    to print the volume, another at
+    <span class="cross" data-ref="ex7">line&nbsp;15</span>
+    to check if the volume is less than a liter, and yet another at
+    <span class="cross" data-ref="ex7">line&nbsp;17</span>
+    to check if the volume is greater than a liter. Every time the
+    computer calls a function, the computer will execute the code that
+    is inside that function. In example&nbsp;7, because the arguments
+    are the same at lines
+    <span class="cross" data-ref="ex7">11,&nbsp;15 and&nbsp;17</span>,
+    the returned result will be the same in all three cases. So it would
+    be faster to save the result in a variable and reuse the variable
+    instead, as shown in example&nbsp;8 at lines
+    <span class="cross" data-ref="ex8">11,&nbsp;13,&nbsp;15,
+    and&nbsp;17</span>.</p>
 
 <div class="pre" id="ex8"><pre class="linenums"></pre>
 <pre class="python">#Example 8
@@ -453,7 +491,7 @@ def main():
     # its return value in a variable to use later.
     <em>volume =</em> compute_cylinder_volume(radius, height)
 
-    print(f"The volume is: {<em>volume</em>} cubic centimeters.")
+    print(f"The volume is {<em>volume</em>:.2f} cubic centimeters.")
 
     if <em>volume</em> &lt; 1000:
         print("That cylinder holds less than a liter.")
@@ -465,21 +503,28 @@ def main():
 
 # Start this program by
 # calling the main function.
-main()</pre></div></div></li>
+main()</pre></div>
 
-        <li><div><p>Some students have trouble visualizing what happens
-        when the computer calls (executes) a function. The following
-        code example is a complete program that includes several
-        function calls. The green arrows in the example code show how
-        the computer executes statements in one location and then jumps
-        to execute statements in another function. The blue arrows show
-        how data flows from arguments into parameters and from a
-        returned result to a variable. The circled numbers show the
-        order in which the events happen in the computer.</p>
+<pre class="console" data-for="ex8">&gt; python example_8.py
+Enter the radius in centimeters: <span class="input">3</span>
+Enter the height in centimeters: <span class="input">8</span>
+The volume is 226.19 cubic centimeters.
+That cylinder holds less than a liter.</pre>
 
-        <img src="call.png" style="margin-left:2em"
-        alt="A diagram showing a call to a function and a value returned from that function"
-        title="A diagram showing a call to a function and a value returned from that function">
+    <h3>What Happens When the Computer Calls a Function?</h3>
+    <p>Some students have trouble visualizing what happens when the
+    computer calls (executes) a function. The following code example is
+    a complete program that includes several function calls. The green
+    arrows in the example code show how the computer executes statements
+    in one location and then jumps to execute statements in another
+    function. The blue arrows show how data flows from arguments into
+    parameters and from a returned result to a variable. The circled
+    numbers show the order in which the events happen in the
+    computer.</p>
+
+    <img src="call.png" style="margin-left:2em"
+    alt="A diagram showing a call to a function and a value returned from that function"
+    title="A diagram showing a call to a function and a value returned from that function">
 <!--
 <div class="pre" id="ex9"><pre class="python">
 import math
@@ -512,67 +557,91 @@ import math
 <b>main()</b></pre></div>
 -->
 
-        <p>A computer will execute the statements in the previous
-        example in the following order:</p>
-        <ol>
-            <li><div>The statement at (1) is not inside a function, so
-            the computer executes it when the program begins. The
-            statement at (1) is a call to the <code>main</code> function
-            which causes the computer to begin executing the statements
-            inside <code>main</code> at (2).</div></li>
+    <p>A computer will execute the statements in the previous example in
+    the following order:</p>
+    <ol>
+        <li><div>The statement at (1) is not inside a function, so
+        the computer executes it when the program begins. The
+        statement at (1) is a call to the <code>main</code> function
+        which causes the computer to begin executing the statements
+        inside <code>main</code> at (2).</div></li>
 
-            <li><div>At (2), the computer prints a description of the
-            program and gets three numbers from the user.</div></li>
+        <li><div>At (2), the computer prints a description of the
+        program and gets three numbers from the user.</div></li>
 
-            <li><div>The statement at (3) is a call to the
-            <code>triangle_area</code> function which causes the
-            computer to copy the values in the arguments
-            <var>side1</var>, <var>side2</var>, and <var>side3</var>
-            into the parameters <var>a</var>, <var>b</var>, and
-            <var>c</var>, respectively and then begin executing the
-            statements inside the <code>triangle_area</code> function at
-            (5).</div></li>
+        <li><div>The statement at (3) is a call to the
+        <code>triangle_area</code> function which causes the
+        computer to copy the values in the arguments
+        <var>side1</var>, <var>side2</var>, and <var>side3</var>
+        into the parameters <var>a</var>, <var>b</var>, and
+        <var>c</var>, respectively and then begin executing the
+        statements inside the <code>triangle_area</code> function at
+        (5).</div></li>
 
-            <li><div>At (5), the computer computes the area of a
-            triangle.</div></li>
+        <li><div>At (5), the computer computes the area of a
+        triangle.</div></li>
 
-            <li><div>The statement at (6) is a return statement which
-            causes the computer to stop executing the
-            <code>triangle_area</code> function, to return the computed
-            area to the call point at (3), and to resume executing
-            statements at the call point.</div></li>
+        <li><div>The statement at (6) is a return statement which
+        causes the computer to stop executing the
+        <code>triangle_area</code> function, to return the computed
+        area to the call point at (3), and to resume executing
+        statements at the call point.</div></li>
 
-            <li><div>At the call point (3), the computer stores the
-            returned value in the <var>triarea</var>
-            variable.</div></li>
+        <li><div>At the call point (3), the computer stores the
+        returned value in the <var>triarea</var>
+        variable.</div></li>
 
-            <li><div>At (8), the computer prints the value that is in
-            the <var>triarea</var> variable for the user to see. This is
-            the last statement in the <code>main</code> function, so
-            after executing it, the computer resumes executing the
-            statements after the call point (1) to
-            <code>main</code>.</div></li>
+        <li><div>At (8), the computer prints the value that is in
+        the <var>triarea</var> variable for the user to see. This is
+        the last statement in the <code>main</code> function, so
+        after executing it, the computer resumes executing the
+        statements after the call point (1) to
+        <code>main</code>.</div></li>
 
-            <li><div>At (9), there are no more statements after the call
-            to <code>main</code>, so the computer terminates the
-            program.</div></li>
-        </ol></div></li>
-
-        <li><div>The most <dfn>reusable functions</dfn> are ones that
-        take parameters, perform calculations, and return a value but
-        <em>do not perform user input and output</em>. In the previous
-        code example, there are two functions: <code>main</code> and
-        <code>triangle_area</code>. The <code>main</code> function is
-        certainly useful in this program, but it is not reusable in
-        other programs because it gets user input and prints the result
-        for the user to see. The <code>triangle_area</code> function is
-        very reusable in another program because it doesn't get user
-        input or print output. Instead, it takes three parameters,
-        performs a calculation, and returns the result to the calling
-        function. The <code>triangle_area</code> function is so reusable
-        that it could be included in a library of functions that compute
-        the area and volume of 2-D and 3-D geometric shapes.</div></li>
+        <li><div>At (9), there are no more statements after the call
+        to <code>main</code>, so the computer terminates the
+        program.</div></li>
     </ol>
+
+    <p>The most reusable functions are ones that take parameters,
+    perform calculations, and return a value but <em>do not perform user
+    input and output</em>. In the previous code example, there are two
+    functions: <code>main</code> and <code>triangle_area</code>. The
+    <code>main</code> function is certainly useful in this program, but
+    it is not reusable in other programs because it gets user input and
+    prints the result for the user to see. The
+    <code>triangle_area</code> function is very reusable in another
+    program because it doesn't get user input or print output. Instead,
+    it takes three parameters, performs a calculation, and returns the
+    result to the calling function. The <code>triangle_area</code>
+    function is so reusable that it could be included in a library of
+    functions that compute the area and volume of 2-D and 3-D geometric
+    shapes.</p>
+
+    <h2>Summary</h2>
+    <p>A function is a group of statements that together perform one
+    task. A user-defined function is a function written by a programmer
+    like you. To write a user-defined function, write code that follows
+    this template:</p>
+
+<div class="pre"><pre class="python">
+def <var>function_name</var>(<var>param1</var>, <var>param2</var>, &hellip; <var>paramN</var>):
+    """<var>documentation string</var>"""
+    <var>statement1</var>
+    <var>statement2</var>
+        &vellip;
+    <var>statementN</var>
+    return <var>value</var></pre></div>
+
+    <p>To call a user-defined function, write code that follows this
+    template:</p>
+<div class="pre"><pre class="python"><var>variable_name</var> = <var>function_name</var>(<var>arg1</var>, <var>arg2</var>, &hellip; <var>argN</var>)</pre></div>
+
+    <p>The most reusable functions are ones that take parameters,
+    perform calculations, and return a value but <em>do not perform user
+    input and output</em>. All of your future programs in CSE&nbsp;111
+    will have a user-defined function named <code>main</code> and will
+    have a call to <code>main</code> at the bottom of the program.</p>
 
     <p><strong>It is extremely important that you can write and call
     functions.</strong> After watching the videos and reading the

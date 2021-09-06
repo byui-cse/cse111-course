@@ -41,48 +41,50 @@
     <h2>Concepts</h2>
     <p>Here are the Python programming concepts and topics that you
     should learn during this lesson:</p>
-    <ol class="long">
-        <li><div>A <dfn>function</dfn> is a group of statements
-        (computer commands) that together perform one task. Broadly
-        speaking, there are four types of functions in Python which are:
-        <ol>
-            <li><div>Built-in functions</div></li>
-            <li><div>Standard library functions</div></li>
-            <li><div>Third-party functions</div></li>
-            <li><div>User-defined functions</div></li>
-        </ol>
-        A programmer (you) can save lots of time by using existing
-        functions. In this lesson, you'll learn how to use (call) the
-        first two types of functions. In
-        <a href="../lesson05/prepare.html">lesson&nbsp;5</a>, you'll
-        learn how to install third-party modules and call third-party
-        functions. In the
-        <a href="../lesson03/prepare.html">next lesson</a>, you'll learn
-        how to write and call user-defined functions.</div></li>
 
-        <li><div>Python includes many <dfn>built-in functions</dfn> such
-        as:&nbsp; <code>input</code>, <code>int</code>,
-        <code>float</code>, <code>str</code>, <code>len</code>,
-        <code>range</code>, <code>abs</code>, <code>round</code>,
-        <code>list</code>, <code>dict</code>, <code>open</code>, and
-        <code>print</code>. These are called built-in functions because
-        you don't have to import any module to use them. They are simply
-        a built-in part of the Python language. You can read about the
-        built-in functions in the
-        <a href="https://docs.python.org/3/library/functions.html">Built-in
-        Functions</a> section of the official Python online
-        reference.</div></li>
+    <h3>What Is a Function?</h3>
+    <p>A <dfn>function</dfn> is a group of statements (computer
+    commands) that together perform one task. Broadly speaking, there
+    are four types of functions in Python which are:</p>
 
-        <li><div><p>A programmer uses a function by calling it (also
-        known as invoking it). To <dfn>call</dfn> (or <dfn>invoke</dfn>)
-        a function means to write code that causes the computer to
-        execute the code that is inside that function. Regardless of the
-        type of function (built-in, standard, third-party, or
-        user-defined), a function is called by writing its name followed
-        by a set of parentheses (&nbsp;). During CSE&nbsp;110
-        and&nbsp;111, you often wrote code that called the built-in
-        <code>input</code> and <code>print</code> functions like
-        this:</p>
+    <ol>
+        <li><div>Built-in functions</div></li>
+        <li><div>Standard library functions</div></li>
+        <li><div>Third-party functions</div></li>
+        <li><div>User-defined functions</div></li>
+    </ol>
+
+    <p>A programmer (you) can save lots of time by using existing
+    functions. In this lesson, you'll learn how to use (call) the first
+    two types of functions. In
+    <a href="../lesson05/prepare.html">lesson&nbsp;5</a>, you'll learn
+    how to install third-party modules and call third-party functions.
+    In the <a href="../lesson03/prepare.html">next lesson</a>, you'll
+    learn how to write and call user-defined functions.</p>
+
+    <h3>Built-in Functions</h3>
+    <p>Python includes many <dfn>built-in functions</dfn> such as:&nbsp;
+    <code>input</code>, <code>int</code>, <code>float</code>,
+    <code>str</code>, <code>len</code>, <code>range</code>,
+    <code>abs</code>, <code>round</code>, <code>list</code>,
+    <code>dict</code>, <code>open</code>, and <code>print</code>. These
+    are called built-in functions because you don't have to import any
+    module to use them. They are simply a built-in part of the Python
+    language. You can read about the built-in functions in the
+    <a href="https://docs.python.org/3/library/functions.html">Built-in
+    Functions</a> section of the official Python online
+    reference.</p>
+
+    <h3>Calling a Function</h3>
+    <p>A programmer uses a function by calling it (also known as
+    invoking it). To <dfn>call</dfn> (or <dfn>invoke</dfn>) a function
+    means to write code that causes the computer to execute the code
+    that is inside that function. Regardless of the type of function
+    (built-in, standard, third-party, or user-defined), a function is
+    called by writing its name followed by a set of parentheses
+    (&nbsp;). During CSE&nbsp;110 and&nbsp;111, you often wrote code
+    that called the built-in <code>input</code> and <code>print</code>
+    functions like this:</p>
 
 <div class="pre" id="ex1"><pre class="python">
 name = input("Please enter your name: ")
@@ -92,96 +94,95 @@ print(f"Hello {name}")</pre></div>
 Please enter your name: <span class="input">Miyuki</span>
 Hello Miyuki</pre>
 
-        <p>To call a function you must know the following:</p>
-        <ol>
-            <li><div>The name of the function</div></li>
-            <li><div>The parameters that the function takes</div></li>
-            <li><div>What the function does</div></li>
-        </ol>
+    <p>To call a function you must know the following:</p>
+    <ol>
+        <li><div>The name of the function</div></li>
+        <li><div>The parameters that the function takes</div></li>
+        <li><div>What the function does</div></li>
+    </ol>
 
-        <p>These three pieces of information are normally available in
-        online documentation. For example, from the online Python
-        documentation about the
-        <a href="https://docs.python.org/3/library/functions.html#input"><code>input</code></a>
-        function, we read this:</p>
+    <p>These three pieces of information are normally available in
+    online documentation. For example, from the online Python
+    documentation about the
+    <a href="https://docs.python.org/3/library/functions.html#input"><code>input</code></a>
+    function, we read this:</p>
 
-        <dl class="function">
-            <dt><code>input(prompt)</code></dt>
-            <dd>Write the <var>prompt</var> parameter to the terminal
-            window, then read a line of user input from the terminal
-            window, convert the input to a string, and return the input
-            as a string.</dd>
-        </dl>
+    <dl class="function">
+        <dt><code>input(prompt)</code></dt>
+        <dd>Write the <var>prompt</var> parameter to the terminal
+        window, then read a line of user input from the terminal
+        window, convert the input to a string, and return the input
+        as a string.</dd>
+    </dl>
 
-        <p>From this short description, we know the following:</p>
-        <ol>
-            <li><div>The name of the function is
-            <code>input</code>.</div></li>
-            <li><div>The function takes one parameter named
-            <var>prompt</var>.</div></li>
-            <li><div>The function writes the prompt to the terminal and
-            then reads and returns user input from the terminal.</div></li>
-        </ol></div></li>
-
-        <li><div>A <dfn>parameter</dfn> is a piece of data that a
-        function needs in order to complete its task. In the online
-        documentation for the <code>input</code> function, we see that
-        the <code>input</code> function has one parameter named
+    <p>From this short description, we know the following:</p>
+    <ol>
+        <li><div>The name of the function is
+        <code>input</code>.</div></li>
+        <li><div>The function takes one parameter named
         <var>prompt</var>.</div></li>
+        <li><div>The function writes the prompt to the terminal and
+        then reads and returns user input from the terminal.</div></li>
+    </ol>
 
-        <li id="arg"><div>An <dfn>argument</dfn> is the value that is
-        passed through a parameter into a function. In other words,
-        parameters are listed in a function's documentation, and
-        arguments are listed in a call to a function.</div></li>
+    <p>A <dfn>parameter</dfn> is a piece of data that a function needs
+    in order to complete its task. In the online documentation for the
+    <code>input</code> function, we see that the <code>input</code>
+    function has one parameter named <var>prompt</var>.</p>
 
-        <li><div>To write code that calls a function, we normally do the
-        following:
-        <ol>
-            <li><div>Type a new variable name and use the assignment
-            operator (=) to assign a value to the variable.</div></li>
-            <li><div>Type the name of the function followed by a set of
-            parentheses.</div></li>
-            <li><div>Between the parentheses, type arguments that the
-            computer will pass into the function through its
-            parameters.</div></li>
-        </ol>
+    <p>An <dfn id="arg">argument</dfn> is the value that is passed
+    through a parameter into a function. In other words, parameters are
+    listed in a function's documentation, and arguments are listed in a
+    call to a function.</p>
 
-        For example, the following code calls the built-in
-        <code>input</code> function and passes the string <code>"Please
-        enter your name: "</code> as the argument for the
-        <var>prompt</var> parameter.
+    <p>To write code that calls a function, we normally do the
+    following:</p>
+    <ol>
+        <li><div>Type a new variable name and use the assignment
+        operator (=) to assign a value to the variable.</div></li>
+        <li><div>Type the name of the function followed by a set of
+        parentheses.</div></li>
+        <li><div>Between the parentheses, type arguments that the
+        computer will pass into the function through its
+        parameters.</div></li>
+    </ol>
+
+    <p>For example, the following code calls the built-in
+    <code>input</code> function and passes the string <code>"Please
+    enter your name: "</code> as the argument for the <var>prompt</var>
+    parameter.</p>
 
 <div class="pre"><pre class="python">name = input("Please enter your name: ")</pre></div>
 
-        When a function has more than one parameter and a programmer
-        writes code to call that function, the programmer usually writes
-        the arguments in the same order as the parameters. Consider the
-        description of the built-in
-        <a href="https://docs.python.org/3/library/functions.html#round"><code>round</code></a> function:
+    <p>When a function has more than one parameter and a programmer
+    writes code to call that function, the programmer usually writes the
+    arguments in the same order as the parameters. Consider the
+    description of the built-in
+    <a href="https://docs.python.org/3/library/functions.html#round"><code>round</code></a>
+    function:</p>
 
-        <!-- At this point in their computer programming education,
-        most students are familiar with only a few functions. In
-        addition, many of the students do not know enough math to
-        successfully pass college algebra. It was difficult to choose a
-        Python function with multiple parameters and a purpose that most
-        students would understand. I settled on the round function even
-        though its second parameter is optional. Here are some other
-        functions that I considered writing about in this list item:
-        divmod, pow, range, open, math.comb, math.perm, math.dist,
-        math.remainder -->
+    <!-- At this point in their computer programming education,
+    most students are familiar with only a few functions. In addition,
+    many of the students do not know enough math to successfully pass
+    college algebra. It was difficult to choose a Python function with
+    multiple parameters and a purpose that most students would
+    understand. I settled on the round function even though its second
+    parameter is optional. Here are some other functions that I
+    considered writing about in this list item: divmod, pow, range,
+    open, math.comb, math.perm, math.dist, math.remainder -->
 
-        <dl class="function">
-            <dt><code>round(number, ndigits)</code></dt>
-            <dd>Return <var>number</var> rounded to
-            <var>ndigits</var> precision after the decimal point. If
-            <var>ndigits</var> is omitted or is <code>None</code>,
-            <code>round</code> returns the nearest integer to
-            <var>number</var>.</dd>
-        </dl>
+    <dl class="function">
+        <dt><code>round(number, ndigits)</code></dt>
+        <dd>Return <var>number</var> rounded to
+        <var>ndigits</var> precision after the decimal point. If
+        <var>ndigits</var> is omitted or is <code>None</code>,
+        <code>round</code> returns the nearest integer to
+        <var>number</var>.</dd>
+    </dl>
 
-        Now consider this Python code that gets a number from a user,
-        rounds that number to two digits after the decimal, and then
-        prints the rounded number.
+    <p>Now consider this Python code that gets a number from a user,
+    rounds that number to two digits after the decimal, and then prints
+    the rounded number.</p>
 
 <div class="pre" id="ex2"><pre class="linenums"></pre>
 <pre class="python">
@@ -193,67 +194,68 @@ print(r)</pre></div>
 Please enter a number: <span class="input">95.716</span>
 95.72</pre>
 
-        In the previous example,
-        <ul>
-            <li><div>The code on
-            <span class="cross" data-ref="ex2">line&nbsp;1</span> causes
-            the computer to call the built-in <code>input</code>
-            function and then call the built-in <code>float</code>
-            function.</div></li>
+    <p>In the previous example,</p>
+    <ul>
+        <li><div>The code on
+        <span class="cross" data-ref="ex2">line&nbsp;1</span> causes
+        the computer to call the built-in <code>input</code>
+        function and then call the built-in <code>float</code>
+        function.</div></li>
 
-            <li><div><span class="cross" data-ref="ex2">Line&nbsp;2</span>
-            causes the computer to call the built-in <code>round</code>
-            function and pass two arguments. Notice that the order of
-            the arguments matches the order of the parameters.
-            Specifically, the number to be rounded (<var>n</var>) is the
-            first argument, and the number of digits after the decimal
-            point (2) is the second argument.</div></li>
+        <li><div><span class="cross" data-ref="ex2">Line&nbsp;2</span>
+        causes the computer to call the built-in <code>round</code>
+        function and pass two arguments. Notice that the order of
+        the arguments matches the order of the parameters.
+        Specifically, the number to be rounded (<var>n</var>) is the
+        first argument, and the number of digits after the decimal
+        point (2) is the second argument.</div></li>
 
-            <li><div><span class="cross" data-ref="ex2">Line&nbsp;3</span>
-            causes the computer to call the built-in <code>print</code>
-            function to print the rounded number.</div></li>
-        </ul></div></li>
+        <li><div><span class="cross" data-ref="ex2">Line&nbsp;3</span>
+        causes the computer to call the built-in <code>print</code>
+        function to print the rounded number.</div></li>
+    </ul>
 
-        <li id="optArgs"><div>When calling a function or method, some
-        arguments are <dfn>optional</dfn>. Again consider the
-        description of the built-in <code>round</code> function:
+    <h3 id="optArgs">Optional Arguments</h3>
+    <p>When calling a function or method, some arguments are
+    <dfn>optional</dfn>. Again consider the description of the built-in
+    <code>round</code> function:</p>
 
-        <dl class="function">
-            <dt><code>round(number, ndigits)</code></dt>
-            <dd>Return <var>number</var> rounded to
-            <var>ndigits</var> precision after the decimal point. If
-            <var>ndigits</var> is omitted or is <code>None</code>,
-            <code>round</code> returns the nearest integer to
-            <var>number</var>.</dd>
-        </dl>
+    <dl class="function">
+        <dt><code>round(number, ndigits)</code></dt>
+        <dd>Return <var>number</var> rounded to
+        <var>ndigits</var> precision after the decimal point. If
+        <var>ndigits</var> is omitted or is <code>None</code>,
+        <code>round</code> returns the nearest integer to
+        <var>number</var>.</dd>
+    </dl>
 
-        From the description, we read that the second argument is
-        optional. If the programmer doesn't pass a second argument, the
-        value in the <var>number</var> parameter will be rounded to an
-        integer.</div></li>
+    <p>From the description, we read that the second argument is
+    optional. If the programmer doesn't pass a second argument, the
+    value in the <var>number</var> parameter will be rounded to an
+    integer.</p>
 
-        <li><div>For some optional arguments, we must pass a <dfn>named
-        argument</dfn>, which is an argument that is preceded by the
-        name of its matching parameter. For example, here is an excerpt
-        from the documentation for the <code>print</code> function:
+    <h3>Named Arguments</h3>
+    <p>For some optional arguments, we must pass a <dfn>named
+    argument</dfn>, which is an argument that is preceded by the name of
+    its matching parameter. For example, here is an excerpt from the
+    documentation for the <code>print</code> function:</p>
 
-        <dl class="function">
-            <dt><code>print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)</code></dt>
-            <dd>Print objects to the text stream <var>file</var>,
-            separated by <var>sep</var> and followed by <var>end</var>.
-            <var>sep</var>, <var>end</var>, <var>file</var> and
-            <var>flush</var>, if present, must be given as named
-            arguments.</dd>
-        </dl>
+    <dl class="function">
+        <dt><code>print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)</code></dt>
+        <dd>Print objects to the text stream <var>file</var>,
+        separated by <var>sep</var> and followed by <var>end</var>.
+        <var>sep</var>, <var>end</var>, <var>file</var> and
+        <var>flush</var>, if present, must be given as named
+        arguments.</dd>
+    </dl>
 
-        Notice from the excerpt that the <code>print</code> function can
-        take many objects that will be printed. Optionally, it can take
-        parameters named <var>sep</var>, <var>end</var>,
-        <var>file</var>, and <var>flush</var> that must be named when
-        they are used. For example, this code calls the
-        <code>print</code> function to print three words all separated
-        by a vertical bar (|). Notice the named arguments <var>sep</var>
-        and <var>flush</var>.
+    <p>Notice from the excerpt that the <code>print</code> function can
+    take many objects that will be printed. Optionally, it can take
+    parameters named <var>sep</var>, <var>end</var>, <var>file</var>,
+    and <var>flush</var> that must be named when they are used. For
+    example, this code calls the <code>print</code> function to print
+    three words all separated by a vertical bar (|). Notice the named
+    arguments <var>sep</var> and <var>flush</var>.</p>
 
 <div class="pre" id="ex3"><pre class="python">
 x = "sun"
@@ -263,42 +265,42 @@ print(x, y, z, sep="|", flush=True)</pre></div>
 
 <pre class="console" data-for="ex3">&gt; python example_3.py
 sun|moon|stars</pre>
-        </div></li>
 
-        <li><div>A Python <dfn>module</dfn> is a collection of related
-        functions. The Python <dfn>standard library</dfn> includes many
-        modules which have more functions, such as the <code>math</code>
-        module&mdash;which includes the <code>floor</code>,
-        <code>ceil</code>, and <code>sqrt</code> functions and the
-        <code>random</code> module&mdash;which includes the
-        <code>randint</code>, <code>choice</code>, and
-        <code>shuffle</code> functions. Consider the description of the
-        <a href="https://docs.python.org/3/library/math.html#math.sqrt"><code>sqrt</code></a>
-        function that is in the standard <code>math</code> module:
+    <h3>What Is a Module?</h3>
+    <p>A Python <dfn>module</dfn> is a collection of related functions.
+    The Python <dfn>standard library</dfn> includes many modules which
+    have more functions, such as the <code>math</code>
+    module&mdash;which includes the <code>floor</code>,
+    <code>ceil</code>, and <code>sqrt</code> functions and the
+    <code>random</code> module&mdash;which includes the
+    <code>randint</code>, <code>choice</code>, and <code>shuffle</code>
+    functions. Consider the description of the
+    <a href="https://docs.python.org/3/library/math.html#math.sqrt"><code>sqrt</code></a>
+    function that is in the standard <code>math</code> module:</p>
 
-        <dl class="function">
-            <dt><code>math.sqrt(x)</code></dt>
-            <dd>Return the square root of <var>x</var>.</dd>
-        </dl>
+    <dl class="function">
+        <dt><code>math.sqrt(x)</code></dt>
+        <dd>Return the square root of <var>x</var>.</dd>
+    </dl>
 
-        From this short description, we know the following:
-        <ol>
-            <li><div>The name of the containing module is
-            <code>math</code>.</div></li>
-            <li><div>The name of the function is
-            <code>sqrt</code>.</div></li>
-            <li><div>The function takes one parameter named
-            <var>x</var>.</div></li>
-            <li><div>The function computes and returns the square root
-            of a number.</div></li>
-        </ol>
+    <p>From this short description, we know the following:</p>
+    <ol>
+        <li><div>The name of the containing module is
+        <code>math</code>.</div></li>
+        <li><div>The name of the function is
+        <code>sqrt</code>.</div></li>
+        <li><div>The function takes one parameter named
+        <var>x</var>.</div></li>
+        <li><div>The function computes and returns the square root
+        of a number.</div></li>
+    </ol>
 
-        To use any code that is in a module, you must import the module
-        into your program and precede the function name with the module
-        name. For example, if you wish to call the <code>math.sqrt</code>
-        function, you must first import the <code>math</code> module and
-        then type <code>math.</code> in front of <code>sqrt</code> like
-        this:
+    <p>To use any code that is in a module, you must import the module
+    into your program and precede the function name with the module
+    name. For example, if you wish to call the <code>math.sqrt</code>
+    function, you must first import the <code>math</code> module and
+    then type <code>math.</code> in front of <code>sqrt</code> like
+    this:</p>
 
 <div class="pre" id="ex4"><pre class="python">import math
 
@@ -307,29 +309,28 @@ print(r)</pre></div>
 <pre class="console" data-for="ex4">&gt; python example_4.py
 8.426149773176359</pre>
 
-        In the above example, 71 is the argument that will be passed
-        through the parameter <var>x</var> into the
-        <code>math.sqrt</code> function. The <code>math.sqrt</code>
-        function will compute the square root of 71 and return the
-        computed value that will then be stored in the variable
-        <var>r</var>. You can read more about the standard modules in
-        the official documentation for the
-        <a href="https://docs.python.org/3/library/">Python Standard
-        Library</a>.</div></li>
+    <p>In the above example, 71 is the argument that will be passed
+    through the parameter <var>x</var> into the <code>math.sqrt</code>
+    function. The <code>math.sqrt</code> function will compute the
+    square root of 71 and return the computed value that will then be
+    stored in the variable <var>r</var>. You can read more about the
+    standard modules in the official documentation for the
+    <a href="https://docs.python.org/3/library/">Python Standard
+    Library</a>.</p>
 
-        <li><div><p>Python is an object oriented language and includes
-        many classes and objects. A <dfn>method</dfn> is a function that
-        belongs to a class or object. Even though classes and objects
-        are not part of this course (CSE&nbsp;111), calling a method in
-        Python is so common and so easy that you should know how to do
-        it. A method is a function, so calling a method is similar to
-        calling a function. The difference is that to call a method we
-        must type the name of the object and a period (.) in front of
-        the method name.</p>
+    <h3>What Is a Method?</h3>
+    <p>Python is an object oriented language and includes many classes
+    and objects. A <dfn>method</dfn> is a function that belongs to a
+    class or object. Even though classes and objects are not part of
+    this course (CSE&nbsp;111), calling a method in Python is so common
+    and so easy that you should know how to do it. A method is a
+    function, so calling a method is similar to calling a function. The
+    difference is that to call a method we must type the name of the
+    object and a period (.) in front of the method name.</p>
 
-        <p>Consider the following example code that gets a string of
-        text from a user and prints the number of characters in the
-        string and prints the string in all upper case characters.</p>
+    <p>Consider the following example code that gets a string of text
+    from a user and prints the number of characters in the string and
+    prints the string in all upper case characters.</p>
 
 <div class="pre" id="ex5"><pre class="linenums"></pre>
 <pre class="python">
@@ -353,25 +354,24 @@ print(length, text2)</pre></div>
 Enter a motivational quote: <span class="input">Rise, take up thy bed, and walk.</span>
 32 RISE, TAKE UP THY BED, AND WALK.</pre>
 
-        <p>Notice the code on
-        <span class="cross" data-ref="ex5">line&nbsp;6</span>
-        calls the built-in <code>len</code> function and the code on
-        <span class="cross" data-ref="ex5">line&nbsp;10</span>
-        calls the string <code>upper</code> method. Compare the function
-        call in
-        <span class="cross" data-ref="ex5">line&nbsp;6</span>
-        to the method call in
-        <span class="cross" data-ref="ex5">line&nbsp;10</span>.
-        To call the <code>len</code> function, we type the name of the
-        function followed by a list of arguments. To call the
-        <code>upper</code> method, we type the name of the object
-        (<code>text1</code>) and a period, then the method name, and
-        then a list of arguments.</p>
+    <p>Notice the code on
+    <span class="cross" data-ref="ex5">line&nbsp;6</span>
+    calls the built-in <code>len</code> function and the code on
+    <span class="cross" data-ref="ex5">line&nbsp;10</span>
+    calls the string <code>upper</code> method. Compare the function
+    call in
+    <span class="cross" data-ref="ex5">line&nbsp;6</span>
+    to the method call in
+    <span class="cross" data-ref="ex5">line&nbsp;10</span>.
+    To call the <code>len</code> function, we type the name of the
+    function followed by a list of arguments. To call the
+    <code>upper</code> method, we type the name of the object
+    (<code>text1</code>) and a period, then the method name, and then a
+    list of arguments.</p>
 
-        <p>A method can receive arguments just like a function can.
-        However, in the previous example, there are no arguments passed
-        to the <code>upper</code> method.</p></div></li>
-    </ol>
+    <p>A method can receive arguments just like a function can. However,
+    in the previous example, there are no arguments passed to the
+    <code>upper</code> method.</p>
 
     <h2>Summary</h2>
     <p>A function is a group of statements that together perform one
