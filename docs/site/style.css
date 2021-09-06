@@ -419,17 +419,6 @@ article div.expr .radic > * {
 article div.expr div.fract {
 }
 
-article div.expr div.fract > div.numer {
-	display: block;
-}
-
-article div.expr div.fract > div.denom {
-	display: block;
-	margin-top: 0.25em;
-	border-top: 1px solid;
-	padding-top: 0.1em;
-}
-
 article div.expr div.fract > div:first-child {
 	display: block;
 }
