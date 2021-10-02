@@ -374,6 +374,80 @@ Enter a motivational quote: <span class="input">Rise, take up thy bed, and walk.
     <span class="cross" data-ref="ex5">line&nbsp;10</span>, there are no
     arguments passed to the <code>upper</code> method.</p>
 
+    <h3>Storing a Returned Value</h3>
+    <p>While it's usually a good practice, you don't <em>have</em> to
+    store the value that is returned from a function in a variable.
+    Sometimes you will see it used directly as shown in example&nbsp;7 at
+    lines <span class="cross" data-ref="ex7">9,&nbsp;13, and&nbsp;15</span>.
+
+<div class="pre" id="ex7"><pre class="linenums"></pre>
+<pre class="python"># Example 7
+import math
+
+# Get a number from the user.
+number = float(input("Enter a number: "))
+
+# Call the math.sqrt function and
+# immediately print its return value.
+print( <em>math.sqrt(number)</em> )
+
+# Call the math.sqrt function again and
+# use its return value in an if statement.
+if <em>math.sqrt(number)</em> &lt; 100:
+    print(f"The square root is less than 100.")
+elif <em>math.sqrt(number)</em> &gt; 100:
+    print(f"The square root is more than 100.")
+else:
+    print(f"The square root is exactly 100.")</pre></div>
+
+<pre class="console" data-for="ex7">&gt; python example_7.py
+Enter a number: <span class="input">675</span>
+25.98076211353316
+The square root is less than 100.</pre>
+
+    <p>Notice in example&nbsp;7, there are three statements that call
+    the <code>math.sqrt</code> function, one at
+    <span class="cross" data-ref="ex7">line&nbsp;9</span>
+    to print the square root, another at
+    <span class="cross" data-ref="ex7">line&nbsp;13</span>
+    to check if the square root is less than 100, and yet another at
+    <span class="cross" data-ref="ex7">line&nbsp;15</span>
+    to check if the square root is greater than 100. Every time the
+    computer calls a function, the computer will execute the code that
+    is inside that function. In example&nbsp;7, because the arguments
+    are the same at lines
+    <span class="cross" data-ref="ex7">9,&nbsp;13 and&nbsp;15</span>,
+    the returned result will be the same in all three cases. So it would
+    be faster to save the result in a variable and reuse the variable
+    instead, as shown in example&nbsp;8 at lines
+    <span class="cross" data-ref="ex8">9,&nbsp;11,&nbsp;13,
+    and&nbsp;15</span>.</p>
+
+<div class="pre" id="ex8"><pre class="linenums"></pre>
+<pre class="python"># Example 8
+import math
+
+# Get a number from the user.
+number = float(input("Enter a number: "))
+
+# Call the math.sqrt function and store its
+# return value in a variable to use later.
+<em>root =</em> math.sqrt(number)
+
+print(f"The square root is {<em>root</em>:.2f}")
+
+if <em>root</em> &lt; 100:
+    print(f"The square root is less than 100.")
+elif <em>math.sqrt(number)</em> &gt; 100:
+    print(f"The square root is more than 100.")
+else:
+    print(f"The square root is exactly 100.")</pre></div>
+
+<pre class="console" data-for="ex8">&gt; python example_8.py
+Enter a number: <span class="input">675</span>
+The square root is 25.98
+The square root is less than 100.</pre>
+
     <h2>Summary</h2>
     <p>A function is a group of statements that together perform one
     task. The computer will not execute the code in a function unless
