@@ -67,46 +67,65 @@
     Use <code>pytest</code> to run the test functions. Do the following:</p>
 
     <ol class="long">
-        <li><div>Open VS Code and on the menu bar for VS Code, click
-        "Terminal" and then "New Terminal." This will open a terminal
-        frame at the bottom of the VS Code window. A terminal is a
-        window or frame where a user can type and execute computer
-        commands.</div></li>
+        <li><div><p>Open VS Code and on the menu bar for VS Code, click
+        "Terminal" and then "New Terminal."</p>
+        <div class="figure"><img src="open_terminal.png"
+        alt="A screenshot of VS Code showing how to open a terminal frame"
+        title="A screenshot of VS Code showing how to open a terminal
+        frame"></div>
+        <p>This will open a terminal frame at the bottom of the VS Code
+        window. A terminal is a window or frame where a user can type
+        and execute computer commands.</p>
+        <div class="figure"><img src="terminal.png"
+        alt="A screenshot of VS Code showing an open terminal frame"
+        title="A screenshot of VS Code showing an open terminal frame"></div>
+        </div></li>
 
         <li><div>Copy and paste the following command into the terminal
         frame and execute the command by pressing the Enter key. This
         command will upgrade <code>pip</code> and several other parts of
         the Python installation modules so that <code>pip</code> will
         work correctly.
+        <ul>
+            <li><div>Mac OS users:
+<pre class="console">python3 -m pip install --user --upgrade pip setuptools wheel</pre>
+            </div></li>
+            <li><div>Windows users:
 <pre class="console">python -m pip install --user --upgrade pip setuptools wheel</pre>
-        <ul class="note"><li>If your computer is running the Mac OS, you
-        must use the <code>python3</code> command instead of the
-        <code>python</code> command. In other words, after you copy and
-        paste the above command, but before you press the enter key,
-        change <code>python</code> to <code>python3</code>.</li>
-        <li>If your computer is running the Windows OS, and the above
-        command doesn't work on your computer, you should use the
-        <code>py</code> command instead of the <code>python</code>
-        command. In other words, after you copy and paste the above
-        command, but before you press the enter key, change
-        <code>python</code> to <code>py</code>.</li></ul>
+            <ul class="note"><li>If your computer is running the Windows
+            OS, and the above command doesn't work on your computer, you
+            should use the <code>py</code> command instead of the
+            <code>python</code> command. In other words, after you copy
+            and paste the above command, but before you press the enter
+            key, change <code>python</code> to
+            <code>py</code>.</li></ul>
+        </ul>
+        <div class="figure"><img src="upgrade_pip.png"
+        alt="A screenshot of VS Code showing the command to upgrade pip"
+        title="A screenshot of VS Code showing the command to upgrade
+        pip"></div>
         </div></li>
 
         <li><div>Install the <code>pytest</code> module by copying,
         pasting, and executing the following command in the terminal
         frame.
+        <ul>
+            <li><div>Mac OS users:
+<pre class="console">python3 -m pip install --user pytest</pre>
+            <li><div>Windows users:
 <pre class="console">python -m pip install --user pytest</pre>
-        <ul class="note"><li>If your computer is running the Mac OS, you
-        must use the <code>python3</code> command instead of the
-        <code>python</code> command. In other words, after you copy and
-        paste the above command, but before you press the enter key,
-        change <code>python</code> to <code>python3</code>.</li>
-        <li>If your computer is running the Windows OS, and the above
-        command doesn't work on your computer, you should use the
-        <code>py</code> command instead of the <code>python</code>
-        command. In other words, after you copy and paste the above
-        command, but before you press the enter key, change
-        <code>python</code> to <code>py</code>.</li></ul>
+            <ul class="note"><li>If your computer is running the Windows
+            OS, and the above command doesn't work on your computer, you
+            should use the <code>py</code> command instead of the
+            <code>python</code> command. In other words, after you copy
+            and paste the above command, but before you press the enter
+            key, change <code>python</code> to
+            <code>py</code>.</li></ul>
+        </ul>
+        <div class="figure"><img src="install_pytest.png"
+        alt="A screen shot of VS Code showing the command to install pytest"
+        title="A screen shot of VS Code showing the command to install
+        pytest"></div>
         </div></li>
 
         <li><div>Download the <a download href="words.py">words.py</a>
