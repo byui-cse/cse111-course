@@ -9,22 +9,26 @@
     <link rel="icon" type="image/png" href="../../site/icon.png">
     <link rel="stylesheet" type="text/css" href="../../site/style.css">
     <style>
-        div.gallery {
+        div#gallery {
             display: table;
             border-collapse: separate;
             border-spacing: 1em;
         }
-        div.gallery > div { display: table-row; }
-        div.gallery > div > div {
+        div#gallery > div { display: table-row; }
+        div#gallery > div > div {
             display: table-cell;
             width: 16%;
         }
-        div.gallery > div > div img {
+        div#gallery > div > div img {
             display: block;
             page-break-after: avoid;
             width: 100%;
+            border: 2px solid var(--bk-color);
         }
-        div.gallery > div > div > div {
+        div#gallery > div > div img:hover {
+            border: 2px solid var(--coral);
+        }
+        div#gallery > div > div > div {
             page-break-before: avoid;
             margin: 0.25em 0 0.5em 0;
             text-align: center;
@@ -36,7 +40,7 @@
 
 cse111.gallery = {
     show : function(images) {
-        let gallery = document.getElementsByClassName('gallery')[0];
+        let gallery = document.getElementById('gallery');
         let row;
         let col = 0;
         for (let i = 0;  i < images.length;  ++i) {
@@ -65,34 +69,37 @@ cse111.gallery = {
     }
 };
 
-        window.addEventListener("DOMContentLoaded",
-                function() { cse111.gallery.show([
-                    { name:'Adessa', file:'adessa.png' },
-                    { name:'Cort', file:'cort.png' },
-                    { name:'Grant', file:'grant.png' },
-                    { name:'Mike', file:'mike.png' },
-                    { name:'Benjamin', file:'benjamin.png' },
-                    { name:'Benjamin', file:'benjamin3.png' },
-                    { name:'Rebecca', file:'rebecca.png' },
-                    { name:'Bryson', file:'bryson.png' },
-                    { name:'Conner', file:'conner.png' },
-                    { name:'Austin', file:'austin.png' },
-                    { name:'Rachel', file:'rachel.png' },
-                    { name:'Mark', file:'mark.png' },
-                    { name:'Matthew', file:'matthew.png' },
-                    { name:'Ethan', file:'ethan.png' },
-                    { name:'Shayue', file:'shayue.png' },
-                    { name:'Josh', file:'josh.png' },
-                    { name:'Jonathan', file:'jonathan.png' },
-                    { name:'Benjamin', file:'benjamin2.png' },
-                    { name:'Eric', file:'eric.png' },
-                    { name:'Robbie', file:'robbie.png' },
-                    { name:'Sama', file:'sama.png' },
-                    { name:'Jared', file:'jared.png' },
-                    { name:'Markus', file:'markus.png' },
-                    { name:'Patrick', file:'patrick.png' },
-                    { name:'You', file:'you.png' }
-                ])});
+window.addEventListener("DOMContentLoaded",
+    function() { cse111.gallery.show([
+        { name:'Cort', file:'cort.png' },
+        { name:'Robbie', file:'robbie.png' },
+        { name:'Benjamin', file:'benjamin.png' },
+        { name:'Benjamin', file:'benjamin2.png' },
+        { name:'Adessa', file:'adessa.png' },
+        { name:'Mark', file:'mark.png' },
+        { name:'Matthew', file:'matthew.png' },
+        { name:'Bryson', file:'bryson.png' },
+        { name:'Benjamin', file:'benjamin3.png' },
+        { name:'Grant', file:'grant.png' },
+        { name:'Ethan', file:'ethan.png' },
+        { name:'Rachel', file:'rachel.png' },
+        { name:'Mike', file:'mike.png' },
+        { name:'Conner', file:'conner.png' },
+        { name:'Austin', file:'austin.png' },
+        { name:'Shayue', file:'shayue.png' },
+        { name:'Sama', file:'sama.png' },
+        { name:'Rebecca', file:'rebecca.png' },
+        { name:'Monica', file:'monica.png' },
+        { name:'Carter', file:'carter.png' },
+        { name:'Patrick', file:'patrick.png' },
+        { name:'Markus', file:'markus.png' },
+        { name:'Jared', file:'jared.png' },
+        { name:'Jonathan', file:'jonathan.png' },
+        { name:'Matthew', file:'matthew2.png' },
+        { name:'Eric', file:'eric.png' },
+        { name:'Josh', file:'josh.png' },
+        { name:'You', file:'you.png' }
+    ])});
     </script>
 </head>
 
@@ -111,7 +118,7 @@ cse111.gallery = {
     <p>Each of these scenes was created by a Python program written by a
     former CSE 111 student.</p>
 
-    <div class="gallery"></div>
+    <div id="gallery"></div>
 </article>
 <footer>
     <small>Copyright &copy; 2020, Brigham Young University - Idaho. All
