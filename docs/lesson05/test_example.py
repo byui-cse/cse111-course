@@ -1,9 +1,15 @@
+"""Verify that the wind_chill and head_index functions work correctly."""
+
 from example import wind_chill, heat_index
 from pytest import approx
 import pytest
 
 
 def test_wind_chill():
+    """Verify that the wind_chill function works correctly.
+    Parameters: none
+    Return: nothing
+    """
     chill = wind_chill(0, 3)
     assert chill == approx(-6.9)
 
@@ -15,6 +21,10 @@ def test_wind_chill():
 
 
 def test_heat_index():
+    """Verify that the heat_index function works correctly.
+    Parameters: none
+    Return: nothing
+    """
     assert heat_index(80, 80) == approx(84.2)
     assert heat_index(85, 80) == approx(96.8)
     assert heat_index(96, 70) == approx(126.4)

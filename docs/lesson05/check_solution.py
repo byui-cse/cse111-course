@@ -5,7 +5,10 @@ import pytest
 
 
 def test_prefix():
-    """Verify that the prefix function works correctly."""
+    """Verify that the prefix function works correctly.
+    Parameters: none
+    Return: nothing
+    """
     assert prefix("", "") == ""
     assert prefix("", "correct") == ""
     assert prefix("clear", "") == ""
@@ -18,7 +21,10 @@ def test_prefix():
 
 
 def test_suffix():
-    """Verify that the suffix function works correctly."""
+    """Verify that the suffix function works correctly.
+    Parameters: none
+    Return: nothing
+    """
     assert suffix("", "") == ""
     assert suffix("", "correct") == ""
     assert suffix("clear", "") == ""
