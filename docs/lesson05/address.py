@@ -3,7 +3,7 @@ def extract_city(full_address):
     a properly formatted US mailing address.
     Parameter
         full_address: a US mailing address in this format:
-            number and street, city, state, zipcode
+            number and street, city, state zipcode
     Return: the city name
     """
     full_address = full_address.strip()
