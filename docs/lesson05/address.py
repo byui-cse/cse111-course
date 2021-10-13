@@ -19,7 +19,7 @@ def extract_state(full_address):
     a state from a properly formatted US mailing address.
     Parameter
         full_address: a US mailing address in this format:
-            number and street, city, state, zipcode
+            number and street, city, state zipcode
     Return: the two letter state abbreviation
     """
     full_address = full_address.strip()
@@ -35,7 +35,7 @@ def extract_zipcode(full_address):
     a properly formatted US mailing address.
     Parameter
         full_address: a US mailing address in this format:
-            number and street, city, state, zipcode
+            number and street, city, state zipcode
     Return: the ZIP code
     """
     full_address = full_address.strip()
