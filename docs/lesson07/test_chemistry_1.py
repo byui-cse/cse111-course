@@ -284,4 +284,4 @@ def check_element(actual, expected):
             f"incorrect atomic mass for {name}: expected {exp_mass} but found {act_mass}"
 
 
-pytest.main(["-v", "--tb=line", "-rN", "test_chemistry_1.py"])
+pytest.main(["-v", "--tb=line", "-rN", __file__])

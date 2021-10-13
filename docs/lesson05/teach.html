@@ -111,7 +111,7 @@ import pytest</pre></div>
 <div class="pre"><pre class="python">
 # Call the main function that is part of pytest so that
 # the test functions in this file will start executing.
-pytest.main(["-v", "--tb=line", "-rN", "test_names.py"])</pre></div>
+pytest.main(["-v", "--tb=line", "-rN", __file__])</pre></div>
         </div></li>
 
         <li><div>Save your <code>test_names.py</code> file and run it by

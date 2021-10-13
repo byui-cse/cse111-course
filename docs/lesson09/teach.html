@@ -126,7 +126,30 @@
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each step
     in this testing procedure:</p>
+
     <ol class="test long">
+        <li><div>Download the <a download
+        href="test_students.py"><code>test_students.py</code></a>
+        Python file and save it in the same folder where you saved your
+        <code>students.py</code> program. Run the
+        <code>test_students.py</code> file and ensure that the
+        <code>test_read_dict</code> function passes. If it doesn't pass,
+        there is a mistake in your <code>read_dict</code> function. Read
+        the output from <code>pytest</code>, fix the mistake, and run
+        the <code>test_students.py</code> file again until the test
+        function passes.
+
+<pre class="console">&gt; python test_students.py
+===================== test session starts ======================
+platform win32--Python 3.8.6, pytest-6.1.2, py-1.9.0, pluggy-0.13
+rootdir: C:\Users\cse111\lesson07
+collected 1 item
+
+test_students.py::test_students <span class="pass">PASSED                    [100%]</span>
+
+<span class="pass">======================= 1 passed in 0.12s ======================</span></pre>
+        </div></li>
+
         <li><div>Run your program using the input shown in the sample
         run section below. Ensure that your program's output matches the
         sample run output.</div></li>

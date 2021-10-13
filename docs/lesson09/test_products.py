@@ -60,4 +60,4 @@ def check_product(products_dict, product_number, expected_value):
     assert actual_value[PRICE_INDEX] == approx(expected_value[1])
 
 
-pytest.main(["-v", "--tb=line", "-rN", "test_products.py"])
+pytest.main(["-v", "--tb=line", "-rN", __file__])

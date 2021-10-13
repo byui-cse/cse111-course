@@ -18,4 +18,4 @@ def test_extract_zipcode():
 
 # Call the main function that is part of pytest so that
 # the test functions in this file will start executing.
-pytest.main(["-v", "--tb=line", "-rN", "teach_stretch.py"])
+pytest.main(["-v", "--tb=line", "-rN", __file__])

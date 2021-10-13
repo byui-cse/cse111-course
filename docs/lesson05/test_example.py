@@ -1,4 +1,4 @@
-from weather import wind_chill, heat_index
+from example import wind_chill, heat_index
 from pytest import approx
 import pytest
 
@@ -22,4 +22,4 @@ def test_heat_index():
 
 # Call the main function that is part of pytest so that
 # the test functions in this file will start executing.
-pytest.main(["-v", "--tb=line", "-rN", "test_weather.py"])
+pytest.main(["-v", "--tb=line", "-rN", __file__])

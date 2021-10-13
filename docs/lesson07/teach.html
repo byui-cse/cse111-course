@@ -175,6 +175,28 @@
     <p>Verify that your program works correctly by following each step
     in this testing procedure:</p>
     <ol class="test">
+        <li><div>Download the <a download
+        href="test_random_numbers.py"><code>test_random_numbers.py</code></a>
+        Python file and save it in the same folder where you saved your
+        <code>random_numbers.py</code> program. Run the
+        <code>test_random_numbers.py</code> file and ensure that the
+        <code>test_random_numbers</code> function passes. If it doesn't
+        pass, there is a mistake in your <code>random_numbers</code>
+        function. Read the output from <code>pytest</code>, fix the
+        mistake, and run the <code>test_random_numbers.py</code> file
+        again until the test function passes.
+
+<pre class="console">&gt; python test_random_numbers.py
+===================== test session starts ======================
+platform win32--Python 3.8.6, pytest-6.1.2, py-1.9.0, pluggy-0.13
+rootdir: C:\Users\cse111\lesson07
+collected 1 item
+
+test_random_numbers.py::test_random_numbers <span class="pass">PASSED        [100%]</span>
+
+<span class="pass">======================= 1 passed in 0.11s ======================</span></pre>
+        </div></li>
+
         <li><div>Run your program and ensure that your program's output
         is similar to the sample run output. Because your program is
         appending random numbers to the <var>randnums</var> list, your
