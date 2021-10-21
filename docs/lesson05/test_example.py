@@ -1,3 +1,6 @@
+# test_example.py
+# Copyright 2020, Brigham Young University - Idaho. All rights reserved.
+
 """Verify that the wind_chill and head_index functions work correctly."""
 
 from example import wind_chill, heat_index

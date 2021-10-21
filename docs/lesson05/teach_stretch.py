@@ -1,3 +1,6 @@
+# teach_stretch.py
+# Copyright 2020, Brigham Young University - Idaho. All rights reserved.
+
 from address import extract_city, extract_state, extract_zipcode
 import pytest
 

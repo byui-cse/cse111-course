@@ -254,11 +254,13 @@ pytest.main(["-v", "--tb=line", "-rN", __file__])</pre></div>
     <span class="cross" data-ref="ex6">line&nbsp;19</span>,
     instead of writing a call to the <code>main</code> function as we do
     in program files, we write a call to <code>pytest.main</code>. In
-    CSE&nbsp;111, in all test files, we will write a call to
-    <code>pytest.main</code>
-    to cause <code>pytest</code> to run the test functions. When
-    <code>pytest</code> runs the test functions, it will produce output
-    that tells us if the tests passed or failed like this:</p>
+    CSE&nbsp;111, at the bottom of all test files, we will write a call
+    to <code>pytest.main</code> exactly as shown on
+    <span class="cross" data-ref="ex6">line&nbsp;19</span>. This call to
+    <code>pytest.main</code> will cause the <code>pytest</code> module
+    to run our test functions. When <code>pytest</code> runs our test
+    functions, it will produce output that tells us if the tests passed
+    or failed like this:</p>
 
 <pre class="console" data-for="ex6">&gt; python test_weather.py
 ========================= test session starts =========================
@@ -274,9 +276,9 @@ test_weather.py::test_cels_from_fahr <span class="pass">PASSED                  
     <code>test_cels_from_fahr</code> function which calls the
     <code>cels_from_fahr</code> function four times and verifies that
     <code>cels_from_fahr</code> returns the correct value each time. We
-    can see from the output of <code>pytest</code>, "[100%] and 1
-    passed", that the <code>cels_from_fahr</code> function returned the
-    expected (correct) result all four times.</p>
+    can see from the output of <code>pytest</code>, "[100%]" and
+    "1&nbsp;passed", that the <code>cels_from_fahr</code> function
+    returned the expected (correct) result all four times.</p>
 
     <h2 id="separate">Separating Program Code from Test Code</h2>
     <p>As explained in <a href="#1">concept&nbsp;#1</a> above, in

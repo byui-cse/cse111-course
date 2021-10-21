@@ -56,7 +56,17 @@
 }
 @media print {
 	body {
+		--bk-color: white;
+		--fg-color: var(--light-fg-color);
+
+		background-color: var(--bk-color);
+		color: var(--fg-color);
+
 		font-family: Garamond, Georgia, "Times New Roman", serif;
+	}
+
+	iframe.video {
+		display: none;
 	}
 }
 
@@ -139,6 +149,7 @@ article h1 {
 	text-align: center;
 	font-size: 175%;
 	margin: 0 0 1em 0;
+	page-break-after: avoid;
 }
 article.solution h1 {
 	font-size: 150%;
@@ -151,6 +162,7 @@ article h2 {
 	margin: 1.5em 0 0.25em 0;
 	padding-bottom: 0.25em;
 	border-bottom: 1px solid;
+	page-break-after: avoid;
 }
 
 article h3 {
@@ -158,12 +170,14 @@ article h3 {
 	font-size: 130%;
 	color: var(--byui-blue);
 	margin: 1.5em 0 0.5em 0;
+	page-break-after: avoid;
 }
 
 article h4 {
 	font-weight: bold;
 	font-size: 110%;
 	margin: 1em 0 0.5em 0;
+	page-break-after: avoid;
 }
 
 article p,
@@ -508,6 +522,7 @@ article pre.console {
 	border: 1px solid var(--border);
 	background-color: var(--console-bk-color);
 	padding: 0.25em 0.5em;
+	page-break-inside: avoid;
 }
 
 article pre.console span.input {

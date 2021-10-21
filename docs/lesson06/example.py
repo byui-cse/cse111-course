@@ -1,3 +1,6 @@
+# example.py
+# Copyright 2020, Brigham Young University - Idaho. All rights reserved.
+
 def main():
     print("This program computes the fuel efficiency")
     print("of your vehicle in miles per gallon.")

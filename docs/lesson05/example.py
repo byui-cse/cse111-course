@@ -1,3 +1,6 @@
+# example.py
+# Copyright 2020, Brigham Young University - Idaho. All rights reserved.
+
 def wind_chill(temperature, wind_speed):
     """Compute and return the wind chill factor as defined by the US
     National Weather Service.

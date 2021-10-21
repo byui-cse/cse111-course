@@ -1,3 +1,6 @@
+# teach_solution.py
+# Copyright 2020, Brigham Young University - Idaho. All rights reserved.
+
 """Verify that the make_full_name, extract_family_name, and
 extract_given_name functions work correctly.
 """

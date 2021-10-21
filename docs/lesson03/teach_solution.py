@@ -1,3 +1,6 @@
+# teach_solution.py
+# Copyright 2020, Brigham Young University - Idaho. All rights reserved.
+
 """
 Write a Python program named fitness.py that does the following:
 1. Asks the user to enter four values:

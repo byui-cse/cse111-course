@@ -1,3 +1,6 @@
+# example.py
+# Copyright 2020, Brigham Young University - Idaho. All rights reserved.
+
 """
 This program reads assignment scores from a text file
 and computes and prints the average of the test scores.

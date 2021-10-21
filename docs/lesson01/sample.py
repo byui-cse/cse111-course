@@ -1,3 +1,6 @@
+# sample.py
+# Copyright 2020, Brigham Young University - Idaho. All rights reserved.
+
 # Import the sleep function from the time module, so
 # that the sleep function can be used in this program.
 from time import sleep
@@ -8,7 +11,7 @@ name = input("Hello! What is your name? ")
 # Print the numbers 3, 2, 1.
 for i in range(3, 0, -1):
     print(i, flush=True)
-    sleep(0.5)  # 1/2 second
+    sleep(0.5)  # Pause for 1/2 second
 
 # Use a Python f-string to format a greeting
 # for the user and then print the greeting.

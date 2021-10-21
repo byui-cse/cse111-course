@@ -1,3 +1,6 @@
+# get_line.py
+# Copyright 2020, Brigham Young University - Idaho. All rights reserved.
+
 """
 This program asks the user for
 1) the name of a text file

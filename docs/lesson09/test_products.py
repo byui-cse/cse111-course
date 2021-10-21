@@ -1,3 +1,4 @@
+# test_products.py
 # Copyright 2020, Brigham Young University - Idaho. All rights reserved.
 
 from receipt import read_products

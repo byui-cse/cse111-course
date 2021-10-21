@@ -1,3 +1,6 @@
+# add_area_code.py
+# Copyright 2020, Brigham Young University - Idaho. All rights reserved.
+
 def main():
     try:
         # Open the file phone_numbers.txt for reading and read all
