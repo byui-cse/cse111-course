@@ -49,7 +49,7 @@
     <p>The storage efficiency of a steel can is computed by dividing the
     volume of a can by its surface area.</p>
 
-    <div class="block expr"><var>storage efficiency</var> = <div class="fract"><div><var>volume</var></div><div><var>surface area</var></div></div></div>
+    <div class="block expr"><var>storage_efficiency</var> = <div class="fract"><div><var>volume</var></div><div><var>surface_area</var></div></div></div>
 
     <p>In other words, the storage efficiency of a can is the space
     inside the can divided by the amount of steel required to make the
@@ -152,8 +152,8 @@
 
     <ul>
         <li><div><code>main</code></div></li>
-        <li><div><code>cylinder_volume</code></div></li>
-        <li><div><code>cylinder_surface_area</code></div></li>
+        <li><div><code>compute_volume</code></div></li>
+        <li><div><code>compute_surface_area</code></div></li>
     </ul>
 
     <h3>Core Requirements</h3>
@@ -173,24 +173,25 @@
 
     <ol class="long">
         <li><div>Add another function named
-        <code>storage_efficiency</code> to your program. This function
-        should call the <code>cylinder_volume</code> and
-        <code>cylinder_surface_area</code> functions and then compute
-        and return the storage efficiency of a steel can size. Replace
-        code in the <code>main</code> function with a call to the
-        <code>storage_efficiency</code> function as appropriate. Did
-        adding and calling the storage_efficiency function reduce the
+        <code>compute_storage_efficiency</code> to your program. This
+        function should call the <code>compute_volume</code>
+        and <code>compute_surface_area</code> functions and
+        then compute and return the storage efficiency of a steel can
+        size. Replace code in the <code>main</code> function with a call
+        to the <code>compute_storage_efficiency</code> function as
+        appropriate. Did adding and calling the
+        <code>compute_storage_efficiency</code> function reduce the
         number of lines of code in your program?</div></li>
 
         <li><div>The table of can sizes that appears in the Assignment
         section above includes a column that contains the cost per can
         of each steel can size. Add another function to your program
-        named <code>cost_efficiency</code> that computes and returns the
-        volume of a steel can divided by its cost. Write code to call
-        the <code>cost_efficiency</code> function and print the cost
-        efficiency for each can size. Then visually examine the output
-        and answer this question, "Which can size has the highest cost
-        efficiency?"</div></li>
+        named <code>compute_cost_efficiency</code> that computes and
+        returns the volume of a steel can divided by its cost. Write
+        code to call the <code>compute_cost_efficiency</code> function
+        and print the cost efficiency for each can size. Then visually
+        examine the output and answer this question, "Which can size has
+        the highest cost efficiency?"</div></li>
 
         <li><div>If you remember how to use lists and a for loop from
         CSE&nbsp;110, rewrite your <code>main</code> function so that it
