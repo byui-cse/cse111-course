@@ -77,12 +77,12 @@
 
     <p>In a Python program, we can create a list by using square
     brackets ([&nbsp;and&nbsp;]). We can determine the number of items
-    in a list by using the <code>len</code> function. We can retrieve an
-    item from a list and replace an item in a list using square brackets
-    ([&nbsp;and&nbsp;]) and an index. Example&nbsp;1 contains a program
-    that creates a list, prints the length of the list, retrieves and
-    prints one item from the list, changes one item in the list, and
-    then prints the entire list.</p>
+    in a list by calling the built-in <code>len</code> function. We can
+    retrieve an item from a list and replace an item in a list using
+    square brackets ([&nbsp;and&nbsp;]) and an index. Example&nbsp;1
+    contains a program that creates a list, prints the length of the
+    list, retrieves and prints one item from the list, changes one item
+    in the list, and then prints the entire list.</p>
 
 <div class="pre" id="ex1"><pre class="python"># Example 1
 
@@ -90,9 +90,10 @@ def main():
     # Create a list that contains five words.
     colors = ["yellow", "red", "green", "yellow", "blue"]
 
-    # Print the length of the list.
+    # Call the built-in len function
+    # and print the length of the list.
     length = len(colors)
-    print(length)
+    print(f"Number of elements: {length}")
 
     # Print the element that is stored
     # at index 2 in the colors list.
@@ -111,7 +112,7 @@ if __name__ == "__main__":
     main()</pre></div>
 
 <pre class="console" data-for="ex1">&gt; python example_1.py
-5
+Number of elements: 5
 green
 ['yellow', 'red', 'green', 'purple', 'blue']</pre>
 
@@ -361,7 +362,7 @@ blue</pre>
     <span class="cross" data-ref="ex7">line&nbsp;21</span> the program
     includes a <code>while</code> loop, which will cause the computer to
     repeatedly execute the statements at
-    <span class="cross" data-ref="ex7">lines&nbsp;22&ndash;34</span>.
+    <span class="cross" data-ref="ex7">lines&nbsp;22&ndash;35</span>.
     The while loop will end when the user enters the correct number.</p>
 
 <div class="pre" id="ex7"><pre class="linenums"></pre>
@@ -389,6 +390,7 @@ def main():
         # Get a guess from the user.
         guess = int(input(prompt))
         attempts += 1
+        guide = ""
 
         # Compare the user's guess to the answer.
         if guess &lt; answer:
