@@ -34,9 +34,6 @@ def main():
         # Don't print the year, engine design, or displacement.
         pass
 
-
-
-
     else:
         # Print a message stating that the VIN entered
         # by the user is not in the dictionary.
