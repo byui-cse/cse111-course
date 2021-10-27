@@ -265,7 +265,6 @@ def test_make_periodic_table():
     check_element(periodic_table_list[i], ['Zn', 'Zinc', 65.38])
     i += 1
     check_element(periodic_table_list[i], ['Zr', 'Zirconium', 91.224])
-    i += 1
 
 
 def check_element(actual, expected):
@@ -273,12 +272,13 @@ def check_element(actual, expected):
     assert actual[NAME_INDEX] == name, \
          f"{name} is missing from the periodic table."
 
+    # Verify that the element's symbol is correct.
     exp_symbol = expected[SYMBOL_INDEX]
     act_symbol = actual[SYMBOL_INDEX]
     assert act_symbol == exp_symbol, \
          f"incorrect symbol for {name}: expected {exp_symbol} but found {act_symbol}."
 
-    # Verify that the atomic mass is correct.
+    # Verify that the element's atomic mass is correct.
     act_mass = actual[ATOMIC_MASS_INDEX]
     exp_mass = expected[ATOMIC_MASS_INDEX]
     assert act_mass == approx(exp_mass), \
