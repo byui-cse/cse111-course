@@ -153,10 +153,13 @@ such as:
         <code>SyntaxError</code>. Instead, a program should crash for a
         syntax error and print the line number where the syntax error
         occurred so that a programmer can find and fix the syntax error.
-        Syntax errors are caused by a programmer mistyping code and not
-        by bad user input or missing files. We want a programmer to find
-        and fix all the syntax errors in a program long before the
-        program is given to users.</div></li>
+        As explained in the
+        <a href="../lesson06/prepare.html#err_types">prepare content</a>
+        for lesson 6, syntax errors are caused by a programmer mistyping
+        code and not by bad user input or missing files. A programmer
+        should find and fix all syntax errors in a program long before
+        the program is given to users, so there is no reason to handle
+        syntax errors in an <code>except</code> block.</div></li>
 
         <li><div>As shown at
         <span class="cross" data-ref="ex1">line&nbsp;26</span> in
@@ -202,7 +205,8 @@ such as:
 
 def main():
     try:
-        integer = round("5.2")
+        text = input("Please enter a number: ")
+        integer = round(text)
         print(integer)
 
     except TypeError as type_err:
@@ -211,7 +215,7 @@ def main():
 if __name__ == "__main__":
     main()</pre></div>
 
-<pre class="console">&gt; python type_error.py
+<pre class="console" data-for="ex2">&gt; python type_error.py
 type str doesn't define __round__ method</pre>
 
     <h3>ValueError</h3>
@@ -274,9 +278,9 @@ division by zero</pre>
     raise an <a href="https://docs.python.org/3/library/exceptions.html#IndexError"><code>IndexError</code></a>.
     The program in example&nbsp;5 creates a list that contains three
     surnames. Then the program attempts to change the surname at
-    index&nbsp;3. Of course, this statement fails and causes the
-    computer to raise an <code>IndexError</code> because the list
-    contains only three elements, and the last index is 2.</p>
+    index&nbsp;3. Of course, the list contains only three elements, and
+    the index of the last element is 2, so the statement fails and
+    causes the computer to raise an <code>IndexError</code>.</p>
 
 <div class="pre" id="ex5"><pre class="python"># Example 5
 
@@ -305,8 +309,8 @@ list assignment index out of range</pre>
     <code>IndexError</code>. The program in example&nbsp;6 creates a
     list that contains three surnames. Then the program attempts to
     print the surname at index&nbsp;3. Of course, this statement fails
-    because the list contains only three elements, and the last index is
-    2.</p>
+    because the list contains only three elements, and the index of the
+    last element is 2.</p>
 
 <div class="pre" id="ex6"><pre class="python"># Example 6
 
@@ -368,9 +372,11 @@ KeyError '50-420-1021'</pre>
     <p>Of course, it is very unlikely that a programmer would write a
     program that tries to find a hard-coded key that is not in a
     dictionary. However, it is common for a user to enter a key that is
-    not in a dictionary. This is why the example code in lesson&nbsp;8
-    includes an <code>if</code> statement above the line of code that
-    searches the dictionary, like this:</p>
+    not in a dictionary. This is why the code in
+    <a href="../lesson08/prepare.html#ex1">examples&nbsp;1</a>
+    <a href="../lesson08/prepare.html#ex4">and&nbsp;4</a> in the prepare
+    content for lesson&nbsp;8 includes an <code>if</code> statement
+    above the line of code that searches the dictionary, like this:</p>
 
 <div class="pre"><pre class="python">
     # Get a student ID from the user.
