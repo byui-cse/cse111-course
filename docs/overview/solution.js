@@ -76,6 +76,8 @@ cse111.sol = {
 
         code = entityFromChar(code.trim());
 		document.getElementsByClassName('python')[0].innerHTML = code;
+		cse111.linenums.addLineNumbers();
+		hljs.highlightAll();
     },
 
 
