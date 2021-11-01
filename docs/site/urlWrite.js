@@ -61,7 +61,7 @@ cse111.url.modifyLinks = function() {
 
 		const link = event.currentTarget;
 		const href = link.href;  // Get the absolute href.
-		self.openSolutionLink(href);
+		self.readSolution(href);
 
 		// Cancel the default action of the <a> tag.
 		return false;
@@ -105,7 +105,11 @@ cse111.url.modifyLinks = function() {
 		return false;
 	};
 
+	const isLocal = /^file:\/\/\//.test(window.location);
+
+	// document.getElementsByTagName returns a live list of elements.
 	const links = document.getElementsByTagName('a');
+
 	for (let i = 0;  i < links.length;  ++i) {
 		const link = links[i];
 		const href = link.href;  // Get the absolute href.
@@ -113,32 +117,43 @@ cse111.url.modifyLinks = function() {
 		if (link.classList.contains('solution')) {
 			// Process an <a class="solution"> element.
 
-			// Get the relative href.
-			const hrefAttr = link.getAttribute('href');
+			if (isLocal) {
+				// If the user is viewing the CSE 111 files from his
+				// local hard drive, there is no reason to have both a
+				// view and download link. A standard download link with
+				// simply open the file for viewing, so a download link
+				// is sufficient.
+				link.setAttribute('download', '');
+				link.addEventListener('click', openDownloadLink);
+			}
+			else {
+				// Get the relative href.
+				const hrefAttr = link.getAttribute('href');
 
-			link.addEventListener('click', openSolutionLink);
-			link.setAttribute('title', 'View ' + hrefAttr);
+				link.addEventListener('click', openSolutionLink);
+				link.setAttribute('title', 'View ' + hrefAttr);
 
-			// Create a new <a download> element.
-			let downlink = document.createElement('a');
-			downlink.setAttribute('download', '');
-			downlink.setAttribute('title', 'Download ' + hrefAttr);
-			downlink.setAttribute('href', hrefAttr);
-			downlink.innerHTML = '[&darr;]';
+				// Create a new <a download> element.
+				let downlink = document.createElement('a');
+				downlink.setAttribute('download', '');
+				downlink.setAttribute('title', 'Download ' + hrefAttr);
+				downlink.setAttribute('href', hrefAttr);
+				downlink.innerHTML = '[&darr;]';
 
-			// Insert the new element after the current
-			// <a class="solution"> element.
-			let parent = link.parentNode;
-			let next = link.nextSibling;
-			parent.insertBefore(document.createTextNode(' '), next);
-			parent.insertBefore(downlink, next);
+				// Insert the new element after the current
+				// <a class="solution"> element.
+				let parent = link.parentNode;
+				let next = link.nextSibling;
+				parent.insertBefore(document.createTextNode(' '), next);
+				parent.insertBefore(downlink, next);
 
-			// document.getElementsByTagName returns a live list of
-			// elements. This means that the newly created element will
-			// be processed the next time through this loop. The next
-			// time through this loop, the code in this loop will add
-			// the openDownloadLink function as a click listener to the
-			// newly created element.
+				// document.getElementsByTagName returns a live list of
+				// elements. This means that the newly created element
+				// will be processed the next time through this loop.
+				// The next time through this loop, the code in this
+				// loop will add the openDownloadLink function as a
+				// click listener to the newly created element.
+			}
 		}
 		else if (link.hasAttribute('download')) {
 			// Process an <a download> element.
@@ -156,7 +171,7 @@ cse111.url.modifyLinks = function() {
 };
 
 
-cse111.url.openSolutionLink = function(href) {
+cse111.url.readSolution = function(href) {
 	const self = this;
 	fetch(href)
 	.then(function(response) {
@@ -180,7 +195,7 @@ cse111.url.openSolutionLink = function(href) {
 
 
 /** Shows the code that was retrieved by the
- * openSolutionLink function in a new tab. */
+ * readSolution function in a new tab. */
 cse111.url.showCode = function(href, code) {
 	this.writeView(window.location.href, href);
 
@@ -225,7 +240,8 @@ cse111.url.showCode = function(href, code) {
 	code = entityFromChar(code.trim());
 
 	const html =
-['<!DOCTYPE html>',
+['data:text/html;charset=utf8,',
+'<!DOCTYPE html>',
 '<!-- Copyright 2020, Brigham Young University - Idaho. All rights reserved. -->',
 '<html lang="en-us">',
 '<head>',
@@ -266,11 +282,11 @@ cse111.url.showCode = function(href, code) {
 '</footer>',
 '</body>',
 '</html>'].join('\n');
-	let win = window.open();
-	let doc = win.document;
-	doc.open();
-	doc.write(html);
-	doc.close();
+	const win = window.open(html);
+	//const doc = win.document;
+	//doc.open();
+	//doc.write(html);
+	//doc.close();
 };
 
 
