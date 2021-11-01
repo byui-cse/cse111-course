@@ -16,6 +16,12 @@ cse111.sol = {
 
         document.title = filename;
         document.getElementsByClassName('title')[0].innerHTML = heading;
+		const links = document.querySelectorAll('a[download]');
+		for (let i = 0;  i < links.length;  ++i) {
+			let link = links[i];
+			link.setAttribute('href', href);
+			link.setAttribute('title', 'Download ' + heading);
+		}
 
         fetch(href)
         .then(function(response) {
@@ -96,4 +102,4 @@ cse111.sol = {
 
 
 window.addEventListener('DOMContentLoaded', function(){cse111.sol.readSolution();});
-
+window.addEventListener('DOMContentLoaded', function(){cse111.sol.readSolution();});

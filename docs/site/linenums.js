@@ -76,6 +76,9 @@ cse111.linenums = {
 	},
 
 
+	/** Add title attributes to consoles and user inputs. Most browsers
+	 * will use the titles as small tool tips that display when the user
+	 * holds the mouse pointer over an HTML element. */
 	addTitles : function() {
 		const elems = document.querySelectorAll('pre.console');
 		for (let i = 0;  i < elems.length;  ++i) {
