@@ -218,6 +218,7 @@ cse111.url.showCode = function(href, code) {
 	code = entityFromChar(code.trim());
 
 	const base = href.replace(/\/[^\/]+\/[^\/]+$/, '');
+	const index = base + '/index.html';
 	const icon = base + '/site/icon.png';
 	const style = base + '/site/style.css';
 	const codestyle = base + '/site/hljs/vscode.css';
@@ -232,6 +233,7 @@ cse111.url.showCode = function(href, code) {
 '<head>',
 '\t<meta charset="UTF-8">',
 '\t<meta name="viewport" content="width=device-width, initial-scale=1.0">',
+'\t<meta http-equiv="X-UA-Compatible" content="ie=edge">',
 '\t<title>' + filename + '</title>',
 '\t<link rel="icon" type="image/png" href="' + icon + '">',
 '\t<link rel="stylesheet" type="text/css" href="' + style + '">',
@@ -239,17 +241,17 @@ cse111.url.showCode = function(href, code) {
 '\t<script src="' + color + '"></script>',
 '\t<script src="' + linenums + '"></script>',
 '\t<script src="' + hljs + '"></script>',
-'\t',
 '</head>',
 '',
 '<body>',
 '<header>',
 '\t<div class="colorCtrl">&nbsp;</div>',
-'\t<div class="logo">',
-'\t\t<div class="upper">BYU</div>',
-'\t\t<div class="lower">Idaho</div>',
-'\t</div>',
-'\t<h2>CSE 111 | <span>Programming with Functions</span></h2>',
+'\t<a class="logo" href="https://www.byui.edu">',
+'\t\t<div>BYU</div>',
+'\t\t<div>Idaho</div>',
+'\t</a>',
+'\t<h2><a href="https://byui.instructure.com">CSE 111</a> |',
+'\t\t<a href="' + index + '">Programming with Functions</a></h2>',
 '</header>',
 '',
 '<article class="solution">',
