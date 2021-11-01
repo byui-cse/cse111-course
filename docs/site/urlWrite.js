@@ -214,13 +214,13 @@ cse111.url.showCode = function(href, code) {
 	const base = href.replace(regex, '$1');
 	const lesson = href.replace(regex, '$2');
 	const filename = href.replace(regex, '$3');
-	const index = base + '/index.html';
 	const icon = base + '/site/icon.png';
 	const style = base + '/site/style.css';
 	const codestyle = base + '/site/hljs/vscode.css';
 	const color = base + '/site/color.js';
 	const linenums = base + '/site/linenums.js';
 	const hljs = base + '/site/hljs/highlight.pack.js';
+	const index = base + '/index.html';
 
 	code = entityFromChar(code.trim());
 
