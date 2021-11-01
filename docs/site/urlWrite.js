@@ -184,10 +184,6 @@ cse111.url.openSolutionLink = function(href) {
 cse111.url.showCode = function(href, code) {
 	this.writeView(window.location.href, href);
 
-	const getFilename = function(path) {
-		return path.substring(path.lastIndexOf('/') + 1);
-	};
-
 	/** Converts the characters &, <, and > to HTML entities and
 	 * converts non-ascii charaters to HTML entity sequences. */
 	const entityFromChar = function(plain) {
@@ -214,12 +210,10 @@ cse111.url.showCode = function(href, code) {
 		return encoded;
 	};
 
-	const filename = getFilename(href);
-	code = entityFromChar(code.trim());
-
-	const regex = /^(.+)\/([^\/]+)\/[^\/]+$/;
+	const regex = /^(.+)\/([^\/]+)\/([^\/]+)$/;
 	const base = href.replace(regex, '$1');
 	const lesson = href.replace(regex, '$2');
+	const filename = href.replace(regex, '$3');
 	const index = base + '/index.html';
 	const icon = base + '/site/icon.png';
 	const style = base + '/site/style.css';
@@ -227,6 +221,8 @@ cse111.url.showCode = function(href, code) {
 	const color = base + '/site/color.js';
 	const linenums = base + '/site/linenums.js';
 	const hljs = base + '/site/hljs/highlight.pack.js';
+
+	code = entityFromChar(code.trim());
 
 	const html =
 ['<!DOCTYPE html>',
