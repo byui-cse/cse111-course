@@ -240,7 +240,9 @@ cse111.url.showCode = function(href, code) {
 	code = entityFromChar(code.trim());
 
 	const html =
-['data:text/html;charset=utf8,<html lang="en-us">',
+['<!DOCTYPE html>',
+'<!-- Copyright 2020, Brigham Young University - Idaho. All rights reserved. -->',
+'<html lang="en-us">',
 '<head>',
 '\t<meta charset="UTF-8">',
 '\t<meta name="viewport" content="width=device-width, initial-scale=1.0">',
@@ -279,11 +281,11 @@ cse111.url.showCode = function(href, code) {
 '</footer>',
 '</body>',
 '</html>'].join('\n');
-	const win = window.open(html);
-	//const doc = win.document;
-	//doc.open();
-	//doc.write(html);
-	//doc.close();
+	const win = window.open();
+	const doc = win.document;
+	doc.open();
+	doc.write(html);
+	doc.close();
 };
 
 
