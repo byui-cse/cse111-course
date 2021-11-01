@@ -217,7 +217,9 @@ cse111.url.showCode = function(href, code) {
 	const filename = getFilename(href);
 	code = entityFromChar(code.trim());
 
-	const base = href.replace(/\/[^\/]+\/[^\/]+$/, '');
+	const regex = /^(.+)\/([^\/]+)\/[^\/]+$/;
+	const base = href.replace(regex, '$1');
+	const lesson = href.replace(regex, '$2');
 	const index = base + '/index.html';
 	const icon = base + '/site/icon.png';
 	const style = base + '/site/style.css';
@@ -255,7 +257,7 @@ cse111.url.showCode = function(href, code) {
 '</header>',
 '',
 '<article class="solution">',
-'\t<h1>' + filename + ' <a download title="Download ' + filename + '" href="' + href + '">[&darr;]</a></h1>',
+'\t<h1>' + lesson + '/' + filename + ' <a download title="Download ' + filename + '" href="' + href + '">[&darr;]</a></h1>',
 '\t<div class="pre">',
 '<pre class="linenums"></pre>',
 '<pre class="python">' + code + '</pre>',
