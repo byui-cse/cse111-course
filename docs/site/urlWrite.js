@@ -107,7 +107,7 @@ cse111.url.modifyLinks = function() {
 	};
 
 	const isLocal = /^file:\/\/\//.test(window.location);
-	const splitURL = /^[^\/]+\/([^\/]+\/[^\/]+)$/;
+	const splitURL = /^.+\/([^\/]+\/[^\/]+)$/;
 
 	// document.getElementsByTagName returns a live list of elements.
 	const links = document.getElementsByTagName('a');
