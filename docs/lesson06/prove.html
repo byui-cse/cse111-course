@@ -66,11 +66,11 @@
 
     <p>For example:</p>
     <blockquote>One girl talked for the car.<br>
-    Some dogs drank above many adults.<br>
-    One bird drinks off one child.<br>
-    Some children laugh at many dogs.<br>
+    A bird drinks off one child.<br>
     The child will run on the car.<br>
-    Some adults will talk about some cats.</blockquote>
+    Some dogs drank above many rabbits.<br>
+    Some children laugh at many dogs.<br>
+    Some rabbits will talk about some cats.</blockquote>
 
     <p>After this lesson, your program must include at least these
     six functions:</p>
@@ -144,13 +144,13 @@ def get_prepositional_phrase(quantity):
         sentences must have the following characteristics:</p>
 
         <table><thead>
-            <tr><th></th> <th>Grammatical Number</th> <th>Verb Tense</th></tr>
+            <tr><th></th> <th>Quantity</th> <th>Verb Tense</th></tr>
         </thead><tbody>
             <tr><td>a.</td> <td>singular</td> <td>past</td></tr>
-            <tr><td>b.</td> <td>plural</td> <td>past</td></tr>
-            <tr><td>c.</td> <td>singular</td> <td>present</td></tr>
-            <tr><td>d.</td> <td>plural</td> <td>present</td></tr>
-            <tr><td>e.</td> <td>singular</td> <td>future</td></tr>
+            <tr><td>b.</td> <td>singular</td> <td>present</td></tr>
+            <tr><td>c.</td> <td>singular</td> <td>future</td></tr>
+            <tr><td>d.</td> <td>plural</td> <td>past</td></tr>
+            <tr><td>e.</td> <td>plural</td> <td>present</td></tr>
             <tr><td>f.</td> <td>plural</td> <td>future</td></tr>
         </tbody></table>
         </div></li>
@@ -214,13 +214,40 @@ test_sentences.py::test_get_prepositional_phrase <span class="pass">PASSED   [10
 
 <pre class="console">&gt; python sentences.py
 One girl talked for the car.
-Some dogs drank above many adults.
+Some dogs drank above many rabbits.
 One bird drinks off one child.
 Some children laugh at many dogs.
 The child will run on the car.
-Some adults will talk about some cats.</pre>
+Some rabbits will talk about some cats.</pre>
         </div></li>
     </ol>
+
+    <h2>Exceeding the Requirements</h2>
+    <p>Here are a few suggestions for additional features you could add
+    to your program.</p>
+    <ul class="long">
+        <li><div>Within your <code>main</code> function add one or more
+        calls to <code>get_prepositional_phrase</code> so that each
+        sentence includes two prepositional phrases like this:
+
+        <blockquote>One girl across one cat talked for the car.<br>
+        A bird near the rabbit drinks off one child.<br>
+        The child under the cat will run on the car.<br>
+        Some dogs without a cat drank above many rabbits.<br>
+        Some children from a bird laugh at many dogs.<br>
+        Some rabbits behind one man will talk about some cats.</blockquote>
+        </div></li>
+
+        <li><div>Write a function named <code>get_adjective</code> and
+        call it in your <code>main</code> function to add an adjective
+        to the sentences produced by your program. Does it make sense to
+        call <code>get_adjective</code> in your
+        <code>get_prepositional_phrase</code> function?</div></li>
+
+        <li><div>Write a function named <code>get_adverb</code> and
+        call it in your <code>main</code> function to add an adverb to
+        the sentences produced by your program.</div></li>
+    </ul>
 
     <h2>Ponder</h2>
     <p>How hard would it be to modify your program to pass the Turing

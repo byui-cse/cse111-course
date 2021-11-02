@@ -43,13 +43,14 @@
     sentences that make sense.</p>
 
     <p>In English and many other languages, <dfn>grammatical
-    number</dfn> is an attribute of nouns, pronouns, adjectives, and
-    verbs that expresses count distinctions, such as "one", "two",
-    "some", or "many". The grammatical number of the words in a sentence
-    must match. In English, there are two categories of grammatical
-    number: single and plural. For example, here are three English
-    sentences that contain <dfn>single</dfn> nouns, pronouns,
-    adjectives, and verbs:</p>
+    quantity</dfn> (also known as grammatical number) is an attribute of
+    nouns, pronouns, adjectives, and verbs that expresses count
+    distinctions, such as "one", "two", "some", or "many". The
+    grammatical quantity of the words in a sentence must match. In
+    English, there are two categories of grammatical quantity: single
+    and plural. For example, here are three English sentences that
+    contain <dfn>single</dfn> nouns, pronouns, adjectives, and
+    verbs:</p>
 
     <blockquote>The boy laughs.<br>
     One dog eats.<br>
@@ -83,11 +84,11 @@
     </ol>
 
     <p>For example:</p>
-    <blockquote>The cat laughed.<br>
-    Some girls thought.<br>
+    <blockquote>A cat laughed.<br>
     One man eats.<br>
-    Many dogs run.<br>
     The woman will think.<br>
+    Some girls thought.<br>
+    Many dogs run.<br>
     Many men will write.</blockquote>
 
     <p>During the next lesson, you will write and test functions that
@@ -95,11 +96,11 @@
     phrase, such as these sentences:</p>
 
     <blockquote>One girl talked for the car.<br>
-    Some dogs drank above many adults.<br>
-    One bird drinks off one child.<br>
-    Some children laugh at many dogs.<br>
+    A bird drinks off one child.<br>
     The child will run on the car.<br>
-    Some adults will talk about some cats.</blockquote>
+    Some dogs drank above many rabbits.<br>
+    Some children laugh at many dogs.<br>
+    Some rabbits will talk about some cats.</blockquote>
 
     <p>For this milestone assignment, your program must include at least
     these four functions:</p>
@@ -109,14 +110,7 @@
         <li><div><code>get_noun</code></div></li>
         <li><div><code>get_verb</code></div></li>
     </ul>
-    <!--
-    <p>After the next lesson, your program must include at least these
-    two additional functions:</p>
-    <ul>
-        <li><div>get_prepositional_phrase</div></li>
-        <li><div>get_preposition</div></li>
-    </ul>
-    -->
+
     <p>You may add other functions if you want. The functions
     <code>get_determiner</code>, <code>get_noun</code>, and
     <code>get_verb</code>, must randomly choose a word from a list of
@@ -175,24 +169,24 @@ word = <em>random.choice(words)</em></pre></div>
         <code>get_determiner</code> function into your program.
 
 <div class="pre"><pre class="python">
-def get_determiner(grammatical_number):
+def get_determiner(quantity):
     """Return a randomly chosen determiner. A determiner is
     a word like "the", "a", "one", "two", "some", "many".
-    If grammatical_number == 1, this function will return
+    If quantity == 1, this function will return
     either "the" or "one". Otherwise this function will
     return either "some" or "many".
 
     Parameter
-        grammatical_number: an integer.
-            If grammatical_number == 1, this function will return
+        quantity: an integer.
+            If quantity == 1, this function will return
             a determiner for a single noun. Otherwise this
             function will return a determiner for a plural noun.
     Return: a randomly chosen determiner.
     """
-    if grammatical_number == 1:
-        words = ["the", "one"]
+    if quantity == 1:
+        words = ["a", "one", "the"]
     else:
-        words = ["some", "many"]
+        words = ["two", "some", "many", "the"]
 
     # Randomly choose and return a determiner.
     word = random.choice(words)
@@ -206,19 +200,19 @@ def get_determiner(grammatical_number):
         documentation string.
 
 <div class="pre"><pre class="python">
-def get_noun(grammatical_number):
+def get_noun(quantity):
     """Return a randomly chosen noun.
-    If grammatical_number == 1, this function will
+    If quantity == 1, this function will
     return one of these ten single nouns:
-        "adult", "bird", "boy", "car", "cat",
-        "child", "dog", "girl", "man", "woman"
+        "bird", "boy", "car", "cat", "child",
+        "dog", "girl", "man", "rabbit", "woman"
     Otherwise, this function will return one of these
     ten plural nouns:
-        "adults", "birds", "boys", "cars", "cats",
-        "children", "dogs", "girls", "men", "women"
+        "birds", "boys", "cars", "cats", "children",
+        "dogs", "girls", "men", "rabbits", "women"
 
     Parameter
-        grammatical_number: an integer that determines
+        quantity: an integer that determines
             if the returned noun is single or plural.
     Return: a randomly chosen noun.
     """</pre></div>
@@ -231,16 +225,16 @@ def get_noun(grammatical_number):
         documentation string.
 
 <div class="pre"><pre class="python">
-def get_verb(grammatical_number, tense):
+def get_verb(quantity, tense):
     """Return a randomly chosen verb. If tense is "past", this
     function will return one of these ten verbs:
         "drank", "ate", "grew", "laughed", "thought",
         "ran", "slept", "talked", "walked", "wrote"
-    If tense is "present" and grammatical_number is 1, this
+    If tense is "present" and quantity is 1, this
     function will return one of these ten verbs:
         "drinks", "eats", "grows", "laughs", "thinks",
         "runs", "sleeps", "talks", "walks", "writes"
-    If tense is "present" and grammatical_number is NOT 1,
+    If tense is "present" and quantity is NOT 1,
     this function will return one of these ten verbs:
         "drink", "eat", "grow", "laugh", "think",
         "run", "sleep", "talk", "walk", "write"
@@ -251,7 +245,7 @@ def get_verb(grammatical_number, tense):
         "will walk", "will write"
 
     Parameter
-        grammatical_number: an integer that determines if the
+        quantity: an integer that determines if the
             returned verb is single or plural.
         tense: a string that determines the verb conjugation,
             either "past", "present" or "future".
@@ -264,13 +258,13 @@ def get_verb(grammatical_number, tense):
         generate and print six sentences with these characteristics:</p>
 
         <table class="center"><thead>
-            <tr><th></th> <th>Grammatical Number</th> <th>Verb Tense</th></tr>
+            <tr><th></th> <th>Quantity</th> <th>Verb Tense</th></tr>
         </thead><tbody>
             <tr><td>a.</td> <td>single</td> <td>past</td></tr>
-            <tr><td>b.</td> <td>plural</td> <td>past</td></tr>
-            <tr><td>c.</td> <td>single</td> <td>present</td></tr>
-            <tr><td>d.</td> <td>plural</td> <td>present</td></tr>
-            <tr><td>e.</td> <td>single</td> <td>future</td></tr>
+            <tr><td>b.</td> <td>single</td> <td>present</td></tr>
+            <tr><td>c.</td> <td>single</td> <td>future</td></tr>
+            <tr><td>d.</td> <td>plural</td> <td>past</td></tr>
+            <tr><td>e.</td> <td>plural</td> <td>present</td></tr>
             <tr><td>f.</td> <td>plural</td> <td>future</td></tr>
         </tbody></table>
         </div></li>
@@ -294,7 +288,7 @@ import pytest
 def test_get_determiner():
     # 1. Test the single determiners.
 
-    single_determiners = ["the", "one"]
+    single_determiners = ["a", "one", "the"]
 
     # This loop will repeat the statements inside it 4 times.
     # If a loop's counting variable is not used inside the
@@ -309,7 +303,7 @@ def test_get_determiner():
 
     # 2. Test the plural determiners.
 
-    plural_determiners = ["some", "many"]
+    plural_determiners = ["two", "some", "many", "the"]
 
     # This loop will repeat the statements inside it 4 times.
     for _ in range(4):
