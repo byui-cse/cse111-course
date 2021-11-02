@@ -174,13 +174,13 @@ cse111.url.modifyLinks = function() {
 			// Process any other <a> element.
 			link.addEventListener('click', openOtherLink);
 		}
-	},
-
-
-	onLoad : function() {
-		cse111.url.openDoc();
-		cse111.url.modifyLinks();
 	}
+};
+
+
+cse111.url.onLoad = function() {
+	cse111.url.openDoc();
+	cse111.url.modifyLinks();
 };
 
 
