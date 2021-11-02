@@ -275,6 +275,62 @@ Enter the mass in grams of the sample: <span class="input">5.04</span>
         </div></li>
     </ol>
 
+    <h2>Exceeding the Requirements</h2>
+    <p>Here are a few suggestions for additional features that you could
+    add to your program.</p>
+    <ol class="long">
+        <li><div>Add a dictionary that contains known chemical formulas
+        and their names. For example:
+<div class="pre"><pre class="python">
+    known_molecules_dict = {
+        "Al2O3": "aluminum oxide",
+        "CH3OH": "methanol",
+        "C2H6O": "ethanol",
+        "C2H5OH": "ethanol",
+        "C3H8O": "isopropyl alcohol",
+        "C3H8": "propane",
+        "C4H10": "butane",
+        "C6H6": "benzene",
+        "C6H14": "hexane",
+        "C8H18": "octane",
+        "CH3(CH2)6CH3": "octane",
+        "C13H18O2": "ibuprofen",
+        "C13H16N2O2": "melatonin",
+        "Fe2O3": "iron oxide",
+        "FeS2": "iron pyrite",
+        "H2O": "water"
+    }</pre></div>
+
+        Then write a function named <code>get_formula_name</code> with
+        the following header and documentation string.
+<div class="pre"><pre class="python">
+def get_formula_name(formula, known_molecules_dict):
+    """Try to find formula in the known_molecules_dict.
+    If formula is in the known_molecules_dict, return
+    the name of the chemical formula; otherwise return
+    "unknown compound".
+    """</pre></div>
+
+        Call the <code>get_formula_name</code> function from your
+        <code>main</code> function and print the compound name for the
+        user to see with the other output.</div></li>
+
+        <li><div>Add the atomic number for each element to the compound
+        dictionary of elements. The atomic number of an element is the
+        number of protons in the nucleus of that element. Write a
+        function named <code>sum_protons</code> with the following
+        header and documentation string.
+<div class="pre"><pre class="python">
+def sum_protons(symbol_quantity_list, periodic_table_dict):
+    """Compute and return the total number of protons in
+    all the elements listed in symbol_quantity_list.
+    """</pre></div>
+
+        Call the <code>sum_protons</code> function from your
+        <code>main</code> function and print the number of protons for
+        the user to see with the other output.</div></li>
+    </ol>
+
     <h2>Submission</h2>
     <p>To submit your program, return to I-Learn and do these two
     things:</p>

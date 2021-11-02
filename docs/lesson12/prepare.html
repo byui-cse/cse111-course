@@ -134,19 +134,23 @@ average: 87.57</pre>
 
     <h3>Object-Oriented Programming</h3>
     <p>Object-oriented programming is a programming paradigm based on
-    the concept of objects. An object is a piece of a program that
-    contains both data (also known as attributes) and functions (also
-    known as methods).</p>
+    the concept of objects. An <dfn>object</dfn> is a piece of a program
+    that contains both data (also known as attributes) and functions
+    (also known as methods).</p>
 
     <p>When we write an object-oriented program, we combine data and
     functions together into objects. For example, if we were writing a
     registration program used by students to register for courses at a
-    school, we would write code to create Student objects and Course
-    objects. Each Student object would have data such as given_name,
-    family_name, and phone_number and would have functions such as
-    register, enroll, drop, and withdraw. Each Course object would have
-    data such as course_code, title, description, and list_of_students
-    and would have functions such as get_students and take_role.</p>
+    university, we would write code to create <code>Student</code>
+    objects and <code>Course</code> objects. Each <code>Student</code>
+    object would have data such as <var>given_name</var>,
+    <var>family_name</var>, and <var>phone_number</var> and would have
+    functions such as <code>register</code>, <code>enroll</code>,
+    <code>drop</code>, and <code>withdraw</code>. Each
+    <code>Course</code> object would have data such as
+    <var>course_code</var>, <var>title</var>, <var>description</var>,
+    and <var>list_of_students</var> and would have functions such as
+    <code>get_students</code> and <code>take_role</code>.</p>
 
     <p>Python includes many built-in and standard objects that a
     programmer can use to write programs. In fact, you have already used
@@ -283,8 +287,8 @@ if __name__ == "__main__":
             brackets ([&nbsp;and&nbsp;]) to find a key in a
             dictionary.</td></tr>
         <tr><td>d.items()</td>
-            <td>Returns a list of the key value pairs in the dictionary
-            <var>d</var>.</td></tr>
+            <td>Returns a list that contains the key value pairs that
+            are in the dictionary <var>d</var>.</td></tr>
         <tr><td>d.keys()</td>
             <td>Returns a list that contains the keys that are in the
             dictionary <var>d</var>.</td></tr>
@@ -295,8 +299,8 @@ if __name__ == "__main__":
             <td>Updates the dictionary <var>d</var> with the key value
             pairs that are in the <var>other</var> dictionary.</td></tr>
         <tr><td>d.values()</td>
-            <td>Returns a list of all the values in the dictionary
-            <var>d</var>.</td></tr>
+            <td>Returns a list that contains the values that are in the
+            dictionary <var>d</var>.</td></tr>
     </tbody></table>
 
     <p>The following example code, which is similar to
@@ -361,8 +365,8 @@ Sama Patel
 07-103-5621 Michelle Davis</pre>
 
     <h2>Summary</h2>
-    <p>This lesson is introducing you to object-oriented programming.
-    You are learning that an object has data (attributes) and functions
+    <p>This lesson introduces you to object-oriented programming. You
+    are learning that an object has data (attributes) and functions
     (methods) and that a programmer uses the dot operator (.) to access
     the attributes and call the methods in an object. Python lists and
     dictionaries are objects and contain attributes and methods.</p>
