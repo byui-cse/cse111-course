@@ -134,7 +134,6 @@ cse111.url.modifyLinks = function() {
 				const absURL = link.href;
 				const relpath = absURL.replace(splitURL, '$1');
 				const newHref = '../overview/solution.html?file=../' + relpath;
-				console.log(newHref);
 
 				link.addEventListener('click', openSolutionLink);
 				link.setAttribute('title', 'View ' + hrefAttr);

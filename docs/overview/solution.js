@@ -6,6 +6,9 @@ if (!window.hasOwnProperty('cse111')) {
 
 
 cse111.sol = {
+	splitURL : /^(.+)\/([^\/]+)\/([^\/]+)$/,
+
+
     readSolution : function() {
         const self = this;
 
@@ -22,12 +25,11 @@ cse111.sol = {
 		};
 
         const href = getQueryValue('file');
-        const regex = /^(.+)\/([^\/]+)\/([^\/]+)$/;
-        const lesson = href.replace(regex, '$2');
-        const filename = href.replace(regex, '$3');
+        const lesson = href.replace(this.splitURL, '$2');
+        const filename = href.replace(this.splitURL, '$3');
         const heading = lesson + '/' + filename;
 
-        document.title = filename;
+        document.title = heading;
         document.getElementsByClassName('title')[0].innerHTML = heading;
 		const links = document.querySelectorAll('a[download]');
 		for (let i = 0;  i < links.length;  ++i) {
@@ -88,10 +90,9 @@ cse111.sol = {
             return encoded;
         };
 
-        const regex = /^(.+)\/([^\/]+)\/([^\/]+)$/;
-        const base = href.replace(regex, '$1');
-        const lesson = href.replace(regex, '$2');
-        const filename = href.replace(regex, '$3');
+        const base = href.replace(this.splitURL, '$1');
+        const lesson = href.replace(this.splitURL, '$2');
+        const filename = href.replace(this.splitURL, '$3');
 
         code = entityFromChar(code.trim());
 		document.getElementsByClassName('python')[0].innerHTML = code;
