@@ -61,7 +61,8 @@ cse111.url.modifyLinks = function() {
 
 		const link = event.currentTarget;
 		const href = link.href;  // Get the absolute href.
-		self.readSolution(href);
+		self.writeView(window.location.href, href);
+		window.open(href, '_blank');
 
 		// Cancel the default action of the <a> tag.
 		return false;
@@ -106,6 +107,7 @@ cse111.url.modifyLinks = function() {
 	};
 
 	const isLocal = /^file:\/\/\//.test(window.location);
+	const splitURL = /^[^\/]+/([^\/]+/[^\/]+)$/;
 
 	// document.getElementsByTagName returns a live list of elements.
 	const links = document.getElementsByTagName('a');
@@ -129,9 +131,14 @@ cse111.url.modifyLinks = function() {
 			else {
 				// Get the relative href.
 				const hrefAttr = link.getAttribute('href');
+				const absURL = link.href;
+				const relpath = absURL.replace(splitURL, '$1');
+				const newHref = '../overview/solution.html?file=../' + relpath;
+				console.log(newHref);
 
 				link.addEventListener('click', openSolutionLink);
 				link.setAttribute('title', 'View ' + hrefAttr);
+				link.setAttribute('href', newHref);
 
 				// Create a new <a download> element.
 				let downlink = document.createElement('a');
@@ -167,127 +174,14 @@ cse111.url.modifyLinks = function() {
 			// Process any other <a> element.
 			link.addEventListener('click', openOtherLink);
 		}
+	},
+
+
+	onLoad : function() {
+		cse111.url.openDoc();
+		cse111.url.modifyLinks();
 	}
 };
 
 
-cse111.url.readSolution = function(href) {
-	const self = this;
-	fetch(href)
-	.then(function(response) {
-		if (response.ok) {
-			response.text()
-			.then(function(text) {
-				self.showCode(href, text);
-			})
-			.catch(function(error) {
-				console.log('Error: ' + error);
-			});
-		}
-		else {
-			throw Error(response.statusText);
-		}
-	})
-	.catch(function(error) {
-		console.log('Error: ' + error);
-	});
-};
-
-
-/** Shows the code that was retrieved by the
- * readSolution function in a new tab. */
-cse111.url.showCode = function(href, code) {
-	this.writeView(window.location.href, href);
-
-	/** Converts the characters &, <, and > to HTML entities and
-	 * converts non-ascii charaters to HTML entity sequences. */
-	const entityFromChar = function(plain) {
-		const symbols = {
-			'&':'&amp;', '<':'&lt;', '>':'&gt;',
-			'\u2018':'&lsquo;', '\u2019':'&rsquo;',
-			'\u201c':'&ldquo;', '\u201d':'&rdquo;'
-		};
-		const keys = Object.keys(symbols).join('');
-		const regex = new RegExp('[' + keys + ']', 'g');
-
-		// Encode characters in symbols as HTML entities.
-		let intermed = plain.replace(regex,
-				function(match0) { return symbols[match0]; });
-
-		// Encode non-ascii characters as HTML entities.
-		let encoded = intermed.replace(/[^\t\n\r -~]/g,
-				function(match0) {
-					var pt = match0.charCodeAt(0);
-					var hex = pt.toString(16);
-					return '&#x' + '0000'.substring(hex.length) + hex + ';';
-				});
-
-		return encoded;
-	};
-
-	const regex = /^(.+)\/([^\/]+)\/([^\/]+)$/;
-	const base = href.replace(regex, '$1');
-	const lesson = href.replace(regex, '$2');
-	const filename = href.replace(regex, '$3');
-	const icon = base + '/site/icon.png';
-	const style = base + '/site/style.css';
-	const codestyle = base + '/site/hljs/vscode.css';
-	const color = base + '/site/color.js';
-	const linenums = base + '/site/linenums.js';
-	const hljs = base + '/site/hljs/highlight.pack.js';
-	const index = base + '/index.html';
-
-	code = entityFromChar(code.trim());
-
-	const html =
-['<!DOCTYPE html>',
-'<!-- Copyright 2020, Brigham Young University - Idaho. All rights reserved. -->',
-'<html lang="en-us">',
-'<head>',
-'\t<meta charset="UTF-8">',
-'\t<meta name="viewport" content="width=device-width, initial-scale=1.0">',
-'\t<meta http-equiv="X-UA-Compatible" content="ie=edge">',
-'\t<title>' + filename + '</title>',
-'\t<link rel="icon" type="image/png" href="' + icon + '">',
-'\t<link rel="stylesheet" type="text/css" href="' + style + '">',
-'\t<link rel="stylesheet" type="text/css" href="' + codestyle + '">',
-'\t<script src="' + color + '"></script>',
-'\t<script src="' + linenums + '"></script>',
-'\t<script src="' + hljs + '"></script>',
-'</head>',
-'',
-'<body>',
-'<header>',
-'\t<div class="colorCtrl">&nbsp;</div>',
-'\t<a class="logo" href="https://www.byui.edu">',
-'\t\t<div>BYU</div>',
-'\t\t<div>Idaho</div>',
-'\t</a>',
-'\t<h2><a href="https://byui.instructure.com">CSE 111</a> |',
-'\t\t<a href="' + index + '">Programming with Functions</a></h2>',
-'</header>',
-'',
-'<article class="solution">',
-'\t<h1>' + lesson + '/' + filename + ' <a download title="Download ' + filename + '" href="' + href + '">[&darr;]</a></h1>',
-'\t<div class="pre">',
-'<pre class="linenums"></pre>',
-'<pre class="python">' + code + '</pre>',
-'\t</div>',
-'</article>',
-'',
-'<footer>',
-'\t<small>Copyright &copy; 2020, Brigham Young University - Idaho. All',
-'\trights reserved.</small>',
-'</footer>',
-'</body>',
-'</html>'].join('\n');
-	const win = window.open();
-	const doc = win.document;
-	doc.open();
-	doc.write(html);
-	doc.close();
-};
-
-
-window.addEventListener('DOMContentLoaded', function(){cse111.url.openDoc();});
-window.addEventListener('DOMContentLoaded', function(){cse111.url.modifyLinks();});
+window.addEventListener('DOMContentLoaded', cse111.url.onLoad);

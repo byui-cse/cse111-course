@@ -8,7 +8,20 @@ if (!window.hasOwnProperty('cse111')) {
 cse111.sol = {
     readSolution : function() {
         const self = this;
-        const href = this.getQueryValue('file');
+
+		const getQueryValue = function(key) {
+			let query = window.location.search.substring(1);
+			let vars = query.split('&');
+			for (let i = 0;  i < vars.length;  i++) {
+				let pair = vars[i].split('=');
+				if (pair[0] == key) {
+					return pair[1];
+				}
+			}
+			return null;
+		};
+
+        const href = getQueryValue('file');
         const regex = /^(.+)\/([^\/]+)\/([^\/]+)$/;
         const lesson = href.replace(regex, '$2');
         const filename = href.replace(regex, '$3');
@@ -87,19 +100,10 @@ cse111.sol = {
     },
 
 
-    getQueryValue : function(key) {
-        let query = window.location.search.substring(1);
-        let vars = query.split('&');
-        for (let i = 0;  i < vars.length;  i++) {
-            let pair = vars[i].split('=');
-            if (pair[0] == key) {
-                return pair[1];
-            }
-        }
-        return null;
-    }
+	onLoad : function() {
+		cse111.sol.readSolution();
+	}
 };
 
 
-window.addEventListener('DOMContentLoaded', function(){cse111.sol.readSolution();});
-window.addEventListener('DOMContentLoaded', function(){cse111.sol.readSolution();});
+window.addEventListener('DOMContentLoaded', cse111.sol.onLoad);

@@ -203,11 +203,16 @@ cse111.linenums = {
 			target.addEventListener('click', toggle);
 			target.setAttribute('title', 'Move mouse over to turn highlights on.\nClick to keep highlights on.');
 		}
+	},
+
+
+	onLoad : function() {
+		cse111.linenums.addLineNumbers();
+		cse111.linenums.addCopyButtons();
+		cse111.linenums.resizeConsoles();
+		cse111.linenums.addTitles();
+		cse111.linenums.addCrossRefs();
 	}
 };
 
-window.addEventListener('DOMContentLoaded', cse111.linenums.addLineNumbers);
-window.addEventListener('DOMContentLoaded', cse111.linenums.addCopyButtons);
-window.addEventListener('DOMContentLoaded', cse111.linenums.resizeConsoles);
-window.addEventListener('DOMContentLoaded', cse111.linenums.addTitles);
-window.addEventListener('DOMContentLoaded', cse111.linenums.addCrossRefs);
+window.addEventListener('DOMContentLoaded', cse111.linenums.onLoad);

@@ -66,25 +66,16 @@ cse111.url = {
 	},
 
 	encodeURL : function(url) {
-		//return this.translate(url, this.symbols);
 		const symbols = this.symbols;
 		return url.replace(this.symbolsRegex,
 				function(match0) { return symbols[match0]; });
 	},
 
 	decodeURL : function(url) {
-		//return this.translate(url, this.encodings);
 		const encodings = this.encodings;
 		return url.replace(this.encodingsRegex,
 				function(match0) { return encodings[match0]; });
 	}
-
-	//translate : function(url, dict) {
-	//	for (let key in dict) {
-	//		url = url.replaceAll(key, dict[key]);
-	//	}
-	//	return url;
-	//}
 };
 
 
