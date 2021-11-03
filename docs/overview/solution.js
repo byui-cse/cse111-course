@@ -28,8 +28,8 @@ cse111.show = {
         const filename = href.replace(this.splitURL, '$2');
 		href = "../" + href;
 
-        document.title = href;
-        document.getElementsByClassName('title')[0].innerHTML = href;
+        document.title = heading;
+        document.getElementsByClassName('title')[0].innerHTML = heading;
 
 		const isPython = /^.+\.py$/;
 		const isCSV = /^.+\.csv$/;
@@ -108,8 +108,7 @@ cse111.show = {
         };
 
         code = entityFromChar(code.trim());
-		document.getElementById('code')
-		document.getElementsByClassName('python')[0].innerHTML = code;
+		document.getElementById('code').innerHTML = code;
 		cse111.linenums.addLineNumbers();
 		hljs.highlightAll();
     },
