@@ -5,11 +5,8 @@ if (!window.hasOwnProperty('cse111')) {
 }
 
 
-cse111.sol = {
-	splitURL : /^(.+)\/([^\/]+)\/([^\/]+)$/,
-
-
-    readSolution : function() {
+cse111.show = {
+    readCode : function() {
         const self = this;
 
 		const getQueryValue = function(key) {
@@ -24,45 +21,65 @@ cse111.sol = {
 			return null;
 		};
 
-        const href = getQueryValue('file');
-        const lesson = href.replace(this.splitURL, '$2');
-        const filename = href.replace(this.splitURL, '$3');
-        const heading = lesson + '/' + filename;
+        let href = getQueryValue('file');
+        const heading = href;
+		const splitURL = /^([^\/]+)\/([^\/]+)$/;
+        const lesson = href.replace(this.splitURL, '$1');
+        const filename = href.replace(this.splitURL, '$2');
+		href = "../" + href;
 
-        document.title = heading;
-        document.getElementsByClassName('title')[0].innerHTML = heading;
-		const links = document.querySelectorAll('a[download]');
-		for (let i = 0;  i < links.length;  ++i) {
-			let link = links[i];
-			link.setAttribute('href', href);
-			link.setAttribute('title', 'Download ' + heading);
+        document.title = href;
+        document.getElementsByClassName('title')[0].innerHTML = href;
+
+		const isPython = /^.+\.py$/;
+		const isCSV = /^.+\.csv$/;
+		const isTxt = /^.+\.txt$/;
+		let className = null;
+		if (isPython.test(filename)) {
+			className = "python";
+		}
+		else if (isCSV.test(filename)) {
+			className = "csv";
+		}
+		else if (isTxt.test(filename)) {
+			className = "text";
 		}
 
-        fetch(href)
-        .then(function(response) {
-            if (response.ok) {
-                response.text()
-                .then(function(text) {
-                    self.showCode(href, text);
-                })
-                .catch(function(error) {
-                    console.log('Error: ' + error);
-                });
-            }
-            else {
-                throw Error(response.statusText);
-            }
-        })
-        .catch(function(error) {
-            console.log('Error: ' + error);
-        });
+		if (className) {
+			document.getElementById('code').classList.add(className);
+
+			const links = document.querySelectorAll('a[download]');
+			for (let i = 0;  i < links.length;  ++i) {
+				let link = links[i];
+				link.setAttribute('href', href);
+				link.setAttribute('title', 'Download ' + href);
+			}
+
+			fetch(href)
+			.then(function(response) {
+				if (response.ok) {
+					response.text()
+					.then(function(text) {
+						self.showCode(text);
+					})
+					.catch(function(error) {
+						console.log('Error: ' + error);
+					});
+				}
+				else {
+					throw Error(response.statusText);
+				}
+			})
+			.catch(function(error) {
+				console.log('Error: ' + error);
+			});
+		}
     },
 
 
     /** Shows the code that was retrieved by the
-     * readSolution function in a new tab. */
-    showCode : function(href, code) {
-        //this.writeView(window.location.href, href);
+     * readCode function in a new tab. */
+    showCode : function(code) {
 
         /** Converts the characters &, <, and > to HTML entities and
          * converts non-ascii charaters to HTML entity sequences. */
@@ -90,11 +107,8 @@ cse111.sol = {
             return encoded;
         };
 
-        const base = href.replace(this.splitURL, '$1');
-        const lesson = href.replace(this.splitURL, '$2');
-        const filename = href.replace(this.splitURL, '$3');
-
         code = entityFromChar(code.trim());
+		document.getElementById('code')
 		document.getElementsByClassName('python')[0].innerHTML = code;
 		cse111.linenums.addLineNumbers();
 		hljs.highlightAll();
@@ -102,9 +116,9 @@ cse111.sol = {
 
 
 	onLoad : function() {
-		cse111.sol.readSolution();
+		cse111.show.readCode();
 	}
 };
 
 
-window.addEventListener('DOMContentLoaded', cse111.sol.onLoad);
+window.addEventListener('DOMContentLoaded', cse111.show.onLoad);
