@@ -65,7 +65,13 @@
 		font-family: Garamond, Georgia, "Times New Roman", serif;
 	}
 
+	header {
+		display: none;
+	}
 	iframe.video {
+		display: none;
+	}
+	footer {
 		display: none;
 	}
 }
@@ -74,6 +80,9 @@ header {
 	padding: 0.5em 1.5em;
 	background-color: var(--byui-blue);
 	color: white;
+	@media print {
+		display: none;
+	}
 }
 header a:link,
 header a:hover,
