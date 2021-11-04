@@ -394,13 +394,13 @@ def main():
 
         # Compare the user's guess to the answer.
         if guess &lt; answer:
-            guide = "low"
+            guide = "too low"
         elif guess &gt; answer:
-            guide = "high"
+            guide = "too high"
 
         # Prepare a string that the input function will show to
         # the user during the next iteration of the while loop.
-        prompt = f"{guess} is too {guide}. Please enter another integer: "
+        prompt = f"{guess} is {guide}. Please enter another integer: "
 
     print()
     print(f"{guess} is correct!")

@@ -1,6 +1,3 @@
-# test_chemistry_1.py
-# Copyright 2020, Brigham Young University - Idaho. All rights reserved.
-
 from chemistry import make_periodic_table
 from pytest import approx
 import pytest
@@ -30,241 +27,359 @@ def test_make_periodic_table():
 
     # Check each element in the sorted periodic table.
     i = 0
-    check_element(periodic_table_list[i], ['Ac', 'Actinium', 227])
+    element = periodic_table_list[i]
+    check_element(element, ['Ac', 'Actinium', 227])
     i += 1
-    check_element(periodic_table_list[i], ['Al', 'Aluminum', 26.9815386])
+    element = periodic_table_list[i]
+    check_element(element, ['Al', 'Aluminum', 26.9815386])
     i += 1
-    check_element(periodic_table_list[i], ['Am', 'Americium', 243])
+    element = periodic_table_list[i]
+    check_element(element, ['Am', 'Americium', 243])
     i += 1
-    check_element(periodic_table_list[i], ['Sb', 'Antimony', 121.76])
+    element = periodic_table_list[i]
+    check_element(element, ['Sb', 'Antimony', 121.76])
     i += 1
-    check_element(periodic_table_list[i], ['Ar', 'Argon', 39.948])
+    element = periodic_table_list[i]
+    check_element(element, ['Ar', 'Argon', 39.948])
     i += 1
-    check_element(periodic_table_list[i], ['As', 'Arsenic', 74.9216])
+    element = periodic_table_list[i]
+    check_element(element, ['As', 'Arsenic', 74.9216])
     i += 1
-    check_element(periodic_table_list[i], ['At', 'Astatine', 210])
+    element = periodic_table_list[i]
+    check_element(element, ['At', 'Astatine', 210])
     i += 1
-    check_element(periodic_table_list[i], ['Ba', 'Barium', 137.327])
+    element = periodic_table_list[i]
+    check_element(element, ['Ba', 'Barium', 137.327])
     i += 1
-    check_element(periodic_table_list[i], ['Bk', 'Berkelium', 247])
+    element = periodic_table_list[i]
+    check_element(element, ['Bk', 'Berkelium', 247])
     i += 1
-    check_element(periodic_table_list[i], ['Be', 'Beryllium', 9.012182])
+    element = periodic_table_list[i]
+    check_element(element, ['Be', 'Beryllium', 9.012182])
     i += 1
-    check_element(periodic_table_list[i], ['Bi', 'Bismuth', 208.9804])
+    element = periodic_table_list[i]
+    check_element(element, ['Bi', 'Bismuth', 208.9804])
     i += 1
-    check_element(periodic_table_list[i], ['Bh', 'Bohrium', 272])
+    element = periodic_table_list[i]
+    check_element(element, ['Bh', 'Bohrium', 272])
     i += 1
-    check_element(periodic_table_list[i], ['B', 'Boron', 10.811])
+    element = periodic_table_list[i]
+    check_element(element, ['B', 'Boron', 10.811])
     i += 1
-    check_element(periodic_table_list[i], ['Br', 'Bromine', 79.904])
+    element = periodic_table_list[i]
+    check_element(element, ['Br', 'Bromine', 79.904])
     i += 1
-    check_element(periodic_table_list[i], ['Cd', 'Cadmium', 112.411])
+    element = periodic_table_list[i]
+    check_element(element, ['Cd', 'Cadmium', 112.411])
     i += 1
-    check_element(periodic_table_list[i], ['Ca', 'Calcium', 40.078])
+    element = periodic_table_list[i]
+    check_element(element, ['Ca', 'Calcium', 40.078])
     i += 1
-    check_element(periodic_table_list[i], ['Cf', 'Californium', 251])
+    element = periodic_table_list[i]
+    check_element(element, ['Cf', 'Californium', 251])
     i += 1
-    check_element(periodic_table_list[i], ['C', 'Carbon', 12.0107])
+    element = periodic_table_list[i]
+    check_element(element, ['C', 'Carbon', 12.0107])
     i += 1
-    check_element(periodic_table_list[i], ['Ce', 'Cerium', 140.116])
+    element = periodic_table_list[i]
+    check_element(element, ['Ce', 'Cerium', 140.116])
     i += 1
-    check_element(periodic_table_list[i], ['Cs', 'Cesium', 132.9054519])
+    element = periodic_table_list[i]
+    check_element(element, ['Cs', 'Cesium', 132.9054519])
     i += 1
-    check_element(periodic_table_list[i], ['Cl', 'Chlorine', 35.453])
+    element = periodic_table_list[i]
+    check_element(element, ['Cl', 'Chlorine', 35.453])
     i += 1
-    check_element(periodic_table_list[i], ['Cr', 'Chromium', 51.9961])
+    element = periodic_table_list[i]
+    check_element(element, ['Cr', 'Chromium', 51.9961])
     i += 1
-    check_element(periodic_table_list[i], ['Co', 'Cobalt', 58.933195])
+    element = periodic_table_list[i]
+    check_element(element, ['Co', 'Cobalt', 58.933195])
     i += 1
-    check_element(periodic_table_list[i], ['Cn', 'Copernicium', 285])
+    element = periodic_table_list[i]
+    check_element(element, ['Cn', 'Copernicium', 285])
     i += 1
-    check_element(periodic_table_list[i], ['Cu', 'Copper', 63.546])
+    element = periodic_table_list[i]
+    check_element(element, ['Cu', 'Copper', 63.546])
     i += 1
-    check_element(periodic_table_list[i], ['Cm', 'Curium', 247])
+    element = periodic_table_list[i]
+    check_element(element, ['Cm', 'Curium', 247])
     i += 1
-    check_element(periodic_table_list[i], ['Ds', 'Darmstadtium', 281])
+    element = periodic_table_list[i]
+    check_element(element, ['Ds', 'Darmstadtium', 281])
     i += 1
-    check_element(periodic_table_list[i], ['Db', 'Dubnium', 268])
+    element = periodic_table_list[i]
+    check_element(element, ['Db', 'Dubnium', 268])
     i += 1
-    check_element(periodic_table_list[i], ['Dy', 'Dysprosium', 162.5])
+    element = periodic_table_list[i]
+    check_element(element, ['Dy', 'Dysprosium', 162.5])
     i += 1
-    check_element(periodic_table_list[i], ['Es', 'Einsteinium', 252])
+    element = periodic_table_list[i]
+    check_element(element, ['Es', 'Einsteinium', 252])
     i += 1
-    check_element(periodic_table_list[i], ['Er', 'Erbium', 167.259])
+    element = periodic_table_list[i]
+    check_element(element, ['Er', 'Erbium', 167.259])
     i += 1
-    check_element(periodic_table_list[i], ['Eu', 'Europium', 151.964])
+    element = periodic_table_list[i]
+    check_element(element, ['Eu', 'Europium', 151.964])
     i += 1
-    check_element(periodic_table_list[i], ['Fm', 'Fermium', 257])
+    element = periodic_table_list[i]
+    check_element(element, ['Fm', 'Fermium', 257])
     i += 1
-    check_element(periodic_table_list[i], ['Fl', 'Flerovium', 289])
+    element = periodic_table_list[i]
+    check_element(element, ['Fl', 'Flerovium', 289])
     i += 1
-    check_element(periodic_table_list[i], ['F', 'Fluorine', 18.9984032])
+    element = periodic_table_list[i]
+    check_element(element, ['F', 'Fluorine', 18.9984032])
     i += 1
-    check_element(periodic_table_list[i], ['Fr', 'Francium', 223])
+    element = periodic_table_list[i]
+    check_element(element, ['Fr', 'Francium', 223])
     i += 1
-    check_element(periodic_table_list[i], ['Gd', 'Gadolinium', 157.25])
+    element = periodic_table_list[i]
+    check_element(element, ['Gd', 'Gadolinium', 157.25])
     i += 1
-    check_element(periodic_table_list[i], ['Ga', 'Gallium', 69.723])
+    element = periodic_table_list[i]
+    check_element(element, ['Ga', 'Gallium', 69.723])
     i += 1
-    check_element(periodic_table_list[i], ['Ge', 'Germanium', 72.64])
+    element = periodic_table_list[i]
+    check_element(element, ['Ge', 'Germanium', 72.64])
     i += 1
-    check_element(periodic_table_list[i], ['Au', 'Gold', 196.966569])
+    element = periodic_table_list[i]
+    check_element(element, ['Au', 'Gold', 196.966569])
     i += 1
-    check_element(periodic_table_list[i], ['Hf', 'Hafnium', 178.49])
+    element = periodic_table_list[i]
+    check_element(element, ['Hf', 'Hafnium', 178.49])
     i += 1
-    check_element(periodic_table_list[i], ['Hs', 'Hassium', 270])
+    element = periodic_table_list[i]
+    check_element(element, ['Hs', 'Hassium', 270])
     i += 1
-    check_element(periodic_table_list[i], ['He', 'Helium', 4.002602])
+    element = periodic_table_list[i]
+    check_element(element, ['He', 'Helium', 4.002602])
     i += 1
-    check_element(periodic_table_list[i], ['Ho', 'Holmium', 164.93032])
+    element = periodic_table_list[i]
+    check_element(element, ['Ho', 'Holmium', 164.93032])
     i += 1
-    check_element(periodic_table_list[i], ['H', 'Hydrogen', 1.00794])
+    element = periodic_table_list[i]
+    check_element(element, ['H', 'Hydrogen', 1.00794])
     i += 1
-    check_element(periodic_table_list[i], ['In', 'Indium', 114.818])
+    element = periodic_table_list[i]
+    check_element(element, ['In', 'Indium', 114.818])
     i += 1
-    check_element(periodic_table_list[i], ['I', 'Iodine', 126.90447])
+    element = periodic_table_list[i]
+    check_element(element, ['I', 'Iodine', 126.90447])
     i += 1
-    check_element(periodic_table_list[i], ['Ir', 'Iridium', 192.217])
+    element = periodic_table_list[i]
+    check_element(element, ['Ir', 'Iridium', 192.217])
     i += 1
-    check_element(periodic_table_list[i], ['Fe', 'Iron', 55.845])
+    element = periodic_table_list[i]
+    check_element(element, ['Fe', 'Iron', 55.845])
     i += 1
-    check_element(periodic_table_list[i], ['Kr', 'Krypton', 83.798])
+    element = periodic_table_list[i]
+    check_element(element, ['Kr', 'Krypton', 83.798])
     i += 1
-    check_element(periodic_table_list[i], ['La', 'Lanthanum', 138.90547])
+    element = periodic_table_list[i]
+    check_element(element, ['La', 'Lanthanum', 138.90547])
     i += 1
-    check_element(periodic_table_list[i], ['Lr', 'Lawrencium', 262])
+    element = periodic_table_list[i]
+    check_element(element, ['Lr', 'Lawrencium', 262])
     i += 1
-    check_element(periodic_table_list[i], ['Pb', 'Lead', 207.2])
+    element = periodic_table_list[i]
+    check_element(element, ['Pb', 'Lead', 207.2])
     i += 1
-    check_element(periodic_table_list[i], ['Li', 'Lithium', 6.941])
+    element = periodic_table_list[i]
+    check_element(element, ['Li', 'Lithium', 6.941])
     i += 1
-    check_element(periodic_table_list[i], ['Lv', 'Livermorium', 293])
+    element = periodic_table_list[i]
+    check_element(element, ['Lv', 'Livermorium', 293])
     i += 1
-    check_element(periodic_table_list[i], ['Lu', 'Lutetium', 174.9668])
+    element = periodic_table_list[i]
+    check_element(element, ['Lu', 'Lutetium', 174.9668])
     i += 1
-    check_element(periodic_table_list[i], ['Mg', 'Magnesium', 24.305])
+    element = periodic_table_list[i]
+    check_element(element, ['Mg', 'Magnesium', 24.305])
     i += 1
-    check_element(periodic_table_list[i], ['Mn', 'Manganese', 54.938045])
+    element = periodic_table_list[i]
+    check_element(element, ['Mn', 'Manganese', 54.938045])
     i += 1
-    check_element(periodic_table_list[i], ['Mt', 'Meitnerium', 276])
+    element = periodic_table_list[i]
+    check_element(element, ['Mt', 'Meitnerium', 276])
     i += 1
-    check_element(periodic_table_list[i], ['Md', 'Mendelevium', 258])
+    element = periodic_table_list[i]
+    check_element(element, ['Md', 'Mendelevium', 258])
     i += 1
-    check_element(periodic_table_list[i], ['Hg', 'Mercury', 200.59])
+    element = periodic_table_list[i]
+    check_element(element, ['Hg', 'Mercury', 200.59])
     i += 1
-    check_element(periodic_table_list[i], ['Mo', 'Molybdenum', 95.96])
+    element = periodic_table_list[i]
+    check_element(element, ['Mo', 'Molybdenum', 95.96])
     i += 1
-    check_element(periodic_table_list[i], ['Mc', 'Moscovium', 288])
+    element = periodic_table_list[i]
+    check_element(element, ['Mc', 'Moscovium', 288])
     i += 1
-    check_element(periodic_table_list[i], ['Nd', 'Neodymium', 144.242])
+    element = periodic_table_list[i]
+    check_element(element, ['Nd', 'Neodymium', 144.242])
     i += 1
-    check_element(periodic_table_list[i], ['Ne', 'Neon', 20.1797])
+    element = periodic_table_list[i]
+    check_element(element, ['Ne', 'Neon', 20.1797])
     i += 1
-    check_element(periodic_table_list[i], ['Np', 'Neptunium', 237])
+    element = periodic_table_list[i]
+    check_element(element, ['Np', 'Neptunium', 237])
     i += 1
-    check_element(periodic_table_list[i], ['Ni', 'Nickel', 58.6934])
+    element = periodic_table_list[i]
+    check_element(element, ['Ni', 'Nickel', 58.6934])
     i += 1
-    check_element(periodic_table_list[i], ['Nh', 'Nihonium', 284])
+    element = periodic_table_list[i]
+    check_element(element, ['Nh', 'Nihonium', 284])
     i += 1
-    check_element(periodic_table_list[i], ['Nb', 'Niobium', 92.90638])
+    element = periodic_table_list[i]
+    check_element(element, ['Nb', 'Niobium', 92.90638])
     i += 1
-    check_element(periodic_table_list[i], ['N', 'Nitrogen', 14.0067])
+    element = periodic_table_list[i]
+    check_element(element, ['N', 'Nitrogen', 14.0067])
     i += 1
-    check_element(periodic_table_list[i], ['No', 'Nobelium', 259])
+    element = periodic_table_list[i]
+    check_element(element, ['No', 'Nobelium', 259])
     i += 1
-    check_element(periodic_table_list[i], ['Og', 'Oganesson', 294])
+    element = periodic_table_list[i]
+    check_element(element, ['Og', 'Oganesson', 294])
     i += 1
-    check_element(periodic_table_list[i], ['Os', 'Osmium', 190.23])
+    element = periodic_table_list[i]
+    check_element(element, ['Os', 'Osmium', 190.23])
     i += 1
-    check_element(periodic_table_list[i], ['O', 'Oxygen', 15.9994])
+    element = periodic_table_list[i]
+    check_element(element, ['O', 'Oxygen', 15.9994])
     i += 1
-    check_element(periodic_table_list[i], ['Pd', 'Palladium', 106.42])
+    element = periodic_table_list[i]
+    check_element(element, ['Pd', 'Palladium', 106.42])
     i += 1
-    check_element(periodic_table_list[i], ['P', 'Phosphorus', 30.973762])
+    element = periodic_table_list[i]
+    check_element(element, ['P', 'Phosphorus', 30.973762])
     i += 1
-    check_element(periodic_table_list[i], ['Pt', 'Platinum', 195.084])
+    element = periodic_table_list[i]
+    check_element(element, ['Pt', 'Platinum', 195.084])
     i += 1
-    check_element(periodic_table_list[i], ['Pu', 'Plutonium', 244])
+    element = periodic_table_list[i]
+    check_element(element, ['Pu', 'Plutonium', 244])
     i += 1
-    check_element(periodic_table_list[i], ['Po', 'Polonium', 209])
+    element = periodic_table_list[i]
+    check_element(element, ['Po', 'Polonium', 209])
     i += 1
-    check_element(periodic_table_list[i], ['K', 'Potassium', 39.0983])
+    element = periodic_table_list[i]
+    check_element(element, ['K', 'Potassium', 39.0983])
     i += 1
-    check_element(periodic_table_list[i], ['Pr', 'Praseodymium', 140.90765])
+    element = periodic_table_list[i]
+    check_element(element, ['Pr', 'Praseodymium', 140.90765])
     i += 1
-    check_element(periodic_table_list[i], ['Pm', 'Promethium', 145])
+    element = periodic_table_list[i]
+    check_element(element, ['Pm', 'Promethium', 145])
     i += 1
-    check_element(periodic_table_list[i], ['Pa', 'Protactinium', 231.03588])
+    element = periodic_table_list[i]
+    check_element(element, ['Pa', 'Protactinium', 231.03588])
     i += 1
-    check_element(periodic_table_list[i], ['Ra', 'Radium', 226])
+    element = periodic_table_list[i]
+    check_element(element, ['Ra', 'Radium', 226])
     i += 1
-    check_element(periodic_table_list[i], ['Rn', 'Radon', 222])
+    element = periodic_table_list[i]
+    check_element(element, ['Rn', 'Radon', 222])
     i += 1
-    check_element(periodic_table_list[i], ['Re', 'Rhenium', 186.207])
+    element = periodic_table_list[i]
+    check_element(element, ['Re', 'Rhenium', 186.207])
     i += 1
-    check_element(periodic_table_list[i], ['Rh', 'Rhodium', 102.9055])
+    element = periodic_table_list[i]
+    check_element(element, ['Rh', 'Rhodium', 102.9055])
     i += 1
-    check_element(periodic_table_list[i], ['Rg', 'Roentgenium', 280])
+    element = periodic_table_list[i]
+    check_element(element, ['Rg', 'Roentgenium', 280])
     i += 1
-    check_element(periodic_table_list[i], ['Rb', 'Rubidium', 85.4678])
+    element = periodic_table_list[i]
+    check_element(element, ['Rb', 'Rubidium', 85.4678])
     i += 1
-    check_element(periodic_table_list[i], ['Ru', 'Ruthenium', 101.07])
+    element = periodic_table_list[i]
+    check_element(element, ['Ru', 'Ruthenium', 101.07])
     i += 1
-    check_element(periodic_table_list[i], ['Rf', 'Rutherfordium', 267])
+    element = periodic_table_list[i]
+    check_element(element, ['Rf', 'Rutherfordium', 267])
     i += 1
-    check_element(periodic_table_list[i], ['Sm', 'Samarium', 150.36])
+    element = periodic_table_list[i]
+    check_element(element, ['Sm', 'Samarium', 150.36])
     i += 1
-    check_element(periodic_table_list[i], ['Sc', 'Scandium', 44.955912])
+    element = periodic_table_list[i]
+    check_element(element, ['Sc', 'Scandium', 44.955912])
     i += 1
-    check_element(periodic_table_list[i], ['Sg', 'Seaborgium', 271])
+    element = periodic_table_list[i]
+    check_element(element, ['Sg', 'Seaborgium', 271])
     i += 1
-    check_element(periodic_table_list[i], ['Se', 'Selenium', 78.96])
+    element = periodic_table_list[i]
+    check_element(element, ['Se', 'Selenium', 78.96])
     i += 1
-    check_element(periodic_table_list[i], ['Si', 'Silicon', 28.0855])
+    element = periodic_table_list[i]
+    check_element(element, ['Si', 'Silicon', 28.0855])
     i += 1
-    check_element(periodic_table_list[i], ['Ag', 'Silver', 107.8682])
+    element = periodic_table_list[i]
+    check_element(element, ['Ag', 'Silver', 107.8682])
     i += 1
-    check_element(periodic_table_list[i], ['Na', 'Sodium', 22.98976928])
+    element = periodic_table_list[i]
+    check_element(element, ['Na', 'Sodium', 22.98976928])
     i += 1
-    check_element(periodic_table_list[i], ['Sr', 'Strontium', 87.62])
+    element = periodic_table_list[i]
+    check_element(element, ['Sr', 'Strontium', 87.62])
     i += 1
-    check_element(periodic_table_list[i], ['S', 'Sulfur', 32.065])
+    element = periodic_table_list[i]
+    check_element(element, ['S', 'Sulfur', 32.065])
     i += 1
-    check_element(periodic_table_list[i], ['Ta', 'Tantalum', 180.94788])
+    element = periodic_table_list[i]
+    check_element(element, ['Ta', 'Tantalum', 180.94788])
     i += 1
-    check_element(periodic_table_list[i], ['Tc', 'Technetium', 98])
+    element = periodic_table_list[i]
+    check_element(element, ['Tc', 'Technetium', 98])
     i += 1
-    check_element(periodic_table_list[i], ['Te', 'Tellurium', 127.6])
+    element = periodic_table_list[i]
+    check_element(element, ['Te', 'Tellurium', 127.6])
     i += 1
-    check_element(periodic_table_list[i], ['Ts', 'Tennessine', 294])
+    element = periodic_table_list[i]
+    check_element(element, ['Ts', 'Tennessine', 294])
     i += 1
-    check_element(periodic_table_list[i], ['Tb', 'Terbium', 158.92535])
+    element = periodic_table_list[i]
+    check_element(element, ['Tb', 'Terbium', 158.92535])
     i += 1
-    check_element(periodic_table_list[i], ['Tl', 'Thallium', 204.3833])
+    element = periodic_table_list[i]
+    check_element(element, ['Tl', 'Thallium', 204.3833])
     i += 1
-    check_element(periodic_table_list[i], ['Th', 'Thorium', 232.03806])
+    element = periodic_table_list[i]
+    check_element(element, ['Th', 'Thorium', 232.03806])
     i += 1
-    check_element(periodic_table_list[i], ['Tm', 'Thulium', 168.93421])
+    element = periodic_table_list[i]
+    check_element(element, ['Tm', 'Thulium', 168.93421])
     i += 1
-    check_element(periodic_table_list[i], ['Sn', 'Tin', 118.71])
+    element = periodic_table_list[i]
+    check_element(element, ['Sn', 'Tin', 118.71])
     i += 1
-    check_element(periodic_table_list[i], ['Ti', 'Titanium', 47.867])
+    element = periodic_table_list[i]
+    check_element(element, ['Ti', 'Titanium', 47.867])
     i += 1
-    check_element(periodic_table_list[i], ['W', 'Tungsten', 183.84])
+    element = periodic_table_list[i]
+    check_element(element, ['W', 'Tungsten', 183.84])
     i += 1
-    check_element(periodic_table_list[i], ['U', 'Uranium', 238.02891])
+    element = periodic_table_list[i]
+    check_element(element, ['U', 'Uranium', 238.02891])
     i += 1
-    check_element(periodic_table_list[i], ['V', 'Vanadium', 50.9415])
+    element = periodic_table_list[i]
+    check_element(element, ['V', 'Vanadium', 50.9415])
     i += 1
-    check_element(periodic_table_list[i], ['Xe', 'Xenon', 131.293])
+    element = periodic_table_list[i]
+    check_element(element, ['Xe', 'Xenon', 131.293])
     i += 1
-    check_element(periodic_table_list[i], ['Yb', 'Ytterbium', 173.054])
+    element = periodic_table_list[i]
+    check_element(element, ['Yb', 'Ytterbium', 173.054])
     i += 1
-    check_element(periodic_table_list[i], ['Y', 'Yttrium', 88.90585])
+    element = periodic_table_list[i]
+    check_element(element, ['Y', 'Yttrium', 88.90585])
     i += 1
-    check_element(periodic_table_list[i], ['Zn', 'Zinc', 65.38])
+    element = periodic_table_list[i]
+    check_element(element, ['Zn', 'Zinc', 65.38])
     i += 1
-    check_element(periodic_table_list[i], ['Zr', 'Zirconium', 91.224])
+    element = periodic_table_list[i]
+    check_element(element, ['Zr', 'Zirconium', 91.224])
 
 
 def check_element(actual, expected):
@@ -276,13 +391,17 @@ def check_element(actual, expected):
     exp_symbol = expected[SYMBOL_INDEX]
     act_symbol = actual[SYMBOL_INDEX]
     assert act_symbol == exp_symbol, \
-         f"incorrect symbol for {name}: expected {exp_symbol} but found {act_symbol}."
+         f"incorrect symbol for {name}: " \
+         f"expected {exp_symbol} but found {act_symbol}."
 
     # Verify that the element's atomic mass is correct.
     act_mass = actual[ATOMIC_MASS_INDEX]
     exp_mass = expected[ATOMIC_MASS_INDEX]
     assert act_mass == approx(exp_mass), \
-            f"incorrect atomic mass for {name}: expected {exp_mass} but found {act_mass}"
+            f"incorrect atomic mass for {name}: " \
+            f"expected {exp_mass} but found {act_mass}"
 
 
+# Call the main function that is part of pytest so that
+# the test functions in this file will start executing.
 pytest.main(["-v", "--tb=line", "-rN", __file__])

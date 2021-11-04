@@ -99,34 +99,34 @@
         States.</div></li>
 
         <li><div>Open <code>accidents.py</code> in VS Code and notice
-        that lines&nbsp;22&ndash;23 contain code to ask the user for a
+        that lines&nbsp;21&ndash;22 contain code to ask the user for a
         filename and then open that file. It is possible that when the
-        computer executes line&nbsp;22, the user may enter the name of a
+        computer executes line&nbsp;21, the user may enter the name of a
         file that does not exist or may enter the name of a file that
         the user does not have permission to read. These two situations
         cause the computer to raise a <code>FileNotFoundError</code> or
         <code>PermissionError</code> when the computer tries to open the
-        file at line&nbsp;23.</div></li>
+        file at line&nbsp;22.</div></li>
 
-        <li><div>Notice that line&nbsp;26 of <code>accidents.py</code>
-        contains code to prompt the user for a number. It is possible
-        that while the computer is executing line&nbsp;26, the user may
-        enter text that is not a number, for example: "4r0". This
-        situation causes the computer to raise a
-        <code>ValueError</code>. It is also possible that the user may
-        enter a number that is too low or too high, for example: -15 or
-        701234932. In this situation, the computer does not raise an
-        exception, but this situation is still a mistake that the
-        program should alert the user about.</div></li>
+        <li><div>Notice that lines&nbsp;25&ndash;26 of
+        <code>accidents.py</code> contains code to prompt the user for a
+        number. It is possible that while the computer is executing
+        lines&nbsp;25&ndash;26, the user may enter text that is not a
+        number, for example: "4r0". This situation causes the computer
+        to raise a <code>ValueError</code>. It is also possible that the
+        user may enter a number that is too low or too high, for
+        example: -15 or 701234932. In this situation, the computer does
+        not raise an exception, but this situation is still a mistake
+        that the program should alert the user about.</div></li>
 
-        <li><div>Notice that lines&nbsp;45&ndash;52 of
+        <li><div>Notice that lines&nbsp;45&ndash;55 of
         <code>accidents.py</code> contain code to process each line of
         the CSV file. It is possible that the CSV file is formatted
         incorrectly which would cause the computer to raise
         <code>csv.Error</code>. It is also possible that one of the rows
         in the CSV file contains zero (0) in the "Fatal Crashes" column.
         This would cause the computer to raise
-        <code>ZeroDivisionError</code> at line&nbsp;71 within the
+        <code>ZeroDivisionError</code> at line&nbsp;76 within the
         <code>estimate_reduction</code> function.</div></li>
     </ol>
 
@@ -217,9 +217,10 @@ Error: 110.0 is too high. Please enter a different number.
 Name of file that contains NHTSA data: <span class="input">accidents.csv</span>
 Percent reduction of texting while driving [0, 100]: <span class="input">50</span>
 
-With a 50.0% reduction in using a cell phone while
-driving, approximately this number of injuries and
-deaths would have been prevented in the USA.
+With a 50.0% reduction in using a cell
+phone while driving, approximately this
+number of injuries and deaths would have
+been prevented in the USA.
 
 Year, Injuries, Deaths
 2010, 15631, 230

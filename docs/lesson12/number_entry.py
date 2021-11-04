@@ -1,6 +1,3 @@
-# number_entry.py
-# Copyright 2020, Brigham Young University - Idaho. All rights reserved.
-
 """This module contains two classes, IntEntry and FloatEntry,
 that allow a user to enter an integer or a floating point number.
 """

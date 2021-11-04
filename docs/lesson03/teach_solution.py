@@ -1,6 +1,3 @@
-# teach_solution.py
-# Copyright 2020, Brigham Young University - Idaho. All rights reserved.
-
 """
 Write a Python program named fitness.py that does the following:
 1. Asks the user to enter four values:
@@ -22,17 +19,20 @@ from datetime import datetime
 def main():
     # Get the user's gender, birthdate, height, and weight.
     gender = input("Please enter your gender (M or F): ")
-    birthdate = input("Please enter your birthdate (YYYY-MM-DD): ")
+    birthdate = input("Enter your birthdate (YYYY-MM-DD): ")
     pounds = float(input("Enter your weight in US pounds: "))
     inches = float(input("Enter your height in US inches: "))
 
-    # Call the compute_age function to compute the user's age in years.
+    # Call the compute_age function to
+    # compute the user's age in years.
     years = compute_age(birthdate)
 
-    # Call the kg_from_lb function to convert from pounds to kilograms.
+    # Call the kg_from_lb function to
+    # convert from pounds to kilograms.
     kg = kg_from_lb(pounds)
 
-    # Call the cm_from_in function to convert from inches to centimeters.
+    # Call the cm_from_in function to
+    # convert from inches to centimeters.
     cm = cm_from_in(inches)
 
     # Call the body_mass_index function.

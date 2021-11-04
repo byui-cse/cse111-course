@@ -1,6 +1,3 @@
-# get_line.py
-# Copyright 2020, Brigham Young University - Idaho. All rights reserved.
-
 """
 This program asks the user for
 1) the name of a text file
@@ -25,13 +22,14 @@ def main():
         print()
         print(line)
 
-    except FileNotFoundError as file_not_found_err:
+    except FileNotFoundError as not_found_err:
         # This code will be executed if the user enters
         # the name of a file that doesn't exist.
         print()
-        print(type(file_not_found_err).__name__, file_not_found_err, sep=": ")
+        print(type(not_found_err).__name__, not_found_err, sep=": ")
         print(f"The file {filename} doesn't exist.")
-        print("Run the program again and enter the name of an existing file.")
+        print("Run the program again and enter the" \
+                " name of an existing file.")
 
     except PermissionError as perm_err:
         # This code will be executed if the user enters the name
@@ -39,7 +37,8 @@ def main():
         print()
         print(type(perm_err).__name__, perm_err, sep=": ")
         print(f"You don't have permission to read {filename}.")
-        print("Run the program again and enter the name of a file that you are allowed to read.")
+        print("Run the program again and enter the name" \
+                " of a file that you are allowed to read.")
 
     except ValueError as val_err:
         # This code will be executed if the user enters
@@ -47,7 +46,8 @@ def main():
         print()
         print(type(val_err).__name__, val_err, sep=": ")
         print("You entered an invalid integer for the line number.")
-        print("Run the program again and enter an integer for the line number.")
+        print("Run the program again and enter an integer for" \
+                " the line number.")
 
     except IndexError as index_err:
         # This code will be executed if the user enters a valid integer
@@ -59,12 +59,15 @@ def main():
         if linenum < 0:
             print(f"{linenum} is a negative integer.")
         else:
-            print(f"{linenum} is greater than the number of lines in {filename}.")
+            print(f"{linenum} is greater than the number" \
+                    f" of lines in {filename}.")
             print(f"There are only {length} lines in {filename}.")
-        print(f"Run the program again and enter a line number between 1 and {length}.")
+        print(f"Run the program again and enter a line number" \
+                f" between 1 and {length}.")
 
     except Exception as excep:
-        # This code will be executed if some other type of exception occurs.
+        # This code will be executed if some
+        # other type of exception occurs.
         print()
         print(type(excep).__name__, excep, sep=": ")
 

@@ -26,7 +26,8 @@ def main():
                 score = float(text)
                 scores.append(score)
 
-        # Call the statistics.mean function to compute the average score.
+        # Call the statistics.mean function
+        # to compute the average score.
         avg = statistics.mean(scores)
 
         # Print the average score rounded to
@@ -36,7 +37,7 @@ def main():
     except FileNotFoundError as file_not_found_err:
         print(f"Error: {filename} does not exist.")
     except PermissionError as perm_err:
-        print(f"Error: your account does not have permission to read {filename}.")
+        print(f"Error: you don't have permission to read {filename}.")
     except ValueError as val_err:
         print(f"Error: invalid score in {filename} at line {linenum}.")
     except ZeroDivisionError as zero_div_err:

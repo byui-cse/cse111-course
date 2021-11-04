@@ -1,6 +1,3 @@
-# test_students.py
-# Copyright 2020, Brigham Young University - Idaho. All rights reserved.
-
 from students import read_dict
 from os import path
 import pytest
@@ -15,7 +12,8 @@ def test_read_dict():
 
     # Call the read_dict function which will read the students.csv
     # file and create and return a dictinoary.
-    students = read_dict(f"{path.dirname(__file__)}/students.csv", I_NUMBER)
+    filename = path.join(path.dirname(__file__), "students.csv")
+    students = read_dict(filename, I_NUMBER)
 
     # Verify that the students dictionary contains exactly nine items.
     assert len(students) == 9
@@ -32,4 +30,6 @@ def test_read_dict():
     assert students["212505409"] == ["212505409", "Tyler Clark"]
 
 
+# Call the main function that is part of pytest so that
+# the test functions in this file will start executing.
 pytest.main(["-v", "--tb=line", "-rN", __file__])

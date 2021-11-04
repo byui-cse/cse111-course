@@ -1,6 +1,3 @@
-# check_solution.py
-# Copyright 2020, Brigham Young University - Idaho. All rights reserved.
-
 """Compute and print the volume of a right circular cone."""
 
 # Import the standard math module so that

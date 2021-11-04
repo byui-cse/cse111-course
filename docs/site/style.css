@@ -1,5 +1,7 @@
 @import url("reset.css");
 @import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Crimson+Text&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap");
 
 :root {
 	--light-bk-color: #fefefe;
@@ -62,7 +64,8 @@
 		background-color: var(--bk-color);
 		color: var(--fg-color);
 
-		font-family: Garamond, Georgia, "Times New Roman", serif;
+		font-family: "Crimson Text", Garamond, Georgia, serif;
+		font-size: 100%;
 	}
 
 	header {
@@ -74,15 +77,17 @@
 	footer {
 		display: none;
 	}
+	section {
+		page-break-before: always !important;
+		widows: 2;
+		orphans: 2;
+	}
 }
 
 header {
 	padding: 0.5em 1.5em;
 	background-color: var(--byui-blue);
 	color: white;
-	@media print {
-		display: none;
-	}
 }
 header a:link,
 header a:hover,
@@ -131,14 +136,12 @@ header > div.colorCtrl {
 }
 
 /* Content */
-article {
-	margin: 1em auto;
-	padding: 1em;
-}
 @media screen {
 	article {
 		line-height: 1.4;
 		max-width: 40em;
+		margin: 1em auto;
+		padding: 1em;
 	}
 
 	/* article.solution is used by the generated
@@ -149,7 +152,7 @@ article {
 }
 @media print {
 	article {
-		font-size: 100%;
+		line-height: 1.15;
 	}
 }
 
@@ -158,7 +161,7 @@ article h1 {
 	text-align: center;
 	font-size: 175%;
 	margin: 0 0 1em 0;
-	page-break-after: avoid;
+	page-break-after: avoid !important;
 }
 article.solution h1 {
 	font-size: 150%;
@@ -171,7 +174,7 @@ article h2 {
 	margin: 1.5em 0 0.25em 0;
 	padding-bottom: 0.25em;
 	border-bottom: 1px solid;
-	page-break-after: avoid;
+	page-break-after: avoid !important;
 }
 
 article h3 {
@@ -179,15 +182,28 @@ article h3 {
 	font-size: 130%;
 	color: var(--byui-blue);
 	margin: 1.5em 0 0.5em 0;
-	page-break-after: avoid;
+	page-break-after: avoid !important;
 }
 
 article h4 {
 	font-weight: bold;
 	font-size: 110%;
 	margin: 1em 0 0.5em 0;
-	page-break-after: avoid;
+	page-break-after: avoid !important;
 }
+
+/* As of November 2021, Chrome doesn't honor "page-break-after: avoid",
+so changing "-after" to "-inside" plus the following code is a work
+around.
+article h1::after,
+article h2::after,
+article h3::after,
+article h4::after {
+    content: " ";
+    display: block;
+    height: 100px;
+    margin-bottom: -100px;
+} */
 
 article p,
 article div.p,
@@ -328,27 +344,37 @@ article dl.function dd {
 }
 
 
+article span.nowrap {
+	white-space: nowrap;
+}
+
+
 /* Figures */
 article div.figure {
-	float: right;
-	margin: 0 0 1em 1em;
-	page-break-inside: avoid;
+	page-break-inside: avoid !important;
 }
 
 article div.figure > img {
 	width: 100%;
-	page-break-after: avoid;
 }
 
 article div.figure > div {
 	margin: 0;
 	font-size: 90%;
-	page-break-before: avoid;
 }
 
+article div.figure.full {
+	margin: 1em 0 1em 0;
+}
 
-article span.nowrap {
-	white-space: nowrap;
+article div.figure.center {
+	margin: 1em 0 1em 0;
+	text-align: center;
+}
+
+article div.figure.right {
+	float: right;
+	margin: 0 0 1em 1em;
 }
 
 
@@ -358,6 +384,7 @@ article div.expr {
 	text-align: center;
 	font-family: "Palatino Linotype", Palatino, Garamond, serif;
 	font-size: large;
+	page-break-inside: avoid !important;
 }
 
 article div.inline.expr {
@@ -508,14 +535,21 @@ article div.search {
 }
 
 article code {
-	font-family: Menlo, Monaco, Consolas, monospace;
+	font-family: "Source Code Pro", Menlo, Monaco, Consolas, monospace;
+	font-size: 90%;
 	white-space: nowrap;
 }
 
 
 article pre {
-	font-family: Menlo, Monaco, Consolas, monospace;
+	font-family: "Source Code Pro", Menlo, Monaco, Consolas, monospace;
+	font-size: 90%;
 	line-height: 1.15;
+}
+@media print {
+	article pre {
+		font-size: 78%;
+	}
 }
 
 article pre em,
@@ -526,16 +560,15 @@ article code em {
 
 /* Container for console (terminal) input and output. */
 article pre.console {
-	/*margin: 1em auto;*/
 	margin: 1em 0 1em 1.5em;
 	border: 1px solid var(--border);
 	background-color: var(--console-bk-color);
 	padding: 0.25em 0.5em;
-	page-break-inside: avoid;
+	page-break-inside: avoid !important;
+	min-width: 18em;
 }
 
 article pre.console span.input {
-	position: relative;
 	border: 1px solid var(--border);
 	padding: 0 0.25em;
 	background-color: var(--user-input-bk-color);
@@ -570,6 +603,12 @@ article div.pre > button.copy {
 
 article div.pre > button.copy > img {
 	width: 2em;
+}
+
+@media print {
+	article div.pre > button.copy {
+		display: none;
+	}
 }
 
 article div.pre:hover > button.copy {

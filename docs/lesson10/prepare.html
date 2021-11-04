@@ -464,7 +464,7 @@ def main():
     <em>try:</em>
         # Get the number of sandwiches made today and the
         # number of employees who worked today from the user.
-        sandwiches = int(input("Number of sandwiches that were made today: "))
+        sandwiches = int(input("Number of sandwiches made today: "))
         employees = int(input("Number of employees who worked today: "))
 
         # Compute the number of sandwiches per employee
@@ -516,8 +516,8 @@ Number of employees who worked today: <span class="input">8</span>
     <span class="cross" data-ref="ex11">line&nbsp;12</span> and includes
     all the regular code in the <code>main</code> function. This one
     <code>try</code> block has three <code>except</code> blocks at
-    <span class="cross" data-ref="ex11">lines&nbsp;47,
-    51,&nbsp;and&nbsp;55</span> that handle
+    <span class="cross" data-ref="ex11">lines&nbsp;48,
+    52,&nbsp;and&nbsp;56</span> that handle
     <code>FileNotFoundError</code>, <code>PermissionError</code>, and
     <code>ZeroDivisionError</code>.</p>
 
@@ -566,7 +566,8 @@ def main():
 
                 # Display the results for one row.
                 mpg = round(mpg, 1)
-                print(date, start_miles, end_miles, gallons, mpg, sep=",")
+                print(date, start_miles, end_miles, gallons, mpg,
+                        sep=",")
 
     <em>except FileNotFoundError as file_not_found_err:</em>
         print(f"Error: cannot open {filename}"

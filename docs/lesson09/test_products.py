@@ -1,6 +1,3 @@
-# test_products.py
-# Copyright 2020, Brigham Young University - Idaho. All rights reserved.
-
 from receipt import read_products
 from pytest import approx
 import pytest
@@ -61,4 +58,6 @@ def check_product(products_dict, product_number, expected_value):
     assert actual_value[PRICE_INDEX] == approx(expected_value[1])
 
 
+# Call the main function that is part of pytest so that
+# the test functions in this file will start executing.
 pytest.main(["-v", "--tb=line", "-rN", __file__])

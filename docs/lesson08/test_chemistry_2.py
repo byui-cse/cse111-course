@@ -1,6 +1,3 @@
-# test_chemistry_2.py
-# Copyright 2020, Brigham Young University - Idaho. All rights reserved.
-
 from chemistry import make_periodic_table, \
     parse_formula, compute_molar_mass, FormulaError
 from pytest import approx
@@ -145,7 +142,8 @@ def test_make_periodic_table():
 
 def check_element(periodic_table_dict, symbol, expected):
     """Verify that the actual element that came from the
-    periodic_table_dict contains the same values as the expected element.
+    periodic_table_dict contains the same values as the
+    expected element.
 
     Parameters
         actual: a list that came from the periodic_table_dict.
@@ -161,13 +159,15 @@ def check_element(periodic_table_dict, symbol, expected):
     exp_name = expected[NAME_INDEX]
     act_name = actual[NAME_INDEX]
     assert act_name == exp_name, \
-            f'incorrect name for "{symbol}": expected {exp_name} but found {act_name}'
+            f'incorrect name for "{symbol}": ' \
+            f'expected {exp_name} but found {act_name}'
 
     # Verify that the element's atomic mass is correct.
     act_mass = actual[ATOMIC_MASS_INDEX]
     exp_mass = expected[ATOMIC_MASS_INDEX]
     assert act_mass == approx(exp_mass), \
-            f"incorrect atomic mass for {exp_name}: expected {exp_mass} but found {act_mass}"
+            f"incorrect atomic mass for {exp_name}: " \
+            f"expected {exp_mass} but found {act_mass}"
 
 
 
@@ -175,9 +175,12 @@ def test_parse_formula():
     """Test the chemistry.parse_formula function."""
     periodic_table_dict = make_periodic_table()
 
-    assert parse_formula("H2O", periodic_table_dict) == [("H",2), ("O",1)]
-    assert parse_formula("C6H6", periodic_table_dict) == [("C",6), ("H",6)]
-    assert parse_formula("(C2(NaCl)4H2)2C4Na", periodic_table_dict) == [("C",8), ("Na",9), ("Cl",8), ("H",4)]
+    assert parse_formula("H2O", periodic_table_dict) \
+            == [("H",2), ("O",1)]
+    assert parse_formula("C6H6", periodic_table_dict) \
+            == [("C",6), ("H",6)]
+    assert parse_formula("(C2(NaCl)4H2)2C4Na", periodic_table_dict) \
+            == [("C",8), ("Na",9), ("Cl",8), ("H",4)]
     with pytest.raises(FormulaError):
         parse_formula("L", periodic_table_dict)
     with pytest.raises(FormulaError):
@@ -197,9 +200,14 @@ def test_compute_molar_mass():
     periodic_table_dict = make_periodic_table()
 
     assert compute_molar_mass([], periodic_table_dict) == 0
-    assert compute_molar_mass([["O",2]], periodic_table_dict) == approx(31.9988)
-    assert compute_molar_mass([["C",6],["H",6]], periodic_table_dict) == approx(78.11184)
-    assert compute_molar_mass([["C",13],["H",16],["N",2],["O",2]], periodic_table_dict) == approx(232.27834)
+    assert compute_molar_mass([["O",2]], periodic_table_dict) \
+            == approx(31.9988)
+    assert compute_molar_mass([["C",6],["H",6]], periodic_table_dict) \
+            == approx(78.11184)
+    assert compute_molar_mass([["C",13],["H",16],["N",2],["O",2]],
+            periodic_table_dict) == approx(232.27834)
 
 
+# Call the main function that is part of pytest so that
+# the test functions in this file will start executing.
 pytest.main(["-v", "--tb=line", "-rN", __file__])

@@ -1,12 +1,9 @@
-# words.py
-# Copyright 2020, Brigham Young University - Idaho. All rights reserved.
-
 def prefix(string1, string2):
     """Return the prefix, if any, that appears in both string1 and
-    string2. In other words, return a string of the characters that
-    appear at the beginning of both string1 and string2. For example,
-    if string1 is "inconceivable" and string2 is "inconvenient", this
-    function will return "incon".
+    string2. In other words, return a string of the characters
+    that appear at the beginning of both string1 and string2. For
+    example, if string1 is "inconceivable" and string2 is
+    "inconvenient", this function will return "incon".
 
     Parameters
         string1: a string of text
@@ -35,10 +32,10 @@ def prefix(string1, string2):
 
 def suffix(string1, string2):
     """Return the suffix, if any, that appears in both string1 and
-    string2. In other words, return a string of the characters that
-    appear at the end of both string1 and string2. For example, if
-    string1 is "hilarious" and string2 is "nefarious", this function
-    will return "arious".
+    string2. In other words, return a string of the characters
+    that appear at the end of both string1 and string2. For
+    example, if string1 is "hilarious" and string2 is "nefarious",
+    this function will return "arious".
 
     Parameters
         string1: a string of text

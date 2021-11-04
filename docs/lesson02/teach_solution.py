@@ -1,11 +1,8 @@
-# teach_solution.py
-# Copyright 2020, Brigham Young University - Idaho. All rights reserved.
-
 """
-You work for a retail store that wants to increase sales on Tuesday and
-Wednesday, which are the store's slowest sales days. On Tuesday and
-Wednesday, if a customer's subtotal is greater than $50, the store will
-discount the customer's purchase by 10%.
+You work for a retail store that wants to increase sales on Tuesday
+and Wednesday, which are the store's slowest sales days. On Tuesday
+and Wednesday, if a customer's subtotal is greater than $50, the
+store will discount the customer's purchase by 10%.
 """
 
 # Import the datatime module so that

@@ -1,6 +1,3 @@
-# test_random_numbers.py
-# Copyright 2020, Brigham Young University - Idaho. All rights reserved.
-
 from random_numbers import append_random_numbers
 # from random_numbers import append_random_words
 import pytest
@@ -61,4 +58,6 @@ def test_append_random_numbers():
 #        assert len(word) >= 1
 
 
+# Call the main function that is part of pytest so that
+# the test functions in this file will start executing.
 pytest.main(["-v", "--tb=line", "-rN", __file__])

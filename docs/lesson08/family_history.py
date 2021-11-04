@@ -1,6 +1,3 @@
-# family_history.py
-# Copyright 2020, Brigham Young University - Idaho. All rights reserved.
-
 # Each value in the people dictionary is a list. These
 # are the indexes of the elements in those lists.
 NAME_INDEX = 0

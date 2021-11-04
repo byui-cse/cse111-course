@@ -1,6 +1,3 @@
-# teach_solution.py
-# Copyright 2020, Brigham Young University - Idaho. All rights reserved.
-
 import csv
 
 
@@ -84,7 +81,8 @@ def sort_by_birth_month_day(students_list):
         students_list: a list that contains small lists.
             Each small list contains the given name,
             surname, and birthdate of one student.
-    Return: a new list of students that is sorted by birth month and day.
+    Return: a new list of students that is sorted by birth
+        month and day.
     """
     # Define a nested function that extracts
     # a student's birthdate without the year.

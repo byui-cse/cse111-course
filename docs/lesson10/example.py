@@ -40,9 +40,10 @@ while not valid:
             print(f"{radius} is too large. Please enter a positive"
                     f" integer between {minimum} and {maximum}.")
         else:
-            # If the computer gets to this line of code, the user entered
-            # an integer between minimum and maximum, so change the boolean
-            # variable to True so that the loop will stop repeating.
+            # If the computer gets to this line of code, the user
+            # entered an integer between minimum and maximum, so
+            # change the boolean variable to True so that the loop
+            # will stop repeating.
             valid = True
 
     else:

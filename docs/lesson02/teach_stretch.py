@@ -1,11 +1,8 @@
-# teach_stretch.py
-# Copyright 2020, Brigham Young University - Idaho. All rights reserved.
-
 """
-You work for a retail store that wants to increase sales on Tuesday and
-Wednesday, which are the store's slowest sales days. On Tuesday and
-Wednesday, if a customer's subtotal is greater than $50, the store will
-discount the customer's purchase by 10%.
+You work for a retail store that wants to increase sales on Tuesday
+and Wednesday, which are the store's slowest sales days. On Tuesday
+and Wednesday, if a customer's subtotal is greater than $50, the
+store will discount the customer's purchase by 10%.
 """
 
 # Import the datatime module so that
@@ -51,8 +48,8 @@ weekday = current_date_and_time.weekday()
 # today is Tuesday or Wednesday, compute the discount.
 if weekday == 1 or weekday == 2:
     if subtotal < 50:
-        insufficient = 50 - subtotal
-        print(f"To receive the discount, add {insufficient} to your order.")
+        lacking = 50 - subtotal
+        print(f"To receive the discount, add {lacking} to your order.")
     else:
         discount = round(subtotal * DISC_RATE, 2)
         print(f"Discount amount: {discount}")

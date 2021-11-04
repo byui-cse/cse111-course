@@ -1,6 +1,3 @@
-# sample.py
-# Copyright 2020, Brigham Young University - Idaho. All rights reserved.
-
 # Import the sleep function from the time module, so
 # that the sleep function can be used in this program.
 from time import sleep

@@ -1,6 +1,5 @@
-# accidents.py
-# Copyright 2020, Brigham Young University - Idaho. All rights reserved.
-
+# Import the csv module so that it can be used
+# to read from the accidents.csv file.
 import csv
 
 
@@ -23,12 +22,14 @@ def main():
     with open(filename, "rt") as text_file:
 
         # Prompt the user for a percentage.
-        perc_reduc = float(input("Percent reduction of texting while driving [0, 100]: "))
+        perc_reduc = float(input(
+            "Percent reduction of texting while driving [0, 100]: "))
 
         print()
-        print(f"With a {perc_reduc}% reduction in using a cell phone while",
-                "driving, approximately this number of injuries and",
-                "deaths would have been prevented in the USA.", sep="\n")
+        print(f"With a {perc_reduc}% reduction in using a cell",
+            "phone while driving, approximately this",
+            "number of injuries and deaths would have",
+            "been prevented in the USA.", sep="\n")
         print()
         print("Year, Injuries, Deaths")
 
@@ -46,9 +47,11 @@ def main():
             year = row[YEAR_COLUMN]
 
             # Call the estimate_reduction function.
-            injur, fatal = estimate_reduction(row, PHONE_COLUMN, perc_reduc)
+            injur, fatal = estimate_reduction(
+                    row, PHONE_COLUMN, perc_reduc)
 
-            # Print the estimated reductions in injuries and fatalities.
+            # Print the estimated reductions
+            # in injuries and fatalities.
             print(year, injur, fatal, sep=", ")
 
 
@@ -64,7 +67,8 @@ def estimate_reduction(row, behavior_key, perc_reduc):
             behavior that drivers could reduce
         perc_reduc: percent that drivers could reduce a dangerous
             behavior
-    Return: The number of injuries and deaths that may have been prevented
+    Return: The number of injuries and deaths that may have been
+        prevented
     """
     behavior = int(row[behavior_key])
     fatal_crashes = int(row[FATAL_CRASHES_COLUMN])

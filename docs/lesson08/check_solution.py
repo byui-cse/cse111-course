@@ -1,6 +1,3 @@
-# check_solution.py
-# Copyright 2020, Brigham Young University - Idaho. All rights reserved.
-
 def main():
     # Create a dictionary that contains data about six vehicles.
     # The key for each vehicle in the dictionary is the vehicle's

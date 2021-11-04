@@ -1,6 +1,5 @@
-# teach_solution.py
-# Copyright 2020, Brigham Young University - Idaho. All rights reserved.
-
+# Import the csv module so that it can be used
+# to read from the accidents.csv file.
 import csv
 
 
@@ -25,13 +24,14 @@ def main():
 
             # Get a percentage from the user.
             perc_reduc = get_float(
-                    "Percent reduction of texting while driving [0, 100]: ",
-                    0, 100)
+                "Percent reduction of texting while driving [0, 100]: ",
+                0, 100)
 
             print()
-            print(f"With a {perc_reduc}% reduction in using a cell phone while",
-                    "driving, approximately this number of injuries and",
-                    "deaths would have been prevented in the USA.", sep="\n")
+            print(f"With a {perc_reduc}% reduction in using a cell",
+                "phone while driving, approximately this",
+                "number of injuries and deaths would have",
+                "been prevented in the USA.", sep="\n")
             print()
             print("Year, Injuries, Deaths")
 
@@ -49,9 +49,11 @@ def main():
                 year = row[YEAR_COLUMN]
 
                 # Call the estimate_reduction function.
-                injur, fatal = estimate_reduction(row, PHONE_COLUMN, perc_reduc)
+                injur, fatal = estimate_reduction(
+                        row, PHONE_COLUMN, perc_reduc)
 
-                # Print the estimated reductions in injuries and fatalities.
+                # Print the estimated reductions
+                # in injuries and fatalities.
                 print(year, injur, fatal, sep=", ")
 
     except (FileNotFoundError, PermissionError) as error:
@@ -84,10 +86,12 @@ def get_float(prompt, lower_bound, upper_bound):
         try:
             number = float(input(prompt))
             if number < lower_bound:
-                print(f"Error: {number} is too low. Please enter a different number.")
+                print(f"Error: {number} is too low." \
+                        f" Please enter a different number.")
                 number = None
             elif number > upper_bound:
-                print(f"Error: {number} is too high. Please enter a different number.")
+                print(f"Error: {number} is too high." \
+                        f" Please enter a different number.")
                 number = None
         except ValueError as val_err:
             print("Error:", val_err)
@@ -107,7 +111,8 @@ def estimate_reduction(row, behavior_key, perc_reduc):
             behavior that drivers could reduce
         perc_reduc: percent that drivers could reduce a dangerous
             behavior
-    Return: The number of injuries and deaths that may have been prevented
+    Return: The number of injuries and deaths that may have been
+        prevented
     """
     behavior = int(row[behavior_key])
     fatal_crashes = int(row[FATAL_CRASHES_COLUMN])

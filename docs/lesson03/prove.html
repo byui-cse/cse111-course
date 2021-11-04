@@ -53,8 +53,9 @@
     draws a semi-realistic outdoor scene in a graphical window similar
     to this scene:</p>
 
-    <p><img src="../lesson04/gallery/benjamin3.png"
-    alt="A semi-realistic outdoor scene drawn by a Python program"></p>
+    <div class="figure full"><img src="../lesson04/gallery/benjamin3.png"
+    alt="A semi-realistic outdoor scene drawn by a Python program"
+    title="A semi-realistic outdoor scene drawn by a Python program"></div>
 
     <h2 id="docs">Helpful Documentation</h2>
     <ul class="long">
@@ -132,10 +133,11 @@ def main():
     root.mainloop()
 
 
-def draw_scene(canvas, scene_left, scene_top, scene_right, scene_bottom):
+def draw_scene(canvas, scene_left, scene_top, scene_right,scene_bottom):
     """Draw a scene in the canvas. scene_left, scene_top,
     scene_right, and scene_bottom contain the extent in
     pixels of the region where the scene should be drawn.
+
     Parameters
         scene_left: left side of the region; less than scene_right
         scene_top: top of the region; less than scene_bottom
@@ -205,7 +207,7 @@ main()</pre></div>
     tree was drawn because of the following:</p>
     <ol>
         <li><div>The code at <span class="cross"
-        data-ref="ex1">line&nbsp;93</span> called the <code>main</code>
+        data-ref="ex1">line&nbsp;94</span> called the <code>main</code>
         function.</div></li>
 
         <li><div>At <span class="cross"
@@ -213,25 +215,27 @@ main()</pre></div>
         function called the <code>draw_scene</code> function.</div></li>
 
         <li><div>At <span class="cross"
-        data-ref="ex1">line&nbsp;49</span>, the <code>draw_scene</code>
+        data-ref="ex1">line&nbsp;50</span>, the <code>draw_scene</code>
         function called the <code>draw_pine_tree</code>
         function.</div></li>
 
         <li><div>At <span class="cross"
-        data-ref="ex1">lines&nbsp;80&ndash;88</span> the
+        data-ref="ex1">lines&nbsp;81&ndash;89</span> the
         <code>draw_pine_tree</code> function called the
         <code>create_rectangle</code> and <code>create_polygon</code>
         methods.</div></li>
     </ol>
 
-    <p>Delete or comment-out lines&nbsp;46&ndash;49 and
-    lines&nbsp;56&ndash;88 and begin writing your program. As you write
+    <p>Delete or comment-out lines&nbsp;47&ndash;50 and
+    lines&nbsp;57&ndash;89 and begin writing your program. As you write
     your program, be sure that it draws elements in the order of
     farthest away to nearest. For example, you program should draw the
     blue sky first, then the ground, then clouds, then trees, then
     insects in the trees.</p>
 
-    <p><img src="tree.png" alt="A blue circle drawn by a Python program"></p>
+    <div class="figure full"><img src="tree.png"
+    alt="A pine tree drawn by a Python program"
+    title="A pine tree drawn by a Python program"></div>
 
     <h3>Scene Gallery</h3>
     <p>If you would like ideas about what your program can draw, look at
@@ -262,11 +266,11 @@ main()</pre></div>
     <code>draw_grass_blade</code>, and <code>draw_insect</code>. The
     headers for the <code>draw_scene</code> and
     <code>draw_pine_tree</code> functions in the example code above are
-    good examples for the headers of all your draw_* functions. Below are
-    a few other examples of headers for functions that you might want to
-    include in your program. However, these are simply examples, and you
-    can change them in your program or even exclude them from your
-    program.</p>
+    good examples for the headers of all your draw_* functions. Below
+    are a few other examples of headers for functions that you might
+    want to include in your program. However, these are simply examples,
+    and you can change them in your program or even exclude them from
+    your program.</p>
 
 <div class="pre"><pre class="python">
 def draw_house(canvas, house_left, house_bottom):

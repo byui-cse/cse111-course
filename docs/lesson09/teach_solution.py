@@ -1,13 +1,10 @@
-# teach_solution.py
-# Copyright 2020, Brigham Young University - Idaho. All rights reserved.
-
 """
-A common task for many knowledge workers is to use a number, key, or ID
-to look up information about a person. For example, a knowledge worker
-may use a phone number or e-mail address as a key to find (or look up)
-additional information about a customer. During this activity, your team
-will write a Python program that uses a student's I-Number to look up
-the student's name.
+A common task for many knowledge workers is to use a number, key,
+or ID to look up information about a person. For example, a
+knowledge worker may use a phone number or e-mail address as a key
+to find (or look up) additional information about a customer.
+During this activity, your team will write a Python program that
+uses a student's I-Number to look up the student's name.
 """
 import csv
 
@@ -55,6 +52,7 @@ def main():
 def read_dict(filename, key_column_index):
     """Read the contens of a CSV file into a dictionary
     and return the dictionary.
+
     Parameters
         filename: the name of the CSV file to read.
         key_column_index: the index of the column
