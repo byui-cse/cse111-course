@@ -4,18 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>CSE 111 - Team Activity</title>
-    <link rel="icon" type="image/png" href="../site/icon.png">
-    <link rel="stylesheet" type="text/css" href="../site/style.css">
-    <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-database.js"></script>
     <script src="../site/url.js"></script>
     <script src="../site/urlWrite.js"></script>
     <script src="../site/color.js"></script>
     <script src="../site/linenums.js"></script>
-    <script src="../site/hljs/highlight.pack.js"></script>
+    <script src="../site/hljs/highlight.min.js"></script>
+    <link rel="icon" type="image/png" href="../site/icon.png">
+    <link rel="stylesheet" type="text/css" href="../site/style.css">
+    <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
 </head>
 
 <body>
@@ -39,8 +39,8 @@
     the individual checkpoint assignment beforehand.</p>
 
     <h2>Purpose</h2>
-    <p>Improve your understanding of calling built-in functions and
-    functions and methods that are in a standard Python module.</p>
+    <p>Improve your understanding of calling built-in Python functions
+    and functions and methods that are in a standard Python module.</p>
 
     <h2>Problem Statement</h2>
     <p>You work for a retail store that wants to increase sales on
@@ -159,11 +159,11 @@ print(day_of_week)</pre></div>
 
         <p>After the computer executes
         <span class="cross" data-ref="ex1">line&nbsp;7</span> in the
-        above code, the variable <var>current_date_and_time</var> will
+        above code, the <var>current_date_and_time</var> variable will
         hold the current date and time. After the computer executes
         <span class="cross" data-ref="ex1">line&nbsp;11</span>, the
-        day_of_week variable will hold 0 if today is Monday, 1 if today
-        is Tuesday, and so on to 6 if today is Sunday.</p>
+        <var>day_of_week</var> variable will hold 0 if today is Monday,
+        1 if today is Tuesday, and so on to 6 if today is Sunday.</p>
         </div></li>
     </ul>
 
@@ -180,8 +180,8 @@ print(day_of_week)</pre></div>
 
         <li><div>Is there a simple way to test your program for all the
         days of the week without testing on seven consecutive days and
-        without changing your computer's system date? Hint: In your
-        program immediately after these three lines of code:
+        without changing your computer's operating system date? Hint: In
+        your program immediately after these three lines of code:
 
 <div class="pre"><pre class="python">
 # Call the weekday() method to get the day of the

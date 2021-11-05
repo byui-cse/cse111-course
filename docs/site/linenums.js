@@ -206,13 +206,17 @@ cse111.linenums = {
 	},
 
 
-	onLoad : function() {
+	onDOMLoaded : function() {
 		cse111.linenums.addLineNumbers();
 		cse111.linenums.addCopyButtons();
-		cse111.linenums.resizeConsoles();
 		cse111.linenums.addTitles();
 		cse111.linenums.addCrossRefs();
+	},
+
+	onFullDocLoaded : function() {
+		cse111.linenums.resizeConsoles();
 	}
 };
 
-window.addEventListener('DOMContentLoaded', cse111.linenums.onLoad);
+window.addEventListener('DOMContentLoaded', cse111.linenums.onDOMLoaded);
+window.addEventListener('load', cse111.linenums.onFullDocLoaded);

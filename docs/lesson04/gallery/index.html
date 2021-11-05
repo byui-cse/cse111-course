@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>CSE 111 - Scene Gallery</title>
     <link rel="icon" type="image/png" href="../../site/icon.png">
     <link rel="stylesheet" type="text/css" href="../../site/style.css">
@@ -17,11 +17,12 @@
         div#gallery > div { display: table-row; }
         div#gallery > div > div {
             display: table-cell;
+            page-break-inside: avoid !important;
             width: 16%;
         }
         div#gallery > div > div img {
             display: block;
-            page-break-after: avoid;
+            page-break-after: avoid !important;
             width: 100%;
             border: 2px solid var(--bk-color);
         }
@@ -29,7 +30,7 @@
             border: 2px solid var(--coral);
         }
         div#gallery > div > div > div {
-            page-break-before: avoid;
+            page-break-before: avoid !important;
             margin: 0.25em 0 0.5em 0;
             text-align: center;
         }

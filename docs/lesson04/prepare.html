@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>CSE 111 - Prepare</title>
     <link rel="icon" type="image/png" href="../site/icon.png">
     <link rel="stylesheet" type="text/css" href="../site/style.css">
@@ -18,7 +18,7 @@
     <script src="../site/scope.js"></script>
     <script src="../site/respel.js"></script>
     <script src="../site/linenums.js"></script>
-    <script src="../site/hljs/highlight.pack.js"></script>
+    <script src="../site/hljs/highlight.min.js"></script>
 </head>
 
 <body onload="cse111.scope.addScopeHandlers('ex1', 'ex2');
@@ -37,7 +37,7 @@
     <p>During this lesson, you will learn additional details about
     writing and calling functions. These details include variable scope,
     default parameter values, and optional arguments and will help you
-    understand functions better and use them more effectively.</p>
+    understand functions better and write them more effectively.</p>
 
     <h2 id="varScope">Variable Scope</h2>
     <p>The <dfn>scope</dfn> of a variable determines how long that
@@ -294,6 +294,25 @@ len2: 22.1</pre>
     sample functions fit these good properties, and as you write
     programs for CSE&nbsp;111, do your best to write functions that have
     these good properties.</p>
+
+    <h2>Summary</h2>
+    <p>During this lesson, you are studying variable scope, default
+    parameter values, and optional arguments. A variable that is defined
+    (assigned a value) inside a function has local scope, and it can be
+    used inside only the function where it is defined. Parameters always
+    have local scope.</p>
+
+    <p>A parameter may have a default value like the parameter
+    <var>degrees</var> in this function header:</p>
+<div class="pre" id="ex5"><pre class="python">def arc_length(radius, degrees=360):
+    &vellip;</pre></div>
+
+    <p>When a function's parameter has a default value, you can write a
+    call to that function without passing an argument for the parameter
+    like this:</p>
+<div class="pre" id="ex5"><pre class="python">length = arc_length(3.5)</pre></div>
+    <p>In other words, the argument for a parameter that has a default
+    value is optional.</p>
 </article>
 <footer>
     <small>Copyright &copy; 2020, Brigham Young University - Idaho. All

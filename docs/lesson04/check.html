@@ -4,18 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>CSE 111 - Checkpoint</title>
-    <link rel="icon" type="image/png" href="../site/icon.png">
-    <link rel="stylesheet" type="text/css" href="../site/style.css">
-    <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-database.js"></script>
     <script src="../site/url.js"></script>
     <script src="../site/urlWrite.js"></script>
     <script src="../site/color.js"></script>
     <script src="../site/linenums.js"></script>
-    <script src="../site/hljs/highlight.pack.js"></script>
+    <script src="../site/hljs/highlight.min.js"></script>
+    <link rel="icon" type="image/png" href="../site/icon.png">
+    <link rel="stylesheet" type="text/css" href="../site/style.css">
+    <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
 </head>
 
 <body>
@@ -32,7 +32,7 @@
     <h1>04 Checkpoint: Variable Scope</h1>
 
     <h2>Purpose</h2>
-    <p>Strengthen your understanding of parameters, arguments, and local
+    <p>Check your understanding of parameters, arguments, and local
     variable scope by fixing a program that won't run because the
     programmer tried to use variables that were defined in a different
     function.</p>
@@ -192,6 +192,17 @@ Volume: 214.7</pre>
     However, if you have worked on it for at least an hour and are still
     having problems, feel free to use the sample solution to help you
     finish your program.</p>
+
+    <h2>Ponder</h2>
+    <p>The original program that you used to start this assignment
+    didn't work because the programmer tried to use the
+    <var>radius</var> and <var>height</var> variables inside the
+    <code>cone_volume</code> function, but the <var>radius</var> and
+    <var>height</var> variables are defined inside the <code>main</code>
+    function and therefore have local scope and cannot be used outside
+    of <code>main</code>. To fix the program, you added two parameters
+    to the <code>cone_volume</code> function and then added two
+    arguments to each call of the <code>cone_volume</code> function.</p>
 
     <h2>Submission</h2>
     <p>When complete, report your progress in the associated I-Learn

@@ -4,18 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>CSE 111 - Prepare</title>
-    <link rel="icon" type="image/png" href="../site/icon.png">
-    <link rel="stylesheet" type="text/css" href="../site/style.css">
-    <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-database.js"></script>
     <script src="../site/url.js"></script>
     <script src="../site/urlWrite.js"></script>
-    <script src="../site/color.js"></script>
     <script src="../site/linenums.js"></script>
-    <script src="../site/hljs/highlight.pack.js"></script>
+    <script src="../site/color.js"></script>
+    <script src="../site/hljs/highlight.min.js"></script>
+    <link rel="icon" type="image/png" href="../site/icon.png">
+    <link rel="stylesheet" type="text/css" href="../site/style.css">
+    <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
 </head>
 
 <body>
@@ -30,9 +30,14 @@
 </header>
 <article>
     <h1>01 Prepare: Review Python</h1>
-    <p>During lesson&nbsp;1 of CSE&nbsp;111, you will review programming
-    concepts that you learned in
-    <a href="https://byui-cse.github.io/cse110-course/index.html">CSE&nbsp;110</a>.</p>
+    <p>The concepts in CSE&nbsp;111 build on the concepts that you
+    learned in
+    <a href="https://byui-cse.github.io/cse110-course/index.html">CSE&nbsp;110</a>.
+    In order to be successful in CSE&nbsp;111, it's important that you
+    remember and understand the concepts from CSE&nbsp;110. To help you
+    remember those concepts, during lesson&nbsp;1 of CSE&nbsp;111, you
+    will review programming concepts that you learned in
+    CSE&nbsp;110.</p>
 
     <h2>Concepts</h2>
     <p>Here is a list of the Python programming concepts and topics from
@@ -60,13 +65,76 @@
 
         <li id="data_types"><div><p>Python has many <dfn>data
         types</dfn> including <code>str</code>, <code>bool</code>,
-        <code>int</code>, <code>float</code>, <code>list</code>,
-        <code>dict</code>, <code>function</code>, and <code>type</code>.
-        An <code>int</code> is a whole number like 14. An
-        <code>int</code> may not have a fractional part or digits after
-        the decimal point. A <code>float</code> is a number that may
-        have a fractional part or digits after the decimal point like
-        7.51.</p>
+        <code>int</code>, <code>float</code>, <code>list</code>, and
+        <code>dict</code>. Many of the data types that you will use in
+        your programs in CSE&nbsp;111 are shown in the following
+        list.</p>
+
+        <ul class="long">
+            <li><div>A <dfn>str</dfn> (string) is any text inside single
+            or double quotes, any text that a user enters, and any text
+            in a text file. For example:
+<div class="pre"><pre class="python">
+greet = "Hello"
+text = "23"
+response = input("What is your favorite color? ")
+</pre></div>
+            </div></li>
+
+            <li><div>A <dfn>bool</dfn> (Boolean variable) is a variable
+            that stores either <code>True</code> or <code>False</code>.
+            A Boolean variable may not store any other value besides
+            <code>True</code> or <code>False</code>. For example:
+<div class="pre"><pre class="python">
+found = True
+</pre></div>
+            </div></li>
+
+            <li><div>An <dfn>int</dfn> (integer) is a whole number like
+            14. An <code>int</code> may not have a fractional part or
+            digits after the decimal point. For example:
+<div class="pre"><pre class="python">
+x = 14
+</pre></div>
+            </div></li>
+
+            <li><div>A <dfn>float</dfn> (floating point number) is a
+            number that may have a fractional part or digits after the
+            decimal point like 7.51. For example:
+<div class="pre"><pre class="python">
+sample = 7.51
+</pre></div>
+            </div></li>
+
+            <li><div>A <dfn>list</dfn> is a collection of values. Each
+            value in a list is called an element and is stored at a
+            unique index. In a Python program, we can create a list by
+            using square brackets ([&nbsp;and&nbsp;]) and separating the
+            elements with commas (,). For example:
+<div class="pre"><pre class="python">
+colors = ["yellow", "red", "green", "yellow", "blue"]
+samples = [6.5, 7.2, 7.0, 8.1, 7.2, 6.8, 6.8]
+</pre></div>
+            You will study lists in lesson&nbsp;7 of this course.
+            </div></li>
+
+            <li><div>A <dfn>dict</dfn> (dictionary) is a collection of
+            items. Each item is a key value pair. The primary purpose of
+            a dictionary is to enable a computer to find items very
+            quickly. In a Python program, we can create a dictionary by
+            using curly braces ({&nbsp;and&nbsp;}) and separating the
+            items with commas (,). For example:
+<div class="pre"><pre class="python">
+students = {
+    "42-039-4736": "Clint Huish",
+    "61-315-0160": "Michelle Davis",
+    "10-450-1203": "Jorge Soares",
+    "75-421-2310": "Abdul Ali",
+    "07-103-5621": "Michelle Davis"
+}</pre></div>
+            You will study dictionaries in lesson&nbsp;8 of this course.
+            </div></li>
+        </ul>
 
         <p>It is possible to convert between many of the data types. For
         example, to convert from any data type to a string, we use the
@@ -423,9 +491,10 @@ balance: 540.75</pre>
         code.</p></div></li>
 
         <li><div>Each <code>if</code> statement may have an
-        <code>else</code> statement. We can combine <code>else</code>
-        and <code>if</code> into the keyword <code>elif</code> as shown
-        in example&nbsp;6 on lines
+        <code>else</code> statement as shown in example&nbsp;6 on
+        <span class="cross" data-ref="ex6">line&nbsp;13</span>.
+        We can combine <code>else</code> and <code>if</code> into the
+        keyword <code>elif</code> as shown on lines
         <span class="cross" data-ref="ex6">9&nbsp;and&nbsp;11</span>.
 
 <div class="pre" id="ex6"><pre class="linenums"></pre>
@@ -506,6 +575,23 @@ if driver &gt;= 54 <em>or</em> (driver &gt;= 32 <em>and</em> passenger &gt;= 54)
     <a href="https://library.byui.edu">online catalog</a>
     of the BYU-Idaho library and read one of the online books from
     the result set.</p>
+
+    <h2>Summary</h2>
+    <p>During this lesson, you are reviewing the programming concepts
+    that you learned in CSE&nbsp;110. These concepts include how to do
+    the following:</p>
+    <ul>
+        <li><div>write a comment</div></li>
+        <li><div>use the <code>input</code> and <code>print</code>
+        functions</div></li>
+        <li><div>convert a value from a string to a number</div></li>
+        <li><div>store a value in a variable</div></li>
+        <li><div>perform arithmetic</div></li>
+        <li><div>write <code>if &hellip; elif &hellip; else</code>
+        statements</div></li>
+        <li><div>use the logical operators <code>and</code>,
+        <code>or</code>, <code>not</code></div></li>
+    </ul>
 </article>
 <footer>
     <small>Copyright &copy; 2020, Brigham Young University - Idaho. All
