@@ -4,18 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>CSE 111 - Checkpoint</title>
-    <link rel="icon" type="image/png" href="../site/icon.png">
-    <link rel="stylesheet" type="text/css" href="../site/style.css">
-    <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-database.js"></script>
     <script src="../site/url.js"></script>
     <script src="../site/urlWrite.js"></script>
     <script src="../site/color.js"></script>
-    <script src="../site/linenums.js"></script>
-    <script src="../site/hljs/highlight.pack.js"></script>
+    <link rel="icon" type="image/png" href="../site/icon.png">
+    <link rel="stylesheet" type="text/css" href="../site/style.css">
 </head>
 
 <body>
@@ -33,7 +30,7 @@
 
     <h2>Purpose</h2>
     <p>Improve your ability to verify the correctness of functions by
-    writing test functions and running them with <code>pytest</code>.</p>
+    writing a test function and running it with <code>pytest</code>.</p>
 
     <h2>Helpful Documentation</h2>
     <ul class="long">
@@ -136,53 +133,21 @@
         </div>
         </div></li>
 
-        <li><div>Download the <a download href="words.py">words.py</a>
-        Python file and save it in the same folder where you will save
-        your Python test program.</div></li>
+        <li><div>Download these two Python files:&nbsp;
+        <a download href="words.py">words.py</a> and
+        <a download href="test_words.py">test_words.py</a>
+        and save them in the same folder.</div></li>
 
         <li><div>Open the downloaded <code>words.py</code> file in VS
-        Code. Notice the downloaded file contains two small functions
-        named:&nbsp; <code>prefix</code> and <code>suffix</code>. Notice
-        also that each function has a documentation string (a triple
-        quoted string immediately below a function header) that
+        Code. Notice the <code>words.py</code> file contains two small
+        functions named <code>prefix</code> and <code>suffix</code>.
+        Notice also that each function has a documentation string (a
+        triple quoted string immediately below a function header) that
         describes what the function does. Read the documentation strings
         for both functions.</div></li>
 
-        <li><div>Using VS Code, open a new Python file and copy and
-        paste the following code into the new file.
-
-<div class="pre" id="ex1"><pre class="python">
-"""Verify that the prefix and suffix functions work correctly."""
-
-from words import prefix, suffix
-import pytest
-
-
-def test_prefix():
-    """Verify that the prefix function works correctly.
-    Parameters: none
-    Return: nothing
-    """
-    assert prefix("", "") == ""
-    assert prefix("", "correct") == ""
-    assert prefix("clear", "") == ""
-    assert prefix("happy", "funny") == ""
-    assert prefix("cat", "catalog") == "cat"
-    assert prefix("dogmatic", "dog") == "dog"
-    assert prefix("jump", "joyous") == "j"
-    assert prefix("unwise", "ungrateful") == "un"
-    assert prefix("Disable", "dIstasteful") == "dis"
-
-
-# Call the main function that is part of pytest so that
-# the test functions in this file will start executing.
-pytest.main(["-v", "--tb=line", "-rN", __file__])</pre></div>
-
-        Save the file with the name <code>test_words.py</code> in the
-        same folder where you saved the <code>words.py</code>
-        file.</div></li>
-
-        <li><div>In <code>test_words.py</code> examine the
+        <li><div>Open the downloaded <code>test_words.py</code> file in
+        VS Code. In <code>test_words.py</code> examine the
         <code>test_prefix</code> function. Notice that it takes no
         parameters and contains nine <code>assert</code> statements.
         Each assert statement calls the <code>prefix</code> function and
@@ -198,7 +163,7 @@ pytest.main(["-v", "--tb=line", "-rN", __file__])</pre></div>
 
         <table class="center"><thead>
             <tr><th colspan="2">Arguments</th>
-                <th rowspan="2">Return<br>Value</th></tr>
+                <th rowspan="2">Expected<br>Return<br>Value</th></tr>
             <tr><th>s1</th> <th>s2</th></tr>
         </thead><tbody>
             <tr><td>""</td> <td>""</td> <td>""</td></tr>
@@ -227,15 +192,15 @@ pytest.main(["-v", "--tb=line", "-rN", __file__])</pre></div>
 
     <h2>Sample Run</h2>
 <pre class="console">&gt; python test_words.py
-======================= test session starts ========================
-platform win32--Python 3.8.6, pytest-6.1.2, py-1.9.0, pluggy-0.13.1
+======================== test session starts =========================
+platform win32--Python 3.8.6, pytest-6.1.2, py-1.9.0, pluggy-0.13.1 --
 rootdir: C:\Users\cse111\lesson05
 collected 2 items
 
-test_words.py::test_prefix <span class="pass">PASSED                             [ 50%]</span>
-test_words.py::test_suffix <span class="pass">PASSED                             [100%]</span>
+test_words.py::test_prefix <span class="pass">PASSED                               [ 50%]</span>
+test_words.py::test_suffix <span class="pass">PASSED                               [100%]</span>
 
-<span class="pass">======================== 2 passed in 0.09s =========================</span></pre>
+<span class="pass">========================= 2 passed in 0.09s ==========================</span></pre>
 
     <h2>Sample Solution</h2>
     <p>When your program is finished, view the <a class="solution"
@@ -245,6 +210,21 @@ test_words.py::test_suffix <span class="pass">PASSED                            
     However, if you have worked on it for at least an hour and are still
     having problems, feel free to use the sample solution to help you
     finish your program.</p>
+
+    <h2>Ponder</h2>
+    <p>During this assignment, you downloaded a Python file that
+    contains two program functions named <code>prefix</code> and
+    <code>suffix</code>. You wrote a test function named
+    <code>test_suffix</code> that is similar to the
+    <code>test_prefix</code> function that was given to you. You used
+    <code>pytest</code> to run both test functions and examined the
+    output of <code>pytest</code> to verify that the test functions
+    passed. Because the test functions called <code>prefix</code> and
+    <code>suffix</code> with many different arguments and verified
+    (using <code>assert</code>) that the values returned from
+    <code>prefix</code> and <code>suffix</code> were correct, we can
+    assume that the <code>prefix</code> and <code>suffix</code>
+    functions work correctly.</p>
 
     <h2>Submission</h2>
     <p>When complete, report your progress in the associated I-Learn

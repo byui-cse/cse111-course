@@ -61,6 +61,9 @@
 		--bk-color: white;
 		--fg-color: var(--light-fg-color);
 
+		--python-bk-color: var(--light-coral);
+		--console-bk-color: var(--light-byui-blue);
+
 		background-color: var(--bk-color);
 		color: var(--fg-color);
 
@@ -141,7 +144,7 @@ header > div.colorCtrl {
 		line-height: 1.4;
 		max-width: 40em;
 		margin: 1em auto;
-		padding: 1em;
+		padding: 0 1em 0.5em 1em;
 	}
 
 	/* article.solution is used by the generated
@@ -565,7 +568,6 @@ article pre.console {
 	background-color: var(--console-bk-color);
 	padding: 0.25em 0.5em;
 	page-break-inside: avoid !important;
-	min-width: 18em;
 }
 
 article pre.console span.input {
