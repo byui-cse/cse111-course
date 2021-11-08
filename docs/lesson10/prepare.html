@@ -59,30 +59,30 @@
     <p>Here are the Python programming concepts and topics that you
     should learn during this lesson.</p>
 
-    <ol class="long">
-        <li><div>An <dfn>exception</dfn> is a relatively rare event that
-        sometimes occurs while a Python program is running. For example,
-        an exception occurs when a Python program tries to open a file
-        for reading, and that file doesn't exist. There are many different
-        <a href="https://docs.python.org/3/library/exceptions.html">built-in
-        exceptions</a> that may occur while a Python program is
-        running.</div></li>
+    <h3>What Is an Exception?</h3>
+    <p>An <dfn>exception</dfn> is a relatively rare event that sometimes
+    occurs while a Python program is running. For example, an exception
+    occurs when a Python program tries to open a file for reading, and
+    that file doesn't exist. There are many different
+    <a href="https://docs.python.org/3/library/exceptions.html">built-in
+    exceptions</a> that may occur while a Python program is running.</p>
 
-        <li><div>When an exceptional event occurs, a Python function
-        <dfn>raises</dfn> an exception which may be handled by code at
-        another location in the executing Python program. The Python
-        keyword to raise an exception is <code>raise</code>. Normally,
-        you will not need to write code to raise an exception because
-        the built-in functions, such as <code>open</code>,
-        <code>int</code>, and <code>float</code>, will raise an
-        exception when necessary.</div></li>
+    <p>When an exceptional event occurs, a Python function
+    <dfn>raises</dfn> an exception which may be handled by code at
+    another location in the executing Python program. The Python keyword
+    to raise an exception is <code>raise</code>. Normally, you will not
+    need to write code to raise an exception because the built-in
+    functions, such as <code>open</code>, <code>int</code>, and
+    <code>float</code>, will raise an exception when
+    necessary.</p>
 
-        <li><div>The Python keywords to handle exceptions are
-        <code>try</code>, <code>except</code>, <code>else</code>, and
-        <code>finally</code>. The following example code contains the
-        outline of a complete try-except-else-finally block. Read the
-        code and its comments carefully to understand the correct syntax
-        and organization of a try-except-else-finally block.
+    <h3>How to Handle an Exception</h3>
+    <p>The Python keywords to handle exceptions are <code>try</code>,
+    <code>except</code>, <code>else</code>, and <code>finally</code>.
+    The following example code contains the outline of a complete
+    try-except-else-finally block. Read the code and its comments
+    carefully to understand the correct syntax and organization of a
+    try-except-else-finally block.</p>
 
 <div class="pre" id="ex1"><pre class="linenums"></pre>
 <pre class="python"># Example 1
@@ -119,79 +119,82 @@
     # try, except, and else blocks regardless of whether
     # an exception was raised or not.</pre></div>
 
-        <p>As shown in example&nbsp;1 above, when we want to write code
-        that will handle exceptions, we first write a <code>try</code>
-        block, and we put into that <code>try</code> block the normal
-        code that might cause an exception. Then we write
-        <code>except</code> blocks to handle the exceptions. Each
-        <code>except</code> block may handle one type of exception such
-        as:</p>
+    <p>As shown in example&nbsp;1 above, when we want to write code that
+    will handle exceptions, we first write a <code>try</code> block, and
+    we put into that <code>try</code> block the normal code that might
+    cause an exception. Then we write <code>except</code> blocks to
+    handle the exceptions. Each <code>except</code> block may handle one
+    type of exception like the code at
+    <span class="cross" data-ref="ex1">line&nbsp;12</span>:</p>
 <div class="pre"><pre class="python">except ValueError as val_err:</pre></div>
-        Or each <code>except</code> block may handle several types of
-        exceptions, such as:
+
+    <p>Or each <code>except</code> block may handle several types of
+    exceptions, like the code at
+    <span class="cross" data-ref="ex1">line&nbsp;15</span>:</p>
 <div class="pre"><pre class="python">except (TypeError, KeyError, IndexError) as error:</pre></div>
-Or one <code>except</code> block may handle all possible types of
-exceptions such as:
+
+    <p>Or one <code>except</code> block may handle all possible types of
+    exceptions, like the code at
+    <span class="cross" data-ref="ex1">line&nbsp;18</span>:</p>
 <div class="pre"><pre class="python">except Exception as excep:</pre></div>
-Or a bare <code>except</code> block may handle anything that can
-be raised, including <code>SystemExit</code>,
-<code>KeyboardInterrupt</code> and <code>GeneratorExit</code>
-such as:
+
+    <p>Or a bare <code>except</code> block may handle anything that can
+    be raised, including <code>SystemExit</code>,
+    <code>KeyboardInterrupt</code> and <code>GeneratorExit</code>, like
+    the code at
+    <span class="cross" data-ref="ex1">line&nbsp;22</span>:</p>
 <div class="pre"><pre class="python">except:</pre></div>
 
-        <p>The Python programming language requires us to order
-        <code>except</code> blocks from most specific at the top to
-        least specific (most general) at the bottom. However, in most
-        programs, it is a bad idea to write <code>except</code> blocks
-        that are very general, including an <code>except</code> block
-        that handles all possible exception types and a bare
-        <code>except</code> block.</p>
+    <p>The Python programming language requires us to order
+    <code>except</code> blocks from most specific at the top to least
+    specific (most general) at the bottom. However, in most programs, it
+    is a bad idea to write <code>except</code> blocks that are very
+    general, including an <code>except</code> block that handles all
+    possible exception types and a bare <code>except</code> block.</p>
 
-        <p>It is a bad idea to write an <code>except</code> block that
-        handles all types of exceptions because such a block will handle
-        <code>SyntaxError</code>. Normally, a program should not handle
-        <code>SyntaxError</code>. Instead, a program should crash for a
-        syntax error and print the line number where the syntax error
-        occurred so that a programmer can find and fix the syntax error.
-        As explained in the
-        <a href="../lesson06/prepare.html#err_types">prepare content</a>
-        for lesson 6, syntax errors are caused by a programmer mistyping
-        code and not by bad user input or missing files. A programmer
-        should find and fix all syntax errors in a program long before
-        the program is given to users, so there is no reason to handle
-        syntax errors in an <code>except</code> block.</div></li>
+    <p>It is usually a bad idea to write an <code>except</code> block that
+    handles all types of exceptions or a bare except block because such
+    a block will handle <code>SyntaxError</code>. Normally, a program
+    should not handle <code>SyntaxError</code>. Instead, a program
+    should crash for a syntax error and print the line number where the
+    syntax error occurred so that a programmer can find and fix the
+    syntax error. As explained in the
+    <a href="../lesson06/prepare.html#err_types">prepare content</a>
+    for lesson 6, syntax errors are caused by a programmer mistyping
+    code and not by bad user input or missing files. A programmer
+    should find and fix all syntax errors in a program long before the
+    program is given to users, so there is no reason to handle syntax
+    errors in an <code>except</code> block.</p>
 
-        <li><div>As shown at
-        <span class="cross" data-ref="ex1">line&nbsp;26</span> in
-        example&nbsp;1 above, following the <code>except</code> blocks,
-        we may write an optional <code>else</code> block which the
-        computer will execute if the <code>try</code> block does not
-        raise any exceptions. It is uncommon to need to write code in
-        the <code>else</code> block of <code>try</code> and
-        <code>except</code>, and professional programmers almost never
-        do it.</div></li>
+    <p>As shown at
+    <span class="cross" data-ref="ex1">line&nbsp;26</span> in
+    example&nbsp;1 above, following the <code>except</code> blocks, we
+    may write an optional <code>else</code> block which the computer
+    will execute if the <code>try</code> block does not raise any
+    exceptions. It is uncommon to need to write code in the
+    <code>else</code> block of <code>try</code> and <code>except</code>,
+    and professional programmers almost never do it.</p>
 
-        <li><div>As shown at
-        <span class="cross" data-ref="ex1">line&nbsp;30</span> in
-        example&nbsp;1 above, at the end of the exception handling code,
-        we may write an optional <code>finally</code> block. The
-        <code>finally</code> block contains code that the computer
-        executes after all the other code in the <code>try</code>,
-        <code>except</code>, and <code>else</code> blocks regardless of
-        whether an exception was raised or not. The code in the
-        <code>finally</code> block usually contains "clean up" code that
-        frees resources that the code in the <code>try</code> block
-        used. For example, if the code in the <code>try</code> block
-        opens a file, the code in the <code>finally</code> block could
-        close that file. In CSE&nbsp;111, you probably won't need to
-        write a <code>finally</code> block.</div></li>
-    </ol>
+    <p>As shown at
+    <span class="cross" data-ref="ex1">line&nbsp;30</span> in
+    example&nbsp;1 above, at the end of the exception handling code, we
+    may write an optional <code>finally</code> block. The
+    <code>finally</code> block contains code that the computer executes
+    after all the other code in the <code>try</code>,
+    <code>except</code>, and <code>else</code> blocks regardless of
+    whether an exception was raised or not. The code in the
+    <code>finally</code> block usually contains "clean up" code that
+    frees resources that the code in the <code>try</code> block used.
+    For example, if the code in the <code>try</code> block opens a file,
+    the code in the <code>finally</code> block could close that file. In
+    CSE&nbsp;111, you won't need to write a <code>finally</code>
+    block.</p>
 
     <h2>Common Exception Types</h2>
     <p>There are many different types of
     <a href="https://docs.python.org/3/library/exceptions.html">built-in
     exceptions</a> that may occur while a Python program is running.
-    This section shows how six types of exceptions may occur.</p>
+    This section shows how seven types of exceptions may occur.</p>
 
     <h3>TypeError</h3>
     <p>The computer raises a <a href="https://docs.python.org/3/library/exceptions.html#TypeError"><code>TypeError</code></a>
@@ -409,8 +412,8 @@ def main():
             for line in products_file:
                 print(line)
 
-    except FileNotFoundError as file_not_found_err:
-        print(file_not_found_err)
+    except FileNotFoundError as not_found_err:
+        print(not_found_err)
 
 if __name__ == "__main__":
     main()</pre></div>
@@ -454,12 +457,12 @@ if __name__ == "__main__":
     <code>ValueError</code> and <code>ZeroDivisionError</code>.</p>
 
 <div class="pre" id="ex10"><pre class="python"># Example 10
-
 """
 Sam, who is the owner of Sam's Sandwich Shop, requested
 this program, which computes the number of sandwiches per
 employee that were made in his restaurant in one day.
 """
+
 def main():
     <em>try:</em>
         # Get the number of sandwiches made today and the
@@ -569,7 +572,7 @@ def main():
                 print(date, start_miles, end_miles, gallons, mpg,
                         sep=",")
 
-    <em>except FileNotFoundError as file_not_found_err:</em>
+    <em>except FileNotFoundError as not_found_err:</em>
         print(f"Error: cannot open {filename}"
                 " because it doesn't exist.")
 
@@ -698,6 +701,28 @@ if __name__ == "__main__":
     hierarchy</a> for the built-in exceptions that is helpful for
     ordering <code>except</code> blocks from most specific to most
     general.</p>
+
+    <h2>Summary</h2>
+    <p>Errors and exceptional situations sometimes occur while a program
+    is running. When an exceptional situation occurs, a computer will
+    raise an exception. With the <code>try</code> and <code>except</code>
+    keywords, you can write Python code that will handle exceptions. Put
+    normal program code inside a <code>try</code> block and write an
+    <code>except</code> block for each type of exception that you want
+    your program to handle.</p>
+
+    <p>There are many types of exceptions in Python, but there are only
+    seven types that your code will need to handle in
+    CSE&nbsp;111:&nbsp; <code>TypeError</code>, <code>ValueError</code>,
+    <code>ZeroDivisionError</code>, <code>IndexError</code>,
+    <code>KeyError</code>, <code>FileNotFoundError</code>, and
+    <code>PermissionError</code>. When writing code that gets input from
+    a user, a programmer usually writes <code>try</code> and
+    <code>except</code> blocks to help validate the user's input. Also,
+    when writing code that writes to or reads from a file, a programmer
+    usally writes <code>try</code> and <code>except</code> blocks to
+    handle <code>FileNotFoundError</code> and
+    <code>PermissionError</code>.</p>
 </article>
 <footer>
     <small>Copyright &copy; 2020, Brigham Young University - Idaho. All
