@@ -359,20 +359,30 @@ Enter a motivational quote: <span class="input">Rise, take up thy bed, and walk.
     calls the built-in <code>len</code> function and the code on
     <span class="cross" data-ref="ex5">line&nbsp;10</span>
     calls the string <code>upper</code> method. Compare the function
-    call in
-    <span class="cross" data-ref="ex5">line&nbsp;6</span>
-    to the method call in
-    <span class="cross" data-ref="ex5">line&nbsp;10</span>.
+    call in <span class="cross" data-ref="ex5">line&nbsp;6</span> to the
+    method call in <span class="cross" data-ref="ex5">line&nbsp;10</span>.
     To call the <code>len</code> function, we type the name of the
-    function followed by a list of arguments. To call the
-    <code>upper</code> method, we type the name of the object
-    (<code>text1</code>) and a period, then the method name, and then a
-    list of arguments.</p>
+    function followed by a list of arguments inside parentheses. To call
+    the <code>upper</code> method, we type the name of the object
+    (<code>text1</code>) and a period, then the method name
+    (<code>upper</code>), and then a list of arguments inside
+    parentheses.</p>
 
     <p>A method can receive arguments just like a function can. However,
     in the previous example at
     <span class="cross" data-ref="ex5">line&nbsp;10</span>, there are no
-    arguments passed to the <code>upper</code> method.</p>
+    arguments passed to the <code>upper</code> method, so the
+    parentheses are empty. In order for the computer to call the
+    <code>upper</code> method, a programmer must type the empty
+    parentheses. In other words, if you write a line of code to call the
+    <code>upper</code> method but don't type the empty parentheses, like
+    this:
+<div class="pre"><pre class="python">text2 = text1.upper</pre></div>
+    the computer will not call the <code>upper</code> method. Instead
+    the computer will assign a reference to the <code>upper</code>
+    method to the <var>text2</var> variable. You don't want the computer
+    to do this because assigning a function reference won't make sense
+    to you until you study functional programming.</p>
 
     <h3>Storing a Returned Value</h3>
     <p>While it's usually a good practice, you don't <em>have</em> to

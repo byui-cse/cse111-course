@@ -30,22 +30,19 @@
 </header>
 <article>
     <h1>09 Prepare: Text Files</h1>
-    <p>During this lesson, you will learn about reading data from text
-    files in a Python program.</p>
-
-    <h2>Concepts</h2>
-    <p>Most computers permanently store lots data on devices such as
+    <p>Most computers permanently store lots of data on devices such as
     hard drives, solid state drives, and thumb drives. The data that is
     stored on these devices is organized into files. Just as a human can
     write words on a paper, a computer can store words and other data in
-    a file.</p>
+    a file. During this lesson, you will learn how to write Python code
+    that reads text from text files.</p>
 
+    <h2>Concepts</h2>
     <p>Broadly speaking, there are two types of files:&nbsp; text files
     and binary files. A <dfn>text file</dfn> stores words and numbers as
     human readable text. A <dfn>binary file</dfn> stores pictures,
-    diagrams, sounds, movies, and other media as numbers in a format
-    that is not directly readable by humans. In this lesson, you will
-    learn how to write Python code that reads data from text files.</p>
+    diagrams, sounds, music, movies, and other media as numbers in a
+    format that is not directly readable by humans.</p>
 
     <h3 id="textFiles">Text Files</h3>
     <p>In order to read data from a text file, the file must exist on
@@ -339,6 +336,25 @@ Cornerstone Family Dental has 181.6 patients per employee</pre>
         <li><div><a href="https://realpython.com/python-for-loop/">Python "for" Loops</a></div></li>
         <li><div><a href="https://realpython.com/python-csv/">Reading and Writing CSV Files in Python</a></div></li>
     </ul>
+
+    <h2>Summary</h2>
+    <p>A text file stores words and numbers as human readable text.
+    During this lesson, you are learning how to write Python code to
+    read from text files. To read from a text file, your program must
+    first open the file by calling the built-in <code>open</code>
+    function. You should write the code to open a file in a Python
+    <code>with</code> block because the computer will automatically
+    close the file when the <code>with</code> block ends, and you won't
+    need to remember to write code to close the file.</p>
+
+    <p>A CSV file is a text file that contains rows and columns of data.
+    CSV is an acronym that stands for comma separated values. Within
+    each row in a CSV file, the data values are separated by commas.
+    Python includes a standard module named <code>csv</code> that helps
+    us easily write code to read from CSV files. Sometimes we write
+    Python code to read the contents of a CSV file into a dictionary.
+    Other times, we write Python code to process each row in a CSV file
+    but not put the contents in a dictionary.</p>
 </article>
 <footer>
     <small>Copyright &copy; 2020, Brigham Young University - Idaho. All

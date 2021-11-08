@@ -95,7 +95,22 @@ def parse_formula(formula, periodic_table_dict):
     that stores the quantity of atoms of each element in the molecule.
     For example, this function will convert "H2O" to [["H", 2], ["O", 1]]
     and "PO4H2(CH2)12CH3" to [["P", 1], ["O", 4], ["H", 29], ["C", 13]]
+
+    Parameters
+        formula: a string that contains a chemical formula
+        periodic_table_dict: the dictionary returned from
+            make_periodic_table
+    Return: a compound list that contains chemical symbols and
+        quantities like this [["Fe", 2], ["O", 3]]
     """
+    if not isinstance(formula, str):
+        raise TypeError("wrong data type for formula; "
+            f"formula is a {type(formula)} but must be a string")
+    if not isinstance(periodic_table_dict, dict):
+        raise TypeError("wrong data type for periodic_table_dict; "
+            f"periodic_table_dict is a {type(periodic_table_dict)} "
+            "but must be a dictionary")
+
     def parse_quant(formula, index):
         quant = 1
         if index &lt; len(formula) and formula[index].isdecimal():

@@ -43,87 +43,88 @@
     <p>Here is a list of the Python programming concepts and topics from
     CSE&nbsp;110 that you should review during this lesson.</p>
 
-    <ol class="long">
-        <li><div>A <dfn>comment</dfn> in a computer program is a note or
-        description that is supposed to help a programmer understand the
-        program. Computers ignore comments in a program. In Python, a
-        comment begins with the hash symbol (#) and extends to the end
-        of the current line.</div></li>
+    <h3>Comments</h3>
+    <p>A <dfn>comment</dfn> in a computer program is a note or
+    description that is supposed to help a programmer understand the
+    program. Computers ignore comments in a program. In Python, a
+    comment begins with the hash symbol (#) and extends to the end of
+    the current line.</p>
 
-        <li id="input"><div>In a Python program, we use the
-        <a href="https://docs.python.org/3/library/functions.html#input"><code>input()</code></a>
-        function to get input from a user in a terminal window. The
-        <code>input</code> function always returns a string of
-        characters.</div></li>
+    <h3 id="input">User Input</h3>
+    <p>In a Python program, we use the
+    <a href="https://docs.python.org/3/library/functions.html#input"><code>input()</code></a>
+    function to get input from a user in a terminal window. The
+    <code>input</code> function always returns a string of
+    characters.</p>
 
-        <li><div>A <dfn>variable</dfn> is a location in a computer's
-        memory where a program stores a value. A variable has a name, a
-        data type, and a value. In Python, we assign a value to a
-        variable by using the assignment operator, which is the equals
-        symbol (=). The value and data type of a variable may change
-        while the computer is executing a program.</div></li>
+    <h3>Variables</h3>
+    <p>A <dfn>variable</dfn> is a location in a computer's memory where
+    a program stores a value. A variable has a name, a data type, and a
+    value. In Python, we assign a value to a variable by using the
+    assignment operator, which is the equals symbol (=). The value and
+    data type of a variable may change while the computer is executing a
+    program.</p>
 
-        <li id="data_types"><div><p>Python has many <dfn>data
-        types</dfn> including <code>str</code>, <code>bool</code>,
-        <code>int</code>, <code>float</code>, <code>list</code>, and
-        <code>dict</code>. Many of the data types that you will use in
-        your programs in CSE&nbsp;111 are shown in the following
-        list.</p>
+    <h3 id="data_types">Data Types</h3>
+    <p>Python has many <dfn>data types</dfn> including <code>str</code>,
+    <code>bool</code>, <code>int</code>, <code>float</code>,
+    <code>list</code>, and <code>dict</code>. Many of the data types
+    that you will use in your programs in CSE&nbsp;111 are shown in the
+    following list.</p>
 
-        <ul class="long">
-            <li><div>A <dfn>str</dfn> (string) is any text inside single
-            or double quotes, any text that a user enters, and any text
-            in a text file. For example:
+    <ul class="long">
+        <li><div>A <dfn>str</dfn> (string) is any text inside single or
+        double quotes, any text that a user enters, and any text in a
+        text file. For example:
 <div class="pre"><pre class="python">
 greet = "Hello"
 text = "23"
 response = input("What is your favorite color? ")
 </pre></div>
-            </div></li>
+        </div></li>
 
-            <li><div>A <dfn>bool</dfn> (Boolean variable) is a variable
-            that stores either <code>True</code> or <code>False</code>.
-            A Boolean variable may not store any other value besides
-            <code>True</code> or <code>False</code>. For example:
+        <li><div>A <dfn>bool</dfn> (Boolean variable) is a variable that
+        stores either <code>True</code> or <code>False</code>. A Boolean
+        variable may not store any other value besides <code>True</code>
+        or <code>False</code>. For example:
 <div class="pre"><pre class="python">
 found = True
 </pre></div>
-            </div></li>
+        </div></li>
 
-            <li><div>An <dfn>int</dfn> (integer) is a whole number like
-            14. An <code>int</code> may not have a fractional part or
-            digits after the decimal point. For example:
+        <li><div>An <dfn>int</dfn> (integer) is a whole number like 14.
+        An <code>int</code> may not have a fractional part or digits
+        after the decimal point. For example:
 <div class="pre"><pre class="python">
 x = 14
 </pre></div>
-            </div></li>
+        </div></li>
 
-            <li><div>A <dfn>float</dfn> (floating point number) is a
-            number that may have a fractional part or digits after the
-            decimal point like 7.51. For example:
+        <li><div>A <dfn>float</dfn> (floating point number) is a number
+        that may have a fractional part or digits after the decimal
+        point like 7.51. For example:
 <div class="pre"><pre class="python">
 sample = 7.51
 </pre></div>
-            </div></li>
+        </div></li>
 
-            <li><div>A <dfn>list</dfn> is a collection of values. Each
-            value in a list is called an element and is stored at a
-            unique index. In a Python program, we can create a list by
-            using square brackets ([&nbsp;and&nbsp;]) and separating the
-            elements with commas (,). For example:
+        <li><div>A <dfn>list</dfn> is a collection of values. Each value
+        in a list is called an element and is stored at a unique index.
+        In a Python program, we can create a list by using square
+        brackets ([&nbsp;and&nbsp;]) and separating the elements with
+        commas (,). For example:
 <div class="pre"><pre class="python">
 colors = ["yellow", "red", "green", "yellow", "blue"]
 samples = [6.5, 7.2, 7.0, 8.1, 7.2, 6.8, 6.8]
 </pre></div>
-            You will study lists in lesson&nbsp;7 of this course.
-            </div></li>
+        You will study lists in lesson&nbsp;7 of this course.</div></li>
 
-            <li><div>A <dfn>dict</dfn> (dictionary) is a collection of
-            items. Each item is a key value pair. The primary purpose of
-            a dictionary is to enable a computer to find items very
-            quickly. In a Python program, we can create a dictionary by
-            using curly braces ({&nbsp;and&nbsp;}) and separating the
-            items with commas (,). For example:
+        <li><div>A <dfn>dict</dfn> (dictionary) is a collection of
+        items. Each item is a key value pair. The primary purpose of a
+        dictionary is to enable a computer to find items very quickly.
+        In a Python program, we can create a dictionary by using curly
+        braces ({&nbsp;and&nbsp;}) and separating the items with commas
+        (,). For example:
 <div class="pre"><pre class="python">
 students = {
     "42-039-4736": "Clint Huish",
@@ -132,43 +133,42 @@ students = {
     "75-421-2310": "Abdul Ali",
     "07-103-5621": "Michelle Davis"
 }</pre></div>
-            You will study dictionaries in lesson&nbsp;8 of this course.
-            </div></li>
-        </ul>
+        You will study dictionaries in lesson&nbsp;8 of this
+        course.</div></li>
+    </ul>
 
-        <p>It is possible to convert between many of the data types. For
-        example, to convert from any data type to a string, we use the
-        <a href="https://docs.python.org/3/library/functions.html#func-str"><code>str()</code></a>
-        function. To convert from a string to an integer, we use the
-        <a href="https://docs.python.org/3/library/functions.html#int"><code>int()</code></a>
-        function, and to convert from a string to a float, we use the
-        <a href="https://docs.python.org/3/library/functions.html#float"><code>float()</code></a>
-        function. The <code>int()</code> and <code>float()</code>
-        functions are especially useful to convert user input, which is
-        always a string, to a number. See the program in
-        <a href="#ex2">example&nbsp;2</a> below.</p></div></li>
+    <p>It is possible to convert between many of the data types. For
+    example, to convert from any data type to a string, we use the
+    <a href="https://docs.python.org/3/library/functions.html#func-str"><code>str()</code></a>
+    function. To convert from a string to an integer, we use the
+    <a href="https://docs.python.org/3/library/functions.html#int"><code>int()</code></a>
+    function, and to convert from a string to a float, we use the
+    <a href="https://docs.python.org/3/library/functions.html#float"><code>float()</code></a>
+    function. The <code>int()</code> and <code>float()</code> functions
+    are especially useful to convert user input, which is always a
+    string, to a number. See the program in
+    <a href="#ex2">example&nbsp;2</a> below.</p>
 
-        <li id="print"><div><p>In a Python program, we use the
-        <a href="https://docs.python.org/3/library/functions.html#print"><code>print()</code></a>
-        function to display output to a user. The easiest way to print
-        both text and numbers together is to use a
-        <a href="https://docs.python.org/3/tutorial/inputoutput.html#formatted-string-literals">formatted string literal</a>
-        (also known as an f-string).</p>
+    <h3 id="print">Displaying Results</h3>
+    <p>In a Python program, we use the
+    <a href="https://docs.python.org/3/library/functions.html#print"><code>print()</code></a>
+    function to display results to a user. The easiest way to print both
+    text and numbers together is to use a
+    <a href="https://docs.python.org/3/tutorial/inputoutput.html#formatted-string-literals">formatted string literal</a>
+    (also known as an f-string).</p>
 
-        <p>The Python program in example&nbsp;1 creates 16 different
-        variables. Some of the variables are of type <code>str</code>,
-        some are of type <code>bool</code>, some are of type
-        <code>int</code>, and some are of type <code>float</code>. The
-        program uses f-strings to print the name, data type, and value
-        of each variable. Lines
-        <span class="cross" data-ref="ex1">35&nbsp;and&nbsp;36</span>
-        of example&nbsp;1 demonstrate that no matter what the user
-        types, the <code>input()</code> function always returns a
-        string. Lines
-        <span class="cross" data-ref="ex1">44&nbsp;and&nbsp;45</span>
-        show how to use the <code>int()</code> and <code>float()</code>
-        functions to convert a string to a number so that the numbers
-        can be used in calculations.</p>
+    <p>The Python program in example&nbsp;1 creates 16 different
+    variables. Some of the variables are of type <code>str</code>, some
+    are of type <code>bool</code>, some are of type <code>int</code>,
+    and some are of type <code>float</code>. The program uses f-strings
+    to print the name, data type, and value of each variable. Lines
+    <span class="cross" data-ref="ex1">35&nbsp;and&nbsp;36</span>
+    of example&nbsp;1 demonstrate that no matter what the user types,
+    the <code>input()</code> function always returns a string. Lines
+    <span class="cross" data-ref="ex1">44&nbsp;and&nbsp;45</span>
+    show how to use the <code>int()</code> and <code>float()</code>
+    functions to convert a string to a number so that the numbers can be
+    used in calculations.</p>
 
 <div class="pre" id="ex1"><pre class="linenums"></pre>
 <pre class="python"># Example 1
@@ -247,63 +247,62 @@ Please enter another number: <span class="input">3</span>
 p: &lt;class 'int'&gt; 5
 q: &lt;class 'float'&gt; 3.0
 r: &lt;class 'float'&gt; 8.0</pre>
-        </div></li>
 
-        <li id="arith"><div><p>Python has many <dfn>arithmetic
-        operators</dfn> including power (**), negation (-),
-        multiplication (*), division (/), floor division (//), modulo
-        (%), addition (+), and subtraction (-).</p>
+    <h3 id="arith">Arithmetic</h3>
+    <p>Python has many <dfn>arithmetic operators</dfn> including power
+    (**), negation (-), multiplication (*), division (/), floor division
+    (//), modulo (%), addition (+), and subtraction (-).</p>
 
-        <p>When we write an arithmetic expression that contains more
-        than one operator, the computer executes the operators according
-        to their <dfn>precedence</dfn>, also known as the <dfn>order of
-        operations</dfn>. This table shows the precedence for the
-        arithmetic operators.</p>
+    <h3>Operator Precedence</h3>
+    <p>When we write an arithmetic expression that contains more than
+    one operator, the computer executes the operators according to their
+    <dfn>precedence</dfn>, also known as the <dfn>order of
+    operations</dfn>. This table shows the precedence for the arithmetic
+    operators.</p>
 
-        <table class="center prec"><thead>
-            <tr><th>Operators</th> <th>Description</th> <th>Precedence</th></tr>
-        </thead><tbody>
-            <tr><td>( )</td> <td>parentheses</td>
-                <td class="prec">highest</td></tr>
-            <tr><td>**</td> <td>exponentiation (power)</td>
-                <td class="prec">&uarr;</td></tr>
-            <tr><td>-</td> <td>negation</td>
-                <td class="prec">|</td></tr>
-            <tr><td>* &nbsp;/ &nbsp;// &nbsp;%</td>
-                <td>multiplication, division, floor division, modulo</td>
-                <td class="prec">|</td></tr>
-            <tr><td>+ &nbsp;-</td> <td>addition, subtraction</td>
-                <td class="prec">&darr;</td></tr>
-            <tr><td>=</td> <td>assignment</td>
-                <td class="prec">lowest</td></tr>
-        </tbody></table>
+    <table class="center prec"><thead>
+        <tr><th>Operators</th> <th>Description</th> <th>Precedence</th></tr>
+    </thead><tbody>
+        <tr><td>( )</td> <td>parentheses</td>
+            <td class="prec">highest</td></tr>
+        <tr><td>**</td> <td>exponentiation (power)</td>
+            <td class="prec">&uarr;</td></tr>
+        <tr><td>-</td> <td>negation</td>
+            <td class="prec">|</td></tr>
+        <tr><td>* &nbsp;/ &nbsp;// &nbsp;%</td>
+            <td>multiplication, division, floor division, modulo</td>
+            <td class="prec">|</td></tr>
+        <tr><td>+ &nbsp;-</td> <td>addition, subtraction</td>
+            <td class="prec">&darr;</td></tr>
+        <tr><td>=</td> <td>assignment</td>
+            <td class="prec">lowest</td></tr>
+    </tbody></table>
 
-        <div class="p">When an arithmetic expression includes two
-        operators with the same precedence, the computer evaluates the
-        operators from left to right. For example, in the arithmetic
-        expression <div class="inline expr">x / y * c</div> the computer
-        will first divide <var>x</var> by <var>y</var> and then multiply
-        that result by <var>c</var>. If you need the computer to
-        evaluate a lower precedence operator before a higher precedence
-        one, you can add parentheses to the expression to change the
-        evaluation order. The computer will always evaluate arithmetic
-        that is inside parentheses first because parentheses have the
-        highest precedence of all the arithmetic operators.</div>
+    <div class="p">When an arithmetic expression includes two operators
+    with the same precedence, the computer evaluates the operators from
+    left to right. For example, in the arithmetic expression
+    <div class="inline expr">x / y * c</div> the computer will first
+    divide <var>x</var> by <var>y</var> and then multiply that result by
+    <var>c</var>. If you need the computer to evaluate a lower
+    precedence operator before a higher precedence one, you can add
+    parentheses to the expression to change the evaluation order. The
+    computer will always evaluate arithmetic that is inside parentheses
+    first because parentheses have the highest precedence of all the
+    arithmetic operators.</div>
 
-        <p>If this is the first time that you have encountered
-        arithmetic operator precedence, you should watch this Khan
-        Academy video:&nbsp;
-        <a href="https://www.khanacademy.org/math/cc-sixth-grade-math/cc-6th-arithmetic-operations/cc-6th-order-of-operations/v/introduction-to-order-of-operations">Introduction to Order of Operations</a>
-        <span class="duration">(10 minutes)</span>.</p>
+    <p>If this is the first time that you have encountered arithmetic
+    operator precedence, you should watch this Khan Academy video:&nbsp;
+    <a href="https://www.khanacademy.org/math/cc-sixth-grade-math/cc-6th-arithmetic-operations/cc-6th-order-of-operations/v/introduction-to-order-of-operations">Introduction to Order of Operations</a>
+    <span class="duration">(10 minutes)</span>.</p>
 
-        <p>The Python program in example&nbsp;2 gets input from the user
-        and converts the user input into two numbers on lines
-        <span class="cross" data-ref="ex2">9&nbsp;and&nbsp;10</span>.
-        Then at <span class="cross" data-ref="ex2">line&nbsp;13</span>
-        the program computes the length of a cable from the two numbers.
-        Finally at <span class="cross" data-ref="ex2">line&nbsp;17</span>,
-        the program uses an f-string to print the length rounded to two
-        places after the decimal point.</p>
+    <p>The Python program in example&nbsp;2 gets input from the user and
+    converts the user input into two numbers on lines <span
+    class="cross" data-ref="ex2">9&nbsp;and&nbsp;10</span>. Then at
+    <span class="cross" data-ref="ex2">line&nbsp;13</span> the program
+    computes the length of a cable from the two numbers. Finally at
+    <span class="cross" data-ref="ex2">line&nbsp;17</span>, the program
+    uses an f-string to print the length rounded to two places after the
+    decimal point.</p>
 
 <div class="pre" id="ex2"><pre class="linenums"></pre>
 <pre class="python"># Example 2
@@ -329,31 +328,31 @@ Distance the cable must span in meters: <span class="input">500</span>
 Distance the cable will sag or dip in meters: <span class="input">18.5</span>
 Length of cable in meters: 501.83</pre>
 
-        <p>In example&nbsp;2, the arithmetic that is written on
-        <span class="cross" data-ref="ex2">line&nbsp;13</span>
-        comes from a well known formula. Given the distance that a cable
-        must span and the vertical distance that the cable will be
-        allowed to sag or dip in the middle of the cable, the formula
-        for calculating the length of the cable is:</p>
+    <p>In example&nbsp;2, the arithmetic that is written on
+    <span class="cross" data-ref="ex2">line&nbsp;13</span>
+    comes from a well known formula. Given the distance that a cable
+    must span and the vertical distance that the cable will be allowed
+    to sag or dip in the middle of the cable, the formula for
+    calculating the length of the cable is:</p>
 
-        <div class="block expr"><var>length</var> = <var>span</var> + <div class="fract"><div>8 <var>dip</var><sup>2</sup></div><div>3 <var>span</var></div></div></div>
-        </div></li>
+    <div class="block expr"><var>length</var> = <var>span</var> + <div class="fract"><div>8 <var>dip</var><sup>2</sup></div><div>3 <var>span</var></div></div></div>
 
-        <li><div><p>The Python programming language includes many
-        <dfn>augmented assignment operators</dfn>, also known as
-        <dfn>shorthand operators</dfn>. All the shorthand operators
-        have the same precedence as the assignment operator (=). Here is
-        a list of some of the Python shorthand operators:</p>
+    <h3>Shorthand Operators</h3>
+    <p>The Python programming language includes many <dfn>augmented
+    assignment operators</dfn>, also known as <dfn>shorthand
+    operators</dfn>. All the shorthand operators have the same
+    precedence as the assignment operator (=). Here is a list of some of
+    the Python shorthand operators:</p>
 
 <div class="pre"><pre class="python">**=  *=  /=  //=  %=  +=  -=</pre></div>
 
-        <p>To understand what the shorthand operators do and why Python
-        includes them, imagine a program that computes the price of a
-        pizza. The price of a large pizza with cheese and no other
-        toppings is $10.95. The price for each topping, such as ham,
-        pepperoni, olives, and pineapple is $1.45. Here is a short
-        example program that asks the user for the number of toppings
-        and computes the price of a pizza:</p>
+    <p>To understand what the shorthand operators do and why Python
+    includes them, imagine a program that computes the price of a pizza.
+    The price of a large pizza with cheese and no other toppings is
+    $10.95. The price for each topping, such as ham, pepperoni, olives,
+    and pineapple is $1.45. Here is a short example program that asks
+    the user for the number of toppings and computes the price of a
+    pizza:</p>
 
 <div class="pre" id="ex3"><pre class="linenums"></pre>
 <pre class="python"># Example 3
@@ -380,24 +379,24 @@ print(f"Price: ${price:.2f}")</pre></div>
 How many toppings? <span class="input">3</span>
 Price: $15.30</pre>
 
-        <p>The statement at
-        <span class="cross" data-ref="ex3">line&nbsp;16</span> in
-        example&nbsp;3 causes the computer to get the value in the
-        <var>price</var> variable which is 10.95, then add the cost of
-        the toppings to 10.95, and then store the sum back into the
-        <var>price</var> variable. Python includes a shorthand operator
-        that combines addition (+) and assignment (=) into one operator
-        (+=). We can use this shorthand operator to rewrite line&nbsp;16
-        like this:</p>
+    <p>The statement at
+    <span class="cross" data-ref="ex3">line&nbsp;16</span> in
+    example&nbsp;3 causes the computer to get the value in the
+    <var>price</var> variable which is 10.95, then add the cost of the
+    toppings to 10.95, and then store the sum back into the
+    <var>price</var> variable. Python includes a shorthand operator that
+    combines addition (+) and assignment (=) into one operator (+=). We
+    can use this shorthand operator to rewrite line&nbsp;16 like
+    this:</p>
 <div class="pre"><pre class="python">price += toppings_cost</pre></div>
 
-        <p>This statement with the shorthand operator is equivalent to
-        the statement on
-        <span class="cross" data-ref="ex3">line&nbsp;16</span>
-        of example&nbsp;3, meaning the two statements cause the computer
-        to do the same thing. Example&nbsp;4 contains the same program
-        as example&nbsp;4 but uses the shorthand operator += at
-        <span class="cross" data-ref="ex4">line&nbsp;16</span>.</p>
+    <p>This statement with the shorthand operator is equivalent to the
+    statement on
+    <span class="cross" data-ref="ex3">line&nbsp;16</span>
+    of example&nbsp;3, meaning the two statements cause the computer to
+    do the same thing. Example&nbsp;4 contains the same program as
+    example&nbsp;4 but uses the shorthand operator += at
+    <span class="cross" data-ref="ex4">line&nbsp;16</span>.</p>
 
 <div class="pre" id="ex4"><pre class="linenums"></pre>
 <pre class="python"># Example 4
@@ -423,28 +422,28 @@ print(f"Price: ${price:.2f}")</pre></div>
 <pre class="console" data-for="ex4">&gt; python example_4.py
 How many toppings? <span class="input">3</span>
 Price: $15.30</pre>
-        </div></li>
 
-        <li><div><p>In Python, we use <code>if</code> statements to
-        cause the computer to make decisions; <code>if</code> statements
-        are also called <dfn>selection</dfn> statements because the
-        computer selects one group of statements to execute and skips
-        the other group of statements.</p>
+    <h3>if Statements</h3>
+    <p>In Python, we use <code>if</code> statements to cause the
+    computer to make decisions; <code>if</code> statements are also
+    called <dfn>selection</dfn> statements because the computer selects
+    one group of statements to execute and skips the other group of
+    statements.</p>
 
-        <p>There are six comparison operators that we can use in an
-        <code>if</code> statement:</p>
+    <p>There are six comparison operators that we can use in an
+    <code>if</code> statement:</p>
 
-        <table class="center"><tbody>
-            <tr><td>&lt;</td> <td>less than</td></tr>
-            <tr><td>&lt;=</td> <td>less than or equal</td></tr>
-            <tr><td>&gt;</td> <td>greater than</td></tr>
-            <tr><td>&gt;=</td> <td>greater than or equal</td></tr>
-            <tr><td>==</td> <td>equal to</td></tr>
-            <tr><td>!=</td> <td>not equal to</td></tr>
-        </tbody></table>
+    <table class="center"><tbody>
+        <tr><td>&lt;</td> <td>less than</td></tr>
+        <tr><td>&lt;=</td> <td>less than or equal</td></tr>
+        <tr><td>&gt;</td> <td>greater than</td></tr>
+        <tr><td>&gt;=</td> <td>greater than or equal</td></tr>
+        <tr><td>==</td> <td>equal to</td></tr>
+        <tr><td>!=</td> <td>not equal to</td></tr>
+    </tbody></table>
 
-        <p>Example&nbsp;5 contains Python code that checks if a number
-        is greater than 500.</p>
+    <p>Example&nbsp;5 contains Python code that checks if a number is
+    greater than 500.</p>
 <div class="pre" id="ex5"><pre class="linenums"></pre>
 <pre class="python"># Example 5
 
@@ -468,34 +467,33 @@ balance: 350.0
 Enter the account balance: <span class="input">525</span>
 balance: 540.75</pre>
 
-        <p>If you have written programs in other programming languages
-        such as JavaScript, Java, or C++, you always used curly braces
-        to mark the start and end of the body of an <code>if</code>
-        statement. However, notice in example&nbsp;5 that
-        <code>if</code> statements in Python do not use curly braces.
-        Instead, we type a colon (:) after the comparison of the
-        <code>if</code> statement as shown on
-        <span class="cross" data-ref="ex5">line&nbsp;8</span>.
-        Then we indent all the statements that are in the body of
-        the <code>if</code> statement as shown on lines
-        <span class="cross" data-ref="ex5">9&nbsp;and&nbsp;10</span>.
-        The body of the <code>if</code> statement ends with the first
-        line of code that is not indented, like
-        <span class="cross" data-ref="ex5">line&nbsp;13</span>.</p>
+    <p>If you have written programs in other programming languages such
+    as JavaScript, Java, or C++, you always used curly braces to mark
+    the start and end of the body of an <code>if</code> statement.
+    However, notice in example&nbsp;5 that <code>if</code> statements in
+    Python do not use curly braces. Instead, we type a colon (:) after
+    the comparison of the <code>if</code> statement as shown on
+    <span class="cross" data-ref="ex5">line&nbsp;8</span>.
+    Then we indent all the statements that are in the body of the
+    <code>if</code> statement as shown on lines
+    <span class="cross" data-ref="ex5">9&nbsp;and&nbsp;10</span>.
+    The body of the <code>if</code> statement ends with the first line
+    of code that is not indented, like
+    <span class="cross" data-ref="ex5">line&nbsp;13</span>.</p>
 
-        <p>It may seem strange to not use curly braces to mark the start
-        and end of the body of an <code>if</code> statement. However,
-        the Python way forces us to write code where the indentation
-        matches the functionality or in other words, the way we indent
-        the code matches the way that the computer will execute the
-        code.</p></div></li>
+    <p>It may seem strange to not use curly braces to mark the start and
+    end of the body of an <code>if</code> statement. However, the Python
+    way forces us to write code where the indentation matches the
+    functionality or in other words, the way we indent the code matches
+    the way that the computer will execute the code.</p>
 
-        <li><div>Each <code>if</code> statement may have an
-        <code>else</code> statement as shown in example&nbsp;6 on
-        <span class="cross" data-ref="ex6">line&nbsp;13</span>.
-        We can combine <code>else</code> and <code>if</code> into the
-        keyword <code>elif</code> as shown on lines
-        <span class="cross" data-ref="ex6">9&nbsp;and&nbsp;11</span>.
+    <h3>if &hellip; elif &hellip; else Statements</h3>
+    <p>Each <code>if</code> statement may have an <code>else</code>
+    statement as shown in example&nbsp;6 on
+    <span class="cross" data-ref="ex6">line&nbsp;13</span>.
+    We can combine <code>else</code> and <code>if</code> into the
+    keyword <code>elif</code> as shown on lines
+    <span class="cross" data-ref="ex6">9&nbsp;and&nbsp;11</span>.
 
 <div class="pre" id="ex6"><pre class="linenums"></pre>
 <pre class="python"># Example 6
@@ -524,20 +522,18 @@ print(f"After the discount, you will pay {cost}")</pre></div>
 <pre class="console" data-for="ex6">&gt; python example_6.py
 Please enter the cost: <span class="input">300</span>
 After the discount, you will pay 246.0</pre>
-        </div></li>
 
-        <li><div>Python includes two <dfn>logic operators</dfn> which
-        are the keywords <code>and</code>, <code>or</code> that we
-        can use to combine two comparisons. Python also includes the
-        logical <code>not</code> operator. Notice in Python that the
-        logical operators are literally the words:&nbsp;
-        <code>and</code>, <code>or</code>, <code>not</code> and not
-        symbols as in other programming languages:
+    <h3>Logical Operators</h3>
+    <p>Python includes two <dfn>logic operators</dfn> which are the
+    keywords <code>and</code>, <code>or</code> that we can use to
+    combine two comparisons. Python also includes the logical
+    <code>not</code> operator. Notice in Python that the logical
+    operators are literally the words:&nbsp; <code>and</code>,
+    <code>or</code>, <code>not</code> and not symbols as in other
+    programming languages:
 <div class="pre"><pre class="python">
 if driver &gt;= 54 <em>or</em> (driver &gt;= 32 <em>and</em> passenger &gt;= 54):
     message = "Enjoy the ride!"</pre></div>
-        </div></li>
-    </ol>
 
     <h2>Videos</h2>
     <p>If any of the concepts or topics in the previous list seem
