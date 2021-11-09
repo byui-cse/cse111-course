@@ -171,12 +171,34 @@ print(day_of_week)</pre></div>
     <p>Verify that your program works correctly by following each
     step in this testing procedure:</p>
     <ol class="test long">
-        <li><div>If today is any day other than Tuesday or Wednesday,
-        run your program using the input shown in the "Run on a Monday"
-        section below. Ensure that your program's output matches the
-        sample run output. If today is Tuesday or Wednesday, run your
-        program using the input in the "Run on a Tuesday"
-        section.</div></li>
+        <li><div>If today is any day except Tuesday or Wednesday, run
+        your program using the inputs shown below. Ensure that your
+        program's output matches the output shown below.
+<pre class="console">&gt; python discount.py
+Please enter the subtotal: <span class="input">42.75</span>
+Sales tax amount: 2.56
+Total: 45.31
+
+&gt; python discount.py
+Please enter the subtotal: <span class="input">55.20</span>
+Sales tax amount: 3.31
+Total: 58.51</pre>
+        </div></li>
+
+        <li><div>If today is Tuesday or Wednesday, run your program
+        using the input shown below. Ensure that your program's output
+        matches output shown below.
+<pre class="console">&gt; python discount.py
+Please enter the subtotal: <span class="input">42.75</span>
+Sales tax amount: 2.56
+Total: 45.31
+
+&gt; python discount.py
+Please enter the subtotal: <span class="input">55.20</span>
+Discount amount: 5.52
+Sales tax amount: 2.98
+Total: 52.66</pre>
+        </div></li>
 
         <li><div>Is there a simple way to test your program for all the
         days of the week without testing on seven consecutive days and
@@ -193,30 +215,6 @@ day_of_week = current_date_and_time.weekday()</pre></div>
 <div class="pre"><pre class="python">day_of_week = 2</pre></div>
         </div></li>
     </ol>
-
-    <h2>Sample Runs</h2>
-    <h3>Run on a Monday</h3>
-<pre class="console">&gt; python discount.py
-Please enter the subtotal: <span class="input">42.75</span>
-Sales tax amount: 2.56
-Total: 45.31
-
-&gt; python discount.py
-Please enter the subtotal: <span class="input">55.20</span>
-Sales tax amount: 3.31
-Total: 58.51</pre>
-
-    <h3>Run on a Tuesday</h3>
-<pre class="console">&gt; python discount.py
-Please enter the subtotal: <span class="input">42.75</span>
-Sales tax amount: 2.56
-Total: 45.31
-
-&gt; python discount.py
-Please enter the subtotal: <span class="input">55.20</span>
-Discount amount: 5.52
-Sales tax amount: 2.98
-Total: 52.66</pre>
 
     <h2>Sample Solution</h2>
     <p>Please work diligently with your team for the one hour meeting.

@@ -56,8 +56,7 @@
     <div class="block expr"><var>lp100k</var> = <div class="fract"><div>235.215</div><div><var>mpg</var></div></div></div>
 
     <h2>Assignment</h2>
-    <p>Write a Python program named <code>fuel_usage.py</code> that
-    asks the user for three numbers:</p>
+    <p>Write a Python program that asks the user for three numbers:</p>
     <ol>
         <li><div>A starting odometer value in miles</div></li>
         <li><div>An ending odometer value in miles</div></li>
@@ -76,9 +75,22 @@
     <p>All user input and printing must be in the <code>main</code>
     function. In other words, the <code>miles_per_gallon</code> and
     <code>lp100k_from_mpg</code> functions must not call the the
-    <code>input</code> or <code>print</code> functions. To start your
-    program, copy and paste the following code into your program and use
-    it as a design as you write your program.</p>
+    <code>input</code> or <code>print</code> functions.
+
+    <h2>Helpful Documentation</h2>
+    <ul>
+        <li><div>The <a href="../lesson02/prepare.html">prepare content</a>
+        for the previous lesson explains how to call a
+        function.</div></li>
+
+        <li><div>The <a href="prepare.html">prepare content</a> for this
+        lesson explains how to write a function.</div></li>
+    </ul>
+
+    <h2>Steps</h2>
+    <p>Copy and paste the following code into a new program named
+    <code>fuel_usage.py</code>. Use the pasted code as a design as you
+    write your program. Write code for each of the functions.</p>
 
 <div class="pre"><pre class="python">
 def main():
@@ -130,32 +142,20 @@ def lp100k_from_mpg(mpg):
 # this program will start executing.
 main()</pre></div>
 
-    <h2>Helpful Documentation</h2>
-    <ul>
-        <li><div>The <a href="../lesson02/prepare.html">prepare content</a>
-        for the previous lesson explains how to call a
-        function.</div></li>
-
-        <li><div>The <a href="prepare.html">prepare content</a> for this
-        lesson explains how to write a function.</div></li>
-    </ul>
-
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each step
     in this testing procedure:</p>
     <ol>
-        <li><div>Run your program using the input shown in the sample
-        run section below. Ensure that your program's output matches the
-        sample run output.</div></li>
-    </ol>
-
-    <h2>Sample Run</h2>
+        <li><div>Run your program and enter the inputs shown below.
+        Ensure that your program's output matches the output below.
 <pre class="console">&gt; python fuel_usage.py
 Enter the first odometer reading (miles): <span class="input">30462</span>
 Enter the second odometer reading (miles): <span class="input">30810</span>
 Enter the amount of fuel used (gallons): <span class="input">11.2</span>
 31.1 miles per gallon
 7.57 liters per 100 kilometers</pre>
+        </div></li>
+    </ol>
 
     <h2>Sample Solution</h2>
     <p>When your program is finished, view the <a class="solution"
