@@ -63,8 +63,8 @@
     <p>Do the following:</p>
 
     <ol class="long">
-        <li><div>Change the compound list that is created in
-        your <code>make_periodic_table</code> function to a dictionary.
+        <li><div>Change the compound list that is in your
+        <code>make_periodic_table</code> function to a dictionary.
         Each item in the dictionary should have a chemical symbol as the
         key and the chemical name and atomic mass in a list as the
         value, like this:
@@ -87,7 +87,6 @@ class FormulaError(ValueError):
     """FormulaError is the type of error that
     parse_formula will raise if a formula is invalid.
     """
-    pass
 
 
 def parse_formula(formula, periodic_table_dict):
@@ -189,21 +188,30 @@ ATOMIC_MASS_INDEX = 1
 
 def compute_molar_mass(symbol_quantity_list, periodic_table_dict):
     """Compute and return the total molar mass of all the
-    elements listed in symbol_quantity_list. Each element in
-    symbol_quantity_list is a list in the form: ["symbol", quantity].
+    elements listed in symbol_quantity_list.
 
-    As an example, if symbol_quantity_list is [["H", 2], ["O", 1]],
+    Parameters
+        symbol_quantity_list is a compound list. Each small
+            list in symbol_quantity_list has this form:
+            ["symbol", quantity].
+        periodic_table_dict is the dictionary returned from
+            make_periodic_table.
+        Return: the total molar mass of all the elements in
+            symbol_quantity_list.
+
+    For example, if symbol_quantity_list is [["H", 2], ["O", 1]],
     this function will calculate and return
     atomic_mass("H") * 2 + atomic_mass("O") * 1
     1.00794 * 2 + 15.9994 * 1
     18.01528
     """
-    # For each element in the symbol_quantity_list:
-    #   Split the element into symbol and quantity.
-    #   Get the atomic mass for the symbol.
-    #   Multiply the atomic mass by the quantity.
-    #   Add the product into the total mass.
-    pass</pre></div>
+    # For each list in the compound symbol_quantity_list:
+        # Split the list into symbol and quantity.
+        # Get the atomic mass for the symbol from the dictionary.
+        # Multiply the atomic mass by the quantity.
+        # Add the product into the total mass.
+    # Return the total mass.
+    return</pre></div>
 
         The code that you pasted includes a function named
         <code>parse_formula</code> that converts a chemical formula for
@@ -212,7 +220,7 @@ def compute_molar_mass(symbol_quantity_list, periodic_table_dict):
         code that you pasted, this compound list is known as a
         <var>symbol_quantity_list</var> because it contains the symbols
         of chemical elements and the quantity of each element that
-        appears in the chemical formula.</div></li>
+        appears in a chemical formula.</div></li>
 
         <li><div>The code that you pasted also includes the header and
         documentation string for a function named
@@ -229,7 +237,7 @@ def compute_molar_mass(symbol_quantity_list, periodic_table_dict):
 def main():
     # Get a chemical formula for a molecule from the user.
 
-    # Get a mass in grams from the user.
+    # Get the mass of a chemical sample in grams from the user.
 
     # Call the make_periodic_table function and
     # store the periodic table in a variable.
@@ -242,7 +250,7 @@ def main():
     # Call the compute_molar_mass function to compute the
     # molar mass of the molecule from the compound list.
 
-    # Compute the number of moles of the sample.
+    # Compute the number of moles in the sample.
 
     # Print the molar mass.
 
@@ -267,16 +275,16 @@ def main():
         until the test functions pass.
 
 <pre class="console">&gt; python test_chemistry_2.py
-===================== test session starts ======================
-platform win32--Python 3.8.6, pytest-6.1.2, py-1.9.0, pluggy-0.13
+====================== test session starts =======================
+platform win32--Python 3.8.6, pytest-6.1.2, py-1.9.0, pluggy-0.13.
 rootdir: C:\Users\cse111\lesson07
 collected 3 items
 
-test_chemistry_2.py::test_make_periodic_table <span class="pass">PASSED      [ 33%]</span>
-test_chemistry_2.py::test_parse_formula <span class="pass">PASSED            [ 66%]</span>
-test_chemistry_2.py::test_compute_molar_mass <span class="pass">PASSED       [100%]</span>
+test_chemistry_2.py::test_make_periodic_table <span class="pass">PASSED        [ 33%]</span>
+test_chemistry_2.py::test_parse_formula <span class="pass">PASSED              [ 66%]</span>
+test_chemistry_2.py::test_compute_molar_mass <span class="pass">PASSED         [100%]</span>
 
-<span class="pass">====================== 3 passed in 0.17s =======================</span></pre>
+<span class="pass">======================= 3 passed in 0.17s ========================</span></pre>
         </div></li>
 
         <li><div>Run your finished <code>chemistry.py</code> program.
