@@ -26,7 +26,7 @@ def main():
         # Pop (remove) the last element from the fruit_list
         # and print the popped element and the list.
         last = fruit_list.pop()
-        print(f"pop: {last} {fruit_list}")
+        print(f"pop {last}: {fruit_list}")
 
         # Sort and print the fruit_list.
         fruit_list.sort()
