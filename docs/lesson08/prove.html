@@ -64,10 +64,10 @@
 
     <ol class="long">
         <li><div>Change the compound list that is in your
-        <code>make_periodic_table</code> function to a dictionary.
-        Each item in the dictionary should have a chemical symbol as the
-        key and the chemical name and atomic mass in a list as the
-        value, like this:
+        <code>make_periodic_table</code> function to a compound
+        dictionary. Each item in the dictionary should have a chemical
+        symbol as the key and the chemical name and atomic mass in a
+        list as the value, like this:
 <div class="pre"><pre class="python">
     periodic_table_dict = {
         # symbol: [name, atomic_mass]
@@ -97,8 +97,8 @@ def parse_formula(formula, periodic_table_dict):
 
     Parameters
         formula: a string that contains a chemical formula
-        periodic_table_dict: the dictionary returned from
-            make_periodic_table
+        periodic_table_dict: the compound dictionary returned
+            from make_periodic_table
     Return: a compound list that contains chemical symbols and
         quantities like this [["Fe", 2], ["O", 3]]
     """
@@ -194,8 +194,8 @@ def compute_molar_mass(symbol_quantity_list, periodic_table_dict):
         symbol_quantity_list is a compound list. Each small
             list in symbol_quantity_list has this form:
             ["symbol", quantity].
-        periodic_table_dict is the dictionary returned from
-            make_periodic_table.
+        periodic_table_dict is the compound dictionary returned
+            from make_periodic_table.
         Return: the total molar mass of all the elements in
             symbol_quantity_list.
 

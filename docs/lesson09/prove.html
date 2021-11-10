@@ -37,9 +37,20 @@
     enables its customers to order groceries online. After a customer
     completes an order, the online service sends a CSV file that
     contains the customer's requests to the grocery store. The store
-    needs you to write a program that reads the CSV file and prints (to
-    the terminal window) a receipt that lists the purchased items and
+    needs you to write a program that reads the CSV file and prints to
+    the terminal window a receipt that lists the purchased items and
     shows the subtotal, the sales tax amount, and the total.</p>
+
+    <h2>Assignment</h2>
+    <p>During this milestone, you will write half of this Python
+    program. Specifically, by the end of this milestone, your program
+    will read and process these two CSV files:</p>
+    <ul>
+        <li><div>The <code>products.csv</code> file is a catalog of
+            all the products that the grocery store sells.</div></li>
+        <li><div>The <code>request.csv</code> file contains the items
+            ordered by a customer.</div></li>
+    </ul>
 
     <h2>Helpful Documentation</h2>
     <ul class="long">
@@ -61,17 +72,7 @@
         similar to this prove assignment.</div></li>
     </ul>
 
-    <h2>Assignment</h2>
-    <p>During this milestone (lesson&nbsp;9), you will write half of
-    this Python program. Specifically, by the end of this milestone,
-    your program will read and process these two CSV files:</p>
-    <ul>
-        <li><div>The <code>products.csv</code> file is a catalog of
-            all the products that the grocery store sells.</div></li>
-        <li><div>The <code>request.csv</code> file contains the items
-            ordered by a customer.</div></li>
-    </ul>
-
+    <h2>Steps</h2>
     <p>Do the following:</p>
     <ol class="long">
         <li><div>Download both of these files:
@@ -82,8 +83,12 @@
 
         <li><div>Open the <code>products.csv</code> file in VS Code and
         examine it. Notice that each row in this file contains three
-        values separated by commas: a product number, a product name,
-        and a retail price.</div></li>
+        values separated by commas:&nbsp; a product number, a product
+        name, and a retail price. Also, notice that each product number
+        in the <code>products.csv</code> file is unique. This means that
+        your program can read the <code>products.csv</code> file into a
+        dictionary and use the product numbers as keys in the
+        dictionary.</div></li>
 
         <li><div>In VS Code, create a new file and save it as
         <code>receipt.py</code> in the same folder where you saved the
@@ -121,7 +126,10 @@
         D083 appears twice in the file. It appears twice because the
         customer who created the order in the <code>request.csv</code>
         file added four yogurts to his order and then later added three
-        more yogurts to his order.</div></li>
+        more yogurts to his order. Because product numbers may appear
+        multiple times in the <code>request.csv</code> file, your
+        program must not read the contents of <code>request.csv</code>
+        into a dictionary.</div></li>
 
         <li><div><p>In your <code>receipt.py</code> program, write
         another function named <code>main</code> that does the
@@ -160,12 +168,12 @@
         request for four yogurts with a request for three yogurts. In
         other words, if your program reads the <code>request.csv</code>
         file into a dictionary, your program will think that the
-        customer ordered only three yogurts instead of seven
-        (4&nbsp;+&nbsp;3) that he ordered. Therefore, your program must
-        not read the <code>request.csv</code> file into a dictionary but
-        should instead read and process each row similar to
-        <a href="prepare.html#ex3">example&nbsp;3</a> in the prepare
-        content for this lesson.</p>
+        customer ordered only three yogurts instead of the seven
+        <span class="nowrap">(4 + 3)</span> that he ordered. Therefore,
+        your program must not read the <code>request.csv</code> file
+        into a dictionary but should instead read and process each row
+        similar to <a href="prepare.html#ex3">example&nbsp;3</a> in the
+        prepare content for this lesson.</p>
         </div></li>
 
         <li><div>At the bottom of your <code>receipt.py</code> file,
@@ -205,10 +213,8 @@ test_products.py::test_read_products <span class="pass">PASSED               [10
 
         <li><div>Run your program and verify that it prints the
         <var>products</var> dictionary and requested items as shown in
-        the Sample Run section below.</div></li>
-    </ol>
+        the sample output below.
 
-    <h2>Sample Run</h2>
 <pre class="console">&gt; python receipt.py
 
 Products
@@ -235,6 +241,8 @@ wheat bread: 2 @ 2.55
 32 oz granola: 1 @ 3.21
 twix candy bar: 2 @ 0.85
 1 cup yogurt: 3 @ 0.75</pre>
+        </div></li>
+    </ol>
 
     <h2>Submission</h2>
     <p>On or before the due date, return to I-Learn and report your

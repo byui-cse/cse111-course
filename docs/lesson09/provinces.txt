@@ -14,23 +14,23 @@ Nova Scotia
 Prince Edward Island
 Alberta
 Nova Scotia
+Nova Scotia
 Prince Edward Island
 British Columbia
-Nova Scotia
+Ontario
+Ontario
 Newfoundland and Labrador
-Ontario
-Ontario
 Ontario
 Ontario
 Saskatchewan
 Nova Scotia
 Prince Edward Island
 Saskatchewan
+Ontario
 Newfoundland and Labrador
 Ontario
-Ontario
+British Columbia
 Manitoba
-British Columbia
 Ontario
 Alberta
 Saskatchewan
@@ -38,26 +38,26 @@ Ontario
 Yukon
 Ontario
 New Brunswick
-Manitoba
 British Columbia
+Manitoba
+Yukon
+British Columbia
+Manitoba
 Yukon
 Newfoundland and Labrador
-Manitoba
-British Columbia
-Yukon
 Ontario
 Yukon
 Ontario
 AB
-Newfoundland and Labrador
 Nova Scotia
+Newfoundland and Labrador
 Yukon
+Nunavut
 Northwest Territories
 Nunavut
 Yukon
-Nunavut
-Ontario
 British Columbia
+Ontario
 AB
 Saskatchewan
 Prince Edward Island
