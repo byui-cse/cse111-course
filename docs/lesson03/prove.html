@@ -55,7 +55,7 @@
         <li><div>The scene must be outdoor and include part of the
         sky.</div></li>
         <li><div>The sky must have clouds.</div></li>
-        <li><div>The scene must include repetitive elements such as
+        <li><div>The scene must include repetitive objects such as
         blades of grass, trees, leaves on a tree, birds, flowers,
         insects, fish, pickets in a fence, dashed lines on a road,
         buildings, bales of hay, snowmen, snowflakes, or
@@ -245,10 +245,10 @@ main()</pre></div>
 
     <p>Delete or comment-out lines&nbsp;47&ndash;50 and
     lines&nbsp;57&ndash;89 and begin writing your program. As you write
-    your program, be sure that it draws elements in the order of
-    farthest away to nearest. For example, you program should draw the
-    blue sky first, then the ground, then clouds, then trees, then
-    insects in the trees.</p>
+    your program, be sure that it draws objects in the order of farthest
+    away to nearest. For example, you program should draw the blue sky
+    first, then the ground, then clouds, then trees, then insects in the
+    trees.</p>
 
     <div class="figure full"><img src="tree.png"
     alt="A pine tree drawn by a Python program"
@@ -293,6 +293,55 @@ def draw_pebble(canvas, pebble_left, pebble_top, pebble_radius):
 def draw_picket(canvas, picket_left, picket_bottom):
 
 def draw_grass_blade(canvas, blade_left, blade_top, blade_height):</pre></div>
+
+    <p>The following call graph shows the function calls for a former
+    student's program that was well-designed. From the call graph we see
+    that the student divided his program into small functions. We see
+    that the <code>main</code> function calls the
+    <code>draw_scene</code> function. The <code>draw_scene</code>
+    function calls the <code>draw_sky</code> and
+    <code>draw_ground</code> functions. The <code>draw_sky</code>
+    function calls the <code>draw_sun</code>, <code>draw_cloud</code>,
+    and <code>draw_bird</code> functions, and so on. This was a good
+    design because each function was relatively small and performed just
+    one task. Also, because his <code>draw_flower</code> function had
+    parameters, he wrote multiple calls to the <code>draw_flower</code>
+    function in his <code>draw_ground</code> function, which easily drew
+    multiple flowers in his scene. His <code>draw_cloud</code>,
+    <code>draw_bird</code>, and <code>draw_tree</code> functions also
+    had parameters, and he wrote multiple calls to them as well, which
+    easily drew multiple clouds, birds, and trees. This was a good
+    design.</p>
+
+    <div class="figure full"><img src="call_graph_prove.svg"
+        alt="The call graph from a well-designed program that draws an outdoor scene"
+        title="The call graph from a well-designed program that draws an outdoor scene">
+        <div>The call graph from a well-designed program. Because the
+        program was divided into small functions that each perform a
+        single task, the program was well-designed.</div>
+    </div>
+
+    <p>In the past, one student wrote a program that has a call graph
+    like the one below. Notice that the student didn't separate his
+    program into small functions. Instead, he wrote all the code to draw
+    an outdoor scene inside the <code>draw_scene</code> function. The
+    scene his program drew was nice and had the same number of objects
+    as the scene from the first student's well-designed program.
+    However, the <code>draw_scene</code> function in the second
+    student's program was very long, complex, and confusing. This was a
+    poor design.</p>
+
+    <div class="figure right" style="width:25em"><img
+        src="call_graph_prove_bad.svg"
+        alt="The call graph from a poorly designed program that draws an outdoor scene"
+        title="The call graph from a poorly designed program that draws an outdoor scene">
+        <div>The call graph from a poorly designed program. Because the
+        program was not divided into small functions, the
+        <code>draw_scene</code> function called the <code>tkinter</code>
+        functions to draw all the objects in the scene. The
+        <code>draw_scene</code> function was very large and
+        confusing.</div>
+    </div>
 
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each

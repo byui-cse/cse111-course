@@ -90,7 +90,7 @@
     <h2>Steps</h2>
     <p>Copy and paste the following code into a new program named
     <code>fuel_usage.py</code>. Use the pasted code as a design as you
-    write your program. Write code for each of the functions.</p>
+    write your program. Write code for each of the three functions.</p>
 
 <div class="pre"><pre class="python">
 def main():
@@ -106,10 +106,6 @@ def main():
     # Call the lp100k_from_mpg function to convert the
     # miles per gallon to liters per 100 kilometers and
     # store the result in a variable named lp100k.
-
-    # Round the miles per gallon to one digit after the decimal.
-
-    # Round the liters per 100 km to two digits after the decimal.
 
     # Display the results for the user to see.
     pass
@@ -165,6 +161,22 @@ Enter the amount of fuel used (gallons): <span class="input">11.2</span>
     However, if you have worked on it for at least an hour and are still
     having problems, feel free to use the sample solution to help you
     finish your program.</p>
+
+    <h3>Call Graph</h3>
+    <p>The following call graph shows the function calls and returns in
+    the sample solution for this assignment. From this call graph we see
+    that the computer starts executing the sample program by calling the
+    <code>main</code> function. While executing the <code>main</code>
+    function, the computer calls the <code>input</code> and
+    <code>float</code> functions. Then the computer calls the
+    <code>miles_per_gallon</code> and <code>lp100k_from_mpg</code>
+    functions. Finally the computer calls the <code>print</code>
+    function which is the end of the program.</p>
+
+    <div class="figure center"><img style="width:23em"
+        src="call_graph_check.svg"
+        alt="A function call graph for this assignment"
+        title="A function call graph for this assignment"></div>
 
     <h2>Ponder</h2>
     <p>After you finish this assignment, congratulate yourself because

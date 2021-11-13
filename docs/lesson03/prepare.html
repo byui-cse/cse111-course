@@ -280,7 +280,7 @@ def compute_cylinder_volume(radius, height):
 
 <div class="pre"><pre class="python">     volume = compute_cylinder_volume(2.5, 4.1)</pre></div>
 
-    <h3>The User-Defined Function Named <code>main</code></h3>
+    <h3>The <code>main</code> User-Defined Function</h3>
     <p>In all previous Python programs that you wrote in CSE&nbsp;110
     and&nbsp;111, you wrote statements that were not in a function like
     the simple program in example&nbsp;4.
@@ -352,7 +352,7 @@ Volume: 226.19</pre>
     function named <code>main</code> and will have a call to
     <code>main</code> at the bottom of the program.</p>
 
-    <h3>A Complete Program with a Reusable User-Defined Function</h3>
+    <h3>A Complete Program with User-Defined Functions</h3>
     <p>If you look closely at the code in examples&nbsp;1 and&nbsp;5,
     you will realize that both programs have the same problem, namely
     both the <code>print_cylinder_volume</code> function in
@@ -364,11 +364,11 @@ Volume: 226.19</pre>
     <code>compute_cylinder_volume</code> as shown in example&nbsp;6.
 
     <p>Example&nbsp;6 contains a complete program with two functions,
-    the first named <code>compute_cylinder_volume</code>
+    the first named <code>main</code>
     at <span class="cross" data-ref="ex6">line&nbsp;6</span> and the
-    second named <code>main</code>
-    at <span class="cross" data-ref="ex6">line&nbsp;24</span>.
-    At <span class="cross" data-ref="ex6">line&nbsp;31</span>,
+    second named <code>compute_cylinder_volume</code>
+    at <span class="cross" data-ref="ex6">line&nbsp;20</span>.
+    At <span class="cross" data-ref="ex6">line&nbsp;13</span>,
     the <code>main</code> function calls the
     <code>compute_cylinder_volume</code> function. Notice that the
     <code>compute_cylinder_volume</code> function gets its input through
@@ -379,6 +379,20 @@ Volume: 226.19</pre>
 <pre class="python"># Example 6
 
 import math
+
+# Define the main function.
+def main():
+    # Create two variables to hold the radius and height.
+    radius = float(input("Enter the radius of a cylinder: "))
+    height = float(input("Enter the height of a cylinder: "))
+
+    # Call the compute_cylinder_volume function and store
+    # its return value in a variable to use later.
+    <em>volume = compute_cylinder_volume(radius, height)</em>
+
+    # Print the volume of the cylinder.
+    print(f"Volume: {volume:.2f}")
+
 
 # Define a function that accepts two parameters.
 def compute_cylinder_volume(radius, height):
@@ -398,20 +412,6 @@ def compute_cylinder_volume(radius, height):
     return volume
 
 
-# Define the main function.
-def main():
-    # Create two variables to hold the radius and height.
-    radius = float(input("Enter the radius of a cylinder: "))
-    height = float(input("Enter the height of a cylinder: "))
-
-    # Call the compute_cylinder_volume function and store
-    # its return value in a variable to use later.
-    <em>volume = compute_cylinder_volume(radius, height)</em>
-
-    # Print the volume of the cylinder.
-    print(f"Volume: {volume:.2f}")
-
-
 # Start this program by
 # calling the main function.
 main()</pre></div>
@@ -420,6 +420,35 @@ main()</pre></div>
 Enter the radius in centimeters: <span class="input">3</span>
 Enter the height in centimeters: <span class="input">8</span>
 Volume: 226.19</pre>
+
+    <h3>Visualizing Functions</h3>
+    <p>A <dfn>call graph</dfn> is a diagram that shows function calls
+    and returns within a program. A call graph can help you visualize
+    how a program is divided into functions. The following call graph
+    shows the function calls and returns for the program in
+    example&nbsp;6 above.</p>
+    <div class="figure center">
+    <img style="width:28em" src="call_graph_prepare.svg">
+    </div>
+
+    <div class="figure right" style="width:20em">
+    <img src="call_graph_key.svg">
+    </div>
+    <p>Within a call graph, the unfilled circle shows where the computer
+    began executing the program. A rounded rectangle represents a
+    function. A solid arrow represents a call from one function to
+    another function. A dashed arrow represents a value returned from a
+    called function to the calling function.</p>
+
+    <p>From the call graph above, we see that the computer began
+    executing the program by calling the <code>main</code> function.
+    While executing the <code>main</code> function, the computer called
+    the <code>input</code> and <code>float</code> functions. Then the
+    computer called the <code>compute_cylinder_volume</code> function.
+    Finally the computer called the <code>print</code> function. In the
+    call graph we can see that the <code>print</code> function didn't
+    return a value. The <code>print</code> function prints results for
+    the user to see, but it doesn't return anything.</p>
 
     <h3>What Happens When the Computer Calls a Function?</h3>
     <p>Some students have trouble visualizing what happens when the
