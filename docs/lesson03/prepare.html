@@ -382,7 +382,7 @@ import math
 
 # Define the main function.
 def main():
-    # Create two variables to hold the radius and height.
+    # Get a radius and a height from the user.
     radius = float(input("Enter the radius of a cylinder: "))
     height = float(input("Enter the height of a cylinder: "))
 
@@ -452,19 +452,20 @@ Volume: 226.19</pre>
 
     <h3>What Happens When the Computer Calls a Function?</h3>
     <p>Some students have trouble visualizing what happens when the
-    computer calls (executes) a function. The following code example is
-    a complete program that includes several function calls. The green
-    arrows in the example code show how the computer executes statements
-    in one location and then jumps to execute statements in another
-    function. The blue arrows show how data flows from arguments into
-    parameters and from a returned result to a variable. The circled
-    numbers show the order in which the events happen in the
-    computer.</p>
+    computer calls (executes) a function. The following diagram contains
+    the same program as example&nbsp;6. The circled numbers show the
+    order in which the events happen in the computer. The green arrows
+    in the diagram show how the computer executes statements in one
+    location. Then when a function is called, the computer jumps to
+    execute statements in the called function. The blue arrows show how
+    data flows from arguments into parameters and from a returned result
+    to a variable.</p>
 
-    <div class="figure center"><img src="call.png" style="width:33em"
+    <div class="figure center"><img src="call.svg" style="width:35em"
     alt="A diagram showing a call to a function and a value returned from that function"
     title="A diagram showing a call to a function and a value returned from that function">
     </div>
+
 <!--
 <div class="pre" id="ex9"><pre class="python">
 import math
@@ -497,7 +498,7 @@ import math
 <em>main()</em></pre></div>
 -->
 
-    <p>A computer will execute the statements in the previous example in
+    <p>A computer will execute the statements in the previous diagram in
     the following order:</p>
     <ol style="list-style-type:upper-alpha">
         <li><div>The statement at (1) is not inside a function, so
@@ -506,57 +507,54 @@ import math
         which causes the computer to begin executing the statements
         inside <code>main</code> at (2).</div></li>
 
-        <li><div>At (2), the computer prints a description of the
-        program and gets three numbers from the user.</div></li>
+        <li><div>At (2), the computer gets two numbers from the
+        user.</div></li>
 
         <li><div>The statement at (3) is a call to the
-        <code>triangle_area</code> function which causes the
-        computer to copy the values in the arguments
-        <var>side1</var>, <var>side2</var>, and <var>side3</var>
-        into the parameters <var>a</var>, <var>b</var>, and
-        <var>c</var>, respectively and then begin executing the
-        statements inside the <code>triangle_area</code> function at
-        (5).</div></li>
+        <code>compute_cylinder_volume</code> function which causes the
+        computer to copy the values in the arguments <var>r</var> and
+        <var>h</var> into the parameters <var>radius</var> and
+        <var>height</var> respectively and then begin executing the
+        statements inside the <code>compute_cylinder_volume</code>
+        function at (5).</div></li>
 
-        <li><div>At (5), the computer computes the area of a
-        triangle.</div></li>
+        <li><div>At (5), the computer computes the volume of a
+        cylinder.</div></li>
 
-        <li><div>The statement at (6) is a return statement which
-        causes the computer to stop executing the
-        <code>triangle_area</code> function, to return the computed
-        area to the call point at (3), and to resume executing
-        statements at the call point.</div></li>
+        <li><div>The statement at (6) is a return statement which causes
+        the computer to stop executing the
+        <code>compute_cylinder_volume</code> function, to return the
+        computed volume to the call point at (3), and to resume
+        executing statements at the call point.</div></li>
 
-        <li><div>At the call point (3), the computer stores the
-        returned value in the <var>triarea</var>
-        variable.</div></li>
+        <li><div>At the call point (3), the computer stores the returned
+        value in the <var>volume</var> variable.</div></li>
 
-        <li><div>At (8), the computer prints the value that is in
-        the <var>triarea</var> variable for the user to see. This is
-        the last statement in the <code>main</code> function, so
-        after executing it, the computer resumes executing the
-        statements after the call point (1) to
-        <code>main</code>.</div></li>
+        <li><div>At (8), the computer prints the value that is in the
+        <var>volume</var> variable for the user to see. This is the last
+        statement in the <code>main</code> function, so after executing
+        it, the computer resumes executing the statements after the call
+        point (1) to <code>main</code>.</div></li>
 
-        <li><div>At (9), there are no more statements after the call
-        to <code>main</code>, so the computer terminates the
+        <li><div>At (9), there are no more statements after the call to
+        <code>main</code>, so the computer terminates the
         program.</div></li>
     </ol>
 
     <p>The most reusable functions are ones that take parameters,
     perform calculations, and return a value but <em>do not perform user
-    input and output</em>. In the previous code example, there are two
-    functions: <code>main</code> and <code>triangle_area</code>. The
-    <code>main</code> function is certainly useful in this program, but
-    it is not reusable in other programs because it gets user input and
-    prints the result for the user to see. The
-    <code>triangle_area</code> function is very reusable in another
-    program because it doesn't get user input or print output. Instead,
-    it takes three parameters, performs a calculation, and returns the
-    result to the calling function. The <code>triangle_area</code>
-    function is so reusable that it could be included in a library of
-    functions that compute the area and volume of 2-D and 3-D geometric
-    shapes.</p>
+    input and output</em>. In the previous diagram, there are two
+    functions: <code>main</code> and
+    <code>compute_cylinder_volume</code>. The <code>main</code> function
+    is certainly useful in this program, but it is not reusable in other
+    programs because it gets user input and prints the result for the
+    user to see. The <code>compute_cylinder_volume</code> function is
+    very reusable in another program because it doesn't get user input
+    or print output. Instead, it takes two parameters, performs a
+    calculation, and returns the result to the calling function. The
+    <code>compute_cylinder_volume</code> function is so reusable that it
+    could be included in a library of functions that compute the area
+    and volume of 2-D and 3-D geometric shapes.</p>
 
     <h2>Summary</h2>
     <p>A function is a group of statements that together perform one
