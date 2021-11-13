@@ -13,6 +13,10 @@ def test_wind_chill():
     Return: nothing
     """
     chill = wind_chill(0, 3)
+    assert isinstance(chill, int) or isinstance(chill, float), \
+        "wind_chill must return a number"
+
+    chill = wind_chill(0, 3)
     assert chill == approx(-6.9)
 
     chill = wind_chill(-5, 5)
@@ -27,11 +31,15 @@ def test_heat_index():
     Parameters: none
     Return: nothing
     """
+    index = heat_index(80, 80)
+    assert isinstance(index, int) or isinstance(index, float), \
+        "heat_index must return a number"
+
     assert heat_index(80, 80) == approx(84.2)
     assert heat_index(85, 80) == approx(96.8)
     assert heat_index(96, 70) == approx(126.4)
 
 
-# Call the main function that is part of pytest so that
-# the test functions in this file will start executing.
+# Call the main function that is part of pytest so that the
+# computer will execute the test functions in this file.
 pytest.main(["-v", "--tb=line", "-rN", __file__])

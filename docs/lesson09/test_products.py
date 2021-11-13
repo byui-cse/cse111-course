@@ -4,13 +4,15 @@ import pytest
 
 
 def test_read_products():
-    """Verify that the read_producdts function works correctly.
+    """Verify that the read_products function works correctly.
     Parameters: none
     Return: nothing
     """
     # Call the read_products function and store the
     # returned dictionary in a variable named products_dict.
     products_dict = read_products("products.csv")
+    assert isinstance(pproducts_dict, dict), \
+        "read_products must return a dictionary"
     assert len(products_dict) == 16
 
     # Check each item in the products dictionary.
@@ -58,6 +60,6 @@ def check_product(products_dict, product_number, expected_value):
     assert actual_value[PRICE_INDEX] == approx(expected_value[1])
 
 
-# Call the main function that is part of pytest so that
-# the test functions in this file will start executing.
+# Call the main function that is part of pytest so that the
+# computer will execute the test functions in this file.
 pytest.main(["-v", "--tb=line", "-rN", __file__])

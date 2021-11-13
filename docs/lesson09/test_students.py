@@ -15,6 +15,10 @@ def test_read_dict():
     filename = path.join(path.dirname(__file__), "students.csv")
     students = read_dict(filename, I_NUMBER)
 
+    # Verify that the read_dict function returns a dictionary.
+    assert isinstance(students, dict), \
+        "read_dict must return a dictionary"
+
     # Verify that the students dictionary contains exactly nine items.
     assert len(students) == 9
 
@@ -30,6 +34,6 @@ def test_read_dict():
     assert students["212505409"] == ["212505409", "Tyler Clark"]
 
 
-# Call the main function that is part of pytest so that
-# the test functions in this file will start executing.
+# Call the main function that is part of pytest so that the
+# computer will execute the test functions in this file.
 pytest.main(["-v", "--tb=line", "-rN", __file__])

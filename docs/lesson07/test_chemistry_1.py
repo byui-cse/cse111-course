@@ -18,6 +18,8 @@ def test_make_periodic_table():
     # Call the make_periodic_table and store the returned
     # periodic table in a variable named period_table_list.
     periodic_table_list = make_periodic_table()
+    assert isinstance(periodic_table_list, list), \
+        "make_periodic_table must return a list"
 
     # Create a key function that will be used by the sorted method.
     by_name = lambda element: element[NAME_INDEX]
@@ -383,6 +385,15 @@ def test_make_periodic_table():
 
 
 def check_element(actual, expected):
+    """Verify that the actual element that came from the
+    periodic_table_list contains the same values as the
+    expected element.
+
+    Parameters
+        actual: a list that came from the periodic_table_list.
+        expected: a list that contains the expected values.
+    Return: nothing
+    """
     name = expected[NAME_INDEX]
     assert actual[NAME_INDEX] == name, \
          f"{name} is missing from the periodic table."
@@ -402,6 +413,6 @@ def check_element(actual, expected):
             f"expected {exp_mass} but found {act_mass}"
 
 
-# Call the main function that is part of pytest so that
-# the test functions in this file will start executing.
+# Call the main function that is part of pytest so that the
+# computer will execute the test functions in this file.
 pytest.main(["-v", "--tb=line", "-rN", __file__])

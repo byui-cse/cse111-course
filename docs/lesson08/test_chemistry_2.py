@@ -19,6 +19,9 @@ def test_make_periodic_table():
     # dictionary in a variable named periodic_table_dict.
     periodic_table_dict = make_periodic_table()
 
+    assert isinstance(periodic_table_dict, dict), \
+        "make_periodic_table must return a dictionary"
+
     # Check each item in the periodic table dictionary.
     check_element(periodic_table_dict, "Ac", ["Actinium", 227])
     check_element(periodic_table_dict, "Ag", ["Silver", 107.8682])
@@ -172,8 +175,18 @@ def check_element(periodic_table_dict, symbol, expected):
 
 
 def test_parse_formula():
-    """Test the chemistry.parse_formula function."""
+    """Verify that the chemistry.parse_formula function works correctly.
+
+    Parameters: none
+    Return: nothing
+    """
     periodic_table_dict = make_periodic_table()
+    assert isinstance(periodic_table_dict, dict), \
+        "make_periodic_table must return a dictionary"
+
+    sym_quant_list = parse_formula("H2O", periodic_table_dict)
+    assert isinstance(sym_quant_list, list), \
+        "parse_formula must return a list"
 
     assert parse_formula("H2O", periodic_table_dict) \
             == [("H",2), ("O",1)]
@@ -196,8 +209,19 @@ def test_parse_formula():
 
 
 def test_compute_molar_mass():
-    """Test the chemistry.compute_molar_mass function."""
+    """Verify that the chemistry.compute_molar_mass function
+    works correctly.
+
+    Parameters: none
+    Return: nothing
+    """
     periodic_table_dict = make_periodic_table()
+    assert isinstance(periodic_table_dict, dict), \
+        "make_periodic_table must return a dictionary"
+
+    molar_mass = compute_molar_mass([["O",2]], periodic_table_dict)
+    assert isinstance(molar_mass, int) or isinstance(molar_mass, float), \
+        "parse_formula must return a number"
 
     assert compute_molar_mass([], periodic_table_dict) == 0
     assert compute_molar_mass([["O",2]], periodic_table_dict) \
@@ -208,6 +232,6 @@ def test_compute_molar_mass():
             periodic_table_dict) == approx(232.27834)
 
 
-# Call the main function that is part of pytest so that
-# the test functions in this file will start executing.
+# Call the main function that is part of pytest so that the
+# computer will execute the test functions in this file.
 pytest.main(["-v", "--tb=line", "-rN", __file__])

@@ -9,6 +9,10 @@ def test_prefix():
     Parameters: none
     Return: nothing
     """
+    pre = prefix("upbeat", "upgrade")
+    assert isinstance(pre, str), "prefix must return a string"
+
+    assert prefix("cat", "catalog") == "cat"
     assert prefix("", "") == ""
     assert prefix("", "correct") == ""
     assert prefix("clear", "") == ""
@@ -16,10 +20,10 @@ def test_prefix():
     assert prefix("cat", "catalog") == "cat"
     assert prefix("dogmatic", "dog") == "dog"
     assert prefix("jump", "joyous") == "j"
-    assert prefix("unwise", "ungrateful") == "un"
+    assert prefix("upbeat", "upgrade") == "up"
     assert prefix("Disable", "dIstasteful") == "dis"
 
 
-# Call the main function that is part of pytest so that
-# the test functions in this file will start executing.
+# Call the main function that is part of pytest so that the
+# computer will execute the test functions in this file.
 pytest.main(["-v", "--tb=line", "-rN", __file__])

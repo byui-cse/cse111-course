@@ -180,10 +180,13 @@ def parse_formula(formula, periodic_table_dict):
     return list(elem_dict.items())
 
 
-# These are the indexes of the
-# elements in the periodic table.
+# Indexes for inner lists in the periodic table
 NAME_INDEX = 0
 ATOMIC_MASS_INDEX = 1
+
+# Indexes for inner lists in a symbol_quantity_list
+SYMBOL_INDEX = 0
+QUANTITY_INDEX = 1
 
 
 def compute_molar_mass(symbol_quantity_list, periodic_table_dict):
@@ -213,11 +216,14 @@ def compute_molar_mass(symbol_quantity_list, periodic_table_dict):
     # Return the total mass.
     return</pre></div>
 
-        The code that you pasted includes a function named
-        <code>parse_formula</code> that converts a chemical formula for
-        a molecule, such as "C13H16N2O2" (melatonin), into a compound
-        list, such as [["C", 13], ["H", 16], ["N", 2], ["O", 2]]. In the
-        code that you pasted, this compound list is known as a
+        The code that you pasted includes a <code>FormulaError</code>
+        class and a function named <code>parse_formula</code>. Both of
+        them are complete and work correctly, and you should not change
+        them. The <code>parse_formula</code> function converts a
+        chemical formula for a molecule, such as "C13H16N2O2"
+        (melatonin), into a compound list, such as
+        <span class="nowrap">[["C", 13], ["H", 16], ["N", 2], ["O", 2]].</span>
+        In the code that you pasted, this compound list is known as a
         <var>symbol_quantity_list</var> because it contains the symbols
         of chemical elements and the quantity of each element that
         appears in a chemical formula.</div></li>
@@ -288,8 +294,8 @@ test_chemistry_2.py::test_compute_molar_mass <span class="pass">PASSED         [
         </div></li>
 
         <li><div>Run your finished <code>chemistry.py</code> program.
-        Enter the user input shown below. Ensure that your program
-        prints correct output.
+        Enter the input shown below and ensure that your program prints
+        the output shown below.
 <pre class="console">&gt; python chemistry.py
 Enter the molecular formula of the sample: <span class="input">C13H18O2</span>
 Enter the mass in grams of the sample: <span class="input">5.04</span>

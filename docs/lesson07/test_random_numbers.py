@@ -14,7 +14,7 @@ def test_append_random_numbers():
     # Verify that the length of the empty list is zero.
     assert len(randnums) == 0
 
-    # Call the append_random_numbers function to append one number..
+    # Call the append_random_numbers function to append one number.
     append_random_numbers(randnums)
 
     # Verify that the randnums list now has one element.
@@ -58,6 +58,6 @@ def test_append_random_numbers():
 #        assert len(word) >= 1
 
 
-# Call the main function that is part of pytest so that
-# the test functions in this file will start executing.
+# Call the main function that is part of pytest so that the
+# computer will execute the test functions in this file.
 pytest.main(["-v", "--tb=line", "-rN", __file__])
