@@ -1,3 +1,5 @@
+# Copyright 2020, Brigham Young University - Idaho. All rights reserved.
+
 # Import the csv module so that it can be used
 # to read from the accidents.csv file.
 import csv

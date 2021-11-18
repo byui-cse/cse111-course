@@ -1,3 +1,5 @@
+# Copyright 2020, Brigham Young University - Idaho. All rights reserved.
+
 """
 A common task for many knowledge workers is to use a number, key,
 or ID to look up information about a person. For example, a

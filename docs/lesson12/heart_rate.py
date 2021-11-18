@@ -1,3 +1,5 @@
+# Copyright 2020, Brigham Young University - Idaho. All rights reserved.
+
 import tkinter as tk
 import number_entry as numy
 

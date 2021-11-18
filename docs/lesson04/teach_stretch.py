@@ -1,3 +1,5 @@
+# Copyright 2020, Brigham Young University - Idaho. All rights reserved.
+
 # Import the standard math module so that
 # math.pi can be used in this program.
 import math

@@ -1,3 +1,5 @@
+# Copyright 2020, Brigham Young University - Idaho. All rights reserved.
+
 """Verify that the prefix and suffix functions work correctly."""
 
 from words import prefix, suffix

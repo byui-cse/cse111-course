@@ -1,3 +1,5 @@
+# Copyright 2020, Brigham Young University - Idaho. All rights reserved.
+
 """
 When you physically exercise to strengthen your heart, you
 should maintain your heart rate within a range for at least 20

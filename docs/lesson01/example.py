@@ -1,4 +1,3 @@
-# example.py
 # Copyright 2020, Brigham Young University - Idaho. All rights reserved.
 
 # Import the math module so we can use math.pi and math.sqrt.

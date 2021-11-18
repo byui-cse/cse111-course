@@ -1,3 +1,5 @@
+# Copyright 2020, Brigham Young University - Idaho. All rights reserved.
+
 """
 Write and call functions that demonstrate both
 default parameter values and pass by reference.

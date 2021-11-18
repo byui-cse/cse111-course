@@ -1,3 +1,5 @@
+# Copyright 2020, Brigham Young University - Idaho. All rights reserved.
+
 def main():
     try:
         # Create and print a list named fruit_list.

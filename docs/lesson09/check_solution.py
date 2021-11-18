@@ -1,3 +1,5 @@
+# Copyright 2020, Brigham Young University - Idaho. All rights reserved.
+
 """
 Write a Python program named provinces.py that reads the contents
 of provinces.txt into a list and then modifies the list.

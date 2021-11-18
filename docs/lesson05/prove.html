@@ -311,8 +311,8 @@ def test_get_determiner():
     for _ in range(4):
         word = get_determiner(1)
 
-        # Verify that the word returned from get_determiner is
-        # one of the words in the single_determiners list.
+        # Verify that the word returned from get_determiner
+        # is one of the words in the single_determiners list.
         assert word in single_determiners
 
     # 2. Test the plural determiners.
@@ -341,16 +341,16 @@ def test_get_determiner():
         shown in this output:
 
 <pre class="console">&gt; python test_sentences.py
-====================== test session starts =======================
-platform win32--Python 3.8.6, pytest-6.1.2, py-1.9.0, pluggy-0.13.
+==================== test session starts =====================
+platform win32--Python 3.8.6, pytest-6.1.2, py-1.9.0, pluggy-0
 rootdir: C:\Users\cse111\lesson05
 collected 3 items
 
-test_sentences.py::test_get_determiner <span class="pass">PASSED               [ 33%]</span>
-test_sentences.py::test_get_noun <span class="pass">PASSED                     [ 66%]</span>
-test_sentences.py::test_get_verb <span class="pass">PASSED                     [100%]</span>
+test_sentences.py::test_get_determiner <span class="pass">PASSED           [ 33%]</span>
+test_sentences.py::test_get_noun <span class="pass">PASSED                 [ 66%]</span>
+test_sentences.py::test_get_verb <span class="pass">PASSED                 [100%]</span>
 
-<span class="pass">======================= 3 passed in 0.10s ========================</span></pre>
+<span class="pass">===================== 3 passed in 0.10s ======================</span></pre>
         </div></li>
 
         <li><div>Run your <code>sentences.py</code> program and ensure

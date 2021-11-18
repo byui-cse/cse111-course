@@ -1,7 +1,10 @@
+# Copyright 2020, Brigham Young University - Idaho. All rights reserved.
+
 """This module contains two classes, IntEntry and FloatEntry,
 that allow a user to enter an integer or a floating point number.
 """
 import tkinter as tk
+from numbers import Number
 
 
 class IntEntry(tk.Entry):
@@ -14,6 +17,10 @@ class IntEntry(tk.Entry):
             lower_bound = 1
         if upper_bound < -1:
             upper_bound = -1
+        assert isinstance(lower_bound, int), "lower_bound must be an int"
+        assert isinstance(upper_bound, int), "upper_bound must be an int"
+        assert lower_bound <= upper_bound
+
         self.lower_bound = lower_bound
         self.upper_bound = upper_bound
         if "justify" not in kwargs:
@@ -23,6 +30,7 @@ class IntEntry(tk.Entry):
         kwargs["validate"] = "key"
         kwargs["validatecommand"] = (parent.register(self.validate), "%P")
         self.config(**kwargs)
+
 
     def validate(self, value_if_allowed):
         valid = False
@@ -35,9 +43,11 @@ class IntEntry(tk.Entry):
                     (self.lower_bound < 0 and value_if_allowed == "-"))
         return valid
 
+
     def get(self):
         """Return the integer that the user entered."""
         return int(super().get())
+
 
     def set(self, n):
         """Display the integer n for the user to see."""
@@ -55,6 +65,12 @@ class FloatEntry(tk.Entry):
             lower_bound = 0
         if upper_bound < 0:
             upper_bound = 0
+        assert isinstance(lower_bound, Number), \
+            "lower_bound must be an number"
+        assert isinstance(upper_bound, Number), \
+            "upper_bound must be an number"
+        assert lower_bound <= upper_bound
+
         self.lower_bound = lower_bound
         self.upper_bound = upper_bound
         vcmd = (parent.register(self.validate), "%P")
@@ -63,6 +79,7 @@ class FloatEntry(tk.Entry):
         if not "width" in kwargs:
             kwargs["width"] = max(len(str(lower_bound)), len(str(upper_bound)))
         self.config(validate="key", validatecommand=vcmd, **kwargs)
+
 
     def validate(self, value_if_allowed):
         valid = False
@@ -74,9 +91,11 @@ class FloatEntry(tk.Entry):
                     (self.lower_bound < 0 and value_if_allowed == "-"))
         return valid
 
+
     def get(self):
         """Return the number that the user entered."""
         return float(super().get())
+
 
     def set(self, n):
         """Display the number n for the user to see."""

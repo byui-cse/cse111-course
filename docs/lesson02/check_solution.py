@@ -1,3 +1,5 @@
+# Copyright 2020, Brigham Young University - Idaho. All rights reserved.
+
 """
 A manufacturing company needs a program that will help its employees
 pack manufactured items into boxes for shipping. Write a Python

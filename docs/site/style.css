@@ -1,3 +1,4 @@
+@import url("reset.css");
 @import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Crimson+Text&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap");
@@ -337,13 +338,18 @@ article ul.note > li {
 }
 
 article dl.function {
-	margin: 1em 1em 1em 1em;
+	margin: 0em 1em 1em 1em;
+}
+
+article dl.function dt {
 	border-left: 0.12em solid var(--bullet-fg-color);
-	padding: 0 0 0 0.5em;
+	padding-left: 0.5em;
 }
 
 article dl.function dd {
-	padding-left: 2em;
+	border-left: 0.12em solid var(--bullet-fg-color);
+	padding-left: 2.5em;
+	margin-bottom: 1em;
 }
 
 
@@ -371,8 +377,7 @@ article div.figure.full {
 }
 
 article div.figure.center {
-	margin: 1em 0 1em 0;
-	text-align: center;
+	margin: 1em auto;
 }
 
 article div.figure.right {

@@ -1,3 +1,5 @@
+# Copyright 2020, Brigham Young University - Idaho. All rights reserved.
+
 from receipt import read_products
 from pytest import approx
 import pytest

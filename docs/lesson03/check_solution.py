@@ -1,3 +1,5 @@
+# Copyright 2020, Brigham Young University - Idaho. All rights reserved.
+
 """
 Write a Python program named fuel_usage.py that asks the user
 for three numbers:

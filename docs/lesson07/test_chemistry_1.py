@@ -1,3 +1,5 @@
+# Copyright 2020, Brigham Young University - Idaho. All rights reserved.
+
 from chemistry import make_periodic_table
 from pytest import approx
 import pytest
@@ -36,9 +38,6 @@ def test_make_periodic_table():
     check_element(element, ['Al', 'Aluminum', 26.9815386])
     i += 1
     element = periodic_table_list[i]
-    check_element(element, ['Am', 'Americium', 243])
-    i += 1
-    element = periodic_table_list[i]
     check_element(element, ['Sb', 'Antimony', 121.76])
     i += 1
     element = periodic_table_list[i]
@@ -54,16 +53,10 @@ def test_make_periodic_table():
     check_element(element, ['Ba', 'Barium', 137.327])
     i += 1
     element = periodic_table_list[i]
-    check_element(element, ['Bk', 'Berkelium', 247])
-    i += 1
-    element = periodic_table_list[i]
     check_element(element, ['Be', 'Beryllium', 9.012182])
     i += 1
     element = periodic_table_list[i]
     check_element(element, ['Bi', 'Bismuth', 208.9804])
-    i += 1
-    element = periodic_table_list[i]
-    check_element(element, ['Bh', 'Bohrium', 272])
     i += 1
     element = periodic_table_list[i]
     check_element(element, ['B', 'Boron', 10.811])
@@ -76,9 +69,6 @@ def test_make_periodic_table():
     i += 1
     element = periodic_table_list[i]
     check_element(element, ['Ca', 'Calcium', 40.078])
-    i += 1
-    element = periodic_table_list[i]
-    check_element(element, ['Cf', 'Californium', 251])
     i += 1
     element = periodic_table_list[i]
     check_element(element, ['C', 'Carbon', 12.0107])
@@ -99,37 +89,16 @@ def test_make_periodic_table():
     check_element(element, ['Co', 'Cobalt', 58.933195])
     i += 1
     element = periodic_table_list[i]
-    check_element(element, ['Cn', 'Copernicium', 285])
-    i += 1
-    element = periodic_table_list[i]
     check_element(element, ['Cu', 'Copper', 63.546])
     i += 1
     element = periodic_table_list[i]
-    check_element(element, ['Cm', 'Curium', 247])
-    i += 1
-    element = periodic_table_list[i]
-    check_element(element, ['Ds', 'Darmstadtium', 281])
-    i += 1
-    element = periodic_table_list[i]
-    check_element(element, ['Db', 'Dubnium', 268])
-    i += 1
-    element = periodic_table_list[i]
     check_element(element, ['Dy', 'Dysprosium', 162.5])
-    i += 1
-    element = periodic_table_list[i]
-    check_element(element, ['Es', 'Einsteinium', 252])
     i += 1
     element = periodic_table_list[i]
     check_element(element, ['Er', 'Erbium', 167.259])
     i += 1
     element = periodic_table_list[i]
     check_element(element, ['Eu', 'Europium', 151.964])
-    i += 1
-    element = periodic_table_list[i]
-    check_element(element, ['Fm', 'Fermium', 257])
-    i += 1
-    element = periodic_table_list[i]
-    check_element(element, ['Fl', 'Flerovium', 289])
     i += 1
     element = periodic_table_list[i]
     check_element(element, ['F', 'Fluorine', 18.9984032])
@@ -151,9 +120,6 @@ def test_make_periodic_table():
     i += 1
     element = periodic_table_list[i]
     check_element(element, ['Hf', 'Hafnium', 178.49])
-    i += 1
-    element = periodic_table_list[i]
-    check_element(element, ['Hs', 'Hassium', 270])
     i += 1
     element = periodic_table_list[i]
     check_element(element, ['He', 'Helium', 4.002602])
@@ -183,16 +149,10 @@ def test_make_periodic_table():
     check_element(element, ['La', 'Lanthanum', 138.90547])
     i += 1
     element = periodic_table_list[i]
-    check_element(element, ['Lr', 'Lawrencium', 262])
-    i += 1
-    element = periodic_table_list[i]
     check_element(element, ['Pb', 'Lead', 207.2])
     i += 1
     element = periodic_table_list[i]
     check_element(element, ['Li', 'Lithium', 6.941])
-    i += 1
-    element = periodic_table_list[i]
-    check_element(element, ['Lv', 'Livermorium', 293])
     i += 1
     element = periodic_table_list[i]
     check_element(element, ['Lu', 'Lutetium', 174.9668])
@@ -204,19 +164,10 @@ def test_make_periodic_table():
     check_element(element, ['Mn', 'Manganese', 54.938045])
     i += 1
     element = periodic_table_list[i]
-    check_element(element, ['Mt', 'Meitnerium', 276])
-    i += 1
-    element = periodic_table_list[i]
-    check_element(element, ['Md', 'Mendelevium', 258])
-    i += 1
-    element = periodic_table_list[i]
     check_element(element, ['Hg', 'Mercury', 200.59])
     i += 1
     element = periodic_table_list[i]
     check_element(element, ['Mo', 'Molybdenum', 95.96])
-    i += 1
-    element = periodic_table_list[i]
-    check_element(element, ['Mc', 'Moscovium', 288])
     i += 1
     element = periodic_table_list[i]
     check_element(element, ['Nd', 'Neodymium', 144.242])
@@ -231,19 +182,10 @@ def test_make_periodic_table():
     check_element(element, ['Ni', 'Nickel', 58.6934])
     i += 1
     element = periodic_table_list[i]
-    check_element(element, ['Nh', 'Nihonium', 284])
-    i += 1
-    element = periodic_table_list[i]
     check_element(element, ['Nb', 'Niobium', 92.90638])
     i += 1
     element = periodic_table_list[i]
     check_element(element, ['N', 'Nitrogen', 14.0067])
-    i += 1
-    element = periodic_table_list[i]
-    check_element(element, ['No', 'Nobelium', 259])
-    i += 1
-    element = periodic_table_list[i]
-    check_element(element, ['Og', 'Oganesson', 294])
     i += 1
     element = periodic_table_list[i]
     check_element(element, ['Os', 'Osmium', 190.23])
@@ -291,25 +233,16 @@ def test_make_periodic_table():
     check_element(element, ['Rh', 'Rhodium', 102.9055])
     i += 1
     element = periodic_table_list[i]
-    check_element(element, ['Rg', 'Roentgenium', 280])
-    i += 1
-    element = periodic_table_list[i]
     check_element(element, ['Rb', 'Rubidium', 85.4678])
     i += 1
     element = periodic_table_list[i]
     check_element(element, ['Ru', 'Ruthenium', 101.07])
     i += 1
     element = periodic_table_list[i]
-    check_element(element, ['Rf', 'Rutherfordium', 267])
-    i += 1
-    element = periodic_table_list[i]
     check_element(element, ['Sm', 'Samarium', 150.36])
     i += 1
     element = periodic_table_list[i]
     check_element(element, ['Sc', 'Scandium', 44.955912])
-    i += 1
-    element = periodic_table_list[i]
-    check_element(element, ['Sg', 'Seaborgium', 271])
     i += 1
     element = periodic_table_list[i]
     check_element(element, ['Se', 'Selenium', 78.96])
@@ -337,9 +270,6 @@ def test_make_periodic_table():
     i += 1
     element = periodic_table_list[i]
     check_element(element, ['Te', 'Tellurium', 127.6])
-    i += 1
-    element = periodic_table_list[i]
-    check_element(element, ['Ts', 'Tennessine', 294])
     i += 1
     element = periodic_table_list[i]
     check_element(element, ['Tb', 'Terbium', 158.92535])

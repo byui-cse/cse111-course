@@ -1,4 +1,3 @@
-# example.py
 # Copyright 2020, Brigham Young University - Idaho. All rights reserved.
 
 import csv
