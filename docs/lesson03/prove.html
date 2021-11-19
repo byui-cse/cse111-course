@@ -39,18 +39,16 @@
     <p>Modern computers are capable of performing all sorts of
     calculations to produce numbers. However, they are also capable of
     performing calculations to produce art, illustrations, animations,
-    movies, and music. Python includes a library of code named
-    <code>tkinter</code> that enables a program to draw shapes in a
-    computer window. You can write a program that calls the
-    <code>tkinter</code> drawing functions to draw an illustration in a
-    computer window.</p>
+    movies, and music.</p>
 
     <h2>Assignment</h2>
     <p>During this prove milestone and the next prove assignment, you
-    will write a Python program that uses the <code>tkinter</code>
-    library to draw a semi-realistic outdoor scene. Your program can
-    draw any outdoor scene that you like as long as it meets these
-    requirements:</p>
+    will write a Python program that draws a semi-realistic outdoor
+    scene in a computer window. To draw the shapes in the scene, your
+    program will call functions in a Python library named Draw 2-D.
+    Your program can draw any outdoor scene that you like as long as it
+    meets these requirements:</p>
+
     <ul>
         <li><div>The scene must be outdoor and include part of the
         sky.</div></li>
@@ -69,16 +67,20 @@
 
     <p>During this milestone, you will write code that draws the sky,
     the ground, and clouds in your scene. During the next lesson, you
-    will write code that completes your scene. Be creative.</p>
+    will write code that completes your scene. As you write your
+    program, write it so that it draws objects in the order of farthest
+    away to nearest. For example, you program should draw the sky first,
+    then clouds, then the ground, then trees, then insects in the trees.
+    Be creative.</p>
 
-    <p>The example scene below was drawn by a student's Python program
-    and fulfills the requirements of this assignment.</p>
+    <h3>Scene Gallery</h3>
+    <p>The following example scene was drawn by a student's Python
+    program and fulfills the requirements of this assignment.</p>
 
     <div class="figure full"><img src="../lesson04/gallery/benjamin3.png"
     alt="A semi-realistic outdoor scene drawn by a Python program"
     title="A semi-realistic outdoor scene drawn by a Python program"></div>
 
-    <h3>Scene Gallery</h3>
     <p>If you would like ideas about what your program can draw, look at
     the scenes in <a href="../lesson04/gallery/index.html">this gallery</a>.
     All the scenes in the gallery were drawn by programs written by
@@ -86,8 +88,15 @@
 
     <h2 id="docs">Helpful Documentation</h2>
     <ul class="long">
+        <li><div>The <a href="../lesson02/prepare.html">prepare content</a>
+        for the previous lesson explains how to call functions.</div></li>
+
         <li><div>The <a href="prepare.html">prepare content</a> for this
         lesson explains how to write functions.</div></li>
+
+        <li><div>The <a href="draw2d.html">documentation</a> for the
+        Draw 2-D library includes an overview, function reference, color
+        chart, and example program.</div></li>
 
         <li><div>The following videos walk through examples of using
         functions to draw with <code>tkinter</code>.
@@ -96,163 +105,72 @@
 
             <li><div><a href="https://content.byui.edu/items/a9e60503-b5e7-40f0-bf48-ebf1a7441d25/1/drawing_with_functions_part2.mp4">Drawing with Functions, part 2</a> <span class="duration">(15 minutes)</span></div></li>
         </ul></div></li>
-
-        <li><div>A tutorial about
-        <a href="http://zetcode.com/tkinter/drawing/">drawing with
-        tkinter</a></div></li>
-
-        <li><div>References for tkinter Canvas methods
-        <ul class="references">
-            <li><div><a href="https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/create_arc.html">create_arc()</a></div></li>
-            <li><div><a href="https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/create_line.html">create_line()</a></div></li>
-            <li><div><a href="https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/create_oval.html">create_oval()</a></div></li>
-            <li><div><a href="https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/create_polygon.html">create_polygon()</a></div></li>
-            <li><div><a href="https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/create_rectangle.html">create_rectangle()</a></div></li>
-            <li><div><a href="https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/create_text.html">create_text()</a></div></li>
-        </ul></div></li>
-
-        <li><div><a href="colors.png">Chart of named
-        colors</a> in tkinter</div></li>
     </ul>
 
     <h2>Steps</h2>
-    <p>Begin your program by copying and pasting the following code into
-    a new file named <code>scene.py</code>. This beginning code imports
-    the <code>tkinter</code> library and creates a window and a canvas
-    that your program can draw to.</p>
+    <p>Do the following:</p>
+
+    <ol class="long">
+        <li><div>Download the <code>draw2d.py</code> file and save it in
+        the same folder where you will save your program.</div></li>
+
+        <li><div>Using VS Code, create a new file and copy and paste the
+        following code into your new file. This beginning code imports
+        the functions from the Draw 2-D library and creates a window and
+        a canvas that your program will draw into.
 
 <div class="pre" id="ex1"><pre class="linenums"></pre>
-<pre class="python">
-import tkinter as tk
+<pre class="python"># Import the functions from the Draw 2-D library
+# so that they can be used in this program.
+from draw2d import \
+    start_drawing, \
+    draw_line, draw_oval, draw_arc, draw_rectangle, \
+    draw_triangle, draw_polygon, draw_text, \
+    finish_drawing
 
 
 def main():
-    # The width and height of the scene window.
-    width = 800
-    height = 500
+    scene_width = 800
+    scene_height = 500
 
-    # Create the Tk root object.
-    root = tk.Tk()
-    root.geometry(f"{width}x{height}")
+    # Call the start_drawing function in the draw2d.py library
+    # which will open a window and create a canvas.
+    canvas = start_drawing(scene_width, scene_height, "Scene")
 
-    # Create a Frame object.
-    frame = tk.Frame(root)
-    frame.master.title("Scene")
-    frame.pack(fill=tk.BOTH, expand=1)
-
-    # Create a canvas object that will draw into the frame.
-    canvas = tk.Canvas(frame)
-    canvas.pack(fill=tk.BOTH, expand=1)
-
-    # Call the draw_scene function.
-    draw_scene(canvas, 0, 0, width-1, height-1)
-
-    root.mainloop()
+    # Call your drawing functions such
+    # as draw_sky and draw_ground here.
 
 
-def draw_scene(canvas, scene_left, scene_top, scene_right,scene_bottom):
-    """Draw a scene in the canvas. scene_left, scene_top,
-    scene_right, and scene_bottom contain the extent in
-    pixels of the region where the scene should be drawn.
 
-    Parameters
-        scene_left: left side of the region; less than scene_right
-        scene_top: top of the region; less than scene_bottom
-        scene_right: right side of the region
-        scene_bottom: bottom of the region
-    Return: nothing
-
-    If needed, the width and height of the
-    region can be calculated like this:
-    scene_width = scene_right - scene_left + 1
-    scene_height = scene_bottom - scene_top + 1
-    """
-    # Call your functions here, such as draw_sky, draw_ground,
-    # draw_snowman, draw_tree, draw_shrub, etc.
-    tree_center = scene_left + 500
-    tree_top = scene_top + 100
-    tree_height = 150
-    draw_pine_tree(canvas, tree_center, tree_top, tree_height)
+    # Call the finish_drawing function in the draw2d.py library.
+    finish_drawing(canvas)
 
 
-# Define more functions here, like draw_sky, draw_ground,
-# draw_cloud, draw_tree, draw_kite, draw_snowflake, etc.
+# Define your functions such as
+# draw_sky and draw_ground here.
 
-
-def draw_pine_tree(canvas, peak_x, peak_y, height):
-    """Draw a single pine tree.
-    Parameters
-        canvas: The tkinter canvas where this
-            function will draw a pine tree.
-        peak_x, peak_y: The x and y location in pixels where
-            this function will draw the top peak of a pine tree.
-        height: The height in pixels of the pine tree that
-            this function will draw.
-    Return: nothing
-    """
-    trunk_width = height / 10
-    trunk_height = height / 8
-    trunk_left = peak_x - trunk_width / 2
-    trunk_right = peak_x + trunk_width / 2
-    trunk_bottom = peak_y + height
-
-    skirt_width = height / 2
-    skirt_height = height - trunk_height
-    skirt_left = peak_x - skirt_width / 2
-    skirt_right = peak_x + skirt_width / 2
-    skirt_bottom = peak_y + skirt_height
-
-    # Draw the trunk of the pine tree.
-    canvas.create_rectangle(trunk_left, skirt_bottom,
-            trunk_right, trunk_bottom,
-            outline="gray20", width=1, fill="tan3")
-
-    # Draw the crown (also called skirt) of the pine tree.
-    canvas.create_polygon(peak_x, peak_y,
-            skirt_right, skirt_bottom,
-            skirt_left, skirt_bottom,
-            outline="gray20", width=1, fill="dark green")
 
 
 # Call the main function so that
 # this program will start executing.
 main()</pre></div>
+        </div></li>
 
-    <p>Save your new file as <code>scene.py</code> and run your new
-    Python program. When you run it, it should open a window that
-    contains a single pine tree as shown in the image below. The pine
-    tree was drawn because of the following:</p>
-    <ol>
-        <li><div>The code at <span class="cross"
-        data-ref="ex1">line&nbsp;94</span> called the <code>main</code>
-        function.</div></li>
+        <li><div>Save your new file as <code>scene.py</code> and run
+        your new program. When you run it, it should open a window that
+        contains an empty canvas as shown in the following figure.
 
-        <li><div>At <span class="cross"
-        data-ref="ex1">line&nbsp;23</span>, the <code>main</code>
-        function called the <code>draw_scene</code> function.</div></li>
+        <div class="figure full"><img src="empty.png"
+        alt="An empty canvas created by the Draw 2-D library"
+        title="An empty canvas created by the Draw 2-D library"></div>
+        </div></li>
 
-        <li><div>At <span class="cross"
-        data-ref="ex1">line&nbsp;50</span>, the <code>draw_scene</code>
-        function called the <code>draw_pine_tree</code>
-        function.</div></li>
+        <li><div>Starting at line 29 of your new program, write your
+        functions to draw the sky, ground, and clouds.</div></li>
 
-        <li><div>At <span class="cross"
-        data-ref="ex1">lines&nbsp;81&ndash;89</span> the
-        <code>draw_pine_tree</code> function called the
-        <code>create_rectangle</code> and <code>create_polygon</code>
-        methods.</div></li>
+        <li><div>Starting at line 20, write calls to your drawing
+        functions.</div></li>
     </ol>
-
-    <p>Delete or comment-out lines&nbsp;47&ndash;50 and
-    lines&nbsp;57&ndash;89 and begin writing your program. As you write
-    your program, be sure that it draws objects in the order of farthest
-    away to nearest. For example, you program should draw the blue sky
-    first, then the ground, then clouds, then trees, then insects in the
-    trees.</p>
-
-    <div class="figure full"><img src="tree.png"
-    alt="A pine tree drawn by a Python program"
-    title="A pine tree drawn by a Python program"></div>
 
     <h2>Intent</h2>
     <p>The intent of this assignment is not to train you to become a
@@ -274,14 +192,15 @@ main()</pre></div>
     <p>Your program must be divided into functions such as
     <code>draw_sky</code>, <code>draw_cloud</code>,
     <code>draw_ground</code>, <code>draw_bird</code>,
-    <code>draw_grass_blade</code>, and <code>draw_insect</code>. The
-    headers for the <code>draw_scene</code> and
-    <code>draw_pine_tree</code> functions in the example code above are
-    good examples for the headers of all your draw_* functions. Below
-    are a few other examples of headers for functions that you might
-    want to include in your program. However, these are simply examples,
-    and you can change them in your program or even exclude them from
-    your program.</p>
+    <code>draw_grass_blade</code>, or <code>draw_insect</code>. The
+    headers for the <code>draw_sky</code>, <code>draw_ground</code>,
+    and <code>draw_pine_tree</code> functions in the
+    <a href="draw2d.html#ex1">example program</a> of the Draw 2-D
+    documentation are good examples for the headers of all your draw_*
+    functions. Below are a few other examples of headers for functions
+    that you might want to include in your program. However, these are
+    simply examples, and you can change them in your program or even
+    exclude them from your program.</p>
 
 <div class="pre"><pre class="python">
 def draw_house(canvas, house_left, house_bottom):
@@ -294,55 +213,52 @@ def draw_picket(canvas, picket_left, picket_bottom):
 
 def draw_grass_blade(canvas, blade_left, blade_top, blade_height):</pre></div>
 
-    <p>The following call graph shows the functions for a former
-    student's scene drawing program that was well-designed. From the
-    call graph we see that the student divided his program into small
-    functions (draw_sky, draw_ground, draw_sun, draw_cloud, etc.). We
-    see that the <code>main</code> function calls the
-    <code>draw_scene</code> function. The <code>draw_scene</code>
+    <p>The following call graph shows the functions for a well-designed
+    scene drawing program. From the call graph we see that this program
+    is divided into small functions (<code>draw_sky</code>,
+    <code>draw_ground</code>, <code>draw_sun</code>,
+    <code>draw_cloud</code>, etc.). We see that the <code>main</code>
     function calls the <code>draw_sky</code> and
     <code>draw_ground</code> functions. The <code>draw_sky</code>
     function calls the <code>draw_sun</code>, <code>draw_cloud</code>,
-    and <code>draw_bird</code> functions, and so on. This was a good
-    design because each function was relatively small and performed just
-    one task. Also, because his <code>draw_flower</code> function had
-    parameters, he wrote multiple calls to the <code>draw_flower</code>
-    function in his <code>draw_ground</code> function, which easily drew
-    multiple flowers in his scene. His <code>draw_cloud</code>,
-    <code>draw_bird</code>, and <code>draw_tree</code> functions also
-    had parameters, and he wrote multiple calls to them as well, which
-    easily drew multiple clouds, birds, and trees. This was a good
-    design.</p>
+    and <code>draw_bird</code> functions, and so on. This is a good
+    design because each function is relatively small and performs just
+    one task. Also, because the <code>draw_flower</code> function has
+    parameters (not shown in the diagram), a programmer can write
+    multiple calls to the <code>draw_flower</code> function, which will
+    easily draw multiple flowers in his scene. The
+    <code>draw_cloud</code>, <code>draw_bird</code>, and
+    <code>draw_tree</code> functions also have parameters, and a
+    programmer can write multiple calls to them, which will easily draw
+    multiple clouds, birds, and trees. This is a good design.</p>
 
-    <div class="figure full">
+    <div class="figure center" style="width:36em">
         <img src="call_graph_prove.svg"
         alt="The call graph from a well-designed program that draws an outdoor scene"
         title="The call graph from a well-designed program that draws an outdoor scene">
         <div>The call graph for a well-designed program. Because the
-        program was divided into small functions that each perform a
-        single task, the program was well-designed.</div>
+        program is divided into small functions that each perform a
+        single task, the program is well-designed.</div>
     </div>
 
-    <p>The next call graph shows the functions for a different student's
-    scene drawing program. Notice that the student didn't separate his
-    program into small functions. Instead, he wrote all the
-    code to draw an outdoor scene inside the <code>draw_scene</code>
-    function. The scene his program drew looked nice and had the same
-    number of objects as the scene drawn by the first student's
-    well-designed program. However, the <code>draw_scene</code> function
-    in the second student's program was very long, complex, and
-    confusing. This was a poor design.</p>
+    <p>The next call graph shows the functions for a different scene
+    drawing program. Notice that this program isn't separated into small
+    functions. Instead, all the code to draw an outdoor scene is inside
+    the <code>main</code> function. The scene that this program draws
+    may look very nice and have just as many objects as a well-designed
+    program. However, the <code>main</code> function in this second
+    program will be very long, complex, and confusing. This is a poor
+    design.</p>
 
-    <div class="figure center" style="width:25em">
+    <div class="figure center" style="width:19em">
         <img src="call_graph_prove_bad.svg"
         alt="The call graph from a poorly designed program that draws an outdoor scene"
         title="The call graph from a poorly designed program that draws an outdoor scene">
         <div>The call graph for a poorly designed program. Because the
-        program was not divided into small functions, the
-        <code>draw_scene</code> function called the <code>tkinter</code>
-        functions to draw all the objects in the scene. The
-        <code>draw_scene</code> function was very long and
-        confusing.</div>
+        program is not divided into small functions, the
+        <code>main</code> function calls the Draw 2-D functions to draw
+        all the objects in the scene. The <code>main</code>
+        function will be very long and confusing.</div>
     </div>
 
     <h2>Testing Procedure</h2>

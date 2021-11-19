@@ -102,13 +102,13 @@ def parse_formula(formula, periodic_table_dict):
     Return: a compound list that contains chemical symbols and
         quantities like this [["Fe", 2], ["O", 3]]
     """
-    if not isinstance(formula, str):
-        raise TypeError("wrong data type for formula; "
-            f"formula is a {type(formula)} but must be a string")
-    if not isinstance(periodic_table_dict, dict):
-        raise TypeError("wrong data type for periodic_table_dict; "
-            f"periodic_table_dict is a {type(periodic_table_dict)} "
-            "but must be a dictionary")
+    assert isinstance(formula, str), \
+        "wrong data type for parameter formula; " \
+        f"formula is a {type(formula)} but must be a string"
+    assert isinstance(periodic_table_dict, dict) \
+        "wrong data type for parameter periodic_table_dict; " \
+        f"periodic_table_dict is a {type(periodic_table_dict)} " \
+        "but must be a dictionary"
 
     def parse_quant(formula, index):
         quant = 1

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<!-- Copyright 2020, Brigham Young University - Idaho. All rights reserved. -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>CSE 111 - Prove</title>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-database.js"></script>
+    <script src="../site/url.js"></script>
+    <script src="../site/urlWrite.js"></script>
+    <script src="../site/color.js"></script>
+    <script src="../site/linenums.js"></script>
+    <script src="../site/hljs/highlight.min.js"></script>
+    <link rel="icon" type="image/png" href="../site/icon.png">
+    <link rel="stylesheet" type="text/css" href="../site/style.css">
+    <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
+</head>
+
+<body>
+<header>
+    <div class="colorCtrl">&nbsp;</div>
+    <a class="logo" href="https://www.byui.edu">
+        <div>BYU</div>
+        <div>Idaho</div>
+    </a>
+    <h2><a href="https://byui.instructure.com">CSE 111</a> |
+        <a href="../index.html">Programming with Functions</a></h2>
+</header>
+<article>
+    <h1>Draw 2-D Library</h1>
+
+    <h2>Overview</h2>
+    <p>The Draw 2-D library contains functions that draw shapes on a
+    canvas in a computer window. To use the Draw 2-D library, a program
+    must do the following:</p>
+    <ol>
+        <li><div>Import the library's functions</div></li>
+        <li><div>Call the <code>start_drawing</code> function once</div></li>
+        <li><div>Call the <code>draw_line</code>, <code>draw_oval</code>,
+        <code>draw_arc</code>, <code>draw_rectangle</code>,
+        <code>draw_triangle</code>, <code>draw_polygon</code>, and
+        <code>draw_text</code> functions as many times as needed</div></li>
+        <li><div>Call the <code>finish_drawing</code> function once</div></li>
+    </ol>
+
+    <p>The <code>start_drawing</code> function returns a canvas, that
+    your code must pass to each of the draw_* functions. The code that
+    you write to call <code>start_drawing</code> must specify the width
+    and height in pixels of the canvas. The draw_* functions accept
+    Euclidean coordinates that determine where a shape will be drawn on
+    the canvas. The origin of the canvas
+    <span class="nowrap">(0, 0)</span> is in the lower left corner of
+    the canvas.</p>
+
+    <h2>Functions</h2>
+    <p>The following functions are contained in the Draw 2-D library.</p>
+
+    <dl class="function">
+        <dt><code>start_drawing(width, height, title)</code></dt>
+        <dd>Create a window with a canvas where a program can draw
+        2-dimensional shapes.
+        <h4>Parameters</h4>
+        <ul>
+            <li><div><b>width</b>: the width in pixels of the
+            canvas</div></li>
+            <li><div><b>height</b>: the height in pixels of the
+            canvas</div></li>
+            <li><div><b>title</b>: the title that will appear in the
+            window's title bar</div></li>
+        </ul>
+        <h4>Return</h4>
+        <ul>
+            <li><div>the new canvas</div></li>
+        </ul>
+        </dd>
+
+        <dt><code>draw_line(canvas, x0, y0, x1, y1, &hellip; xn, yn, width=1, fill="black")</code></dt>
+        <dd>Draw a that line goes through the series of points
+        (x0,&nbsp;y0), (x1,&nbsp;y1), &hellip; (xn,&nbsp;yn)
+
+        <h4>Parameters</h4>
+        <ul>
+            <li><div><b>canvas</b>: the canvas returned from the
+            <code>start_drawing</code> function</div></li>
+            <li><div><b>x0, y0, x1, y1, &hellip; xn, yn</b>: the
+            coordinates for the segments of a line that this function
+            will draw</div></li>
+            <li><div><b>width</b>: the line's width; default is 1
+            pixel</div></li>
+            <li><div><b>fill</b>: the line's color; default is
+            black</div></li>
+        </ul>
+        <h4>Return</h4>
+        <ul>
+            <li><div>nothing</div></li>
+        </ul>
+        </dd>
+
+        <dt><code>draw_oval(canvas, x0, y0, x1, y1, width=1, outline="black", fill="")</code></dt>
+        <dd>Draw an oval (ellipse) inside the bounding box defined by the
+        coordinates (x0,&nbsp;y0), (x1,&nbsp;y1)
+
+        <h4>Parameters</h4>
+        <ul>
+            <li><div><b>canvas</b>: the canvas returned from the
+            <code>start_drawing</code> function</div></li>
+            <li><div><b>x0, y0, x1, y1</b>: the coordinates of a
+            bounding box for the oval that this function will draw</div></li>
+            <li><div><b>width</b>: the width of the oval's outline;
+            default is 1 pixel</div></li>
+            <li><div><b>outline</b>: the color of the oval's outline;
+            default is black</div></li>
+            <li><div><b>fill</b>: the color of the oval's interior;
+            default is "" which means transparent</div></li>
+        </ul>
+        <h4>Return</h4>
+        <ul>
+            <li><div>nothing</div></li>
+        </ul>
+        </dd>
+
+        <dt><code>draw_arc(canvas, x0, y0, x1, y1, start=0, extent=90, width=1, outline="black", fill="")</code></dt>
+        <dd>Draw a wedge shaped slice taken from an oval (ellipse)
+        defined by the bounding box with coordinates (x0,&nbsp;y0),
+        (x1,&nbsp;y1).
+
+        <h4>Parameters</h4>
+        <ul>
+            <li><div><b>canvas</b>: the canvas returned from the
+            <code>start_drawing</code> function</div></li>
+            <li><div><b>x0, y0, x1, y1</b>: the bounding box for the
+            oval from which this function will draw a wedge</div></li>
+            <li><div><b>width</b>: the width of the oval's outline;
+            default is 1 pixel</div></li>
+            <li><div><b>outline</b>: the color of the oval's outline;
+            default is black</div></li>
+            <li><div><b>fill</b>: the color of the oval's interior;
+            default is "" which means transparent</div></li>
+        </ul>
+        <h4>Return</h4>
+        <ul>
+            <li><div>nothing</div></li>
+        </ul>
+        </dd>
+
+        <dt><code>draw_rectangle(canvas, x0, y0, x1, y1, width=1, outline="black", fill="")</code></dt>
+        <dd>Draw a rectangle with two of its corners at (x0,&nbsp;y0),
+        (x1,&nbsp;y1).
+
+        <h4>Parameters</h4>
+        <ul>
+            <li><div><b>canvas</b>: the canvas returned from the
+            <code>start_drawing</code> function</div></li>
+            <li><div><b>x0, y0, x1, y1</b>: the bounding box for the
+            rectangle that this function will draw</div></li>
+            <li><div><b>width</b>: the width of the rectangle's outline;
+            default is 1 pixel</div></li>
+            <li><div><b>outline</b>: the color of the rectangle's
+            outline; default is black</div></li>
+            <li><div><b>fill</b>: the color of the rectangle's interior;
+            default is "" which means transparent</div></li>
+        </ul>
+        <h4>Return</h4>
+        <ul>
+            <li><div>nothing</div></li>
+        </ul>
+        </dd>
+
+        <dt><code>draw_triangle(canvas, x0, y0, x1, y1, x2, y2, width=1, outline="black", fill="")</code></dt>
+        <dd>Draw a triangle with vertices (x0,&nbsp;y0), (x1,&nbsp;y1),
+        (x2,&nbsp;y2).
+
+        <h4>Parameters</h4>
+        <ul>
+            <li><div><b>canvas</b>: the canvas returned from the
+            <code>start_drawing</code> function</div></li>
+            <li><div><b>x0, y0, x1, y1, x2, y2</b>: the coordinates of
+            the vertices that this function will draw</div></li>
+            <li><div><b>width</b>: the width of the triangle's outline;
+            default is 1 pixel</div></li>
+            <li><div><b>outline</b>: the color of the triangle's
+            outline; default is black</div></li>
+            <li><div><b>fill</b>: the color of the triangle's interior;
+            default is "" which means transparent</div></li>
+        </ul>
+        <h4>Return</h4>
+        <ul>
+            <li><div>nothing</div></li>
+        </ul>
+        </dd>
+
+        <dt><code>draw_polygon(canvas, x0, y0, x1, y1, x2, y2, &hellip; xn, yn, width=1, outline="black", fill="")</code></dt>
+        <dd>Draw a polygon with vertices (x0,&nbsp;y0), (x1,&nbsp;y1),
+        &hellip; (xn,&nbsp;yn). The polygon is always a closed polygon
+        with the same quantity of segments as vertices. In other words,
+        the segments are defined as follows:
+        <span class="nowrap">(x0, y0) -&gt; (x1, y1) -&gt; &hellip;
+        -&gt; (xn, yn) -&gt; (x0, y0)</span>
+
+        <h4>Parameters</h4>
+        <ul>
+            <li><div><b>canvas</b>: the canvas returned from the
+            <code>start_drawing</code> function</div></li>
+            <li><div><b>x0, y0, x1, y1, x2, y2, &hellip; xn, yn</b>: the
+            coordinates for the vertices of the polygon that this
+            function will draw</div></li>
+            <li><div><b>width</b>: the width of the polygon's outline;
+            default is 1 pixel</div></li>
+            <li><div><b>outline</b>: the color of the polygon's outline;
+            default is black</div></li>
+            <li><div><b>fill</b>: the color of the polygon's interior;
+            default is "" which means transparent</div></li>
+        </ul>
+        <h4>Return</h4>
+        <ul>
+            <li><div>nothing</div></li>
+        </ul>
+        </dd>
+
+        <dt><code>draw_text(canvas, center_x, center_y, text, fill="black")</code></dt>
+        <dd>Draw text with the center of the text at
+        (center_x,&nbsp;center_y).
+
+        <h4>Parameters</h4>
+        <ul>
+            <li><div><b>canvas</b>: the canvas returned from the
+            <code>start_drawing</code> function</div></li>
+            <li><div><b>center_x, center_y</b>: the coordinates for the
+            center point where this function will draw text</div></li>
+            <li><div><b>text</b>: the text to be drawn. To force a line
+            break, include a newline character ("\n").</div></li>
+        </ul>
+        <h4>Return</h4>
+        <ul>
+            <li><div>nothing</div></li>
+        </ul>
+        </dd>
+
+        <dt><code>finish_drawing(canvas)</code></dt>
+        <dd>Call all functions that are necessary to display the drawing
+        on the computer's monitor.
+
+        <h4>Parameters</h4>
+        <ul>
+            <li><div><b>canvas</b>: the canvas returned from the
+            <code>start_drawing</code> function</div></li>
+        </ul>
+        <h4>Return</h4>
+        <ul>
+            <li><div>nothing</div></li>
+        </ul>
+        </dd>
+    </dl>
+
+    <h2>Colors</h2>
+    <p>The Draw 2-D library supports the following named colors.</p>
+    <img src="colors.png"
+    alt="A chart of named colors supported by the Draw 2-D library"
+    title="A chart of named colors supported by the Draw 2-D library">
+
+    <h2 id="ex1">Example</h2>
+    <p>The following example program contains all four of the steps
+    needed to use the Draw 2-D library and draws an outdoor scene.</p>
+
+<div class="pre">
+<pre class="python"># Import the functions from the Draw 2-D library
+# so that they can be used in this program.
+from draw2d import \
+    start_drawing, \
+    draw_line, draw_oval, draw_arc, draw_rectangle, \
+    draw_triangle, draw_polygon, draw_text, \
+    finish_drawing
+
+
+def main():
+    scene_width = 800
+    scene_height = 500
+
+    # Call the start_drawing function in the draw2d.py library.
+    canvas = start_drawing(scene_width, scene_height, "Scene")
+
+    # Call the draw_sky and draw_ground functions in this file.
+    draw_sky(canvas, scene_width, scene_height)
+    draw_ground(canvas, scene_width, scene_height)
+
+    # Call the finish_drawing function in the draw2d.py library.
+    finish_drawing(canvas)
+
+
+def draw_sky(canvas, scene_width, scene_height):
+    """Draw the sky and all the objects in the sky."""
+    draw_rectangle(canvas,
+        0, scene_height / 3, scene_width, scene_height,
+        width=0, fill="sky blue")
+
+
+def draw_ground(canvas, scene_width, scene_height):
+    """Draw the ground and all the objects on the ground."""
+    draw_rectangle(canvas,
+        0, 0, scene_width, scene_height / 3,
+        width=0, fill="tan4")
+
+    # Draw a pine tree.
+    tree_center_x = 170
+    tree_bottom = 100
+    tree_height = 200
+    draw_pine_tree(canvas, tree_center_x, tree_bottom, tree_height)
+
+    # Draw another pine tree.
+    tree_center_x = 90
+    tree_bottom = 70
+    tree_height = 220
+    draw_pine_tree(canvas, tree_center_x, tree_bottom, tree_height)
+
+
+def draw_pine_tree(canvas, center_x, bottom, height):
+    """Draw a single pine tree.
+    Parameters
+        canvas: The canvas where this function
+            will draw a pine tree.
+        center_x, bottom: The x and y location in pixels where
+            this function will draw the bottom of a pine tree.
+        height: The height in pixels of the pine tree that
+            this function will draw.
+    Return: nothing
+    """
+    trunk_width = height / 10
+    trunk_height = height / 8
+    trunk_left = center_x - trunk_width / 2
+    trunk_right = center_x + trunk_width / 2
+    trunk_top = bottom + trunk_height
+
+    # Draw the trunk of the pine tree.
+    draw_rectangle(canvas,
+            trunk_left, trunk_top, trunk_right, bottom,
+            outline="gray20", width=1, fill="tan3")
+
+    skirt_width = height / 2
+    skirt_height = height - trunk_height
+    skirt_left = center_x - skirt_width / 2
+    skirt_right = center_x + skirt_width / 2
+    skirt_top = bottom + height
+
+    # Draw the crown (also called skirt) of the pine tree.
+    draw_triangle(canvas, center_x, skirt_top,
+            skirt_right, trunk_top,
+            skirt_left, trunk_top,
+            outline="gray20", width=1, fill="dark green")
+
+
+# Call the main function so that
+# this program will start executing.
+main()</pre></div>
+
+    <!--
+        The pine tree was drawn because of the following:</p>
+        pine tree drawn by a Python program"
+        title="A pine tree drawn by a Python program"></div>
+
+    <ol>
+        <li><div>The code at <span class="cross"
+        data-ref="ex1">line&nbsp;94</span> called the <code>main</code>
+        function.</div></li>
+
+        <li><div>At <span class="cross"
+        data-ref="ex1">line&nbsp;23</span>, the <code>main</code>
+        function called the <code>draw_scene</code> function.</div></li>
+
+        <li><div>At <span class="cross"
+        data-ref="ex1">line&nbsp;50</span>, the <code>draw_scene</code>
+        function called the <code>draw_pine_tree</code>
+        function.</div></li>
+
+        <li><div>At <span class="cross"
+        data-ref="ex1">lines&nbsp;81&ndash;89</span> the
+        <code>draw_pine_tree</code> function called the
+        <code>create_rectangle</code> and <code>create_polygon</code>
+        methods.</div></li>
+    </ol>
+
+    <p>Delete or comment-out lines&nbsp;47&ndash;50 and
+    lines&nbsp;57&ndash;89 and begin writing your program. </p>
+    -->
+</article>
+<footer>
+    <small>Copyright &copy; 2020, Brigham Young University - Idaho. All
+    rights reserved.</small>
+</footer>
+</body>
+</html>

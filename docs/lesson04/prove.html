@@ -33,24 +33,50 @@
     functions with arguments.</p>
 
     <h2>Problem Statement</h2>
-    <p>Most modern computer operating systems have graphical user
-    interfaces (GUIs) that are rich with colors, icons, images, menus,
-    tabs, buttons, text fields, sliders, scroll bars, etc. However, many
-    Python programs are designed to run in a console window, also called
-    a terminal window, to read user input from a keyboard, and to print
-    text as output to the console window. This means that many Python
-    programs are not designed and written to take advantage of the rich
-    features of graphical user interfaces.</p>
+    <p>Modern computers are capable of performing all sorts of
+    calculations to produce numbers. However, they are also capable of
+    performing calculations to produce art, illustrations, animations,
+    movies, and music.</p>
 
-    <p>Python includes two competing libraries of code named
-    <code>tkinter</code> and <code>kivy</code> that enable a program to
-    have a user interface. During the previous lesson's milestone, you
-    wrote code to draw at least the sky, clouds, and ground of an
-    outdoor scene. During this lesson, you will write code to finish
-    drawing the scene.</p>
+    <h2>Assignment</h2>
+    <p>During the previous lesson's milestone, you wrote code to draw at
+    least the sky, clouds, and ground of an outdoor scene. During this
+    lesson, you will write code that draws the remaining objects in
+    your scene. The scene that your program draws must meet these
+    requirements:</p>
+
+    <ul>
+        <li><div>The scene must be outdoor and include part of the
+        sky.</div></li>
+        <li><div>The sky must have clouds.</div></li>
+        <li><div>The scene must include repetitive objects such as
+        blades of grass, trees, leaves on a tree, birds, flowers,
+        insects, fish, pickets in a fence, dashed lines on a road,
+        buildings, bales of hay, snowmen, snowflakes, or
+        icicles.</div></li>
+        <li><div>Each of the objects in your scene should be drawn in
+        its own function such as <code>draw_sky</code>,
+        <code>draw_cloud</code>, <code>draw_ground</code>,
+        <code>draw_flower</code>, <code>draw_fence</code>,
+        <code>draw_fish</code>, etc.</div></li>
+    </ul>
+
+    <p>Each repetitive object could be drawn by a function that your
+    program calls repeatedly, once for each repeated object. For
+    example, your program could include a function named
+    <code>draw_leaf</code> that your program repeatedly calls to draw
+    each leaf on a tree at a different location.</p>
+
+    <p>As you write your program, write it so that it draws objects in
+    the order of farthest away to nearest. For example, you program
+    should draw the sky first, then clouds, then the ground, then trees,
+    then insects in the trees. Be creative.</p>
 
     <h2>Helpful Documentation</h2>
     <ul class="long">
+        <li><div>The <a href="../lesson02/prepare.html">prepare content</a>
+        for lesson&nbsp;2 explains how to call functions.</div></li>
+
         <li><div>The prepare content for the previous lesson explains how to
         <a href="../lesson03/prepare.html">write functions</a>.</div></li>
 
@@ -64,31 +90,6 @@
         <a href="../lesson03/prove.html#docs">helpful documentation</a>.
         </div></li>
     </ul>
-
-    <h2>Assignment</h2>
-    <p>During this lesson, you will write code that draws the remaining
-    elements in your scene. The scene that your program draws must be
-    outdoor, the sky must have clouds, and the scene must include
-    repetitive elements such as blades of grass, trees, leaves on a
-    tree, birds, flowers, insects, fish, pickets in a fence, dashed
-    lines on a road, buildings, bales of hay, snowmen, snowflakes, or
-    icicles. Be creative.</p>
-
-    <p>Each repetitive element must be drawn by a function that your
-    program calls repeatedly, once for each repeated element. For
-    example, your program may include a function named
-    <code>draw_leaf</code> that your program repeatedly calls to draw
-    each leaf at a different location.</p>
-
-    <p>As you write your program, be sure that it draws elements in the
-    order of farthest to nearest. For example, your program should draw
-    the sky first, then clouds, then the ground, then trees, and then
-    insects in the trees.</p>
-
-    <h3>Scene Gallery</h3>
-    <p>All the scenes in
-    <a href="gallery/index.html">this gallery</a>
-    were drawn by programs written by former CSE&nbsp;111 students.</p>
 
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each step
