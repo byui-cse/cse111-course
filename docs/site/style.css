@@ -589,7 +589,7 @@ article pre {
 @media screen {
 	article code,
 	article pre {
-		font-size: 90%;
+		font-size: 98%;
 	}
 }
 @media print {

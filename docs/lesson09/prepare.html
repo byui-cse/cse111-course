@@ -155,13 +155,108 @@ if __name__ == "__main__":
     <p>Many computer systems import and export data in CSV files. CSV is
     an acronym for comma separated values. A <dfn>CSV file</dfn> is a
     text file that contains tabular data with each row on a separate
-    line and each cell (column) separated by a comma. The following
-    example shows the contents of a CSV file named
+    line of the file and each cell (column) separated by a comma. The
+    following example shows the contents of a CSV file named
+    <a download href="hymns.csv"><code>hymns.csv</code></a> that stores
+    data about religious songs. Notice that the first row of the file
+    contains column headings, the next four rows contain data about four
+    hymns, and each row contains three columns separated by commas.</p>
+
+<div class="pre"><pre class="csv">
+Title,Author,Composer
+O Holy Night,John Dwight,Adolphe Adam
+Away in a Manger,Anonymous,William Kirkpatrick
+Joy to the World,Isaac Watts,George Handel
+With Wondering Awe,Anonymous,Anonymous
+</pre></div>
+
+    <p>Python has a standard module named
+    <a href="https://docs.python.org/3/library/csv.html"><code>csv</code></a>
+    that includes functionality to read from and write to CSV files. The
+    program in example&nbsp;2 shows how to open a CSV file and use the
+    <code>csv</code> module to read the data and print it to a console
+    window.
+
+<div class="pre" id="ex2"><pre class="linenums"></pre>
+<pre class="python"># Example 2
+
+import csv
+
+def main():
+    # Open the CSV file for reading and store a reference
+    # to the opened file in a variable named csv_file.
+    with open("hymns.csv", "rt") as csv_file:
+
+        # Use the csv module to create a reader object
+        # that will read from the opened CSV file.
+        reader = csv.reader(csv_file)
+
+        # Read the rows in the CSV file one row at a time.
+        # The reader object returns each row as a list.
+        for row_list in reader:
+            print(row_list)
+
+
+# Call main to start this program.
+if __name__ == "__main__":
+    main()</pre></div>
+
+<pre class="console" data-for="ex2">&gt; python example_2.py
+['Title', 'Author', 'Composer']
+['O Holy Night', 'John Dwight', 'Adolphe Adam']
+['Away in a Manger', 'Anonymous', 'William Kirkpatrick']
+['Joy to the World', 'Isaac Watts', 'George Handel']
+['With Wondering Awe', 'Anonymous', 'Anonymous']</pre>
+
+    <p>In example&nbsp;2 at
+    <span class="cross" data-ref="ex2">line&nbsp;8</span>, there is a
+    call to the Python built-in <code>open</code> function, which opens
+    the <code>hymns.csv</code> file for reading.
+    <span class="cross" data-ref="ex2">At line&nbsp;12</span>, the
+    program creates a <code>csv.reader</code> object that will read from
+    the <code>hymns.csv</code> file. Within the <code>for</code> loop at
+    <span class="cross" data-ref="ex2">lines&nbsp;16 and&nbsp;17</span>
+    the <code>csv.reader</code> reads and prints each row from the CSV
+    file. When a <code>csv.reader</code> reads a row from a CSV file,
+    the reader returns the row as a list of strings. The output from
+    example&nbsp;2 shows that a <code>csv.reader</code> returns a list
+    of strings. In the output, notice the five lists of strings,
+    (strings surrounded by square brackets [&nbsp;&hellip;&nbsp;]) that
+    were printed by the print statement at
+    <span class="cross" data-ref="ex2">line&nbsp;17</span>. Notice also
+    that the reader reads all the rows from a CSV file, including the
+    first row which contains column headings.</p>
+
+    <p>You might recall that in CSE&nbsp;110, you wrote a program that
+    read from a CSV file without using a <code>csv.reader</code>. Your
+    program split each row of text from the CSV file using the string
+    <code>split</code> method. Unfortunately, using the
+    <code>split</code> method will not work for all CSV files. Consider
+    the following <code>hymns.csv</code> file that contains rows for the
+    hymns "Far, Far Way on Judea's Plains" and "Oh, Come, All Ye
+    Faithful". Both of these hymns have commas in their titles. If we
+    use the string <code>split</code> method to separate the columns in
+    this CSV file, the hymn titles will be split. A
+    <code>csv.reader</code> will correctly split rows in all valid CSV
+    files.</p>
+
+<div class="pre"><pre class="csv">
+Title,Author,Composer
+"Far, Far Way on Judea's Plains",John Mcfarlane,John Mcfarlane
+"Oh, Come, All Ye Faithful",John Wade,John Wade
+"Christ the Lord is Risen Today",Charles Wesley,Anonymous
+</pre></div>
+
+    <h3>Processing Each Row in a CSV File</h3>
+    <p>After reading each row from a CSV file, the program in the
+    previous example simply prints the row to the console window. Of
+    course, a program can do much more than simply print each row.
+    Consider the following CSV file named
     <a download href="dentists.csv"><code>dentists.csv</code></a>
-    that stores information about dental offices. Notice that the first
-    row of the file contains column headings, the next four rows contain
-    information about four dental offices, and each row contains five
-    columns separated by commas.</p>
+    that stores data about dental offices. Notice that the first row of
+    the file contains column headings, the next four rows contain data
+    about four dental offices, and each row contains five columns
+    separated by commas.</p>
 
 <div class="pre"><pre class="csv">
 Company Name,Address,Phone Number,Employees,Patients
@@ -171,48 +266,178 @@ Rockhouse Dentistry,106 E 1st N,208-356-5600,12,1982
 Cornerstone Family Dental,44 S Center Street,208-356-4240,8,1453
 </pre></div>
 
-    <p>Python has a standard module named
-    <a href="https://docs.python.org/3/library/csv.html"><code>csv</code></a>
-    that includes functionality to read from and write to CSV files. The
-    program in example&nbsp;2 shows how to open a CSV file and use the
-    <code>csv</code> module to read the data and store it in a
-    dictionary. Remember that each item in a dictionary is a key value
-    pair. Notice in example&nbsp;2, because of
-    lines&nbsp;<span class="cross" data-ref="ex2">11,&nbsp;16,
-    56,&nbsp;and&nbsp;60</span> that the code is using the dental office
+    <p>The program in example&nbsp;3 processes each row in the
+    <code>dentists.csv</code> file to determine which dental office has
+    the most patients per employee. Notice at
+    <span class="cross" data-ref="ex3">line&nbsp;24</span> that the
+    program calls the built-in Python function named <code>next</code>
+    to skip the first row in the CSV file. The first row of the
+    <code>dentists.csv</code> file contains column headings. The
+    headings contain no numbers and aren't needed for the calculations,
+    so the program skips the first row by calling the <code>next</code>
+    function.</p>
+
+<div class="pre" id="ex3"><pre class="linenums"></pre>
+<pre class="python"># Example 3
+
+import csv
+
+# Indexes of some of the columns
+# in the dentists.csv file.
+COMPANY_NAME_INDEX = 0
+NUM_EMPS_INDEX = 3
+NUM_PATIENTS_INDEX = 4
+
+
+def main():
+    # Open a file named dentists.csv and store a reference
+    # to the opened file in a variable named dentists_file.
+    with open("dentists.csv", "rt") as dentists_file:
+
+        # Use the csv module to create a reader
+        # object that will read from the opened file.
+        reader = csv.reader(dentists_file)
+
+        # The first row of the CSV file contains column
+        # headings and not data about a dental office,
+        # so this statement skips the first row of the
+        # CSV file.
+        next(reader)
+
+        running_max = 0
+        most_office = None
+
+        # Read each row in the CSV file one at a time.
+        # The reader object returns each row as a list.
+        for row_list in reader:
+
+            # For the current row, retrieve the
+            # values in columns 0, 3, and 4.
+            company = row_list[COMPANY_NAME_INDEX]
+            num_employees = int(row_list[NUM_EMPS_INDEX])
+            num_patients = int(row_list[NUM_PATIENTS_INDEX])
+
+            # Compute the number of patients per
+            # employee for the current dental office.
+            patients_per_emp = num_patients / num_employees
+
+            # If the current dental office has more
+            # patients per employee than the running
+            # maximum, assign running_max and most_office
+            # to be the current dental office.
+            if patients_per_emp &gt; running_max:
+                running_max = patients_per_emp
+                most_office = company
+
+    # Print the results for the user to see.
+    print(f"{most_office} has {running_max:.1f}"
+            " patients per employee")
+
+
+# Call main to start this program.
+if __name__ == "__main__":
+    main()</pre></div>
+
+<pre class="console" data-for="ex3">&gt; python example_3.py
+Cornerstone Family Dental has 181.6 patients per employee</pre>
+
+    <h3>Reading a CSV File into a Compound List</h3>
+    <p>If a program needs to access the contents of a CSV file multiple
+    times, the program can read the contents of the file into a compound
+    list and then access the data from the list. The following example
+    program contains a function named <code>read_compound_list</code>
+    that reads the contents of a CSV file into a compound list.</p>
+
+<div class="pre" id="ex4"><pre class="linenums"></pre>
+<pre class="python"># Example 4
+
+def main():
+    # Read the contents of the dentists.csv file
+    # into a compound list.
+    dentists_list = read_compound_list("dentists.csv")
+
+    # Print the entire list.
+    print(dentists_list)
+
+
+def read_compound_list(filename):
+    """Read the contents of a CSV file into a compound
+    list and return the list. Each element in the
+    compound list will be a small list that contains
+    the values from one row of the CSV file.
+
+    Parameter filename: the name of the CSV file to read
+    Return: a list of lists that contain strings
+    """
+    # Create an empty list that will
+    # store the data from the CSV file.
+    compound_list = []
+
+    # Open the CSV file for reading and store a reference
+    # to the opened file in a variable named csv_file.
+    with open(filename, "rt") as csv_file:
+
+        # Use the csv module to create a reader object
+        # that will read from the opened CSV file.
+        reader = csv.reader(csv_file)
+
+        # Read the rows in the CSV file one row at a time.
+        # The reader object returns each row as a list.
+        for row_list in reader:
+
+            # Append one row from the CSV file to the
+            # compound list.
+            compound_list.append(row_list)
+
+    # Return the compound list.
+    return compound_list
+
+
+# Call main to start this program.
+if __name__ == "__main__":
+    main()</pre></div>
+
+    <h3>Reading a CSV File into a Compound Dictionary</h3>
+    <p>If the values in one of the columns of a CSV file are unique,
+    then a progam can read the contents of a CSV file into a compound
+    dictionary and then use the dictionary to quickly find data. Recall
+    that each item in a dictionary is a key value pair. The values from
+    the unique column in a CSV file will be the keys in the dictionary.
+    The program in example&nbsp;5 shows how to read the data from a CSV
+    file into a compound dictionary. Notice in example&nbsp;5, because
+    of lines&nbsp;<span class="cross" data-ref="ex5">9,&nbsp;14,
+    54,&nbsp;and&nbsp;58</span>, that the program uses the dental office
     phone numbers as the keys in the dictionary.</p>
 
-<div class="pre" id="ex2"><pre class="linenums"></pre>
-<pre class="python"># Example 2
+<div class="pre" id="ex5"><pre class="linenums"></pre>
+<pre class="python"># Example 5
 
 import csv
 
 
 def main():
-    # Indexes of some of the columns
+    # Index of the phone number column
     # in the dentists.csv file.
-    COMPANY_NAME_INDEX = 0
-    ADDRESS_INDEX = 1
-    PHONE_NUMBER_INDEX = 2
+    PHONE_INDEX = 2
 
-    # Read the contents of a CSV file named dentists.csv
-    # into a dictionary named dentists. Use the phone
-    # numbers as the keys in the dictionary.
-    dentists = read_dict("dentists.csv", PHONE_NUMBER_INDEX)
+    # Read the contents of the dentists.csv into a
+    # compound dictionary named dentists_dict. Use
+    # the phone numbers as the keys in the dictionary.
+    dentists_dict = read_dict("dentists.csv", PHONE_INDEX)
 
-    # Print the dentists dictionary.
-    print(dentists)
+    # Print the dentists compound dictionary.
+    print(dentists_dict)
 
 
 def read_dict(filename, key_column_index):
-    """Read the contents of a CSV file into a dictionary
-    and return the dictionary.
+    """Read the contents of a CSV file into a compound
+    dictionary and return the dictionary.
 
     Parameters
         filename: the name of the CSV file to read.
         key_column_index: the index of the column
             to use as the keys in the dictionary.
-    Return: a dictionary that contains
+    Return: a compound dictionary that contains
         the contents of the CSV file.
     """
     # Create an empty dictionary that will
@@ -227,22 +452,22 @@ def read_dict(filename, key_column_index):
         # that will read from the opened CSV file.
         reader = csv.reader(csv_file)
 
-        # The first line of the CSV file contains column
-        # headings and not information, so this statement
-        # skips the first line of the CSV file.
+        # The first row of the CSV file contains column
+        # headings and not data, so this statement skips
+        # the first row of the CSV file.
         next(reader)
 
         # Read the rows in the CSV file one row at a time.
         # The reader object returns each row as a list.
-        for row in reader:
+        for row_list in reader:
 
             # From the current row, retrieve the data
             # from the column that contains the key.
-            key = row[key_column_index]
+            key = row_list[key_column_index]
 
             # Store the data from the current row
             # into the dictionary.
-            dictionary[key] = row
+            dictionary[key] = row_list
 
     # Return the dictionary.
     return dictionary
@@ -252,82 +477,11 @@ def read_dict(filename, key_column_index):
 if __name__ == "__main__":
     main()</pre></div>
 
-<pre class="console">&gt; python example_2.py
-{'208-359-2224': ['Eagle Rock Dental Care', '556 Trejo Suite C', '&hellip;],
-'208-359-1500': ['Apple Tree Dental', '33 Winn Drive Suite 2', '20&hellip;],
-'208-356-5600': ['Rockhouse Dentistry', '106 E 1st N', '208-356-56&hellip;],
-'208-356-4240': ['Cornerstone Family Dental', '44 S Center Street'&hellip;]}</pre>
-
-    <p>The code in example&nbsp;2 reads the contents of a CSV file and
-    stores the contents in a dictionary. However, it is not always
-    necessary to store the contents of a CSV file in a dictionary.
-    Sometimes a program simply needs to use the values in the CSV file
-    in calculations but doesn't need to store the contents of the CSV
-    file. In such a situation, the program will still use a for loop but
-    will not use a dictionary. The code in example&nbsp;3 processes each
-    line in the <code>dentists.csv</code> file to determine which dental
-    office has the most patients per employee, but it doesn't use a
-    dictionary.</p>
-
-<div class="pre" id="ex3"><pre class="python"># Example 3
-
-import csv
-
-# Indexes of some of the columns
-# in the dentists.csv file.
-COMPANY_NAME_INDEX = 0
-NUM_EMPLOYEES_INDEX = 3
-NUM_PATIENTS_INDEX = 4
-
-
-def main():
-    # Open a file named dentists.csv and store a reference
-    # to the opened file in a variable named dentists_file.
-    with open("dentists.csv", "rt") as dentists_file:
-
-        # Use the csv module to create a reader
-        # object that will read from the opened file.
-        reader = csv.reader(dentists_file)
-
-        # The first line of the CSV file contains column headings
-        # and not information about a dental office, so this
-        # statement skips the first line of the CSV file.
-        next(reader)
-
-        running_max = 0
-        most_office = None
-
-        # Read each row in the CSV file one at a time.
-        # The reader object returns each row as a list.
-        for row in reader:
-
-            # For the current row, retrieve the
-            # values in columns 0, 3, and 4.
-            company = row[COMPANY_NAME_INDEX]
-            num_employees = int(row[NUM_EMPLOYEES_INDEX])
-            num_patients = int(row[NUM_PATIENTS_INDEX])
-
-            # Compute the number of patients per
-            # employee for the current dental office.
-            patients_per_employee = num_patients / num_employees
-
-            # If the current dental office has more patients per
-            # employee than the running maximum, assign running_max
-            # and most_office to be the current dental office.
-            if patients_per_employee &gt; running_max:
-                running_max = patients_per_employee
-                most_office = company
-
-    # Print the results for the user to see.
-    print(f"{most_office} has {running_max:.1f} patients per employee")
-
-
-# Call main to start this program.
-if __name__ == "__main__":
-    main()</pre></div>
-
-<pre class="console" data-for="ex3">&gt; python example_3.py
-Cornerstone Family Dental has 181.6 patients per employee</pre>
+<pre class="console" data-for="ex5">&gt; python example_5.py
+{'208-359-2224': ['Eagle Rock Dental Care', '556 Trejo Suite&hellip;],
+'208-359-1500': ['Apple Tree Dental', '33 Winn Drive Suite 2&hellip;],
+'208-356-5600': ['Rockhouse Dentistry', '106 E 1st N', '208-&hellip;],
+'208-356-4240': ['Cornerstone Family Dental', '44 S Center S&hellip;]}</pre>
 
     <h2>Tutorials</h2>
     <p>If any of the concepts or topics in the previous section seem
@@ -353,10 +507,11 @@ Cornerstone Family Dental has 181.6 patients per employee</pre>
     CSV is an acronym that stands for comma separated values. Within
     each row in a CSV file, the data values are separated by commas.
     Python includes a standard module named <code>csv</code> that helps
-    us easily write code to read from CSV files. Sometimes we write
-    Python code to read the contents of a CSV file into a dictionary.
-    Other times, we write Python code to process each row in a CSV file
-    but not put the contents in a dictionary.</p>
+    us easily write code to read from CSV files. Sometimes a program
+    simply needs to use the values in a CSV file in calculations, so we
+    write Python code to perform calculations for each row. Other times,
+    we write Python code to read the contents of a CSV file into a
+    compound list or compound dictionary.</p>
 </article>
 <footer>
     <small>Copyright &copy; 2020, Brigham Young University - Idaho. All
