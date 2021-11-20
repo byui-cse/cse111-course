@@ -1,4 +1,4 @@
-# Copyright 2020, Brigham Young University - Idaho. All rights reserved.
+# Copyright 2020, Brigham Young University-Idaho. All rights reserved.
 
 """
 Verify that the make_full_name, extract_family_name,

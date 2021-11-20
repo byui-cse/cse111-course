@@ -1,4 +1,4 @@
-# Copyright 2020, Brigham Young University - Idaho. All rights reserved.
+# Copyright 2020, Brigham Young University-Idaho. All rights reserved.
 
 from students import read_dict
 from os import path

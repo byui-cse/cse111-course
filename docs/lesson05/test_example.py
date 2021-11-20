@@ -1,4 +1,4 @@
-# Copyright 2020, Brigham Young University - Idaho. All rights reserved.
+# Copyright 2020, Brigham Young University-Idaho. All rights reserved.
 
 """
 Verify that the wind_chill and heat_index functions work correctly.

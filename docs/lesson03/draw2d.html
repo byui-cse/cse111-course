@@ -57,8 +57,8 @@
     <h2>Functions</h2>
     <p>The following functions are contained in the Draw 2-D library.</p>
 
-    <dl class="function">
-        <dt><code>start_drawing(width, height, title)</code></dt>
+    <dl class="function long">
+        <dt><pre class="python">start_drawing(width, height, title)</pre></dt>
         <dd>Create a window with a canvas where a program can draw
         2-dimensional shapes.
         <h4>Parameters</h4>
@@ -76,7 +76,9 @@
         </ul>
         </dd>
 
-        <dt><code>draw_line(canvas, x0, y0, x1, y1, &hellip; xn, yn, width=1, fill="black")</code></dt>
+        <dt>
+<pre class="python">draw_line(canvas, x0, y0, x1, y1, &hellip; xn, yn, width=1, fill="black")</pre>
+        </dt>
         <dd>Draw a that line goes through the series of points
         (x0,&nbsp;y0), (x1,&nbsp;y1), &hellip; (xn,&nbsp;yn)
 
@@ -98,7 +100,9 @@
         </ul>
         </dd>
 
-        <dt><code>draw_oval(canvas, x0, y0, x1, y1, width=1, outline="black", fill="")</code></dt>
+        <dt>
+<pre class="python">draw_oval(canvas, x0, y0, x1, y1, width=1, outline="black", fill="")</pre>
+        </dt>
         <dd>Draw an oval (ellipse) inside the bounding box defined by the
         coordinates (x0,&nbsp;y0), (x1,&nbsp;y1)
 
@@ -121,7 +125,10 @@
         </ul>
         </dd>
 
-        <dt><code>draw_arc(canvas, x0, y0, x1, y1, start=0, extent=90, width=1, outline="black", fill="")</code></dt>
+        <dt>
+<pre class="python">draw_arc(canvas, x0, y0, x1, y1, start=0, extent=90,
+        width=1, outline="black", fill="")</pre>
+        </dt>
         <dd>Draw a wedge shaped slice taken from an oval (ellipse)
         defined by the bounding box with coordinates (x0,&nbsp;y0),
         (x1,&nbsp;y1).
@@ -145,7 +152,10 @@
         </ul>
         </dd>
 
-        <dt><code>draw_rectangle(canvas, x0, y0, x1, y1, width=1, outline="black", fill="")</code></dt>
+        <dt>
+<pre class="python">draw_rectangle(canvas, x0, y0, x1, y1,
+        width=1, outline="black", fill="")</pre>
+        </dt>
         <dd>Draw a rectangle with two of its corners at (x0,&nbsp;y0),
         (x1,&nbsp;y1).
 
@@ -168,7 +178,10 @@
         </ul>
         </dd>
 
-        <dt><code>draw_triangle(canvas, x0, y0, x1, y1, x2, y2, width=1, outline="black", fill="")</code></dt>
+        <dt>
+<pre class="python">draw_triangle(canvas, x0, y0, x1, y1, x2, y2,
+        width=1, outline="black", fill="")</pre>
+        </dt>
         <dd>Draw a triangle with vertices (x0,&nbsp;y0), (x1,&nbsp;y1),
         (x2,&nbsp;y2).
 
@@ -191,7 +204,10 @@
         </ul>
         </dd>
 
-        <dt><code>draw_polygon(canvas, x0, y0, x1, y1, x2, y2, &hellip; xn, yn, width=1, outline="black", fill="")</code></dt>
+        <dt>
+<pre class="python">draw_polygon(canvas, x0, y0, x1, y1, x2, y2, &hellip; xn, yn,
+        width=1, outline="black", fill="")</pre>
+        </dt>
         <dd>Draw a polygon with vertices (x0,&nbsp;y0), (x1,&nbsp;y1),
         &hellip; (xn,&nbsp;yn). The polygon is always a closed polygon
         with the same quantity of segments as vertices. In other words,
@@ -219,7 +235,9 @@
         </ul>
         </dd>
 
-        <dt><code>draw_text(canvas, center_x, center_y, text, fill="black")</code></dt>
+        <dt>
+<pre class="python">draw_text(canvas, center_x, center_y, text, fill="black")</pre>
+        </dt>
         <dd>Draw text with the center of the text at
         (center_x,&nbsp;center_y).
 
@@ -238,7 +256,9 @@
         </ul>
         </dd>
 
-        <dt><code>finish_drawing(canvas)</code></dt>
+        <dt>
+<pre class="python">finish_drawing(canvas)</pre>
+        </dt>
         <dd>Call all functions that are necessary to display the drawing
         on the computer's monitor.
 
@@ -256,9 +276,9 @@
 
     <h2>Colors</h2>
     <p>The Draw 2-D library supports the following named colors.</p>
-    <img src="colors.png"
+    <div class="figure center" style="width:37em"><img src="colors.png"
     alt="A chart of named colors supported by the Draw 2-D library"
-    title="A chart of named colors supported by the Draw 2-D library">
+    title="A chart of named colors supported by the Draw 2-D library"></div>
 
     <h2 id="ex1">Example</h2>
     <p>The following example program contains all four of the steps

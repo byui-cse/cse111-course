@@ -1,4 +1,4 @@
-# Copyright 2020, Brigham Young University - Idaho. All rights reserved.
+# Copyright 2020, Brigham Young University-Idaho. All rights reserved.
 
 """
 You work for a retail store that wants to increase sales on Tuesday

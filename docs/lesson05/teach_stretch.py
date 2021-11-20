@@ -1,4 +1,4 @@
-# Copyright 2020, Brigham Young University - Idaho. All rights reserved.
+# Copyright 2020, Brigham Young University-Idaho. All rights reserved.
 
 """
 Verify that the extract_city, extract_state,

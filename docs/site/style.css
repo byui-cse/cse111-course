@@ -157,6 +157,7 @@ header > div.colorCtrl {
 @media print {
 	article {
 		line-height: 1.15;
+		max-width: 6.5in;
 	}
 }
 
@@ -218,7 +219,7 @@ article iframe {
 article blockquote {
 	margin: 1em 1em 1em 1em;
 	border-left: 0.12em solid var(--bullet-fg-color);
-	padding: 0 0 0 0.5em;
+	padding-left: 0.5em;
 }
 
 article a:link { color: var(--link-before-fg-color); }
@@ -352,6 +353,14 @@ article dl.function dd {
 	margin-bottom: 1em;
 }
 
+article dl.long dt {
+	padding-bottom: 1em;
+}
+
+article dl.long dd {
+	margin-bottom: 2em;
+}
+
 
 article span.nowrap {
 	white-space: nowrap;
@@ -364,7 +373,7 @@ article div.figure {
 }
 
 article div.figure > img {
-	width: 100%;
+	max-width: 100%;
 }
 
 article div.figure > div {
@@ -440,22 +449,22 @@ article div.expr div.supsub {
 	text-align: left;
 }
 
-article div.expr span.abs:before,
-article div.expr span.abs:after {
+article div.expr span.abs::before,
+article div.expr span.abs::after {
 	font-size: xx-large;
 	font-weight: 100;
 	vertical-align: middle;
 	content: '\7c';
 }
 
-article div.expr .paren:before {
+article div.expr .paren::before {
 	padding-left: 0.1em;
 	content: '\28';
 	font-size: xx-large;
 	font-weight: 100;
 }
 
-article div.expr .paren:after {
+article div.expr .paren::after {
 	padding-left: 0.1em;
 	content: '\29';
 	font-size: xx-large;
@@ -466,21 +475,32 @@ article div.expr div.paren {
 	vertical-align: baseline;
 }
 
-article div.expr span.radic:before {
-	font-size: x-large;
-	font-weight: 100;
-	vertical-align: bottom;
-	content: '\221a';
+article div.expr div.radic {
 }
 
-article div.expr div.radic:before {
-	font-size: xx-large;
-	font-weight: 100;
-	vertical-align: middle;
-	content: '\221a';
+article div.expr div.radic.one > div:first-child {
+	margin-right: -0.25em;
 }
 
-article div.expr .radic > * {
+article div.expr div.radic.onePlus > div:first-child {
+	-webkit-transform: scale(1.1, 1.6); /* Safari and Chrome */
+	-moz-transform: scale(1.1, 1.6); /* Firefox */
+	-ms-transform: scale(1.1, 1.6); /* IE 9 */
+	-o-transform: scale(1.1, 1.6); /* Opera */
+	transform: scale(1.1, 1.6); /* W3C */
+}
+
+article div.expr div.radic.two > div:first-child {
+	font-weight: 100;
+	-webkit-transform: scale(1.8, 3); /* Safari and Chrome */
+	-moz-transform: scale(1.8, 3); /* Firefox */
+	-ms-transform: scale(1.8, 3); /* IE 9 */
+	-o-transform: scale(1.8, 3); /* Opera */
+	transform: scale(1.8, 3); /* W3C */
+	margin-right: 0.2em;
+}
+
+article div.expr div.radic > div:last-child {
 	border-top: 1px solid;
 	padding: 0 0.2em;
 }
@@ -523,18 +543,18 @@ article div.collaps div.title {
 	cursor: pointer;
 }
 
-article div.expand div.title:before,
-article div.collaps div.title:before {
+article div.expand div.title::before,
+article div.collaps div.title::before {
 	margin-right: 0.25em;
 	font-size: x-large;
 	cursor: pointer;
 }
 
-article div.expand div.title:before {
+article div.expand div.title::before {
 	content: "+";
 }
 
-article div.collaps div.title:before {
+article div.collaps div.title::before {
 	content: "-";
 }
 
@@ -546,6 +566,7 @@ article div.collaps div.pre {
 	display: block;
 }
 
+
 article div.search {
 	margin: 1em auto;
 	border: 1px solid var(--border);
@@ -553,19 +574,28 @@ article div.search {
 	white-space: pre-line;
 }
 
+
+/* Code containers */
 article code {
 	font-family: "Source Code Pro", Menlo, Monaco, Consolas, monospace;
-	font-size: 90%;
 	white-space: nowrap;
 }
 
 
 article pre {
 	font-family: "Source Code Pro", Menlo, Monaco, Consolas, monospace;
-	font-size: 90%;
 	line-height: 1.15;
 }
+@media screen {
+	article code,
+	article pre {
+		font-size: 90%;
+	}
+}
 @media print {
+	article code {
+		font-size: 80%;
+	}
 	article pre {
 		font-size: 78%;
 	}
@@ -610,27 +640,31 @@ article div.pre {
 	background-color: var(--python-bk-color);
 	padding: 0.25em 0.5em;
 }
-
-article div.pre > button.copy {
-	position: absolute;
-	top: 0.5em;
-	right: 0.25em;
-	visibility: hidden;
-	background-color: var(--light-bk-color);
+article div.pre.solution {
+	margin: 1em 0;
 }
 
-article div.pre > button.copy > img {
-	width: 2em;
-}
+@media screen {
+	article div.pre > button.copy {
+		position: absolute;
+		top: 0.5em;
+		right: 0.25em;
+		visibility: hidden;
+		background-color: var(--light-bk-color);
+	}
 
+	article div.pre:hover > button.copy {
+		visibility: visible;
+	}
+
+	article div.pre > button.copy > img {
+		width: 2em;
+	}
+}
 @media print {
 	article div.pre > button.copy {
 		display: none;
 	}
-}
-
-article div.pre:hover > button.copy {
-	visibility: visible;
 }
 
 article div.pre > pre {

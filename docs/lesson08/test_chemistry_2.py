@@ -1,4 +1,4 @@
-# Copyright 2020, Brigham Young University - Idaho. All rights reserved.
+# Copyright 2020, Brigham Young University-Idaho. All rights reserved.
 
 from chemistry import make_periodic_table, \
     parse_formula, compute_molar_mass, FormulaError

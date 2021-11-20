@@ -1,4 +1,4 @@
-# Copyright 2020, Brigham Young University - Idaho. All rights reserved.
+# Copyright 2020, Brigham Young University-Idaho. All rights reserved.
 
 def make_full_name(given_name, family_name):
     """Return a string in this form "family_name; given_name". For

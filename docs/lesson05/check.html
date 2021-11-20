@@ -73,16 +73,19 @@
             <li><div>On the menu bar for VS Code, click "Terminal"</div></li>
             <li><div>On the menu, click "New Terminal"</div></li>
         </ol>
-        <div class="figure full"><img src="open_terminal.png"
+        <div class="figure full">
+        <img src="open_terminal.png"
         alt="A screenshot of VS Code showing how to open a terminal frame"
-        title="A screenshot of VS Code showing how to open a terminal
-        frame"></div>
+        title="A screenshot of VS Code showing how to open a terminal frame">
+        </div>
         <p>This will open a terminal frame at the bottom of the VS Code
         window. A terminal is a window or frame where a user can type
         and execute computer commands.</p>
-        <div class="figure full"><img src="terminal.png"
+        <div class="figure full">
+        <img src="terminal.png"
         alt="A screenshot of VS Code showing an open terminal frame"
-        title="A screenshot of VS Code showing an open terminal frame"></div>
+        title="A screenshot of VS Code showing an open terminal frame">
+        </div>
         </div></li>
 
         <li><div>Copy and paste the following command into the terminal
@@ -105,7 +108,8 @@
             <code>py</code>.</li></ul>
             </div></li>
         </ul>
-        <div class="figure full"><img src="upgrade_pip.png"
+        <div class="figure full">
+        <img src="upgrade_pip.png"
         alt="A screenshot of VS Code showing the command to upgrade pip"
         title="A screenshot of VS Code showing the command to upgrade pip">
         </div>
@@ -129,7 +133,8 @@
             <code>py</code>.</li></ul>
             </div></li>
         </ul>
-        <div class="figure full"><img src="install_pytest.png"
+        <div class="figure full">
+        <img src="install_pytest.png"
         alt="A screen shot of VS Code showing the command to install pytest"
         title="A screen shot of VS Code showing the command to install pytest">
         </div>
@@ -192,15 +197,15 @@
         below.
 
 <pre class="console">&gt; python test_words.py
-==================== test session starts =====================
-platform win32--Python 3.8.6, pytest-6.1.2, py-1.9.0, pluggy-0
+====================== test session starts =======================
+platform win32--Python 3.8.6, pytest-6.1.2, py-1.9.0, pluggy-0.13.
 rootdir: C:\Users\cse111\lesson05
 collected 2 items
 
-test_words.py::test_prefix <span class="pass">PASSED                       [ 50%]</span>
-test_words.py::test_suffix <span class="pass">PASSED                       [100%]</span>
+test_words.py::test_prefix <span class="pass">PASSED                           [ 50%]</span>
+test_words.py::test_suffix <span class="pass">PASSED                           [100%]</span>
 
-<span class="pass">===================== 2 passed in 0.09s ======================</span></pre>
+<span class="pass">======================= 2 passed in 0.09s ========================</span></pre>
         </div></li>
     </ol>
 
@@ -212,6 +217,26 @@ test_words.py::test_suffix <span class="pass">PASSED                       [100%
     However, if you have worked on it for at least an hour and are still
     having problems, feel free to use the sample solution to help you
     finish your program.</p>
+
+    <h3>Call Graph</h3>
+    <p>The following call graph shows the function calls and returns in
+    the sample solution for this assignment. From this call graph we see
+    that the computer starts executing the sample test functions by
+    calling the <code>pytest.main</code> function. While executing the
+    <code>pytest.main</code> function, the computer calls the
+    <code>test_prefix</code> function. While executing the
+    <code>test_prefix</code> function, the computer calls the
+    <code>prefix</code> function. Then while still executing the
+    <code>pytest.main</code> function, the computer calls the
+    <code>test_suffix</code> function. While executing the
+    <code>test_suffix</code> function, the computer calls the
+    <code>suffix</code> function.</p>
+
+    <div class="figure center" style="width:34em">
+        <img src="call_graph_check.svg"
+        alt="A function call graph for this assignment"
+        title="A function call graph for this assignment">
+    </div>
 
     <h2>Ponder</h2>
     <p>During this assignment, you downloaded a Python file that

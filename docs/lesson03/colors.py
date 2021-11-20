@@ -1,5 +1,5 @@
-from tkinter import Tk, E, W, Label
-import functools
+import tkinter as tk
+import math
 
 
 COLOR_NAMES = [
@@ -14,7 +14,7 @@ COLOR_NAMES = [
     'firebrick3',
     'firebrick',
     'firebrick4',
-    'red',
+    'red1',
     'red2',
     'red3',
     'red4',
@@ -30,7 +30,7 @@ COLOR_NAMES = [
     'brown',
     'brown4',
 
-    'tomato',
+    'tomato1',
     'tomato2',
     'tomato3',
     'tomato4',
@@ -39,18 +39,18 @@ COLOR_NAMES = [
     'coral2',
     'coral3',
     'coral4',
-    'salmon1',
     'salmon',
+    'salmon1',
     'salmon2',
     'salmon3',
     'salmon4',
 
-    'lightSalmon',
+    'lightSalmon1',
     'lightSalmon2',
     'darkSalmon',
     'lightSalmon3',
     'lightSalmon4',
-    'orangeRed',
+    'orangeRed1',
     'orangeRed2',
     'orangeRed3',
     'orangeRed4',
@@ -92,7 +92,7 @@ COLOR_NAMES = [
     'cornsilk2',
     'cornsilk3',
     'cornsilk4',
-    'bisque',
+    'bisque1',
     'bisque2',
     'bisque3',
     'bisque4',
@@ -126,11 +126,11 @@ COLOR_NAMES = [
     'darkOrange4',
 
     'paleGoldenrod',
-    'lightGoldenrod',
-    'lightGoldenrod1',
-    'lightGoldenrod2',
-    'lightGoldenrod3',
-    'lightGoldenrod4',
+    #'lightGoldenrod1',  # name is too long
+    #'lightGoldenrod',  # similar to lightGoldenrod2
+    #'lightGoldenrod2',  # name is too long
+    #'lightGoldenrod3',  # name is too long
+    #'lightGoldenrod4',  # name is too long
     'goldenrod1',
     'goldenrod2',
     'goldenrod',
@@ -141,12 +141,12 @@ COLOR_NAMES = [
     'darkGoldenrod3',
     'darkGoldenrod',
     'darkGoldenrod4',
-    'gold',
+    'gold1',
     'gold2',
     'gold3',
     'gold4',
 
-    'lemonChiffon',
+    'lemonChiffon1',
     'lemonChiffon2',
     'lemonChiffon3',
     'lemonChiffon4',
@@ -156,18 +156,18 @@ COLOR_NAMES = [
     'khaki3',
     'darkKhaki',
     'khaki4',
-    'ivory',
+    'ivory1',
     'ivory2',
     'ivory3',
     'ivory4',
 
-    'lightGoldenrodYellow',
+    #'lightGoldenrodYellow',  # name is too long
     'beige',
-    'lightYellow',
+    'lightYellow1',
     'lightYellow2',
     'lightYellow3',
-    'lightYellow4',
-    'yellow',
+    #'lightYellow4',  similar to cornsilk4
+    'yellow1',
     'yellow2',
     'yellow3',
     'yellow4',
@@ -175,11 +175,11 @@ COLOR_NAMES = [
     'oliveDrab2',
     'oliveDrab3',
     'oliveDrab4',
-    'oliveDrab',
-    'darkOliveGreen1',
-    'darkOliveGreen2',
-    'darkOliveGreen3',
-    'darkOliveGreen4',
+    #'oliveDrab',  # similar to oliveDrab4
+    #'darkOliveGreen1',  # name is too long
+    #'darkOliveGreen2',  # name is too long
+    #'darkOliveGreen3',  # name is too long
+    #'darkOliveGreen4',  # name is too long
     'darkOliveGreen',
     'greenYellow',
     'lawnGreen',
@@ -190,7 +190,7 @@ COLOR_NAMES = [
     'chartreuse4',
 
     'mintCream',
-    'honeydew',
+    'honeydew1',
     'honeydew2',
     'honeydew3',
     'honeydew4',
@@ -216,21 +216,21 @@ COLOR_NAMES = [
     'green4',
     'green',
     'darkGreen',
-    'mediumSpringGreen',
-    'springGreen',
+    #'mediumSpringGreen',  # name is too long
+    'springGreen1',
     'springGreen2',
     'springGreen3',
     'springGreen4',
-    'aquamarine',
+    'aquamarine1',
     'aquamarine2',
     'aquamarine3',
     'aquamarine4',
-    'azure',
+    'azure1',
     'azure2',
     'azure3',
     'azure4',
-    'paleTurquoise',
     'paleTurquoise1',
+    #'paleTurquoise',  # similar to paleTurquoise2
     'paleTurquoise2',
     'paleTurquoise3',
     'paleTurquoise4',
@@ -238,7 +238,7 @@ COLOR_NAMES = [
     'turquoise',
     'turquoise1',
     'turquoise2',
-    'mediumTurquoise',
+    #'mediumTurquoise',  # name is too long
     'darkTurquoise',
     'turquoise3',
     'turquoise4',
@@ -248,11 +248,11 @@ COLOR_NAMES = [
     'darkSlateGray4',
     'darkSlateGray',
 
-    'lightCyan',
+    'lightCyan1',
     'lightCyan2',
     'lightCyan3',
     'lightCyan4',
-    'cyan',
+    'cyan1',
     'cyan2',
     'cyan3',
     'cyan4',
@@ -278,16 +278,17 @@ COLOR_NAMES = [
     'lightSkyBlue2',
     'lightSkyBlue3',
     'lightSkyBlue4',
-    'lightSkyBlue',
     'skyBlue',
+    'skyBlue1',
+    'lightSkyBlue',
     'skyBlue2',
     'skyBlue3',
     'skyBlue4',
-    'lightSteelBlue1',
-    'lightSteelBlue2',
+    #'lightSteelBlue1',  # name is too long
+    #'lightSteelBlue2',  # similar to slateGray2
     'lightSteelBlue',
-    'lightSteelBlue3',
-    'lightSteelBlue4',
+    #'lightSteelBlue3',  # similar to slateGray3
+    #'lightSteelBlue4',  # similar to slateGray4
     'steelBlue1',
     'steelBlue2',
     'steelBlue3',
@@ -300,7 +301,7 @@ COLOR_NAMES = [
     'lightSlateGray',
     'slateGray',
     'slateGray4',
-    'dodgerBlue',
+    'dodgerBlue1',
     'dodgerBlue2',
     'dodgerBlue3',
     'dodgerBlue4',
@@ -310,7 +311,7 @@ COLOR_NAMES = [
     'royalBlue2',
     'royalBlue3',
     'royalBlue4',
-    'blue',
+    'blue1',
     'blue2',
     'blue3',
     'blue4',
@@ -318,14 +319,14 @@ COLOR_NAMES = [
     'midnightBlue',
 
     'lavender',
-    'lightSlateBlue',
+    #'lightSlateBlue',  # similar to slateBlue1
     'slateBlue1',
-    'mediumSlateBlue',
+    #'mediumSlateBlue',  # similar to slateBlue2
     'slateBlue2',
-    'slateBlue',
+    #'slateBlue',  # similar to slateBlue3
     'slateBlue3',
     'slateBlue4',
-    'darkSlateBlue',
+    #'darkSlateBlue',  # similar to slateBlue4
     'mediumPurple1',
     'mediumPurple2',
     'mediumPurple',
@@ -345,7 +346,7 @@ COLOR_NAMES = [
     'mediumOrchid4',
     'darkOrchid1',
     'darkOrchid2',
-    'darkOrchid',
+    #'darkOrchid',  # similar to darkOrchid3
     'darkOrchid3',
     'darkOrchid4',
 
@@ -374,7 +375,7 @@ COLOR_NAMES = [
     'maroon3',
     'maroon',
     'maroon4',
-    'deepPink',
+    'deepPink1',
     'deepPink2',
     'deepPink3',
     'deepPink4',
@@ -391,10 +392,10 @@ COLOR_NAMES = [
     'violetRed1',
     'violetRed2',
     'violetRed',
-    'mediumVioletRed',
+    #'mediumVioletRed',  # name is too long
     'violetRed3',
     'violetRed4',
-    'lavenderBlush',
+    'lavenderBlush1',
     'lavenderBlush2',
     'lavenderBlush3',
     'lavenderBlush4',
@@ -409,14 +410,14 @@ COLOR_NAMES = [
     'lightPink2',
     'lightPink3',
     'lightPink4',
-    'mistyRose',
+    'mistyRose1',
     'mistyRose2',
     'mistyRose3',
     'mistyRose4',
-    'snow',
+    'snow1',
     'snow2',
     'snow3',
-    'snow4',
+    #'snow4',  # similar to gray54
 
     'white',
     'gray99',
@@ -432,12 +433,12 @@ COLOR_NAMES = [
     'gray89',
     'gray88',
     'gray87',
-    'gainsboro',
+    #'gainsboro',  # similar to gray86
     'gray86',
     'gray85',
     'gray84',
     'gray83',
-    'lightGray',
+    #'lightGray',  # similar to gray83
     'gray82',
     'gray81',
     'gray80',
@@ -454,7 +455,7 @@ COLOR_NAMES = [
     'gray69',
     'gray68',
     'gray67',
-    'darkGray',
+    #'darkGray',  # similar to gray66
     'gray66',
     'gray65',
     'gray64',
@@ -471,7 +472,7 @@ COLOR_NAMES = [
     'gray53',
     'gray52',
     'gray51',
-    'gray',
+    #'gray',  # similar to gray50
     'gray50',
     'gray49',
     'gray48',
@@ -526,32 +527,52 @@ COLOR_NAMES = [
 ]
 
 
-def main():
-    MAX_ROWS = 39
-    FONT_SIZE = 10  # (pixels)
+def distance(rgb1, rgb2):
+    dr = rgb2[0] - rgb1[0]
+    dg = rgb2[1] - rgb1[1]
+    db = rgb2[2] - rgb1[2]
+    return math.ceil(math.sqrt(dr*dr + dg*dg + db*db))
 
-    root = Tk()
+
+def main():
+    rgb_dict = {}
+    NUM_ROWS = 53
+    FONT_SIZE = 10  # font size in pixels
+    HALF_INTENSITY = 2**15
+
+    root = tk.Tk()
     root.title("Named Color Chart")
     row = 0
     col = 0
+    ignore = 0
+    thresh = 1000
     for color_name in COLOR_NAMES:
-        rgb = root.winfo_rgb(color_name)
-        print(color_name, rgb)
-        intens = rgb[0] * 0.2989 + rgb[1] * 0.587 + rgb[2] * 0.1141
-        fgcolor = 'black' if intens > 32767 else 'white'
-        elem = Label(root, text=color_name,
-                bg=color_name, fg=fgcolor, font=(None, -FONT_SIZE))
-        elem.grid(row=row, column=col, sticky=E+W)
+        if row >= ignore:
+            rgb = root.winfo_rgb(color_name)
+            if rgb in rgb_dict:
+                print(f"Duplicate colors: {rgb_dict[rgb]} and {color_name}")
+            else:
+                for rgb1 in rgb_dict.keys():
+                    dist = distance(rgb1, rgb)
+                    if dist < thresh:
+                        print(f"Similar colors ({dist}): {rgb_dict[rgb1]} and {color_name}")
+                rgb_dict[rgb] = color_name
+            print(rgb, color_name)
+
+            intens = rgb[0] * 0.2989 + rgb[1] * 0.587 + rgb[2] * 0.1141
+            fgcolor = 'black' if intens >= HALF_INTENSITY else 'white'
+            elem = tk.Label(root, text=color_name,
+                    bg=color_name, fg=fgcolor, font=(None, -FONT_SIZE))
+            elem.grid(row=row-ignore, column=col, sticky=tk.E+tk.W)
         row += 1
-        if (row == MAX_ROWS):
+        if color_name in ["plum4", "mistyRose4", "gray52"]:
+            row += 1
+        if (row == NUM_ROWS):
             row = 0
             col += 1
 
+    print(f"Number of color names: {len(COLOR_NAMES)}", flush=True)
     root.mainloop()
-
-
-def rgbFromName(root, name):
-    return root.winfo_rgb(name)
 
 
 main()
