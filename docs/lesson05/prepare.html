@@ -225,9 +225,10 @@ from pytest import approx
 import pytest
 
 def test_cels_from_fahr():
-    """Test the cels_from_fahr function by calling it and comparing
-    the values it returns to the expected values. Notice this test
-    function uses pytest.approx to compare floating point numbers.
+    """Test the cels_from_fahr function by calling it and
+    comparing the values it returns to the expected values.
+    Notice this test function uses pytest.approx to compare
+    floating point numbers.
     """
     assert cels_from_fahr(-25) == approx(-31.66667)
     assert cels_from_fahr(0) == approx(-17.77778)
@@ -239,7 +240,7 @@ def test_cels_from_fahr():
 pytest.main(["-v", "--tb=line", "-rN", __file__])</pre></div>
 
     <p>Notice in <code>test_weather.py</code> at
-    <span class="cross" data-ref="ex6">lines&nbsp;12&ndash;15</span>
+    <span class="cross" data-ref="ex6">lines&nbsp;13&ndash;16</span>
     that the test function
     <code>test_cels_from_fahr</code>
     calls the program function <code>cels_from_fahr</code> four
@@ -249,26 +250,26 @@ pytest.main(["-v", "--tb=line", "-rN", __file__])</pre></div>
 
     <p>After writing the test function, we use <code>pytest</code> to
     run the test function. At
-    <span class="cross" data-ref="ex6">line&nbsp;19</span>,
+    <span class="cross" data-ref="ex6">line&nbsp;20</span>,
     instead of writing a call to the <code>main</code> function as we do
     in program files, we write a call to <code>pytest.main</code>. In
     CSE&nbsp;111, at the bottom of all test files, we will write a call
     to <code>pytest.main</code> exactly as shown on
-    <span class="cross" data-ref="ex6">line&nbsp;19</span>. This call to
+    <span class="cross" data-ref="ex6">line&nbsp;20</span>. This call to
     <code>pytest.main</code> will cause the <code>pytest</code> module
     to run our test functions. When <code>pytest</code> runs our test
     functions, it will produce output that tells us if the tests passed
     or failed like this:</p>
 
-<pre class="console" data-for="ex6">&gt; python test_weather.py
-========================= test session starts =========================
-platform win32--Python 3.8.6, pytest-6.1.2, py-1.9.0, pluggy-0.13.1
+<pre class="console">&gt; python test_weather.py
+===================== test session starts ======================
+platform win32--Python 3.8.6, pytest-6.1.2, py-1.9.0, pluggy-0.1
 rootdir: C:\Users\cse111\lesson05
 collected 1 item
 
-test_weather.py::test_cels_from_fahr <span class="pass">PASSED                      [100%]</span>
+test_weather.py::test_cels_from_fahr <span class="pass">PASSED               [100%]</span>
 
-<span class="pass">========================== 1 passed in 0.10s ==========================</span></pre>
+<span class="pass">====================== 1 passed in 0.10s =======================</span></pre>
 
     <p>As shown above, <code>pytest</code> runs the
     <code>test_cels_from_fahr</code> function which calls the

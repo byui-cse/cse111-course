@@ -54,9 +54,9 @@
     <h2>Assignment</h2>
     <p>Write the second half of the Python program that you began in the
     previous lesson's <a href="../lesson05/prove.html">prove milestone</a>,
-    a program that generates simple English sentences. During this
-    lesson, you will write and test functions that generate sentences
-    with four parts:</p>
+    a program that generates simple English sentences. During this prove
+    assignment, you will write and test functions that generate
+    sentences with four parts:</p>
     <ol>
         <li><div>a determiner</div></li>
         <li><div>a noun</div></li>
@@ -72,16 +72,16 @@
     Some children laugh at many dogs.<br>
     Some rabbits will talk about some cats.</blockquote>
 
-    <p>After this lesson, your program must include at least these
+    <p>After this assignment, your program must include at least these
     six functions:</p>
-    <ul>
+    <ol>
         <li><div><code>main</code></div></li>
         <li><div><code>get_determiner</code></div></li>
         <li><div><code>get_noun</code></div></li>
         <li><div><code>get_verb</code></div></li>
         <li><div><code>get_preposition</code></div></li>
         <li><div><code>get_prepositional_phrase</code></div></li>
-    </ul>
+    </ol>
 
     <p>You may add other functions if you want. The
     <code>get_preposition</code> function must randomly choose a
@@ -89,6 +89,17 @@
     The <code>get_prepositional_phrase</code> function must make a
     prepositional phrase by calling the <code>get_preposition</code>,
     <code>get_determiner</code>, and <code>get_noun</code> functions.</p>
+
+    <p>In addition, for this prove assignment, you must write and submit
+    a file named <code>test_senetences.py</code> that contains five
+    functions named as follows:</p>
+    <ol>
+        <li><div><code>test_get_determiner</code></div></li>
+        <li><div><code>test_get_noun</code></div></li>
+        <li><div><code>test_get_verb</code></div></li>
+        <li><div><code>test_get_preposition</code></div></li>
+        <li><div><code>test_get_prepositional_phrase</code></div></li>
+    </ol>
 
     <h2>Helpful Documentation</h2>
     <p>The <a href="prepare.html">prepare content</a> for this lesson
@@ -99,8 +110,8 @@
     <p>Do the following:</p>
     <ol class="long">
         <li><div>Use the <code>get_determiner</code> function from the
-        previous lesson as an example to help you write the
-        <code>get_preposition</code> function. The
+        previous milestone assignment as an example to help you write
+        the <code>get_preposition</code> function. The
         <code>get_preposition</code> function must have the following
         header and fulfill the requirements of the following
         documentation string.
@@ -133,7 +144,7 @@ def get_prepositional_phrase(quantity):
     Parameter
         quantity: an integer that determines if the determiner
             and noun in the prepositional phrase returned from
-            this function are singular or pluaral.
+            this function are single or pluaral.
     Return: a prepositional phrase.
     """</pre></div>
         </div></li>
@@ -147,16 +158,17 @@ def get_prepositional_phrase(quantity):
         <table><thead>
             <tr><th></th> <th>Quantity</th> <th>Verb Tense</th></tr>
         </thead><tbody>
-            <tr><td>a.</td> <td>singular</td> <td>past</td></tr>
-            <tr><td>b.</td> <td>singular</td> <td>present</td></tr>
-            <tr><td>c.</td> <td>singular</td> <td>future</td></tr>
+            <tr><td>a.</td> <td>single</td> <td>past</td></tr>
+            <tr><td>b.</td> <td>single</td> <td>present</td></tr>
+            <tr><td>c.</td> <td>single</td> <td>future</td></tr>
             <tr><td>d.</td> <td>plural</td> <td>past</td></tr>
             <tr><td>e.</td> <td>plural</td> <td>present</td></tr>
             <tr><td>f.</td> <td>plural</td> <td>future</td></tr>
         </tbody></table>
         </div></li>
 
-        <li><div><p>In the <code>test_sentences.py</code> file write two
+        <li><div><p>In the <code>test_sentences.py</code> file that you
+        wrote during the previous milestone assignment, write two
         functions named <code>test_get_preposition</code> and
         <code>test_get_prepositional_phrase</code> that test the
         <code>get_preposition</code> and
@@ -193,18 +205,18 @@ def get_prepositional_phrase(quantity):
         shown in this output:
 
 <pre class="console">&gt; python test_sentences.py
-==================== test session starts =====================
-platform win32--Python 3.8.6, pytest-6.1.2, py-1.9.0, pluggy-0
+=================== test session starts ====================
+platform win32--Python 3.8.6, pytest-6.1.2, py-1.9.0, pluggy
 rootdir: C:\Users\cse111\lesson06
 collected 5 items
 
-test_sentences.py::test_get_determiner <span class="pass">PASSED           [ 20%]</span>
-test_sentences.py::test_get_noun <span class="pass">PASSED                 [ 40%]</span>
-test_sentences.py::test_get_verb <span class="pass">PASSED                 [ 60%]</span>
-test_sentences.py::test_get_preposition <span class="pass">PASSED          [ 80%]</span>
+test_sentences.py::test_get_determiner <span class="pass">PASSED         [ 20%]</span>
+test_sentences.py::test_get_noun <span class="pass">PASSED               [ 40%]</span>
+test_sentences.py::test_get_verb <span class="pass">PASSED               [ 60%]</span>
+test_sentences.py::test_get_preposition <span class="pass">PASSE         [ 80%]</span>
 test_sentences.py::test_get_prepositional_phrase <span class="pass">PASSED [100%]</span>
 
-<span class="pass">===================== 5 passed in 0.10s ======================</span></pre>
+<span class="pass">==================== 5 passed in 0.10s =====================</span></pre>
         </div></li>
 
         <li><div>Run your sentences.py program and ensure that your
@@ -232,9 +244,9 @@ Some rabbits will talk about some cats.</pre>
     is optional.</p>
 
     <ul class="long">
-        <li><div>Within your <code>main</code> function add one or more
-        calls to <code>get_prepositional_phrase</code> so that each
-        sentence includes two prepositional phrases like this:
+        <li><div>Within your <code>main</code> function add another call
+        to <code>get_prepositional_phrase</code> so that each sentence
+        includes two prepositional phrases like this:
 
         <blockquote>One girl across one cat talked for the car.<br>
         A bird near the rabbit drinks off one child.<br>
@@ -250,9 +262,17 @@ Some rabbits will talk about some cats.</pre>
         call <code>get_adjective</code> in your
         <code>get_prepositional_phrase</code> function?</div></li>
 
+        <li><div>In <code>test_sentences.py</code> write a function
+        named <code>test_get_adjective</code> that tests the
+        <code>get_adjective</code> function.</div></li>
+
         <li><div>Write a function named <code>get_adverb</code> and
         call it in your <code>main</code> function to add an adverb to
         the sentences produced by your program.</div></li>
+
+        <li><div>In <code>test_sentences.py</code> write a function
+        named <code>test_get_adverb</code> that tests the
+        <code>get_adverb</code> function.</div></li>
     </ul>
 
     <h2>Ponder</h2>

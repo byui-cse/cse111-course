@@ -74,9 +74,10 @@
     The cat will walk.</blockquote>
 
     <h2>Assignment</h2>
-    <p>Write a Python program that generates simple English sentences.
-    During this lesson, you will write and test functions that generate
-    sentences with three parts:</p>
+    <p>Write a Python program named <code>sentences.py</code> that
+    generates simple English sentences. During this lesson, you will
+    write and test functions that generate sentences with three
+    parts:</p>
     <ol>
         <li><div>a determiner (sometimes known as an article)</div></li>
         <li><div>a noun</div></li>
@@ -91,30 +92,31 @@
     Many dogs run.<br>
     Many men will write.</blockquote>
 
-    <p>During the next lesson, you will write and test functions that
-    generate English sentences with the three parts and a prepositional
-    phrase, such as these sentences:</p>
-
-    <blockquote>One girl talked for the car.<br>
-    A bird drinks off one child.<br>
-    The child will run on the car.<br>
-    Some dogs drank above many rabbits.<br>
-    Some children laugh at many dogs.<br>
-    Some rabbits will talk about some cats.</blockquote>
-
     <p>For this milestone assignment, your program must include at least
     these four functions:</p>
-    <ul>
+    <ol>
         <li><div><code>main</code></div></li>
         <li><div><code>get_determiner</code></div></li>
         <li><div><code>get_noun</code></div></li>
         <li><div><code>get_verb</code></div></li>
-    </ul>
+    </ol>
 
-    <p>You may add other functions if you want. The functions
+    <p>You may add other program functions if you want. The functions
     <code>get_determiner</code>, <code>get_noun</code>, and
     <code>get_verb</code>, must randomly choose a word from a list of
     words and return the randomly chosen word.</p>
+
+    <p>In addition, for this milestone assignment, you must write a file
+    named <code>test_senetences.py</code> that contains three functions
+    named as follows:</p>
+    <ol>
+        <li><div><code>test_get_determiner</code></div></li>
+        <li><div><code>test_get_noun</code></div></li>
+        <li><div><code>test_get_verb</code></div></li>
+    </ol>
+
+    <p>All the functions that you must write for this milestone
+    assignment are described in the Steps section below.</p>
 
     <h2>Helpful Documentation</h2>
     <ul class="long">
@@ -186,9 +188,9 @@ print(cap_word)</pre></div>
 def get_determiner(quantity):
     """Return a randomly chosen determiner. A determiner is
     a word like "the", "a", "one", "two", "some", "many".
-    If quantity == 1, this function will return
-    either "the" or "one". Otherwise this function will
-    return either "some" or "many".
+    If quantity == 1, this function will return either "a",
+    "one", or "the". Otherwise this function will return
+    either "two", "some", "many", or "the".
 
     Parameter
         quantity: an integer.
@@ -220,14 +222,14 @@ def get_noun(quantity):
     return one of these ten single nouns:
         "bird", "boy", "car", "cat", "child",
         "dog", "girl", "man", "rabbit", "woman"
-    Otherwise, this function will return one of these
-    ten plural nouns:
+    Otherwise, this function will return one of
+    these ten plural nouns:
         "birds", "boys", "cars", "cats", "children",
         "dogs", "girls", "men", "rabbits", "women"
 
     Parameter
-        quantity: an integer that determines
-            if the returned noun is single or plural.
+        quantity: an integer that determines if
+            the returned noun is single or plural.
     Return: a randomly chosen noun.
     """</pre></div>
         </div></li>
@@ -240,8 +242,8 @@ def get_noun(quantity):
 
 <div class="pre"><pre class="python">
 def get_verb(quantity, tense):
-    """Return a randomly chosen verb. If tense is "past", this
-    function will return one of these ten verbs:
+    """Return a randomly chosen verb. If tense is "past",
+    this function will return one of these ten verbs:
         "drank", "ate", "grew", "laughed", "thought",
         "ran", "slept", "talked", "walked", "wrote"
     If tense is "present" and quantity is 1, this
@@ -283,16 +285,17 @@ def get_verb(quantity, tense):
         </tbody></table>
         </div></li>
 
-        <li><div>In a new file named test_sentences.py, write three test
-        functions named <code>test_get_determiner</code>,
-        <code>test_get_noun</code>, and <code>test_get_verb</code>.
-        Each of these three test functions must test one of the program
-        functions:&nbsp; <code>get_determiner</code>, <code>get_noun</code>,
-        and <code>get_verb</code>. The following example contains code
-        for the <code>test_get_determiner</code> function. Copy and
-        paste the code into your <code>test_sentences.py</code> file and
-        use it as an example to help you write
-        <code>test_get_noun</code> and <code>test_get_verb</code>.
+        <li><div>In a new file named <code>test_sentences.py</code>,
+        write three test functions named
+        <code>test_get_determiner</code>, <code>test_get_noun</code>,
+        and <code>test_get_verb</code>. Each of these three test
+        functions must test one of the program functions:&nbsp;
+        <code>get_determiner</code>, <code>get_noun</code>, and
+        <code>get_verb</code>. The following example contains code for
+        the <code>test_get_determiner</code> function. Copy and paste
+        the code into your <code>test_sentences.py</code> file and use
+        it as an example to help you write <code>test_get_noun</code>
+        and <code>test_get_verb</code>.
 
 <div class="pre"><pre class="python">
 from sentences import get_determiner, get_noun, get_verb
@@ -341,16 +344,16 @@ def test_get_determiner():
         shown in this output:
 
 <pre class="console">&gt; python test_sentences.py
-==================== test session starts =====================
-platform win32--Python 3.8.6, pytest-6.1.2, py-1.9.0, pluggy-0
+=================== test session starts ====================
+platform win32--Python 3.8.6, pytest-6.1.2, py-1.9.0, pluggy
 rootdir: C:\Users\cse111\lesson05
 collected 3 items
 
-test_sentences.py::test_get_determiner <span class="pass">PASSED           [ 33%]</span>
-test_sentences.py::test_get_noun <span class="pass">PASSED                 [ 66%]</span>
-test_sentences.py::test_get_verb <span class="pass">PASSED                 [100%]</span>
+test_sentences.py::test_get_determiner <span class="pass">PASSED         [ 33%]</span>
+test_sentences.py::test_get_noun <span class="pass">PASSED               [ 66%]</span>
+test_sentences.py::test_get_verb <span class="pass">PASSED               [100%]</span>
 
-<span class="pass">===================== 3 passed in 0.10s ======================</span></pre>
+<span class="pass">==================== 3 passed in 0.10s =====================</span></pre>
         </div></li>
 
         <li><div>Run your <code>sentences.py</code> program and ensure
