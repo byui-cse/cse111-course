@@ -202,38 +202,6 @@ def draw_rectangle(canvas, x0, y0, x1, y1, *,
             width=width, outline=outline, fill=fill)
 
 
-def draw_triangle(canvas, x0, y0, x1, y1, x2, y2, *,
-        width=1, outline="black", fill=""):
-    """Draw a triangle with vertices (x0, y0), (x1, y1), (x2, y2).
-
-    Parameters
-        canvas: the canvas returned from the start_drawing function
-        width: the width of the triangle's outline; default is 1 pixel
-        outline: the color of the triangle's outline; default is black
-        fill: the color of the triangle's interior; default is "" which
-            means transparent
-    Return: nothing
-    """
-    assert _started, \
-        "your program must call start_drawing before it calls draw_triangle"
-    assert isinstance(canvas, Canvas), _wrong_type(canvas, "canvas", "Canvas")
-    assert isinstance(x0, Number), _wrong_type(x0, "x0", "number")
-    assert isinstance(y0, Number), _wrong_type(y0, "y0", "number")
-    assert isinstance(x1, Number), _wrong_type(x1, "x1", "number")
-    assert isinstance(y1, Number), _wrong_type(y1, "y1", "number")
-    assert isinstance(x2, Number), _wrong_type(x2, "x2", "number")
-    assert isinstance(y2, Number), _wrong_type(y2, "y2", "number")
-    assert isinstance(width, Number), \
-        _wrong_type(width, "width", "number") + " greater than or equal to 0"
-    assert width >= 0, _less_than(width, "width", 0)
-    assert isinstance(outline, str), _wrong_type(outline, "outline", "string")
-    assert isinstance(fill, str),    _wrong_type(fill, "fill", "string")
-
-    height = canvas.winfo_height()
-    canvas.create_polygon(x0, height-y0, x1, height-y1, x2, height-y2,
-            width=width, outline=outline, fill=fill)
-
-
 def draw_polygon(canvas, x0, y0, x1, y1, x2, y2, *args,
         width=1, outline="black", fill=""):
     """Draw a polygon with vertices (x0, y0), (x1, y1), ... (xn, yn).

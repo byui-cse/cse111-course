@@ -169,7 +169,7 @@ def main():
 if __name__ == "__main__":
     main()</pre></div>
 
-<pre class="console" data-for="ex2">&gt; python fabrics.py
+<pre class="console" data-for="ex2">&gt; python example_2.py
 ['chiffon', 'velvet', 'denim', 'gingham']
 gingham is in the list.
 The fabrics list contains 2 elements.
@@ -277,29 +277,83 @@ if __name__ == "__main__":
 73
 70</pre>
 
-    <h4>break</h4>
-    <p>A <code>break</code> statement causes a loop to end early. In
-    example&nbsp;5 at
-    <span class="cross" data-ref="ex5">line&nbsp;8</span>, there is a
-    <code>for</code> loop that asks the user to input ten numbers one at
-    a time. However, the loop will terminate early if the user enters a
-    zero (0) because of the <code>break</code> statement at
-    <span class="cross" data-ref="ex5">line&nbsp;11</span>. The
-    <code>for</code> loop in example&nbsp;5 uses underscore (_) as the
-    counting variable, which is a valid variable name in Python. Many
-    Python programmers use underscore as the name of the counting
-    variable to indicate that the counting variable will not be used
-    within the body of the loop.</p>
+    <p>In the next example at
+    <span class="cross" data-ref="ex5">lines&nbsp;8&ndash;9</span> and
+    <span class="cross" data-ref="ex5">lines&nbsp;15&ndash;17</span>,
+    there are two <code>for</code> loops. Both loops print each element
+    a list named <var>colors</var>. The first loop iterates over the
+    elements in the <var>colors</var> list. The second loop iterates
+    over the indexes of the <var>colors</var> list. Which style of
+    <code>for</code> loop do you prefer to read and write? Most
+    programmers prefer to write a loop like the one at
+    <span class="cross" data-ref="ex5">line&nbsp;8</span> because it is
+    simpler than the one at
+    <span class="cross" data-ref="ex5">line&nbsp;15</span>.</p>
 
 <div class="pre" id="ex5"><pre class="linenums"></pre>
 <pre class="python"># Example 5
+
+def main():
+    # Create a list of color names.
+    colors = ["red", "orange", "yellow", "green", "blue"]
+
+    # Use a for loop to print each element in the list.
+    <em>for color in colors:</em>
+        print(color)
+
+    print()
+
+    # Use a different for loop to
+    # print each element in the list.
+    <em>for i in range(len(colors)):
+        color = colors[i]</em>
+        print(color)
+
+    # Of course, the code in the body of a loop can do
+    # much more with each element than simply print it.
+
+
+# Call main to start this program.
+if __name__ == "__main__":
+    main()</pre></div>
+
+<pre class="console" data-for="ex5">&gt; python example_5.py
+red
+orange
+yellow
+green
+blue
+
+red
+orange
+yellow
+green
+blue</pre>
+
+    <p>In the previous example, the code in the body of both
+    <code>for</code> loops is very short and simply prints one element
+    from the list each time through the loop. However, you can write as
+    many lines of code as you need in the body of a loop to repeatedly
+    perform all sorts of computations for each element in a list.</p>
+
+    <h4>break</h4>
+    <p>A <code>break</code> statement causes a loop to end early. In
+    example&nbsp;6 at
+    <span class="cross" data-ref="ex6">line&nbsp;8</span>, there is a
+    <code>for</code> loop that asks the user to input ten numbers one at
+    a time. However, the loop will terminate early if the user enters a
+    zero (0) because of the <code>break</code> statement at
+    <span class="cross" data-ref="ex6">line&nbsp;11</span>.</p>
+
+<div class="pre" id="ex6"><pre class="linenums"></pre>
+<pre class="python"># Example 6
 
 def main():
     sum = 0
 
     # Get ten or fewer numbers from the user and
     # add them together.
-    <em>for _ in range(10):</em>
+    <em>for i in range(10):</em>
         number = float(input("Please enter a number: "))
         if number == 0:
             <em>break</em>
@@ -313,53 +367,17 @@ def main():
 if __name__ == "__main__":
     main()</pre></div>
 
-<pre class="console" data-for="ex5">&gt; python add_numbers.py
+<pre class="console" data-for="ex6">&gt; python example_6.py
 Please enter a number: 6
 Please enter a number: 4
 Please enter a number: -2
 Please enter a number: 0
 sum: 8.0</pre>
 
-    <h4>for each</h4>
-    <p>In example&nbsp;6 at
-    <span class="cross" data-ref="ex6">line&nbsp;10</span>,
-    there is a <code>for</code> loop that processes all the elements in
-    a list. The code in the body of the <code>for</code> loop is very
-    small and simply prints one element from the list each time through
-    the loop. However, we can write as much code as we need in the body
-    of a loop to repeatedly perform all sorts of computations for each
-    element in the list.</p>
-
-<div class="pre" id="ex6"><pre class="linenums"></pre>
-<pre class="python"># Example 6
-
-def main():
-    # Create a list.
-    colors = ["red", "orange", "yellow", "green", "blue"]
-
-    # Use a for loop to print each element in the list.
-    # Of course, the code in the body of a loop can do
-    # much more with each element than simply print it.
-    <em>for color in colors:
-        print(color)</em>
-
-
-# Call main to start this program.
-if __name__ == "__main__":
-    main()</pre></div>
-
-<pre class="console" data-for="ex6">&gt; python print_colors.py
-red
-orange
-yellow
-green
-blue</pre>
-
     <h4>while</h4>
-    <p>A <code>while</code> loop is more flexible than a
-    <code>for</code> loop and repeats while some condition is true. The
-    program in example&nbsp;7 is a number guessing game that repeatedly
-    asks the user to guess a number between 1 and 100. At
+<!--
+    The program in example&nbsp;7 is a number guessing game that
+    repeatedly asks the user to guess a number between 1 and 100. At
     <span class="cross" data-ref="ex7">line&nbsp;21</span> the program
     includes a <code>while</code> loop, which will cause the computer to
     repeatedly execute the statements at
@@ -423,6 +441,109 @@ Please enter an integer between 1 and 100: 50
 
 56 is correct!
 You used 4 guesses to guess the number.</pre>
+-->
+
+    <p>A <code>while</code> loop is more flexible than a
+    <code>for</code> loop and repeats while some condition is true. What
+    if we need a function to compare the contents of two lists? Can we
+    use a loop to compare the contents of two lists? Example&nbsp;7
+    contains a <code>while</code> loop at
+    <span class="cross" data-ref="ex7">line&nbsp;35</span> with an
+    <code>if</code> statement at
+    <span class="cross" data-ref="ex7">line&nbsp;42</span> that finds
+    the first index where two lists differ.</p>
+
+<div class="pre" id="ex7"><pre class="linenums"></pre>
+<pre class="python"># Example 7
+
+def main():
+    list1 = ["red", "orange", "yellow", "green", "blue"]
+    list2 = ["red", "orange", "green", "green", "blue"]
+
+    index = compare_lists(list1, list2)
+    if index == -1:
+        print("The contents of list1 and list2 are equal")
+    else:
+        print(f"list1 and list2 differ at index {index}")
+
+
+def compare_lists(list1, list2):
+    """Compare the contents of two lists. If the contents
+    of the two lists are not equal, return the index of
+    the first difference. If the contents of the two lists
+    are equal, return -1.
+
+    Parameters:
+        list1 - a list
+        list2 - another list
+    Return: an index or -1
+    """
+    # Get the length of the shortest list.
+    length1 = len(list1)
+    length2 = len(list2)
+    limit = min(length1, length2)
+
+    # Begin at the first index (0) and repeat until the
+    # computer finds two elements that are not equal or
+    # until the computer reaches the end of the shortest
+    # list, whichever comes first.
+    i = 0
+    <em>while i &lt; limit:</em>
+        # Retrieve one element from each list.
+        element1 = list1[i]
+        element2 = list2[i]
+
+        # If the two elements are not
+        # equal, quit the while loop.
+        <em>if element1 != element2:
+            break</em>
+
+        # Add one to the index variable.
+        i += 1
+
+    # If the length of both lists are equal and the
+    # computer verified that all elements are equal,
+    # set i to -1 to indicate that the contents of
+    # the two lists are equal.
+    if length1 == length2 == i:
+        i = -1
+
+    return i
+
+
+# Call main to start this program.
+if __name__ == "__main__":
+    main()</pre></div>
+
+<!--
+def test_compare_lists():
+    test_cases = [
+        [[], [], -1],
+        [[3], [3], -1],
+        [[1, 3, 5], [1, 3, 5], -1],
+        [[3], [], 0],
+        [[], [5], 0],
+        [[3], [5], 0],
+        [[3], [3, 5], 1],
+        [[3, 5], [3], 1],
+        [[3, 1], [5, 1], 0],
+        [[1, 3], [1, 5], 1],
+        [[1, 3, 7], [1, 5, 7], 1],
+        [[1, 3, 7], [1, 5, 9], 1],
+    ]
+
+    for list1, list2, expected in test_cases:
+        actual = compare_lists(list1, list2)
+        assert actual == expected, \
+            f"comparing {list1} to {list2}; expected {expected} but found {actual}"
+
+# Call the main function that is part of pytest so that the
+# computer will execute the test functions in this file.
+pytest.main(["-v", "--tb=line", "-rN", __file__])
+-->
+
+<pre class="console" data-for="ex7">&gt; python example_7.py
+list1 and list2 differ at index 2</pre>
 
     <h3 id="passByRef">Values and References</h3>
     <p>In a Python program, the computer assigns values to variables
@@ -463,14 +584,14 @@ After changing x:  <em>x 18  y 17</em></pre>
         adds one to the value of <var>x</var>, making its value 18
         instead of 17.</div></li>
         <li><div><span class="cross" data-ref="ex8">Line&nbsp;8</span>
-        prints the values of <var>x</var> and <var>y</var>. The value of
-        <var>x</var> was changed to 18. The value of <var>y</var>
-        remained unchanged.</div></li>
+        prints the values of <var>x</var> and <var>y</var> again. The
+        value of <var>x</var> was changed to 18. The value of
+        <var>y</var> remained unchanged.</div></li>
     </ul>
 
     <p>Why did <span class="cross" data-ref="ex8">line&nbsp;7</span>
     (<code>x += 1</code>) change the value of <var>x</var> but not
-    change the value of <var>y</var>? Because
+    change the value of <var>y</var>&thinsp;? Because
     <span class="cross" data-ref="ex8">line&nbsp;5</span>
     copied <em>the value</em> that was in <var>x</var> into
     <var>y</var>.</p>
@@ -526,11 +647,11 @@ After changing lx:  <em>lx [7, -2, 5]  ly [7, -2, 5]</em></pre>
     </ul>
 
     <p>Why does it appear that appending the number 5 onto <var>lx</var>
-    also appended the number 5 onto <var>ly</var>? Because <var>lx</var>
-    and <var>ly</var> refer to the same list. There is really only one
-    list with two references to that list. Because <var>lx</var> and
-    <var>ly</var> refer to the same list, a change to the list through
-    variable <var>lx</var> can be seen through variable
+    also appended the number 5 onto <var>ly</var>&thinsp;? Because
+    <var>lx</var> and <var>ly</var> refer to the same list. There is
+    really only one list with two references to that list. Because
+    <var>lx</var> and <var>ly</var> refer to the same list, a change to
+    the list through variable <var>lx</var> can be seen through variable
     <var>ly</var>.</p>
 
     <p>From examples&nbsp;8 and&nbsp;9, we learn that when a computer
@@ -672,9 +793,9 @@ After calling modify_args():  x 5  <em>lx [7, -2, 4]</em></pre>
     always zero (0). The built-in <code>len</code> function will return
     the number of elements stored in a list. The index of the last
     element in a Python list is always one less than the length of the
-    list. A compound list is a list that stores smaller lists. You can
-    write a <code>for</code> each loop that processes each element in a
-    list.</p>
+    list. A compound list is a list that stores smaller lists. To
+    process each element in a list, you can write a <code>for</code>
+    loop or a <code>while</code> loop.</p>
 
     <p>During this lesson, you are also learning the difference between
     passing arguments into a function by value and by reference. Numbers

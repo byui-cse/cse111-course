@@ -386,7 +386,7 @@ article div.figure.full {
 }
 
 article div.figure.center {
-	margin: 1em auto;
+	text-align: center;
 }
 
 article div.figure.right {

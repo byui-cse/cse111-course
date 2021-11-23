@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>CSE 111 - Prove</title>
+    <title>Draw 2-D Library</title>
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-database.js"></script>
     <script src="../site/url.js"></script>
@@ -35,24 +35,25 @@
     <p>The Draw 2-D library contains functions that draw shapes on a
     canvas in a computer window. To use the Draw 2-D library, a program
     must do the following:</p>
-    <ol>
+    <ol class="long">
         <li><div>Import the library's functions</div></li>
-        <li><div>Call the <code>start_drawing</code> function once</div></li>
+
+        <li><div>Call the <code>start_drawing</code> function once. The
+        <code>start_drawing</code> function returns a canvas, that your
+        code must pass to each of the draw_* functions.</div></li>
+
         <li><div>Call the <code>draw_line</code>, <code>draw_oval</code>,
         <code>draw_arc</code>, <code>draw_rectangle</code>,
-        <code>draw_triangle</code>, <code>draw_polygon</code>, and
-        <code>draw_text</code> functions as many times as needed</div></li>
-        <li><div>Call the <code>finish_drawing</code> function once</div></li>
-    </ol>
+        <code>draw_polygon</code>, and <code>draw_text</code> functions
+        as many times as needed. The draw_* functions accept Euclidean
+        coordinates that determine where a shape will be drawn on the
+        canvas. The origin of the canvas
+        <span class="nowrap">(0, 0)</span> is in the lower left corner
+        of the canvas.</div></li>
 
-    <p>The <code>start_drawing</code> function returns a canvas, that
-    your code must pass to each of the draw_* functions. The code that
-    you write to call <code>start_drawing</code> must specify the width
-    and height in pixels of the canvas. The draw_* functions accept
-    Euclidean coordinates that determine where a shape will be drawn on
-    the canvas. The origin of the canvas
-    <span class="nowrap">(0, 0)</span> is in the lower left corner of
-    the canvas.</p>
+        <li><div>Call the
+        <code>finish_drawing</code> function once</div></li>
+    </ol>
 
     <h2>Functions</h2>
     <p>The following functions are contained in the Draw 2-D library.</p>
@@ -63,17 +64,19 @@
         2-dimensional shapes.
         <h4>Parameters</h4>
         <ul>
-            <li><div><b>width</b>: the width in pixels of the
+            <li><div><b>width</b>:&nbsp; the width in pixels of the
             canvas</div></li>
-            <li><div><b>height</b>: the height in pixels of the
+            <li><div><b>height</b>:&nbsp; the height in pixels of the
             canvas</div></li>
-            <li><div><b>title</b>: the title that will appear in the
-            window's title bar</div></li>
+            <li><div><b>title</b>:&nbsp; the title that will appear in
+            the window's title bar</div></li>
         </ul>
         <h4>Return</h4>
         <ul>
             <li><div>the new canvas</div></li>
         </ul>
+        <h4>Example</h4>
+<div class="pre"><pre class="python">canvas = start_drawing(800, 500, "Scene")</pre></div>
         </dd>
 
         <dt>
@@ -84,20 +87,22 @@
 
         <h4>Parameters</h4>
         <ul>
-            <li><div><b>canvas</b>: the canvas returned from the
+            <li><div><b>canvas</b>:&nbsp; the canvas returned from the
             <code>start_drawing</code> function</div></li>
-            <li><div><b>x0, y0, x1, y1, &hellip; xn, yn</b>: the
+            <li><div><b>x0, y0, x1, y1, &hellip; xn, yn</b>:&nbsp; the
             coordinates for the segments of a line that this function
             will draw</div></li>
-            <li><div><b>width</b>: the line's width; default is 1
-            pixel</div></li>
-            <li><div><b>fill</b>: the line's color; default is
-            black</div></li>
+            <li><div><b>width</b>:&nbsp; the line's width. The default
+            is 1 pixel.</div></li>
+            <li><div><b>fill</b>:&nbsp; the line's color. The default is
+            black.</div></li>
         </ul>
         <h4>Return</h4>
         <ul>
             <li><div>nothing</div></li>
         </ul>
+        <h4>Example</h4>
+<div class="pre"><pre class="python">draw_line(canvas, 0, 5, 100, 50, width=10, fill="blue")</pre></div>
         </dd>
 
         <dt>
@@ -108,21 +113,24 @@
 
         <h4>Parameters</h4>
         <ul>
-            <li><div><b>canvas</b>: the canvas returned from the
+            <li><div><b>canvas</b>:&nbsp; the canvas returned from the
             <code>start_drawing</code> function</div></li>
-            <li><div><b>x0, y0, x1, y1</b>: the coordinates of a
+            <li><div><b>x0, y0, x1, y1</b>:&nbsp; the coordinates of a
             bounding box for the oval that this function will draw</div></li>
-            <li><div><b>width</b>: the width of the oval's outline;
-            default is 1 pixel</div></li>
-            <li><div><b>outline</b>: the color of the oval's outline;
-            default is black</div></li>
-            <li><div><b>fill</b>: the color of the oval's interior;
-            default is "" which means transparent</div></li>
+            <li><div><b>width</b>:&nbsp; the width of the oval's
+            outline. The default is 1 pixel. A width of 0 will draw an
+            oval without an outline.</div></li>
+            <li><div><b>outline</b>:&nbsp; the color of the oval's
+            outline. The default is black.</div></li>
+            <li><div><b>fill</b>:&nbsp; the color of the oval's interior.
+            The default is "" which means transparent.</div></li>
         </ul>
         <h4>Return</h4>
         <ul>
             <li><div>nothing</div></li>
         </ul>
+        <h4>Example</h4>
+<div class="pre"><pre class="python">draw_oval(canvas, 100, 100, 300, 200, fill="pink")</pre></div>
         </dd>
 
         <dt>
@@ -135,21 +143,23 @@
 
         <h4>Parameters</h4>
         <ul>
-            <li><div><b>canvas</b>: the canvas returned from the
+            <li><div><b>canvas</b>:&nbsp; the canvas returned from the
             <code>start_drawing</code> function</div></li>
-            <li><div><b>x0, y0, x1, y1</b>: the bounding box for the
+            <li><div><b>x0, y0, x1, y1</b>:&nbsp; the bounding box for the
             oval from which this function will draw a wedge</div></li>
-            <li><div><b>width</b>: the width of the oval's outline;
+            <li><div><b>width</b>:&nbsp; the width of the oval's outline;
             default is 1 pixel</div></li>
-            <li><div><b>outline</b>: the color of the oval's outline;
+            <li><div><b>outline</b>:&nbsp; the color of the oval's outline;
             default is black</div></li>
-            <li><div><b>fill</b>: the color of the oval's interior;
+            <li><div><b>fill</b>:&nbsp; the color of the oval's interior;
             default is "" which means transparent</div></li>
         </ul>
         <h4>Return</h4>
         <ul>
             <li><div>nothing</div></li>
         </ul>
+        <h4>Example</h4>
+<div class="pre"><pre class="python">draw_arc(canvas, 100, 100, 300, 200, start=180, extent=270)</pre></div>
         </dd>
 
         <dt>
@@ -161,47 +171,23 @@
 
         <h4>Parameters</h4>
         <ul>
-            <li><div><b>canvas</b>: the canvas returned from the
+            <li><div><b>canvas</b>:&nbsp; the canvas returned from the
             <code>start_drawing</code> function</div></li>
-            <li><div><b>x0, y0, x1, y1</b>: the bounding box for the
+            <li><div><b>x0, y0, x1, y1</b>:&nbsp; the bounding box for the
             rectangle that this function will draw</div></li>
-            <li><div><b>width</b>: the width of the rectangle's outline;
+            <li><div><b>width</b>:&nbsp; the width of the rectangle's outline;
             default is 1 pixel</div></li>
-            <li><div><b>outline</b>: the color of the rectangle's
+            <li><div><b>outline</b>:&nbsp; the color of the rectangle's
             outline; default is black</div></li>
-            <li><div><b>fill</b>: the color of the rectangle's interior;
+            <li><div><b>fill</b>:&nbsp; the color of the rectangle's interior;
             default is "" which means transparent</div></li>
         </ul>
         <h4>Return</h4>
         <ul>
             <li><div>nothing</div></li>
         </ul>
-        </dd>
-
-        <dt>
-<pre class="python">draw_triangle(canvas, x0, y0, x1, y1, x2, y2,
-        width=1, outline="black", fill="")</pre>
-        </dt>
-        <dd>Draw a triangle with vertices (x0,&nbsp;y0), (x1,&nbsp;y1),
-        (x2,&nbsp;y2).
-
-        <h4>Parameters</h4>
-        <ul>
-            <li><div><b>canvas</b>: the canvas returned from the
-            <code>start_drawing</code> function</div></li>
-            <li><div><b>x0, y0, x1, y1, x2, y2</b>: the coordinates of
-            the vertices that this function will draw</div></li>
-            <li><div><b>width</b>: the width of the triangle's outline;
-            default is 1 pixel</div></li>
-            <li><div><b>outline</b>: the color of the triangle's
-            outline; default is black</div></li>
-            <li><div><b>fill</b>: the color of the triangle's interior;
-            default is "" which means transparent</div></li>
-        </ul>
-        <h4>Return</h4>
-        <ul>
-            <li><div>nothing</div></li>
-        </ul>
+        <h4>Example</h4>
+<div class="pre"><pre class="python">draw_rectangle(canvas, 100, 100, 300, 200, width=5)</pre></div>
         </dd>
 
         <dt>
@@ -217,22 +203,26 @@
 
         <h4>Parameters</h4>
         <ul>
-            <li><div><b>canvas</b>: the canvas returned from the
+            <li><div><b>canvas</b>:&nbsp; the canvas returned from the
             <code>start_drawing</code> function</div></li>
-            <li><div><b>x0, y0, x1, y1, x2, y2, &hellip; xn, yn</b>: the
+            <li><div><b>x0, y0, x1, y1, x2, y2, &hellip; xn,
+            yn</b>:&nbsp; the
             coordinates for the vertices of the polygon that this
             function will draw</div></li>
-            <li><div><b>width</b>: the width of the polygon's outline;
+            <li><div><b>width</b>:&nbsp; the width of the polygon's outline;
             default is 1 pixel</div></li>
-            <li><div><b>outline</b>: the color of the polygon's outline;
+            <li><div><b>outline</b>:&nbsp; the color of the polygon's outline;
             default is black</div></li>
-            <li><div><b>fill</b>: the color of the polygon's interior;
+            <li><div><b>fill</b>:&nbsp; the color of the polygon's interior;
             default is "" which means transparent</div></li>
         </ul>
         <h4>Return</h4>
         <ul>
             <li><div>nothing</div></li>
         </ul>
+        <h4>Example</h4>
+<div class="pre"><pre class="python">draw_polygon(canvas,
+        100, 100, 200, 100, 200, 150, fill="green")</pre></div>
         </dd>
 
         <dt>
@@ -243,17 +233,19 @@
 
         <h4>Parameters</h4>
         <ul>
-            <li><div><b>canvas</b>: the canvas returned from the
+            <li><div><b>canvas</b>:&nbsp; the canvas returned from the
             <code>start_drawing</code> function</div></li>
-            <li><div><b>center_x, center_y</b>: the coordinates for the
+            <li><div><b>center_x, center_y</b>:&nbsp; the coordinates for the
             center point where this function will draw text</div></li>
-            <li><div><b>text</b>: the text to be drawn. To force a line
+            <li><div><b>text</b>:&nbsp; the text to be drawn. To force a line
             break, include a newline character ("\n").</div></li>
         </ul>
         <h4>Return</h4>
         <ul>
             <li><div>nothing</div></li>
         </ul>
+        <h4>Example</h4>
+<div class="pre"><pre class="python">draw_text(canvas, 250, 200, "Olá", fill="purple")</pre></div>
         </dd>
 
         <dt>
@@ -264,75 +256,100 @@
 
         <h4>Parameters</h4>
         <ul>
-            <li><div><b>canvas</b>: the canvas returned from the
+            <li><div><b>canvas</b>:&nbsp; the canvas returned from the
             <code>start_drawing</code> function</div></li>
         </ul>
         <h4>Return</h4>
         <ul>
             <li><div>nothing</div></li>
         </ul>
+        <h4>Example</h4>
+<div class="pre"><pre class="python">finish_drawing(canvas)</pre></div>
         </dd>
     </dl>
 
     <h2>Colors</h2>
     <p>The Draw 2-D library supports the following named colors.</p>
-    <div class="figure center" style="width:37em"><img src="colors.png"
-    alt="A chart of named colors supported by the Draw 2-D library"
-    title="A chart of named colors supported by the Draw 2-D library"></div>
+    <div class="figure center">
+        <img src="draw2d/colors.png"
+        alt="A chart of named colors supported by the Draw 2-D library"
+        title="A chart of named colors supported by the Draw 2-D library">
+    </div>
 
-    <h2 id="ex1">Example</h2>
+    <h2>Examples</h2>
+    <h3>Complete Example</h3>
     <p>The following example program contains all four of the steps
-    needed to use the Draw 2-D library and draws an outdoor scene.</p>
+    needed to use the Draw 2-D library and draws an outdoor scene with
+    two pine trees. The computer draws the two pine trees because of the
+    following:</p>
 
-<div class="pre">
-<pre class="python"># Import the functions from the Draw 2-D library
+    <ol>
+        <li><div>The code at
+        <span class="cross" data-ref="ex1">line&nbsp;90</span> calls
+        the <code>main</code> function.</div></li>
+
+        <li><div>At
+        <span class="cross" data-ref="ex1">line&nbsp;21</span>, the
+        <code>main</code> function calls the <code>draw_ground</code>
+        function.</div></li>
+
+        <li><div>At
+        <span class="cross" data-ref="ex1">lines&nbsp;42 and&nbsp;49</span>,
+        the <code>draw_ground</code> function calls the
+        <code>draw_pine_tree</code> function.</div></li>
+    </ol>
+
+<div class="pre" id="ex1"><pre class="linenums"></pre>
+<pre class="python"># Example 1
+
+# Import the functions from the Draw 2-D library
 # so that they can be used in this program.
 from draw2d import \
-    start_drawing, \
-    draw_line, draw_oval, draw_arc, draw_rectangle, \
-    draw_triangle, draw_polygon, draw_text, \
-    finish_drawing
+    start_drawing, draw_line, draw_oval, draw_arc, \
+    draw_rectangle, draw_polygon, draw_text, finish_drawing
 
 
 def main():
     scene_width = 800
     scene_height = 500
 
-    # Call the start_drawing function in the draw2d.py library.
+    # Call the start_drawing function in the draw2d.py
+    # library which will open a window and create a canvas.
     canvas = start_drawing(scene_width, scene_height, "Scene")
 
     # Call the draw_sky and draw_ground functions in this file.
     draw_sky(canvas, scene_width, scene_height)
     draw_ground(canvas, scene_width, scene_height)
 
-    # Call the finish_drawing function in the draw2d.py library.
+    # Call the finish_drawing function
+    # in the draw2d.py library.
     finish_drawing(canvas)
 
 
 def draw_sky(canvas, scene_width, scene_height):
     """Draw the sky and all the objects in the sky."""
-    draw_rectangle(canvas,
-        0, scene_height / 3, scene_width, scene_height,
-        width=0, fill="sky blue")
+    draw_rectangle(canvas, 0, scene_height / 3,
+        scene_width, scene_height, width=0, fill="sky blue")
 
 
 def draw_ground(canvas, scene_width, scene_height):
     """Draw the ground and all the objects on the ground."""
-    draw_rectangle(canvas,
-        0, 0, scene_width, scene_height / 3,
-        width=0, fill="tan4")
+    draw_rectangle(canvas, 0, 0,
+        scene_width, scene_height / 3, width=0, fill="tan4")
 
     # Draw a pine tree.
     tree_center_x = 170
     tree_bottom = 100
     tree_height = 200
-    draw_pine_tree(canvas, tree_center_x, tree_bottom, tree_height)
+    draw_pine_tree(canvas, tree_center_x,
+            tree_bottom, tree_height)
 
     # Draw another pine tree.
     tree_center_x = 90
     tree_bottom = 70
     tree_height = 220
-    draw_pine_tree(canvas, tree_center_x, tree_bottom, tree_height)
+    draw_pine_tree(canvas, tree_center_x,
+            tree_bottom, tree_height)
 
 
 def draw_pine_tree(canvas, center_x, bottom, height):
@@ -364,7 +381,7 @@ def draw_pine_tree(canvas, center_x, bottom, height):
     skirt_top = bottom + height
 
     # Draw the crown (also called skirt) of the pine tree.
-    draw_triangle(canvas, center_x, skirt_top,
+    draw_polygon(canvas, center_x, skirt_top,
             skirt_right, trunk_top,
             skirt_left, trunk_top,
             outline="gray20", width=1, fill="dark green")
@@ -374,35 +391,208 @@ def draw_pine_tree(canvas, center_x, bottom, height):
 # this program will start executing.
 main()</pre></div>
 
-    <!--
-        The pine tree was drawn because of the following:</p>
-        pine tree drawn by a Python program"
-        title="A pine tree drawn by a Python program"></div>
+    <div class="figure full">
+        <img src="draw2d/two_trees.png"
+        alt="An outdoor scene drawn by the example program above."
+        title="An outdoor scene drawn by the example program above.">
+    </div>
 
-    <ol>
-        <li><div>The code at <span class="cross"
-        data-ref="ex1">line&nbsp;94</span> called the <code>main</code>
-        function.</div></li>
+    <h3>Row, Column, and Diagonal of Shapes</h3>
+    <p>The following example program uses three <code>for</code> loops
+    and the <code>draw_oval</code> function to draw circles in a row,
+    column, and diagonal. Comparing the three <code>for</code> loops
+    will help you understand how you can use a <code>for</code> loop to
+    draw many shapes. Of course, your program can call any draw function
+    within a <code>for</code> loop and draw any shape you like.</p>
 
-        <li><div>At <span class="cross"
-        data-ref="ex1">line&nbsp;23</span>, the <code>main</code>
-        function called the <code>draw_scene</code> function.</div></li>
+<div class="pre"><pre class="python"># Example 2
 
-        <li><div>At <span class="cross"
-        data-ref="ex1">line&nbsp;50</span>, the <code>draw_scene</code>
-        function called the <code>draw_pine_tree</code>
-        function.</div></li>
+from draw2d import start_drawing, draw_oval, finish_drawing
 
-        <li><div>At <span class="cross"
-        data-ref="ex1">lines&nbsp;81&ndash;89</span> the
-        <code>draw_pine_tree</code> function called the
-        <code>create_rectangle</code> and <code>create_polygon</code>
-        methods.</div></li>
-    </ol>
+def main():
+    # Call the start_drawing function in the draw2d.py
+    # library which will open a window and create a canvas.
+    canvas = start_drawing(600, 375, "Repeated Shapes")
 
-    <p>Delete or comment-out lines&nbsp;47&ndash;50 and
-    lines&nbsp;57&ndash;89 and begin writing your program. </p>
-    -->
+    diameter = 15
+    space = 5
+    interval = diameter + space
+
+    # Draw a row of 20 circles.
+    x = 100
+    y = 100
+    for i in range(20):
+        draw_oval(canvas, x, y, x + diameter, y + diameter,
+                fill="royalBlue1")
+        x += interval
+
+    # Draw a column of 10 circles.
+    x = 100
+    y = 120
+    for i in range(10):
+        draw_oval(canvas, x, y, x + diameter, y + diameter,
+                fill="indianRed1")
+        y += interval
+
+    # Draw a diagonal of 10 circles.
+    x = 120
+    y = 300
+    for i in range(10):
+        draw_oval(canvas, x, y, x + diameter, y + diameter,
+                fill="mediumPurple1")
+        x += interval
+        y -= interval
+
+    # Call the finish_drawing function
+    # in the draw2d.py library.
+    finish_drawing(canvas)
+
+
+# Call the main function so that
+# this program will start executing.
+main()</pre></div>
+
+    <div class="figure center">
+        <img src="draw2d/repeated.png"
+        alt="A row, a column, and a diagonal of circles drawn by the example program above."
+        title="A row, a column, and a diagonal of circles drawn by the example program above.">
+    </div>
+
+    <h3>Rectangular Group of Shapes</h3>
+    <p>The program in example&nbsp;3 uses two <code>for</code> loops and
+    the <code>draw_oval</code> function to draw a rectangular group of
+    circles. The second <code>for</code> loop is nested inside the
+    first. The computer executes the first <code>for</code> loop once
+    for each row in the group. The computer executes the second
+    <code>for</code> loop repeats once for each cell in the group.
+    Because the loops are nested, the computer executes the statements
+    inside the second loop at
+    <span class="cross" data-ref="ex5">lines&nbsp;19&ndash;21</span>
+    120&nbsp;times <span class="nowrap">(6 &times; 20)</span>. In other
+    words, the program in example&nbsp;3 will draw six rows with 20
+    circles in each row, which makes 120 circles.</p>
+
+<div class="pre" id="ex5"><pre class="linenums"></pre>
+<pre class="python"># Example 3
+
+from draw2d import start_drawing, draw_oval, finish_drawing
+
+def main():
+    # Call the start_drawing function in the draw2d.py
+    # library which will open a window and create a canvas.
+    canvas = start_drawing(600, 375, "Rectangular Group")
+
+    diameter = 15
+    space = 5
+    interval = diameter + space
+
+    # Draw a rectangular series of circles.
+    y = 100
+    <em>for row in range(6):</em>
+        x = 100
+        <em>for cell in range(20):</em>
+            draw_oval(canvas, x, y,
+                    x + diameter, y + diameter, fill="orange")
+            x += interval
+        y += interval
+
+    # Call the finish_drawing function
+    # in the draw2d.py library.
+    finish_drawing(canvas)
+
+
+# Call the main function so that
+# this program will start executing.
+main()</pre></div>
+
+    <div class="figure center">
+        <img src="draw2d/rectangular.png"
+        alt="A rectangular series of circles drawn by the example program above."
+        title="A rectangular series of circles drawn by the example program above.">
+    </div>
+
+    <h3>Randomly Located Shapes</h3>
+    <p>The final code example program draws a row of circles but some of
+    the circles are missing because the computer randomly chose not to
+    draw some of the circles. It also draws 100 circles, each with a
+    random diameter at a randomly chosen location.</p>
+
+    <p>At <span class="cross" data-ref="ex4">line&nbsp;24</span>, the
+    call to the
+    <a href="https://docs.python.org/3/library/random.html#random.randint"><code>random.randint</code></a>
+    function causes the computer to calculate a random number between 1
+    and 5 inclusive. The <code>if</code> statement at
+    <span class="cross" data-ref="ex4">line&nbsp;25</span> allows the
+    computer to draw a circle if the random numbers is greater
+    than&nbsp;1. In other words, if the random number is&nbsp;1, the
+    computer will not draw a circle, which means about 20%
+    <span class="nowrap">(1 / 5)</span> of the circles in the row will
+    not be drawn.</p>
+
+<div class="pre" id="ex4"><pre class="linenums"></pre>
+<pre class="python"># Example 4
+
+from draw2d import start_drawing, draw_oval, finish_drawing
+import random
+
+def main():
+    scene_width = 600
+    scene_height = 375
+
+    # Call the start_drawing function in the draw2d.py
+    # library which will open a window and create a canvas.
+    canvas = start_drawing(scene_width, scene_height,
+            "Random Locations")
+
+    diameter = 15
+    space = 5
+    interval = diameter + space
+
+    # Draw a row of circles with
+    # some of the circles missing.
+    x = 100
+    y = 300
+    for i in range(20):
+        <em>number = random.randint(1, 5)
+        if number &gt; 1:</em>
+            draw_oval(canvas, x, y,
+                    x + diameter, y + diameter, fill="yellow2")
+        x += interval
+
+    half_height = round(scene_height / 2)
+    min_diam = 15
+    max_diam = 30
+
+    # Draw 100 circles, each with
+    # a random diameter and location.
+    for i in range(100):
+        <em>x = random.randint(0, scene_width - max_diam)
+        y = random.randint(0, half_height)
+        diameter = random.randint(min_diam, max_diam)</em>
+        draw_oval(canvas, x, y, x + diameter, y + diameter,
+                fill="mediumOrchid1")
+
+    # Call the finish_drawing function
+    # in the draw2d.py library.
+    finish_drawing(canvas)
+
+
+# Call the main function so that
+# this program will start executing.
+main()</pre></div>
+
+    <p>At
+    <span class="cross" data-ref="ex4">lines&nbsp;37&ndash;39</span>,
+    the computer calculates a random location (<var>x</var> and
+    <var>y</var>) and a random diameter. Then at
+    <span class="cross" data-ref="ex4">line&nbsp;40</span> the computer
+    uses those random numbers to draw a circle.</p>
+
+    <div class="figure center">
+        <img src="draw2d/random.png"
+        alt="Circles drawn by the example program above."
+        title="Circles drawn by the example program above.">
+    </div>
 </article>
 <footer>
     <small>Copyright &copy; 2020, Brigham Young University - Idaho. All
