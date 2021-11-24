@@ -21,9 +21,9 @@ def main():
 def modify_args(n, alist):
     """Demonstrate that the computer passes a value
     for integers and passes a reference for lists.
-    Parameters:
-        n - A number
-        alist - A list
+    Parameters
+        n: A number
+        alist: A list
     Return: nothing
     """
     print("    modify_args(n, alist)")

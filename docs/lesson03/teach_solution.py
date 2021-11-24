@@ -51,50 +51,51 @@ def main():
     print(f"Basal metabolic rate (kcal/day): {bmr:.0f}")
 
 
-def compute_age(birth):
+def compute_age(birth_str):
     """Compute and return a person's age in years.
-
-    Parameter birth: a person's birthdate stored as
-        a string in this format: YYYY-MM-DD
+    Parameter birth_str: a person's birthdate stored
+        as a string in this format: YYYY-MM-DD
     Return: a person's age in years.
     """
-    birthday = datetime.strptime(birth, "%Y-%m-%d")
+    birthdate = datetime.strptime(birth_str, "%Y-%m-%d")
     today = datetime.now()
 
-    # Compute the difference between today and the birthday in years.
-    years = today.year - birthday.year
+    # Compute the difference between today and the
+    # person's birthdate in years.
+    years = today.year - birthdate.year
 
     # If necessary, subtract one from the difference.
-    if birthday.month > today.month or \
-        (birthday.month == today.month and birthday.day > today.day):
+    if birthdate.month > today.month or \
+        (birthdate.month == today.month and \
+            birthdate.day > today.day):
         years -= 1
 
     return years
 
 
-def kg_from_lb(lb):
+def kg_from_lb(pounds):
     """Convert a mass in pounds to kilograms.
-    Parameter lb: a mass in US pounds.
+    Parameter pounds: a mass in US pounds.
     Return: the mass in kilograms.
     """
-    kg = lb * 0.45359237
+    kg = pounds * 0.45359237
     return kg
 
 
-def cm_from_in(inch):
+def cm_from_in(inches):
     """Convert a length in inches to centimeters.
-    Parameter inch: a length in inches.
+    Parameter inches: a length in inches.
     Return: the length in centimeters.
     """
-    cm = inch * 2.54
+    cm = inches * 2.54
     return cm
 
 
 def body_mass_index(weight, height):
-    """Calculate and return a person's body mass index (bmi).
-    Parameters:
-        weight must be in kilograms.
-        height must be in centimeters.
+    """Compute and return a person's body mass index.
+    Parameters
+        weight: a person's weight in kilograms.
+        height: a person's height in centimeters.
     Return: a person's body mass index.
     """
     bmi = weight / (height ** 2) * 10000
@@ -102,12 +103,12 @@ def body_mass_index(weight, height):
 
 
 def basal_metabolic_rate(gender, weight, height, age):
-    """Calculate and return a person's basal metabolic rate (bmr).
-    Parameters:
-        weight must be in kilograms.
-        height must be in centimeters.
-        age must be in years.
-    Return: a person's basal metabolic rate in kcal per day.
+    """Compute and return a person's basal metabolic rate.
+    Parameters
+        weight: a person's weight in kilograms.
+        height: a person's height in centimeters.
+        age: a person's age in years.
+    Return: a person's basal metabolic rate in kcals per day.
     """
     if gender.upper() == "F":
         bmr = 447.593 + 9.247 * weight + 3.098 * height - 4.330 * age
