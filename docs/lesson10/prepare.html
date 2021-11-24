@@ -91,33 +91,34 @@
     # Write normal code here. This block must include
     # code that falls into two groups:
     # 1. Code that may cause an exception to be raised
-    # 2. Code that depends on the results from the code
+    # 2. Code that depends on the results of the code
     #    in the first group
 <em>except ZeroDivisionError as zero_div_err:</em>
-    # Code that the computer executes if the code in the
-    # try block caused a ZeroDivisionError to be raised.
-<em>except ValueError as val_err:</em>
-    # Code that the computer executes if the code in
-    # the try block caused a ValueError to be raised.
-<em>except (TypeError, KeyError, IndexError) as error:</em>
     # Code that the computer executes if the code in the try
-    # block raised a TypeError, KeyError, or IndexError.
-<em>except Exception as excep:</em>
+    # block caused a function to raise a ZeroDivisionError.
+<em>except ValueError as val_err:</em>
     # Code that the computer executes if the code in the
-    # try block caused any exception to be raised that was
-    # not handled by one of the previous except blocks.
+    # try block caused a function to raise a ValueError.
+<em>except (TypeError, KeyError, IndexError) as error:</em>
+    # Code that the computer executes if the code in the
+    # try block caused a function to raise a TypeError,
+    # KeyError, or IndexError.
+<em>except Exception as excep:</em>
+    # Code that the computer executes if the code in the try
+    # block caused a function to raise any exception that
+    # was not handled by one of the previous except blocks.
 <em>except:</em>
     # Code that the computer executes if the code in the
-    # try block caused anything to be raised that was
-    # not handled by one of the previous except blocks.
+    # try block caused a function to raise anything that
+    # was not handled by one of the previous except blocks.
 <em>else:</em>
     # Code that the computer executes after the code
     # in the try block if the code in the try block
-    # did not raise any exceptions.
+    # did not cause any function to raise an exception.
 <em>finally:</em>
-    # Code that is executed after all the other code in
-    # try, except, and else blocks regardless of whether
-    # an exception was raised or not.</pre></div>
+    # Code that the computer executes after all the other
+    # code in try, except, and else blocks regardless of
+    # whether an exception was raised or not.</pre></div>
 
     <p>As shown in example&nbsp;1 above, when we want to write code that
     will handle exceptions, we first write a <code>try</code> block, and
@@ -135,14 +136,14 @@
 
     <p>Or one <code>except</code> block may handle all possible types of
     exceptions, like the code at
-    <span class="cross" data-ref="ex1">line&nbsp;18</span>:</p>
+    <span class="cross" data-ref="ex1">line&nbsp;19</span>:</p>
 <div class="pre"><pre class="python">except Exception as excep:</pre></div>
 
     <p>Or a bare <code>except</code> block may handle anything that can
     be raised, including <code>SystemExit</code>,
     <code>KeyboardInterrupt</code> and <code>GeneratorExit</code>, like
     the code at
-    <span class="cross" data-ref="ex1">line&nbsp;22</span>:</p>
+    <span class="cross" data-ref="ex1">line&nbsp;23</span>:</p>
 <div class="pre"><pre class="python">except:</pre></div>
 
     <p>The Python programming language requires us to order
@@ -167,18 +168,18 @@
     errors in an <code>except</code> block.</p>
 
     <p>As shown at
-    <span class="cross" data-ref="ex1">line&nbsp;26</span> in
-    example&nbsp;1 above, following the <code>except</code> blocks, we
-    may write an optional <code>else</code> block which the computer
-    will execute if the <code>try</code> block does not raise any
-    exceptions. It is uncommon to need to write code in the
+    <span class="cross" data-ref="ex1">line&nbsp;27</span> in
+    example&nbsp;1 above, following the <code>except</code> blocks, a
+    programmer may write an optional <code>else</code> block which the
+    computer will execute if the <code>try</code> block does not raise
+    any exceptions. It is uncommon to need to write code in the
     <code>else</code> block of <code>try</code> and <code>except</code>,
     and professional programmers almost never do it.</p>
 
     <p>As shown at
-    <span class="cross" data-ref="ex1">line&nbsp;30</span> in
-    example&nbsp;1 above, at the end of the exception handling code, we
-    may write an optional <code>finally</code> block. The
+    <span class="cross" data-ref="ex1">line&nbsp;31</span> in
+    example&nbsp;1 above, at the end of the exception handling code, a
+    programmer may write an optional <code>finally</code> block. The
     <code>finally</code> block contains code that the computer executes
     after all the other code in the <code>try</code>,
     <code>except</code>, and <code>else</code> blocks regardless of
@@ -201,7 +202,7 @@
     when the code that calls a function passes an argument with the
     wrong type. The code in example&nbsp;2 attempts to pass a string of
     text to the <code>round</code> function which causes the computer to
-    raise <code>TypeError</code> as shown in the output below the code
+    raise a <code>TypeError</code> as shown in the output below the code
     example.</p>
 
 <div class="pre" id="ex2"><pre class="python"># Example 2
@@ -219,6 +220,7 @@ if __name__ == "__main__":
     main()</pre></div>
 
 <pre class="console" data-for="ex2">&gt; python type_error.py
+Please enter a number: <span class="input">25.7</span>
 type str doesn't define __round__ method</pre>
 
     <h3>ValueError</h3>
@@ -262,7 +264,7 @@ def main():
 
         players_per_team = players / teams
 
-        print(f"Each team should have {players_per_team} players.")
+        print(f"Each team should have {players_per_team} players")
 
     except ZeroDivisionError as zero_div_err:
         print(zero_div_err)
@@ -292,10 +294,10 @@ def main():
         # Create a list that contains three family names.
         surnames = ["Smith", "Lopez", "Marsh"]
 
-        # Attempt to change the surname at index 3. Because there
-        # are only three names in the surnames list and therefore
-        # the last index is 2, this statement will fail and cause
-        # the computer to raise an IndexError.
+        # Attempt to change the surname at index 3. Because
+        # there are only three names in the surnames list and
+        # therefore the last index is 2, this statement will
+        # fail and cause the computer to raise an IndexError.
         surnames[3] = "Olsen"
 
     except IndexError as index_err:
@@ -322,10 +324,10 @@ def main():
         # Create a list that contains three family names.
         surnames = ["Smith", "Lopez", "Marsh"]
 
-        # Attempt to print the surname at index 3. Because there
-        # are only three names in the surnames list and therefore
-        # the last index is 2, this statement will fail and cause
-        # the computer to raise an IndexError.
+        # Attempt to print the surname at index 3. Because
+        # there are only three names in the surnames list and
+        # therefore the last index is 2, this statement will
+        # fail and cause the computer to raise an IndexError.
         print(surnames[3])
 
     except IndexError as index_err:
@@ -338,9 +340,9 @@ if __name__ == "__main__":
 list index out of range</pre>
 
     <h3>KeyError</h3>
-    <p>If we write code that attempts to find a key in a dictionary and
-    that key doesn't exist in the dictionary as shown in example&nbsp;7,
-    then the computer will raise a <code>KeyError</code>.
+    <p>As shown in example&nbsp;7, if we write code that attempts to
+    find a key in a dictionary and that key doesn't exist in the
+    dictionary, then the computer will raise a <code>KeyError</code>.
 
 <div class="pre" id="ex7"><pre class="python"># Example 7
 
@@ -519,8 +521,8 @@ Number of employees who worked today: <span class="input">8</span>
     <span class="cross" data-ref="ex11">line&nbsp;12</span> and includes
     all the regular code in the <code>main</code> function. This one
     <code>try</code> block has three <code>except</code> blocks at
-    <span class="cross" data-ref="ex11">lines&nbsp;48,
-    52,&nbsp;and&nbsp;56</span> that handle
+    <span class="cross" data-ref="ex11">lines&nbsp;49,
+    53,&nbsp;and&nbsp;57</span> that handle
     <code>FileNotFoundError</code>, <code>PermissionError</code>, and
     <code>ZeroDivisionError</code>.</p>
 
@@ -545,9 +547,9 @@ def main():
             # a reader object for the CSV file.
             reader = csv.reader(usage_file)
 
-            # The first line of the CSV file contains headings
-            # and not fuel usage data, so this statement skips
-            # the first line of the CSV file.
+            # The first line of the CSV file contains
+            # headings and not fuel usage data, so this
+            # statement skips the first line of the file.
             next(reader)
 
             # Print headers for the three columns.
@@ -565,12 +567,13 @@ def main():
                 gallons = float(row[GALLONS_INDEX])
 
                 # Call the miles_per_gallon function.
-                mpg = miles_per_gallon(start_miles, end_miles, gallons)
+                mpg = miles_per_gallon(
+                        start_miles, end_miles, gallons)
 
                 # Display the results for one row.
                 mpg = round(mpg, 1)
-                print(date, start_miles, end_miles, gallons, mpg,
-                        sep=",")
+                print(date, start_miles, end_miles,
+                        gallons, mpg, sep=",")
 
     <em>except FileNotFoundError as not_found_err:</em>
         print(f"Error: cannot open {filename}"
@@ -588,8 +591,12 @@ def main():
 def miles_per_gallon(start_miles, end_miles, gallons):
     """Compute and return the average number of miles
     that a vehicle traveled per gallon of fuel.
-    start_miles and end_miles are odometer readings in miles.
-    gallons is a fuel amount in U.S. gallons.
+
+    Parameters
+        start_miles: starting odometer reading in miles.
+        end_miles: ending odometer reading in miles.
+        gallons: amount of fuel used in U.S. gallons.
+    Return: miles per gallon
     """
     mpg = abs(end_miles - start_miles) / gallons
     return mpg
@@ -621,8 +628,8 @@ if __name__ == "__main__":
 def main():
     gender = input("Enter your gender (M or F): ")
 
-    weight = get_float("Enter your weight in kilograms: ", 20, 500)
-    height = get_float("Enter your height in centimeters: ", 60, 250)
+    weight = get_float("Enter your weight in kg: ", 20, 500)
+    height = get_float("Enter your height in cm: ", 60, 250)
     age = get_float("Enter your age in years: ", 10, 120)
 
     bmr = basal_metabolic_rate(gender, weight, height, age)
@@ -630,11 +637,12 @@ def main():
 
 
 def get_float(prompt, lower_bound, upper_bound):
-    """Get a number from the user, validate that the user entered
-    a number and not some other text, validate that the number is
-    between a lower and upper bound, and then return the number. If
-    the user enters an invalid number, this function will prompt
-    the user repeatedly until the user enters a valid number.
+    """Get a number from the user, validate that the user
+    entered a number and not some other text, validate that
+    the number is between a lower and upper bound, and then
+    return the number. If the user enters an invalid number,
+    this function will prompt the user repeatedly until the
+    user enters a valid number.
 
     Parameters
         prompt: A string to display to the user.
@@ -653,9 +661,9 @@ def get_float(prompt, lower_bound, upper_bound):
                 print(f"{number} is too large.")
                 print("Please enter another number.")
             else:
-                # If the computer gets to this line of code, the
-                # user entered a valid number between lower_bound
-                # and upper_bound, so exit the loop.
+                # If the computer gets to this line of code,
+                # the user entered a valid number between
+                # lower_bound and upper_bound, so exit the loop.
                 break
 
         <em>except ValueError as val_err:</em>
@@ -669,14 +677,16 @@ def get_float(prompt, lower_bound, upper_bound):
 
 
 def basal_metabolic_rate(gender, weight, height, age):
-    """Calculate and return a person's basal metabolic rate (bmr)
-    in calories per day. weight must be in kilograms, height must
-    be in centimeters, and age must be in years.
+    """Calculate and return a person's basal metabolic rate
+    in calories per day. weight must be in kilograms, height
+    must be in centimeters, and age must be in years.
     """
     if gender.upper() == "F":
-        bmr = 447.593 + 9.247 * weight + 3.098 * height - 4.330 * age
+        bmr = 447.593 + 9.247 * weight + \
+                3.098 * height - 4.330 * age
     else:
-        bmr = 88.362 + 13.397 * weight + 4.799 * height - 5.677 * age
+        bmr = 88.362 + 13.397 * weight + \
+                4.799 * height - 5.677 * age
     return bmr
 
 
@@ -716,13 +726,12 @@ if __name__ == "__main__":
     CSE&nbsp;111:&nbsp; <code>TypeError</code>, <code>ValueError</code>,
     <code>ZeroDivisionError</code>, <code>IndexError</code>,
     <code>KeyError</code>, <code>FileNotFoundError</code>, and
-    <code>PermissionError</code>. When writing code that gets input from
-    a user, a programmer usually writes <code>try</code> and
-    <code>except</code> blocks to help validate the user's input. Also,
-    when writing code that writes to or reads from a file, a programmer
-    usally writes <code>try</code> and <code>except</code> blocks to
-    handle <code>FileNotFoundError</code> and
-    <code>PermissionError</code>.</p>
+    <code>PermissionError</code>. When writing code that writes to or
+    reads from a file, a programmer usally writes <code>try</code> and
+    <code>except</code> blocks to handle <code>FileNotFoundError</code>
+    and <code>PermissionError</code>. Also, when writing code that gets
+    input from a user, a programmer usually writes <code>try</code> and
+    <code>except</code> blocks to help validate the user's input.</p>
 </article>
 <footer>
     <small>Copyright &copy; 2020, Brigham Young University - Idaho. All
