@@ -512,7 +512,7 @@ main()</pre></div>
     </div>
 
     <h3>Randomly Located Shapes</h3>
-    <p>The final code example program draws a row of circles but some of
+    <p>The program in example&nbsp;4 draws a row of circles but some of
     the circles are missing because the computer randomly chose not to
     draw some of the circles. It also draws 100 circles, each with a
     random diameter at a randomly chosen location.</p>
@@ -592,6 +592,55 @@ main()</pre></div>
         <img src="draw2d/random.png"
         alt="Circles drawn by the example program above."
         title="Circles drawn by the example program above.">
+    </div>
+
+    <h3>Coordinate Grid</h3>
+    <p>The final example program draws a grid that can help a programmer
+    determine the correct coordinates for an object in a scene.</p>
+
+<div class="pre" id="ex5"><pre class="linenums"></pre>
+<pre class="python"># Example 5
+
+from draw2d import \
+    start_drawing, draw_line, draw_text, finish_drawing
+
+def main():
+    scene_width = 600
+    scene_height = 375
+
+    # Call the start_drawing function in the draw2d.py
+    # library which will open a window and create a canvas.
+    canvas = start_drawing(scene_width, scene_height, "Grid")
+
+    draw_grid(canvas, scene_width, scene_height, 50)
+
+    # Call the finish_drawing function
+    # in the draw2d.py library.
+    finish_drawing(canvas)
+
+
+def draw_grid(canvas, width, height, interval, color="blue"):
+    # Draw a vertical line at every x interval.
+    label_y = 15
+    for x in range(interval, width, interval):
+        draw_line(canvas, x, 0, x, height, fill=color)
+        draw_text(canvas, x, label_y, str(x), fill=color)
+
+    # Draw a horizontal line at every y interval.
+    label_x = 15
+    for y in range(interval, height, interval):
+        draw_line(canvas, 0, y, width, y, fill=color)
+        draw_text(canvas, label_x, y, str(y), fill=color)
+
+
+# Call the main function so that
+# this program will start executing.
+main()</pre></div>
+
+    <div class="figure center">
+        <img src="draw2d/grid.png"
+        alt="A grid drawn by the example program above."
+        title="A grid drawn by the example program above.">
     </div>
 </article>
 <footer>
