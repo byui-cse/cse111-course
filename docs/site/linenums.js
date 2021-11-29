@@ -214,7 +214,12 @@ cse111.linenums = {
 	},
 
 	onFullDocLoaded : function() {
-		cse111.linenums.resizeConsoles();
+		// Without a delay, the consoles are resized before the line
+		// numbers are generated which makes the consoles narrower than
+		// their corresponding example code.
+		window.setTimeout(function() {
+			cse111.linenums.resizeConsoles();
+		}, 400);
 	}
 };
 

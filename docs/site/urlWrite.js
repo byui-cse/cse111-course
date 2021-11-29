@@ -122,7 +122,7 @@ cse111.url.modifyLinks = function() {
 			if (isLocal) {
 				// If the user is viewing the CSE 111 files from his
 				// local hard drive, there is no reason to have both a
-				// view and download link. A standard download link with
+				// view and download link. A standard download link will
 				// simply open the file for viewing, so a download link
 				// is sufficient.
 				link.setAttribute('download', '');

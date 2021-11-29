@@ -6,35 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>CSE 111 - Scene Gallery</title>
-    <link rel="icon" type="image/png" href="../../site/icon.png">
-    <link rel="stylesheet" type="text/css" href="../../site/style.css">
-    <style>
-        div#gallery {
-            display: table;
-            border-collapse: separate;
-            border-spacing: 1em;
-        }
-        div#gallery > div { display: table-row; }
-        div#gallery > div > div {
-            display: table-cell;
-            page-break-inside: avoid !important;
-            width: 16%;
-        }
-        div#gallery > div > div img {
-            display: block;
-            page-break-after: avoid !important;
-            width: 100%;
-            border: 2px solid var(--bk-color);
-        }
-        div#gallery > div > div img:hover {
-            border: 2px solid var(--coral);
-        }
-        div#gallery > div > div > div {
-            page-break-before: avoid !important;
-            margin: 0.25em 0 0.5em 0;
-            text-align: center;
-        }
-    </style>
     <script src="../../site/color.js"></script>
     <script>
 "use strict";
@@ -102,6 +73,35 @@ window.addEventListener("DOMContentLoaded",
         { name:'You', file:'you.png' }
     ])});
     </script>
+    <link rel="icon" type="image/png" href="../../site/icon.png">
+    <link rel="stylesheet" type="text/css" href="../../site/style.css">
+    <style>
+        div#gallery {
+            display: table;
+            border-collapse: separate;
+            border-spacing: 1em;
+        }
+        div#gallery > div { display: table-row; }
+        div#gallery > div > div {
+            display: table-cell;
+            page-break-inside: avoid !important;
+            width: 16%;
+        }
+        div#gallery > div > div img {
+            display: block;
+            page-break-after: avoid !important;
+            width: 100%;
+            border: 2px solid var(--bk-color);
+        }
+        div#gallery > div > div img:hover {
+            border: 2px solid var(--coral);
+        }
+        div#gallery > div > div > div {
+            page-break-before: avoid !important;
+            margin: 0.25em 0 0.5em 0;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>

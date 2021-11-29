@@ -6,17 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CSE 111 - Prove</title>
+    <script src="../site/color.js"></script>
+    <script src="../site/hljs/highlight.pack.js"></script>
     <link rel="icon" type="image/png" href="../site/icon.png">
     <link rel="stylesheet" type="text/css" href="../site/style.css">
     <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
-    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-database.js"></script>
-    <script src="../site/url.js"></script>
-    <script src="../site/urlWrite.js"></script>
-    <script src="../site/color.js"></script>
-    <script src="../site/expand.js"></script>
-    <script src="../site/linenums.js"></script>
-    <script src="../site/hljs/highlight.pack.js"></script>
 </head>
 
 <body>
@@ -171,10 +165,11 @@ def test_payment():
         <li><div>Processes text instead of numbers
 <div class="pre"><pre class="python">
 def prefix(s1, s2):
-    """Return the prefix, if any, that appears in both s1 and s2. In
-    other words, return a string of the characters that appear at the
-    beginning of both s1 and s2. For example, if s1 is "inconceivable"
-    and s2 is "inconvenient", this function will return "incon".
+    """Return the prefix, if any, that appears in both s1
+    and s2. In other words, return a string of the
+    characters that appear at the beginning of both s1 and
+    s2. For example, if s1 is "inconceivable" and s2 is
+    "inconvenient", this function will return "incon".
     """
     s1 = s1.lower()
     s2 = s2.lower()
@@ -240,13 +235,13 @@ def test_get_int(monkeypatch):
     num = get_int(prompt, min, max)
 
     monkeypatch.undo()
-    pattern = prompt + "\\s*" + \
-            "Invalid integer: 1r\\. Please try again\\.\\s*" + \
-            prompt + "\\s*" + \
-            f"Invalid input: number must be {min} or greater\\.\\s*" + \
-            prompt + "\\s*" + \
-            f"Invalid input: number must be {max} or less\\.\\s*" + \
-            prompt + "\\s*"
+    pattern = prompt + "\\s*" \
+        + "Invalid integer: 1r\\. Please try again\\.\\s*" \
+        + prompt + "\\s*" \
+        + f"Invalid input: number must be {min} or greater\\.\\s*" \
+        + prompt + "\\s*" \
+        + f"Invalid input: number must be {max} or less\\.\\s*" \
+        + prompt + "\\s*"
     output = stdout.getvalue()
     assert re.compile(pattern).match(output) != None
     assert num == 8</pre></div>
@@ -255,12 +250,13 @@ def test_get_int(monkeypatch):
         <li><div>Gets user input from a GUI
 <div class="pre"><pre class="python">
 """
-In order to test a program that gets user input from a graphical user
-interface, separate the event functions (the ones that are executed
-when a user types a value in a text field) into two functions. Move
-the calculations out of an event function and into a calculation
-function that takes parameters, performs a calculation, and returns a
-result. Then write a test function for the new calculation function.
+In order to test a program that gets user input from a
+graphical user interface, separate the event functions (the
+ones that are executed when a user types a value in a text
+field) into two functions. Move the calculations out of an
+event function and into a calculation function that takes
+parameters, performs a calculation, and returns a result.
+Then write a test function for the new calculation function.
 """
     # This function is called each time the user releases a key.
     def calc(event):
@@ -313,18 +309,21 @@ import os
 def test_write_file():
     """Verify that the write_file function works correctly."""
     lines = [
-    "Beware of false prophets, who come to you in sheep's clothing,",
-    "but inwardly they are ravening wolves. Ye shall know them by",
-    "their fruits. Do men gather grapes of thorns, or figs of thistles?",
-    "Even so every good tree bringeth forth good fruit; but a corrupt",
-    "tree bringeth forth evil fruit. A good tree cannot bring forth",
-    "evil fruit, neither a corrupt tree bring forth good fruit. Every",
-    "tree that bringeth not forth good fruit is hewn down, and cast",
-    "into the fire. Wherefore, by their fruits ye shall know them."
+    "Beware of false prophets, who come to you in sheep's",
+    "clothing, but inwardly they are ravening wolves. Ye",
+    "shall know them by their fruits. Do men gather grapes",
+    "of thorns, or figs of thistles? Even so every good tree",
+    "bringeth forth good fruit; but a corrupt tree bringeth",
+    "forth evil fruit. A good tree cannot bring forth evil",
+    "fruit, neither a corrupt tree bring forth good fruit.",
+    "Every tree that bringeth not forth good fruit is hewn",
+    "down, and cast into the fire. Wherefore, by their fruits",
+    "ye shall know them."
     ]
     filename = "fruits.txt"
 
-    # Call the write_file function to write a file named fruits.txt.
+    # Call the write_file function to
+    # write a file named fruits.txt.
     write_file(filename, lines)
 
     # Read the contents of the fruits.txt file.
@@ -388,8 +387,9 @@ def test_read_file():
         <li><div>Uses the <code>pandas</code> module
 <div class="pre"><pre class="python">
 def filter_for_meter(df, meter_number):
-    """Return a new DataFrame that contains only the rows where
-    the meterNumber column equals the parameter meter_number.
+    """Return a new DataFrame that contains only the rows
+    where the meterNumber column equals the parameter
+    meter_number.
 
     Parameters
         df: The DataFrame that this function will filter.
@@ -405,8 +405,9 @@ def filter_for_meter(df, meter_number):
 import pandas as pd
 
 def test_filter_for_meter():
-    """Verify that the filter_for_meter function works correctly."""
-
+    """Verify that the filter_for_meter
+    function works correctly.
+    """
     # Read the water.csv file and convert the
     # readDate column from a string to a datetime64.
     df = pd.read_csv(FILENAME, parse_dates=["readDate"])
@@ -415,7 +416,8 @@ def test_filter_for_meter():
     meter_num = "M4103"
     filtered_df = filter_for_meter(df, meter_num)
 
-    # Verify that the filtered data frame contains at least one row.
+    # Verify that the filtered data
+    # frame contains at least one row.
     assert len(filtered_df.index) &gt; 0
 
     # Verify that all the meter numbers in the
