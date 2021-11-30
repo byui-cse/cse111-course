@@ -1,6 +1,6 @@
 "use strict";
 
-if (!window.hasOwnProperty('cse111')) {
+if (! window.hasOwnProperty('cse111')) {
 	window.cse111 = {};
 }
 
