@@ -153,18 +153,11 @@ students = {
     <a href="https://docs.python.org/3/tutorial/inputoutput.html#formatted-string-literals">formatted string literal</a>
     (also known as an f-string).</p>
 
-    <p>The Python program in example&nbsp;1 creates 16 different
+    <p>The Python program in example&nbsp;1 creates ten different
     variables. Some of the variables are of type <code>str</code>, some
-    are of type <code>bool</code>, some are of type <code>int</code>,
-    and some are of type <code>float</code>. The program uses f-strings
-    to print the name, data type, and value of each variable. Lines
-    <span class="cross" data-ref="ex1">35&nbsp;and&nbsp;36</span>
-    of example&nbsp;1 demonstrate that no matter what the user types,
-    the <code>input()</code> function always returns a string. Lines
-    <span class="cross" data-ref="ex1">44&nbsp;and&nbsp;45</span>
-    show how to use the <code>int()</code> and <code>float()</code>
-    functions to convert a string to a number so that the numbers can be
-    used in calculations.</p>
+    are of type <code>bool</code>, some of type <code>int</code>,
+    and some of type <code>float</code>. The program uses f-strings
+    to print the name, data type, and value of each variable.</p>
 
 <div class="pre" id="ex1"><pre class="linenums"></pre>
 <pre class="python"># Example 1
@@ -186,9 +179,9 @@ print(f"d: {type(d)} {d}")
 print(f"e: {type(e)} {e}")
 print()
 
-f = 15     # number
-g = 7.62   # number
-h = f + g  # number plus number makes number
+f = 15     # int
+g = 7.62   # float
+h = f + g  # int plus float makes float
 print(f"f: {type(f)} {f}")
 print(f"g: {type(g)} {g}")
 print(f"h: {type(h)} {h}")
@@ -198,24 +191,7 @@ i = "True"   # string because of the surrounding quotes
 j = "2.718"  # string because of the surrounding quotes
 print(f"i: {type(i)} {i}")
 print(f"j: {type(j)} {j}")
-print()
-
-# The input function always returns a string.
-k = input("Please enter a number: ")        # string
-m = input("Please enter another number: ")  # string
-n = k + m          # string plus string makes string
-print(f"k: {type(k)} {k}")
-print(f"m: {type(m)} {m}")
-print(f"n: {type(n)} {n}")
-print()
-
-# The int and float functions convert a string to a number.
-p = int(input("Please enter a number: "))          # number
-q = float(input("Please enter another number: "))  # number
-r = p + q                 # number plus number makes number
-print(f"p: {type(p)} {p}")
-print(f"q: {type(q)} {q}")
-print(f"r: {type(r)} {r}")</pre></div>
+print()</pre></div>
 
 <pre class="console" data-for="ex1">&gt; python example_1.py
 a: &lt;class 'str'&gt; Her name is
@@ -230,8 +206,40 @@ g: &lt;class 'float'&gt; 7.62
 h: &lt;class 'float'&gt; 22.62
 
 i: &lt;class 'str'&gt; True
-j: &lt;class 'str'&gt; 2.718
+j: &lt;class 'str'&gt; 2.718</pre>
 
+    <p>The Python program in example&nbsp;2 creates six different
+    variables, some of type <code>string</code>, some of type
+    <code>int</code>, and some of type <code>float</code>. Lines
+    <span class="cross" data-ref="ex2">4&ndash;5 and 7&ndash;8</span> of
+    example&nbsp;2 demonstrate that no matter what the user types, the
+    <code>input()</code> function always returns a string. Lines
+    <span class="cross" data-ref="ex2">13&nbsp;and&nbsp;14</span>
+    show how to use the <code>int()</code> and <code>float()</code>
+    functions to convert a string to a number so that the numbers can be
+    used in calculations.</p>
+
+<div class="pre" id="ex2"><pre class="linenums"></pre>
+<pre class="python"># Example 2
+
+# The input function always returns a string.
+k = input("Please enter a number: ")        # string
+m = input("Please enter another number: ")  # string
+n = k + m          # string plus string makes string
+print(f"k: {type(k)} {k}")
+print(f"m: {type(m)} {m}")
+print(f"n: {type(n)} {n}")
+print()
+
+# The int and float functions convert a string to a number.
+p = int(input("Please enter a number: "))          # int
+q = float(input("Please enter another number: "))  # float
+r = p + q                 # int plus float makes float
+print(f"p: {type(p)} {p}")
+print(f"q: {type(q)} {q}")
+print(f"r: {type(r)} {r}")</pre></div>
+
+<pre class="console" data-for="ex2">&gt; python example_2.py
 Please enter a number: <span class="input">6</span>
 Please enter another number: <span class="input">4</span>
 k: &lt;class 'str'&gt; 6
@@ -293,15 +301,15 @@ r: &lt;class 'float'&gt; 8.0</pre>
 
     <p>The Python program in example&nbsp;2 gets input from the user and
     converts the user input into two numbers on lines <span
-    class="cross" data-ref="ex2">9&nbsp;and&nbsp;10</span>. Then at
-    <span class="cross" data-ref="ex2">line&nbsp;13</span> the program
+    class="cross" data-ref="ex3">9&nbsp;and&nbsp;10</span>. Then at
+    <span class="cross" data-ref="ex3">line&nbsp;13</span> the program
     computes the length of a cable from the two numbers. Finally at
-    <span class="cross" data-ref="ex2">line&nbsp;17</span>, the program
+    <span class="cross" data-ref="ex3">line&nbsp;17</span>, the program
     uses an f-string to print the length rounded to two places after the
     decimal point.</p>
 
-<div class="pre" id="ex2"><pre class="linenums"></pre>
-<pre class="python"># Example 2
+<div class="pre" id="ex3"><pre class="linenums"></pre>
+<pre class="python"># Example 3
 
 # Given the distance that a cable will span and the distance
 # it will sag or dip in the middle, this program computes the
@@ -319,13 +327,13 @@ length = span + (8 * dip**2) / (3 * span)
 # console window for the user to see.
 print(f"Length of cable in meters: {length:.2f}")</pre></div>
 
-<pre class="console" data-for="ex2">&gt; python example_2.py
+<pre class="console" data-for="ex3">&gt; python example_3.py
 Distance the cable must span in meters: <span class="input">500</span>
 Distance the cable will sag or dip in meters: <span class="input">18.5</span>
 Length of cable in meters: 501.83</pre>
 
-    <p>In example&nbsp;2, the arithmetic that is written on
-    <span class="cross" data-ref="ex2">line&nbsp;13</span>
+    <p>In example&nbsp;3, the arithmetic that is written on
+    <span class="cross" data-ref="ex3">line&nbsp;13</span>
     comes from a well known formula. Given the distance that a cable
     must span and the vertical distance that the cable will be allowed
     to sag or dip in the middle of the cable, the formula for
@@ -350,8 +358,8 @@ Length of cable in meters: 501.83</pre>
     the user for the number of toppings and computes the price of a
     pizza:</p>
 
-<div class="pre" id="ex3"><pre class="linenums"></pre>
-<pre class="python"># Example 3
+<div class="pre" id="ex4"><pre class="linenums"></pre>
+<pre class="python"># Example 4
 
 # Compute the total price of a pizza.
 
@@ -371,13 +379,13 @@ toppings_cost = number_of_toppings * price_per_topping
 # Print the price for the user to see.
 print(f"Price: ${price:.2f}")</pre></div>
 
-<pre class="console" data-for="ex3">&gt; python example_3.py
+<pre class="console" data-for="ex4">&gt; python example_4.py
 How many toppings? <span class="input">3</span>
 Price: $15.30</pre>
 
     <p>The statement at
-    <span class="cross" data-ref="ex3">line&nbsp;16</span> in
-    example&nbsp;3 causes the computer to get the value in the
+    <span class="cross" data-ref="ex4">line&nbsp;16</span> in
+    example&nbsp;4 causes the computer to get the value in the
     <var>price</var> variable which is 10.95, then add the cost of the
     toppings to 10.95, and then store the sum back into the
     <var>price</var> variable. Python includes a shorthand operator that
@@ -388,14 +396,14 @@ Price: $15.30</pre>
 
     <p>This statement with the shorthand operator is equivalent to the
     statement on
-    <span class="cross" data-ref="ex3">line&nbsp;16</span>
-    of example&nbsp;3, meaning the two statements cause the computer to
-    do the same thing. Example&nbsp;4 contains the same program as
+    <span class="cross" data-ref="ex4">line&nbsp;16</span>
+    of example&nbsp;4, meaning the two statements cause the computer to
+    do the same thing. Example&nbsp;5 contains the same program as
     example&nbsp;4 but uses the shorthand operator += at
-    <span class="cross" data-ref="ex4">line&nbsp;16</span>.</p>
+    <span class="cross" data-ref="ex5">line&nbsp;16</span>.</p>
 
-<div class="pre" id="ex4"><pre class="linenums"></pre>
-<pre class="python"># Example 4
+<div class="pre" id="ex5"><pre class="linenums"></pre>
+<pre class="python"># Example 5
 
 # Compute the total price of a pizza.
 
@@ -415,7 +423,7 @@ toppings_cost = number_of_toppings * price_per_topping
 # Print the price for the user to see.
 print(f"Price: ${price:.2f}")</pre></div>
 
-<pre class="console" data-for="ex4">&gt; python example_4.py
+<pre class="console" data-for="ex5">&gt; python example_5.py
 How many toppings? <span class="input">3</span>
 Price: $15.30</pre>
 
@@ -438,10 +446,11 @@ Price: $15.30</pre>
         <tr><td>!=</td> <td>not equal to</td></tr>
     </tbody></table>
 
-    <p>Example&nbsp;5 contains Python code that checks if a number is
+    <p>Example&nbsp;6 contains Python code that checks if a number is
     greater than 500.</p>
-<div class="pre" id="ex5"><pre class="linenums"></pre>
-<pre class="python"># Example 5
+
+<div class="pre" id="ex6"><pre class="linenums"></pre>
+<pre class="python"># Example 6
 
 # Get an account balance as a number from the user.
 balance = float(input("Enter the account balance: "))
@@ -455,27 +464,27 @@ if <em>balance &gt; 500</em>:
 # Print the balance.
 print(f"balance: {balance}")</pre></div>
 
-<pre class="console" data-for="ex5">&gt; python example_5.py
+<pre class="console" data-for="ex6">&gt; python example_6.py
 Enter the account balance: <span class="input">350</span>
 balance: 350.0
 
-&gt; python example_5.py
+&gt; python example_6.py
 Enter the account balance: <span class="input">525</span>
 balance: 540.75</pre>
 
     <p>If you have written programs in other programming languages such
     as JavaScript, Java, or C++, you always used curly braces to mark
     the start and end of the body of an <code>if</code> statement.
-    However, notice in example&nbsp;5 that <code>if</code> statements in
+    However, notice in example&nbsp;6 that <code>if</code> statements in
     Python do not use curly braces. Instead, we type a colon (:) after
     the comparison of the <code>if</code> statement as shown on
-    <span class="cross" data-ref="ex5">line&nbsp;8</span>.
+    <span class="cross" data-ref="ex6">line&nbsp;8</span>.
     Then we indent all the statements that are in the body of the
     <code>if</code> statement as shown on lines
-    <span class="cross" data-ref="ex5">9&nbsp;and&nbsp;10</span>.
+    <span class="cross" data-ref="ex6">9&nbsp;and&nbsp;10</span>.
     The body of the <code>if</code> statement ends with the first line
     of code that is not indented, like
-    <span class="cross" data-ref="ex5">line&nbsp;13</span>.</p>
+    <span class="cross" data-ref="ex6">line&nbsp;13</span>.</p>
 
     <p>It may seem strange to not use curly braces to mark the start and
     end of the body of an <code>if</code> statement. However, the Python
@@ -485,14 +494,14 @@ balance: 540.75</pre>
 
     <h3>if &hellip; elif &hellip; else Statements</h3>
     <p>Each <code>if</code> statement may have an <code>else</code>
-    statement as shown in example&nbsp;6 on
-    <span class="cross" data-ref="ex6">line&nbsp;13</span>.
+    statement as shown in example&nbsp;7 on
+    <span class="cross" data-ref="ex7">line&nbsp;13</span>.
     We can combine <code>else</code> and <code>if</code> into the
     keyword <code>elif</code> as shown on lines
-    <span class="cross" data-ref="ex6">9&nbsp;and&nbsp;11</span>.
+    <span class="cross" data-ref="ex7">9&nbsp;and&nbsp;11</span>.
 
-<div class="pre" id="ex6"><pre class="linenums"></pre>
-<pre class="python"># Example 6
+<div class="pre" id="ex7"><pre class="linenums"></pre>
+<pre class="python"># Example 7
 
 # Get the cost of an item from the user.
 cost = float(input("Please enter the cost: "))
@@ -515,7 +524,7 @@ cost -= discount
 # Print the discounted cost for the user to see.
 print(f"After the discount, you will pay {cost}")</pre></div>
 
-<pre class="console" data-for="ex6">&gt; python example_6.py
+<pre class="console" data-for="ex7">&gt; python example_7.py
 Please enter the cost: <span class="input">300</span>
 After the discount, you will pay 246.0</pre>
 
