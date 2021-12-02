@@ -13,7 +13,7 @@ def test_add_area_code():
 
     # Verify that the add_area_code function returned a string.
     assert isinstance(new_phone, str), \
-        f"add_area_code failed to return a string for {old_phone}"
+        f"add_area_code function failed to return a string for {old_phone}"
 
     # Verify that the add_area_code function
     # returned the correct value.
@@ -24,7 +24,7 @@ def test_add_area_code():
 
     # Verify that the add_area_code function returned a string.
     assert isinstance(new_phone, str), \
-        f"add_area_code failed to return a string for {old_phone}"
+        f"add_area_code function failed to return a string for {old_phone}"
 
     # Verify that the add_area_code function
     # returned the correct value.

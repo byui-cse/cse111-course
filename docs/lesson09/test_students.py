@@ -22,7 +22,7 @@ def test_read_dict():
     filename = mktemp(dir=".", prefix="not", suffix=".csv")
     with pytest.raises(FileNotFoundError):
         read_dict(filename, I_NUMBER)
-        pytest.fail("read_dict must use its filename parameter")
+        pytest.fail("read_dict function must use its filename parameter")
 
     # Call the read_dict function which will read the students.csv
     # file and create and return a dictinoary.
@@ -31,7 +31,7 @@ def test_read_dict():
 
     # Verify that the read_dict function returns a dictionary.
     assert isinstance(students, dict), \
-        "read_dict must return a dictionary"
+        "read_dict function must return a dictionary"
 
     # Verify that the students dictionary contains exactly nine items.
     assert len(students) == 9

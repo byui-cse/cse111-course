@@ -21,7 +21,7 @@ def test_read_products():
     filename = mktemp(dir=".", prefix="not", suffix=".csv")
     with pytest.raises(FileNotFoundError):
         read_products(filename)
-        pytest.fail("read_products must use its filename parameter")
+        pytest.fail("read_products function must use its filename parameter")
 
     # Call the read_products function and store the
     # returned dictionary in a variable named products_dict.
@@ -30,7 +30,7 @@ def test_read_products():
 
     # Verify that the read_products function returns a dictionary.
     assert isinstance(products_dict, dict), \
-        "read_products must return a dictionary"
+        "read_products function must return a dictionary"
 
     # Verify that the products dictionry contains exactly 16 items.
     assert len(products_dict) == 16
@@ -70,9 +70,11 @@ def check_product(products_dict, product_number, expected_value):
     actual_value = products_dict[product_number]
     length = len(actual_value)
     assert length >= 2, \
-        f"value list for product {product_number} contains too few elements"
+        f"value list for product {product_number} contains too few" \
+        f" elements: expected 2 or 3 elements but found {length}"
     assert length <= 3, \
-        f"value list for product {product_number} contains too many elements"
+        f"value list for product {product_number} contains too many" \
+        f" elements: expected 2 or 3 elements but found {length}"
 
     if length == 2:
         NAME_INDEX = 0

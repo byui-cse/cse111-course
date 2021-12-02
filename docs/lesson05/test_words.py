@@ -10,7 +10,7 @@ def test_prefix():
     Return: nothing
     """
     pre = prefix("upbeat", "upgrade")
-    assert isinstance(pre, str), "prefix must return a string"
+    assert isinstance(pre, str), "prefix function must return a string"
 
     assert prefix("cat", "catalog") == "cat"
     assert prefix("", "") == ""

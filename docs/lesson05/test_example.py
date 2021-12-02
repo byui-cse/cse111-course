@@ -16,7 +16,7 @@ def test_wind_chill():
     """
     chill = wind_chill(0, 3)
     assert isinstance(chill, int) or isinstance(chill, float), \
-        "wind_chill must return a number"
+        "wind_chill function must return a number"
 
     chill = wind_chill(0, 3)
     assert chill == approx(-6.9)
@@ -35,7 +35,7 @@ def test_heat_index():
     """
     index = heat_index(80, 80)
     assert isinstance(index, int) or isinstance(index, float), \
-        "heat_index must return a number"
+        "heat_index function must return a number"
 
     assert heat_index(80, 80) == approx(84.2)
     assert heat_index(85, 80) == approx(96.8)
