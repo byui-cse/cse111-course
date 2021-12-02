@@ -2,6 +2,7 @@
 
 from students import read_dict
 from os import path
+from tempfile import mktemp
 import pytest
 
 
@@ -11,6 +12,17 @@ def test_read_dict():
     Return: nothing
     """
     I_NUMBER = 0
+
+    # Verify that the read_dict function uses its filename
+    # parameter by doing the following:
+    # 1. Get a filename for a file that doesn't exist.
+    # 2. Call the read_dict function with the filename.
+    # 3. Verify that the open function inside the read_dict
+    #    function raises a FileNotFoundError.
+    filename = mktemp(dir=".", prefix="not", suffix=".csv")
+    with pytest.raises(FileNotFoundError):
+        read_dict(filename, I_NUMBER)
+        pytest.fail("read_dict must use its filename parameter")
 
     # Call the read_dict function which will read the students.csv
     # file and create and return a dictinoary.

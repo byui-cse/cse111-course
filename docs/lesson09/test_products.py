@@ -1,6 +1,8 @@
 # Copyright 2020, Brigham Young University-Idaho. All rights reserved.
 
 from receipt import read_products
+from os import path
+from tempfile import mktemp
 from pytest import approx
 import pytest
 
@@ -10,11 +12,27 @@ def test_read_products():
     Parameters: none
     Return: nothing
     """
+    # Verify that the read_products function uses its filename
+    # parameter by doing the following:
+    # 1. Get a filename for a file that doesn't exist.
+    # 2. Call the read_products function with the filename.
+    # 3. Verify that the open function inside the read_products
+    #    function raises a FileNotFoundError.
+    filename = mktemp(dir=".", prefix="not", suffix=".csv")
+    with pytest.raises(FileNotFoundError):
+        read_products(filename)
+        pytest.fail("read_products must use its filename parameter")
+
     # Call the read_products function and store the
     # returned dictionary in a variable named products_dict.
-    products_dict = read_products("products.csv")
-    assert isinstance(pproducts_dict, dict), \
+    filename = path.join(path.dirname(__file__), "products.csv")
+    products_dict = read_products(filename)
+
+    # Verify that the read_products function returns a dictionary.
+    assert isinstance(products_dict, dict), \
         "read_products must return a dictionary"
+
+    # Verify that the products dictionry contains exactly 16 items.
     assert len(products_dict) == 16
 
     # Check each item in the products dictionary.
@@ -50,16 +68,32 @@ def check_product(products_dict, product_number, expected_value):
     """
     assert product_number in products_dict
     actual_value = products_dict[product_number]
-    assert len(actual_value) == 2 or len(actual_value) == 3
+    length = len(actual_value)
+    assert length >= 2, \
+        f"value list for product {product_number} contains too few elements"
+    assert length <= 3, \
+        f"value list for product {product_number} contains too many elements"
 
-    NAME_INDEX = 0
-    PRICE_INDEX = 1
-    if len(actual_value) == 3:
+    if length == 2:
+        NAME_INDEX = 0
+        PRICE_INDEX = 1
+    else:
         NAME_INDEX = 1
         PRICE_INDEX = 2
 
-    assert actual_value[NAME_INDEX] == expected_value[0]
-    assert actual_value[PRICE_INDEX] == approx(expected_value[1])
+    # Verify that the product's name is correct.
+    act_name = actual_value[NAME_INDEX]
+    exp_name = expected_value[0]
+    assert act_name == exp_name, \
+        f"wrong name for product {product_number}: " \
+        f"expected {exp_name} but found {act_name}."
+
+    # Verify that the product's price is correct.
+    act_price = actual_value[PRICE_INDEX]
+    exp_price = expected_value[1]
+    assert act_price == approx(exp_price), \
+        f"wrong price for product {product_number}: " \
+        f"expected {exp_price} but found {act_price}."
 
 
 # Call the main function that is part of pytest so that the

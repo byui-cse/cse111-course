@@ -137,17 +137,17 @@ def check_element(periodic_table_dict, symbol, expected):
     actual = periodic_table_dict[symbol]
 
     # Verify that the element's name is correct.
-    exp_name = expected[NAME_INDEX]
     act_name = actual[NAME_INDEX]
+    exp_name = expected[NAME_INDEX]
     assert act_name == exp_name, \
-            f'incorrect name for "{symbol}": ' \
+            f'wrong name for "{symbol}": ' \
             f'expected {exp_name} but found {act_name}'
 
     # Verify that the element's atomic mass is correct.
     act_mass = actual[ATOMIC_MASS_INDEX]
     exp_mass = expected[ATOMIC_MASS_INDEX]
     assert act_mass == approx(exp_mass), \
-            f"incorrect atomic mass for {exp_name}: " \
+            f"wrong atomic mass for {exp_name}: " \
             f"expected {exp_mass} but found {act_mass}"
 
 

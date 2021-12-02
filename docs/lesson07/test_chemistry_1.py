@@ -329,17 +329,17 @@ def check_element(actual, expected):
          f"{name} is missing from the periodic table."
 
     # Verify that the element's symbol is correct.
-    exp_symbol = expected[SYMBOL_INDEX]
     act_symbol = actual[SYMBOL_INDEX]
+    exp_symbol = expected[SYMBOL_INDEX]
     assert act_symbol == exp_symbol, \
-         f"incorrect symbol for {name}: " \
+         f"wrong symbol for {name}: " \
          f"expected {exp_symbol} but found {act_symbol}."
 
     # Verify that the element's atomic mass is correct.
     act_mass = actual[ATOMIC_MASS_INDEX]
     exp_mass = expected[ATOMIC_MASS_INDEX]
     assert act_mass == approx(exp_mass), \
-            f"incorrect atomic mass for {name}: " \
+            f"wrong atomic mass for {name}: " \
             f"expected {exp_mass} but found {act_mass}"
 
 
