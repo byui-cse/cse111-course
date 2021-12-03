@@ -30,10 +30,16 @@ def test_read_products():
 
     # Verify that the read_products function returns a dictionary.
     assert isinstance(products_dict, dict), \
-        "read_products function must return a dictionary"
+        "read_products function must return a dictionary:" \
+        f" expected a dictionary but found a {type(products_dict)}"
 
     # Verify that the products dictionry contains exactly 16 items.
-    assert len(products_dict) == 16
+    length = len(products_dict)
+    exp_len = 16
+    assert length == exp_len, \
+        "products dictionary has too" \
+        f" {'few' if length < exp_len else 'many'} items:" \
+        f" expected {exp_len} but found {length}"
 
     # Check each item in the products dictionary.
     check_product(products_dict, "D150", ["1 gallon milk", 2.85])
@@ -69,12 +75,12 @@ def check_product(products_dict, product_number, expected_value):
     assert product_number in products_dict
     actual_value = products_dict[product_number]
     length = len(actual_value)
-    assert length >= 2, \
-        f"value list for product {product_number} contains too few" \
-        f" elements: expected 2 or 3 elements but found {length}"
-    assert length <= 3, \
-        f"value list for product {product_number} contains too many" \
-        f" elements: expected 2 or 3 elements but found {length}"
+    min_len = 2
+    max_len = 3
+    assert min_len <= length and length <= max_len, \
+        f"value list for product {product_number} contains too" \
+        f" {'few' if length < min_len else 'many'} elements:" \
+        f" expected {min_len} or {max_len} elements but found {length}"
 
     if length == 2:
         NAME_INDEX = 0
@@ -88,14 +94,16 @@ def check_product(products_dict, product_number, expected_value):
     exp_name = expected_value[0]
     assert act_name == exp_name, \
         f"wrong name for product {product_number}: " \
-        f"expected {exp_name} but found {act_name}."
+        f"expected {exp_name} but found {act_name}"
 
     # Verify that the product's price is correct.
     act_price = actual_value[PRICE_INDEX]
+    if isinstance(act_price, str):
+        act_price = float(act_price)
     exp_price = expected_value[1]
     assert act_price == approx(exp_price), \
         f"wrong price for product {product_number}: " \
-        f"expected {exp_price} but found {act_price}."
+        f"expected {exp_price} but found {act_price}"
 
 
 # Call the main function that is part of pytest so that the

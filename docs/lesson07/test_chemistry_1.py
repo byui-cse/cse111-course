@@ -21,7 +21,8 @@ def test_make_periodic_table():
     # periodic table in a variable named period_table_list.
     periodic_table_list = make_periodic_table()
     assert isinstance(periodic_table_list, list), \
-        "make_periodic_table function must return a list"
+        "make_periodic_table function must return a list:" \
+        f" expected a list but found a {type(periodic_table_list)}"
 
     # Create a key function that will be used by the sorted method.
     by_name = lambda element: element[NAME_INDEX]

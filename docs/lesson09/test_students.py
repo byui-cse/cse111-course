@@ -31,10 +31,16 @@ def test_read_dict():
 
     # Verify that the read_dict function returns a dictionary.
     assert isinstance(students, dict), \
-        "read_dict function must return a dictionary"
+        "read_dict function must return a dictionary:"
+        f" expected a dictionary but found a {type(students)}"
 
     # Verify that the students dictionary contains exactly nine items.
-    assert len(students) == 9
+    length = len(students)
+    exp_len = 9
+    assert length == exp_len, \
+        "students dictionary has too" \
+        f" {'few' if length < exp_len else 'many'} items:" \
+        f" expected {exp_len} but found {length}"
 
     # Verify the correctness of the nine items in the dictionary.
     assert students["751766201"] == ["751766201", "James Smith"]

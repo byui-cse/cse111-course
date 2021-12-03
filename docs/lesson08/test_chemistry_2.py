@@ -23,7 +23,8 @@ def test_make_periodic_table():
 
     # Verify that the make_periodic_table function returns a dictionary.
     assert isinstance(periodic_table_dict, dict), \
-        "make_periodic_table function must return a dictionary"
+        "make_periodic_table function must return a dictionary: " \
+        f" expected a dictionary but found a {type(periodic_table_dict)}"
 
     # Check each item in the periodic table dictionary.
     check_element(periodic_table_dict, "Ac", ["Actinium", 227])
@@ -161,11 +162,13 @@ def test_parse_formula():
     """
     periodic_table_dict = make_periodic_table()
     assert isinstance(periodic_table_dict, dict), \
-        "make_periodic_table function must return a dictionary"
+        "make_periodic_table function must return a dictionary: " \
+        f" expected a dictionary but found a {type(periodic_table_dict)}"
 
     sym_quant_list = parse_formula("H2O", periodic_table_dict)
     assert isinstance(sym_quant_list, list), \
-        "parse_formula function must return a list"
+        "parse_formula function must return a list: "
+        f" expected a list but found a {type(sym_quant_list)}"
 
     assert parse_formula("H2O", periodic_table_dict) \
             == [("H",2), ("O",1)]
@@ -195,11 +198,13 @@ def test_compute_molar_mass():
     """
     periodic_table_dict = make_periodic_table()
     assert isinstance(periodic_table_dict, dict), \
-        "make_periodic_table function must return a dictionary"
+        "make_periodic_table function must return a dictionary: " \
+        f" expected a dictionary but found a {type(periodic_table_dict)}"
 
     molar_mass = compute_molar_mass([["O",2]], periodic_table_dict)
     assert isinstance(molar_mass, int) or isinstance(molar_mass, float), \
-        "compute_molar_mass function must return a number"
+        "compute_molar_mass function must return a number: " \
+        f" expected a number but found a {type(molar_mass)}"
 
     assert compute_molar_mass([], periodic_table_dict) == 0
     assert compute_molar_mass([["O",2]], periodic_table_dict) \
