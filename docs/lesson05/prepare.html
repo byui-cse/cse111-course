@@ -138,16 +138,35 @@ def deposit(amount):
     <h3>Comparing Floating Point Numbers</h3>
     <p>Within a computer's memory, everything (all numbers, text, sound,
     pictures, movies, everything) is stored using the binary number
-    system. When executing Python code, a computer stores integers in
-    binary in a way that exactly represents the integers. For example, a
-    computer executing Python code stores the integer 23 as 00010111 in
-    binary which is an exact representation of decimal 23. However, when
-    executing Python code, a computer approximates floating point
-    numbers (numbers with digits after the decimal place). For example,
-    a computer stores the floating point number 23.7 as
-    1000001101111011001100110011010 in binary. This binary number is
-    actually 23.700000762939453 in decimal which is an approximation to
-    23.7.</p>
+    system. While executing a Python program, a computer stores integers
+    in binary in a way that exactly represents the integers. For
+    example, a computer stores the integer 23 as 00010111 in binary
+    which is an exact representation of decimal 23. However, a computer
+    approximates floating point numbers (numbers with digits after the
+    decimal place). For example, while executing a Python program, a
+    computer stores the floating point number 23.7 as
+    <!--
+    // Java
+    double number = 23.7;
+    System.out.println(number);
+    System.out.println(Long.toHexString(Double.doubleToLongBits(number)));
+    System.out.println(Long.toBinaryString(Double.doubleToLongBits(number)));
+
+    0x4037b33333333333
+    0100000000110111101100110011001100110011001100110011001100110011
+
+    # Python
+    from decimal import Decimal
+    number = 23.7
+    print(Decimal(number).as_tuple())
+
+    DecimalTuple(sign=0, digits=(2, 3, 6, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 2, 8, 9, 4, 5, 7, 2, 6, 4, 2, 3, 9, 8, 9, 9, 8, 1, 4, 1, 2, 8, 8, 7, 5, 7, 3, 2, 4, 2, 1, 8, 7, 5), exponent=-48)
+    23.699999999999999289457264239899814128875732421875
+    -->
+    0100000000110111101100110011001100110011001100110011001100110011
+    in binary. This binary number is actually
+    23.69999999999999928945726424 in decimal which is an approximation
+    to 23.7</p>
 
     <p>Because computers approximate floating point numbers, we must be
     careful when comparing floating point numbers in our test functions.
@@ -187,11 +206,11 @@ def deposit(amount):
     </ol>
 
     <h2 id="example">Example</h2>
-    <p>Here is a simple function named <code>cels_from_fahr</code> that
+    <p>Below is a simple function named <code>cels_from_fahr</code> that
     converts a temperature in Fahrenheit to Celsius and returns the
     Celsius temperature. The <code>cels_from_fahr</code> function is
     part of a larger Python program in a file named
-    <code>weather.py</code>:</p>
+    <code>weather.py</code>.</p>
 
 <div class="pre" id="ex5"><pre class="linenums"></pre>
 <pre class="python"># weather.py
@@ -247,8 +266,8 @@ pytest.main(["-v", "--tb=line", "-rN", __file__])</pre></div>
     <p>After writing the test function, we use <code>pytest</code> to
     run the test function. At
     <span class="cross" data-ref="ex6">line&nbsp;20</span>,
-    instead of writing a call to the <code>main</code> function as we do
-    in program files, we write a call to <code>pytest.main</code>. In
+    instead of writing a call to the <code>main</code> function, as we
+    do in program files, we write a call to <code>pytest.main</code>. In
     CSE&nbsp;111, at the bottom of all test files, we will write a call
     to <code>pytest.main</code> exactly as shown on
     <span class="cross" data-ref="ex6">line&nbsp;20</span>. This call to
@@ -276,7 +295,7 @@ test_weather.py::test_cels_from_fahr <span class="pass">PASSED               [10
     returned the expected (correct) result all four times.</p>
 
     <h2 id="separate">Separating Program Code from Test Code</h2>
-    <p>In CSE&nbsp;111, we will write test functions in a separate file
+    <p>In CSE&nbsp;111, we will write test functions in a file separate
     from program functions. It is a good idea to separate test functions
     and program functions because the separation makes it easy to
     release a program to users without releasing the test functions to

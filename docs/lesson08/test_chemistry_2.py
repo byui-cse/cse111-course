@@ -167,7 +167,7 @@ def test_parse_formula():
 
     sym_quant_list = parse_formula("H2O", periodic_table_dict)
     assert isinstance(sym_quant_list, list), \
-        "parse_formula function must return a list: "
+        "parse_formula function must return a list: " \
         f" expected a list but found a {type(sym_quant_list)}"
 
     assert parse_formula("H2O", periodic_table_dict) \

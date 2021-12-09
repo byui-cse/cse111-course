@@ -36,14 +36,14 @@
     <p>The time in seconds that a pendulum takes to swing back and forth
     once is given by this formula:</p>
 
-    <div class="block formula"><var>t</var> = 2&pi; <div class="radic two"><div>&radic;</div><div class="fract"><div><var>n</var></div><div>9.81</div></div></div></div>
+    <div class="block formula"><var>t</var> = 2&pi; <div class="radic two"><div>&radic;</div><div class="fract"><div><var>h</var></div><div>9.81</div></div></div></div>
 
     <ul>
         <li><div><var>t</var> is the time in seconds,</div></li>
-        <li><div><var>&pi;</var> is PI, the ratio of the circumference
-        divided by the diameter of a circle (use <code>math.pi</code>),
-        and</div></li>
-        <li><div><var>n</var> is the length of the pendulum in meters.</div></li>
+        <li><div>&pi; is the constant PI, which is the ratio of the
+        circumference of a circle divided by its diameter (use
+        <code>math.pi</code>),</div></li>
+        <li><div><var>h</var> is the length of the pendulum in meters.</div></li>
     </ul>
 
     <h2>Activity</h2>
@@ -56,17 +56,17 @@
     the top of the file acts as a comment for the entire program.</p>
 
 <div class="pre"><pre class="python">"""
-The time in seconds that a pendulum takes to swing
-back and forth once is given by this formula:
+The time in seconds that a pendulum takes to swing back and
+forth once is given by this formula:
              ____
-            / n
+            / h
     t = 2π / ----
           √  9.81
 
-where t is the time in seconds,
-π is PI the ratio of the circumference divided by
-    the diameter of a circle (use math.pi), and
-n is the length of the pendulum in meters.
+t is the time in seconds,
+π is the constant PI, which is the ratio of the circumference
+    of a circle divided by its diameter (use math.pi),
+h is the length of the pendulum in meters.
 
 Write a program that prompts a user to enter the length of a
 pendulum in meters and then computes and prints the time in

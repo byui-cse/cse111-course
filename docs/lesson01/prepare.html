@@ -29,7 +29,7 @@
     <p>The concepts in CSE&nbsp;111 build on the concepts that you
     learned in
     <a href="https://byui-cse.github.io/cse110-course/index.html">CSE&nbsp;110</a>.
-    In order to be successful in CSE&nbsp;111, it's important that you
+    In order to be successful in CSE&nbsp;111, it is important that you
     remember and understand the concepts from CSE&nbsp;110. To help you
     remember those concepts, during lesson&nbsp;1 of CSE&nbsp;111, you
     will review programming concepts that you learned in
@@ -57,14 +57,14 @@
     <p>A <dfn>variable</dfn> is a location in a computer's memory where
     a program stores a value. A variable has a name, a data type, and a
     value. In Python, we assign a value to a variable by using the
-    assignment operator, which is the equals symbol (=). The value and
-    data type of a variable may change while the computer is executing a
+    assignment operator, which is the equals symbol (=). A computer may
+    change the value and data type of a variable while executing a
     program.</p>
 
     <h3 id="data_types">Data Types</h3>
     <p>Python has many <dfn>data types</dfn> including <code>str</code>,
     <code>bool</code>, <code>int</code>, <code>float</code>,
-    <code>list</code>, and <code>dict</code>. Many of the data types
+    <code>list</code>, and <code>dict</code>. Most of the data types
     that you will use in your programs in CSE&nbsp;111 are shown in the
     following list.</p>
 
@@ -75,7 +75,7 @@
 <div class="pre"><pre class="python">
 greet = "Hello"
 text = "23"
-response = input("What is your favorite color? ")
+color = input("What is your favorite color? ")
 </pre></div>
         </div></li>
 
@@ -106,9 +106,11 @@ sample = 7.51
 
         <li><div>A <dfn>list</dfn> is a collection of values. Each value
         in a list is called an element and is stored at a unique index.
-        In a Python program, we can create a list by using square
-        brackets ([&nbsp;and&nbsp;]) and separating the elements with
-        commas (,). For example:
+        The primary purpose of a list is to efficiently store many
+        elements. In a Python program, we can create a list by using
+        square brackets ([&nbsp;and&nbsp;]) and separating the elements
+        with commas (,). For example here are two lists named
+        <code>colors</code> and <code>samples</code>:
 <div class="pre"><pre class="python">
 colors = ["yellow", "red", "green", "yellow", "blue"]
 samples = [6.5, 7.2, 7.0, 8.1, 7.2, 6.8, 6.8]
@@ -190,8 +192,7 @@ print()
 i = "True"   # string because of the surrounding quotes
 j = "2.718"  # string because of the surrounding quotes
 print(f"i: {type(i)} {i}")
-print(f"j: {type(j)} {j}")
-print()</pre></div>
+print(f"j: {type(j)} {j}")</pre></div>
 
 <pre class="console" data-for="ex1">&gt; python example_1.py
 a: &lt;class 'str'&gt; Her name is
@@ -234,7 +235,7 @@ print()
 # The int and float functions convert a string to a number.
 p = int(input("Please enter a number: "))          # int
 q = float(input("Please enter another number: "))  # float
-r = p + q                 # int plus float makes float
+r = p + q                     # int plus float makes float
 print(f"p: {type(p)} {p}")
 print(f"q: {type(q)} {q}")
 print(f"r: {type(r)} {r}")</pre></div>
@@ -353,7 +354,7 @@ Length of cable in meters: 501.83</pre>
     <p>To understand what the shorthand operators do and why Python
     includes them, imagine a program that computes the price of a pizza.
     The price of a large pizza with cheese and no other toppings is
-    $10.95. The price for each topping, such as ham, pepperoni, olives,
+    $10.95. The price of each topping, such as ham, pepperoni, olives,
     and pineapple is $1.45. Here is a short example program that asks
     the user for the number of toppings and computes the price of a
     pizza:</p>
@@ -462,7 +463,7 @@ if <em>balance &gt; 500</em>:
     balance += interest
 
 # Print the balance.
-print(f"balance: {balance}")</pre></div>
+print(f"balance: {balance:.2f}")</pre></div>
 
 <pre class="console" data-for="ex6">&gt; python example_6.py
 Enter the account balance: <span class="input">350</span>
@@ -522,7 +523,7 @@ discount = cost * rate
 cost -= discount
 
 # Print the discounted cost for the user to see.
-print(f"After the discount, you will pay {cost}")</pre></div>
+print(f"After the discount, you will pay {cost:.2f}")</pre></div>
 
 <pre class="console" data-for="ex7">&gt; python example_7.py
 Please enter the cost: <span class="input">300</span>
@@ -585,7 +586,9 @@ if driver &gt;= 54 <em>or</em> (driver &gt;= 32 <em>and</em> passenger &gt;= 54)
         <li><div>write a comment</div></li>
         <li><div>use the <code>input</code> and <code>print</code>
         functions</div></li>
-        <li><div>convert a value from a string to a number</div></li>
+        <li><div>use the <code>int</code> and <code>float</code>
+        functions to convert a value from a string to a
+        number</div></li>
         <li><div>store a value in a variable</div></li>
         <li><div>perform arithmetic</div></li>
         <li><div>write <code>if &hellip; elif &hellip; else</code>

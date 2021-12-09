@@ -65,20 +65,80 @@ body {
 }
 @media print {
 	body {
-		background-color: var(--bk-color);
-		color: var(--fg-color);
-
 		font-family: "Crimson Text", Garamond, Georgia, serif;
 		font-size: 100%;
-	}
 
+		filter: grayscale(100%);
+
+		--bk-color: white;
+		--fg-color: black;
+
+		--dfn-fg-color: darkgray;
+		--strong-fg-color: darkgray;
+		--user-input-bk-color: white;
+		--user-input-fg-color: darkgray;
+
+		--bullet-fg-color: darkgray;
+		--python-bk-color: white;
+		--console-bk-color: white;
+	}
+}
+
+
+@media screen {
 	header {
-		display: none;
+		padding: 0.5em 1.5em;
+		background-color: var(--byui-blue);
+		color: white;
 	}
+	header a:link,
+	header a:hover,
+	header a:active,
+	header a:visited {
+		text-decoration: none;
+		color: inherit;
+	}
+	header > a.logo {
+		display: inline-block;
+		margin-right: 1.5em;
+		vertical-align: middle;
+		font-family: Georgia, Palatino, "Book Antiqua", serif;
+		text-transform: uppercase;
+		max-width: 5.5em;
+	}
+	header > a.logo > div:first-child {
+		margin-bottom: -0.02em;
+		font-size: 150%;
+		font-weight: bolder;
+		text-align: center;
+	}
+	header > a.logo > div:last-child {
+		border-top: 1px solid;
+		padding-top: 0.11em;
+		font-size: 94%;
+		font-weight: lighter;
+		letter-spacing: 0.08em;
+		text-align: center;
+	}
+	header > h2 {
+		display: inline-block;
+		vertical-align: middle;
+		font-size: 125%;
+		font-weight: normal;
+		white-space: normal;
+	}
+	header > h2 > a {
+		white-space: nowrap;
+	}
+	header > div.colorCtrl {
+		float: right;
+		cursor: pointer;
+		margin: 0.25em 0 0 1.5em;
+		font-size: 125%;
+	}
+}
+@media print {
 	iframe.video {
-		display: none;
-	}
-	footer {
 		display: none;
 	}
 	section {
@@ -88,58 +148,27 @@ body {
 	}
 }
 
-header {
-	padding: 0.5em 1.5em;
-	background-color: var(--byui-blue);
-	color: white;
-}
-header a:link,
-header a:hover,
-header a:active,
-header a:visited {
-	text-decoration: none;
-	color: inherit;
-}
-header > a.logo {
-	display: inline-block;
-	margin-right: 1.5em;
-	vertical-align: middle;
-	font-family: Georgia, Palatino, "Book Antiqua", serif;
-	text-transform: uppercase;
-	max-width: 5.5em;
-}
-header > a.logo > div:first-child {
-	margin-bottom: -0.02em;
+
+/* Paragraph classes that are used by overview/title.html which is a
+ * title page that is used when the content for this course is printed. */
+p.course_code {
+	margin: 7em 0 0 0;
 	font-size: 150%;
-	font-weight: bolder;
 	text-align: center;
 }
-header > a.logo > div:last-child {
-	border-top: 1px solid;
-	padding-top: 0.11em;
-	font-size: 94%;
-	font-weight: lighter;
-	letter-spacing: 0.08em;
+p.course_title {
+	margin: 0.5em 0 0 0;
+	color: var(--byui-blue);
+	font-size: 200%;
+	font-weight: bold;
 	text-align: center;
 }
-header > h2 {
-	display: inline-block;
-	vertical-align: middle;
-	font-size: 125%;
-	font-weight: normal;
-	white-space: normal;
-}
-header > h2 > a {
-	white-space: nowrap;
-}
-header > div.colorCtrl {
-	float: right;
-	cursor: pointer;
-	margin: 0.25em 0 0 1.5em;
-	font-size: 125%;
+p.author {
+	margin: 25em 0 0 0;
+	text-align: center;
 }
 
-/* Content */
+
 @media screen {
 	article {
 		line-height: 1.4;
@@ -152,6 +181,9 @@ header > div.colorCtrl {
 	 * shows sample solutions for checkpoints and team activities. */
 	article.solution {
 		max-width: none;
+	}
+	article.solution h1 {
+		font-size: 150%;
 	}
 }
 @media print {
@@ -167,9 +199,6 @@ article h1 {
 	font-size: 175%;
 	margin: 0 0 1em 0;
 	page-break-after: avoid !important;
-}
-article.solution h1 {
-	font-size: 150%;
 }
 
 article h2 {
@@ -222,17 +251,21 @@ article blockquote {
 	padding-left: 0.5em;
 }
 
+article div.search {
+	margin: 1em auto;
+	border: 1px solid var(--border);
+	padding: 0.25em 0.5em;
+	white-space: pre-line;
+}
+
+
 article a:link { color: var(--link-before-fg-color); }
 article a:hover { color: var(--link-hover-fg-color); }
 article a:active { color: var(--link-active-fg-color); }
 article a:visited { color: var(--link-visited-fg-color); }
 
-article span.duration {
-	font-size: smaller;
-}
-
-article audio {
-	float: right;
+article dfn {
+	color: var(--dfn-fg-color)
 }
 
 article em {
@@ -245,13 +278,18 @@ article strong {
 	color: var(--strong-fg-color);
 }
 
-article dfn {
-	color: var(--dfn-fg-color)
-}
-
 article var {
 	font-style: italic;
 }
+
+article span.duration {
+	font-size: smaller;
+}
+
+article span.nowrap {
+	white-space: nowrap;
+}
+
 
 /* Lists */
 article ol {
@@ -362,19 +400,6 @@ article dl.long dd {
 }
 
 
-article span.nowrap {
-	white-space: nowrap;
-}
-
-
-article div.search {
-	margin: 1em auto;
-	border: 1px solid var(--border);
-	padding: 0.25em 0.5em;
-	white-space: pre-line;
-}
-
-
 /* Mathematical Formulas */
 article div.formula {
 	white-space: nowrap;
@@ -423,19 +448,19 @@ article div.formula span.abs::after {
 	font-size: xx-large;
 	font-weight: 100;
 	vertical-align: middle;
-	content: '\7c';
+	content: "\7c";
 }
 
 article div.formula .paren::before {
 	padding-left: 0.1em;
-	content: '\28';
+	content: "\28";
 	font-size: xx-large;
 	font-weight: 100;
 }
 
 article div.formula .paren::after {
 	padding-left: 0.1em;
-	content: '\29';
+	content: "\29";
 	font-size: xx-large;
 	font-weight: 100;
 }
@@ -677,17 +702,17 @@ article table {
 	margin-bottom: 1em;
 }
 
-article th,
-article td {
-	padding: 0.1em 0.25em;
-}
-
-article td.center { text-align: center; }
-article td.number { text-align: right; }
-
 article table.center {
 	margin: 1em auto;
 }
+
+article table th,
+article table td {
+	padding: 0.1em 0.25em;
+}
+
+article table td.center { text-align: center; }
+article table td.number { text-align: right; }
 
 article table > thead > tr > th {
 	vertical-align: bottom;
@@ -700,6 +725,15 @@ article table > tbody > tr > th {
 	text-align: left;
 	font-weight: bold;
 }
+
+article table.contents tbody > tr > th {
+	font-weight: bold;
+	font-size: 120%;
+	color: var(--byui-blue);
+	padding: 1.5em 0 0.5em 0;
+}
+article table.contents tbody > tr > td { padding-top: 0.3em; }
+article table.contents tbody > tr > td:first-child { min-width: 10em; }
 
 article table.prec > tbody > tr > td {
     border: 1px solid var(--border);
@@ -722,8 +756,11 @@ article table.list > tbody > tr > td.label {
 	text-align: right;
 }
 
-footer {
-	margin: 1em auto;
-	max-width: 40em;
-	font-size: 80%;
+
+@media screen {
+	footer {
+		margin: 1em auto;
+		max-width: 40em;
+		font-size: 80%;
+	}
 }
