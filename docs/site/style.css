@@ -14,15 +14,15 @@
 
 	--border: rgba(112, 112, 112, 1);
 
-	--coral: rgba(255, 127, 80, 1);
 	--light-coral: rgba(255, 245, 242, 1);
+	--coral: rgba(255, 127, 80, 1);
 	--dark-coral: rgba(33, 16, 10, 1);
 
 	--light-green: rgba(127, 255, 127, 1);
-	--dark-green: rgba(127, 255, 127, 0.3);
+	--dark-green: rgba(37, 76, 37, 1);
 
-	--byui-blue: rgba(0, 118, 182, 1);
 	--light-byui-blue: rgba(237, 245, 249, 1);
+	--byui-blue: rgba(0, 118, 182, 1);
 	--dark-byui-blue: rgba(0, 23, 36, 1);
 
 	--bk-color: var(--light-bk-color);
@@ -33,16 +33,19 @@
 	--link-active-fg-color: red;
 	--link-visited-fg-color: purple;
 
+	--heading-fg-color: var(--byui-blue);
+	--bullet-fg-color: var(--byui-blue);
 	--dfn-fg-color: var(--coral);
 	--strong-fg-color: var(--coral);
 	--user-input-bk-color: var(--coral);
 	--user-input-fg-color: white;
 
-	--bullet-fg-color: var(--byui-blue);
 	--line-number-hilite: var(--byui-blue);
 	--python-bk-color: var(--light-coral);
-	--code-line-hilite: var(--light-green);
 	--console-bk-color: var(--light-byui-blue);
+
+	--code-line-hilite: var(--light-green);
+	--console-line-hilite: rgba(208, 229, 241, 1);
 }
 
 body {
@@ -73,12 +76,14 @@ body {
 		--bk-color: white;
 		--fg-color: black;
 
-		--dfn-fg-color: darkgray;
+		--heading-fg-color: var(darkgray);
+		--bullet-fg-color: var(darkgray);
+
+		--dfn-fg-color: black;
 		--strong-fg-color: darkgray;
 		--user-input-bk-color: white;
 		--user-input-fg-color: darkgray;
 
-		--bullet-fg-color: darkgray;
 		--python-bk-color: white;
 		--console-bk-color: white;
 	}
@@ -146,26 +151,27 @@ body {
 		widows: 2;
 		orphans: 2;
 	}
-}
 
 
-/* Paragraph classes that are used by overview/title.html which is a
- * title page that is used when the content for this course is printed. */
-p.course_code {
-	margin: 7em 0 0 0;
-	font-size: 150%;
-	text-align: center;
-}
-p.course_title {
-	margin: 0.5em 0 0 0;
-	color: var(--byui-blue);
-	font-size: 200%;
-	font-weight: bold;
-	text-align: center;
-}
-p.author {
-	margin: 25em 0 0 0;
-	text-align: center;
+	/* Paragraph classes that are used by overview/title.html which
+	* is a title page that is used when the content for this course
+	* is printed. */
+	p.course_code {
+		margin: 7em 0 0 0;
+		font-size: 150%;
+		text-align: center;
+	}
+	p.course_title {
+		margin: 0.5em 0 0 0;
+		color: var(--heading-fg-color);
+		font-size: 200%;
+		font-weight: bold;
+		text-align: center;
+	}
+	p.author {
+		margin: 25em 0 0 0;
+		text-align: center;
+	}
 }
 
 
@@ -214,7 +220,7 @@ article h2 {
 article h3 {
 	font-weight: bold;
 	font-size: 130%;
-	color: var(--byui-blue);
+	color: var(--heading-fg-color);
 	margin: 1.5em 0 0.5em 0;
 	page-break-after: avoid !important;
 }
@@ -266,6 +272,11 @@ article a:visited { color: var(--link-visited-fg-color); }
 
 article dfn {
 	color: var(--dfn-fg-color)
+}
+@media print {
+	article dfn {
+		font-weight: bold;
+	}
 }
 
 article em {
@@ -729,7 +740,7 @@ article table > tbody > tr > th {
 article table.contents tbody > tr > th {
 	font-weight: bold;
 	font-size: 120%;
-	color: var(--byui-blue);
+	color: var(--heading-fg-color);
 	padding: 1.5em 0 0.5em 0;
 }
 article table.contents tbody > tr > td { padding-top: 0.3em; }

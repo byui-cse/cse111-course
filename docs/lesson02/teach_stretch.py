@@ -17,13 +17,12 @@ SALES_TAX_RATE = 0.06
 
 subtotal = 0
 
-text = ""
-while text.lower() != "done":
+print("Enter the price and quantity for each item.")
+price = 1
+while price != 0:
     # Get the price from the user.
-    text = input("Please enter the price: ")
-    if text.lower() != "done":
-        price = float(text)
-
+    price = float(input("Please enter the price: "))
+    if price != 0:
         # Get the quantity from the user.
         quantity = int(input("Please enter the quantity: "))
 
@@ -38,16 +37,17 @@ subtotal = round(subtotal, 2)
 print(f"Subtotal: {subtotal}")
 print()
 
-# Call the now() method to get the current date and
-# time as a datetime object from the computer's clock.
+# Call the now() method to get the current
+# date and time as a datetime object from
+# the computer's operating system.
 current_date_and_time = datetime.now()
 
 # Call the weekday() method to get the day of the
 # week from the current_date_and_time object.
 weekday = current_date_and_time.weekday()
 
-# if the subtotal is greater than 50 and
-# today is Tuesday or Wednesday, compute the discount.
+# if the subtotal is greater than 50 and today is
+# Tuesday or Wednesday, compute the discount amount.
 if weekday == 1 or weekday == 2:
     if subtotal < 50:
         lacking = 50 - subtotal

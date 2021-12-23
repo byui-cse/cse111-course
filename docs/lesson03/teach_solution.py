@@ -21,13 +21,13 @@ from datetime import datetime
 def main():
     # Get the user's gender, birthdate, height, and weight.
     gender = input("Please enter your gender (M or F): ")
-    birthdate = input("Enter your birthdate (YYYY-MM-DD): ")
+    birth_str = input("Enter your birthdate (YYYY-MM-DD): ")
     pounds = float(input("Enter your weight in US pounds: "))
     inches = float(input("Enter your height in US inches: "))
 
     # Call the compute_age function to
     # compute the user's age in years.
-    years = compute_age(birthdate)
+    years = compute_age(birth_str)
 
     # Call the kg_from_lb function to
     # convert from pounds to kilograms.
@@ -57,6 +57,8 @@ def compute_age(birth_str):
         as a string in this format: YYYY-MM-DD
     Return: a person's age in years.
     """
+    # Convert a person's birthdate from a string
+    # to a date object.
     birthdate = datetime.strptime(birth_str, "%Y-%m-%d")
     today = datetime.now()
 

@@ -36,7 +36,7 @@
 
     <h2>Purpose</h2>
     <p>Boost your understanding of writing your own functions with
-    parameters and then calling those functions.</p>
+    parameters and then calling those functions with arguments.</p>
 
     <h2>Problem Statement</h2>
     <p>Health professionals who are helping a client achieve a healthy
@@ -64,7 +64,8 @@
     in centimeters.</p>
 
     <h2>Assignment</h2>
-    <p>Write a Python program named that does the following:</p>
+    <p>Write a Python program named <code>fitness.py</code> that does
+    the following:</p>
     <ol>
         <li><div>Asks the user to enter four values:
         <ol>
@@ -83,10 +84,13 @@
 
     <h2>Helpful Documentation</h2>
     <ul>
+        <li><div>The <a href="../lesson02/prepare.html">prepare content</a>
+        for the previous lesson explains how to call functions.</div></li>
+
         <li><div>The <a href="prepare.html">prepare content</a> for this
         lesson explains how to write functions.</div></li>
 
-        <li><div>The official Python documentation describes the built-in
+        <li><div>The official Python reference describes the built-in
         <a href="https://docs.python.org/3/library/functions.html#round"><code>round</code> function</a>.</div></li>
     </ul>
 
@@ -120,6 +124,8 @@ def compute_age(birth_str):
         as a string in this format: YYYY-MM-DD
     Return: a person's age in years.
     """
+    # Convert a person's birthdate from a string
+    # to a date object.
     birthdate = datetime.strptime(birth_str, "%Y-%m-%d")
     today = datetime.now()
 

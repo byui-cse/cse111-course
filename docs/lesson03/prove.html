@@ -49,25 +49,25 @@
         <li><div>The scene must be outdoor and include part of the
         sky.</div></li>
         <li><div>The sky must have clouds.</div></li>
-        <li><div>The scene must include repetitive objects such as
+        <li><div>The scene must include repetitive objects, such as
         blades of grass, trees, leaves on a tree, birds, flowers,
         insects, fish, pickets in a fence, dashed lines on a road,
         buildings, bales of hay, snowmen, snowflakes, or
         icicles.</div></li>
         <li><div>Each of the objects in your scene should be drawn in
-        its own function such as <code>draw_sky</code>,
+        its own function, such as <code>draw_sky</code>,
         <code>draw_cloud</code>, <code>draw_ground</code>,
         <code>draw_flower</code>, <code>draw_fence</code>,
         <code>draw_fish</code>, etc.</div></li>
     </ul>
 
     <p>During this milestone, you will write code that draws the sky,
-    the ground, and clouds in your scene. During the next lesson, you
-    will write code that completes your scene. As you write your
-    program, write it so that it draws objects in the order of farthest
-    away to nearest. For example, you program should draw the sky first,
-    then clouds, then the ground, then trees, then insects in the trees.
-    Be creative.</p>
+    the ground, and clouds in your scene. During the next prove
+    assignment, you will write code that completes your scene. As you
+    write your program, write it so that it draws objects in the order
+    of farthest away to nearest. For example, you program should draw
+    the sky first, then clouds, then the ground, then trees, then
+    insects in the trees. Be creative.</p>
 
     <h3>Scene Gallery</h3>
     <p>The following example scene was drawn by a student's Python
@@ -96,7 +96,7 @@
         reference, color chart, and example programs.</div></li>
 
         <li><div>The following videos walk through examples of using
-        functions to draw with <code>tkinter</code>.
+        functions to draw with Draw 2-D.
         <ul class="videos">
             <li><div><a href="https://content.byui.edu/items/a9e60503-b5e7-40f0-bf48-ebf1a7441d25/1/drawing_with_functions_part1.mp4">Drawing with Functions, part 1</a> <span class="duration">(16 minutes)</span></div></li>
 
@@ -108,8 +108,9 @@
     <p>Do the following:</p>
 
     <ol class="long">
-        <li><div>Download the <code>draw2d/draw2d.py</code> file and
-        save it in the same folder where you will save your
+        <li><div>Download the
+        <a download href="draw2d/draw2d.py"><code>draw2d.py</code></a>
+        file and save it in the same folder where you will save your
         program.</div></li>
 
         <li><div>Using VS Code, create a new file and copy and paste the
@@ -128,6 +129,7 @@ from draw2d import \
 
 
 def main():
+    # Width and height of the scene pixels
     scene_width = 800
     scene_height = 500
 
@@ -165,13 +167,16 @@ main()</pre></div>
         title="An empty canvas created by the Draw 2-D library"></div>
         </div></li>
 
+        <li><div>Read the documentation for the
+        <a href="draw2d.html">Draw 2-D</a> library.</div></li>
+
         <li><div>Starting at
-        <span class="cross" data-ref="ex1">line&nbsp;30</span> of your
+        <span class="cross" data-ref="ex1">line&nbsp;31</span> of your
         new program, write your functions to draw the sky, ground, and
         clouds.</div></li>
 
         <li><div>Starting at
-        <span class="cross" data-ref="ex1">line&nbsp;20</span>,
+        <span class="cross" data-ref="ex1">line&nbsp;21</span>,
         write calls to your drawing functions.</div></li>
     </ol>
 
@@ -179,7 +184,7 @@ main()</pre></div>
     <p>The intent of this assignment is not to train you to become a
     world-famous cloud artist. Instead, the intent is to teach you how
     to apply the following principles to a real programming problem:</p>
-    <ol>
+    <ul>
         <li><div>Dividing a large program into parts (functions)</div></li>
         <li><div>Writing a function</div></li>
         <li><div>Deciding what needs to be a parameter in a function
@@ -190,7 +195,7 @@ main()</pre></div>
         that should stay the same and the parts that depend on
         parameters, in order to make the function as reusable as
         possible.</div></li>
-    </ol>
+    </ul>
 
     <p>Your program must be divided into functions such as
     <code>draw_sky</code>, <code>draw_cloud</code>,

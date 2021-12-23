@@ -49,7 +49,7 @@
 
     <ol>
         <li><div>Gets the current date from the computer's
-        clock.</div></li>
+        operating system.</div></li>
         <li><div>Opens a text file named <code>volumes.txt</code> for
         appending.</div></li>
         <li><div>Appends to the end of the <code>volumes.txt</code> file
@@ -71,14 +71,14 @@
         <li><div>The <a href="https://docs.python.org/3/library/datetime.html#datetime.datetime.now"><code>datetime.now()</code></a>
         method from the standard Python <code>datetime</code> module
         will get the current date and time from your computer's
-        operating system. Here is an excerpt from the official
-        documentation for the <code>datetime.now</code> method:
+        operating system. Here is an excerpt from the official reference
+        for the <code>datetime.now</code> method:
         <dl class="function">
             <dt><code>datetime.now(tz=None)</code></dt>
             <dd><p>Return the current local date and time.</p>
             <p><var>tz</var> is optional, but if it not
-            <code>None</code>, it must be <code>tzinfo</code> (time zone
-            information) object</p></dd>
+            <code>None</code>, it must be a <code>tzinfo</code> (time
+            zone information) object</p></dd>
         </dl>
 
         <p>These two Microsoft videos explain how to use methods from
@@ -101,18 +101,19 @@
 # module so that it can be used in this program.
 from datetime import datetime
 
-# Call the now() method to get the current date and
-# time as a datetime object from the computer's clock.
+# Call the now() method to get the current
+# date and time as a datetime object from
+# the computer's operating system.
 current_date_and_time = datetime.now()
 
 # Print only the date part of the current date and time.
 print(f"{current_date_and_time:%Y-%m-%d}")</pre></div>
 
         <p>After the computer executes
-        <span class="cross" data-ref="ex1">line&nbsp;7</span> in the
+        <span class="cross" data-ref="ex1">line&nbsp;8</span> in the
         above code, the variable <var>current_date_and_time</var> will
         hold the current date and time. Within the f-string at
-        <span class="cross" data-ref="ex1">line&nbsp;10</span>,
+        <span class="cross" data-ref="ex1">line&nbsp;11</span>,
         the string sequences that begin with the percent symbol (%) are
         called format codes. The format codes and their meaning are
         listed in
@@ -233,10 +234,10 @@ The approximate volume is 39.92 liters</pre>
         and then print the price.</div></li>
 
         <li><div>After your program prints the tire volume to the
-        terminal, your program should ask the user if she wants to buy
-        tires with the dimensions that she entered. If the user answers
-        "yes", your program should ask for her phone number and store
-        her phone number in the <code>volumes.txt</code>
+        terminal window, your program should ask the user if she wants
+        to buy tires with the dimensions that she entered. If the user
+        answers "yes", your program should ask for her phone number and
+        store her phone number in the <code>volumes.txt</code>
         file.</div></li>
     </ul>
 
@@ -259,13 +260,13 @@ The approximate volume is 39.92 liters</pre>
         category that best describes your program along with a one or
         two sentence justification for your choice. The grading criteria
         are:
-        <ul>
-            <li><div>1. Some attempt made</div></li>
-            <li><div>2. Developing but significantly deficient</div></li>
-            <li><div>3. Slightly deficient</div></li>
-            <li><div>4. Meets requirements</div></li>
-            <li><div>5. Exceeds requirements</div></li>
-        </ul></div></li>
+        <ol>
+            <li><div>Some attempt made</div></li>
+            <li><div>Developing but significantly deficient</div></li>
+            <li><div>Slightly deficient</div></li>
+            <li><div>Meets requirements</div></li>
+            <li><div>Exceeds requirements</div></li>
+        </ol></div></li>
     </ol>
 </article>
 <footer>

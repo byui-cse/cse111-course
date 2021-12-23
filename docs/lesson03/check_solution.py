@@ -16,9 +16,7 @@ must have three functions named as follows:
 
 All user input and printing must be in the main function. In other
 words, the miles_per_gallon and lp100k_from_mpg functions must not
-call the the input or print functions. To start your program, copy
-and paste the following code into your program and use it as a
-design as you write your program.
+call the the input or print functions.
 """
 
 def main():

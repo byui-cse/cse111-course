@@ -99,7 +99,7 @@ Hello Miyuki</pre>
 
     <p>These three pieces of information are normally available in
     online documentation. For example, from the online Python
-    documentation about the
+    reference for the
     <a href="https://docs.python.org/3/library/functions.html#input"><code>input</code></a>
     function, we read this:</p>
 
@@ -117,12 +117,13 @@ Hello Miyuki</pre>
         <code>input</code>.</div></li>
         <li><div>The function takes one parameter named
         <var>prompt</var>.</div></li>
-        <li><div>The function writes the prompt to the terminal and
-        then reads and returns user input from the terminal.</div></li>
+        <li><div>The function writes the prompt to a terminal window and
+        then reads user input from the terminal and returns that input
+        to the calling function.</div></li>
     </ol>
 
     <p>A <dfn>parameter</dfn> is a piece of data that a function needs
-    in order to complete its task. In the online documentation for the
+    in order to complete its task. In the online reference for the
     <code>input</code> function, we see that the <code>input</code>
     function has one parameter named <var>prompt</var>.</p>
 
@@ -228,7 +229,24 @@ Please enter a number: <span class="input">95.716</span>
     <p>From the description, we read that the second argument is
     optional. If the programmer doesn't pass a second argument, the
     value in the <var>number</var> parameter will be rounded to an
-    integer.</p>
+    integer. The next code example is similar to the previous example.
+    The only difference is that at
+    <span class="cross" data-ref="ex3">line&nbsp;2</span> of the next
+    example the programm passes only one argument to the
+    <code>round</code> function. Because the programmer omitted the
+    second argument, the <code>round</code> function will round the
+    number in its first parameter to an integer, which is shown in the
+    output below.</p>
+
+<div class="pre" id="ex3"><pre class="linenums"></pre>
+<pre class="python">
+n = float(input("Please enter a number: "))
+r = round(n)
+print(r)</pre></div>
+
+<pre class="console" data-for="ex3">&gt; python example_3.py
+Please enter a number: <span class="input">95.716</span>
+96</pre>
 
     <h3>Named Arguments</h3>
     <p>For some optional arguments, we must pass a <dfn>named
@@ -253,13 +271,13 @@ Please enter a number: <span class="input">95.716</span>
     three words all separated by a vertical bar (|). Notice the named
     arguments <var>sep</var> and <var>flush</var>.</p>
 
-<div class="pre" id="ex3"><pre class="python">
+<div class="pre" id="ex4"><pre class="python">
 x = "sun"
 y = "moon"
 z = "stars"
 print(x, y, z, sep="|", flush=True)</pre></div>
 
-<pre class="console" data-for="ex3">&gt; python example_3.py
+<pre class="console" data-for="ex4">&gt; python example_4.py
 sun|moon|stars</pre>
 
     <h3>What Is a Module?</h3>
@@ -298,11 +316,11 @@ sun|moon|stars</pre>
     then type <code>math.</code> in front of <code>sqrt</code> like
     this:</p>
 
-<div class="pre" id="ex4"><pre class="python">import math
+<div class="pre" id="ex5"><pre class="python">import math
 
 r = math.sqrt(71)
 print(r)</pre></div>
-<pre class="console" data-for="ex4">&gt; python example_4.py
+<pre class="console" data-for="ex5">&gt; python example_5.py
 8.426149773176359</pre>
 
     <p>In the above example, 71 is the argument that will be passed
@@ -324,12 +342,13 @@ print(r)</pre></div>
     difference is that to call a method we must type the name of the
     object and a period (.) in front of the method name.</p>
 
-    <p>Consider the following example code that gets a string of text
+    <p>Consider the program in example&nbsp;6 that gets a string of text
     from a user and prints the number of characters in the string and
     prints the string in all upper case characters.</p>
 
-<div class="pre" id="ex5"><pre class="linenums"></pre>
-<pre class="python">
+<div class="pre" id="ex6"><pre class="linenums"></pre>
+<pre class="python"># Example 6
+
 # Get a string of text from the user.
 text1 = input("Enter a motivational quote: ")
 
@@ -346,17 +365,17 @@ text2 = <em>text1.upper()</em>
 # upper case for the user to see.
 print(length, text2)</pre></div>
 
-<pre class="console">&gt; python example_5.py
+<pre class="console">&gt; python example_6.py
 Enter a motivational quote: <span class="input">Rise, take up thy bed, and walk.</span>
 32 RISE, TAKE UP THY BED, AND WALK.</pre>
 
     <p>Notice the code on
-    <span class="cross" data-ref="ex5">line&nbsp;6</span>
+    <span class="cross" data-ref="ex6">line&nbsp;8</span>
     calls the built-in <code>len</code> function and the code on
-    <span class="cross" data-ref="ex5">line&nbsp;10</span>
+    <span class="cross" data-ref="ex6">line&nbsp;12</span>
     calls the string <code>upper</code> method. Compare the function
-    call in <span class="cross" data-ref="ex5">line&nbsp;6</span> to the
-    method call in <span class="cross" data-ref="ex5">line&nbsp;10</span>.
+    call in <span class="cross" data-ref="ex6">line&nbsp;8</span> to the
+    method call in <span class="cross" data-ref="ex6">line&nbsp;12</span>.
     To call the <code>len</code> function, we type the name of the
     function followed by a list of arguments inside parentheses. To call
     the <code>upper</code> method, we type the name of the object
@@ -365,29 +384,36 @@ Enter a motivational quote: <span class="input">Rise, take up thy bed, and walk.
     parentheses.</p>
 
     <p>A method can receive arguments just like a function can. However,
-    in the previous example at
-    <span class="cross" data-ref="ex5">line&nbsp;10</span>, there are no
+    in example&nbsp;6 at
+    <span class="cross" data-ref="ex6">line&nbsp;12</span>, there are no
     arguments passed to the <code>upper</code> method, so the
     parentheses are empty. In order for the computer to call the
     <code>upper</code> method, a programmer must type the empty
     parentheses. In other words, if you write a line of code to call the
     <code>upper</code> method but don't type the empty parentheses, like
-    this:
-<div class="pre"><pre class="python">text2 = text1.upper</pre></div>
-    the computer will not call the <code>upper</code> method. Instead
+    this:</p>
+<div class="pre"><pre class="python">text2 = text1.upper  # Does NOT call the upper method</pre></div>
+
+    <p>the computer will not call the <code>upper</code> method. Instead
     the computer will assign a reference to the <code>upper</code>
     method to the <var>text2</var> variable. You don't want the computer
     to do this because assigning a function reference won't make sense
     to you until you study functional programming.</p>
 
     <h3>Storing a Returned Value</h3>
+    <p>All the previous examples in this prepare content use the
+    assignment operator (=) to store the value returned from a function
+    in a variable. For example:</p>
+<div class="pre"><pre class="python"><em>text =</em> input("Enter a motivational quote: ")</pre></div>
+
     <p>While it's usually a good practice, you don't <em>have</em> to
     store the value that is returned from a function in a variable.
     Sometimes you will see it used directly as shown in example&nbsp;7 at
-    lines <span class="cross" data-ref="ex7">9,&nbsp;13, and&nbsp;15</span>.
+    lines <span class="cross" data-ref="ex7">10,&nbsp;14, and&nbsp;16</span>.
 
 <div class="pre" id="ex7"><pre class="linenums"></pre>
 <pre class="python"># Example 7
+
 import math
 
 # Get a number from the user.
@@ -413,24 +439,25 @@ The square root is less than 100.</pre>
 
     <p>Notice in example&nbsp;7, there are three statements that call
     the <code>math.sqrt</code> function, one at
-    <span class="cross" data-ref="ex7">line&nbsp;9</span>
+    <span class="cross" data-ref="ex7">line&nbsp;10</span>
     to print the square root, another at
-    <span class="cross" data-ref="ex7">line&nbsp;13</span>
+    <span class="cross" data-ref="ex7">line&nbsp;14</span>
     to check if the square root is less than 100, and yet another at
-    <span class="cross" data-ref="ex7">line&nbsp;15</span>
+    <span class="cross" data-ref="ex7">line&nbsp;16</span>
     to check if the square root is greater than 100. Every time the
     computer calls a function, the computer will execute the code that
     is inside that function. In example&nbsp;7, because the arguments
     are the same at lines
-    <span class="cross" data-ref="ex7">9,&nbsp;13 and&nbsp;15</span>,
+    <span class="cross" data-ref="ex7">10,&nbsp;14 and&nbsp;16</span>,
     the returned result will be the same in all three cases. So it would
     be faster to save the result in a variable and reuse the variable
     instead, as shown in example&nbsp;8 at lines
-    <span class="cross" data-ref="ex8">9,&nbsp;11,&nbsp;13,
-    and&nbsp;15</span>.</p>
+    <span class="cross" data-ref="ex8">10,&nbsp;12,&nbsp;14,
+    and&nbsp;16</span>.</p>
 
 <div class="pre" id="ex8"><pre class="linenums"></pre>
 <pre class="python"># Example 8
+
 import math
 
 # Get a number from the user.

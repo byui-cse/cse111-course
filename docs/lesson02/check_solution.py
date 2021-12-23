@@ -10,7 +10,7 @@ boxes necessary to hold the items. This must be a whole number. Note
 that the last box may be packed with fewer items than the other boxes.
 """
 
-# Import the math module so that it can be used in this program.
+# Import the math module so that we can call the math.ceil function.
 import math
 
 # Get two numbers from the user.
