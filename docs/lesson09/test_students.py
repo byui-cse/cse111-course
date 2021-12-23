@@ -11,7 +11,7 @@ def test_read_dict():
     Parameters: none
     Return: nothing
     """
-    I_NUMBER = 0
+    I_NUMBER_INDEX = 0
 
     # Verify that the read_dict function uses its filename
     # parameter by doing the following:
@@ -21,21 +21,21 @@ def test_read_dict():
     #    function raises a FileNotFoundError.
     filename = mktemp(dir=".", prefix="not", suffix=".csv")
     with pytest.raises(FileNotFoundError):
-        read_dict(filename, I_NUMBER)
+        read_dict(filename, I_NUMBER_INDEX)
         pytest.fail("read_dict function must use its filename parameter")
 
     # Call the read_dict function which will read the students.csv
     # file and create and return a dictinoary.
     filename = path.join(path.dirname(__file__), "students.csv")
-    students = read_dict(filename, I_NUMBER)
+    students_dict = read_dict(filename, I_NUMBER_INDEX)
 
     # Verify that the read_dict function returns a dictionary.
-    assert isinstance(students, dict), \
-        "read_dict function must return a dictionary:"
+    assert isinstance(students_dict, dict), \
+        "read_dict function must return a dictionary:" \
         f" expected a dictionary but found a {type(students)}"
 
     # Verify that the students dictionary contains exactly nine items.
-    length = len(students)
+    length = len(students_dict)
     exp_len = 9
     assert length == exp_len, \
         "students dictionary has too" \
@@ -43,15 +43,73 @@ def test_read_dict():
         f" expected {exp_len} but found {length}"
 
     # Verify the correctness of the nine items in the dictionary.
-    assert students["751766201"] == ["751766201", "James Smith"]
-    assert students["751762102"] == ["751762102", "Esther Einboden"]
-    assert students["052058203"] == ["052058203", "Cassidy Benavidez"]
-    assert students["323021604"] == ["323021604", "Joel Hatch"]
-    assert students["251041405"] == ["251041405", "Brianna Ririe"]
-    assert students["001152306"] == ["001152306", "Stefano Hisler"]
-    assert students["182706207"] == ["182706207", "Hyeonbeom Park"]
-    assert students["124712708"] == ["124712708", "Maren Thomas"]
-    assert students["212505409"] == ["212505409", "Tyler Clark"]
+    check_student(students_dict, "751766201", "James Smith")
+    check_student(students_dict, "751762102", "Esther Einboden")
+    check_student(students_dict, "052058203", "Cassidy Benavidez")
+    check_student(students_dict, "323021604", "Joel Hatch")
+    check_student(students_dict, "251041405", "Brianna Ririe")
+    check_student(students_dict, "001152306", "Stefano Hisler")
+    check_student(students_dict, "182706207", "Hyeonbeom Park")
+    check_student(students_dict, "124712708", "Maren Thomas")
+    check_student(students_dict, "212505409", "Tyler Clark")
+
+
+def check_student(students_dict, inumber, exp_name):
+    """Verify that the data for one student stored in the
+    students dictionary is correct.
+
+    Parameters
+        students_dict: a dictionary that contains student data
+        inumber: a student's I-Number that should be in the dictionary
+        exp_name: the student's expected name
+    Return: nothing
+    """
+    # Verify that inumber is in the students dictionary.
+    assert inumber in students_dict, \
+        f'"{inumber}" is missing from the students dictionary.'
+
+    actual = students_dict[inumber]
+    assert isinstance(actual, str) or isinstance(actual, list), \
+        "Each value in the students dictionary must be either a string " \
+        f"or a list. The value for {inumber} is of type {type(actual)} " \
+        "which is not a string or a list."
+
+    if isinstance(actual, str):
+        # Verify that the student's name is correct.
+        assert actual == exp_name, \
+                f'wrong name for "{inumber}": ' \
+                f'expected {exp_name} but found {actual}'
+    else:
+        length = len(actual)
+        min_len = 1
+        max_len = 2
+        assert length == min_len or length == max_len, \
+            f"value list for student {inumber} contains too" \
+            f" {'few' if length < min_len else 'many'} elements:" \
+            f" expected {min_len} or {max_len} elements but found {length}"
+
+        if length == min_len:
+            # Verify that the student's name is correct.
+            NAME_INDEX = 0
+            act_name = actual[NAME_INDEX]
+            assert act_name == exp_name, \
+                    f'wrong name for "{inumber}": ' \
+                    f'expected {exp_name} but found {act_name}'
+        else:
+            # Verify that the student's I-Number is correct.
+            I_NUMBER_INDEX = 0
+            act_inum = actual[I_NUMBER_INDEX]
+            assert act_inum == inumber, \
+                    'inconsistent I-Numbers in the key and value: ' \
+                    f'the key is {inumber} but {act_inum} is in ' \
+                    'the corresponding value'
+
+            # Verify that the student's name is correct.
+            NAME_INDEX = 1
+            act_name = actual[NAME_INDEX]
+            assert act_name == exp_name, \
+                    f'wrong name for "{inumber}": ' \
+                    f'expected {exp_name} but found {act_name}'
 
 
 # Call the main function that is part of pytest so that the

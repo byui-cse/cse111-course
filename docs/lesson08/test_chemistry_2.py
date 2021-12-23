@@ -129,8 +129,8 @@ def check_element(periodic_table_dict, symbol, expected):
     expected element.
 
     Parameters
-        actual: a list that came from the periodic_table_dict.
-        expected: a list that contains the expected values.
+        symbol: a symbol for a chemical element
+        expected: a list that contains the expected values for symbol
     Return: nothing
     """
     # Verify that symbol is in the periodic table dictionary.
@@ -151,7 +151,6 @@ def check_element(periodic_table_dict, symbol, expected):
     assert act_mass == approx(exp_mass), \
             f"wrong atomic mass for {exp_name}: " \
             f"expected {exp_mass} but found {act_mass}"
-
 
 
 def test_parse_formula():

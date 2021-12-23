@@ -13,16 +13,16 @@ import csv
 
 def main():
     # The column headings and indexes.
-    I_NUMBER = 0
-    NAME = 1
+    I_NUMBER_INDEX = 0
+    NAME_INDEX = 1
 
     # Read the contents of a CSV file named students.csv
-    # into a dictionary named students. Use the I-Number
+    # into a dictionary named students_dict. Use the I-Number
     # as the key in the dictionary.
-    students = read_dict("students.csv", I_NUMBER)
+    students_dict = read_dict("students.csv", I_NUMBER_INDEX)
 
     # Get an I-Number from the user.
-    inumber = str(input("Please enter an I-Number (xx-xxx-xxxx): "))
+    inumber = input("Please enter an I-Number (xx-xxx-xxxx): ")
 
     # The I-Numbers are stored in the CSV file as digits only (without
     # any dashes), so we remove all dashes from the user's input.
@@ -39,56 +39,57 @@ def main():
         else:
             # The user input is a valid I-Number. Find
             # the I-Number in the list of I-Numbers.
-            if inumber not in students:
+            if inumber not in students_dict:
                 print("No such student")
             else:
                 # Retrieve the student name that corresponds
                 # to the I-Number that the user entered.
-                value = students[inumber]
-                name = value[NAME]
+                value = students_dict[inumber]
+                name = value[NAME_INDEX]
 
                 # Print the student name.
                 print(name)
 
 
 def read_dict(filename, key_column_index):
-    """Read the contens of a CSV file into a dictionary
-    and return the dictionary.
+    """Read the contents of a CSV file into a compound
+    dictionary and return the dictionary.
 
     Parameters
         filename: the name of the CSV file to read.
         key_column_index: the index of the column
             to use as the keys in the dictionary.
-    Return: a dictionary that contains the contents of the CSV file.
+    Return: a compound dictionary that contains
+        the contents of the CSV file.
     """
     # Create an empty dictionary that will
     # store the data from the CSV file.
     dictionary = {}
 
-    # Open a CSV file for reading and store a reference
-    # to the opened file in a variable named text_file.
-    with open(filename, "rt") as text_file:
+    # Open the CSV file for reading and store a reference
+    # to the opened file in a variable named csv_file.
+    with open(filename, "rt") as csv_file:
 
-        # Use the csv module to create a reader
-        # object that will read from the opened file.
-        reader = csv.reader(text_file)
+        # Use the csv module to create a reader object
+        # that will read from the opened CSV file.
+        reader = csv.reader(csv_file)
 
-        # The first line of the CSV file contains column
-        # headings and not information, so this statement
-        # skips the first line of the CSV file.
+        # The first row of the CSV file contains column
+        # headings and not data, so this statement skips
+        # the first row of the CSV file.
         next(reader)
 
         # Read the rows in the CSV file one row at a time.
         # The reader object returns each row as a list.
-        for row in reader:
+        for row_list in reader:
 
-            # From the current row, retrieve
-            # the column that contains the key.
-            key = row[key_column_index]
+            # From the current row, retrieve the data
+            # from the column that contains the key.
+            key = row_list[key_column_index]
 
             # Store the data from the current row
             # into the dictionary.
-            dictionary[key] = row
+            dictionary[key] = row_list
 
     # Return the dictionary.
     return dictionary

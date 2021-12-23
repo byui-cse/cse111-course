@@ -82,7 +82,7 @@ def check_product(products_dict, product_number, expected_value):
         f" {'few' if length < min_len else 'many'} elements:" \
         f" expected {min_len} or {max_len} elements but found {length}"
 
-    if length == 2:
+    if length == min_len:
         NAME_INDEX = 0
         PRICE_INDEX = 1
     else:
