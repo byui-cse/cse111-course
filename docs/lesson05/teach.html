@@ -37,9 +37,9 @@
     <h2>Purpose</h2>
     <p>Writing and running test functions often help a software
     developer find mistakes in code. During this assignment, you will
-    write three test functions. Use <code>pytest</code> to run the test
-    functions and use the output of <code>pytest</code> to help you find
-    and fix errors in some program functions.</p>
+    write three test functions. Then use <code>pytest</code> to run the
+    test functions and use the output of <code>pytest</code> to help you
+    find and fix errors in some program functions.</p>
 
     <h2>Problem Statement</h2>
     <p>Most people around the world today have at least two names, a
@@ -73,11 +73,10 @@
     <p>Write three test functions named
     <code>test_make_full_name</code>,
     <code>test_extract_family_name</code>, and
-    <code>test_extract_given_name</code>.
-    Each of the test functions will test one of the three previously written
-    functions. Use <code>pytest</code> to run the test functions and
-    find and fix the mistakes, if any, that are in previously written
-    functions.</p>
+    <code>test_extract_given_name</code>. Each of the test functions
+    will test one of three previously written program functions. Use
+    <code>pytest</code> to run the test functions and find and fix the
+    mistakes, if any, that are in program functions.</p>
 
     <h2>Helpful Documentation</h2>
     <ul class="long">
@@ -107,7 +106,7 @@
         has a documentation string (a triple quoted string immediately
         below the function header) that describes what the function
         does. Read the documentation strings for all three functions.
-        The code in the functions may contains some mistakes.</div></li>
+        The code in the functions may contain some mistakes.</div></li>
 
         <li><div>Using VS Code, open a new Python file and copy and
         paste the following import statements at the top of the file.
@@ -232,10 +231,7 @@ ValueError: substring not found
 <span class="fail">================= 2 failed</span>, <span class="pass">1 passed</span> <span class="fail">in 0.14s ==================</span></pre>
 
     <br>
-    <p>Repeat steps&nbsp;7 and&nbsp;8 in the Steps section above until
-    you have found and fixed all the mistakes in the
-    <code>names.py</code> file and your tests pass. After you fix the
-    mistakes in the <code>make_full_name</code> and
+    <p>After you fix the mistakes in the <code>make_full_name</code> and
     <code>extract_given_name</code> functions, <code>pytest</code> will
     print output similar to this:</p>
 
@@ -268,7 +264,7 @@ test_names.py::test_extract_given_name <span class="pass">PASSED             [10
     the sample solution for this assignment. From this call graph we see
     that the computer starts executing the sample test functions by
     calling the <code>pytest.main</code> function. While executing the
-    <code>pytest.main</code>, the computer calls the
+    <code>pytest.main</code> function, the computer calls the
     <code>test_make_full_name</code> function which calls the
     <code>make_full_name</code> function. Then while still executing
     <code>pytest.main</code>, the computer calls the
@@ -278,11 +274,11 @@ test_names.py::test_extract_given_name <span class="pass">PASSED             [10
     <code>test_extract_given_name</code> function which calls the
     <code>extract_given_name</code> function.</p>
 
-    <div class="figure center">
-        <img src="call_graph_teach.svg" style="width:40em"
+    <figure class="center" style="width:40em">
+        <img class="callgraph" src="call_graph_teach.svg"
         alt="A function call graph for this assignment"
         title="A function call graph for this assignment">
-    </div>
+    </figure>
 
     <h2>Ponder</h2>
     <p>During this assignment, you downloaded three program functions

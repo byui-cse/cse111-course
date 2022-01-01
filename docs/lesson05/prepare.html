@@ -53,7 +53,7 @@
     keep normal program code and test code in separate
     files.</p>
 
-    <h3>assert Statements</h3>
+    <h3>Assert Statements</h3>
     <p>In a computer program, an <dfn>assertion</dfn> is a statement
     that causes the computer to check if a comparison is true. When the
     computer checks the comparison, if the comparison is true, the
@@ -85,11 +85,11 @@ def deposit(amount):
     <p>The <code>assert</code> statement at
     <span class="cross" data-ref="ex1">line&nbsp;5</span> in the
     previous example will cause the computer to check if the
-    <var>amount</var> is greater than zero (0). If the amount is greater
-    than zero, the computer will continue to execute the program.
-    However, if the <var>amount</var> is zero or less (negative), the
-    computer will raise an <code>AssertionError</code>, which will
-    likely cause the program to terminate.</p>
+    <var>amount</var> is greater than zero (0). If the <var>amount</var>
+    is greater than zero, the computer will continue to execute the
+    program. However, if the <var>amount</var> is zero or less
+    (negative), the computer will raise an <code>AssertionError</code>,
+    which will likely cause the program to terminate.</p>
 
     <p>A programmer can write any valid Python comparison in an
     <code>assert</code> statement. Here are a few examples from various
@@ -120,20 +120,20 @@ def deposit(amount):
     functions that use the Python <code>assert</code> statement to
     verify that a function returns a correct result. For example, if we
     want to verify that the built-in <code>min</code> function works
-    correctly, we could write an <code>assert</code> statement like
-    this:</p>
-<div class="pre" id="ex3"><pre class="python">
+    correctly, we could write a test function like this:</p>
+
+<div class="pre" id="ex3"><pre class="python">def test_min():
     assert min(7, -3, 0, 2) == -3</pre></div>
 
-    <p>The previous line of code will cause the computer to first call
-    the <code>min</code> function and pass 7, &minus;3, 0, and 2 as
-    arguments to the <code>min</code> function. The <code>min</code>
-    function will find the minimum value of its parameters and return
-    that minimum value. Then the <code>assert</code> statement will
-    compare the returned minimum value to &minus;3. If the returned
-    minimum value is not &minus;3, the <code>assert</code> statement
-    will raise an exception which will cause <code>pytest</code> to
-    print an error message.</p>
+    <p>In the previous function, the assert statement will cause the
+    computer to first call the <code>min</code> function and pass 7,
+    &minus;3, 0, and 2 as arguments to the <code>min</code> function.
+    The <code>min</code> function will find the minimum value of its
+    parameters and return that minimum value. Then the
+    <code>assert</code> statement will compare the returned minimum
+    value to &minus;3. If the returned value is not &minus;3, the
+    <code>assert</code> statement will raise an exception which will
+    cause <code>pytest</code> to print an error message.</p>
 
     <h3>Comparing Floating Point Numbers</h3>
     <p>Within a computer's memory, everything (all numbers, text, sound,
@@ -144,7 +144,10 @@ def deposit(amount):
     which is an exact representation of decimal 23. However, a computer
     approximates floating point numbers (numbers with digits after the
     decimal place). For example, while executing a Python program, a
-    computer stores the floating point number 23.7 as
+    computer stores the floating point number 23.7 as binary
+    0100000000110111101100110011001100110011001100110011001100110011.
+    This binary number is actually 23.69999999999999928945726424 in
+    decimal which is an approximation to 23.7</p>
     <!--
     // Java
     double number = 23.7;
@@ -163,27 +166,23 @@ def deposit(amount):
     DecimalTuple(sign=0, digits=(2, 3, 6, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 2, 8, 9, 4, 5, 7, 2, 6, 4, 2, 3, 9, 8, 9, 9, 8, 1, 4, 1, 2, 8, 8, 7, 5, 7, 3, 2, 4, 2, 1, 8, 7, 5), exponent=-48)
     23.699999999999999289457264239899814128875732421875
     -->
-    0100000000110111101100110011001100110011001100110011001100110011
-    in binary. This binary number is actually
-    23.69999999999999928945726424 in decimal which is an approximation
-    to 23.7</p>
 
-    <p>Because computers approximate floating point numbers, we must be
-    careful when comparing floating point numbers in our test functions.
-    It is bad practice to check if floating point numbers are equal
-    using just the equality operator (==). The <code>pytest</code>
-    module contains a function named
+    <p>Because computers approximate floating point numbers, we must
+    carefully compare floating point numbers in our test functions. It
+    is bad practice to check if floating point numbers are equal using
+    just the equality operator (==). The <code>pytest</code> module
+    contains a function named
     <a href="https://docs.pytest.org/en/latest/reference/reference.html#pytest-approx"><code>approx</code></a>
     to help us compare floating point numbers. For example, to test the
-    <code>math.sqrt</code> function, we could write an
-    <code>assert</code> statement like this:</p>
+    <code>math.sqrt</code> function, we could write a test function like
+    this:</p>
 
-<div class="pre" id="ex4"><pre class="python">
+<div class="pre" id="ex4"><pre class="python">def test_sqrt():
     assert math.sqrt(5) == approx(2.24, 0.01)</pre></div>
 
-    <p>The previous <code>assert</code> statement verifies that the
-    value returned from <code>math.sqrt(5)</code> is within 1% (0.01) of
-    2.24.</p>
+    <p>The <code>assert</code> statement in the previous test function
+    verifies that the value returned from <code>math.sqrt(5)</code> is
+    within 1% (0.01) of 2.24.</p>
 
     <h3>How to Test a Function</h3>
     <p>To test a function you should do the following:</p>
@@ -205,7 +204,7 @@ def deposit(amount):
         function and test function.</div></li>
     </ol>
 
-    <h2 id="example">Example</h2>
+    <h4 id="example">Example</h4>
     <p>Below is a simple function named <code>cels_from_fahr</code> that
     converts a temperature in Fahrenheit to Celsius and returns the
     Celsius temperature. The <code>cels_from_fahr</code> function is
@@ -227,10 +226,17 @@ def cels_from_fahr(fahr):
     <span class="cross" data-ref="ex5">line&nbsp;3</span> in
     <code>weather.py</code>, we see that <code>cels_from_fahr</code>
     takes one parameter named <var>fahr</var>. To adequately test this
-    function, we should call it with at least the following:&nbsp; a
-    negative number, zero, and a positive number, so in a separate file
-    named <code>test_weather.py</code> we write a test function named
-    <code>test_cels_from_fahr</code> as follows:</p>
+    function, we should call it at least three times with the following
+    arguments.</p>
+
+    <ul>
+        <li><div>a negative number</div></li>
+        <li><div>zero</div></li>
+        <li><div>a positive number</div></li>
+    </ul>
+
+    <p>In a separate file named <code>test_weather.py</code> we write a
+    test function named <code>test_cels_from_fahr</code> as follows:</p>
 
 <div class="pre" id="ex6"><pre class="linenums"></pre>
 <pre class="python"># test_weather.py
@@ -290,20 +296,20 @@ test_weather.py::test_cels_from_fahr <span class="pass">PASSED               [10
     <code>test_cels_from_fahr</code> function which calls the
     <code>cels_from_fahr</code> function four times and verifies that
     <code>cels_from_fahr</code> returns the correct value each time. We
-    can see from the output of <code>pytest</code>, "[100%]" and
+    can see from the output of <code>pytest</code>, "PASSED [100%]" and
     "1&nbsp;passed", that the <code>cels_from_fahr</code> function
     returned the expected (correct) result all four times.</p>
 
-    <h2 id="separate">Separating Program Code from Test Code</h2>
+    <h3 id="separate">Separating Program Code from Test Code</h3>
     <p>In CSE&nbsp;111, we will write test functions in a file separate
     from program functions. It is a good idea to separate test functions
     and program functions because the separation makes it easy to
     release a program to users without releasing the test functions to
-    them. (In general, users of a program don't want the test
-    functions.) One consequence of writing program functions and test
-    functions in separate files is that we must add an import statement
-    at the top of the test file that imports all the program functions
-    that will be tested.</p>
+    them. In general, users of a program don't want the test functions.
+    One consequence of writing program functions and test functions in
+    separate files is that we must add an import statement at the top of
+    the test file that imports all the program functions that will be
+    tested.</p>
 
     <p><span class="cross" data-ref="ex6">Line&nbsp;3</span> from
     <code>test_weather.py</code> above is an example of an import
@@ -359,6 +365,20 @@ if __name__ == "__main__":
     cause the computer to call the <code>main</code> function and start
     the program.</p>
 
+    <h2>Video</h2>
+    <p>Watch the following video that shows a BYU-Idaho faculty member
+    writing two test functions and using pytest to run them.</p>
+
+    <ul class="videos">
+        <li><div><p><a href="https://content.byui.edu/items/a9e60503-b5e7-40f0-bf48-ebf1a7441d25/1/example_07.mp4">Writing a Test Function</a>
+        <span class="duration">(20 minutes)</span></p>
+        <iframe class="video" allowfullscreen
+        style="min-width:820px; min-height:640px; vertical-align:-2em;"
+        src="https://content.byui.edu/items/a9e60503-b5e7-40f0-bf48-ebf1a7441d25/1/example_07.mp4"
+        title=""></iframe>
+        </div></li>
+    </ul>
+
     <h2>Documentation</h2>
     <p>The official online documentation for <code>pytest</code>
     contains much more information about using <code>pytest</code>. The
@@ -372,16 +392,18 @@ if __name__ == "__main__":
     </ul>
 
     <h2>Summary</h2>
-    <p>During this lesson, you are learning how to write a test function
-    that automatically verifies that a program function is working
-    correctly. Within your test functions, you will write
-    <code>assert</code> statements that compare the value returned from
-    a program function to the expected value. In CSE&nbsp;111, you will
-    write test functions in a Python file that is separate from your
-    program file. You will use a standard Python module named
-    <code>pytest</code> to run your test functions. When a test fails,
-    you will use the output of <code>pytest</code> to help you find and
-    fix the mistakes in your code.</p>
+    <p>During this lesson, you are learning to write test functions that
+    automatically verify that program functions are working correctly.
+    In CSE&nbsp;111, you will write test functions in a Python file that
+    is separate from your program file. At the top of the test file, you
+    will import the program functions. Then you will write one test
+    function for each program function. Within a test function, you will
+    write <code>assert</code> statements that compare the value returned
+    from a program function to the expected value. You will use a
+    standard Python module named <code>pytest</code> to run your test
+    functions. When a test fails, you will use the output of
+    <code>pytest</code> to help you find and fix the mistakes in your
+    code.</p>
 </article>
 <footer>
     <small>Copyright &copy; 2020, Brigham Young University - Idaho. All

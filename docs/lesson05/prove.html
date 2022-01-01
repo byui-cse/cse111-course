@@ -70,8 +70,8 @@
 
     <h2>Assignment</h2>
     <p>Write a Python program named <code>sentences.py</code> that
-    generates simple English sentences. During this lesson, you will
-    write and test functions that generate sentences with three
+    generates simple English sentences. During this prove milestone, you
+    will write and test functions that generate sentences with three
     parts:</p>
     <ol>
         <li><div>a determiner (sometimes known as an article)</div></li>
@@ -87,8 +87,8 @@
     Many dogs run.<br>
     Many men will write.</blockquote>
 
-    <p>For this milestone assignment, your program must include at least
-    these four functions:</p>
+    <p>For this milestone , your program must include at least these
+    four functions:</p>
     <ol>
         <li><div><code>main</code></div></li>
         <li><div><code>get_determiner</code></div></li>
@@ -150,10 +150,7 @@ word = "horse"
 
 # Call the capitalize method which will
 # capitalize the first letter of the word.
-<em>cap_word = word.capitalize()</em>
-
-# Print the capitalized word.
-print(cap_word)</pre></div>
+<em>cap_word = word.capitalize()</em></pre></div>
         </div></li>
 
         <li><div>The <a href="prepare.html">prepare</a> content for this
@@ -294,6 +291,7 @@ def get_verb(quantity, tense):
 
 <div class="pre"><pre class="python">
 from sentences import get_determiner, get_noun, get_verb
+import random
 import pytest
 
 
@@ -307,6 +305,9 @@ def test_get_determiner():
     # body of the loop, many programmers will use underscore
     # (_) as the variable name for the counting variable.
     for _ in range(4):
+
+        # Call the get_determiner function which
+        # should return a single determiner.
         word = get_determiner(1)
 
         # Verify that the word returned from get_determiner
@@ -319,7 +320,13 @@ def test_get_determiner():
 
     # This loop will repeat the statements inside it 4 times.
     for _ in range(4):
-        word = get_determiner(2)
+
+        # Get a random number between 2 and 10 inclusive.
+        quantity = random.randint(2, 11)
+
+        # Call the get_determiner function which
+        # should return a plural determiner.
+        word = get_determiner(quantity)
 
         # Verify that the word returned from get_determiner
         # is one of the words in the plural_determiners list.
@@ -355,14 +362,14 @@ test_sentences.py::test_get_verb <span class="pass">PASSED               [100%]<
         that your program outputs six sentences with the following
         characteristics:
 
-        <table><thead>
-            <tr><th></th> <th>Noun Quantity</th> <th>Verb Tense</th></tr>
+        <table class="center"><thead>
+            <tr><th></th> <th>Quantity</th> <th>Verb Tense</th></tr>
         </thead><tbody>
             <tr><td>a.</td> <td>single</td> <td>past</td></tr>
-            <tr><td>b.</td> <td>plural</td> <td>past</td></tr>
-            <tr><td>c.</td> <td>single</td> <td>present</td></tr>
-            <tr><td>d.</td> <td>plural</td> <td>present</td></tr>
-            <tr><td>e.</td> <td>single</td> <td>future</td></tr>
+            <tr><td>b.</td> <td>single</td> <td>present</td></tr>
+            <tr><td>c.</td> <td>single</td> <td>future</td></tr>
+            <tr><td>d.</td> <td>plural</td> <td>past</td></tr>
+            <tr><td>e.</td> <td>plural</td> <td>present</td></tr>
             <tr><td>f.</td> <td>plural</td> <td>future</td></tr>
         </tbody></table>
 
@@ -390,7 +397,7 @@ Many men will write.</pre>
     <code>test_get_verb</code>. Each of the test functions called one of
     the program functions and automatically verified that the value
     returned from the program function was correct. If you worked as a
-    software developer on a large project with five other software
+    software developer on a large project with four other software
     developers, how would test functions help you and the other
     developers write better code?</p>
 
