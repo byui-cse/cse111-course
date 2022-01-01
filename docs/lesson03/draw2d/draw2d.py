@@ -28,25 +28,27 @@ from numbers import Number
 _started = False
 
 
-def start_drawing(width, height, title):
+def start_drawing(title, width, height):
     """Create a window with a canvas where a program can draw
     2-dimensional shapes.
 
     Parameters
+        title: the title that will appear in the frame's title bar
         width: the width in pixels of the canvas
         height: the height in pixels of the canvas
-        title: the title that will appear in the frame's title bar
     Return: the new canvas
     """
     global _started
     assert not _started, "your program must call start_drawing once only"
-    assert isinstance(width, Number), \
-        _wrong_type(width, "width", "number") + " greater than or equal to 100"
-    assert isinstance(height, Number), \
-        _wrong_type(height, "height", "number")+" greater than or equal to 100"
-    assert width >= 100,  _less_than(width, "width", 100)
-    assert height >= 100, _less_than(height, "height", 100)
     assert isinstance(title, str), _wrong_type(title, "title", "string")
+    min_width = 100
+    min_height = 100
+    assert isinstance(width, Number), \
+        _wrong_type_2(width, "width", "number", min_width)
+    assert isinstance(height, Number), \
+        _wrong_type_2(height, "height", "number", min_height)
+    assert width >= min_width,  _less_than(width, "width", min_width)
+    assert height >= min_height, _less_than(height, "height", min_height)
 
     # Create the root Tk object.
     root = Tk()
@@ -88,8 +90,7 @@ def draw_line(canvas, x0, y0, x1, y1, *args, width=1, fill="black"):
     assert isinstance(y1, Number), _wrong_type(y1, "y1", "number")
     for i in range(len(args)):
         assert isinstance(args[i], Number), "each coordinate must be a number"
-    assert isinstance(width, Number), \
-        _wrong_type(width, "width", "number") + " greater than or equal to 0"
+    assert isinstance(width, Number), _wrong_type_2(width, "width", "number", 0)
     assert width >= 0, _less_than(width, "width", 0)
     assert isinstance(fill, str), _wrong_type(fill, "fill", "string")
 
@@ -121,8 +122,7 @@ def draw_oval(canvas, x0, y0, x1, y1, *,
     assert isinstance(y0, Number), _wrong_type(y0, "y0", "number")
     assert isinstance(x1, Number), _wrong_type(x1, "x1", "number")
     assert isinstance(y1, Number), _wrong_type(y1, "y1", "number")
-    assert isinstance(width, Number), \
-        _wrong_type(width, "width", "number") + " greater than or equal to 0"
+    assert isinstance(width, Number), _wrong_type_2(width, "width", "number", 0)
     assert width >= 0, _less_than(width, "width", 0)
     assert isinstance(outline, str), _wrong_type(outline, "outline", "string")
     assert isinstance(fill, str),    _wrong_type(fill, "fill", "string")
@@ -160,8 +160,7 @@ def draw_arc(canvas, x0, y0, x1, y1, *,
     assert isinstance(y1, Number), _wrong_type(y1, "y1", "number")
     assert isinstance(start, Number),  _wrong_type(start, "start", "number")
     assert isinstance(extent, Number), _wrong_type(extent, "extent", "number")
-    assert isinstance(width, Number), \
-        _wrong_type(width, "width", "number") + " greater than or equal to 0"
+    assert isinstance(width, Number), _wrong_type_2(width, "width", "number", 0)
     assert width >= 0, _less_than(width, "width", 0)
     assert isinstance(outline, str), _wrong_type(outline, "outline", "string")
     assert isinstance(fill, str),    _wrong_type(fill, "fill", "string")
@@ -191,8 +190,7 @@ def draw_rectangle(canvas, x0, y0, x1, y1, *,
     assert isinstance(y0, Number), _wrong_type(y0, "y0", "number")
     assert isinstance(x1, Number), _wrong_type(x1, "x1", "number")
     assert isinstance(y1, Number), _wrong_type(y1, "y1", "number")
-    assert isinstance(width, Number), \
-        _wrong_type(width, "width", "number") + " greater than or equal to 0"
+    assert isinstance(width, Number), _wrong_type_2(width, "width", "number", 0)
     assert width >= 0, _less_than(width, "width", 0)
     assert isinstance(outline, str), _wrong_type(outline, "outline", "string")
     assert isinstance(fill, str),    _wrong_type(fill, "fill", "string")
@@ -228,8 +226,7 @@ def draw_polygon(canvas, x0, y0, x1, y1, x2, y2, *args,
     assert isinstance(y2, Number), _wrong_type(y2, "y2", "number")
     for i in range(len(args)):
         assert isinstance(args[i], Number), "each coordinate must be a number"
-    assert isinstance(width, Number), \
-        _wrong_type(width, "width", "number") + " greater than or equal to 0"
+    assert isinstance(width, Number), _wrong_type_2(width, "width", "number", 0)
     assert width >= 0, _less_than(width, "width", 0)
     assert isinstance(outline, str), _wrong_type(outline, "outline", "string")
     assert isinstance(fill, str),    _wrong_type(fill, "fill", "string")
@@ -287,18 +284,23 @@ def _wrong_type(param, name, expected):
     # raises an AssertionError. It's best not to have the additional
     # level in the stack trace because the error messages in this file
     # are for students.
-    return f"wrong data type for parameter {name}; " \
-        f"{name} is a {type(param)} but must be a {expected}"
+    return f"wrong data type for parameter {name};" \
+        f" {name} is a {type(param)} but must be a {expected}"
+
+
+def _wrong_type_2(param, name, expected, minimum):
+    return _wrong_type(param, name, expected) + \
+        f" greater than or equal to {minimum}"
 
 
 def _less_than(param, name, minimum):
-    return f"parameter {name} is {param} " \
-        "but must be greater than or equal to {minimum}"
+    return f"parameter {name} is {param}" \
+        " but must be greater than or equal to {minimum}"
 
 
 if __name__ == "__main__":
     assert False, \
-    f"{__file__} is not a program. It is a library of functions that " \
-    "draw 2-dimensional shapes to a canvs in a computer window. You " \
-    "are not supposed to run this file but instead import its " \
-    "functions into your program and run your program."
+    f"{__file__} is not a program. It is a library of functions that" \
+    " draw 2-dimensional shapes to a canvs in a computer window. You" \
+    " are not supposed to run this file but instead import its" \
+    " functions into your program and run your program."

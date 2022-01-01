@@ -144,13 +144,14 @@ def <var>function_name</var>(<var>param1</var>, <var>param2</var>, &hellip; <var
     many statements as you wish to write inside of it. However, it is a
     good idea to limit functions to less than 20 lines of code.</p>
 
-    <div class="figure right" style="width:11em">
+    <figure class="right" style="width:11em">
         <img src="cylinder.png"
         alt="Diagram of a right circular cylinder with radius r and height h"
         title="Diagram of a right circular cylinder with radius r and height h">
-        <div>A right circular cylinder with radius <var>r</var> and height
-        <var>h</var></div>
-    </div>
+        <figcaption>A right circular cylinder with radius <var>r</var>
+        and height <var>h</var></figcaption>
+    </figure>
+
     <p>Example&nbsp;1 contains a function named
     <code>print_cylinder_volume()</code> with no parameters that gets
     two numbers from the user:&nbsp; <var>radius</var> and
@@ -451,11 +452,13 @@ Volume: 226.19</pre>
     how data flows from arguments into parameters and from a returned
     result to a variable.</p>
 
-    <div class="figure code" style="width:35em">
-    <img src="call.svg"
-    alt="A diagram showing a call to a function and a value returned from that function"
-    title="A diagram showing a call to a function and a value returned from that function">
-    </div>
+    <figure class="code" style="width:35em">
+        <img class="callgraph" src="call.svg"
+        alt="A diagram showing a call to a function and a value returned
+        from that function"
+        title="A diagram showing a call to a function and a value
+        returned from that function">
+    </figure>
 
     <p>A computer will execute the statements in the previous diagram in
     the following order:</p>
@@ -501,11 +504,11 @@ Volume: 226.19</pre>
     </ol>
 
     <h3>Call Graphs</h3>
-    <div class="figure right" style="width:20em">
-        <img src="call_graph_key.svg"
+    <figure class="right" style="width:20em">
+        <img class="callgraph" src="call_graph_key.svg"
         alt="The key for reading call graphs"
         title="The key for reading call graphs">
-    </div>
+    </figure>
     <p>A <dfn>call graph</dfn> is a diagram that shows function calls
     and returns within a program. A call graph can help you visualize
     how a program is divided into functions. Within a call graph, the
@@ -526,11 +529,11 @@ Volume: 226.19</pre>
     that the <code>main</code> and <code>print</code> functions don't
     return a value. The <code>print</code> function prints results for
     the user to see, but it doesn't return anything.</p>
-    <div class="figure center">
-        <img src="call_graph_prepare.svg" style="width:28em"
+    <figure class="center" style="width:28em">
+        <img class="callgraph" src="call_graph_prepare.svg"
         alt="The call graph for the program in example 6."
         title="The call graph for the program in example 6.">
-    </div>
+    </figure>
 
     <h2>Summary</h2>
     <p>A function is a group of statements that together perform one

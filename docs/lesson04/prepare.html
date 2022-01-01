@@ -60,13 +60,10 @@
     <p>As shown in the following table, a local variable (a variable
     with local scope) is defined inside a function, exists for as long
     as its containing function is executing, and can be used within its
-    containing function but nowhere else. Parameters have local scope
-    because they are defined within a function, specifically within a
-    function’s header and exist for as long as their containing function
-    is executing. A global variable (a variable with global scope) is
-    defined outside all functions, exists for as long as its containing
-    Python program is executing, and can be used within all functions in
-    its containing Python program.</p>
+    containing function but nowhere else. A global variable (a variable
+    with global scope) is defined outside all functions, exists for as
+    long as its containing Python program is executing, and can be used
+    within all functions in its containing Python program.</p>
 
     <table><thead>
         <tr><th style="min-width:8em"></th>
@@ -89,16 +86,18 @@
             <td>In all functions of the Python program</td></tr>
     </tbody></table>
 
-    <p>The following Python code example contains variables with local
-    and global scope. The variable <var>nShapes</var> is global because
-    it is defined outside of all functions. Because it is a global
-    variable, the code in the body of all functions may use the variable
-    <var>nShapes</var>. Within the <code>square_area</code> function,
-    the parameter named <var>length</var> and the variable named
-    <var>area</var> both have local scope. Within the
-    <code>rectangle_area</code> function, the parameters named
-    <var>width</var> and <var>length</var> have local scope and the
-    variable named <var>area</var> has local scope.</p>
+    <p>The following Python code example contains parameters and
+    variables. Parameters have local scope because they are defined
+    within a function, specifically within a function’s header and exist
+    for as long as their containing function is executing. The variable
+    <var>nShapes</var> is global because it is defined outside of all
+    functions. Because it is a global variable, the code in the body of
+    all functions may use the variable <var>nShapes</var>. Within the
+    <code>square_area</code> function, the parameter named
+    <var>length</var> and the variable named <var>area</var> both have
+    local scope. Within the <code>rectangle_area</code> function, the
+    parameters named <var>width</var> and <var>length</var> and the
+    variable named <var>area</var> have local scope.</p>
 
 <div class="pre" id="ex2"><pre class="python">
 <span data-scope="global"><span class="varDef">nShapes</span> = 0
@@ -124,8 +123,8 @@
     <h3 id="ex3descr">Common Mistake</h3>
     <p>A common mistake that many programmers make is to assume that a
     local variable can be used inside other functions. For example, the
-    following Python code in example&nbsp;3 includes two functions named
-    <code>main</code> and <code>circle_area</code>.
+    following Python program in example&nbsp;3 includes two functions
+    named <code>main</code> and <code>circle_area</code>.
     <span class="cross" data-ref="ex3">Line&nbsp;6</span>
     in <code>main</code> defines a variable named <var>radius</var>.
     Some programmers assume that the variable <var>radius</var> that is
@@ -166,10 +165,11 @@ Traceback (most recent call last):
 NameError: name 'radius' is not defined</pre>
 
     <p>The correct way to fix the mistake in example&nbsp;3 is to add a
-    parameter to the <code>circle_area</code> function and pass the
-    <var>radius</var> from the <code>main</code> function to the
+    parameter to the <code>circle_area</code> function as shown at
+    <span class="cross" data-ref="ex4">line&nbsp;10</span>
+    and pass the radius from the <code>main</code> function to the
     <code>circle_area</code> function as shown at
-    lines&nbsp;<span class="cross" data-ref="ex4">10 and&nbsp;7</span>
+    <span class="cross" data-ref="ex4">line&nbsp;7</span>
     in example&nbsp;4.</p>
 
 <div class="pre" id="ex4"><pre class="linenums"></pre>
@@ -183,9 +183,6 @@ NameError: name 'radius' is not defined</pre>
     print(f"area: {<span class="varUse">area</span>:.1f}")</span>
 
 <span data-scope="circle_area">def circle_area(<em><span class="varDef">radius</span></em>):
-    # Mistake! There is no variable named radius
-    # defined inside this function, so the variable
-    # radius cannot be used in this function.
     <span class="varDef">area</span> = <span class="varUse">math</span>.pi * <span class="varUse">radius</span> * <span class="varUse">radius</span>
     return <span class="varUse">area</span></span>
 
@@ -199,8 +196,29 @@ area: 54.6</pre>
     <p>Python allows function parameters to have default values. If a
     parameter has a default value, then its corresponding argument is
     optional. If a function is called without an argument, the
-    corresponding parameter gets its default value. Consider this
-    example Python code:</p>
+    corresponding parameter gets its default value.</p>
+
+    <p>Consider the program in example&nbsp;5. Notice at
+    <span class="cross" data-ref="ex5">line&nbsp;19</span>
+    in the header for the <code>arc_length</code> function, that the
+    parameter <var>radius</var> does not have a default value but the
+    parameter <var>degrees</var> has a default value of 360. This means
+    that when a programmer writes code to call the
+    <code>arc_length</code> function, the programmer must pass a value
+    for <var>radius</var> but is not required to pass a value for
+    <var>degrees</var>. At
+    <span class="cross" data-ref="ex5">line&nbsp;8</span>, the
+    programmer wrote code to call the <code>arc_length</code> function
+    and passed 4.7 for the <var>radius</var> parameter but did not pass
+    a value for the <var>degrees</var>, so during that call to
+    <code>arc_length</code>, the value of <var>degrees</var> will be the
+    default value from
+    <span class="cross" data-ref="ex5">line&nbsp;19</span>, which is
+    360. At <span class="cross" data-ref="ex5">line&nbsp;13</span>, the
+    programmer wrote code to call the <code>arc_length</code> function
+    again and passed two arguments:&nbsp; 4.7 and 270, so during that
+    call to <code>arc_length</code>, the value of <var>degrees</var>
+    will be 270.</p>
 
 <div class="pre" id="ex5"><pre class="linenums"></pre>
 <pre class="python"># Example 5
@@ -234,27 +252,6 @@ main()</span></pre></div>
 len1: 29.5
 len2: 22.1</pre>
 
-    <p>Notice at <span class="cross" data-ref="ex5">line&nbsp;19</span>
-    in the header for the <code>arc_length</code> function, that the
-    parameter <var>radius</var> does not have a default value but the
-    parameter <var>degrees</var> has a default value of 360. This means
-    that when a programmer writes code to call the
-    <code>arc_length</code> function, the programmer must pass a value
-    for <var>radius</var> but is not required to pass a value for
-    <var>degrees</var>. At
-    <span class="cross" data-ref="ex5">line&nbsp;8</span>, the
-    programmer wrote code to call the <code>arc_length</code> function
-    and passed 4.7 for the <var>radius</var> parameter but did not pass
-    a value for the <var>degrees</var>, so during that call to
-    <code>arc_length</code>, the value of <var>degrees</var> will be the
-    default value from
-    <span class="cross" data-ref="ex5">line&nbsp;19</span>, which is
-    360. At <span class="cross" data-ref="ex5">line&nbsp;13</span>, the
-    programmer wrote code to call the <code>arc_length</code> function
-    again and passed two arguments:&nbsp; 4.7 and 270, so during that
-    call to <code>arc_length</code>, the value of <var>degrees</var>
-    will be 270.</p>
-
     <h2 id="func_design">Function Design</h2>
     <p>What are the properties of a good function?</p>
 
@@ -269,21 +266,26 @@ len2: 22.1</pre>
         <li><div>A good function is understandable by other programmers.
         One way to make a function understandable is to write a
         documentation string at the top of the function that describes
-        the function, its parameters, and its return value and to write
-        comments in the body of the function as needed.</div></li>
+        the function, its parameters, and its return value. Another way
+        to make a function understandable is to write comments in the
+        body of the function as needed.</div></li>
+
         <li><div>A good function performs a single task that the
         programmer can describe, and the function's name matches its
         task.</div></li>
+
         <li><div>A good function is relatively short, perhaps fewer than
         20 lines of code.</div></li>
+
         <li><div>A good function has as few decision points
         (<code>if</code> statements and loops) as possible. Too many
         decision points in a function make a function error prone and
         difficult to test.</div></li>
+
         <li><div>A good function is as reusable as possible. Functions
         that use parameters and return a result are more reusable than
         functions that get input from a user and print results to a
-        terminal.</div></li>
+        terminal window.</div></li>
     </ul>
 
     <p>As you read the sample code in CSE&nbsp;111, observe how the

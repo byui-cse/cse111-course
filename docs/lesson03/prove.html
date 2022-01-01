@@ -40,12 +40,10 @@
     <h2>Assignment</h2>
     <p>During this prove milestone and the next prove assignment, you
     will write a Python program that draws a semi-realistic outdoor
-    scene in a computer window. To draw the shapes in the scene, your
-    program will call functions in a Python library named Draw 2-D.
-    Your program can draw any outdoor scene that you like as long as it
-    meets these requirements:</p>
+    scene in a computer window. Your program can draw any outdoor scene
+    that you like as long as it meets these requirements:</p>
 
-    <ul>
+    <ol>
         <li><div>The scene must be outdoor and include part of the
         sky.</div></li>
         <li><div>The sky must have clouds.</div></li>
@@ -54,12 +52,16 @@
         insects, fish, pickets in a fence, dashed lines on a road,
         buildings, bales of hay, snowmen, snowflakes, or
         icicles.</div></li>
-        <li><div>Each of the objects in your scene should be drawn in
-        its own function, such as <code>draw_sky</code>,
-        <code>draw_cloud</code>, <code>draw_ground</code>,
-        <code>draw_flower</code>, <code>draw_fence</code>,
-        <code>draw_fish</code>, etc.</div></li>
-    </ul>
+    </ol>
+
+    <p>Your program must be divided into functions such as
+    <code>draw_sky</code>, <code>draw_cloud</code>,
+    <code>draw_ground</code>, <code>draw_bird</code>,
+    <code>draw_flower</code>, <code>draw_insect</code>,
+    <code>draw_fish</code>, or <code>draw_snowman</code>. Each of the
+    objects in your scene should be drawn in its own function. To draw
+    the shapes in the scene, your program will call functions in a
+    Python library named Draw 2-D.</p>
 
     <p>During this milestone, you will write code that draws the sky,
     the ground, and clouds in your scene. During the next prove
@@ -73,10 +75,11 @@
     <p>The following example scene was drawn by a student's Python
     program and fulfills the requirements of this assignment.</p>
 
-    <div class="figure full">
+    <figure class="full">
     <img src="../lesson04/gallery/benjamin3.png"
-    alt="A semi-realistic outdoor scene drawn by a Python program"
-    title="A semi-realistic outdoor scene drawn by a Python program"></div>
+        alt="A semi-realistic outdoor scene drawn by a Python program"
+        title="A semi-realistic outdoor scene drawn by a Python program">
+    </figure>
 
     <p>If you would like ideas about what your program can draw, look at
     the scenes in <a href="../lesson04/gallery/index.html">this gallery</a>.
@@ -91,9 +94,9 @@
         <li><div>The <a href="prepare.html">prepare content</a> for this
         lesson explains how to write functions.</div></li>
 
-        <li><div>The <a href="draw2d.html">documentation</a>
-        for the Draw 2-D library includes an overview, function
-        reference, color chart, and example programs.</div></li>
+        <li><div>The <a href="draw2d.html">documentation</a> for the
+        Draw 2-D library includes an overview, example programs, a
+        function reference, and a table of supported colors.</div></li>
 
         <li><div>The following videos walk through examples of using
         functions to draw with Draw 2-D.
@@ -129,7 +132,7 @@ from draw2d import \
 
 
 def main():
-    # Width and height of the scene pixels
+    # Width and height of the scene in pixels
     scene_width = 800
     scene_height = 500
 
@@ -161,10 +164,10 @@ main()</pre></div>
         your new program. When you run it, it should open a window that
         contains an empty canvas as shown in the following figure.
 
-        <div class="figure full">
+        <figure class="full">
         <img src="empty.png"
         alt="An empty canvas created by the Draw 2-D library"
-        title="An empty canvas created by the Draw 2-D library"></div>
+        title="An empty canvas created by the Draw 2-D library"></figure>
         </div></li>
 
         <li><div>Read the documentation for the
@@ -185,7 +188,7 @@ main()</pre></div>
     world-famous cloud artist. Instead, the intent is to teach you how
     to apply the following principles to a real programming problem:</p>
     <ul>
-        <li><div>Dividing a large program into parts (functions)</div></li>
+        <li><div>Dividing a large program into functions</div></li>
         <li><div>Writing a function</div></li>
         <li><div>Deciding what needs to be a parameter in a function
         definition</div></li>
@@ -232,22 +235,23 @@ def draw_grass_blade(canvas, blade_left, blade_top, blade_height):</pre></div>
     and <code>draw_bird</code> functions, and so on. This is a good
     design because each function is relatively small and performs just
     one task. Also, because the <code>draw_flower</code> function has
-    parameters (not shown in the diagram), a programmer can write
+    parameters (not shown in the call graph), a programmer can write
     multiple calls to the <code>draw_flower</code> function, which will
-    easily draw multiple flowers in his scene. The
+    easily draw multiple flowers in different locations in his scene. The
     <code>draw_cloud</code>, <code>draw_bird</code>, and
     <code>draw_tree</code> functions also have parameters, and a
     programmer can write multiple calls to them, which will easily draw
-    multiple clouds, birds, and trees. This is a good design.</p>
+    multiple clouds, birds, and trees in different locations. This is a
+    good design.</p>
 
-    <div class="figure center">
-        <img src="call_graph_prove.svg" style="width:36em"
+    <figure class="center" style="width:37em">
+        <img class="callgraph" src="call_graph_prove.svg"
         alt="The call graph from a well-designed program that draws an outdoor scene"
         title="The call graph from a well-designed program that draws an outdoor scene">
-        <div>The call graph for a well-designed program. Because the
-        program is divided into small functions that each perform a
-        single task, the program is well-designed.</div>
-    </div>
+        <figcaption>The call graph for a well-designed program. Because
+        the program is divided into small functions that each perform a
+        single task, the program is well-designed.</figcaption>
+    </figure>
 
     <p>The next call graph shows the functions for a different scene
     drawing program. Notice that this program isn't separated into small
@@ -258,16 +262,16 @@ def draw_grass_blade(canvas, blade_left, blade_top, blade_height):</pre></div>
     program will be very long, complex, and confusing. This is a poor
     design.</p>
 
-    <div class="figure center">
-        <img src="call_graph_prove_bad.svg" style="width:19em"
+    <figure class="center" style="width:19em">
+        <img class="callgraph" src="call_graph_prove_bad.svg"
         alt="The call graph from a poorly designed program that draws an outdoor scene"
         title="The call graph from a poorly designed program that draws an outdoor scene">
-        <div>The call graph for a poorly designed program. Because the
-        program is not divided into small functions, the
+        <figcaption>The call graph for a poorly designed program.
+        Because the program is not divided into small functions, the
         <code>main</code> function calls the Draw 2-D functions to draw
-        all the objects in the scene. The <code>main</code>
-        function will be very long and confusing.</div>
-    </div>
+        all the objects in the scene. The <code>main</code> function
+        will be very long and confusing.</figcaption>
+    </figure>
 
     <h2>Testing Procedure</h2>
     <p>Verify that your program works correctly by following each

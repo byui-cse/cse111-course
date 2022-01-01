@@ -1,5 +1,3 @@
-# Copyright 2020, Brigham Young University-Idaho. All rights reserved.
-
 """Compute and print the volume of a right circular cone."""
 
 # Import the standard math module so that
@@ -27,6 +25,9 @@ def main():
     # Call the cone_volume function to compute the volume
     # for the radius and height that came from the user.
     vol = cone_volume(radius, height)
+
+    # Print the radius, height, and
+    # volume for the user to see.
     print(f"Radius: {radius}")
     print(f"Height: {height}")
     print(f"Volume: {vol}")
