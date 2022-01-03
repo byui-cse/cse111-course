@@ -67,8 +67,8 @@
     Some children laugh at many dogs.<br>
     Some rabbits will talk about some cats.</blockquote>
 
-    <p>After this assignment, your program must include at least these
-    six functions:</p>
+    <p>To complete this prove assignment, your program must include at
+    least these six functions:</p>
     <ol>
         <li><div><code>main</code></div></li>
         <li><div><code>get_determiner</code></div></li>
@@ -78,16 +78,16 @@
         <li><div><code>get_prepositional_phrase</code></div></li>
     </ol>
 
-    <p>You may add other functions if you want. The
+    <p>You may add other functions if you find them helpful. The
     <code>get_preposition</code> function must randomly choose a
     preposition from a list and return the randomly chosen preposition.
     The <code>get_prepositional_phrase</code> function must make a
     prepositional phrase by calling the <code>get_preposition</code>,
     <code>get_determiner</code>, and <code>get_noun</code> functions.</p>
 
-    <p>In addition, for this prove assignment, you must write and submit
-    a file named <code>test_senetences.py</code> that contains five
-    functions named as follows:</p>
+    <p>In addition, to complete this prove assignment, you must write
+    and submit a file named <code>test_senetences.py</code> that
+    contains five functions named as follows:</p>
     <ol>
         <li><div><code>test_get_determiner</code></div></li>
         <li><div><code>test_get_noun</code></div></li>
@@ -97,16 +97,23 @@
     </ol>
 
     <h2>Helpful Documentation</h2>
-    <p>The <a href="prepare.html">prepare content</a> for this lesson
-    explains how to troubleshoot functions and entire programs that are not
-    working correctly.</p>
+    <ul class="long">
+        <li><div>The <a href="prepare.html">prepare content</a> for this
+        lesson explains how to troubleshoot functions and entire
+        programs that are not working correctly.</div></li>
+
+        <li><div>The string
+        <a href="https://docs.python.org/3/library/stdtypes.html#str.split"><code>split</code> method</a>
+        separates a string of text into words and returns a list of
+        strings.</div></li>
+    </ul>
 
     <h2>Steps</h2>
     <p>Do the following:</p>
     <ol class="long">
         <li><div>Use the <code>get_determiner</code> function from the
-        previous milestone assignment as an example to help you write
-        the <code>get_preposition</code> function. The
+        previous lesson's prove milestone as an example to help you
+        write the <code>get_preposition</code> function. The
         <code>get_preposition</code> function must have the following
         header and fulfill the requirements of the following
         documentation string.
@@ -150,7 +157,7 @@ def get_prepositional_phrase(quantity):
         determiner, a noun, a verb, and a prepositional phrase. The six
         sentences must have the following characteristics:</p>
 
-        <table><thead>
+        <table class="center"><thead>
             <tr><th></th> <th>Quantity</th> <th>Verb Tense</th></tr>
         </thead><tbody>
             <tr><td>a.</td> <td>single</td> <td>past</td></tr>
@@ -163,7 +170,7 @@ def get_prepositional_phrase(quantity):
         </div></li>
 
         <li><div><p>In the <code>test_sentences.py</code> file that you
-        wrote during the previous milestone assignment, write two
+        wrote during the previous lesson's prove milestone, write two
         functions named <code>test_get_preposition</code> and
         <code>test_get_prepositional_phrase</code> that test the
         <code>get_preposition</code> and
@@ -174,17 +181,17 @@ def get_prepositional_phrase(quantity):
         that question, ask yourself, "What do we know about the
         <code>get_prepositional_phrase</code> function?" From its
         description, we know the <code>get_prepositional_phrase</code>
-        function returns a phrase made of three words: a preposition, a
+        function returns a string made of three words: a preposition, a
         determiner, and a noun. So you could write code in the
         <code>test_get_prepositional_phrase</code> function that calls
         the <code>get_prepositional_phrase</code> function and then
-        asserts that the string returned from
-        <code>get_prepositional_phrase</code> contains three words
-        separated by spaces. In addition, you could write code that
         calls the Python string
     <a href="https://docs.python.org/3/library/stdtypes.html#str.split"><code>split</code> method</a>
-        to split the returned phrase into its three words and checks
-        each of the three words.</p>
+        to separate the returned phrase into a list of words and
+        verifies that the length of the list is three. In addition for
+        each word in the list, you could write an <code>assert</code>
+        statement that verifies that each word is the correct English
+        part of speech.</p>
         </div></li>
     </ol>
 
@@ -214,11 +221,11 @@ test_sentences.py::test_get_prepositional_phrase <span class="pass">PASSED [100%
 <span class="pass">==================== 5 passed in 0.10s =====================</span></pre>
         </div></li>
 
-        <li><div>Run your sentences.py program and ensure that your
-        program's output is similar to the sample run output shown here.
-        Because your program will randomly choose the determiners,
-        nouns, verbs, and prepositions, your program will generate
-        different sentences than the ones shown here.
+        <li><div>Run your <code>sentences.py</code> program and ensure
+        that your program's output is similar to the sample run output
+        shown here. Because your program randomly chooses the
+        determiners, nouns, verbs, and prepositions, your program will
+        generate different sentences than the ones shown here.
 
 <pre class="console">&gt; python sentences.py
 One girl talked for the car.
@@ -232,7 +239,7 @@ Some rabbits will talk about some cats.</pre>
 
     <h2>Exceeding the Requirements</h2>
     <p>If you wish to exceed the requirements of this assignment, here
-    are a few suggestions for additional features that you could add to
+    are a few suggestions for additional features that you can add to
     your program. If you wish, you can add different features to your
     program. However, you don't have to add any additional features to
     your program because exceeding the requirements of this assignment
@@ -285,13 +292,13 @@ Some rabbits will talk about some cats.</pre>
         category that best describes your program along with a one or
         two sentence justification for your choice. The grading criteria
         are:
-        <ul>
-            <li><div>1. Some attempt made</div></li>
-            <li><div>2. Developing but significantly deficient</div></li>
-            <li><div>3. Slightly deficient</div></li>
-            <li><div>4. Meets requirements</div></li>
-            <li><div>5. Exceeds requirements</div></li>
-        </ul></div></li>
+        <ol>
+            <li><div>Some attempt made</div></li>
+            <li><div>Developing but significantly deficient</div></li>
+            <li><div>Slightly deficient</div></li>
+            <li><div>Meets requirements</div></li>
+            <li><div>Exceeds requirements</div></li>
+        </ol></div></li>
     </ol>
 </article>
 <footer>
