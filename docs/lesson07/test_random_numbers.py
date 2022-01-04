@@ -10,32 +10,32 @@ def test_append_random_numbers():
     Parameters: none
     Return: nothing
     """
-    # Create an empty list named randnums.
-    randnums = []
+    # Create an empty list named numbers_list.
+    numbers_list = []
 
     # Verify that the length of the empty list is zero.
-    assert len(randnums) == 0
+    assert len(numbers_list) == 0
 
     # Call the append_random_numbers function to append one number.
-    append_random_numbers(randnums)
+    append_random_numbers(numbers_list)
 
-    # Verify that the randnums list now has one element.
-    assert len(randnums) == 1
+    # Verify that the numbers list now has one element.
+    assert len(numbers_list) == 1
 
-    # Verify that all the elements in the randnums list
+    # Verify that all the elements in the numbers list
     # are floating point numbers.
-    for x in randnums:
+    for x in numbers_list:
         assert isinstance(x, float)
 
     # Call the append_random_numbers function to append three numbers.
-    append_random_numbers(randnums, 3)
+    append_random_numbers(numbers_list, 3)
 
-    # Verify that the randnums list now has four elements.
-    assert len(randnums) == 4
+    # Verify that the numbers list now has four elements.
+    assert len(numbers_list) == 4
 
-    # Verify that all the elements in the randnums list
+    # Verify that all the elements in the numbers list
     # are floating point numbers.
-    for x in randnums:
+    for x in numbers_list:
         assert isinstance(x, float)
 
 
@@ -44,18 +44,18 @@ def test_append_random_numbers():
 #    Parameters: none
 #    Return: nothing
 #    """
-#    randwords = []
-#    assert len(randwords) == 0
+#    words_list = []
+#    assert len(words_list) == 0
 #
-#    append_random_words(randwords)
-#    assert len(randwords) == 1
-#    for word in randwords:
+#    append_random_words(words_list)
+#    assert len(words_list) == 1
+#    for word in words_list:
 #        assert isinstance(word, str)
 #        assert len(word) >= 1
 #
-#    append_random_words(randwords, 3)
-#    assert len(randwords) == 4
-#    for word in randwords:
+#    append_random_words(words_list, 3)
+#    assert len(words_list) == 4
+#    for word in words_list:
 #        assert isinstance(word, str)
 #        assert len(word) >= 1
 

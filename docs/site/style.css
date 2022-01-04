@@ -577,6 +577,12 @@ article figure.code {
 	padding: 0;
 }
 
+article figure.list {
+	display: table;
+	margin: 1em auto;
+	border: 1px solid var(--border);
+}
+
 article figure > img {
 	max-width: 100%;
 }
@@ -764,15 +770,19 @@ article table.prec > tbody > tr > td.prec {
     text-align: center;
 }
 
-article table.list > tbody > tr > td {
+article figure.list > table {
+	margin: 1em;
+}
+
+article figure.list > table > tbody > tr > td {
 	text-align: center;
 }
 
-article table.list > tbody > tr.elems > td {
+article figure.list > table > tbody > tr.elems > td {
 	border: 1px solid var(--border);
 }
 
-article table.list > tbody > tr > td.label {
+article figure.list > table > tbody > tr > td.label {
 	border: none;
 	text-align: right;
 }

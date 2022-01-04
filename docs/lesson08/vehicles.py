@@ -4,7 +4,7 @@ def main():
     # identification number (VIN). The value for each vehicle is
     # a list that contains the year, manufacturer, model, color,
     # engine design, and engine displacement.
-    vehicles = {
+    vehicles_dict = {
         # VIN: [year, manufacturer, model, color, eng_design, eng_displace]
         "1J4GL48K4UF993861": [2002, "Jeep", "Liberty", "blue", "V6", 3.7],
         "1YVGF22C8AN381568": [2002, "Mazda", "626", "white", "I4", 2.0],

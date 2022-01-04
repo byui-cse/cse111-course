@@ -6,7 +6,7 @@ def main():
     # identification number (VIN). The value for each vehicle is
     # a list that contains the year, manufacturer, model, color,
     # engine design, and engine displacement.
-    vehicles = {
+    vehicles_dict = {
         # VIN: [year, manufacturer, model, color, eng_design, eng_displace]
         "1J4GL48K4UF993861": [2002, "Jeep", "Liberty", "blue", "V6", 3.7],
         "1YVGF22C8AN381568": [2002, "Mazda", "626", "white", "I4", 2.0],
@@ -23,11 +23,11 @@ def main():
     # Ask the user for a vehicle identification number (VIN).
     vin = input("Please enter a VIN: ")
 
-    # Check if the vin is a key that is in the vehicles dictionary.
-    if vin in vehicles:
+    # Check if the VIN is a key that is in the vehicles dictionary.
+    if vin in vehicles_dict:
 
         # Find the data for the vehicle that the user wants.
-        value_list = vehicles[vin]
+        value_list = vehicles_dict[vin]
 
         # Print the manufacturer, model, and color of the vehicle.
         # Don't print the year, engine design, or displacement.

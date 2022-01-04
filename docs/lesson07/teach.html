@@ -54,28 +54,33 @@
         <li><div><p>Within a Python program, when a number is passed as
         an argument to a function, the computer copies the number from
         the argument into the parameter. In other words, the parameter
-        gets a copy of the value that is in the argument. This idea of
-        passing a copy of an argument into a parameter is known as
-        <dfn>pass by value</dfn>.</p>
+        gets a copy of the value that is in the argument. Copying the
+        value of an argument into a parameter is known as <dfn>pass by
+        value</dfn>.</p>
 
         <p>In Python, when a list is passed as an argument to a
         function, the computer does <em>not</em> copy the list. Instead,
-        the computer passes a reference to the list into the function.
+        the computer copies a reference to the list into the parameter.
         This means the argument and parameter refer to the same list.
-        This idea of passing a reference into a parameter is known as
-        <dfn>pass by reference</dfn>. With pass by reference, if a
-        called function changes a list that was passed into the
-        function, this will of course change the list in the calling
-        function because both the argument and parameter refer to the
-        same list.</p>
+        Copying a reference from an argument into a parameter is known
+        as <dfn>pass by reference</dfn>. With pass by reference, if a
+        called function changes a list that was passed to the function,
+        this will of course change the list in both the calling and
+        called functions because both the argument and parameter refer
+        to the same list.</p>
 
         <p>The prepare content for this lesson includes a section about
         passing arguments <a href="prepare.html#passByRef">by value and by reference</a>.</p></div></li>
 
         <li><div>The Python <code>random</code> module contains
         functions to generate pseudo random numbers. The
-        <a href="https://docs.python.org/3/library/random.html#random.uniform"><code>random.uniform</code> function</a>
-        generates random numbers that are not integers.</div></li>
+        <a href="https://docs.python.org/3/library/random.html#random.uniform"><code>random.uniform</code></a>
+        function generates random floating-point numbers.</div></li>
+
+        <li><div>The Python <code>random</code> module contains
+        a function named
+        <a href="https://docs.python.org/3/library/random.html#random.choice"><code>choice</code></a>
+        that randomly chooses one element from a list.</div></li>
 
         <li><div>The built-in Python
         <a href="https://docs.python.org/3/library/functions.html#round"><code>round</code> function</a>
@@ -87,10 +92,27 @@
     <p>Write a Python program named <code>random_numbers.py</code> that
     creates a list of numbers, appends more numbers onto the list, and
     prints the list. The program must have two functions named
-    <code>append_random_numbers</code> and <code>main</code> as
+    <code>main</code> and <code>append_random_numbers</code> as
     follows:</p>
 
     <ol class="long">
+        <li><div><code>main</code>
+        <ol>
+            <li><div>Has no parameters</div></li>
+            <li><div>Creates a list named <var>numbers</var> like this:
+<div class="pre"><pre class="python">numbers = [16.2, 75.1, 52.3]</pre></div>
+            </div></li>
+            <li><div>Prints the <var>numbers</var> list</div></li>
+            <li><div>Calls the <code>append_random_numbers</code>
+            function with only one argument to add one number to
+            <var>numbers</var></div></li>
+            <li><div>Prints the <var>numbers</var> list</div></li>
+            <li><div>Calls the <code>append_random_numbers</code>
+            function again with two arguments to add three numbers to
+            <var>numbers</var></div></li>
+            <li><div>Prints the <var>numbers</var> list</div></li>
+        </ol></div></li>
+
         <li><div><code>append_random_numbers</code>
         <ol>
             <li><div>Has two parameters: a list named
@@ -104,28 +126,11 @@
             <li><div>Appends the <var>quantity</var> pseudo random
             numbers onto the end of the <var>numbers_list</var>.</div></li>
         </ol></div></li>
-
-        <li><div><code>main</code>
-        <ol>
-            <li><div>Has no parameters</div></li>
-            <li><div>Creates a list named <var>randnums</var> like this:
-<div class="pre"><pre class="python">randnums = [16.2, 75.1, 52.3]</pre></div>
-            </div></li>
-            <li><div>Prints <var>randnums</var></div></li>
-            <li><div>Calls the <code>append_random_numbers</code>
-            function with only one argument to add one number to
-            <var>randnums</var></div></li>
-            <li><div>Prints <var>randnums</var></div></li>
-            <li><div>Calls the <code>append_random_numbers</code>
-            function again with two arguments to add three numbers to
-            <var>randnums</var></div></li>
-            <li><div>Prints <var>randnums</var></div></li>
-        </ol></div></li>
-
-        <li><div>At the bottom of your program, write a line of code to
-        call the <code>main</code> function. Then run your program and
-        verify that your program works correctly.</div></li>
     </ol>
+
+    <p>At the bottom of your program, write an if <code>statement</code>
+    that calls the <code>main</code> function. Then run your program and
+    verify that your program works correctly.</div></li>
 
     <h3>Core Requirements</h3>
     <ol class="long">
@@ -135,13 +140,13 @@
         named <var>numbers_list</var> and <var>quantity</var>, and
         <var>quantity</var> has a default value of 1.</div></li>
 
-        <li><div>The <var>append_random_numbers</var> function includes
-        a loop that appends <var>quantity</var> random numbers at the
-        end of <var>numbers_list</var>.</div></li>
-
         <li><div>The <code>main</code> function calls
         <code>append_random_numbers</code> twice, first with one
         argument and second with two arguments.</div></li>
+
+        <li><div>The <var>append_random_numbers</var> function includes
+        a loop that appends <var>quantity</var> random numbers at the
+        end of <var>numbers_list</var>.</div></li>
     </ol>
 
     <h3>Stretch Challenges</h3>
@@ -157,10 +162,16 @@
             <var>words_list</var> and an integer named
             <var>quantity</var>. The parameter <var>quantity</var> has a
             default value of 1</div></li>
+
             <li><div>Randomly selects <var>quantity</var> words from a
             list of words and appends the selected words at the end of
             <var>words_list</var>.</div></li>
         </ol></div></li>
+
+        <li><div>Add statements in the <code>main</code> function that
+        create a list of words, call the
+        <code>append_random_words</code> function, and then print the
+        list of words.</div></li>
 
         <li><div>Add something or change something in your program that
         you think would make your program better, easier for the user,
@@ -179,8 +190,8 @@
         <code>test_random_numbers</code> function passes. If it doesn't
         pass, there is a mistake in your <code>random_numbers</code>
         function. Read the output from <code>pytest</code>, fix the
-        mistake, and run the <code>test_random_numbers.py</code> file
-        again until the test function passes.
+        mistake, and run <code>test_random_numbers.py</code> again until
+        the test function passes.
 
 <pre class="console">&gt; python test_random_numbers.py
 =================== test session starts ====================
@@ -197,13 +208,13 @@ test_random_numbers.py::test_random_numbers <span class="pass">PASSED    [100%]<
         is similar* to the output below.
 
 <pre class="console">&gt; python random_numbers.py
-randnums [16.2, 75.1, 52.3]
-randnums [16.2, 75.1, 52.3, 84.2]
-randnums [16.2, 75.1, 52.3, 84.2, 99.5, 20.4, 25.3]
-randwords ['join', 'love', 'smile', 'love', 'cloud', 'head']</pre>
+numbers [16.2, 75.1, 52.3]
+numbers [16.2, 75.1, 52.3, 84.2]
+numbers [16.2, 75.1, 52.3, 84.2, 99.5, 20.4, 25.3]
+words ['join', 'love', 'smile', 'love', 'cloud', 'head']</pre>
 
         <ul class="note"><li>Because your program is appending
-        random numbers to the <var>randnums</var> list, your program's
+        random numbers to the <var>numbers</var> list, your program's
         output will be slightly different than the output shown above.
         Specifically, the last four random numbers and the random words
         will be different.</li></ul>
@@ -227,11 +238,11 @@ randwords ['join', 'love', 'smile', 'love', 'cloud', 'head']</pre>
     for the stretch challenge). The first parameter,
     <var>numbers_list</var>, is a list. Recall that in Python, lists are
     passed by reference which means that any changes made to the list in
-    <code>append_random_numbers</code> (and
-    <code>append_random_words</code>) will change the list in
+    the <code>append_random_numbers</code> (and
+    <code>append_random_words</code>) function will change the list in
     <code>main</code>. You can verify this is true by looking at the
     output of your program. The numbers that were appended onto the list
-    in the <code>append_random_numbers</code> function are part of the
+    by the <code>append_random_numbers</code> function are stored in the
     same list in <code>main</code>.</p>
 
     <h2>Submission</h2>

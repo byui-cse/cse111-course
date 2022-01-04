@@ -18,7 +18,7 @@ def test_make_periodic_table():
     Return: nothing
     """
     # Call the make_periodic_table and store the returned
-    # periodic table in a variable named period_table_list.
+    # periodic table in a variable named periodic_table_list.
     periodic_table_list = make_periodic_table()
     assert isinstance(periodic_table_list, list), \
         "make_periodic_table function must return a list:" \

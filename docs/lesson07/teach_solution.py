@@ -7,31 +7,31 @@ default parameter values and pass by reference.
 import random
 
 def main():
-    randnums = [16.2, 75.1, 52.3]
-    print(f"randnums {randnums}")
+    numbers = [16.2, 75.1, 52.3]
+    print(f"numbers {numbers}")
 
     # Call the append_random_numbers function to
-    # add one random number to the randnums list.
-    append_random_numbers(randnums)
-    print(f"randnums {randnums}")
+    # add one random number to the numbers list.
+    append_random_numbers(numbers)
+    print(f"numbers {numbers}")
 
     # Call the append_random_numbers function to add
-    # three random numbers to the randnums list.
-    append_random_numbers(randnums, 3)
-    print(f"randnums {randnums}")
+    # three random numbers to the numbers list.
+    append_random_numbers(numbers, 3)
+    print(f"numbers {numbers}")
 
     # Create a list to store random words.
-    randwords = []
+    words = []
 
     # Call the append_random_words function
     # to add one random word to the list.
-    append_random_words(randwords)
-    print(f"randwords {randwords}")
+    append_random_words(words)
+    print(f"words {words}")
 
     # Call the append_random_words function
     # to add five random words to the list.
-    append_random_words(randwords, 5)
-    print(f"randwords {randwords}")
+    append_random_words(words, 5)
+    print(f"words {words}")
 
 
 def append_random_numbers(numbers_list, quantity=1):
