@@ -7,29 +7,29 @@ of provinces.txt into a list and then modifies the list.
 
 def main():
     # Read the contents of a text file named
-    # provinces.txt into a list named provinces.
-    provinces = read_list("provinces.txt")
+    # provinces.txt into a list named provinces_list.
+    provinces_list = read_list("provinces.txt")
 
     # As a debugging aid, print the entire list.
-    print(provinces)
+    print(provinces_list)
 
     # Remove the first element from the list.
-    provinces.pop(0)
-    #print(provinces)
+    provinces_list.pop(0)
+    #print(provinces_list)
 
     # Remove the last element from the list.
-    provinces.pop()
-    #print(provinces)
+    provinces_list.pop()
+    #print(provinces_list)
 
     # Replace all occurrrences of "AB" with "Alberta".
-    for i in range(len(provinces)):
-        if provinces[i] == "AB":
-            provinces[i] = "Alberta"
-    #print(provinces)
+    for i in range(len(provinces_list)):
+        if provinces_list[i] == "AB":
+            provinces_list[i] = "Alberta"
+    #print(provinces_list)
 
     # Call the list.count method which will count the
     # number of times that Alberta appears in the list.
-    count = provinces.count("Alberta")
+    count = provinces_list.count("Alberta")
 
     print()
     print(f"Alberta occurs {count} times in the modified list.")
@@ -42,8 +42,9 @@ def read_list(filename):
     Parameter filename: the name of the text file to read
     Return: a list of strings
     """
-    # Create an empty list named text_lines.
-    text_lines = []
+    # Create an empty list that will store
+    # the lines of text from the text file.
+    text_list = []
 
     # Open the text file for reading and store a reference
     # to the opened file in a variable named text_file.
@@ -59,10 +60,10 @@ def read_list(filename):
 
             # Append the clean line of text
             # onto the end of the list.
-            text_lines.append(clean_line)
+            text_list.append(clean_line)
 
     # Return the list that contains the lines of text.
-    return text_lines
+    return text_list
 
 
 # If this file was executed like this:

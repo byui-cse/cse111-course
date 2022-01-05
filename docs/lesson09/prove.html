@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CSE 111 - Prove</title>
     <script src="../site/color.js"></script>
+    <script src="../site/hljs/highlight.pack.js"></script>
     <link rel="icon" type="image/png" href="../site/icon.png">
     <link rel="stylesheet" type="text/css" href="../site/style.css">
+    <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
 </head>
 
 <body>
@@ -39,12 +41,13 @@
 
     <h2>Assignment</h2>
     <p>During this milestone, you will write half of a Python program
-    named <code>receipt.py</code> that prints to the console a receipt
-    for a customer's grocery order. Specifically, by the end of this
-    milestone, your program must contain at least these two functions:
+    named <code>receipt.py</code> that prints to the terminal window a
+    receipt for a customer's grocery order. Specifically, by the end of
+    this milestone, your program must contain at least these two
+    functions:
     <ol>
         <li><div><code>main</code></div></li>
-        <li><div><code>read_products</code></div></li>
+        <li><div><code>read_dict</code></div></li>
     </ol>
     <p>and must read and process these two CSV files:</p>
     <ul>
@@ -57,13 +60,14 @@
     <h2>Helpful Documentation</h2>
     <ul class="long">
         <li><div><a href="file_setup.html">This article</a> explains how
-        to setup VS Code so that your Python program can read from
+        to setup VS Code so that your program can read from text
         files.</div></li>
 
-        <li><div>The <a href="prepare.html">prepare content</a> for this
-        lesson shows how to read the contents of a CSV file into a
-        dictionary and how to read and process a CSV file without
-        storing it in a dictionary.</div></li>
+        <li><div>The prepare content for this lesson shows how to read
+        the contents of a
+        <a href="prepare.html#dict">CSV file into a compound dictionary</a>
+        and how to read and <a href="prepare.html#process">process a CSV
+        file</a> without storing it in a dictionary.</div></li>
 
         <li><div>The prepare content for lesson&nbsp;8 explains how to
         <a href="../lesson09/prepare.html#findOne">find an item</a> in a
@@ -80,15 +84,15 @@
         <li><div>Download both of these files:
         <a download href="products.csv"><code>products.csv</code></a> and
         <a download href="request.csv"><code>request.csv</code></a> and
-        save them into the same folder where you will save your Python
+        save them in the same folder where you will save your Python
         program.</div></li>
 
         <li><div>Open the <code>products.csv</code> file in VS Code and
         examine it. Notice that each row in this file contains three
-        values separated by commas:&nbsp; a product number, a product
-        name, and a retail price. Also, notice that each product number
-        in the <code>products.csv</code> file is unique. This means that
-        your program can read the <code>products.csv</code> file into a
+        values separated by commas: a product number, a product name,
+        and a retail price. Also, notice that each product number in the
+        <code>products.csv</code> file is unique. This means that your
+        program can read the <code>products.csv</code> file into a
         dictionary and use the product numbers as keys in the
         dictionary.</div></li>
 
@@ -98,27 +102,40 @@
         files.</div></li>
 
         <li><div><p>In <code>receipt.py</code>, write a function named
-        <code>read_products</code> that will open the
-        <code>products.csv</code> file for reading and use a
-        <code>csv.reader</code> to read each row and populate a
-        dictionary named <var>products</var> with the contents of the
-        <code>products.csv</code> file.</p>
+        <code>read_dict</code> that will open a CSV file for reading and
+        use a <code>csv.reader</code> to read each row and populate a
+        compound dictionary with the contents of the
+        <code>products.csv</code> file. The read_dict function must have
+        this header and documentation string:</p>
+
+    <div class="pre"><pre class="python">def read_dict(filename, key_column_index):
+    """Read the contents of a CSV file into a compound
+    dictionary and return the dictionary.
+
+    Parameters
+        filename: the name of the CSV file to read.
+        key_column_index: the index of the column
+            to use as the keys in the dictionary.
+    Return: a compound dictionary that contains
+        the contents of the CSV file.
+    """</pre></div>
 
         <p>Recall that each item in a dictionary has a key and a value.
         Each item in the <var>products</var> dictionary must have a
-        product number as the key and a list with the product name and
-        price as the value as shown in the following table.</p>
+        product number as the key and a list with the product number,
+        product name, and price as the value as shown in the following
+        table.</p>
 
         <table class="center"><thead>
             <tr><th colspan="2">Products</th></tr>
             <tr><th>Key</th> <th>Value</th></tr>
         </thead><tbody>
-            <tr><td>"D150"</td> <td>["1 gallon milk", 2.85]</td></tr>
-            <tr><td>"D083"</td> <td>["1 cup yogurt", 0.75]</td></tr>
-            <tr><td>"P143"</td> <td>["1 lb baby carrots", 1.39]</td></tr>
-            <tr><td>"W231"</td> <td>["32 oz granola", 3.21]</td></tr>
-            <tr><td>"W112"</td> <td>["wheat bread", 2.55]</td></tr>
-            <tr><td>"C013"</td> <td>["twix candy bar", 0.85]</td></tr>
+            <tr><td>"D150"</td> <td>["D150", "1 gallon milk", 2.85]</td></tr>
+            <tr><td>"D083"</td> <td>["D083", "1 cup yogurt", 0.75]</td></tr>
+            <tr><td>"P143"</td> <td>["P143", "1 lb baby carrots", 1.39]</td></tr>
+            <tr><td>"W231"</td> <td>["W231", "32 oz granola", 3.21]</td></tr>
+            <tr><td>"W112"</td> <td>["W112", "wheat bread", 2.55]</td></tr>
+            <tr><td>"C013"</td> <td>["C013", "twix candy bar", 0.85]</td></tr>
             <tr><td class="center">&vellip;</td> <td class="center">&vellip;</td></tr>
         <tbody></table></div></li>
 
@@ -133,15 +150,14 @@
         program must not read the contents of <code>request.csv</code>
         into a dictionary.</div></li>
 
-        <li><div><p>In your <code>receipt.py</code> program, write
-        another function named <code>main</code> that does the
-        following:</p>
+        <li><div>In your <code>receipt.py</code> program, write another
+        function named <code>main</code> that does the following:
         <ol>
-            <li><div>Calls the <code>read_products</code> function and
-            stores the products dictionary in a variable named
-            <var>products</var>.</div></li>
+            <li><div>Calls the <code>read_dict</code> function and
+            stores the compound dictionary in a variable named
+            <var>products_dict</var>.</div></li>
 
-            <li><div>Prints the <var>products</var> dictionary.</div></li>
+            <li><div>Prints the <var>products_dict</var>.</div></li>
 
             <li><div>Opens the <code>request.csv</code> file for
             reading.</div></li>
@@ -151,8 +167,7 @@
             the loop, your program must do the following for each row:
             <ol>
                 <li><div>Use the requested product number to find the
-                corresponding item in the <var>products</var>
-                dictionary.</div></li>
+                corresponding item in the <var>products_dict</var>.</div></li>
                 <li><div>Print the product name, requested quantity, and
                 product price.</div></li>
             </ol></div></li>
@@ -197,7 +212,7 @@
         <code>receipt.py</code> program. Run the
         <code>test_products.py</code> file and ensure that the
         <code>test_read_products</code> function passes. If it doesn't
-        pass, there is a mistake in your <code>read_products</code>
+        pass, there is a mistake in your <code>read_dict</code>
         function. Read the output from <code>pytest</code>, fix the
         mistake, and run the <code>test_products.py</code> file again
         until the test function passes.
@@ -220,22 +235,22 @@ test_products.py::test_read_products <span class="pass">PASSED           [100%]<
 <pre class="console">&gt; python receipt.py
 
 Products
-D150 ['1 gallon milk', 2.85]
-D083 ['1 cup yogurt', 0.75]
-D215 ['1 lb cheddar cheese', 3.35]
-P019 ['iceberg lettuce', 1.15]
-P020 ['green leaf lettuce', 1.79]
-P021 ['butterhead lettuce', 1.83]
-P025 ['8 oz arugula', 2.19]
-P143 ['1 lb baby carrots', 1.39]
-W231 ['32 oz granola', 3.21]
-W112 ['wheat bread', 2.55]
-C013 ['twix candy bar', 0.85]
-H001 ['8 rolls toilet tissue', 6.45]
-H014 ['facial tissue', 2.49]
-H020 ['aluminum foil', 2.39]
-H021 ['12 oz dish soap', 3.19]
-H025 ['toilet cleaner', 4.5]
+D150 ['D150', '1 gallon milk', '2.85']
+D083 ['D083', '1 cup yogurt', '0.75']
+D215 ['D215', '1 lb cheddar cheese', '3.35']
+P019 ['P019', 'iceberg lettuce', '1.15']
+P020 ['P020', 'green leaf lettuce', '1.79']
+P021 ['P021', 'butterhead lettuce', '1.83']
+P025 ['P025', '8 oz arugula', '2.19']
+P143 ['P143', '1 lb baby carrots', '1.39']
+W231 ['W231', '32 oz granola', '3.21']
+W112 ['W112', 'wheat bread', '2.55']
+C013 ['C013', 'twix candy bar', '0.85']
+H001 ['H001', '8 rolls toilet tissue', '6.45']
+H014 ['H014', 'facial tissue', '2.49']
+H020 ['H020', 'aluminum foil', '2.39']
+H021 ['H021', '12 oz dish soap', '3.19']
+H025 ['H025', 'toilet cleaner', '4.50']
 
 Requested Items
 wheat bread: 2 @ 2.55
