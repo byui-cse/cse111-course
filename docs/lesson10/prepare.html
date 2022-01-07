@@ -196,10 +196,10 @@
     <h3>TypeError</h3>
     <p>The computer raises a <a href="https://docs.python.org/3/library/exceptions.html#TypeError"><code>TypeError</code></a>
     when the code that calls a function passes an argument with the
-    wrong type. The code in example&nbsp;2 attempts to pass a string of
-    text to the <code>round</code> function which causes the computer to
-    raise a <code>TypeError</code> as shown in the output below the code
-    example.</p>
+    wrong data type. The code in example&nbsp;2 attempts to pass a
+    string of text to the <code>round</code> function which causes the
+    computer to raise a <code>TypeError</code> as shown in the output
+    below the code example.</p>
 
 <div class="pre" id="ex2"><pre class="python"># Example 2
 
@@ -222,8 +222,8 @@ type str doesn't define __round__ method</pre>
     <h3>ValueError</h3>
     <p>The computer raises a <a href="https://docs.python.org/3/library/exceptions.html#ValueError"><code>ValueError</code></a>
     when the code that calls a function passes an argument with the
-    correct type but with an invalid value. A common event that causes
-    the computer to raise a <code>ValueError</code> is when the
+    correct data type but with an invalid value. A common event that
+    causes the computer to raise a <code>ValueError</code> is when the
     <code>int</code> function or <code>float</code> function tries to
     convert a string to a number but the string contains characters that
     are not digits. The code in example&nbsp;3 and its output show a
@@ -274,9 +274,12 @@ Enter the number of teams: <span class="input">0</span>
 division by zero</pre>
 
     <h3>IndexError</h3>
-    <p>If we write code that tries to use an index that doesn't exist in
-    a list, when the computer executes that code, the computer will
-    raise an <a href="https://docs.python.org/3/library/exceptions.html#IndexError"><code>IndexError</code></a>.
+    <p>Recall from <a href="../lesson07/prepare.html">lesson&nbsp;7</a>
+    that each element in a list is stored at a unique index and that an
+    index is always an integer. If we write code that tries to use an
+    index that doesn't exist in a list, when the computer executes that
+    code, the computer will raise an
+    <a href="https://docs.python.org/3/library/exceptions.html#IndexError"><code>IndexError</code></a>.
     The program in example&nbsp;5 creates a list that contains three
     surnames. Then the program attempts to change the surname at
     index&nbsp;3. Of course, the list contains only three elements, and
@@ -338,7 +341,8 @@ list index out of range</pre>
     <h3>KeyError</h3>
     <p>As shown in example&nbsp;7, if we write code that attempts to
     find a key in a dictionary and that key doesn't exist in the
-    dictionary, then the computer will raise a <code>KeyError</code>.
+    dictionary, then the computer will raise a
+    <a href="https://docs.python.org/3/library/exceptions.html#KeyError"><code>KeyError</code></a>.
 
 <div class="pre" id="ex7"><pre class="python"># Example 7
 
@@ -373,10 +377,10 @@ KeyError '50-420-1021'</pre>
     <p>Of course, it is very unlikely that a programmer would write a
     program that tries to find a hard-coded key that is not in a
     dictionary. However, it is common for a user to enter a key that is
-    not in a dictionary. This is why the code in
+    not in a dictionary. This is why the programs in
     <a href="../lesson08/prepare.html#ex1">examples&nbsp;1</a>
     <a href="../lesson08/prepare.html#ex4">and&nbsp;4</a> in the prepare
-    content for lesson&nbsp;8 includes an <code>if</code> statement
+    content for lesson&nbsp;8 include an <code>if</code> statement
     above the line of code that searches the dictionary, like this:</p>
 
 <div class="pre"><pre class="python">
@@ -399,8 +403,9 @@ KeyError '50-420-1021'</pre>
     <h3>FileNotFoundError</h3>
     <p>If we write a call to the <code>open</code> function that
     attempts to open a file for reading and that file doesn't exist, the
-    computer will raise a <code>FileNotFoundError</code>. Example&nbsp;8
-    contains code where such an error might occur.</p>
+    computer will raise a
+    <a href="https://docs.python.org/3/library/exceptions.html#FileNotFoundError"><code>FileNotFoundError</code></a>.
+    Example&nbsp;8 contains code where such an error might occur.</p>
 
 <div class="pre" id="ex8"><pre class="python"># Example 8
 
@@ -429,8 +434,8 @@ if __name__ == "__main__":
     <p>If we write a call to the <code>open</code> function that
     attempts to open a file and the person executing our program doesn't
     have permission to access the file, the computer will raise a
-    <code>PermissionError</code>. Example&nbsp;9 contains code where
-    such an error might occur.</p>
+    <a href="https://docs.python.org/3/library/exceptions.html#PermissionError"><code>PermissionError</code></a>.
+    Example&nbsp;9 contains code where such an error might occur.</p>
 
 <div class="pre" id="ex9"><pre class="python"># Example 9
 
@@ -451,7 +456,7 @@ if __name__ == "__main__":
 
     <h2>Example: Arithmetic</h2>
     <p>Example&nbsp;10 contains a complete program with
-    <code>except</code> blocks to handle two types of exceptions:&nbsp;
+    <code>except</code> blocks to handle two types of exceptions:
     <code>ValueError</code> and <code>ZeroDivisionError</code>.</p>
 
 <div class="pre" id="ex10"><pre class="python"># Example 10
@@ -607,16 +612,14 @@ if __name__ == "__main__":
     ensure it is in the correct format before using that input. The
     program in example&nbsp;12 validates user input by handling
     exceptions. Notice in the <code>get_float</code> function at
-    <span class="cross" data-ref="ex12">line&nbsp;28</span> there is a
+    <span class="cross" data-ref="ex12">line&nbsp;14</span> there is a
     <code>try</code> block. The <code>try</code> block is part of a loop
     that validates user input in the <code>get_float</code> function.
-    Notice at <span class="cross" data-ref="ex12">line&nbsp;43</span>
-    that the <code>except</code> block handles
-    <a href="https://docs.python.org/3/library/exceptions.html#ValueError"><code>ValueError</code></a>
-    which is the type of exception that the
-    <a href="https://docs.python.org/3/library/functions.html#float"><code>float</code></a>
-    function raises when it tries to convert text to a number but the
-    text contains characters that are not numeric.</p>
+    Notice at <span class="cross" data-ref="ex12">line&nbsp;44</span>
+    that the <code>except</code> block handles <code>ValueError</code>
+    which is the type of exception that the <code>float</code> function
+    raises when it tries to convert text to a number but the text
+    contains characters that are not numeric.</p>
 
 <div class="pre" id="ex12"><pre class="linenums"></pre>
 <pre class="python"># Example 12
@@ -719,7 +722,7 @@ if __name__ == "__main__":
 
     <p>There are many types of exceptions in Python, but there are only
     seven types that your code will need to handle in
-    CSE&nbsp;111:&nbsp; <code>TypeError</code>, <code>ValueError</code>,
+    CSE&nbsp;111: <code>TypeError</code>, <code>ValueError</code>,
     <code>ZeroDivisionError</code>, <code>IndexError</code>,
     <code>KeyError</code>, <code>FileNotFoundError</code>, and
     <code>PermissionError</code>. When writing code that writes to or

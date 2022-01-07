@@ -35,11 +35,11 @@
     <h2>Problem Statement</h2>
     <p>A local grocery store subscribes to an online service that
     enables its customers to order groceries online. After a customer
-    completes an order, the online service sends a CSV file to the
-    grocery store. The store needs you to write a program that reads the
-    CSV file and prints (to the terminal window) a receipt that lists
-    the purchased items and shows the subtotal, the sales tax amount,
-    and the total.</p>
+    completes an order, the online service sends a CSV file that
+    contains the customer's requests to the grocery store. The store
+    needs you to write a program that reads the CSV file and prints to
+    the terminal window a receipt that lists the purchased items and
+    shows the subtotal, the sales tax amount, and the total.</p>
 
     <h2>Assignment</h2>
     <p>During the prove milestone for the previous lesson, you wrote the
@@ -74,7 +74,7 @@
         of the previous lesson describes the two CSV files that your
         program must process.</div></li>
 
-        <li><div>The <a href="prepare.html">prepare content </a>for this
+        <li><div>The <a href="prepare.html">prepare content</a> for this
         lesson explains how to handle exceptions.</div></li>
 
         <li><div>The <a href="https://docs.python.org/3/library/datetime.html#datetime.datetime.now"><code>datetime.now()</code></a>
@@ -83,11 +83,11 @@
         operating system. Here is an excerpt from the official
         documentation for the <code>datetime.now</code> method:
         <dl class="function">
-            <dt><code>datetime.now(tz=None)</code></dt>
-            <dd><p>Return the current local date and time.</p>
-            <p><var>tz</var> is optional, but if it not
-            <code>None</code>, it must be <code>tzinfo</code> (time zone
-            information) object</p></dd>
+            <dt><pre class="python">datetime.now(tz=None)</pre></dt>
+            <dd>Return the current local date and time.</p>
+            <p><var>tz</var> is optional, but if it is not
+            <code>None</code>, it must be a <code>tzinfo</code> (time
+            zone information) object</dd>
         </dl>
 
         <p>These two Microsoft videos explain how to use methods from
@@ -105,24 +105,23 @@
         f-string to format and print the current date and time.</p>
 
 <div class="pre" id="ex1"><pre class="linenums"></pre>
-<pre class="python"># Example 1
-
-# Import the datetime class from the datetime
+<pre class="python"># Import the datetime class from the datetime
 # module so that it can be used in this program.
 from datetime import datetime
 
-# Call the now() method to get the current date and
-# time as a datetime object from the computer's clock.
+# Call the now() method to get the current
+# date and time as a datetime object from
+# the computer's operating system.
 current_date_and_time = datetime.now()
 
 # Print the current day of the week and the current time.
 print(f"{current_date_and_time:%A %I:%M %p}")</pre></div>
 
         <p>After the computer executes
-        <span class="cross" data-ref="ex1">line&nbsp;9</span> in the
+        <span class="cross" data-ref="ex1">line&nbsp;8</span> in the
         above code, the variable <var>current_date_and_time</var> will
         hold the current date and time. Within the f-string at
-        <span class="cross" data-ref="ex1">line&nbsp;12</span>,
+        <span class="cross" data-ref="ex1">line&nbsp;11</span>,
         the string sequences that begin with the percent symbol (%) are
         called format codes. The format codes and their meaning are
         listed in
@@ -174,13 +173,13 @@ Wed Nov  4 05:10:30 2020</pre>
         category that best describes your program along with a one or
         two sentence justification for your choice. The grading criteria
         are:
-        <ul>
-            <li><div>1. Some attempt made</div></li>
-            <li><div>2. Developing but significantly deficient</div></li>
-            <li><div>3. Slightly deficient</div></li>
-            <li><div>4. Meets requirements</div></li>
-            <li><div>5. Exceeds requirements</div></li>
-        </ul></div></li>
+        <ol>
+            <li><div>Some attempt made</div></li>
+            <li><div>Developing but significantly deficient</div></li>
+            <li><div>Slightly deficient</div></li>
+            <li><div>Meets requirements</div></li>
+            <li><div>Exceeds requirements</div></li>
+        </ol></div></li>
     </ol>
 </article>
 <footer>

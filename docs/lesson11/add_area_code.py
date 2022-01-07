@@ -26,7 +26,7 @@ def add_area_code(phone_number):
     """Phone numbers in the U.S. are often stored as ten digits and
     two dashes in this format: "ddd-ddd-dddd" where each d is a digit.
     If the length of phone_number is less than 12 characters, add the
-    area code "208-" at the beginning of the phone_number and return
+    area code "208-" at the beginning of phone_number and return
     phone_number.
 
     Parameter phone_number: a string of digits formatted as

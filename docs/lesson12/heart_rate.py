@@ -72,7 +72,7 @@ def populate_main_window(frm_main):
 
 
     # This function will be called each time the user releases a key.
-    def calc(event):
+    def calculate(event):
         """Compute and display the user's slowest
         and fastest beneficial heart rates.
         """
@@ -110,10 +110,10 @@ def populate_main_window(frm_main):
         ent_age.focus()
 
 
-    # Bind the calc function to the age entry box so
-    # that the calc function will be called when the
-    # user changes the text in the entry box.
-    ent_age.bind("<KeyRelease>", calc)
+    # Bind the calculate function to the age entry box
+    # so that the calculate function will be called when
+    # the user changes the text in the entry box.
+    ent_age.bind("<KeyRelease>", calculate)
 
     # Bind the clear function to the clear button so
     # that the clear function will be called when the

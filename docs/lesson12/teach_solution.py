@@ -77,7 +77,7 @@ def populate_main_window(frm_main):
 
 
     # This function is called each time the user releases a key.
-    def calc(event):
+    def calculate(event):
         """Compute the approximate volume of a tire in cubic cm."""
         try:
             # Get the user input.
@@ -109,12 +109,12 @@ def populate_main_window(frm_main):
         ent_width.focus()
 
 
-    # Bind the calc function to the three text fields
-    # so that the calc function will be called when the
-    # user changes the text in the text fields.
-    ent_width.bind("<KeyRelease>", calc)
-    ent_ratio.bind("<KeyRelease>", calc)
-    ent_diam.bind("<KeyRelease>", calc)
+    # Bind the calculate function to the three text fields
+    # so that the calculate function will be called when
+    # the user changes the text in the text fields.
+    ent_width.bind("<KeyRelease>", calculate)
+    ent_ratio.bind("<KeyRelease>", calculate)
+    ent_diam.bind("<KeyRelease>", calculate)
 
     # Bind the clear function to the clear button so
     # that the clear function will be called when the

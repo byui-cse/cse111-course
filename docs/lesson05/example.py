@@ -1,7 +1,7 @@
 # Copyright 2020, Brigham Young University-Idaho. All rights reserved.
 
 def wind_chill(temperature, wind_speed):
-    """Compute and return the wind chill factor as defined by the US
+    """Compute and return the wind chill factor as defined by the U.S.
     National Weather Service.
 
     Parameters
@@ -20,8 +20,8 @@ def wind_chill(temperature, wind_speed):
 
 
 def heat_index(temperature, humidity):
-    """Compute and return the heat index as defined by the US National
-    Wather Service.
+    """Compute and return the heat index as defined by the U.S.
+    National Wather Service.
 
     Parameters
         temperature: the air temperature in Fahrenheit at five feet

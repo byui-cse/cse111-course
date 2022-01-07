@@ -26,11 +26,12 @@
 </header>
 <article>
     <h1>11 Prepare: Functional Programming</h1>
-    <p>A <dfn>paradigm</dfn> is a way of thinking or a way of viewing
+    <p>A <dfn>paradigm</dfn> is a way of thinking or a way of perceiving
     the world. There are at least four main paradigms for programming a
     computer: procedural, declarative, functional, and object-oriented.
-    During previous lessons, you used procedural programming. During
-    this lesson, you will be introduced to functional programming.</p>
+    During previous lessons in CSE&nbsp;110 and&nbsp;111, you used
+    procedural programming. During this lesson, you will be introduced
+    to functional programming.</p>
 
     <p><dfn>Procedural programming</dfn> is a programming paradigm that
     focuses on the process or the steps to accomplish a task. This is
@@ -64,16 +65,16 @@
     <p>Here are the functional programming concepts that you should
     learn during this lesson.</p>
 
-    <ol class="long">
-        <li><div>The Python programming language allows a programmer to
-        pass a function as an argument into another function. A function
-        that accepts other functions in its parameters is known as a
-        <dfn>higher-order function</dfn>. Higher-order functions are
-        often used to process the elements in a list. Before seeing an
-        example of using a higher-order function to process a list,
-        first consider the program in example&nbsp;1 that doesn't use a
-        higher-order function but instead uses a for each loop to
-        convert a list of temperatures from Fahrenheit to Celsius.
+    <h3>Passing a Function into another Function</h3>
+    <p>The Python programming language allows a programmer to pass a
+    function as an argument into another function. A function that
+    accepts other functions in its parameters is known as a
+    <dfn>higher-order function</dfn>. Higher-order functions are often
+    used to process the elements in a list. Before seeing an example of
+    using a higher-order function to process a list, first consider the
+    program in example&nbsp;1 that doesn't use a higher-order function
+    but instead uses a <code>for</code> loop to convert a list of
+    temperatures from Fahrenheit to Celsius.</p>
 
 <div class="pre" id="ex1"><pre class="linenums"></pre>
 <pre class="python"># Example 1
@@ -111,23 +112,23 @@ if __name__ == "__main__":
 Fahrenheit: [72, 65, 71, 75, 82, 87, 68]
 Celsius: [22.2, 18.3, 21.7, 23.9, 27.8, 30.6, 20.0]</pre>
 
-        <p>At <span class="cross" data-ref="ex1">lines&nbsp;12&ndash;14</span>
-        in example&nbsp;1, there is a for each loop that converts each
-        Fahrenheit temperature to Celsius and then appends the Celsius
-        temperature onto a new list. Writing a for each loop like this
-        is the traditional way to process all the elements in a list and
-        doesn't use higher-order functions.</p>
+    <p>At <span class="cross" data-ref="ex1">lines&nbsp;12&ndash;14</span>
+    in example&nbsp;1, there is a <code>for</code> loop that converts
+    each Fahrenheit temperature to Celsius and then appends the Celsius
+    temperature onto a new list. Writing a <code>for</code> loop like
+    this is the traditional way to process all the elements in a list
+    and doesn't use higher-order functions.</p>
 
-        <p>Python includes a built-in higher-order function named
-        <code>map</code> that will process all the elements in a list
-        and return a new list that contains the results. The
-        <a href="https://docs.python.org/3/library/functions.html#map"><code>map</code> function</a>
-        accepts a function and a list as arguments and contains a loop
-        inside it, so that when a programmer calls the <code>map</code>
-        function, he doesn't need to write a loop. The <code>map</code>
-        function is a higher-order function because it accepts a
-        function as an argument. Consider the program in example&nbsp;2
-        that produces the same results as example&nbsp;1.</p>
+    <p>Python includes a built-in higher-order function named
+    <code>map</code> that will process all the elements in a list and
+    return a new list that contains the results. The
+    <a href="https://docs.python.org/3/library/functions.html#map"><code>map</code> function</a>
+    accepts a function and a list as arguments and contains a loop
+    inside it, so that when a programmer calls the <code>map</code>
+    function, he doesn't need to write a loop. The <code>map</code>
+    function is a higher-order function because it accepts a function as
+    an argument. Consider the program in example&nbsp;2 that produces
+    the same results as example&nbsp;1.</p>
 
 <div class="pre" id="ex2"><pre class="linenums"></pre>
 <pre class="python"># Example 2
@@ -162,40 +163,39 @@ if __name__ == "__main__":
 Fahrenheit: [72, 65, 71, 75, 82, 87, 68]
 Celsius: [22.2, 18.3, 21.7, 23.9, 27.8, 30.6, 20.0]</pre>
 
-        <p>Notice that example&nbsp;2, doesn't contain a for each loop.
-        Instead, at <span class="cross" data-ref="ex2">line&nbsp;11</span>,
-        it contains a call to the <code>map</code> function. Remember
-        that the <code>map</code> function has a loop inside it, so that
-        the programmer who calls <code>map</code>, doesn't have to write
-        the loop. Notice also at
-        <span class="cross" data-ref="ex2">line&nbsp;11</span> that the
-        first argument to the <code>map</code> function is the name of
-        the <code>cels_from_fahr</code> function. In other words, at
-        line&nbsp;11, we are passing the <code>cels_from_fahr</code>
-        function into the <code>map</code> function, so that
-        <code>map</code> will call <code>cels_from_fahr</code> for each
-        element in the <var>fahr_temps</var> list.</p>
+    <p>Notice that example&nbsp;2, doesn't contain a <code>for</code>
+    loop. Instead, at <span class="cross" data-ref="ex2">line&nbsp;11</span>,
+    it contains a call to the <code>map</code> function. Remember that
+    the <code>map</code> function has a loop inside it, so that the
+    programmer who calls <code>map</code>, doesn't have to write the
+    loop. Notice also at <span class="cross" data-ref="ex2">line&nbsp;11</span>
+    that the first argument to the <code>map</code> function is the name
+    of the <code>cels_from_fahr</code> function. In other words, at
+    line&nbsp;11, we are passing the <code>cels_from_fahr</code>
+    function into the <code>map</code> function, so that
+    <code>map</code> will call <code>cels_from_fahr</code> for each
+    element in the <var>fahr_temps</var> list.</p>
 
-        <p>The <code>map</code> function is just one example of a
-        higher-order function. Python also includes the built-in
-        higher-order
-        <a href="https://docs.python.org/3/library/functions.html#sorted"><code>sorted</code></a>
-        and
-        <a href="https://docs.python.org/3/library/functions.html#filter"><code>filter</code></a>
-        functions and several higher-order functions in the
-        <a href="https://docs.python.org/3/library/functools.html"><code>functools</code> module</a>.</p></div></li>
+    <p>The <code>map</code> function is just one example of a
+    higher-order function. Python also includes the built-in
+    higher-order
+    <a href="https://docs.python.org/3/library/functions.html#sorted"><code>sorted</code></a>
+    and
+    <a href="https://docs.python.org/3/library/functions.html#filter"><code>filter</code></a>
+    functions and several higher-order functions in the
+    <a href="https://docs.python.org/3/library/functools.html"><code>functools</code> module</a>.</p>
 
-        <li><div>The Python programming language allows a programmer to
-        define nested functions. A <dfn>nested function</dfn> is a
-        function that is defined inside another function and is useful
-        when we wish to split a large function into smaller functions
-        and the smaller functions will be called by the containing
-        function only. The program in example&nbsp;3 produces the same
-        results as examples&nbsp;1 and&nbsp;2, but it uses a nested
-        function. Notice in example&nbsp;3 at
-        <span class="cross" data-ref="ex3">lines&nbsp;5&ndash;10</span>
-        that the <code>cels_from_fahr</code> function is nested inside
-        the <code>main</code> function.
+    <h3>Nested Functions</h3>
+    <p>The Python programming language allows a programmer to define
+    nested functions. A <dfn>nested function</dfn> is a function that is
+    defined inside another function and is useful when we wish to split
+    a large function into smaller functions and the smaller functions
+    will be called by the containing function only. The program in
+    example&nbsp;3 produces the same results as examples&nbsp;1
+    and&nbsp;2, but it uses a nested function. Notice in example&nbsp;3
+    at <span class="cross" data-ref="ex3">lines&nbsp;5&ndash;10</span>
+    that the <code>cels_from_fahr</code> function is nested inside the
+    <code>main</code> function.</p>
 
 <div class="pre" id="ex3"><pre class="linenums"></pre>
 <pre class="python"># Example 3
@@ -229,18 +229,19 @@ if __name__ == "__main__":
 <pre class="console" data-for="ex3">&gt; python example_3.py
 Fahrenheit: [72, 65, 71, 75, 82, 87, 68]
 Celsius: [22.2, 18.3, 21.7, 23.9, 27.8, 30.6, 20.0]</pre>
-        </div></li>
 
-        <li id="lambda"><div>A Python <dfn>lambda function</dfn> is a
-        small anonymous function, meaning a small function without a
-        name. A lambda function is always a small function because the
-        Python language restricts a lambda function to just one
-        expression. Consider the program in example&nbsp;4 which is yet
-        another example program that converts Fahrenheit temperatures to
-        Celsius. Notice the lambda function on
-        <span class="cross" data-ref="ex4">line&nbsp;12</span>
-        of example&nbsp;4. It takes one parameter named <var>fahr</var>
-        and computes and returns the corresponding Celsius temperature.
+    <h3>Lambda Functions</h3>
+    <p id="lambda">A Python <dfn>lambda function</dfn> is a small
+    anonymous function, meaning a small function without a name. A
+    lambda function is always a small function because the Python
+    language restricts a lambda function to just one expression.
+    Consider the program in example&nbsp;4 which is yet another example
+    program that converts Fahrenheit temperatures to Celsius. Notice the
+    lambda function at <span class="cross" data-ref="ex4">line&nbsp;12</span>
+    of example&nbsp;4. It takes one parameter named <var>fahr</var> and
+    computes and returns the corresponding Celsius temperature. At
+    <span class="cross" data-ref="ex4">line&nbsp;16</span>, the lambda
+    function is passed into the <code>map</code> function.</p>
 
 <div class="pre" id="ex4"><pre class="linenums"></pre>
 <pre class="python"># Example 4
@@ -272,17 +273,17 @@ if __name__ == "__main__":
 Fahrenheit: [72, 65, 71, 75, 82, 87, 68]
 Celsius: [22.2, 18.3, 21.7, 23.9, 27.8, 30.6, 20.0]</pre>
 
-        <p>Some students are confused by the statement that a lambda
-        function is an anonymous function (a function without a name).
-        Looking at the lambda function in example&nbsp;4 on
-        <span class="cross" data-ref="ex4">line&nbsp;12</span>, it
-        appears that the lambda function is named
-        <var>cels_from_fahr</var>. However, <var>cels_from_fahr</var> is
-        the name of a variable, not the name of the lambda function. The
-        lambda function has no name. This distinction may seem trivial
-        until we see an example of an inline lambda function. Notice in
-        the next example that the lambda function is defined inside the
-        parentheses for the call to the <code>map</code> function.</p>
+    <p>Some students are confused by the statement that a lambda
+    function is an anonymous function (a function without a name).
+    Looking at the lambda function in example&nbsp;4 at
+    <span class="cross" data-ref="ex4">line&nbsp;12</span>, it appears
+    that the lambda function is named <var>cels_from_fahr</var>.
+    However, <var>cels_from_fahr</var> is the name of a variable, not
+    the name of the lambda function. The lambda function has no name.
+    This distinction may seem trivial until we see an example of an
+    inline lambda function. Notice in the next example that the lambda
+    function is defined inside the parentheses for the call to the
+    <code>map</code> function.</p>
 
 <div class="pre"><pre class="python">
     # Convert each Fahrenheit temperature to Celsius and store
@@ -298,17 +299,15 @@ Celsius: [22.2, 18.3, 21.7, 23.9, 27.8, 30.6, 20.0]</pre>
 <div class="pre"><pre class="python">
     lambda <var>param1</var>, <var>param2</var>, &hellip; <var>paramN</var>: <var>expression</var></pre></div>
 
-        <p>As shown in the template, type the keyword
-        <code>lambda</code>, then parameters separated by commas, then a
-        colon (:), and finally an expression that performs arithmetic,
-        modifies a string, or computes something else.</p>
+    <p>As shown in the template, type the keyword <code>lambda</code>,
+    then parameters separated by commas, then a colon (:), and finally
+    an expression that performs arithmetic, modifies a string, or
+    computes something else.</p>
 
-        <p>In Python, every lambda function can be written as a regular
-        Python function. For example, the lambda function in
-        example&nbsp;4 can be rewritten as the
-        <code>cels_from_fahr</code> function in examples&nbsp;1,&nbsp;2,
-        and&nbsp;3.</p></div></li>
-    </ol>
+    <p>In Python, every lambda function can be written as a regular
+    Python function. For example, the lambda function in example&nbsp;4
+    can be rewritten as the <code>cels_from_fahr</code> function in
+    examples&nbsp;1,&nbsp;2, and&nbsp;3.</p>
 
     <h2>Example - Map and Filter</h2>
     <p>The <a href="../lesson09/check.html">checkpoint</a> for
@@ -481,10 +480,9 @@ if __name__ == "__main__":
 ['Mexico', 'France', 'Ghana', 'Brazil', 'Japan']
 ['Brazil', 'France', 'Ghana', 'Japan', 'Mexico']</pre>
 
-    <p>A <dfn>compound list</dfn> is a list that contains lists.
-    Sorting a compound list is a more complex than sorting a simple
-    list. Consider this compound list that contains data about some
-    countries.</p>
+    <p>A <dfn>compound list</dfn> is a list that contains lists. Sorting
+    a compound list is more complex than sorting a simple list. Consider
+    this compound list that contains data about some countries.</p>
 
 <div class="pre"><pre class="python">
     # Create a list that contains data about countries.
@@ -669,10 +667,10 @@ if __name__ == "__main__":
     programming:</p>
 
     <ol>
-        <li><div>You can pass a function into another function as an
-        argument.</div></li>
-        <li><div>A nested function is a function defined inside
-        another function.</div></li>
+        <li><div>You can pass a function as an argument into another
+        function.</div></li>
+        <li><div>A nested function is a function defined inside another
+        function.</div></li>
         <li><div>A lambda function is a small anonymous
         function.</div></li>
     </ol>

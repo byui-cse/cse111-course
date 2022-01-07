@@ -5,8 +5,8 @@ Write a Python program named fitness.py that does the following:
 1. Asks the user to enter four values:
     a. gender
     b. birthdate in this format: YYYY-MM-DD
-    c. weight in US pounds
-    d. height in US inches
+    c. weight in U.S. pounds
+    d. height in U.S. inches
 2. Converts the weight from pounds to kilograms (1 lb = 0.45359237 kg).
 3. Converts inches to centimeters (1 in = 2.54 cm).
 4. Calculates age, BMI, and BMR.
@@ -22,8 +22,8 @@ def main():
     # Get the user's gender, birthdate, height, and weight.
     gender = input("Please enter your gender (M or F): ")
     birth_str = input("Enter your birthdate (YYYY-MM-DD): ")
-    pounds = float(input("Enter your weight in US pounds: "))
-    inches = float(input("Enter your height in US inches: "))
+    pounds = float(input("Enter your weight in U.S. pounds: "))
+    inches = float(input("Enter your height in U.S. inches: "))
 
     # Call the compute_age function to
     # compute the user's age in years.
@@ -77,7 +77,7 @@ def compute_age(birth_str):
 
 def kg_from_lb(pounds):
     """Convert a mass in pounds to kilograms.
-    Parameter pounds: a mass in US pounds.
+    Parameter pounds: a mass in U.S. pounds.
     Return: the mass in kilograms.
     """
     kg = pounds * 0.45359237

@@ -2,9 +2,9 @@
 
 def extract_city(full_address):
     """Extract and return the name of a city from
-    a properly formatted US mailing address.
+    a properly formatted U.S. mailing address.
     Parameter
-        full_address: a US mailing address in this format:
+        full_address: a U.S. mailing address in this format:
             number and street, city, state zipcode
     Return: the city name
     """
@@ -18,9 +18,9 @@ def extract_city(full_address):
 
 def extract_state(full_address):
     """Extract and return the two letter abbreviation for
-    a state from a properly formatted US mailing address.
+    a state from a properly formatted U.S. mailing address.
     Parameter
-        full_address: a US mailing address in this format:
+        full_address: a U.S. mailing address in this format:
             number and street, city, state zipcode
     Return: the two letter state abbreviation
     """
@@ -34,9 +34,9 @@ def extract_state(full_address):
 
 def extract_zipcode(full_address):
     """Extract and return the ZIP code from
-    a properly formatted US mailing address.
+    a properly formatted U.S. mailing address.
     Parameter
-        full_address: a US mailing address in this format:
+        full_address: a U.S. mailing address in this format:
             number and street, city, state zipcode
     Return: the ZIP code
     """

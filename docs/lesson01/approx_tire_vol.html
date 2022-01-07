@@ -9,7 +9,6 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-database.js"></script>
     <script src="../site/url.js"></script>
-    <script src="../site/urlWrite.js"></script>
     <script src="../site/color.js"></script>
     <link rel="icon" type="image/png" href="../site/icon.png">
     <link rel="stylesheet" type="text/css" href="../site/style.css">
@@ -71,29 +70,32 @@
 
     <p>Starting with our first formula, we can now derive a formula that
     approximates the volume of air in a tire.</p>
-    <div class="block formula"><var>volume</var><sub>tire</sub> &nbsp;&cong;&nbsp; <var>volume</var><sub>outer</sub> &nbsp;&minus;&nbsp; <var>volume</var><sub>wheel</sub></div>
 
-    <div class="block formula"><var>volume</var><sub>tire</sub> &nbsp;&cong;&nbsp; &pi; <var>r</var><div class="supsub">2<br>outer</div> <var>h</var> &nbsp;&minus;&nbsp; &pi; <var>r</var><div class="supsub">2<br>wheel</div> <var>h</var></div>
+<div class="group">
+    <div class="formula"><var>volume</var><sub>tire</sub> &nbsp;&cong;&nbsp; <var>volume</var><sub>outer</sub> &nbsp;&minus;&nbsp; <var>volume</var><sub>wheel</sub></div>
 
-    <div class="block formula"><var>volume</var><sub>tire</sub> &nbsp;&cong;&nbsp; &pi;&thinsp;<var>h</var><div class="paren"><var>r</var><div class="supsub">2<br>outer</div> &nbsp;&minus;&nbsp; <var>r</var><div class="supsub">2<br>wheel</div></div></div>
+    <div class="formula"><var>volume</var><sub>tire</sub> &nbsp;&cong;&nbsp; &pi; <var>r</var><div class="supsub">2<br>outer</div> <var>h</var> &nbsp;&minus;&nbsp; &pi; <var>r</var><div class="supsub">2<br>wheel</div> <var>h</var></div>
 
-    <div class="block formula"><var>volume</var><sub>tire</sub> &nbsp;&cong;&nbsp; &pi;&thinsp;<var>W</var><div class="paren">(<var>r</var><sub>wheel</sub> + <var>H</var>)<sup>2</sup> &nbsp;&minus;&nbsp; <var>r</var><div class="supsub">2<br>wheel</div></div></div>
+    <div class="formula"><var>volume</var><sub>tire</sub> &nbsp;&cong;&nbsp; &pi;&thinsp;<var>h</var><div class="paren"><var>r</var><div class="supsub">2<br>outer</div> &nbsp;&minus;&nbsp; <var>r</var><div class="supsub">2<br>wheel</div></div></div>
 
-    <div class="block formula"><var>volume</var><sub>tire</sub> &nbsp;&cong;&nbsp; &pi;&thinsp;<var>W</var><div class="paren">(<var>r</var><div class="supsub">2<br>wheel</div> &nbsp;+&nbsp; 2&thinsp;<var>r</var><sub>wheel</sub>&thinsp;<var>H</var> &nbsp;+&nbsp; <var>H</var><sup>2</sup>) &nbsp;&minus;&nbsp; <var>r</var><div class="supsub">2<br>wheel</div></div></div>
+    <div class="formula"><var>volume</var><sub>tire</sub> &nbsp;&cong;&nbsp; &pi;&thinsp;<var>W</var><div class="paren onePlus">(<var>r</var><sub>wheel</sub> + <var>H</var>)<sup>2</sup> &nbsp;&minus;&nbsp; <var>r</var><div class="supsub">2<br>wheel</div></div></div>
 
-    <div class="block formula"><var>volume</var><sub>tire</sub> &nbsp;&cong;&nbsp; &pi;&thinsp;<var>W</var><div class="paren">2&thinsp;<var>r</var><sub>wheel</sub>&thinsp;<var>H</var> &nbsp;+&nbsp; <var>H</var><sup>2</sup></div></div>
+    <div class="formula"><var>volume</var><sub>tire</sub> &nbsp;&cong;&nbsp; &pi;&thinsp;<var>W</var><div class="paren onePlus">(<var>r</var><div class="supsub">2<br>wheel</div> &nbsp;+&nbsp; 2&thinsp;<var>r</var><sub>wheel</sub>&thinsp;<var>H</var> &nbsp;+&nbsp; <var>H</var><sup>2</sup>) &nbsp;&minus;&nbsp; <var>r</var><div class="supsub">2<br>wheel</div></div></div>
 
-    <div class="block formula"><var>volume</var><sub>tire</sub> &nbsp;&cong;&nbsp; &pi;&thinsp;<var>W</var>&thinsp;<var>H</var><div class="paren">2&thinsp;<var>r</var><sub>wheel</sub> &nbsp;+&nbsp; <var>H</var></div></div>
+    <div class="formula"><var>volume</var><sub>tire</sub> &nbsp;&cong;&nbsp; &pi;&thinsp;<var>W</var><div class="paren">2&thinsp;<var>r</var><sub>wheel</sub>&thinsp;<var>H</var> &nbsp;+&nbsp; <var>H</var><sup>2</sup></div></div>
 
-    <div class="block formula"><var>volume</var><sub>tire</sub> &nbsp;&cong;&nbsp; &pi;&thinsp;<var>W</var>&thinsp;<div class="fract"><div><var>A</var></div><div>100</div></div><var>W</var><div class="paren">2&thinsp;<div class="fract"><div>25.4&thinsp;<var>D</var></div><div>2</div></div> &nbsp;+&nbsp; <div class="fract"><div><var>A</var></div><div>100</div></div><var>W</var></div></div>
+    <div class="formula"><var>volume</var><sub>tire</sub> &nbsp;&cong;&nbsp; &pi;&thinsp;<var>W</var>&thinsp;<var>H</var><div class="paren">2&thinsp;<var>r</var><sub>wheel</sub> &nbsp;+&nbsp; <var>H</var></div></div>
 
-    <div class="block formula"><var>volume</var><sub>tire</sub> &nbsp;&cong;&nbsp; <div class="fract"><div>&pi;&thinsp;<var>W</var><sup>2</sup>&thinsp;<var>A</var></div><div>100</div></div><div class="paren">25.4&thinsp;<var>D</var> &nbsp;+&nbsp; <div class="fract"><div><var>W</var>&thinsp;<var>A</var></div><div>100</div></div></div></div>
+    <div class="formula"><var>volume</var><sub>tire</sub> &nbsp;&cong;&nbsp; &pi;&thinsp;<var>W</var>&thinsp;<div class="fract"><div><var>A</var></div><div>100</div></div><var>W</var><div class="paren onePlus">2&thinsp;<div class="fract"><div>25.4&thinsp;<var>D</var></div><div>2</div></div> &nbsp;+&nbsp; <div class="fract"><div><var>A</var></div><div>100</div></div><var>W</var></div></div>
 
-    <div class="block formula"><var>volume</var><sub>tire</sub> &nbsp;&cong;&nbsp; <div class="fract"><div>&pi;&thinsp;<var>W</var><sup>2</sup>&thinsp;<var>A</var></div><div>100</div></div><div class="paren"><div class="fract"><div>100 (25.4&thinsp;<var>D</var>)</div><div>100</div></div> &nbsp;+&nbsp; <div class="fract"><div><var>W</var>&thinsp;<var>A</var></div><div>100</div></div></div></div>
+    <div class="formula"><var>volume</var><sub>tire</sub> &nbsp;&cong;&nbsp; <div class="fract"><div>&pi;&thinsp;<var>W</var><sup>2</sup>&thinsp;<var>A</var></div><div>100</div></div><div class="paren onePlus">25.4&thinsp;<var>D</var> &nbsp;+&nbsp; <div class="fract"><div><var>W</var>&thinsp;<var>A</var></div><div>100</div></div></div></div>
 
-    <div class="block formula"><var>volume</var><sub>tire</sub> &nbsp;&cong;&nbsp; <div class="fract"><div>&pi;&thinsp;<var>W</var><sup>2</sup>&thinsp;<var>A</var></div><div>100</div></div><div class="paren"><div class="fract"><div>2540&thinsp;<var>D</var> &nbsp;+&nbsp; <var>W</var>&thinsp;<var>A</var></div><div>100</div></div></div></div>
+    <div class="formula"><var>volume</var><sub>tire</sub> &nbsp;&cong;&nbsp; <div class="fract"><div>&pi;&thinsp;<var>W</var><sup>2</sup>&thinsp;<var>A</var></div><div>100</div></div><div class="paren onePlus"><div class="fract"><div>100 (25.4&thinsp;<var>D</var>)</div><div>100</div></div> &nbsp;+&nbsp; <div class="fract"><div><var>W</var>&thinsp;<var>A</var></div><div>100</div></div></div></div>
 
-    <div class="block formula"><var>volume</var><sub>tire</sub> &nbsp;&cong;&nbsp; <div class="fract"><div>&pi;&thinsp;<var>W</var><sup>2</sup>&thinsp;<var>A</var><div class="paren">2540&thinsp;<var>D</var> &nbsp;+&nbsp; <var>W</var>&thinsp;<var>A</var></div></div><div>10,000</div></div> [cubic millimeters]</div>
+    <div class="formula"><var>volume</var><sub>tire</sub> &nbsp;&cong;&nbsp; <div class="fract"><div>&pi;&thinsp;<var>W</var><sup>2</sup>&thinsp;<var>A</var></div><div>100</div></div><div class="paren onePlus"><div class="fract"><div>2540&thinsp;<var>D</var> &nbsp;+&nbsp; <var>W</var>&thinsp;<var>A</var></div><div>100</div></div></div></div>
+
+    <div class="formula"><var>volume</var><sub>tire</sub> &nbsp;&cong;&nbsp; <div class="fract"><div>&pi;&thinsp;<var>W</var><sup>2</sup>&thinsp;<var>A</var><div class="paren">2540&thinsp;<var>D</var> &nbsp;+&nbsp; <var>W</var>&thinsp;<var>A</var></div></div><div>10,000</div></div> [cubic millimeters]</div>
+</div>
 
     <p>However, we want the answer expressed in liters, not cubic
     millimeters, so we divide by 1,000,000. Therefore, the volume in

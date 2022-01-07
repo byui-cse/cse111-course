@@ -6,7 +6,7 @@ def main():
 
     prev_odom = float(input("Enter the previous odometer reading in miles: "))
     curr_odom = float(input("Enter the current odometer reading in miles: "))
-    fuel_amount = float(input("Enter the amount of fuel in US gallons: "))
+    fuel_amount = float(input("Enter the amount of fuel in U.S. gallons: "))
 
     efficiency = miles_per_gallon(fuel_amount, prev_odom, curr_odom)
 

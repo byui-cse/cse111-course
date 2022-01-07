@@ -17,8 +17,8 @@ def main():
 
         # Find where "apple" is located in the fruit_list and insert
         # "cherry" before "apple" in the list and print the list.
-        pos = fruit_list.index("apple")
-        fruit_list.insert(pos, "cherry")
+        index = fruit_list.index("apple")
+        fruit_list.insert(index, "cherry")
         print(f"insert cherry: {fruit_list}")
 
         # Remove "banana" from the fruit_list and print the list.

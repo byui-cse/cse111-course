@@ -393,7 +393,7 @@ article ul.note > li {
 }
 
 article dl.function {
-	margin: 0em 1em 1em 1em;
+	margin: 1em;
 }
 
 article dl.function dt {
@@ -419,7 +419,6 @@ article dl.long dd {
 /* Mathematical Formulas */
 article div.formula {
 	white-space: nowrap;
-	text-align: center;
 	font-family: "Palatino Linotype", Palatino, Garamond, serif;
 	font-size: var(--formula-font-size);
 	page-break-inside: avoid !important;
@@ -432,6 +431,16 @@ article div.inline.formula {
 }
 
 article div.block.formula {
+	margin: 1em 0;
+	vertical-align: middle;
+	text-align: center;
+}
+
+article div.group {
+	display: table;
+	margin: 0 auto;
+}
+article div.group > div.formula {
 	margin: 1em 0;
 	vertical-align: middle;
 }
@@ -468,17 +477,30 @@ article div.formula span.abs::after {
 }
 
 article div.formula .paren::before {
+	display: inline-block;  /* Required so that transform will work */
 	padding-left: 0.1em;
 	content: "\28";
-	font-size: 120%;
 	font-weight: 100;
+	transform: scale(1.2, 1.2);
 }
 
 article div.formula .paren::after {
+	display: inline-block;  /* Required so that transform will work */
 	padding-left: 0.1em;
 	content: "\29";
-	font-size: 120%;
 	font-weight: 100;
+	transform: scale(1.2, 1.2);
+}
+
+article div.formula .paren.onePlus::before {
+	padding-left: 0.2em;
+	padding-right: 0.1em;
+	transform: scale(1.5, 1.8);
+}
+article div.formula .paren.onePlus::after {
+	padding-left: 0.1em;
+	padding-right: 0.2em;
+	transform: scale(1.5, 1.8);
 }
 
 article div.formula div.paren {
@@ -493,11 +515,11 @@ article div.formula div.radic.one > div:first-child {
 }
 
 article div.formula div.radic.onePlus > div:first-child {
-	transform: scale(1.1, 1.6); /* W3C */
+	transform: scale(1.1, 1.6);
 }
 
 article div.formula div.radic.two > div:first-child {
-	transform: scale(1.8, 3); /* W3C */
+	transform: scale(1.8, 3);
 	margin-right: 0.2em;
 }
 

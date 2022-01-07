@@ -74,11 +74,11 @@
         operating system. Here is an excerpt from the official reference
         for the <code>datetime.now</code> method:
         <dl class="function">
-            <dt><code>datetime.now(tz=None)</code></dt>
-            <dd><p>Return the current local date and time.</p>
-            <p><var>tz</var> is optional, but if it not
+            <dt><pre class="python">datetime.now(tz=None)</pre></dt>
+            <dd>Return the current local date and time.</p>
+            <p><var>tz</var> is optional, but if it is not
             <code>None</code>, it must be a <code>tzinfo</code> (time
-            zone information) object</p></dd>
+            zone information) object</dd>
         </dl>
 
         <p>These two Microsoft videos explain how to use methods from
@@ -130,9 +130,8 @@ print(f"{current_date_and_time:%Y-%m-%d}")</pre></div>
         from the official documentation for the <code>open</code>
         function:
         <dl class="function">
-            <dt><code>open(filename, mode="rt")</code></dt>
-            <dd><p>Open a file and return a corresponding file
-            object.</p>
+            <dt><pre class="python">open(filename, mode="rt")</pre></dt>
+            <dd>Open a file and return a corresponding file object.
             <p><var>filename</var> is the name of the file to be
             opened.</p>
             <p><var>mode</var> is an optional string that specifies the
@@ -149,7 +148,7 @@ print(f"{current_date_and_time:%Y-%m-%d}")</pre></div>
         Here is an excerpt from the official documentation for the
         <code>print</code> function:
         <dl class="function">
-            <dt><code>print(*objects, sep=" ", end="\n", file=sys.stdout, flush=False)</code></dt>
+            <dt><pre class="python">print(*objects, sep=" ", end="\n", file=sys.stdout, flush=False)</pre></dt>
             <dd>Print objects to the text stream <var>file</var>,
             separated by <var>sep</var> and followed by <var>end</var>.
             <var>sep</var>, <var>end</var>, <var>file</var> and
