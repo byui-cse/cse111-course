@@ -537,7 +537,7 @@ def test_compare_lists():
 
 # Call the main function that is part of pytest so that the
 # computer will execute the test functions in this file.
-pytest.main(["-v", "--tb=line", "-rN", __file__])
+pytest.main(["-v", "- -tb=line", "-rN", __file__])
 -->
 
 <pre class="console" data-for="ex7">&gt; python example_7.py
@@ -572,10 +572,10 @@ list1 and list2 differ at index 2</pre>
     <p>Why does <span class="cross" data-ref="ex8">line&nbsp;7</span>
     (<code>x += 1</code>) change the value of <var>x</var> but not
     change the value of <var>y</var>&thinsp;? Because
-    <span class="cross" data-ref="ex8">line&nbsp;5</span>
-    copies <em>the value</em> that was in <var>x</var> into
-    <var>y</var>. In other words, <var>x</var> and y</var> are two
-    separate variables, each with its own value.</p>
+    <span class="cross" data-ref="ex8">line&nbsp;5</span> copies
+    <em>the value</em> that was in <var>x</var> into <var>y</var>. In
+    other words, <var>x</var> and <var>y</var> are two separate
+    variables, each with its own value.</p>
 
 <div class="pre" id="ex8"><pre class="linenums"></pre>
 <pre class="python"># Example 8

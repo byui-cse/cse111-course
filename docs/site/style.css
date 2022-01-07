@@ -155,27 +155,26 @@ body {
 		widows: 2;
 		orphans: 2;
 	}
+}
 
-
-	/* Paragraph classes that are used by overview/title.html which
-	* is a title page that is used when the content for this course
-	* is printed. */
-	p.course_code {
-		margin: 7em 0 0 0;
-		font-size: 150%;
-		text-align: center;
-	}
-	p.course_title {
-		margin: 0.5em 0 0 0;
-		color: var(--heading-fg-color);
-		font-size: 200%;
-		font-weight: bold;
-		text-align: center;
-	}
-	p.author {
-		margin: 25em 0 0 0;
-		text-align: center;
-	}
+/* Paragraph classes that are used by overview/title.html which
+* is a title page that is used when the content for this course
+* is printed. */
+p.course_code {
+	margin: 7em 0 0 0;
+	font-size: 150%;
+	text-align: center;
+}
+p.course_title {
+	margin: 0.5em 0 0 0;
+	color: var(--heading-fg-color);
+	font-size: 200%;
+	font-weight: bold;
+	text-align: center;
+}
+p.author {
+	margin: 25em 0 0 0;
+	text-align: center;
 }
 
 
