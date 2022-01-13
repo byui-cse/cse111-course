@@ -1,6 +1,6 @@
 @import url("reset.css");
 @import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Crimson+Text&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Crimson+Pro&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap");
 
 :root {
@@ -71,24 +71,23 @@ body {
 }
 @media print {
 	body {
-		font-family: "Crimson Text", Garamond, Georgia, serif;
-		filter: grayscale(100%);
+		font-family: "Crimson Pro", "Times New Roman", Georgia, serif;
 
 		--bk-color: white;
 		--fg-color: black;
 
-		--heading-fg-color: darkgray;
+		--heading-fg-color: black;
 		--bullet-fg-color: darkgray;
 
 		--dfn-fg-color: black;
-		--strong-fg-color: darkgray;
+		--strong-fg-color: black;
 		--user-input-bk-color: white;
 		--user-input-fg-color: darkgray;
 
 		--python-bk-color: white;
 		--console-bk-color: white;
 
-		--body-font-size: 100%;
+		--body-font-size: 110%;
 		--formula-font-size: 105%;
 	}
 }
@@ -161,19 +160,21 @@ body {
 * is a title page that is used when the content for this course
 * is printed. */
 p.course_code {
-	margin: 7em 0 0 0;
-	font-size: 150%;
+	margin: 6em 0 0 0;
+	font-size: 180%;
 	text-align: center;
 }
 p.course_title {
 	margin: 0.5em 0 0 0;
 	color: var(--heading-fg-color);
-	font-size: 200%;
+	font-size: 220%;
 	font-weight: bold;
 	text-align: center;
 }
 p.author {
-	margin: 25em 0 0 0;
+	margin: 18em 0 0 0;
+	font-size: 130%;
+	font-weight: bold;
 	text-align: center;
 }
 
@@ -627,13 +628,13 @@ article span.cross {
 
 /* Code containers */
 article code {
-	font-family: "Source Code Pro", Menlo, Monaco, Consolas, monospace;
+	font-family: "Source Code Pro", "Lucida Console", Consolas, monospace;
 	white-space: nowrap;
 }
 
 
 article pre {
-	font-family: "Source Code Pro", Menlo, Monaco, Consolas, monospace;
+	font-family: "Source Code Pro", "Lucida Console", Consolas, monospace;
 	line-height: 1.15;
 }
 @media screen {

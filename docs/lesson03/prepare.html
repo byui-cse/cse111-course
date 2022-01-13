@@ -194,7 +194,7 @@ def print_cylinder_volume():
     In other words, the <code>print_cylinder_volume</code> function in
     example&nbsp;1 is not reusable in other programs. The most
     <dfn>reusable functions</dfn> are ones that take parameters, perform
-    calculations, and return a value but <em>do not perform user input
+    calculations, and return a result but <em>do not perform user input
     and output</em>.</p>
 
     <p id="param">The parameter list in a function's header contains
@@ -279,7 +279,7 @@ def compute_cylinder_volume(radius, height):
 <div class="pre"><pre class="python">    <em>text =</em> input("Please enter your name: ")</pre></div>
 
     <p>Because the <code>compute_cylinder_volume</code> function in
-    example&nbsp;3 accepts two parameters and returns a value, it
+    example&nbsp;3 accepts two parameters and returns a result, it
     could be called like this:</p>
 
 <div class="pre"><pre class="python">     volume = compute_cylinder_volume(2.5, 4.1)</pre></div>
@@ -318,7 +318,7 @@ Volume: 226.19</pre>
     contain the beginning statements of the program. In addition, in
     each program you will write one or more user-defined functions that
     have parameteters, perform calculations and other useful work, and
-    return a value to the call point. Example&nbsp;5 contains the same
+    return a result to the call point. Example&nbsp;5 contains the same
     Python program as example&nbsp;4 except most of the statements are
     inside a user-defined function named <code>main</code>.</p>
 
@@ -376,7 +376,7 @@ Volume: 226.19</pre>
     the <code>main</code> function calls the
     <code>compute_cylinder_volume</code> function. Notice that the
     <code>compute_cylinder_volume</code> function gets its input through
-    parameters and returns a value which makes this function reusable in
+    parameters and returns a result which makes this function reusable in
     other programs, including programs that run automatically without a
     user.</p>
 
@@ -427,9 +427,9 @@ Enter the height in centimeters: <span class="input">8</span>
 Volume: 226.19</pre>
 
     <p>The most reusable functions are ones that have parameters,
-    perform calculations, and return a value but <em>do not perform user
-    input and output</em>. In the previous code example, there are two
-    functions named <code>main</code> and
+    perform calculations, and return a result but <em>do not perform
+    user input and output</em>. In the previous code example, there are
+    two functions named <code>main</code> and
     <code>compute_cylinder_volume</code>. The <code>main</code> function
     is certainly useful in the program, but it is not reusable in other
     programs because it gets user input and prints the result for the
@@ -554,10 +554,11 @@ def <var>function_name</var>(<var>param1</var>, <var>param2</var>, &hellip; <var
 <div class="pre"><pre class="python"><var>variable_name</var> = <var>function_name</var>(<var>arg1</var>, <var>arg2</var>, &hellip; <var>argN</var>)</pre></div>
 
     <p>The most reusable functions are ones that take parameters,
-    perform calculations, and return a value but <em>do not perform user
-    input and output</em>. All of your future programs in CSE&nbsp;111
-    will have a user-defined function named <code>main</code> and will
-    have a call to <code>main</code> at the bottom of the program.</p>
+    perform calculations, and return a result but <em>do not perform
+    user input and output</em>. All of your future programs in
+    CSE&nbsp;111 will have a user-defined function named
+    <code>main</code> and will have a call to <code>main</code> at the
+    bottom of the program.</p>
 
     <p><strong>It is extremely important that you can write and call
     functions.</strong> After watching the videos and reading this
