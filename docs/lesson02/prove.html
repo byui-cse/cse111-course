@@ -163,17 +163,16 @@ print(f"{current_date_and_time:%Y-%m-%d}")</pre></div>
         to the file.</p>
 
 <div class="pre" id="ex2"><pre class="python">
-model = "GMC Acadia"
-length = 193
-width = 75
-height = 67
+city = "Accra"
+elevation = 61
+population = 4200000
 
-# Open a text file named dimensions.txt in append mode.
-with open("dimensions.txt", <em>"at"</em>) as dimens_file:
+# Open a text file named cities.txt in append mode.
+with open("cities.txt", <em>"at"</em>) as cities_file:
 
-    # Print a car's model and dimensions to the file.
-    print(model, <em>file=dimens_file</em>)
-    print(f"{length}, {width}, {height}", <em>file=dimens_file</em>)</pre></div>
+    # Print a city's name and information to the file.
+    print(city, <em>file=cities_file</em>)
+    print(f"{elevation}, {population}", <em>file=cities_file</em>)</pre></div>
         </div></li>
 
         <!--
