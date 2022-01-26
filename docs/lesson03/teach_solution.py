@@ -60,10 +60,10 @@ def compute_age(birth_str):
     # Convert a person's birthdate from a string
     # to a date object.
     birthdate = datetime.strptime(birth_str, "%Y-%m-%d")
-    today = datetime.now()
 
     # Compute the difference between today and the
     # person's birthdate in years.
+    today = datetime.now()
     years = today.year - birthdate.year
 
     # If necessary, subtract one from the difference.
