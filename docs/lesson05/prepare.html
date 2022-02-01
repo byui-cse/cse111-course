@@ -245,7 +245,7 @@ from weather import cels_from_fahr
 from pytest import approx
 import pytest
 
-def test_cels_from_fahr():
+def <em>test_cels_from_fahr()</em>:
     """Test the cels_from_fahr function by calling it and
     comparing the values it returns to the expected values.
     Notice this test function uses pytest.approx to compare
@@ -273,9 +273,9 @@ pytest.main(["-v", "--tb=line", "-rN", __file__])</pre></div>
     run the test function. At
     <span class="cross" data-ref="ex6">line&nbsp;20</span>,
     instead of writing a call to the <code>main</code> function, as we
-    do in program files, we write a call to <code>pytest.main</code>. In
-    CSE&nbsp;111, at the bottom of all test files, we will write a call
-    to <code>pytest.main</code> exactly as shown on
+    do in program files, we write a call to the <code>pytest.main</code>
+    fnction. In CSE&nbsp;111, at the bottom of all test files, we will
+    write a call to <code>pytest.main</code> exactly as shown on
     <span class="cross" data-ref="ex6">line&nbsp;20</span>. This call to
     <code>pytest.main</code> will cause the <code>pytest</code> module
     to run our test functions. When <code>pytest</code> runs our test
@@ -364,6 +364,23 @@ if __name__ == "__main__":
     comparison in the <code>if</code> statement will be true, which will
     cause the computer to call the <code>main</code> function and start
     the program.</p>
+
+    <h3>Which Program Functions Should We Test?</h3>
+    <p>Because we are responsible computer programmers and want to
+    ensure that all of our program functions work correctly, we would
+    like to test all program functions. In other words, we would like to
+    write at least one test function for each program function. However,
+    this may not always be possible. The easiest program functions to
+    test are the functions that have parameters and return a value. The
+    hardest program functions to test are the functions that get user
+    input, print results to a terminal window, or draw something to a
+    window. During the next eight lessons in CSE&nbsp;111, we will
+    usually write one test function for each program function that is
+    easy to test, meaning each function that does not get user input and
+    does not print to a terminal window. This means that you won't write
+    a test function for your program's <code>main</code> function
+    because <code>main</code> usually gets user input and prints to a
+    terminal window.</p>
 
     <h2>Video</h2>
     <p>Watch the following video that shows a BYU-Idaho faculty member
