@@ -283,7 +283,41 @@ def get_verb(quantity, tense):
         and <code>test_get_verb</code>. Each of these three test
         functions must test one of the program functions:
         <code>get_determiner</code>, <code>get_noun</code>, and
-        <code>get_verb</code>. The following example contains code for
+        <code>get_verb</code>.</p>
+
+        <p>Recall that each of the three program functions
+        (<code>get_determiner</code>, <code>get_noun</code>, and
+        <code>get_verb</code>) returns a word that the computer chooses
+        randomly from a list of words. The random nature of the program
+        functions makes the corresponding test functions a little
+        difficult to implement. How do we write code to verify that a
+        word chosen randomly is correct? One possible way is to verify
+        that the chosen word is from the correct list. For example, if
+        we write a call to the <code>get_determiner</code> function and
+        pass 1 as the quantity like this:</p>
+
+<div class="pre"><pre class="python">    determ = get_determiner(1)</pre></div>
+
+        <p>Then the word in the <var>determ</var> variable should be in
+        this list:</p>
+
+<div class="pre"><pre class="python">    ["a", "one", "the"]</pre></div>
+
+        <p>We can use the <code>assert</code> keyword and the Python
+        membership operator, which is the keyword <code>in</code>, to
+        verify that the word in the <var>determ</var> variable is in the
+        list, like this:</p>
+
+<div class="pre"><pre class="python">def test_get_determiner():
+    # Call the get_determiner function.
+    determ = get_determiner(1)
+
+    # Verify that the word stored in the variable
+    # determ is in the list of single determiners.
+    words = ["a", "one", "the"]
+    <em>assert determ in words</em></pre></div>
+
+        <p>The following example contains code for
         the <code>test_get_determiner</code> function. Copy and paste
         the code into your <code>test_sentences.py</code> file and use
         it as an example to help you write <code>test_get_noun</code>
