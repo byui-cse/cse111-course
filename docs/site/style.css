@@ -357,26 +357,30 @@ article ul.links > li {
 
 article ul.references,
 article ul.tutorials,
-article ul.videos {
+article ul.videos,
+article ul.mixed {
 	list-style-type: none;
 	margin-left: 1.5em;
 }
 
-article ul.references > li {
+article ul.references > li,
+article ul.mixed > li.reference {
 	background-image: url("reference.png");
 	background-repeat: no-repeat;
 	min-height: 30px;
 	padding-left: 22px;
 }
 
-article ul.tutorials > li {
+article ul.tutorials > li,
+article ul.mixed > li.tutorial {
 	background-image: url("tutorial.png");
 	background-repeat: no-repeat;
 	min-height: 30px;
 	padding-left: 22px;
 }
 
-article ul.videos > li {
+article ul.videos > li,
+article ul.mixed > li.video {
 	background-image: url("video.png");
 	background-repeat: no-repeat;
 	min-height: 30px;
