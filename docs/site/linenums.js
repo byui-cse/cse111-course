@@ -76,23 +76,6 @@ cse111.linenums = {
 	},
 
 
-	/** Add title attributes to consoles and user inputs. Most browsers
-	 * will use the titles as small tool tips that display when the user
-	 * holds the mouse pointer over an HTML element. */
-	addTitles : function() {
-		const elems = document.querySelectorAll('pre.console');
-		for (let i = 0;  i < elems.length;  ++i) {
-			let pre = elems[i];
-			pre.setAttribute('title', 'Terminal Window');
-
-			const spans = pre.querySelectorAll('span.input');
-			for (let i = 0;  i < spans.length;  ++i) {
-				spans[i].setAttribute('title', 'User input');
-			}
-		}
-	},
-
-
 	addCrossRefs : function() {
 		let getReferences = function(target) {
 			const space = /(\s|&nbsp;|<br>)+/g;
@@ -209,7 +192,6 @@ cse111.linenums = {
 	onDOMLoaded : function() {
 		cse111.linenums.addLineNumbers();
 		cse111.linenums.addCopyButtons();
-		cse111.linenums.addTitles();
 		cse111.linenums.addCrossRefs();
 	},
 

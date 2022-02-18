@@ -3,6 +3,17 @@
 @import url("https://fonts.googleapis.com/css?family=Crimson+Pro&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap");
 
+@font-face {
+	font-family: 'icomoon';
+	src: url('../site/fonts/icomoon.eot');
+	src: url('../site/fonts/icomoon.eot#iefix-8k8p81') format('embedded-opentype'),
+		url('../site/fonts/icomoon.ttf') format('truetype'),
+		url('../site/fonts/icomoon.woff') format('woff'),
+		url('../site/fonts/icomoon.svg#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
 :root {
 	--transpar: rgba(0, 0, 0, 0);
 
@@ -107,26 +118,18 @@ body {
 		color: inherit;
 	}
 	header > a.logo {
-		display: inline-block;
-		margin-right: 1.5em;
+		font-family: 'icomoon';
+		font-size: 400%;
+		font-style: normal;
+		font-weight: normal;
+		font-variant: normal;
+		text-transform: none;
+		line-height: 0.6;
+		margin-right: 0.4em;
 		vertical-align: middle;
-		font-family: Georgia, Palatino, "Book Antiqua", serif;
-		text-transform: uppercase;
-		max-width: 5.5em;
-	}
-	header > a.logo > div:first-child {
-		margin-bottom: -0.02em;
-		font-size: 150%;
-		font-weight: bolder;
-		text-align: center;
-	}
-	header > a.logo > div:last-child {
-		border-top: 1px solid;
-		padding-top: 0.11em;
-		font-size: 94%;
-		font-weight: lighter;
-		letter-spacing: 0.08em;
-		text-align: center;
+		/* Better font rendering */
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
 	}
 	header > h2 {
 		display: inline-block;

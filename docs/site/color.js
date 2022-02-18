@@ -19,7 +19,7 @@ if (!window.hasOwnProperty('cse111')) {
 }
 
 cse111.color = {
-	addColorThemeHandler : function() {
+	addThemeHandler : function() {
 		let dark = 'dark';
 		let light = 'light';
 		let schemeData = {
@@ -71,7 +71,30 @@ cse111.color = {
 		for (let c = 0;  c < ctrls.length;  ++c) {
 			ctrls[c].addEventListener('click', toggle);
 		}
+	},
+
+
+	/** Add title attributes to consoles and user inputs. Most browsers
+	 * will use the titles as small tool tips that display when the user
+	 * holds the mouse pointer over an HTML element. */
+	addTitles : function() {
+		const elems = document.querySelectorAll('pre.console');
+		for (let i = 0;  i < elems.length;  ++i) {
+			let pre = elems[i];
+			pre.setAttribute('title', 'Terminal Window');
+
+			const spans = pre.querySelectorAll('span.input');
+			for (let i = 0;  i < spans.length;  ++i) {
+				spans[i].setAttribute('title', 'User input');
+			}
+		}
+	},
+
+
+	onDOMLoaded : function() {
+		cse111.color.addThemeHandler();
+		cse111.color.addTitles();
 	}
 };
 
-window.addEventListener('DOMContentLoaded', cse111.color.addColorThemeHandler);
+window.addEventListener('DOMContentLoaded', cse111.color.onDOMLoaded);
