@@ -159,6 +159,38 @@ Total: 16.18
 Thank you for shopping at the Inkom Emporium.
 Wed Nov  4 05:10:30 2020</pre>
         </div></li>
+
+        <li><div><p>Verify that the <code>except</code> block to handle
+        <code>KeyError</code> that you added to your program works
+        correctly by doing the following:</p>
+        <ol>
+            <li><div>Temporarily add the following line to the end of
+            your <code>requests.csv</code> file.
+<div class="pre"><pre class="csv">R002,5</pre></div>
+            </div></li>
+            <li><div>Run your program again and verify that it prints an
+            error message like the one shown below.
+<pre class="console">&gt; python receipt.py
+Error: unknown product ID in the request.csv file
+'R002'</pre>
+            </div></li>
+        </ol>
+        </div></li>
+
+        <li><div><p>Verify that the <code>except</code> block to handle
+        <code>FileNotFoundError</code> that you added to your program
+        works correctly by doing the following:</p>
+        <ol class="long">
+            <li><div>Temporarily delete the <code>products.csv</code>
+            file.</div></li>
+            <li><div>Run your program again and verify that it prints an
+            error message like the one shown below.
+<pre class="console">&gt; python receipt.py
+Error: missing file
+[Errno 2] No such file or directory: 'products.csv'</pre>
+            </div></li>
+        </ol>
+        </div></li>
     </ol>
 
     <h2>Submission</h2>
