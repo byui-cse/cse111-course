@@ -32,7 +32,7 @@ def test_read_dict():
     # Verify that the read_dict function returns a dictionary.
     assert isinstance(students_dict, dict), \
         "read_dict function must return a dictionary:" \
-        f" expected a dictionary but found a {type(students)}"
+        f" expected a dictionary but found a {type(students_dict)}"
 
     # Verify that the students dictionary contains exactly nine items.
     length = len(students_dict)
