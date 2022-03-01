@@ -1,6 +1,7 @@
 # Copyright 2020, Brigham Young University-Idaho. All rights reserved.
 
 from students import read_dict
+from inspect import signature
 from os import path
 from tempfile import mktemp
 import pytest
@@ -21,13 +22,13 @@ def test_read_dict():
     #    function raises a FileNotFoundError.
     filename = mktemp(dir=".", prefix="not", suffix=".csv")
     with pytest.raises(FileNotFoundError):
-        read_dict(filename, I_NUMBER_INDEX)
+        call_read_dict(filename, I_NUMBER_INDEX)
         pytest.fail("read_dict function must use its filename parameter")
 
     # Call the read_dict function which will read the students.csv
     # file and create and return a dictinoary.
     filename = path.join(path.dirname(__file__), "students.csv")
-    students_dict = read_dict(filename, I_NUMBER_INDEX)
+    students_dict = call_read_dict(filename, I_NUMBER_INDEX)
 
     # Verify that the read_dict function returns a dictionary.
     assert isinstance(students_dict, dict), \
@@ -54,6 +55,25 @@ def test_read_dict():
     check_student(students_dict, "212505409", "Tyler Clark")
 
 
+def call_read_dict(filename, key_column_index):
+    """Call the read_dict function with the correct number of
+    parameters.
+    """
+    sig = signature(read_dict)
+    length = len(sig.parameters)
+    min_len = 1
+    max_len = 2
+    assert length == min_len or length == max_len, \
+        f"The read_dict function contains too " \
+        f"{'few' if length < min_len else 'many'} parameters; " \
+        f"expected {min_len} or {max_len} parameters but found {length}"
+    if length == min_len:
+        dictionary = read_dict(filename)
+    else:
+        dictionary = read_dict(filename, key_column_index)
+    return dictionary
+
+
 def check_student(students_dict, inumber, exp_name):
     """Verify that the data for one student stored in the
     students dictionary is correct.
@@ -77,38 +97,38 @@ def check_student(students_dict, inumber, exp_name):
     if isinstance(actual, str):
         # Verify that the student's name is correct.
         assert actual == exp_name, \
-                f'wrong name for "{inumber}": ' \
+                f'Wrong name for "{inumber}"; ' \
                 f'expected {exp_name} but found {actual}'
     else:
         length = len(actual)
         min_len = 1
         max_len = 2
         assert length == min_len or length == max_len, \
-            f"value list for student {inumber} contains too" \
-            f" {'few' if length < min_len else 'many'} elements:" \
-            f" expected {min_len} or {max_len} elements but found {length}"
+            f"The value list for student {inumber} contains too " \
+            f"{'few' if length < min_len else 'many'} elements; " \
+            f"expected {min_len} or {max_len} elements but found {length}"
 
         if length == min_len:
             # Verify that the student's name is correct.
             NAME_INDEX = 0
             act_name = actual[NAME_INDEX]
             assert act_name == exp_name, \
-                    f'wrong name for "{inumber}": ' \
+                    f'Wrong name for "{inumber}"; ' \
                     f'expected {exp_name} but found {act_name}'
         else:
             # Verify that the student's I-Number is correct.
             I_NUMBER_INDEX = 0
             act_inum = actual[I_NUMBER_INDEX]
             assert act_inum == inumber, \
-                    'inconsistent I-Numbers in the key and value: ' \
-                    f'the key is {inumber} but {act_inum} is in ' \
-                    'the corresponding value'
+                    'Inconsistent I-Numbers in the key and value. ' \
+                    f'The key is {inumber} but {act_inum} is in ' \
+                    'the corresponding value.'
 
             # Verify that the student's name is correct.
             NAME_INDEX = 1
             act_name = actual[NAME_INDEX]
             assert act_name == exp_name, \
-                    f'wrong name for "{inumber}": ' \
+                    f'Wrong name for "{inumber}"; ' \
                     f'expected {exp_name} but found {act_name}'
 
 

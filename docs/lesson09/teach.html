@@ -7,9 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CSE 111 - Team Activity</title>
     <script src="../site/color.js"></script>
+    <script src="../site/linenums.js"></script>
     <script src="../site/solution.js"></script>
+    <script src="../site/hljs/highlight.pack.js"></script>
     <link rel="icon" type="image/png" href="../site/icon.png">
     <link rel="stylesheet" type="text/css" href="../site/style.css">
+    <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
 </head>
 
 <body>
@@ -66,21 +69,47 @@
     I-Numbers are stored in the file without any dashes between the
     digits.</p>
 
+    <p>Write a Python program named <code>students.py</code> that has at
+    least two functions named <code>main</code> and
+    <code>read_dict</code>. You must write the <code>read_dict</code>
+    function with one of the following two headers and documentation
+    strings. Choose the header that makes the most sense to you.</p>
+
+<div class="pre"><pre class="python">def read_dict(filename):
+    """Read the contents of a CSV file into a
+    dictionary and return the dictionary.
+
+    Parameters
+        filename: the name of the CSV file to read.
+    Return: a dictionary that contains
+        the contents of the CSV file.
+    """</pre></div>
+
+<div class="pre"><pre class="python">def read_dict(filename, key_column_index):
+    """Read the contents of a CSV file into a compound
+    dictionary and return the dictionary.
+
+    Parameters
+        filename: the name of the CSV file to read.
+        key_column_index: the index of the column
+            to use as the keys in the dictionary.
+    Return: a compound dictionary that contains
+        the contents of the CSV file.
+    """</pre></div>
+
     <h3>Core Requirements</h3>
-    <p>Write a Python program named <code>students.py</code> that does
-    the following:</p>
+    <p>Your program must do the following:</p>
 
     <ol class="long">
-        <li><div>Opens the <code>students.csv</code> file for reading,
-        skips the first line of text in the file because it contains
-        only headings, and reads the other lines of the file into a
-        compound dictionary. The program must store each student
-        I-Number as a key and each I-Number and name in a list as a
-        value in the compound dictionary.</div></li>
+        <li><div>Open the <code>students.csv</code> file for reading,
+        skip the first line of text in the file because it contains only
+        headings, and read the other lines of the file into a
+        dictionary. The program must store each student I-Number as a
+        key and each name as a value in the dictionary.</div></li>
 
-        <li><div>Gets an I-Number from the user, uses the I-Number to
-        find the corresponding student name in the dictionary, and
-        prints the name.</div></li>
+        <li><div>Get an I-Number from the user, use the I-Number to find
+        the corresponding student name in the dictionary, and print the
+        name.</div></li>
 
         <li><div>If a user enters an I-Number that doesn't exist in the
         dictionary, your program must print the message, "No such
@@ -157,7 +186,7 @@ Please enter an I-Number (xxxxxxxxx): <span class="input">751766201</span>
 James Smith</pre>
         </div></li>
 
-        <li><div>Run your program and enterh this I-Number as input:
+        <li><div>Run your program and enter this I-Number as input:
         <code>00-115-2306</code> (including the dashes). Many users will
         want to enter I-Numbers with dashes. How should your program
         handle the dashes?</div></li>
