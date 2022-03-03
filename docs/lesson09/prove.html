@@ -203,16 +203,16 @@
     in this testing procedure:</p>
 
     <ol class="test long">
-        <li><div>Download the <a download
-        href="test_products.py"><code>test_products.py</code></a>
+        <li><div>Download the
+        <a download href="test_products.py"><code>test_products.py</code></a>
         file and save it in the same folder where you saved your
         <code>receipt.py</code> program. Run the
         <code>test_products.py</code> file and ensure that the
-        <code>test_read_products</code> function passes. If it doesn't
-        pass, there is a mistake in your <code>read_dict</code>
-        function. Read the output from <code>pytest</code>, fix the
-        mistake, and run the <code>test_products.py</code> file again
-        until the test function passes.
+        <code>test_read_dict</code> function passes. If it doesn't pass,
+        there is a mistake in your <code>read_dict</code> function. Read
+        the output from <code>pytest</code>, fix the mistake, and run
+        the <code>test_products.py</code> file again until the test
+        function passes.
 
 <pre class="console">&gt; python test_products.py
 =================== test session starts ====================
@@ -220,7 +220,7 @@ platform win32--Python 3.8.6, pytest-6.1.2, py-1.9.0, pluggy
 rootdir: C:\Users\cse111\lesson09
 collected 1 item
 
-test_products.py::test_read_products <span class="pass">PASSED           [100%]</span>
+test_products.py::test_read_dict <span class="pass">PASSED               [100%]</span>
 
 <span class="pass">==================== 1 passed in 0.12s =====================</span></pre>
         </div></li>
@@ -231,23 +231,20 @@ test_products.py::test_read_products <span class="pass">PASSED           [100%]<
 
 <pre class="console">&gt; python receipt.py
 
-Products
-D150 ['D150', '1 gallon milk', '2.85']
-D083 ['D083', '1 cup yogurt', '0.75']
-D215 ['D215', '1 lb cheddar cheese', '3.35']
-P019 ['P019', 'iceberg lettuce', '1.15']
-P020 ['P020', 'green leaf lettuce', '1.79']
-P021 ['P021', 'butterhead lettuce', '1.83']
-P025 ['P025', '8 oz arugula', '2.19']
-P143 ['P143', '1 lb baby carrots', '1.39']
-W231 ['W231', '32 oz granola', '3.21']
-W112 ['W112', 'wheat bread', '2.55']
-C013 ['C013', 'twix candy bar', '0.85']
-H001 ['H001', '8 rolls toilet tissue', '6.45']
-H014 ['H014', 'facial tissue', '2.49']
-H020 ['H020', 'aluminum foil', '2.39']
-H021 ['H021', '12 oz dish soap', '3.19']
-H025 ['H025', 'toilet cleaner', '4.50']
+All Products
+{'D150': ['D150', '1 gallon milk', '2.85'], 'D083': ['D083',
+'1 cup yogurt', '0.75'], 'D215': ['D215', '1 lb cheddar
+cheese', '3.35'], 'P019': ['P019', 'iceberg lettuce',
+'1.15'], 'P020': ['P020', 'green leaf lettuce', '1.79'],
+'P021': ['P021', 'butterhead lettuce', '1.83'], 'P025':
+['P025', '8 oz arugula', '2.19'], 'P143': ['P143', '1 lb
+baby carrots', '1.39'], 'W231': ['W231', '32 oz granola',
+'3.21'], 'W112': ['W112', 'wheat bread', '2.55'], 'C013':
+['C013', 'twix candy bar', '0.85'], 'H001': ['H001', '8
+rolls toilet tissue', '6.45'], 'H014': ['H014', 'facial
+tissue', '2.49'], 'H020': ['H020', 'aluminum foil', '2.39'],
+'H021': ['H021', '12 oz dish soap', '3.19'], 'H025':
+['H025', 'toilet cleaner', '4.50']}
 
 Requested Items
 wheat bread: 2 @ 2.55
