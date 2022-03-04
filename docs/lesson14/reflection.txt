@@ -1,10 +1,5 @@
-Please take a few minutes to reflect on your experience in CSE 111 and
-think about the challenges, successes, and all that you've learned
-along the way.
-
-
-Now, please respond thoroughly (1 - 2 paragraphs for each question) to
-the following questions.
+Please respond thoroughly (at least two sentences for each question) to
+the following three questions.
 
 1. Describe an experience you had this semester where you saw the power of
 functions.

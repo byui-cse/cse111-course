@@ -23,3 +23,8 @@ perform a single task?
 
 6. Will you write test functions to test many of your program functions?
 
+(Remember that it's hard to test functions that get user input and print
+output. It's easy to test functions that don't get user input and don't
+print output but instead have parameters and return a result. Therefore,
+you should write most of your program functions to have parameters and
+return a result.)

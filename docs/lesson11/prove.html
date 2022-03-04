@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CSE 111 - Prove</title>
     <script src="../site/color.js"></script>
+    <script src="../site/linenums.js"></script>
     <script src="../site/hljs/highlight.pack.js"></script>
     <link rel="icon" type="image/png" href="../site/icon.png">
     <link rel="stylesheet" type="text/css" href="../site/style.css">
@@ -25,14 +26,14 @@
 
     <h2>Purpose</h2>
     <p>Prove that you can write a significant Python program that is
-    well organized and solves a real-world problem. Your program must
-    include multiple functions that you verify are correct with test
-    functions and <code>pytest</code>.</p>
+    well organized and solves a real-world problem.</p>
 
     <h2>Assignment</h2>
     <p>During this lesson and the next two lessons, write a Python
-    program that you choose. Ideally this program will solve a problem
-    or become a tool in a subject area that interests you, such as
+    program that you choose. Your program must include multiple
+    functions that you verify are correct with test functions and
+    <code>pytest</code>. Ideally your program will solve a problem or
+    become a tool in a subject area that interests you, such as
     chemistry, physics, geography, fashion, family history, linguistics,
     social work, food science, carpentry, machinery, engineering,
     mathematics, computing, etc. Before you begin writing your program,
@@ -197,20 +198,20 @@ def get_int(prompt, min, max):
     """Prompt the user for an integer, verify that it is
     between min and max inclusive, and return the integer.
     """
-    num = None
-    while num is None:
+    done = False
+    while not done:
         try:
             text = input(prompt)
-            prospect = int(text)
-            if prospect &lt; min:
+            number = int(text)
+            if number &lt; min:
                 print(f"Invalid input: number must be {min} or greater.")
-            elif prospect &gt; max:
+            elif number &gt; max:
                 print(f"Invalid input: number must be {max} or less.")
             else:
-                num = prospect
+                done = True
         except ValueError as val_err:
             print(f"Invalid integer: {text}. Please try again.")
-    return num</pre></div>
+    return number</pre></div>
 
 <div class="pre"><pre class="python">
 from io import StringIO
@@ -249,7 +250,7 @@ def test_get_int(monkeypatch):
 In order to test a program that gets user input from a
 graphical user interface, separate the event functions (the
 ones that are executed when a user types a value in a text
-field) into two functions. Move the calculations out of an
+field) into two functions. Move the calculations out of the
 event function and into a calculation function that takes
 parameters, performs a calculation, and returns a result.
 Then write a test function for the new calculation function.
