@@ -165,7 +165,7 @@ Wed Nov  4 05:10:30 2020</pre>
         correctly by doing the following:</p>
         <ol>
             <li><div>Temporarily add the following line to the end of
-            your <code>requests.csv</code> file.
+            your <code>requests.csv</code> file and then save the file.
 <div class="pre"><pre class="csv">R002,5</pre></div>
             </div></li>
             <li><div>Run your program again and verify that it prints an
@@ -173,6 +173,26 @@ Wed Nov  4 05:10:30 2020</pre>
 <pre class="console">&gt; python receipt.py
 Error: unknown product ID in the request.csv file
 'R002'</pre>
+            Hint: if you wrote an <code>except</code> block in your
+            program to handle <code>KeyError</code>, added "R002,5" to
+            the <code>requests.csv</code> file, saved the
+            <code>requests.csv</code> file, and ran your program but
+            your program isn't raising a <code>KeyError</code>, then
+            look in your program to see if you wrote an <code>if</code>
+            statement before the statement that finds a value in the
+            <var>products</var> dictionary. Look for code similar to
+            this:
+
+<div class="pre"><pre class="python">    <em>if prod_num in products_dict:</em>
+        prod_info_list = products_dict[prod_num]
+        &vellip;</pre></div>
+
+            If your program contains an <code>if</code> statement
+            similar to the one above, then the <code>if</code> statement
+            is probably preventing your program from raising a
+            <code>KeyError</code>. Delete the <code>if</code> statement
+            and unindent the lines of code inside the <code>if</code>
+            statment and test your program again.
             </div></li>
         </ol>
         </div></li>
@@ -181,8 +201,8 @@ Error: unknown product ID in the request.csv file
         <code>FileNotFoundError</code> that you added to your program
         works correctly by doing the following:</p>
         <ol class="long">
-            <li><div>Temporarily delete the <code>products.csv</code>
-            file.</div></li>
+            <li><div>Temporarily delete or rename the
+            <code>products.csv</code> file.</div></li>
             <li><div>Run your program again and verify that it prints an
             error message like the one shown below.
 <pre class="console">&gt; python receipt.py
