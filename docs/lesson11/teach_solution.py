@@ -21,10 +21,12 @@ def main():
         # Define a lambda function that extracts a student's birthdate.
         extract_birthdate = lambda student: student[BIRTHDATE_INDEX]
 
-        # Call the sorted function to sort the
-        # list of students by their birthdate.
+        # Call the Python built-in sorted function to sort
+        # the list of students by their birthdate and pass
+        # the lambda function to the sorted function.
         sorted_list = sorted(students_list, key=extract_birthdate)
 
+        # Call the print_list function to print the sorted list.
         print_list(sorted_list)
 
     except (FileNotFoundError, PermissionError) as error:
