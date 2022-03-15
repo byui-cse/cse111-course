@@ -18,87 +18,17 @@ def main():
         # As a debugging aid, print the students_list.
         #print(students_list)
 
-        sorted_list_1 = sort_oldest_to_youngest(students_list)
-        print("Ordered from Oldest to Youngest")
-        print_list(sorted_list_1)
+        # Define a lambda function that extracts a student's birthdate.
+        extract_birthdate = lambda student: student[BIRTHDATE_INDEX]
 
-        sorted_list_2 = sort_by_given_name(students_list)
-        print("Ordered by Given Name")
-        print_list(sorted_list_2)
+        # Call the sorted function to sort the
+        # list of students by their birthdate.
+        sorted_list = sorted(students_list, key=extract_birthdate)
 
-        sorted_list_3 = sort_by_birth_month_day(students_list)
-        print("Ordered by Birth Month and Day")
-        print_list(sorted_list_3)
+        print_list(sorted_list)
 
     except (FileNotFoundError, PermissionError) as error:
         print(type(error).__name__, error, sep=": ")
-
-
-def sort_oldest_to_youngest(students_list):
-    """Sort a list of students by their birthdate.
-
-    Parameter
-        students_list: a list that contains small lists.
-            Each small list contains the given name,
-            surname, and birthdate of one student.
-    Return: a new list of students that is sorted by birthdate.
-    """
-    # Define a lambda function that extracts a student's birthdate.
-    extract_birthdate = lambda student: student[BIRTHDATE_INDEX]
-
-    # Call the sorted function to sort the
-    # list of students by their birthdate.
-    sorted_list = sorted(students_list, key=extract_birthdate)
-
-    # Return the sorted list.
-    return sorted_list
-
-
-def sort_by_given_name(students_list):
-    """Sort a list of students by their given name.
-
-    Parameter
-        students_list: a list that contains small lists.
-            Each small list contains the given name,
-            surname, and birthdate of one student.
-    Return: a new list of students that is sorted by given name.
-    """
-    # Define a lambda function that extracts a student's given name.
-    extract_given_name = lambda student: student[GIVEN_NAME_INDEX]
-
-    # Call the sorted function to sort the
-    # list of students by their given name.
-    sorted_list = sorted(students_list, key=extract_given_name)
-
-    # Return the sorted list.
-    return sorted_list
-
-
-def sort_by_birth_month_day(students_list):
-    """Sort a list of students by their birth month and day.
-    In other words sort the list by their birthdate but ignore
-    the year of their birthdate.
-
-    Parameter
-        students_list: a list that contains small lists.
-            Each small list contains the given name,
-            surname, and birthdate of one student.
-    Return: a new list of students that is sorted by birth
-        month and day.
-    """
-    # Define a nested function that extracts
-    # a student's birthdate without the year.
-    def extract_month_and_day(student):
-        birthdate_string = student[BIRTHDATE_INDEX]
-        month_and_day = birthdate_string[5:]
-        return month_and_day
-
-    # Call the sorted function to sort the list
-    # of students by their birth month and day.
-    sorted_list = sorted(students_list, key=extract_month_and_day)
-
-    # Return the sorted list.
-    return sorted_list
 
 
 def read_compound_list(filename):
