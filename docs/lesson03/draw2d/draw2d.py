@@ -200,6 +200,128 @@ def draw_rectangle(canvas, x0, y0, x1, y1, *,
             width=width, outline=outline, fill=fill)
 
 
+def draw_vertical_gradient(canvas, x0, y0, color0, x1, y1, color1):
+    """Draw a rectangle with a vertical gradient from color0 to color0.
+    The two corners of the rectangle will be at (x0, y0), (x1, y1).
+    y0 must be less than y1.
+
+    Parameters
+        canvas: the canvas returned from the start_drawing function
+        color0: a list containing three integers for the red, green,
+            and blue of the first color. Each integer must be between
+            0 and 255 inclusive.
+        color1: a list containing three integers for the red, green,
+            and blue of the second color. Each integer must be between
+            0 and 255 inclusive.
+    Return: nothing
+    """
+    assert _started, \
+        "your program must call start_drawing before it calls draw_vertical_gradient"
+    assert isinstance(canvas, Canvas), _wrong_type(canvas, "canvas", "Canvas")
+    assert isinstance(x0, Number), _wrong_type(x0, "x0", "number")
+    assert isinstance(y0, Number), _wrong_type(y0, "y0", "number")
+    assert isinstance(x1, Number), _wrong_type(x1, "x1", "number")
+    assert isinstance(y1, Number), _wrong_type(y1, "y1", "number")
+    assert y0 < y1, "y0 must be less than y1"
+    for name, color in (("color0", color0), ("color1", color1)):
+        assert isinstance(color, list) or isinstance(color, tuple), \
+            _wrong_type(color, name, "list or tuple")
+        assert len(color) == 3, \
+            f"{name} must be a list or tuple containing three integers between 0 and 255 inclusive"
+        for channel in color:
+            assert isinstance(channel, int), \
+                f"{name} must be a list or tuple containing three integers between 0 and 255 inclusive"
+            assert 0 <= channel <= 255, \
+                f"{name} must be a list or tuple containing three integers between 0 and 255 inclusive"
+
+    # Separate color0 into its three channels: red, green, and blue.
+    r0 = color0[0]
+    g0 = color0[1]
+    b0 = color0[2]
+
+    # Separate color1 into its three channels: red, green, and blue.
+    r1 = color1[0]
+    g1 = color1[1]
+    b1 = color1[2]
+
+    # Compute the amount that each color channel
+    # will change from one line to the next.
+    diff_y = y1 - y0 + 1
+    delta_r = (r1 - r0) / diff_y
+    delta_g = (g1 - g0) / diff_y
+    delta_b = (b1 - b0) / diff_y
+
+    # Draw the gradient, one line at a time.
+    for line in range(diff_y):
+        r = r0 + delta_r * line
+        g = g0 + delta_g * line
+        b = b0 + delta_b * line
+        color = _make_color(r, g, b)
+        y = y0 + line
+        draw_line(canvas, x0, y, x1, y, width=1, fill=color)
+
+
+def draw_horizontal_gradient(canvas, x0, y0, color0, x1, y1, color1):
+    """Draw a rectangle with a horizontal gradient from color0 to color0.
+    The two corners of the rectangle will be at (x0, y0), (x1, y1).
+    x0 must be less than x1.
+
+    Parameters
+        canvas: the canvas returned from the start_drawing function
+        color0: a list containing three integers for the red, green,
+            and blue of the first color. Each integer must be between
+            0 and 255 inclusive.
+        color1: a list containing three integers for the red, green,
+            and blue of the second color. Each integer must be between
+            0 and 255 inclusive.
+    Return: nothing
+    """
+    assert _started, \
+        "your program must call start_drawing before it calls draw_vertical_gradient"
+    assert isinstance(canvas, Canvas), _wrong_type(canvas, "canvas", "Canvas")
+    assert isinstance(x0, Number), _wrong_type(x0, "x0", "number")
+    assert isinstance(y0, Number), _wrong_type(y0, "y0", "number")
+    assert isinstance(x1, Number), _wrong_type(x1, "x1", "number")
+    assert isinstance(y1, Number), _wrong_type(y1, "y1", "number")
+    assert x0 < x1, "x0 must be less than x1"
+    for name, color in (("color0", color0), ("color1", color1)):
+        assert isinstance(color, list) or isinstance(color, tuple), \
+            _wrong_type(color, name, "list or tuple")
+        assert len(color) == 3, \
+            f"{name} must be a list or tuple containing three integers between 0 and 255 inclusive"
+        for channel in color:
+            assert isinstance(channel, int), \
+                f"{name} must be a list or tuple containing three integers between 0 and 255 inclusive"
+            assert 0 <= channel <= 255, \
+                f"{name} must be a list or tuple containing three integers between 0 and 255 inclusive"
+
+    # Separate color0 into its three channels: red, green, and blue.
+    r0 = color0[0]
+    g0 = color0[1]
+    b0 = color0[2]
+
+    # Separate color1 into its three channels: red, green, and blue.
+    r1 = color1[0]
+    g1 = color1[1]
+    b1 = color1[2]
+
+    # Compute the amount that each color channel
+    # will change from one line to the next.
+    diff_x = x1 - x0 + 1
+    delta_r = (r1 - r0) / diff_x
+    delta_g = (g1 - g0) / diff_x
+    delta_b = (b1 - b0) / diff_x
+
+    # Draw the gradient, one line at a time.
+    for line in range(diff_x):
+        r = r0 + delta_r * line
+        g = g0 + delta_g * line
+        b = b0 + delta_b * line
+        color = _make_color(r, g, b)
+        x = x0 + line
+        draw_line(canvas, x, y0, x, y1, width=1, fill=color)
+
+
 def draw_polygon(canvas, x0, y0, x1, y1, x2, y2, *args,
         width=1, outline="black", fill=""):
     """Draw a polygon with vertices (x0, y0), (x1, y1), ... (xn, yn).
@@ -224,8 +346,8 @@ def draw_polygon(canvas, x0, y0, x1, y1, x2, y2, *args,
     assert isinstance(y1, Number), _wrong_type(y1, "y1", "number")
     assert isinstance(x2, Number), _wrong_type(x2, "x2", "number")
     assert isinstance(y2, Number), _wrong_type(y2, "y2", "number")
-    for i in range(len(args)):
-        assert isinstance(args[i], Number), "each coordinate must be a number"
+    for arg in args:
+        assert isinstance(arg, Number), "each coordinate must be a number"
     assert isinstance(width, Number), _wrong_type_2(width, "width", "number", 0)
     assert width >= 0, _less_than(width, "width", 0)
     assert isinstance(outline, str), _wrong_type(outline, "outline", "string")
@@ -274,6 +396,22 @@ def finish_drawing(canvas):
         "your program must call start_drawing before it calls finish_drawing"
     assert isinstance(canvas, Canvas), _wrong_type(canvas, "canvas", "Canvas")
     canvas.mainloop()
+
+
+def _make_color(r, g, b):
+    """Convert red, green, and blue into a color
+    in the hexadecimal form "#rrggbb"
+    """
+    return "#" + _hex_str(r) + _hex_str(g) + _hex_str(b)
+
+
+def _hex_str(n):
+    n = int(round(n, 0))
+    assert 0 <= n <= 255
+    s = hex(n)[2:]
+    if len(s) == 1:
+        s = "0" + s
+    return s
 
 
 def _wrong_type(param, name, expected):
