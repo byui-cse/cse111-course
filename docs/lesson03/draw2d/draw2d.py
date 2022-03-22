@@ -40,15 +40,12 @@ def start_drawing(title, width, height):
     """
     global _started
     assert not _started, "your program must call start_drawing once only"
-    assert isinstance(title, str), _wrong_type(title, "title", "string")
-    min_width = 100
-    min_height = 100
-    assert isinstance(width, Number), \
-        _wrong_type_2(width, "width", "number", min_width)
-    assert isinstance(height, Number), \
-        _wrong_type_2(height, "height", "number", min_height)
-    assert width >= min_width,  _less_than(width, "width", min_width)
-    assert height >= min_height, _less_than(height, "height", min_height)
+    assert isinstance(title, str), _wrong_type("title", title, "string")
+    for name, dimen, min_dimen in \
+            (("width", width, 100), ("height", height, 100)):
+        assert isinstance(dimen, Number), \
+            _wrong_type_2(name, dimen, "number", min_dimen)
+        assert dimen >= min_dimen, _less_than(name, dimen, min_dimen)
 
     # Create the root Tk object.
     root = Tk()
@@ -83,16 +80,14 @@ def draw_line(canvas, x0, y0, x1, y1, *args, width=1, fill="black"):
     """
     assert _started, \
         "your program must call start_drawing before it calls draw_line"
-    assert isinstance(canvas, Canvas), _wrong_type(canvas, "canvas", "Canvas")
-    assert isinstance(x0, Number), _wrong_type(x0, "x0", "number")
-    assert isinstance(y0, Number), _wrong_type(y0, "y0", "number")
-    assert isinstance(x1, Number), _wrong_type(x1, "x1", "number")
-    assert isinstance(y1, Number), _wrong_type(y1, "y1", "number")
-    for i in range(len(args)):
-        assert isinstance(args[i], Number), "each coordinate must be a number"
-    assert isinstance(width, Number), _wrong_type_2(width, "width", "number", 0)
-    assert width >= 0, _less_than(width, "width", 0)
-    assert isinstance(fill, str), _wrong_type(fill, "fill", "string")
+    assert isinstance(canvas, Canvas), _wrong_type("canvas", canvas, "Canvas")
+    for name, coord in (("x0", x0), ("y0", y0), ("x1", x1), ("y1", y1)):
+        assert isinstance(coord, Number), _wrong_type(name, coord, "number")
+    for arg in args:
+        assert isinstance(arg, Number), "each coordinate must be a number"
+    assert isinstance(width, Number), _wrong_type_2("width", width, "number", 0)
+    assert width >= 0, _less_than("width", width, 0)
+    assert isinstance(fill, str), _wrong_type("fill", fill, "string")
 
     height = canvas.winfo_height()
     args = list(args)
@@ -117,15 +112,13 @@ def draw_oval(canvas, x0, y0, x1, y1, *,
     """
     assert _started, \
         "your program must call start_drawing before it calls draw_oval"
-    assert isinstance(canvas, Canvas), _wrong_type(canvas, "canvas", "Canvas")
-    assert isinstance(x0, Number), _wrong_type(x0, "x0", "number")
-    assert isinstance(y0, Number), _wrong_type(y0, "y0", "number")
-    assert isinstance(x1, Number), _wrong_type(x1, "x1", "number")
-    assert isinstance(y1, Number), _wrong_type(y1, "y1", "number")
-    assert isinstance(width, Number), _wrong_type_2(width, "width", "number", 0)
-    assert width >= 0, _less_than(width, "width", 0)
-    assert isinstance(outline, str), _wrong_type(outline, "outline", "string")
-    assert isinstance(fill, str),    _wrong_type(fill, "fill", "string")
+    assert isinstance(canvas, Canvas), _wrong_type("canvas", canvas, "Canvas")
+    for name, coord in (("x0", x0), ("y0", y0), ("x1", x1), ("y1", y1)):
+        assert isinstance(coord, Number), _wrong_type(name, coord, "number")
+    assert isinstance(width, Number), _wrong_type_2("width", width, "number", 0)
+    assert width >= 0, _less_than("width", width, 0)
+    for name, param in (("outline", outline), ("fill", fill)):
+        assert isinstance(param, str), _wrong_type(name, param, "string")
 
     height = canvas.winfo_height()
     canvas.create_oval(x0, height-y0, x1, height-y1,
@@ -153,17 +146,14 @@ def draw_arc(canvas, x0, y0, x1, y1, *,
     """
     assert _started, \
         "your program must call start_drawing before it calls draw_arc"
-    assert isinstance(canvas, Canvas), _wrong_type(canvas, "canvas", "Canvas")
-    assert isinstance(x0, Number), _wrong_type(x0, "x0", "number")
-    assert isinstance(y0, Number), _wrong_type(y0, "y0", "number")
-    assert isinstance(x1, Number), _wrong_type(x1, "x1", "number")
-    assert isinstance(y1, Number), _wrong_type(y1, "y1", "number")
-    assert isinstance(start, Number),  _wrong_type(start, "start", "number")
-    assert isinstance(extent, Number), _wrong_type(extent, "extent", "number")
-    assert isinstance(width, Number), _wrong_type_2(width, "width", "number", 0)
-    assert width >= 0, _less_than(width, "width", 0)
-    assert isinstance(outline, str), _wrong_type(outline, "outline", "string")
-    assert isinstance(fill, str),    _wrong_type(fill, "fill", "string")
+    assert isinstance(canvas, Canvas), _wrong_type("canvas", canvas, "Canvas")
+    for name, coord in (("x0", x0), ("y0", y0), ("x1", x1), ("y1", y1),
+                        ("start", start), ("extent", extent)):
+        assert isinstance(coord, Number), _wrong_type(name, coord, "number")
+    assert isinstance(width, Number), _wrong_type_2("width", width, "number", 0)
+    assert width >= 0, _less_than("width", width, 0)
+    for name, param in (("outline", outline), ("fill", fill)):
+        assert isinstance(param, str), _wrong_type(name, param, "string")
 
     height = canvas.winfo_height()
     canvas.create_arc(x0, height-y0, x1, height-y1,
@@ -185,15 +175,13 @@ def draw_rectangle(canvas, x0, y0, x1, y1, *,
     """
     assert _started, \
         "your program must call start_drawing before it calls draw_rectangle"
-    assert isinstance(canvas, Canvas), _wrong_type(canvas, "canvas", "Canvas")
-    assert isinstance(x0, Number), _wrong_type(x0, "x0", "number")
-    assert isinstance(y0, Number), _wrong_type(y0, "y0", "number")
-    assert isinstance(x1, Number), _wrong_type(x1, "x1", "number")
-    assert isinstance(y1, Number), _wrong_type(y1, "y1", "number")
-    assert isinstance(width, Number), _wrong_type_2(width, "width", "number", 0)
-    assert width >= 0, _less_than(width, "width", 0)
-    assert isinstance(outline, str), _wrong_type(outline, "outline", "string")
-    assert isinstance(fill, str),    _wrong_type(fill, "fill", "string")
+    assert isinstance(canvas, Canvas), _wrong_type("canvas", canvas, "Canvas")
+    for name, coord in (("x0", x0), ("y0", y0), ("x1", x1), ("y1", y1)):
+        assert isinstance(coord, Number), _wrong_type(name, coord, "number")
+    assert isinstance(width, Number), _wrong_type_2("width", width, "number", 0)
+    assert width >= 0, _less_than("width", width, 0)
+    for name, param in (("outline", outline), ("fill", fill)):
+        assert isinstance(param, str), _wrong_type(name, param, "string")
 
     height = canvas.winfo_height()
     canvas.create_rectangle(x0, height-y0, x1, height-y1,
@@ -217,15 +205,13 @@ def draw_vertical_gradient(canvas, x0, y0, color0, x1, y1, color1):
     """
     assert _started, \
         "your program must call start_drawing before it calls draw_vertical_gradient"
-    assert isinstance(canvas, Canvas), _wrong_type(canvas, "canvas", "Canvas")
-    assert isinstance(x0, Number), _wrong_type(x0, "x0", "number")
-    assert isinstance(y0, Number), _wrong_type(y0, "y0", "number")
-    assert isinstance(x1, Number), _wrong_type(x1, "x1", "number")
-    assert isinstance(y1, Number), _wrong_type(y1, "y1", "number")
+    assert isinstance(canvas, Canvas), _wrong_type("canvas", canvas, "Canvas")
+    for name, coord in (("x0", x0), ("y0", y0), ("x1", x1), ("y1", y1)):
+        assert isinstance(coord, Number), _wrong_type(name, coord, "number")
     assert y0 < y1, "y0 must be less than y1"
     for name, color in (("color0", color0), ("color1", color1)):
         assert isinstance(color, list) or isinstance(color, tuple), \
-            _wrong_type(color, name, "list or tuple")
+            _wrong_type(name, color, "list or tuple")
         assert len(color) == 3, \
             f"{name} must be a list or tuple containing three integers between 0 and 255 inclusive"
         for channel in color:
@@ -277,16 +263,14 @@ def draw_horizontal_gradient(canvas, x0, y0, color0, x1, y1, color1):
     Return: nothing
     """
     assert _started, \
-        "your program must call start_drawing before it calls draw_vertical_gradient"
-    assert isinstance(canvas, Canvas), _wrong_type(canvas, "canvas", "Canvas")
-    assert isinstance(x0, Number), _wrong_type(x0, "x0", "number")
-    assert isinstance(y0, Number), _wrong_type(y0, "y0", "number")
-    assert isinstance(x1, Number), _wrong_type(x1, "x1", "number")
-    assert isinstance(y1, Number), _wrong_type(y1, "y1", "number")
+        "your program must call start_drawing before it calls draw_horizontal_gradient"
+    assert isinstance(canvas, Canvas), _wrong_type("canvas", canvas, "Canvas")
+    for name, coord in (("x0", x0), ("y0", y0), ("x1", x1), ("y1", y1)):
+        assert isinstance(coord, Number), _wrong_type(name, coord, "number")
     assert x0 < x1, "x0 must be less than x1"
     for name, color in (("color0", color0), ("color1", color1)):
         assert isinstance(color, list) or isinstance(color, tuple), \
-            _wrong_type(color, name, "list or tuple")
+            _wrong_type(name, color, "list or tuple")
         assert len(color) == 3, \
             f"{name} must be a list or tuple containing three integers between 0 and 255 inclusive"
         for channel in color:
@@ -339,19 +323,16 @@ def draw_polygon(canvas, x0, y0, x1, y1, x2, y2, *args,
     """
     assert _started, \
         "your program must call start_drawing before it calls draw_polygon"
-    assert isinstance(canvas, Canvas), _wrong_type(canvas, "canvas", "Canvas")
-    assert isinstance(x0, Number), _wrong_type(x0, "x0", "number")
-    assert isinstance(y0, Number), _wrong_type(y0, "y0", "number")
-    assert isinstance(x1, Number), _wrong_type(x1, "x1", "number")
-    assert isinstance(y1, Number), _wrong_type(y1, "y1", "number")
-    assert isinstance(x2, Number), _wrong_type(x2, "x2", "number")
-    assert isinstance(y2, Number), _wrong_type(y2, "y2", "number")
+    assert isinstance(canvas, Canvas), _wrong_type("canvas", canvas, "Canvas")
+    for name, coord in (("x0", x0), ("y0", y0), ("x1", x1), ("y1", y1),
+                        ("x2", x2), ("y2", y2)):
+        assert isinstance(coord, Number), _wrong_type(name, coord, "number")
     for arg in args:
         assert isinstance(arg, Number), "each coordinate must be a number"
-    assert isinstance(width, Number), _wrong_type_2(width, "width", "number", 0)
-    assert width >= 0, _less_than(width, "width", 0)
-    assert isinstance(outline, str), _wrong_type(outline, "outline", "string")
-    assert isinstance(fill, str),    _wrong_type(fill, "fill", "string")
+    assert isinstance(width, Number), _wrong_type_2("width", width, "number", 0)
+    assert width >= 0, _less_than("width", width, 0)
+    for name, param in (("outline", outline), ("fill", fill)):
+        assert isinstance(param, str), _wrong_type(name, param, "string")
 
     height = canvas.winfo_height()
     args = list(args)
@@ -372,13 +353,11 @@ def draw_text(canvas, center_x, center_y, text, *, fill="black"):
     """
     assert _started, \
         "your program must call start_drawing before it calls draw_text"
-    assert isinstance(canvas, Canvas), _wrong_type(canvas, "canvas", "Canvas")
-    assert isinstance(center_x, Number), \
-        _wrong_type(center_x, "center_x", "number")
-    assert isinstance(center_y, Number), \
-        _wrong_type(center_y, "center_y", "number")
-    assert isinstance(text, str), _wrong_type(text, "text", "string")
-    assert isinstance(fill, str), _wrong_type(fill, "fill", "string")
+    assert isinstance(canvas, Canvas), _wrong_type("canvas", canvas, "Canvas")
+    for name, coord in (("center_x", center_x), ("center_y", center_y)):
+        assert isinstance(coord, Number), _wrong_type(name, coord, "number")
+    for name, param in (("text", text), ("fill", fill)):
+        assert isinstance(param, str), _wrong_type(name, param, "string")
 
     height = canvas.winfo_height()
     canvas.create_text(center_x, height-center_y, text=text, fill=fill)
@@ -394,7 +373,8 @@ def finish_drawing(canvas):
     """
     assert _started, \
         "your program must call start_drawing before it calls finish_drawing"
-    assert isinstance(canvas, Canvas), _wrong_type(canvas, "canvas", "Canvas")
+    assert isinstance(canvas, Canvas), _wrong_type("canvas", canvas, "Canvas")
+
     canvas.mainloop()
 
 
@@ -414,7 +394,7 @@ def _hex_str(n):
     return s
 
 
-def _wrong_type(param, name, expected):
+def _wrong_type(name, arg, expected):
     # Of course, it's possible to rewrite this function so that it
     # includes an assertion statement which would make less code in this
     # file. Unfortunately, placing the assert in this function adds
@@ -423,16 +403,16 @@ def _wrong_type(param, name, expected):
     # level in the stack trace because the error messages in this file
     # are for students.
     return f"wrong data type for parameter {name};" \
-        f" {name} is a {type(param)} but must be a {expected}"
+        f" {name} is a {type(arg)} but must be a {expected}"
 
 
-def _wrong_type_2(param, name, expected, minimum):
-    return _wrong_type(param, name, expected) + \
+def _wrong_type_2(name, arg, expected, minimum):
+    return _wrong_type(name, arg, expected) + \
         f" greater than or equal to {minimum}"
 
 
-def _less_than(param, name, minimum):
-    return f"parameter {name} is {param}" \
+def _less_than(name, arg, minimum):
+    return f"parameter {name} is {arg}" \
         " but must be greater than or equal to {minimum}"
 
 
