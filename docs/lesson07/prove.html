@@ -293,10 +293,15 @@
 
         <li><div>In the <code>chemistry.py</code> file, write the
         <code>main</code> function that takes no parameters and returns
-        nothing. The <code>main</code> function should call the
-        <code>make_periodic_table</code> function and print the returned
-        table with each individual element on a separate
-        line.</div></li>
+        nothing. The <code>main</code> function should do the following:
+        <ol>
+            <li><div>Call the <code>make_periodic_table</code>
+            function and store the returned list in a
+            variable.</div></li>
+            <li><div>Print the name and atomic mass for each chemical
+            element on a separate line. Do not print the chemical
+            element symbols.</div></li>
+        </ol></div></li>
 
         <li><div>At the bottom of your <code>chemistry.py</code> file,
         add a call to the <code>main</code> function. Be certain to
@@ -337,17 +342,18 @@ test_chemistry_1.py::test_make_periodic_table <span class="pass">PASSED  [100%]<
         <li><div>Run your <code>chemistry.py</code> program and ensure
         that your program's output matches the following output. The
         three vertical dots (&vellip;) in the output below are called a
-        vertical ellipsis and mean the output continues. Your program
-        shouldn't print the vertical ellipsis. Instead, your program
-        should print the rest of the output.
+        <dfn>vertical ellipsis</dfn> and mean the output continues. Your
+        program shouldn't print the vertical ellipsis. Instead, your
+        program should print the rest of the output.
+
 <pre class="console">&gt; python chemistry.py
-['Ac', 'Actinium', 227]
-['Ag', 'Silver', 107.8682]
-['Al', 'Aluminum', 26.9815386]
-['Ar', 'Argon', 39.948]
-['As', 'Arsenic', 74.9216]
-['At', 'Astatine', 210]
-['Au', 'Gold', 196.966569]
+Actinium 227
+Silver 107.8682
+Aluminum 26.9815386
+Argon 39.948
+Arsenic 74.9216
+Astatine 210
+Gold 196.966569
   &vellip;</pre>
         </div></li>
     </ol>
