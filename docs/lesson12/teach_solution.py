@@ -10,7 +10,7 @@ def main():
     root = tk.Tk()
 
     # Create the main window. In tkinter,
-    # a window is also called a frm_main.
+    # a window is also called a frame.
     frm_main = tk.Frame(root)
     frm_main.master.title("Heart Rate")
     frm_main.pack(padx=4, pady=3, fill=tk.BOTH, expand=1)
@@ -33,7 +33,7 @@ def main():
 # three letter prefix in front of the names of all variables that store
 # GUI widgets, according to this list:
 #
-# frm: a frm_main (window) widget
+# frm: a frame (window) widget
 # lbl: a label widget that displays text for the user to see
 # ent: an entry widget where a user will type text or numbers
 # btn: a button widget that the user will click
@@ -44,7 +44,7 @@ def populate_main_window(frm_main):
     the labels, text entry boxes, and buttons into the main window.
 
     Parameter
-        frm_main: the main window
+        frm_main: the main frame (window)
     Return: nothing
     """
     # Create labels for the text fields and the results.

@@ -43,7 +43,7 @@ def populate_main_window(frm_main):
     the labels, text entry boxes, and buttons into the main window.
 
     Parameter
-        frm_main: the main window
+        frm_main: the main frame (window)
     Return: nothing
     """
     # Create a label that displays "Age:"

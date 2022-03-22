@@ -19,7 +19,8 @@ class IntEntry(tk.Entry):
             upper_bound = -1
         assert isinstance(lower_bound, int), "lower_bound must be an int"
         assert isinstance(upper_bound, int), "upper_bound must be an int"
-        assert lower_bound <= upper_bound
+        assert lower_bound <= upper_bound, \
+            "lower_bound must be less than upper_bound"
 
         self.lower_bound = lower_bound
         self.upper_bound = upper_bound
@@ -65,11 +66,10 @@ class FloatEntry(tk.Entry):
             lower_bound = 0
         if upper_bound < 0:
             upper_bound = 0
-        assert isinstance(lower_bound, Number), \
-            "lower_bound must be an number"
-        assert isinstance(upper_bound, Number), \
-            "upper_bound must be an number"
-        assert lower_bound <= upper_bound
+        assert isinstance(lower_bound, Number), "lower_bound must be a number"
+        assert isinstance(upper_bound, Number), "upper_bound must be a number"
+        assert lower_bound <= upper_bound, \
+            "lower_bound must be less than upper_bound"
 
         self.lower_bound = lower_bound
         self.upper_bound = upper_bound
