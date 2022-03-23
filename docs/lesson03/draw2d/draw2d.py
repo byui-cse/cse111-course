@@ -68,7 +68,7 @@ def start_drawing(title, width, height):
     return canvas
 
 
-def draw_line(canvas, x0, y0, x1, y1, *args, width=1, fill="black"):
+def draw_line(canvas, x0, y0, x1, y1, *coords, width=1, fill="black"):
     """Draw a that line goes through the series of points
         (x0, y0), (x1, y1), ... (xn, yn)
 
@@ -83,17 +83,17 @@ def draw_line(canvas, x0, y0, x1, y1, *args, width=1, fill="black"):
     assert isinstance(canvas, Canvas), _wrong_type("canvas", canvas, "Canvas")
     for name, coord in (("x0", x0), ("y0", y0), ("x1", x1), ("y1", y1)):
         assert isinstance(coord, Number), _wrong_type(name, coord, "number")
-    for arg in args:
-        assert isinstance(arg, Number), "each coordinate must be a number"
+    for coord in coords:
+        assert isinstance(coord, Number), "each coordinate must be a number"
     assert isinstance(width, Number), _wrong_type_2("width", width, "number", 0)
     assert width >= 0, _less_than("width", width, 0)
     assert isinstance(fill, str), _wrong_type("fill", fill, "string")
 
     height = canvas.winfo_height()
-    args = list(args)
-    for i in range(1, len(args), 2):
-        args[i] = height - args[i]
-    canvas.create_line(x0, height-y0, x1, height-y1, *args,
+    coords = list(coords)
+    for i in range(1, len(coords), 2):
+        coords[i] = height - coords[i]
+    canvas.create_line(x0, height-y0, x1, height-y1, *coords,
             width=width, fill=fill)
 
 
@@ -221,14 +221,10 @@ def draw_vertical_gradient(canvas, x0, y0, color0, x1, y1, color1):
                 f"{name} must be a list or tuple containing three integers between 0 and 255 inclusive"
 
     # Separate color0 into its three channels: red, green, and blue.
-    r0 = color0[0]
-    g0 = color0[1]
-    b0 = color0[2]
+    r0, g0, b0 = color0
 
     # Separate color1 into its three channels: red, green, and blue.
-    r1 = color1[0]
-    g1 = color1[1]
-    b1 = color1[2]
+    r1, g1, b1 = color1
 
     # Compute the amount that each color channel
     # will change from one line to the next.
@@ -239,11 +235,11 @@ def draw_vertical_gradient(canvas, x0, y0, color0, x1, y1, color1):
 
     # Draw the gradient, one line at a time.
     for line in range(diff_y):
+        y = y0 + line
         r = r0 + delta_r * line
         g = g0 + delta_g * line
         b = b0 + delta_b * line
         color = _make_color(r, g, b)
-        y = y0 + line
         draw_line(canvas, x0, y, x1, y, width=1, fill=color)
 
 
@@ -280,14 +276,10 @@ def draw_horizontal_gradient(canvas, x0, y0, color0, x1, y1, color1):
                 f"{name} must be a list or tuple containing three integers between 0 and 255 inclusive"
 
     # Separate color0 into its three channels: red, green, and blue.
-    r0 = color0[0]
-    g0 = color0[1]
-    b0 = color0[2]
+    r0, g0, b0 = color0
 
     # Separate color1 into its three channels: red, green, and blue.
-    r1 = color1[0]
-    g1 = color1[1]
-    b1 = color1[2]
+    r1, g1, b1 = color1
 
     # Compute the amount that each color channel
     # will change from one line to the next.
@@ -298,17 +290,17 @@ def draw_horizontal_gradient(canvas, x0, y0, color0, x1, y1, color1):
 
     # Draw the gradient, one line at a time.
     for line in range(diff_x):
+        x = x0 + line
         r = r0 + delta_r * line
         g = g0 + delta_g * line
         b = b0 + delta_b * line
         color = _make_color(r, g, b)
-        x = x0 + line
         draw_line(canvas, x, y0, x, y1, width=1, fill=color)
 
 
-def draw_polygon(canvas, x0, y0, x1, y1, x2, y2, *args,
+def draw_polygon(canvas, x0, y0, x1, y1, x2, y2, *coords,
         width=1, outline="black", fill=""):
-    """Draw a polygon with vertices (x0, y0), (x1, y1), ... (xn, yn).
+    """Draw a polygon with vertices at (x0, y0), (x1, y1), ... (xn, yn).
     The polygon is always a closed polygon the same quantity of segments
     as vertices. In other words, the segments are defined as follows:
     (x0, y0) -> (x1, y1) -> ... -> (xn, yn) -> (x0, y0)
@@ -327,19 +319,19 @@ def draw_polygon(canvas, x0, y0, x1, y1, x2, y2, *args,
     for name, coord in (("x0", x0), ("y0", y0), ("x1", x1), ("y1", y1),
                         ("x2", x2), ("y2", y2)):
         assert isinstance(coord, Number), _wrong_type(name, coord, "number")
-    for arg in args:
-        assert isinstance(arg, Number), "each coordinate must be a number"
+    for coord in coords:
+        assert isinstance(coord, Number), "each coordinate must be a number"
     assert isinstance(width, Number), _wrong_type_2("width", width, "number", 0)
     assert width >= 0, _less_than("width", width, 0)
     for name, param in (("outline", outline), ("fill", fill)):
         assert isinstance(param, str), _wrong_type(name, param, "string")
 
     height = canvas.winfo_height()
-    args = list(args)
-    for i in range(1, len(args), 2):
-        args[i] = height - args[i]
+    coords = list(coords)
+    for i in range(1, len(coords), 2):
+        coords[i] = height - coords[i]
     canvas.create_polygon(x0, height-y0, x1, height-y1, x2, height-y2,
-            *args, width=width, outline=outline, fill=fill)
+            *coords, width=width, outline=outline, fill=fill)
 
 
 def draw_text(canvas, center_x, center_y, text, *, fill="black"):
@@ -394,25 +386,25 @@ def _hex_str(n):
     return s
 
 
-def _wrong_type(name, arg, expected):
+def _wrong_type(name, param, expected):
     # Of course, it's possible to rewrite this function so that it
-    # includes an assertion statement which would make less code in this
-    # file. Unfortunately, placing the assert in this function adds
-    # another level to the stack trace that is printed when the computer
-    # raises an AssertionError. It's best not to have the additional
-    # level in the stack trace because the error messages in this file
-    # are for students.
+    # includes an assertion statement which would make less code in
+    # this file. Unfortunately, placing the assert in this function
+    # adds another level to the stack trace that is printed when the
+    # computer raises an AssertionError. It's best not to have the
+    # additional level in the stack trace because the error messages
+    # in this file are for students.
     return f"wrong data type for parameter {name};" \
-        f" {name} is a {type(arg)} but must be a {expected}"
+        f" {name} is a {type(param)} but must be a {expected}"
 
 
-def _wrong_type_2(name, arg, expected, minimum):
-    return _wrong_type(name, arg, expected) + \
+def _wrong_type_2(name, param, expected, minimum):
+    return _wrong_type(name, param, expected) + \
         f" greater than or equal to {minimum}"
 
 
-def _less_than(name, arg, minimum):
-    return f"parameter {name} is {arg}" \
+def _less_than(name, param, minimum):
+    return f"parameter {name} is {param}" \
         " but must be greater than or equal to {minimum}"
 
 
