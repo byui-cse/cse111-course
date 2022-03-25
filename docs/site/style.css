@@ -390,11 +390,11 @@ article ul.mixed > li.video {
 	padding-left: 34px;
 }
 
-article ul.note {
+article ul.notes {
 	list-style-type: "*";
 }
 
-article ul.note > li {
+article ul.notes > li {
 	padding-left: 0.4em;
 	color: var(--bullet-fg-color);
 }
