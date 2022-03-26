@@ -383,8 +383,8 @@ def read_compound_list(filename):
         # The reader object returns each row as a list.
         for row_list in reader:
 
-            # If the current row is blank,
-            # this if statement will skip it.
+            # If the current row is not blank,
+            # append it to the compound_list.
             if len(row_list) != 0:
 
                 # Append one row from the CSV
@@ -417,7 +417,7 @@ if __name__ == "__main__":
     The program in example&nbsp;5 shows how to read the data from a CSV
     file into a compound dictionary. Notice in example&nbsp;5, because
     of lines&nbsp;<span class="cross" data-ref="ex5">9,&nbsp;14,
-    54,&nbsp;and&nbsp;58</span>, that the program uses the dental office
+    58,&nbsp;and&nbsp;62</span>, that the program uses the dental office
     phone numbers as the keys in the dictionary.</p>
 
 <div class="pre" id="ex5"><pre class="linenums"></pre>
@@ -472,8 +472,8 @@ def read_dict(filename, key_column_index):
         # The reader object returns each row as a list.
         for row_list in reader:
 
-            # If the current row is blank,
-            # this if statement will skip it.
+            # If the current row is not blank, add the
+            # data from the current to the dictionary.
             if len(row_list) != 0:
 
                 # From the current row, retrieve the data
