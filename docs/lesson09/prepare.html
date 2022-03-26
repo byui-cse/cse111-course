@@ -383,9 +383,13 @@ def read_compound_list(filename):
         # The reader object returns each row as a list.
         for row_list in reader:
 
-            # Append one row from the CSV file to the
-            # compound list.
-            compound_list.append(row_list)
+            # If the current row is blank,
+            # this if statement will skip it.
+            if len(row_list) != 0:
+
+                # Append one row from the CSV
+                # file to the compound list.
+                compound_list.append(row_list)
 
     # Return the compound list.
     return compound_list
@@ -468,13 +472,17 @@ def read_dict(filename, key_column_index):
         # The reader object returns each row as a list.
         for row_list in reader:
 
-            # From the current row, retrieve the data
-            # from the column that contains the key.
-            key = row_list[key_column_index]
+            # If the current row is blank,
+            # this if statement will skip it.
+            if len(row_list) != 0:
 
-            # Store the data from the current row
-            # into the dictionary.
-            dictionary[key] = row_list
+                # From the current row, retrieve the data
+                # from the column that contains the key.
+                key = row_list[key_column_index]
+
+                # Store the data from the current
+                # row into the dictionary.
+                dictionary[key] = row_list
 
     # Return the dictionary.
     return dictionary
