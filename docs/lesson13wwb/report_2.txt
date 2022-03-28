@@ -1,0 +1,25 @@
+Second Report for a Student Chosen Program
+
+Do the following:
+
+1. In the table below, list the dates, amount of time spent, and
+description of the work that you did on your program. Follow the example
+that is in the first row of the table. Include the time you spent doing
+any of the following:
+    a. discussing your program with your teacher, tutor, or fellow students
+    b. researching by reading articles and watching applicable videos
+    c. designing your program by drawing diagrams and other applicable documents
+    d. writing experimental code
+    d. writing code for your program
+    e. writing test functions
+    f. debugging your code
+    g. any other activity that helped you complete your program
+
+            Time Spent
+   Date       (hours)   Description of Work
+----------  ----------  -------------------------
+2021-12-03      2.5     Wrote two program functions and two test functions
+
+
+2. In I-Learn, submit this completed text file, your Python program, your
+Python test file, and any data program files such as .txt and .csv files.
