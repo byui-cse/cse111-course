@@ -24,6 +24,7 @@ Advantages of tkinter over kivy
 
 from tkinter import Tk, Frame, Canvas, BOTH
 from numbers import Number
+import math
 
 _started = False
 
@@ -189,7 +190,7 @@ def draw_rectangle(canvas, x0, y0, x1, y1, *,
 
 
 def draw_vertical_gradient(canvas, x0, y0, color0, x1, y1, color1):
-    """Draw a rectangle with a vertical gradient from color0 to color0.
+    """Draw a rectangle with a vertical gradient from color0 to color1.
     The two corners of the rectangle will be at (x0, y0), (x1, y1).
     y0 must be less than y1.
 
@@ -244,7 +245,7 @@ def draw_vertical_gradient(canvas, x0, y0, color0, x1, y1, color1):
 
 
 def draw_horizontal_gradient(canvas, x0, y0, color0, x1, y1, color1):
-    """Draw a rectangle with a horizontal gradient from color0 to color0.
+    """Draw a rectangle with a horizontal gradient from color0 to color1.
     The two corners of the rectangle will be at (x0, y0), (x1, y1).
     x0 must be less than x1.
 
@@ -296,6 +297,65 @@ def draw_horizontal_gradient(canvas, x0, y0, color0, x1, y1, color1):
         b = b0 + delta_b * line
         color = _make_color(r, g, b)
         draw_line(canvas, x, y0, x, y1, width=1, fill=color)
+
+
+def draw_circle_with_vert_grad(canvas, center_x, center_y, radius,
+        color_center, color_edge):
+    """Draw a circle with a vertical gradient from the center to both
+    the top and bottom edges. The center of the circle will be at
+    (center_x, center_y).
+
+    Parameters
+        canvas: the canvas returned from the start_drawing function
+        radius: the radius in pixels of the circle
+        color_center: a list containing three integers for the red,
+            green, and blue of the center of the circle. Each integer
+            must be between 0 and 255 inclusive.
+        color_edge: a list containing three integers for the red, green,
+            and blue of the top and bottom edges of the circle. Each
+            integer must be between 0 and 255 inclusive.
+    Return: nothing
+    """
+    assert _started, \
+        "your program must call start_drawing before it calls draw_circle_with_vert_grad"
+    assert isinstance(canvas, Canvas), _wrong_type("canvas", canvas, "Canvas")
+    for name, coord in (("center_x", center_x), ("center_y", center_y)):
+        assert isinstance(coord, Number), _wrong_type(name, coord, "number")
+    for name, color in (("color_center", color_center),
+            ("color_edge", color_edge)):
+        assert isinstance(color, list) or isinstance(color, tuple), \
+            _wrong_type(name, color, "list or tuple")
+        assert len(color) == 3, \
+            f"{name} must be a list or tuple containing three integers between 0 and 255 inclusive"
+        for channel in color:
+            assert isinstance(channel, int), \
+                f"{name} must be a list or tuple containing three integers between 0 and 255 inclusive"
+            assert 0 <= channel <= 255, \
+                f"{name} must be a list or tuple containing three integers between 0 and 255 inclusive"
+
+    # Separate color_center into its three channels: red, green, and blue.
+    rc, gc, bc = color_center
+
+    # Separate color_edge into its three channels: red, green, and blue.
+    re, ge, be = color_edge
+
+    diff_y = 2 * radius
+    delta_r = (re - rc) / diff_y
+    delta_g = (ge - gc) / diff_y
+    delta_b = (be - bc) / diff_y
+
+    for line in range(radius):
+        r = rc + delta_r * line
+        g = gc + delta_g * line
+        b = bc + delta_b * line
+        color = _make_color(r, g, b)
+        x = math.sqrt(radius**2 - line**2)
+        x0 = center_x - x
+        x1 = center_x + x
+        y0 = center_y - line
+        draw_line(canvas, x0, y0, x1, y0, width=1, fill=color)
+        y1 = center_y + line
+        draw_line(canvas, x0, y1, x1, y1, width=1, fill=color)
 
 
 def draw_polygon(canvas, x0, y0, x1, y1, x2, y2, *coords,
