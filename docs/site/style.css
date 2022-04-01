@@ -1,7 +1,7 @@
 @import url("reset.css");
-@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Crimson+Pro&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
 
 @font-face {
 	font-family: 'icomoon';
@@ -82,7 +82,7 @@ body {
 }
 @media print {
 	body {
-		font-family: "Crimson Pro", "Times New Roman", Georgia, serif;
+		font-family: "Crimson Pro", Georgia, "Times New Roman", serif;
 
 		--bk-color: white;
 		--fg-color: black;
@@ -647,15 +647,15 @@ article pre {
 @media screen {
 	article code,
 	article pre {
-		font-size: 98%;
+		font-size: 95%;
 	}
 }
 @media print {
 	article code {
-		font-size: 80%;
+		font-size: 78%;
 	}
 	article pre {
-		font-size: 78%;
+		font-size: 75%;
 	}
 }
 
@@ -667,7 +667,7 @@ article code em {
 
 /* Container for console (terminal) input and output. */
 article pre.console {
-	margin: 1em 0 1em 1.5em;
+	margin: 1em 0 1em 1.25em;
 	border: 1px solid var(--border);
 	background-color: var(--console-bk-color);
 	padding: 0.25em 0.5em;
@@ -693,7 +693,7 @@ article pre.console span.fail {
 article div.pre {
 	display: table;
 	position: relative;
-	margin: 1em auto 1em 1.5em;
+	margin: 1em auto 1em 1.25em;
 	border: 1px solid var(--border);
 	background-color: var(--python-bk-color);
 	padding: 0.25em 0.5em;

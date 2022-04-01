@@ -56,9 +56,9 @@ def main():
 
 
 def estimate_reduction(row, behavior_key, perc_reduc):
-    """Estimate and return the number of injuries and deaths that would
-    not have occurred on U.S. roads and highways if drivers had reduced
-    a dangerous behavior by a given percentage.
+    """Estimate and return the number of injuries and deaths that
+    would not have occurred on U.S. roads and highways if drivers
+    had reduced a dangerous behavior by a given percentage.
 
     Parameters
         row: a CSV row of data from the U.S. National Highway Traffic

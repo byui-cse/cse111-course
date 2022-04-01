@@ -25,9 +25,8 @@ def main():
         with open(filename, "rt") as infile:
 
             # Get a percentage from the user.
-            perc_reduc = get_float(
-                "Percent reduction of texting while driving [0, 100]: ",
-                0, 100)
+            perc_reduc = get_float("Percent reduction of texting"
+                " while driving [0, 100]: ", 0, 100)
 
             print()
             print(f"With a {perc_reduc}% reduction in using a cell",
@@ -41,9 +40,9 @@ def main():
             # object that will read from the opened file.
             reader = csv.reader(infile)
 
-            # The first line of the CSV file contains column headings
-            # and not a student's I-Number and name, so this statement
-            # skips the first line of the CSV file.
+            # The first line of the CSV file contains column
+            # headings and not a student's I-Number and name, so
+            # this statement skips the first line of the CSV file.
             next(reader)
 
             # Process each row in the CSV file.
@@ -66,12 +65,13 @@ def main():
         print("Error:", val_err)
 
     except (csv.Error, KeyError) as error:
-        print(f"Error: line {reader.line_num} of {infile.name} is"
-                " formatted incorrectly.")
+        print(f"Error: line {reader.line_num} of {infile.name}"
+                " is formatted incorrectly.")
 
     except ZeroDivisionError as zero_div_err:
-        print(f"Error: line {reader.line_num} of {infile.name} contains"
-                " 0 in the 'Fatal Crashes' or 'Cell Phone Use' column.")
+        print(f"Error: line {reader.line_num} of {infile.name}"
+                " contains 0 in the 'Fatal Crashes' or"
+                "'Cell Phone Use' column.")
 
 
 def get_float(prompt, lower_bound, upper_bound):
@@ -79,8 +79,10 @@ def get_float(prompt, lower_bound, upper_bound):
 
     Parameters
         prompt: A string to display to the user.
-        lower_bound: The lowest (smallest) number that the user may enter.
-        upper_bound: The highest (largest) number that the user may enter.
+        lower_bound: The lowest (smallest) number
+            that the user may enter.
+        upper_bound: The highest (largest) number
+            that the user may enter.
     Return: The number that the user entered.
     """
     number = None
@@ -102,13 +104,13 @@ def get_float(prompt, lower_bound, upper_bound):
 
 
 def estimate_reduction(row, behavior_key, perc_reduc):
-    """Estimate and return the number of injuries and deaths that would
-    not have occurred on U.S. roads and highways if drivers had reduced
-    a dangerous behavior by a given percentage.
+    """Estimate and return the number of injuries and deaths that
+    would not have occurred on U.S. roads and highways if drivers
+    had reduced a dangerous behavior by a given percentage.
 
     Parameters
-        row: a CSV row of data from the U.S. National Highway Traffic
-            Safety Administration (NHTSA)
+        row: a CSV row of data from the U.S. National Highway
+            Traffic Safety Administration (NHTSA)
         behavior_key: heading from the CSV file for the dangerous
             behavior that drivers could reduce
         perc_reduc: percent that drivers could reduce a dangerous

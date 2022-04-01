@@ -25,13 +25,13 @@ def main():
 
 
 # The controls in a graphical user interface (GUI) are called widgets,
-# and each widget is an object. Because a GUI has many widgets and each
-# widget is an object, the code to make a GUI usually has many variables
-# to store the many objects. Because there are so many variable names,
-# programmers often adopt a naming convention to help a programmer keep
-# track of all the variables. One popular naming convention is to type a
-# three letter prefix in front of the names of all variables that store
-# GUI widgets, according to this list:
+# and each widget is an object. Because a GUI has many widgets and
+# each widget is an object, the code to make a GUI usually has many
+# variables to store the many objects. Because there are so many
+# variable names, programmers often adopt a naming convention to help
+# a programmer keep track of all the variables. One popular naming
+# convention is to type a three letter prefix in front of the names
+# of all variables that store GUI widgets, according to this list:
 #
 # frm: a frame (window) widget
 # lbl: a label widget that displays text for the user to see
@@ -85,8 +85,8 @@ def populate_main_window(frm_main):
             a = ent_ratio.get()
             d = ent_diam.get()
 
-            # Compute the tire volume.
-            v = (math.pi * w * w * a * (w * a + 2540 * d)) / 10_000_000
+            # Compute the tire volume in liters.
+            v = (math.pi * w * w * a * (w * a + 2540 * d)) / 10_000_000_000
 
             # Display the volume rounded to one place after
             # the decimal for the for the user to see.

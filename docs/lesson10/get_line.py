@@ -52,9 +52,9 @@ def main():
                 " the line number.")
 
     except IndexError as index_err:
-        # This code will be executed if the user enters a valid integer
-        # for the line number, but the integer is negative or the
-        # integer is greater than the number of lines in the file.
+        # This code will be executed if the user enters a valid
+        # integer for the line number, but the integer is greater
+        # than the number of lines in the file.
         print()
         print(type(index_err).__name__, index_err, sep=": ")
         length = len(text_lines)

@@ -11,7 +11,9 @@ import pytest
 
 
 def test_make_full_name():
-    """Verify that the make_full_name function returns correct results.
+    """Verify that the make_full_name
+    function returns correct results.
+
     Parameters: none
     Return: nothing
     """
@@ -24,6 +26,7 @@ def test_make_full_name():
 def test_extract_family_name():
     """Verify that the extract_family_name
     function returns correct results.
+
     Parameters: none
     Return: nothing
     """
@@ -36,6 +39,7 @@ def test_extract_family_name():
 def test_extract_given_name():
     """Verify that the extract_given_name
     function returns correct results.
+
     Parameters: none
     Return: nothing
     """

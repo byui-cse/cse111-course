@@ -91,10 +91,11 @@ class FormulaError(ValueError):
 
 
 def parse_formula(formula, periodic_table_dict):
-    """Convert a chemical formula for a molecule into a compound list
-    that stores the quantity of atoms of each element in the molecule.
-    For example, this function will convert "H2O" to [["H", 2], ["O", 1]]
-    and "PO4H2(CH2)12CH3" to [["P", 1], ["O", 4], ["H", 29], ["C", 13]]
+    """Convert a chemical formula for a molecule into a compound
+    list that stores the quantity of atoms of each element
+    in the molecule. For example, this function will convert
+    "H2O" to [["H", 2], ["O", 1]] and
+    "PO4H2(CH2)12CH3" to [["P", 1], ["O", 4], ["H", 29], ["C", 13]]
 
     Parameters
         formula: a string that contains a chemical formula
@@ -116,13 +117,13 @@ def parse_formula(formula, periodic_table_dict):
         if index &lt; len(formula) and formula[index].isdecimal():
             start = index
             index += 1
-            while index &lt; len(formula) and formula[index].isdecimal():
+            while index&lt;len(formula) and formula[index].isdecimal():
                 index += 1
             quant = int(formula[start:index])
         return quant, index
 
-    def get_quant(elems, symbol):
-        return 0 if symbol not in elems else elems[symbol]
+    def get_quant(elem_dict, symbol):
+        return 0 if symbol not in elem_dict else elem_dict[symbol]
 
     def parse_r(formula, index, level):
         start_index = index
@@ -131,11 +132,12 @@ def parse_formula(formula, periodic_table_dict):
         while index &lt; len(formula):
             ch = formula[index]
             if ch == "(":
-                group_dict, index = parse_r(formula, index+1, level+1)
+                group_dict, index = parse_r(formula,index+1,level+1)
                 quant, index = parse_quant(formula, index)
                 for symbol in group_dict:
                     prev = get_quant(elem_dict, symbol)
-                    elem_dict[symbol] = prev + group_dict[symbol] * quant
+                    curr = prev + group_dict[symbol] * quant
+                    elem_dict[symbol] = curr
             elif ch.isalpha():
                 symbol = formula[index:index+2]
                 if symbol in periodic_table_dict:
@@ -145,16 +147,16 @@ def parse_formula(formula, periodic_table_dict):
                     if symbol in periodic_table_dict:
                         index += 1
                     else:
-                        raise FormulaError(
-                            "invalid formula, unknown element symbol:",
+                        raise FormulaError("invalid formula, "
+                            f"unknown element symbol: {symbol}",
                             formula, index)
                 quant, index = parse_quant(formula, index)
                 prev = get_quant(elem_dict, symbol)
                 elem_dict[symbol] = prev + quant
             elif ch == ")":
                 if level == 0:
-                    raise FormulaError(
-                        "invalid formula, unmatched close parenthesis:",
+                    raise FormulaError("invalid formula, "
+                        "unmatched close parenthesis",
                         formula, index)
                 level -= 1
                 index += 1
@@ -163,14 +165,14 @@ def parse_formula(formula, periodic_table_dict):
                 if ch.isdecimal():
                     # Decimal digit not preceded by an
                     # element symbol or close parenthesis
-                    message = "invalid formula:"
+                    message = "invalid formula"
                 else:
                     # Illegal character: [^()0-9a-zA-Z]
-                    message = "invalid formula, illegal character:"
+                    message = "invalid formula, illegal character"
                 raise FormulaError(message, formula, index)
         if level &gt; 0 and level &gt;= start_level:
-            raise FormulaError(
-                "invalid formula, unmatched open parenthesis:",
+            raise FormulaError("invalid formula, "
+                "unmatched open parenthesis",
                 formula, start_index - 1)
         return elem_dict, index
 

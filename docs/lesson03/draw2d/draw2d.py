@@ -3,8 +3,8 @@
 """
 This is a library of drawing functions used by BYU-Idaho CSE 111
 students to complete an assignment that draws an outdoor scene to a
-window. The intent of the assignment is to teach students to separate a
-large program into functions with parameters.
+window. The intent of the assignment is to teach students to separate
+a large program into functions with parameters.
 
 The functions in this library are simply wrapper functions that create
 and use tkinter objects. The benefits provided by these wrapper
@@ -128,8 +128,8 @@ def draw_oval(canvas, x0, y0, x1, y1, *,
 
 def draw_arc(canvas, x0, y0, x1, y1, *,
         start=0, extent=90, width=1, outline="black", fill=""):
-    """Draw a wedge shaped slice taken from an oval (ellipse) defined by
-        the bounding box coordinates (x0, y0), (x1, y1).
+    """Draw a wedge shaped slice taken from an oval (ellipse) defined
+    by the bounding box coordinates (x0, y0), (x1, y1).
 
     Parameters
         canvas: the canvas returned from the start_drawing function
@@ -214,12 +214,15 @@ def draw_vertical_gradient(canvas, x0, y0, color0, x1, y1, color1):
         assert isinstance(color, list) or isinstance(color, tuple), \
             _wrong_type(name, color, "list or tuple")
         assert len(color) == 3, \
-            f"{name} must be a list or tuple containing three integers between 0 and 255 inclusive"
+            f"{name} must be a list or tuple containing three" \
+            " integers between 0 and 255 inclusive"
         for channel in color:
             assert isinstance(channel, int), \
-                f"{name} must be a list or tuple containing three integers between 0 and 255 inclusive"
+                f"{name} must be a list or tuple containing three" \
+                " integers between 0 and 255 inclusive"
             assert 0 <= channel <= 255, \
-                f"{name} must be a list or tuple containing three integers between 0 and 255 inclusive"
+                f"{name} must be a list or tuple containing three" \
+                " integers between 0 and 255 inclusive"
 
     # Separate color0 into its three channels: red, green, and blue.
     r0, g0, b0 = color0
@@ -269,12 +272,15 @@ def draw_horizontal_gradient(canvas, x0, y0, color0, x1, y1, color1):
         assert isinstance(color, list) or isinstance(color, tuple), \
             _wrong_type(name, color, "list or tuple")
         assert len(color) == 3, \
-            f"{name} must be a list or tuple containing three integers between 0 and 255 inclusive"
+            f"{name} must be a list or tuple containing three" \
+            " integers between 0 and 255 inclusive"
         for channel in color:
             assert isinstance(channel, int), \
-                f"{name} must be a list or tuple containing three integers between 0 and 255 inclusive"
+                f"{name} must be a list or tuple containing three" \
+                " integers between 0 and 255 inclusive"
             assert 0 <= channel <= 255, \
-                f"{name} must be a list or tuple containing three integers between 0 and 255 inclusive"
+                f"{name} must be a list or tuple containing three" \
+                " integers between 0 and 255 inclusive"
 
     # Separate color0 into its three channels: red, green, and blue.
     r0, g0, b0 = color0
@@ -311,9 +317,9 @@ def draw_circle_with_vert_grad(canvas, center_x, center_y, radius,
         color_center: a list containing three integers for the red,
             green, and blue of the center of the circle. Each integer
             must be between 0 and 255 inclusive.
-        color_edge: a list containing three integers for the red, green,
-            and blue of the top and bottom edges of the circle. Each
-            integer must be between 0 and 255 inclusive.
+        color_edge: a list containing three integers for the red,
+            green, and blue of the top and bottom edges of the circle.
+            Each integer must be between 0 and 255 inclusive.
     Return: nothing
     """
     assert _started, \
@@ -326,12 +332,15 @@ def draw_circle_with_vert_grad(canvas, center_x, center_y, radius,
         assert isinstance(color, list) or isinstance(color, tuple), \
             _wrong_type(name, color, "list or tuple")
         assert len(color) == 3, \
-            f"{name} must be a list or tuple containing three integers between 0 and 255 inclusive"
+            f"{name} must be a list or tuple containing three" \
+            " integers between 0 and 255 inclusive"
         for channel in color:
             assert isinstance(channel, int), \
-                f"{name} must be a list or tuple containing three integers between 0 and 255 inclusive"
+                f"{name} must be a list or tuple containing three" \
+                " integers between 0 and 255 inclusive"
             assert 0 <= channel <= 255, \
-                f"{name} must be a list or tuple containing three integers between 0 and 255 inclusive"
+                f"{name} must be a list or tuple containing three" \
+                " integers between 0 and 255 inclusive"
 
     # Separate color_center into its three channels: red, green, and blue.
     rc, gc, bc = color_center
@@ -464,13 +473,13 @@ def _wrong_type_2(name, param, expected, minimum):
 
 
 def _less_than(name, param, minimum):
-    return f"parameter {name} is {param}" \
-        " but must be greater than or equal to {minimum}"
+    return f"parameter {name} is {param} but" \
+        " must be greater than or equal to {minimum}"
 
 
 if __name__ == "__main__":
     assert False, \
-    f"{__file__} is not a program. It is a library of functions that" \
-    " draw 2-dimensional shapes to a canvs in a computer window. You" \
-    " are not supposed to run this file but instead import its" \
-    " functions into your program and run your program."
+    f"{__file__} is not a program. It is a library of functions" \
+    " that draw 2-dimensional shapes to a canvas in a computer" \
+    " window. You are not supposed to run this file but instead" \
+    " import its functions into your program and run your program."

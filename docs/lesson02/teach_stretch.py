@@ -34,7 +34,7 @@ while price != 0:
 # Round the subtotal to two digits after
 # the decimal and print the subtotal.
 subtotal = round(subtotal, 2)
-print(f"Subtotal: {subtotal}")
+print(f"Subtotal: {subtotal:.2f}")
 print()
 
 # Call the now() method to get the current
@@ -51,17 +51,18 @@ weekday = current_date_and_time.weekday()
 if weekday == 1 or weekday == 2:
     if subtotal < 50:
         lacking = 50 - subtotal
-        print(f"To receive the discount, add {lacking} to your order.")
+        print("To receive the discount, add"
+                f" {lacking:.2f} to your order.")
     else:
         discount = round(subtotal * DISC_RATE, 2)
-        print(f"Discount amount: {discount}")
+        print(f"Discount amount: {discount:.2f}")
         subtotal -= discount
 
 # Compute the sales tax. Notice that we compute the sales tax
 # after computing the discount because the customer does not
 # pay sales tax on the full price but on the discounted price.
 sales_tax = round(subtotal * SALES_TAX_RATE, 2)
-print(f"Sales tax amount: {sales_tax}")
+print(f"Sales tax amount: {sales_tax:.2f}")
 
 # Compute the total by adding the subtotal and the sales tax.
 total = subtotal + sales_tax

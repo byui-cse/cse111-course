@@ -24,13 +24,13 @@ def main():
 
 
 # The controls in a graphical user interface (GUI) are called widgets,
-# and each widget is an object. Because a GUI has many widgets and each
-# widget is an object, the code to make a GUI usually has many variables
-# to store the many objects. Because there are so many variable names,
-# programmers often adopt a naming convention to help a programmer keep
-# track of all the variables. One popular naming convention is to type a
-# three letter prefix in front of the names of all variables that store
-# GUI widgets, according to this list:
+# and each widget is an object. Because a GUI has many widgets and
+# each widget is an object, the code to make a GUI usually has many
+# variables to store the many objects. Because there are so many
+# variable names, programmers often adopt a naming convention to help
+# a programmer keep track of all the variables. One popular naming
+# convention is to type a three letter prefix in front of the names
+# of all variables that store GUI widgets, according to this list:
 #
 # frm: a frame (window) widget
 # lbl: a label widget that displays text for the user to see
@@ -68,7 +68,7 @@ def populate_main_window(frm_main):
     lbl_rates.grid(row=0, column=2, padx=(30,3), pady=3)
     lbl_slow.grid( row=0, column=3, padx=3, pady=3)
     lbl_fast.grid( row=0, column=4, padx=3, pady=3)
-    btn_clear.grid(row=1, column=0, padx=3, pady=3, columnspan=5, sticky="W")
+    btn_clear.grid(row=1, column=0, padx=3, pady=3, columnspan=5, sticky="w")
 
 
     # This function will be called each time the user releases a key.

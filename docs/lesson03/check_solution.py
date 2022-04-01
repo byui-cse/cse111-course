@@ -21,13 +21,16 @@ call the the input or print functions.
 
 def main():
     # Get an odometer value in U.S. miles from the user.
-    start_miles = float(input("Enter the first odometer reading (miles): "))
+    start_miles = float(input(
+            "Enter the first odometer reading (miles): "))
 
     # Get another odometer value in U.S. miles from the user.
-    end_miles = float(input("Enter the second odometer reading (miles): "))
+    end_miles = float(input(
+            "Enter the second odometer reading (miles): "))
 
     # Get a fuel amount in U.S. gallons from the user.
-    amount_gallons = float(input("Enter the amount of fuel used (gallons): "))
+    amount_gallons = float(input(
+            "Enter the amount of fuel used (gallons): "))
 
     # Call the miles_per_gallon function and store
     # the result in a variable named mpg.

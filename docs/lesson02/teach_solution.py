@@ -31,14 +31,14 @@ weekday = current_date_and_time.weekday()
 # Tuesday or Wednesday, compute the discount amount.
 if subtotal >= 50 and (weekday == 1 or weekday == 2):
     discount = round(subtotal * DISC_RATE, 2)
-    print(f"Discount amount: {discount}")
+    print(f"Discount amount: {discount:.2f}")
     subtotal -= discount
 
 # Compute the sales tax. Notice that we compute the sales tax
 # after computing the discount because the customer does not
 # pay sales tax on the full price but on the discounted price.
 sales_tax = round(subtotal * SALES_TAX_RATE, 2)
-print(f"Sales tax amount: {sales_tax}")
+print(f"Sales tax amount: {sales_tax:.2f}")
 
 # Compute the total by adding the subtotal and the sales tax.
 total = subtotal + sales_tax

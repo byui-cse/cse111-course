@@ -64,7 +64,7 @@ def call_read_dict(filename, key_column_index):
     min_len = 1
     max_len = 2
     assert length == min_len or length == max_len, \
-        f"The read_dict function contains too " \
+        "The read_dict function contains too " \
         f"{'few' if length < min_len else 'many'} parameters; " \
         f"expected {min_len} or {max_len} parameters but found {length}"
     if length == min_len:
