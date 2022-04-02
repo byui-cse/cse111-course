@@ -1,7 +1,7 @@
 # Copyright 2020, Brigham Young University-Idaho. All rights reserved.
 
 import tkinter as tk
-import number_entry as numy
+import number_entry as nent
 
 
 def main():
@@ -50,7 +50,7 @@ def populate_main_window(frm_main):
     lbl_age = tk.Label(frm_main, text="Age:")
 
     # Create a integer entry box where the user will enter her age.
-    ent_age = numy.IntEntry(frm_main, 1, 90, width=5)
+    ent_age = nent.IntEntry(frm_main, 12, 90, width=5)
 
     # Create a label that displays "Rates:"
     lbl_rates = tk.Label(frm_main, text="Rates:")

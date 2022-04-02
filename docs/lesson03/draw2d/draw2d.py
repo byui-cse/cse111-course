@@ -223,6 +223,7 @@ def draw_vertical_gradient(canvas, x0, y0, color0, x1, y1, color1):
             assert 0 <= channel <= 255, \
                 f"{name} must be a list or tuple containing three" \
                 " integers between 0 and 255 inclusive"
+    height = canvas.winfo_height()
 
     # Separate color0 into its three channels: red, green, and blue.
     r0, g0, b0 = color0
@@ -239,12 +240,12 @@ def draw_vertical_gradient(canvas, x0, y0, color0, x1, y1, color1):
 
     # Draw the gradient, one line at a time.
     for line in range(diff_y):
-        y = y0 + line
+        y = height - (y0 + line)
         r = r0 + delta_r * line
         g = g0 + delta_g * line
         b = b0 + delta_b * line
         color = _make_color(r, g, b)
-        draw_line(canvas, x0, y, x1, y, width=1, fill=color)
+        canvas.create_line(x0, y, x1, y, width=1, fill=color)
 
 
 def draw_horizontal_gradient(canvas, x0, y0, color0, x1, y1, color1):
@@ -281,6 +282,7 @@ def draw_horizontal_gradient(canvas, x0, y0, color0, x1, y1, color1):
             assert 0 <= channel <= 255, \
                 f"{name} must be a list or tuple containing three" \
                 " integers between 0 and 255 inclusive"
+    height = canvas.winfo_height()
 
     # Separate color0 into its three channels: red, green, and blue.
     r0, g0, b0 = color0
@@ -295,6 +297,9 @@ def draw_horizontal_gradient(canvas, x0, y0, color0, x1, y1, color1):
     delta_g = (g1 - g0) / diff_x
     delta_b = (b1 - b0) / diff_x
 
+    y0 = height - y0
+    y1 = height - y1
+
     # Draw the gradient, one line at a time.
     for line in range(diff_x):
         x = x0 + line
@@ -302,7 +307,7 @@ def draw_horizontal_gradient(canvas, x0, y0, color0, x1, y1, color1):
         g = g0 + delta_g * line
         b = b0 + delta_b * line
         color = _make_color(r, g, b)
-        draw_line(canvas, x, y0, x, y1, width=1, fill=color)
+        canvas.create_line(x, y0, x, y1, width=1, fill=color)
 
 
 def draw_circle_with_vert_grad(canvas, center_x, center_y, radius,
@@ -341,6 +346,7 @@ def draw_circle_with_vert_grad(canvas, center_x, center_y, radius,
             assert 0 <= channel <= 255, \
                 f"{name} must be a list or tuple containing three" \
                 " integers between 0 and 255 inclusive"
+    height = canvas.winfo_height()
 
     # Separate color_center into its three channels: red, green, and blue.
     rc, gc, bc = color_center
@@ -361,10 +367,10 @@ def draw_circle_with_vert_grad(canvas, center_x, center_y, radius,
         x = math.sqrt(radius**2 - line**2)
         x0 = center_x - x
         x1 = center_x + x
-        y0 = center_y - line
-        draw_line(canvas, x0, y0, x1, y0, width=1, fill=color)
-        y1 = center_y + line
-        draw_line(canvas, x0, y1, x1, y1, width=1, fill=color)
+        y0 = height - (center_y - line)
+        canvas.create_line(x0, y0, x1, y0, width=1, fill=color)
+        y1 = height - (center_y + line)
+        canvas.create_line(x0, y1, x1, y1, width=1, fill=color)
 
 
 def draw_polygon(canvas, x0, y0, x1, y1, x2, y2, *coords,

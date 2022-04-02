@@ -2,7 +2,7 @@
 
 import math
 import tkinter as tk
-import number_entry as numy
+import number_entry as nent
 
 
 def main():
@@ -12,7 +12,7 @@ def main():
     # Create the main window. In tkinter,
     # a window is also called a frame.
     frm_main = tk.Frame(root)
-    frm_main.master.title("Heart Rate")
+    frm_main.master.title("Tire Volume")
     frm_main.pack(padx=4, pady=3, fill=tk.BOTH, expand=1)
 
     # Call the populate_main_window function, which will add
@@ -51,12 +51,12 @@ def populate_main_window(frm_main):
     lbl_width = tk.Label(frm_main, text="Width (mm):")
     lbl_ratio = tk.Label(frm_main, text="Aspect Ratio:")
     lbl_diam = tk.Label(frm_main, text="Diameter (in):")
-    lbl_vol = tk.Label(frm_main, text="Volume (cubic cm):")
+    lbl_vol = tk.Label(frm_main, text="Volume (liters):")
 
     # Create three text fields.
-    ent_width = numy.IntEntry(frm_main, 1, 300, width=5)
-    ent_ratio = numy.FloatEntry(frm_main, 1, 90, width=5)
-    ent_diam = numy.FloatEntry(frm_main, 1, 30, width=5)
+    ent_width = nent.IntEntry(frm_main, 80, 300, width=5)
+    ent_ratio = nent.FloatEntry(frm_main, 30, 90, width=5)
+    ent_diam = nent.FloatEntry(frm_main, 10, 30, width=5)
 
     # Create a label to display the result.
     lbl_result = tk.Label(frm_main, width=8, anchor="w")
@@ -78,7 +78,7 @@ def populate_main_window(frm_main):
 
     # This function is called each time the user releases a key.
     def calculate(event):
-        """Compute the approximate volume of a tire in cubic cm."""
+        """Compute the approximate volume of a tire in liters."""
         try:
             # Get the user input.
             w = ent_width.get()
