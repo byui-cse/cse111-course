@@ -31,11 +31,11 @@
     learn how to read the output of <code>pytest</code> to help you find
     and fix mistakes in your code.</p>
 
-    <h2>Concepts</h2>
+    <h2 id="concepts">Concepts</h2>
     <p>Here are the Python programming concepts and topics that you
     should learn during this lesson:</p>
 
-    <h3 id="ineff">Inefficient Testing</h3>
+    <h3 id="ineff_test">Inefficient Testing</h3>
     <p>During previous lessons, you tested your programs by running
     them, typing user input, reading the program's output, and verifying
     that the output was correct. This is a valid way to test a program.
@@ -50,7 +50,7 @@
     keep normal program code and test code in separate
     files.</p>
 
-    <h3>Assert Statements</h3>
+    <h3 id="assert">Assert Statements</h3>
     <p>In a computer program, an <dfn>assertion</dfn> is a statement
     that causes the computer to check if a comparison is true. When the
     computer checks the comparison, if the comparison is true, the
@@ -101,7 +101,7 @@ def deposit(amount):
 
     assert school_year != "senior"</pre></div>
 
-    <h3>The pytest Module</h3>
+    <h3 id="pytest">The pytest Module</h3>
     <p><a href="https://docs.pytest.org/en/latest/reference/reference.html"><code>pytest</code></a>
     is a third-party Python module that makes it easy to write and run
     test functions. There are other Python testing modules besides
@@ -132,7 +132,7 @@ def deposit(amount):
     <code>assert</code> statement will raise an exception which will
     cause <code>pytest</code> to print an error message.</p>
 
-    <h3>Comparing Floating Point Numbers</h3>
+    <h3 id="compare_floats">Comparing Floating Point Numbers</h3>
     <p>Within a computer's memory, everything (all numbers, text, sound,
     pictures, movies, everything) is stored using the binary number
     system. While executing a Python program, a computer stores integers
@@ -181,7 +181,7 @@ def deposit(amount):
     verifies that the value returned from <code>math.sqrt(5)</code> is
     within 1% (0.01) of 2.24.</p>
 
-    <h3>How to Test a Function</h3>
+    <h3 id="test_func">How to Test a Function</h3>
     <p>To test a function you should do the following:</p>
     <ol class="long">
         <li><div>Write a function that is part of your normal Python
@@ -362,7 +362,7 @@ if __name__ == "__main__":
     cause the computer to call the <code>main</code> function and start
     the program.</p>
 
-    <h3>Which Program Functions Should We Test?</h3>
+    <h3 id="test_which_funcs">Which Program Functions Should We Test?</h3>
     <p>Because we are responsible computer programmers and want to
     ensure that all of our program functions work correctly, we would
     like to test all program functions. In other words, we would like to
@@ -379,7 +379,7 @@ if __name__ == "__main__":
     because <code>main</code> usually gets user input and prints to a
     terminal window.</p>
 
-    <h2>Video</h2>
+    <h2 id="video">Video</h2>
     <p>Watch the following video that shows a BYU-Idaho faculty member
     writing two test functions and using pytest to run them.</p>
 
@@ -393,7 +393,7 @@ if __name__ == "__main__":
         </div></li>
     </ul>
 
-    <h2>Documentation</h2>
+    <h2 id="docs">Documentation</h2>
     <p>The official online documentation for <code>pytest</code>
     contains much more information about using <code>pytest</code>. The
     following pages are the most applicable to CSE&nbsp;111.</p>
@@ -405,7 +405,7 @@ if __name__ == "__main__":
         <li><div><a href="https://docs.pytest.org/en/latest/how-to/usage.html#calling-pytest-from-python-code"><code>pytest.main</code></a></div></li>
     </ul>
 
-    <h2>Summary</h2>
+    <h2 id="summary">Summary</h2>
     <p>During this lesson, you are learning to write test functions that
     automatically verify that program functions are working correctly.
     In CSE&nbsp;111, you will write test functions in a Python file that

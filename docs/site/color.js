@@ -91,9 +91,43 @@ cse111.color = {
 	},
 
 
+	addHyperlinkCopyIcons : function() {
+		const anchor = /#.*/;
+
+		const copyFunc = function(event) {
+			const span = event.currentTarget;
+			const heading = span.parentElement;
+			let url = window.location.href;
+			url = url.replace(anchor, '') + '#' + heading.getAttribute('id');
+
+			// Copy the URL to the clipboard.
+			const listener = function(event) {
+				event.clipboardData.setData('text/plain', url);
+				event.preventDefault();
+			};
+			document.addEventListener('copy', listener);
+			document.execCommand('copy');
+			document.removeEventListener('copy', listener);
+		};
+
+		const elems = document.querySelectorAll('h2[id], h3[id], h4[id]');
+		for (let i = 0;  i < elems.length;  ++i) {
+			let span = document.createElement('span');
+			span.classList.add('copy');
+			span.setAttribute('title', 'Copy URL to the clipboard');
+			span.addEventListener('click', copyFunc);
+			span.innerText = '¶';
+
+			let heading = elems[i];
+			heading.appendChild(span);
+		}
+	},
+
+
 	onDOMLoaded : function() {
 		cse111.color.addThemeHandler();
 		cse111.color.addTitles();
+		cse111.color.addHyperlinkCopyIcons();
 	}
 };
 

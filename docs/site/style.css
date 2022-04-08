@@ -23,7 +23,7 @@
 	--dark-bk-color: rgba(0, 0, 0, 1);
 	--dark-fg-color: rgba(184, 184, 184, 1);
 
-	--border: rgba(112, 112, 112, 1);
+	--border-color: rgba(112, 112, 112, 1);
 
 	--light-coral: rgba(255, 245, 242, 1);
 	--coral: rgba(255, 127, 80, 1);
@@ -239,6 +239,37 @@ article h4 {
 	page-break-after: avoid !important;
 }
 
+@media screen {
+	article h2 > span.copy,
+	article h3 > span.copy,
+	article h4 > span.copy {
+		font-size: smaller;
+		color: var(--dfn-fg-color);
+		margin: 0 0 0 0.5em;
+		cursor: pointer;
+		visibility: hidden;
+	}
+
+	article h2:hover > span.copy,
+	article h3:hover > span.copy,
+	article h4:hover > span.copy {
+		visibility: visible;
+	}
+
+	article h2 > span.copy:hover,
+	article h3 > span.copy:hover,
+	article h4 > span.copy:hover {
+		background-color: var(--console-bk-color);
+	}
+}
+@media print {
+	article h2 > span.copy,
+	article h3 > span.copy,
+	article h4 > span.copy {
+		display: none;
+	}
+}
+
 /* As of November 2021, Chrome doesn't honor "page-break-after: avoid",
 so changing "-after" to "-inside" plus the following code is a work
 around.
@@ -266,7 +297,7 @@ article blockquote {
 
 article div.search {
 	margin: 1em auto;
-	border: 1px solid var(--border);
+	border: 1px solid var(--border-color);
 	padding: 0.25em 0.5em;
 	white-space: pre-line;
 }
@@ -601,7 +632,7 @@ article figure.code {
 	 * figures with code in them, because the figure foreground
 	 * colors will not change if the reader switches to dark mode. */
 	margin: 1em auto 1em 1.5em;
-	border: 1px solid var(--border);
+	border: 1px solid var(--border-color);
 	background-color: var(--light-coral);
 	padding: 0;
 }
@@ -609,14 +640,14 @@ article figure.code {
 article figure.list {
 	display: table;
 	margin: 1em auto;
-	border: 1px solid var(--border);
+	border: 1px solid var(--border-color);
 }
 
 article figure > img {
 	max-width: 100%;
 }
 article figure > img.callgraph {
-	border: 1px solid var(--border);
+	border: 1px solid var(--border-color);
 }
 
 article figure > figcaption {
@@ -668,14 +699,14 @@ article code em {
 /* Container for console (terminal) input and output. */
 article pre.console {
 	margin: 1em 0 1em 1.25em;
-	border: 1px solid var(--border);
+	border: 1px solid var(--border-color);
 	background-color: var(--console-bk-color);
 	padding: 0.25em 0.5em;
 	page-break-inside: avoid !important;
 }
 
 article pre.console span.input {
-	border: 1px solid var(--border);
+	border: 1px solid var(--border-color);
 	padding: 0 0.25em;
 	background-color: var(--user-input-bk-color);
 	color: var(--user-input-fg-color);
@@ -694,7 +725,7 @@ article div.pre {
 	display: table;
 	position: relative;
 	margin: 1em auto 1em 1.25em;
-	border: 1px solid var(--border);
+	border: 1px solid var(--border-color);
 	background-color: var(--python-bk-color);
 	padding: 0.25em 0.5em;
 }
@@ -707,6 +738,7 @@ article div.pre.solution {
 		position: absolute;
 		top: 0.5em;
 		right: 0.25em;
+		cursor: pointer;
 		visibility: hidden;
 		background-color: var(--light-bk-color);
 	}
@@ -735,7 +767,7 @@ article div.pre > pre {
 article div.pre > pre.linenums {
 	padding-right: 1.25em;
 	text-align: right;
-	color: var(--border);
+	color: var(--border-color);
 }
 
 article div.pre > pre.linenums > .hi {
@@ -792,7 +824,7 @@ article table.contents tbody > tr > td { padding-top: 0.3em; }
 article table.contents tbody > tr > td:first-child { min-width: 10em; }
 
 article table.prec > tbody > tr > td {
-    border: 1px solid var(--border);
+    border: 1px solid var(--border-color);
 }
 article table.prec > tbody > tr > td.prec {
     border: none;
@@ -808,7 +840,7 @@ article figure.list > table > tbody > tr > td {
 }
 
 article figure.list > table > tbody > tr.elems > td {
-	border: 1px solid var(--border);
+	border: 1px solid var(--border-color);
 }
 
 article figure.list > table > tbody > tr > td.label {

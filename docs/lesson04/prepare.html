@@ -32,7 +32,7 @@
     default parameter values, and optional arguments and will help you
     understand functions better and write them more effectively.</p>
 
-    <h2 id="varScope">Variable Scope</h2>
+    <h2 id="var_scope">Variable Scope</h2>
     <p>The <dfn>scope</dfn> of a variable determines how long that
     variable exists and where it can be used. Within a Python program,
     there are two categories of scope: local and global. A variable has
@@ -117,11 +117,11 @@
     other in any way because the scope of each variable is local to the
     function where it is defined.</p>
 
-    <h3 id="ex3descr">Common Mistake</h3>
+    <h3 id="scope_mistake">Common Mistake</h3>
     <p>A common mistake that many programmers make is to assume that a
     local variable can be used inside other functions. For example, the
-    following Python program in example&nbsp;3 includes two functions
-    named <code>main</code> and <code>circle_area</code>.
+    Python program in example&nbsp;3 includes two functions named
+    <code>main</code> and <code>circle_area</code>.
     <span class="cross" data-ref="ex3">Line&nbsp;6</span>
     in <code>main</code> defines a variable named <var>radius</var>.
     Some programmers assume that the variable <var>radius</var> that is
@@ -189,7 +189,8 @@ main()</span></pre></div>
 Enter the radius of a circle: <span class="input">4.17</span>
 area: 54.6</pre>
 
-    <h2 id="defaultParams">Default Parameter Values and Optional Arguments</h2>
+    <h2 id="default_params">Default Parameter Values and Optional
+    Arguments</h2>
     <p>Python allows function parameters to have default values. If a
     parameter has a default value, then its corresponding argument is
     optional. If a function is called without an argument, the
@@ -290,7 +291,7 @@ len2: 22.1</pre>
     programs for CSE&nbsp;111, do your best to write functions that have
     these good properties.</p>
 
-    <h2>Summary</h2>
+    <h2 id="summary">Summary</h2>
     <p>During this lesson, you are studying variable scope, default
     parameter values, and optional arguments. A variable that is defined
     (assigned a value) inside a function has local scope, and it can be
