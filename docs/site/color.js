@@ -92,22 +92,26 @@ cse111.color = {
 
 
 	addHyperlinkCopyIcons : function() {
-		const anchor = /#.*/;
+		const regex = /#.*/;
 
 		const copyFunc = function(event) {
 			const span = event.currentTarget;
 			const heading = span.parentElement;
-			let url = window.location.href;
-			url = url.replace(anchor, '') + '#' + heading.getAttribute('id');
+			const url = window.location.href;
+			const anchor =  '#' + heading.getAttribute('id');
+			const newURL = url.replace(regex, '') + anchor;
 
-			// Copy the URL to the clipboard.
+			// Copy the new URL to the clipboard.
 			const listener = function(event) {
-				event.clipboardData.setData('text/plain', url);
+				event.clipboardData.setData('text/plain', newURL);
 				event.preventDefault();
 			};
 			document.addEventListener('copy', listener);
 			document.execCommand('copy');
 			document.removeEventListener('copy', listener);
+
+			// Load the new URL in the current browser window.
+			window.location.assign(anchor);
 		};
 
 		const elems = document.querySelectorAll('h2[id], h3[id], h4[id]');

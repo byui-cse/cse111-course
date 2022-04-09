@@ -611,15 +611,20 @@ article div.formula div.fract > div:last-child {
 /* Figures */
 article figure {
 	page-break-inside: avoid !important;
+	margin: 0 0 1em 0;
 }
 
 article figure.full {
-	margin: 1em 0;
+	margin: 0 0 1em 0;
+}
+
+article figure.code {
+	margin: 0 auto 1em 1.5em;
 }
 
 article figure.center {
 	display: table;
-	margin: 1em auto;
+	margin: 0 auto 1em auto;
 }
 
 article figure.right {
@@ -627,33 +632,28 @@ article figure.right {
 	margin: 0 0 1em 1em;
 }
 
-article figure.code {
-	/* Instead of --python-bk-color, we must use --light-coral for
-	 * figures with code in them, because the figure foreground
-	 * colors will not change if the reader switches to dark mode. */
-	margin: 1em auto 1em 1.5em;
-	border: 1px solid var(--border-color);
-	background-color: var(--light-coral);
-	padding: 0;
-}
-
 article figure.list {
-	display: table;
-	margin: 1em auto;
 	border: 1px solid var(--border-color);
 }
 
 article figure > img {
 	max-width: 100%;
 }
-article figure > img.callgraph {
+article figure.code > img {
+	border: 1px solid var(--border-color);
+	/* Instead of --python-bk-color, we must use --light-coral for
+	 * figures with code in them, because the figure foreground
+	 * colors will not change if the reader switches to dark mode. */
+	background-color: var(--light-coral);
+}
+article figure.callgraph > img {
 	border: 1px solid var(--border-color);
 }
 
 article figure > figcaption {
-	margin: 0;
 	font-size: 90%;
 	text-align: left;
+	margin: 0 0 1em 0;
 }
 
 
@@ -724,7 +724,7 @@ article pre.console span.fail {
 article div.pre {
 	display: table;
 	position: relative;
-	margin: 1em auto 1em 1.25em;
+	margin: 0 auto 1em 1.25em;
 	border: 1px solid var(--border-color);
 	background-color: var(--python-bk-color);
 	padding: 0.25em 0.5em;
@@ -759,9 +759,6 @@ article div.pre.solution {
 
 article div.pre > pre {
 	display: table-cell;
-	margin: 0;
-	border: 0;
-	padding: 0;
 }
 
 article div.pre > pre.linenums {
