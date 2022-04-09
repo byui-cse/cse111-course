@@ -30,14 +30,14 @@
     a file. During this lesson, you will learn how to write Python code
     that reads text from text files.</p>
 
-    <h2>Concepts</h2>
+    <h2 id="concepts">Concepts</h2>
     <p>Broadly speaking, there are two types of files: text files and
     binary files. A <dfn>text file</dfn> stores words and numbers as
     human readable text. A <dfn>binary file</dfn> stores pictures,
     diagrams, sounds, music, movies, and other media as numbers in a
     format that is not directly readable by humans.</p>
 
-    <h3 id="textFiles">Text Files</h3>
+    <h3 id="text_files">Text Files</h3>
     <p>In order to read data from a text file, the file must exist on
     one of the computer's drives, and your program must do these three
     things:</p>
@@ -145,7 +145,7 @@ if __name__ == "__main__":
     automatically close the file, so that the programmer doesn't have to
     write a call to the <code>file.close</code> method.</p>
 
-    <h3 id="csvFiles">CSV Files</h3>
+    <h3 id="csv_files">CSV Files</h3>
     <p>Many computer systems import and export data in CSV files. CSV is
     an acronym for comma separated values. A <dfn>CSV file</dfn> is a
     text file that contains tabular data with each row on a separate
@@ -242,7 +242,7 @@ Title,Author,Composer
 "Christ the Lord is Risen Today",Charles Wesley,Anonymous
 </pre></div>
 
-    <h3 id="process">Processing Each Row in a CSV File</h3>
+    <h3 id="process_rows">Processing Each Row in a CSV File</h3>
     <p>After reading each row from a CSV file, the <code>for</code> loop
     in the previous example simply prints the row list to a terminal
     window. Of course, a <code>for</code> loop can do much more than
@@ -334,7 +334,7 @@ if __name__ == "__main__":
 <pre class="console" data-for="ex3">&gt; python example_3.py
 Cornerstone Family Dental has 181.6 patients per employee</pre>
 
-    <h3 id="list">Reading a CSV File into a Compound List</h3>
+    <h3 id="csv_to_list">Reading a CSV File into a Compound List</h3>
     <p>The program in example&nbsp;3 reads and processes each row in a
     CSV file. That program needs to access the data in each row once
     only. If a program needs to access the contents of a CSV file multiple
@@ -408,7 +408,7 @@ if __name__ == "__main__":
 '1982'], ['Cornerstone Family Dental', '44 S Center Street',
 '208-356-4240', '8', '1453']]</pre>
 
-    <h3 id="dict">Reading a CSV File into a Compound Dictionary</h3>
+    <h3 id="csv_to_dict">Reading a CSV File into a Compound Dictionary</h3>
     <p>If the values in one of the columns of a CSV file are unique,
     then a progam can read the contents of a CSV file into a compound
     dictionary and then use the dictionary to quickly find data. Recall
@@ -498,7 +498,7 @@ if __name__ == "__main__":
 '208-356-5600': ['Rockhouse Dentistry', '106 E 1st N', '208-&hellip;],
 '208-356-4240': ['Cornerstone Family Dental', '44 S Center S&hellip;]}</pre>
 
-    <h2>Tutorials</h2>
+    <h2 id="tutorials">Tutorials</h2>
     <p>If any of the concepts or topics in the previous section seem
     unfamiliar to you, reading these tutorials may help you understand
     the concepts better.</p>
@@ -508,7 +508,7 @@ if __name__ == "__main__":
         <li><div><a href="https://realpython.com/python-csv/">Reading and Writing CSV Files in Python</a></div></li>
     </ul>
 
-    <h2>Summary</h2>
+    <h2 id="summary">Summary</h2>
     <p>A text file stores words and numbers as human readable text.
     During this lesson, you are learning how to write Python code to
     read from text files. To read from a text file, your program must
