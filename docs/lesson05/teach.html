@@ -31,14 +31,14 @@
     prepare for this meeting by completing the preparation material and
     the individual checkpoint assignment beforehand.</p>
 
-    <h2>Purpose</h2>
+    <h2 id="purpose">Purpose</h2>
     <p>Writing and running test functions often help a software
     developer find mistakes in code. During this assignment, you will
     write three test functions. Then use <code>pytest</code> to run the
     test functions and use the output of <code>pytest</code> to help you
     find and fix errors in some program functions.</p>
 
-    <h2>Problem Statement</h2>
+    <h2 id="problem">Problem Statement</h2>
     <p>Most people around the world today have at least two names, a
     family name and a given name. In the United States, we usually write
     a person's given name followed by his family name. However, when a
@@ -66,7 +66,7 @@
     <p>A programmer has already written those three functions. However,
     there are mistakes in at least two of the three functions.</p>
 
-    <h2>Assignment</h2>
+    <h2 id="assign">Assignment</h2>
     <p>Write three test functions named
     <code>test_make_full_name</code>,
     <code>test_extract_family_name</code>, and
@@ -75,7 +75,7 @@
     <code>pytest</code> to run the test functions and find and fix the
     mistakes, if any, that are in program functions.</p>
 
-    <h2>Helpful Documentation</h2>
+    <h2 id="helpful_docs">Helpful Documentation</h2>
     <ul class="mixed long">
         <li class="tutorial"><div>The <a href="prepare.html">prepare
         content</a> for this lesson explains how to use
@@ -91,7 +91,7 @@
         <code>pytest</code> to run them.</div></li>
     </ul>
 
-    <h2>Steps</h2>
+    <h2 id="steps">Steps</h2>
     <p>Do the following:</p>
     <ol class="long">
         <li><div>Download the <a download href="names.py">names.py</a>
@@ -158,7 +158,7 @@ pytest.main(["-v", "--tb=line", "-rN", __file__])</pre></div>
         pass.</div></li>
     </ol>
 
-    <h3>Core Requirements</h3>
+    <h3 id="required">Core Requirements</h3>
     <ol class="long">
         <li><div>Write <code>test_make_full_name</code> so that it tests
         <code>make_full_name</code> with various names, including long
@@ -177,7 +177,7 @@ pytest.main(["-v", "--tb=line", "-rN", __file__])</pre></div>
         function.</div></li>
     </ol>
 
-    <h3>Stretch Challenges</h3>
+    <h3 id="stretch">Stretch Challenges</h3>
     <p>If your team finishes the core requirements in less than an hour,
     complete one or more of these stretch challenges. Note that the
     stretch challenges are optional.</p>
@@ -206,7 +206,7 @@ pytest.main(["-v", "--tb=line", "-rN", __file__])</pre></div>
         extract_zipcode function works correctly.</div></li>
     </ol>
 
-    <h2>Testing Procedure</h2>
+    <h2 id="testing">Testing Procedure</h2>
     <p>Before you fix the mistakes in the <code>make_full_name</code>
     and <code>extract_given_name</code> functions, <code>pytest</code>
     will print output similar to this:</p>
