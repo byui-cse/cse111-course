@@ -151,9 +151,11 @@ print(f"{current_date_and_time:%Y-%m-%d}")</pre></div>
             <code>"rt"</code> which means open for reading in text mode.
             Other common values are <code>"wt"</code> for writing a text
             file (truncating the file if it already exists), and
-            <code>"at"</code> for appending to the end of a text
-            file.</p></dd>
-        </dl></div></li>
+            <code>"at"</code> for appending to the end of a text file
+            that already exists (and creating and writing to a text file
+            that doesn't exist).</p></dd>
+        </dl>
+        </div></li>
 
         <li><div>The built-in <a href="https://docs.python.org/3/library/functions.html#print"><code>print()</code> function</a>
         prints text to a terminal window or to a text file. Here is an
@@ -167,30 +169,53 @@ print(f"{current_date_and_time:%Y-%m-%d}")</pre></div>
             <var>flush</var>, if present, must be given as named
             arguments.</dd>
         </dl>
+        </div></li>
+
+        <li><div><p>You may want to review the
+        <a href="https://byui-cse.github.io/cse110-course/lesson11/prepare.html">lesson&nbsp;11 prepare content from CSE&nbsp;110</a>
+        which includes several examples for opening and reading from a
+        text file.</p>
 
         <p>The following example code calls the <code>open</code>
-        function to open a file for appending text and then calls the
-        <code>print</code> function two times to print two lines of text
-        to the file.</p>
+        function at <span class="cross" data-ref="ex2">line&nbsp;6</span>
+        to open a file named <code>cities.txt</code> for
+        <b>a</b>ppending <b>t</b>ext (<b>"at"</b>). The code then calls
+        the <code>print</code> function two times at
+        <span class="cross" data-ref="ex2">lines&nbsp;9 and&nbsp;10</span>
+        to print two lines of text to the <code>cities.txt</code> file.</p>
 
-<div class="pre" id="ex2"><pre class="python">
-city = "Accra"
+<div class="pre" id="ex2">
+<pre class="linenums"></pre>
+<pre class="python">
+city_name = "Accra"
 elevation = 61
 population = 4200000
 
 # Open a text file named cities.txt in append mode.
-with open("cities.txt", <em>"at"</em>) as cities_file:
+with open("cities.txt", <em>"at"</em>) as <em>cities_file</em>:
 
     # Print a city's name and information to the file.
-    print(city, <em>file=cities_file</em>)
+    print(city_name, <em>file=cities_file</em>)
     print(f"{elevation}, {population}", <em>file=cities_file</em>)</pre></div>
-        </div></li>
 
-        <!--
-        <li><div>This <a href="https://content.byui.edu/items/a9e60503-b5e7-40f0-bf48-ebf1a7441d25/1/example_02.mp4">short video</a>
-        shows a BYU-Idaho faculty member solving a problem that is
-        similar to this prove assignment.</div></li>
-        -->
+        <p>Notice in the previous example at
+        <span class="cross" data-ref="ex2">line&nbsp;6</span> that the
+        call to the <code>open</code> function is inside a
+        <code>with</code> statement. Opening a file in a
+        <code>with</code> statement, ensures that the computer will
+        automatically close the file when the computer finishes
+        executing the code inside the <code>with</code> block.</p>
+
+        <p>The variable <var>cities_file</var>, which is created at
+        <span class="cross" data-ref="ex2">line&nbsp;6</span>, is a
+        reference to the open <code>cities.txt</code> file. At both
+        lines
+        <span class="cross" data-ref="ex2">lines&nbsp;9 and&nbsp;10</span>,
+        the <var>cities_file</var> is a named argument that causes the
+        <code>print</code> function to print to the
+        <code>cities.txt</code> file insted of printing to the terminal
+        window.</p>
+        </div></li>
     </ul>
 
     <h2 id="testing">Testing Procedure</h2>

@@ -317,6 +317,10 @@ article dfn {
 	}
 }
 
+article b {
+	font-weight: bold;
+}
+
 article em {
 	font-style: italic;
 }

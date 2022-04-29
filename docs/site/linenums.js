@@ -7,22 +7,6 @@ if (!window.hasOwnProperty('cse111')) {
 }
 
 cse111.linenums = {
-	/** Resizes each pre.console[data-for] element so that its width is
-	 * the same as the width of the div.pre > pre.python for which it
-	 * shows user input and program output. Making their widths the same
-	 * helps the reader to see that they go together. */
-	resizeConsoles : function() {
-		const consoles = document.querySelectorAll('pre.console[data-for]');
-		for (let i = 0;  i < consoles.length;  ++i) {
-			let console = consoles[i];
-			let id = console.getAttribute('data-for');
-			let divElem = document.getElementById(id);
-			let width = window.getComputedStyle(divElem).getPropertyValue('width');
-			console.style.width = width;
-		}
-	},
-
-
 	/** Adds line numbers to all pre.linenums elements. */
 	addLineNumbers : function() {
 		const newline = /<br>|\n/g;
@@ -111,8 +95,8 @@ cse111.linenums = {
 		let getAllLineNumbers = function(target) {
 			let refId = target.getAttribute('data-ref');
 			let preDiv = document.getElementById(refId);
-			let lineNumDiv = preDiv.firstChild;
-			return lineNumDiv.children;
+			let lineNumPre = preDiv.getElementsByTagName('pre')[0];
+			return lineNumPre.children;
 		};
 
 		let findLineNumber = function(lineNumbers, key) {
@@ -185,6 +169,22 @@ cse111.linenums = {
 			target.addEventListener('mouseout', off);
 			target.addEventListener('click', toggle);
 			target.setAttribute('title', 'Move mouse over to turn highlights on.\nClick to keep highlights on.');
+		}
+	},
+
+
+	/** Resizes each pre.console[data-for] element so that its width is
+	 * the same as the width of the div.pre > pre.python for which it
+	 * shows user input and program output. Making their widths the same
+	 * helps the reader to see that they go together. */
+	resizeConsoles : function() {
+		const consoles = document.querySelectorAll('pre.console[data-for]');
+		for (let i = 0;  i < consoles.length;  ++i) {
+			let console = consoles[i];
+			let id = console.getAttribute('data-for');
+			let divElem = document.getElementById(id);
+			let width = window.getComputedStyle(divElem).getPropertyValue('width');
+			console.style.width = width;
 		}
 	},
 
