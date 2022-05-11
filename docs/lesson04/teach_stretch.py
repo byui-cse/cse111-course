@@ -29,40 +29,6 @@ def main():
     max_store_eff = -1
     max_cost_eff = -1
 
-    """Here is another solution. This solution organizes the data
-    about the cans in a compound list. A compound list is a list
-    that contains lists. CSE 111 students study lists and compound
-    lists in lesson 7.
-
-    # A compound list (a list that contains lists).
-    can_sizes = [
-        ["#1 Picnic", 6.83, 10.16, 0.28],
-        ["#1 Tall", 7.78, 11.91, 0.43],
-        ["#2", 8.73, 11.59, 0.45],
-        ["#2.5", 10.32, 11.91, 0.61],
-        ["#3 Cylinder", 10.79, 17.78, 0.86],
-        ["#5", 13.02, 14.29, 0.83],
-        ["#6Z", 5.4, 8.89, 0.22],
-        ["#8Z short", 6.83, 7.62, 0.26],
-        ["#10", 15.72, 17.78, 1.53],
-        ["#211", 6.83, 12.38, 0.34],
-        ["#300", 7.62, 11.27, 0.38],
-        ["#303", 8.1, 11.11, 0.42]
-    ]
-
-    best_store = None
-    best_cost = None
-    max_store_eff = -1
-    max_cost_eff = -1
-
-    # For each can in the can_sizes list, unpack the values
-    # into the variables name, radius, height, and cost.
-    for name, radius, height, cost in can_sizes:
-        .
-        .
-        .
-    """
-
     # For each can in the parallel lists, unpack the values
     # into the variables name, radius, height, and cost.
     for i in range(len(can_names)):
@@ -98,6 +64,41 @@ def main():
     print()
     print("Best can size in storage efficiency:", best_store)
     print("Best can size in cost efficiency:", best_cost)
+
+
+"""Here is another solution. This solution organizes the data about
+the cans in a compound list. A compound list is a list that contains
+lists. CSE 111 students study lists and compound lists in lesson 7.
+
+def main():
+    # A compound list (a list that contains lists).
+    can_sizes = [
+        ["#1 Picnic", 6.83, 10.16, 0.28],
+        ["#1 Tall", 7.78, 11.91, 0.43],
+        ["#2", 8.73, 11.59, 0.45],
+        ["#2.5", 10.32, 11.91, 0.61],
+        ["#3 Cylinder", 10.79, 17.78, 0.86],
+        ["#5", 13.02, 14.29, 0.83],
+        ["#6Z", 5.4, 8.89, 0.22],
+        ["#8Z short", 6.83, 7.62, 0.26],
+        ["#10", 15.72, 17.78, 1.53],
+        ["#211", 6.83, 12.38, 0.34],
+        ["#300", 7.62, 11.27, 0.38],
+        ["#303", 8.1, 11.11, 0.42]
+    ]
+
+    best_store = None
+    best_cost = None
+    max_store_eff = -1
+    max_cost_eff = -1
+
+    # For each can in the can_sizes list, unpack the values
+    # into the variables name, radius, height, and cost.
+    for name, radius, height, cost in can_sizes:
+        .
+        .
+        .
+"""
 
 
 def compute_storage_efficiency(radius, height):
