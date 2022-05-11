@@ -12,7 +12,7 @@ def main():
     volume = compute_volume(radius, height)
     surf_area = compute_surface_area(radius, height)
     storage_efficiency = volume / surf_area
-    print(f"{name} {storage_efficiency:.1f}")
+    print(f"{name} {storage_efficiency:.2f}")
 
     name = "#1 Tall"
     radius = 7.78
@@ -20,7 +20,7 @@ def main():
     volume = compute_volume(radius, height)
     surf_area = compute_surface_area(radius, height)
     storage_efficiency = volume / surf_area
-    print(f"{name} {storage_efficiency:.1f}")
+    print(f"{name} {storage_efficiency:.2f}")
 
     name = "#2"
     radius = 8.73
@@ -28,7 +28,7 @@ def main():
     volume = compute_volume(radius, height)
     surf_area = compute_surface_area(radius, height)
     storage_efficiency = volume / surf_area
-    print(f"{name} {storage_efficiency:.1f}")
+    print(f"{name} {storage_efficiency:.2f}")
 
     name = "#2.5"
     radius = 10.32
@@ -36,7 +36,7 @@ def main():
     volume = compute_volume(radius, height)
     surf_area = compute_surface_area(radius, height)
     storage_efficiency = volume / surf_area
-    print(f"{name} {storage_efficiency:.1f}")
+    print(f"{name} {storage_efficiency:.2f}")
 
     name = "#3 Cylinder"
     radius = 10.79
@@ -44,7 +44,7 @@ def main():
     volume = compute_volume(radius, height)
     surf_area = compute_surface_area(radius, height)
     storage_efficiency = volume / surf_area
-    print(f"{name} {storage_efficiency:.1f}")
+    print(f"{name} {storage_efficiency:.2f}")
 
     name = "#5"
     radius = 13.02
@@ -52,7 +52,7 @@ def main():
     volume = compute_volume(radius, height)
     surf_area = compute_surface_area(radius, height)
     storage_efficiency = volume / surf_area
-    print(f"{name} {storage_efficiency:.1f}")
+    print(f"{name} {storage_efficiency:.2f}")
 
     name = "#6Z"
     radius = 5.4
@@ -60,7 +60,7 @@ def main():
     volume = compute_volume(radius, height)
     surf_area = compute_surface_area(radius, height)
     storage_efficiency = volume / surf_area
-    print(f"{name} {storage_efficiency:.1f}")
+    print(f"{name} {storage_efficiency:.2f}")
 
     name = "#8Z short"
     radius = 6.83
@@ -68,7 +68,7 @@ def main():
     volume = compute_volume(radius, height)
     surf_area = compute_surface_area(radius, height)
     storage_efficiency = volume / surf_area
-    print(f"{name} {storage_efficiency:.1f}")
+    print(f"{name} {storage_efficiency:.2f}")
 
     name = "#10"
     radius = 15.72
@@ -76,7 +76,7 @@ def main():
     volume = compute_volume(radius, height)
     surf_area = compute_surface_area(radius, height)
     storage_efficiency = volume / surf_area
-    print(f"{name} {storage_efficiency:.1f}")
+    print(f"{name} {storage_efficiency:.2f}")
 
     name = "#211"
     radius = 6.83
@@ -84,7 +84,7 @@ def main():
     volume = compute_volume(radius, height)
     surf_area = compute_surface_area(radius, height)
     storage_efficiency = volume / surf_area
-    print(f"{name} {storage_efficiency:.1f}")
+    print(f"{name} {storage_efficiency:.2f}")
 
     name = "#300"
     radius = 7.62
@@ -92,7 +92,7 @@ def main():
     volume = compute_volume(radius, height)
     surf_area = compute_surface_area(radius, height)
     storage_efficiency = volume / surf_area
-    print(f"{name} {storage_efficiency:.1f}")
+    print(f"{name} {storage_efficiency:.2f}")
 
     name = "#303"
     radius = 8.1
@@ -100,7 +100,7 @@ def main():
     volume = compute_volume(radius, height)
     surf_area = compute_surface_area(radius, height)
     storage_efficiency = volume / surf_area
-    print(f"{name} {storage_efficiency:.1f}")
+    print(f"{name} {storage_efficiency:.2f}")
 
 
 def compute_volume(radius, height):
