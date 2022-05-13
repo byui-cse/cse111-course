@@ -22,7 +22,7 @@ Advantages of tkinter over kivy
    than kivy where they are added to the canvas before a shape is added.
 """
 
-from tkinter import Tk, Frame, Canvas, BOTH
+from tkinter import Tk, Frame, Canvas, BOTH, ARC
 from numbers import Number
 import math
 
@@ -159,7 +159,7 @@ def draw_arc(canvas, x0, y0, x1, y1, *,
     height = canvas.winfo_height()
     canvas.create_arc(x0, height-y0, x1, height-y1,
             start=start, extent=extent,
-            width=width, outline=outline, fill=fill)
+            width=width, outline=outline, fill=fill, style=ARC)
 
 
 def draw_rectangle(canvas, x0, y0, x1, y1, *,
