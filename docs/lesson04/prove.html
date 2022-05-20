@@ -5,10 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>CSE 111 - Prove</title>
+    <title>CSE 111 - 04 Prove</title>
     <script src="../site/color.js"></script>
+    <script src="../site/linenums.js"></script>
+    <script src="../site/hljs/highlight.min.js"></script>
     <link rel="icon" type="image/png" href="../site/icon.png">
     <link rel="stylesheet" type="text/css" href="../site/style.css">
+    <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
 </head>
 
 <body>
@@ -112,15 +115,95 @@
     <p>If your program fulfills the requirements for this assignment as
     described in the previous prove milestone and the Assignment section
     above, your program will earn 93% of the possible points. In order
-    to earn the remaining 7% of points, you will need to add one or more
-    features to your program so that it exceeds the requirements. If you
-    wish to exceed the requirements of this assignment, you could write
-    code to add more items to your scene. The most efficient way to add
-    more items to your scene is to write a function that draws
-    something, such as <code>draw_pebble</code>,
-    <code>draw_snowman</code>, or <code>draw_fish</code> and then call
-    that function many times in one of your other <code>draw_</code>
-    functions.</p>
+    to earn the remaining 7% of points, you will need to write your
+    drawing functions so that they correctly use parameters.</p>
+
+    <p>Consider the following <code>draw_pine_trees</code> function that
+    draws three trees. It correctly draws three trees. However, it has
+    only one parameter (<var>canvas</var>) but should have more. With
+    only one parameter, the <code>draw_pine_trees</code> function is not
+    easily reusable because it uses hard coded numbers for the
+    coordinates at lines <span class="cross" data-ref="ex1">5,&nbsp;6,
+    10,&nbsp;11, 15,&nbsp;and&nbsp;16</span>. Because of the way that
+    the <code>draw_pine_trees</code> function is written, it can draw
+    only three pine trees, and it will always draw them at the same
+    location. What if we decide to change the width and height of the
+    scene? The <code>draw_pine_trees</code> function will draw pine
+    trees in the same locations as before, but these may be the wrong
+    locations in a larger scene.</p>
+
+<div class="pre" id="ex1"><pre class="linenums"></pre>
+<pre class="python">def draw_pine_trees(canvas):
+    """Draw three pine trees, each at a fixed location."""
+
+    # Draw a tree.
+    draw_rectangle(canvas, 300, 70, 320, 120, fill="brown")
+    draw_polygon(canvas, 240, 110, 310, 320, 380, 110,
+            fill="forestGreen")
+
+    # Draw another tree.
+    draw_rectangle(canvas, 200, 60, 220, 110, fill="brown")
+    draw_polygon(canvas, 140, 100, 210, 310, 280, 100,
+            fill="forestGreen")
+
+    # Draw a third tree.
+    draw_rectangle(canvas, 100, 50, 120, 100, fill="brown")
+    draw_polygon(canvas, 40, 90, 110, 300, 180, 90,
+            fill="forestGreen")</pre>
+</div>
+
+    <p>Now consider the <code>draw_pine_tree</code> function in the next
+    example. Notice that the <code>draw_pine_tree</code> function has
+    more parameters than the <code>draw_pine_trees</code> function in
+    the previous example. The two extra parameters (<var>peak_x</var>
+    and <var>peak_y</var>) deteremine where the
+    <code>draw_pine_tree</code> function will draw one tree. These two
+    parameters (<var>peak_x</var> and <var>peak_y</var>) make the
+    <code>draw_pine_tree</code> function more reusable than the
+    <code>draw_pine_trees</code> function in the previous example.
+    Notice at <span class="cross" data-ref="ex2">lines 24&ndash;28</span>,
+    that the <code>main</code> function reuses (calls) the
+    <code>draw_pine_tree</code> function five times.</p>
+
+<div class="pre" id="ex2"><pre class="linenums"></pre>
+<pre class="python">def draw_pine_tree(canvas, peak_x, peak_y):
+    """Draw one pine tree at location (peak_x, peak_y)"""
+    skirt_left  = peak_x - 70
+    skirt_right = peak_x + 70
+    skirt_bottom = peak_y - 210
+    trunk_left  = peak_x - 10
+    trunk_right = peak_x + 10
+    trunk_bottom = peak_y - 260
+    draw_rectangle(canvas, trunk_left, trunk_bottom,
+            trunk_right, skirt_bottom, fill="brown")
+    draw_polygon(canvas, skirt_left, skirt_bottom, peak_x, peak_y,
+            skirt_right, skirt_bottom, fill="forestGreen")
+
+
+def main():
+    # Width and height of the scene in pixels
+    scene_width = 800
+    scene_height = 500
+
+    # Call the start_drawing function in the draw2d.py
+    # library which will open a window and create a canvas.
+    canvas = start_drawing("Scene", scene_width, scene_height)
+
+    draw_pine_tree(canvas, 240, 320)
+    draw_pine_tree(canvas, 160, 280)
+    draw_pine_tree(canvas, 100, 250)
+    draw_pine_tree(canvas, 500, 350)
+    draw_pine_tree(canvas, 600, 280)
+
+    # Call the finish_drawing function
+    # in the draw2d.py library.
+    finish_drawing(canvas)</pre>
+</div>
+
+    <p>In summary, if you wish to earn the last 7% of points for this
+    assignment, you must write your drawing functions to have and use
+    parameters like the <code>draw_pine_tree</code> function in the
+    second example above.</p>
 
     <h2 id="ponder">Ponder</h2>
     <p>After you finish this assignment, congratulate yourself because
