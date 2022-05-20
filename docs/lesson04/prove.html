@@ -127,7 +127,7 @@
     10,&nbsp;11, 15,&nbsp;and&nbsp;16</span>. Because of the way that
     the <code>draw_pine_trees</code> function is written, it can draw
     only three pine trees, and it will always draw them at the same
-    location. What if we decide to change the width and height of the
+    locations. What if we decide to change the width and height of the
     scene? The <code>draw_pine_trees</code> function will draw pine
     trees in the same locations as before, but these may be the wrong
     locations in a larger scene.</p>
@@ -161,21 +161,27 @@
     parameters (<var>peak_x</var> and <var>peak_y</var>) make the
     <code>draw_pine_tree</code> function more reusable than the
     <code>draw_pine_trees</code> function in the previous example.
-    Notice at <span class="cross" data-ref="ex2">lines 24&ndash;28</span>,
+    Notice at <span class="cross" data-ref="ex2">lines 30&ndash;34</span>,
     that the <code>main</code> function reuses (calls) the
     <code>draw_pine_tree</code> function five times.</p>
 
 <div class="pre" id="ex2"><pre class="linenums"></pre>
 <pre class="python">def draw_pine_tree(canvas, peak_x, peak_y):
     """Draw one pine tree at location (peak_x, peak_y)"""
+
+    # Compute the coordinates of the skirt and trunk.
     skirt_left  = peak_x - 70
     skirt_right = peak_x + 70
     skirt_bottom = peak_y - 210
     trunk_left  = peak_x - 10
     trunk_right = peak_x + 10
     trunk_bottom = peak_y - 260
+
+    # Draw the tree trunk.
     draw_rectangle(canvas, trunk_left, trunk_bottom,
             trunk_right, skirt_bottom, fill="brown")
+
+    # Draw the tree skirt.
     draw_polygon(canvas, skirt_left, skirt_bottom, peak_x, peak_y,
             skirt_right, skirt_bottom, fill="forestGreen")
 
