@@ -68,7 +68,7 @@
     Functions</a> section of the official Python online
     reference.</p>
 
-    <h3 id="func_call">How to Call a Function</h3>
+    <h3 id="call_func">How to Call a Function</h3>
     <p>A programmer uses a function by calling it (also known as
     invoking it). To <dfn>call</dfn> (or <dfn>invoke</dfn>) a function
     means to write code that causes the computer to execute the code
@@ -245,7 +245,7 @@ print(r)</pre></div>
 Please enter a number: <span class="input">95.716</span>
 96</pre>
 
-    <h3>Named Arguments</h3>
+    <h3 id="named_args">Named Arguments</h3>
     <p>For some optional arguments, we must pass a <dfn>named
     argument</dfn>, which is an argument that is preceded by the name of
     its matching parameter. For example, here is an excerpt from the
@@ -277,7 +277,7 @@ print(x, y, z, sep="|", flush=True)</pre></div>
 <pre class="console" data-for="ex4">&gt; python example_4.py
 sun|moon|stars</pre>
 
-    <h3>How to Call a Function that Is inside a Module</h3>
+    <h3 id="call_module_func">How to Call a Function that Is inside a Module</h3>
     <p>A Python <dfn>module</dfn> is a collection of related functions.
     The Python <dfn>standard library</dfn> includes many modules which
     have more functions, such as the <code>math</code>
@@ -329,7 +329,7 @@ print(r)</pre></div>
     <a href="https://docs.python.org/3/library/">Python Standard
     Library</a>.</p>
 
-    <h3>How to Call a Method</h3>
+    <h3 id="call_method">How to Call a Method</h3>
     <p>Python is an object-oriented language and includes many classes
     and objects. A <dfn>method</dfn> is a function that belongs to a
     class or object. Even though classes and objects are not part of
@@ -397,7 +397,7 @@ Enter a motivational quote: <span class="input">Rise, take up thy bed, and walk.
     to do this because assigning a function reference won't make sense
     to you until you study functional programming.</p>
 
-    <h3>How to Store a Returned Value</h3>
+    <h3 id="store_returned_val">How to Store a Returned Value</h3>
     <p>All the previous examples in this prepare content use the
     assignment operator (=) to store the value returned from a function
     in a variable. For example:</p>
@@ -478,14 +478,27 @@ Enter a number: <span class="input">675</span>
 The square root is 25.98
 The square root is less than 100.</pre>
 
-    <h2>Tutorial</h2>
-    <p>If you are uncertain about any of the concepts in the previous
+    <h2 id="video">Video</h2>
+    <p>The following video shows a BYU-Idaho student writing Python code
+    that calls built-in functions.</p>
+    <ul class="videos">
+        <li><div><a href="https://video.byui.edu/media/t/1_a0n2g19s">Calling
+        Built-in Functions</a> <span class="duration">(11:30)</span>
+        <div><iframe class="video" id="kaltura_player"
+        title="Calling Built-in Functions"
+        style="min-width:44em;min-height:25em" allowfullscreen
+        src="https://cdnapisec.kaltura.com/p/1157612/sp/115761200/embedIframeJs/uiconf_id/41338032/partner_id/1157612?iframeembed=true&playerId=kaltura_player&entry_id=1_a0n2g19s"></iframe></div>
+        </div></li>
+    </ul>
+
+    <h2 id="tutorial">Tutorial</h2>
+    <p>If you are uncertain about any of the concepts in the Concepts
     section, you could reread the section. Also, you could read about
     the same concepts in the
     <a href="https://www.w3schools.com/python/python_functions.asp">Python
     functions tutorial</a> at w3schools.</p>
 
-    <h2>Summary</h2>
+    <h2 id="summary">Summary</h2>
     <p>A function is a group of statements that together perform one
     task. The computer will not execute the code in a function unless
     you write code that calls the function. In this lesson, you learned
