@@ -85,8 +85,8 @@
     Many dogs run.<br>
     Many men will write.</blockquote>
 
-    <p>For this milestone , your program must include at least these
-    four functions:</p>
+    <p>For this milestone, your program must include at least these four
+    functions:</p>
     <ol>
         <li><div><code>main</code></div></li>
         <li><div><code>get_determiner</code></div></li>
@@ -180,10 +180,10 @@ word = "horse"
 <div class="pre"><pre class="python">
 def get_determiner(quantity):
     """Return a randomly chosen determiner. A determiner is
-    a word like "the", "a", "one", "two", "some", "many".
+    a word like "the", "a", "one", "some", "many".
     If quantity == 1, this function will return either "a",
     "one", or "the". Otherwise this function will return
-    either "two", "some", "many", or "the".
+    either "some", "many", or "the".
 
     Parameter
         quantity: an integer.
@@ -196,7 +196,7 @@ def get_determiner(quantity):
     if quantity == 1:
         words = ["a", "one", "the"]
     else:
-        words = ["two", "some", "many", "the"]
+        words = ["some", "many", "the"]
 
     # Randomly choose and return a determiner.
     word = random.choice(words)
@@ -352,7 +352,7 @@ def test_get_determiner():
 
     # 2. Test the plural determiners.
 
-    plural_determiners = ["two", "some", "many", "the"]
+    plural_determiners = ["some", "many", "the"]
 
     # This loop will repeat the statements inside it 4 times.
     for _ in range(4):
