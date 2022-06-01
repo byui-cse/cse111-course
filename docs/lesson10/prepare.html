@@ -194,9 +194,11 @@
     <p>The computer raises a <a href="https://docs.python.org/3/library/exceptions.html#TypeError"><code>TypeError</code></a>
     when the code that calls a function passes an argument with the
     wrong data type. The code in example&nbsp;2 attempts to pass a
-    string of text to the <code>round</code> function which causes the
-    computer to raise a <code>TypeError</code> as shown in the output
-    below the code example.</p>
+    string to the <code>round</code> function. This causes the computer
+    to raise a <code>TypeError</code> because the <code>round</code>
+    function cannot round a string to an integer. It can round only a
+    number to an integer. The output below example&nbsp;2 shows that the
+    computer raised a <code>TypeError</code>.</p>
 
 <div class="pre" id="ex2"><pre class="python"># Example 2
 
@@ -496,6 +498,12 @@ if __name__ == "__main__":
 <pre class="console" data-for="ex10">&gt; python example_10.py
 Number of sandwiches that were made today: <span class="input">35u</span>
 Error: invalid literal for int() with base 10: '35u'
+You entered text that is not an integer. Please
+run the program again and enter an integer.
+
+&gt; python example_10.py
+Number of sandwiches made today: <span class="input">350.4</span>
+Error: invalid literal for int() with base 10: '350.4'
 You entered text that is not an integer. Please
 run the program again and enter an integer.
 
