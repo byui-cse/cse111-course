@@ -16,7 +16,7 @@
     <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
 </head>
 
-<body onload="cse111.scope.addVarHandlers('ex9', 'ex10', 'ex11')">
+<body onload="cse111.scope.addVarHandlers('ex10', 'ex11', 'ex12')">
 <header>
     <div class="colorCtrl">&nbsp;</div>
     <a class="logo" title="BYU-Idaho Website" href="https://www.byui.edu">&#xe000;</a>
@@ -382,74 +382,6 @@ Please enter a number: 0
 sum: 8.0</pre>
 
     <h4 id="while">while loop</h4>
-<!--
-    The program in example&nbsp;7 is a number guessing game that
-    repeatedly asks the user to guess a number between 1 and 100. At
-    <span class="cross" data-ref="ex7">line&nbsp;21</span> the program
-    includes a <code>while</code> loop, which will cause the computer to
-    repeatedly execute the statements at
-    <span class="cross" data-ref="ex7">lines&nbsp;22&ndash;35</span>.
-    The while loop will end when the user enters the correct number.</p>
-
-<div class="pre" id="ex7"><pre class="linenums"></pre>
-<pre class="python"># Example 7
-
-import random
-
-
-def main():
-    print("I'm thinking of a number between 1 and 100.")
-    print("Try to guess it!")
-    print()
-
-    # Prepare a string that the input function will show to
-    # the user during the first iteration of the while loop.
-    prompt = "Please enter an integer between 1 and 100: "
-
-    # Get a random integer between 1 and 100.
-    answer = random.randint(1, 100)
-
-    guess = -1
-    attempts = 0
-
-    <em>while guess != answer:</em>
-        # Get a guess from the user.
-        guess = int(input(prompt))
-        attempts += 1
-        guide = ""
-
-        # Compare the user's guess to the answer.
-        if guess &lt; answer:
-            guide = "too low"
-        elif guess &gt; answer:
-            guide = "too high"
-
-        # Prepare a string that the input function will show to
-        # the user during the next iteration of the while loop.
-        prompt = f"{guess} is {guide}. Please enter another integer: "
-
-    print()
-    print(f"{guess} is correct!")
-    print(f"You used {attempts} guesses to guess the number.")
-
-
-# Call main to start this program.
-if __name__ == "__main__":
-    main()</pre></div>
-
-<pre class="console" data-for="ex7">&gt; python number_guess.py
-I'm thinking of a number between 1 and 100.
-Try to guess it!
-
-Please enter an integer between 1 and 100: 50
-50 is too low. Please enter another integer: 75
-75 is too high. Please enter another integer: 62
-62 is too high. Please enter another integer: 56
-
-56 is correct!
-You used 4 guesses to guess the number.</pre>
--->
-
     <p>A <code>while</code> loop is more flexible than a
     <code>for</code> loop and repeats while some condition is true.
     Imagine that we need a function to compare the contents of two

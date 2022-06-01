@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<!-- Copyright 2020, Brigham Young University - Idaho. All rights reserved. -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSE 111 - Excercises</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="../site/color.js"></script>
+    <script src="../site/linenums.js"></script>
+    <script src="../site/hljs/highlight.pack.js"></script>
+    <link rel="icon" type="image/png" href="../site/icon.png">
+    <link rel="stylesheet" type="text/css" href="../site/style.css">
+    <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
+</head>
+
+<body>
+<header>
+    <div class="colorCtrl">&nbsp;</div>
+    <a class="logo" title="BYU-Idaho Website" href="https://www.byui.edu">&#xe000;</a>
+    <h2><a href="https://byui.instructure.com">CSE 111</a> |
+        <a href="../index.html">Programming with Functions</a></h2>
+</header>
+<article>
+    <h1>07 Exercises: Lists and Repetition</h1>
+    <p>Here are seven programming exercises that you can use to test and
+    improve your skills writing loops in Python. Each exercise includes
+    two or more solutions. The last solution is the professionally
+    preferred way in Python of solving the task.</p>
+
+    <ol class="long">
+        <li><div>Write a loop that prints the integers between zero and
+        ten, including zero and ten.
+
+<div class="pre" id="exer1"><pre class="python">
+i = 0
+while i &lt; 11:
+    print(i)
+    i += 1
+
+# Print a blank line.
+print()
+
+for i in range(11):
+    print(i)
+</pre></div>
+
+<pre class="console" data-for="exer1">&gt; python exercise_1.py
+0
+1
+2
+&vellip;
+10
+
+0
+1
+2
+&vellip;
+10</pre>
+        </div></li>
+
+        <li><div>Write a loop that prints the integers between three and
+        ten, including three and ten.
+
+<div class="pre" id="exer2"><pre class="python">
+i = 3
+while i &lt; 11:
+    print(i)
+    i += 1
+
+print()
+
+for i in range(3, 11):
+    print(i)
+</pre></div>
+
+<pre class="console" data-for="exer2">&gt; python exercise_2.py
+3
+4
+5
+&vellip;
+10
+
+3
+4
+5
+&vellip;
+10</pre>
+        </div></li>
+
+        <li><div>Write a loop that prints the integers 20, 25, 30, 35.
+
+<div class="pre" id="exer3"><pre class="python">
+i = 20
+while i &lt; 40:
+    print(i)
+    i += 5
+
+print()
+
+for i in range(20, 40, 5):
+    print(i)
+</pre></div>
+
+<pre class="console" data-for="exer3">&gt; python exercise_3.py
+20
+25
+30
+35
+
+20
+25
+30
+35</pre>
+        </div></li>
+
+        <li><div>Write a loop that prints the integers 40, 38, 36, 34,
+        32, 30.
+
+<div class="pre" id="exer4"><pre class="python">
+i = 40
+while i &gt; 28:
+    print(i)
+    i -= 2
+
+print()
+
+for i in range(40, 28, -2):
+    print(i)
+</pre></div>
+
+<pre class="console" data-for="exer4">&gt; python exercise_4.py
+40
+38
+36
+34
+32
+30
+
+40
+38
+36
+34
+32
+30</pre>
+        </div></li>
+
+        <li><div>Write a loop that stores the integers from zero to ten
+        in a list. Include zero and ten.
+
+<div class="pre" id="exer5"><pre class="python">
+integers = []
+i = 0
+while i &lt; 11:
+    integers.append(i)
+    i += 1
+print(integers)
+
+print()
+
+integers = []
+for i in range(11):
+    integers.append(i)
+print(integers)
+
+print()
+
+# The following solution uses a list comprehension
+# which is beyond the scope of CSE 111.
+integers = [i for i in range(11)]
+print(integers)
+</pre></div>
+
+<pre class="console" data-for="exer5">&gt; python exercise_5.py
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</pre>
+        </div></li>
+
+        <li><div>Write a loop that prints each element in a list on a
+        different line.
+
+<div class="pre" id="exer6"><pre class="python">
+people = ["James", "Lisa", "Juan", "Sophia", "William", "Noah"]
+
+i = 0
+while i &lt; len(people):
+    person = people[i]
+    print(person)
+    i += 1
+
+print()
+
+for i in range(len(people)):
+    person = people[i]
+    print(person)
+
+print()
+
+for person in people:
+    print(person)
+</pre></div>
+
+<pre class="console" data-for="exer6">&gt; python exercise_6.py
+James
+Lisa
+Juan
+Sophia
+William
+Noah
+
+James
+Lisa
+Juan
+Sophia
+William
+Noah
+
+James
+Lisa
+Juan
+Sophia
+William
+Noah</pre>
+        </div></li>
+
+        <li><div>Write a loop that prints the elements of two parallel
+        lists to a terminal window. In the output, the elements from the
+        two lists must be interleaved.
+
+<div class="pre" id="exer7"><pre class="python">
+cities = ["Ashton", "Chester", "Drummond", "Felt", "Island Park"]
+snowfall = [97, 75, 83, 72, 154]  # inches
+
+i = 0
+while i &lt; len(cities):
+    city = cities[i]
+    inches = snowfall[i]
+    print(f"{city} {inches}")
+    i += 1
+
+print()
+
+for i in range(len(cities)):
+    city = cities[i]
+    inches = snowfall[i]
+    print(f"{city} {inches}")
+
+print()
+
+for city, inches in zip(cities, snowfall):
+    print(f"{city} {inches}")
+</pre></div>
+
+<pre class="console" data-for="exer7">&gt; python exercise_7.py
+Ashton 97
+Chester 75
+Drummond 83
+Felt 72
+Island Park 154
+
+Ashton 97
+Chester 75
+Drummond 83
+Felt 72
+Island Park 154
+
+Ashton 97
+Chester 75
+Drummond 83
+Felt 72
+Island Park 154</pre>
+        </div></li>
+    </ol>
+
+    <h2>Other Examples</h2>
+    <p>The following examples may help you understand repetition and
+    lists better.</p>
+
+    <h3 id="number_guess">Number Guessing Game</h3>
+    <p>The program in example&nbsp;1 is a number guessing game that
+    repeatedly asks the user to guess a number between 1 and 100. At
+    <span class="cross" data-ref="ex1">line&nbsp;21</span> the program
+    includes a <code>while</code> loop, which will cause the computer to
+    repeatedly execute the statements at
+    <span class="cross" data-ref="ex1">lines&nbsp;22&ndash;35</span>.
+    The while loop will end when the user enters the correct number.</p>
+
+<div class="pre" id="ex1"><pre class="linenums"></pre>
+<pre class="python"># Example 1
+
+import random
+
+
+def main():
+    print("I'm thinking of a number between 1 and 100.")
+    print("Try to guess it!")
+    print()
+
+    # Prepare a string that the input function will show to
+    # the user during the first iteration of the while loop.
+    prompt = "Please enter an integer between 1 and 100: "
+
+    # Get a random integer between 1 and 100.
+    answer = random.randint(1, 100)
+
+    guess = -1
+    attempts = 0
+
+    <em>while guess != answer:</em>
+        # Get a guess from the user.
+        guess = int(input(prompt))
+        attempts += 1
+        guide = ""
+
+        # Compare the user's guess to the answer.
+        if guess &lt; answer:
+            guide = "too low"
+        elif guess &gt; answer:
+            guide = "too high"
+
+        # Prepare a string that the input function will show to
+        # the user during the next iteration of the while loop.
+        prompt = f"{guess} is {guide}. Please enter another integer: "
+
+    print()
+    print(f"{guess} is correct!")
+    print(f"You used {attempts} guesses to guess the number.")
+
+
+# Call main to start this program.
+if __name__ == "__main__":
+    main()</pre></div>
+
+<pre class="console" data-for="ex1">&gt; python number_guess.py
+I'm thinking of a number between 1 and 100.
+Try to guess it!
+
+Please enter an integer between 1 and 100: 50
+50 is too low. Please enter another integer: 75
+75 is too high. Please enter another integer: 62
+62 is too high. Please enter another integer: 56
+
+56 is correct!
+You used 4 guesses to guess the number.</pre>
+
+    <h3 id="prime">Prime Numbers</h3>
+    <p>The following program asks a user for a positive integer and then
+    prints all the prime integers between 2 and the number entered by
+    the user.</p>
+
+<div class="pre" id="ex2"><pre class="python"># Example 2
+
+import math
+
+def main():
+    print("This program generates a list of prime numbers.")
+    n = int(input(
+        "Enter the positive integer where the computer should stop: "))
+    primes_list = calc_primes(n)
+    print(primes_list)
+
+
+def calc_primes(n):
+    """Return a list of all prime numbers between 2 and n inclusive.
+    This function works by assuming all positive integers are prime
+    and then as the computer learns that a number is not prime, it
+    marks that number by storing False for that number in a list.
+
+    Parameter n: the largest integer to check if it is prime
+    Return: a list of prime numbers
+    """
+    # Create an empty list that will store the prime numbers.
+    primes_list = []
+
+    # The range function returns a sequence of integers between
+    # a start value and a stop value, but it excludes the stop
+    # value. calc_primes is supposed to include the number in
+    # its parameter n, so in the code below, we pass n_plus_1
+    # to the range function instead of n.
+    n_plus_1 = n + 1
+
+    # Assume all non-negative integers are prime by creating a
+    # list of n + 1 boolean variables that are all set to True.
+    is_prime = [True] * n_plus_1
+
+    # 0 and 1 are not prime, so mark them with False.
+    is_prime[0] = False
+    is_prime[1] = False
+
+    # For each integer between 2 and sqrt(n), if the integer
+    # is prime, append it to the list of prime numbers and
+    # then mark all multiples of that integer as not prime.
+    limit = math.isqrt(n) + 1
+    for i in range(2, limit):
+        if is_prime[i]:
+            # i is prime, so append it to
+            # the list of prime numbers.
+            primes_list.append(i)
+
+            # Mark all integers that are a
+            # multiple of i as being not prime.
+            for multiple in range(i + i, n_plus_1, i):
+                is_prime[multiple] = False
+
+    # Append the prime numbers that are between
+    # sqrt(n) and n onto the list of primes.
+    for i in range(limit, n_plus_1):
+        if is_prime[i]:
+            primes_list.append(i)
+
+    # Return the list of prime numbers.
+    return primes_list
+
+
+# Call main to start this program.
+if __name__ == "__main__":
+    main()</pre></div>
+
+<pre class="console" data-for="ex2">&gt; python primes.py
+This program generates a list of prime numbers.
+Enter the positive integer where the computer should stop: <span class="input">220</span>
+[2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61,
+67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137,
+139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211]</pre>
+</article>
+<footer>
+    <small>Copyright &copy; 2020, Brigham Young University - Idaho. All
+    rights reserved.</small>
+</footer>
+</body>
+</html>
