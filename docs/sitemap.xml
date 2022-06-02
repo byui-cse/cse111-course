@@ -1,243 +1,243 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://barzeer.github.io/</loc>
+    <loc>https://byui-cse.github.io/cse111-course/</loc>
     <lastmod>2022-03-31</lastmod>
   </url>
   <url>
-    <loc>https://barzeer.github.io/lesson01/approx_tire_vol.html</loc>
-    <lastmod>2022-03-31</lastmod>
+    <loc>https://byui-cse.github.io/cse111-course/lesson01/approx_tire_vol.html</loc>
+    <lastmod>2022-02-18</lastmod>
   </url>
   <url>
-    <loc>https://barzeer.github.io/lesson01/check.html</loc>
+    <loc>https://byui-cse.github.io/cse111-course/lesson01/check.html</loc>
     <lastmod>2022-04-09</lastmod>
   </url>
   <url>
-    <loc>https://barzeer.github.io/lesson01/dev_env.html</loc>
-    <lastmod>2022-03-31</lastmod>
+    <loc>https://byui-cse.github.io/cse111-course/lesson01/dev_env.html</loc>
+    <lastmod>2022-03-23</lastmod>
   </url>
   <url>
-    <loc>https://barzeer.github.io/lesson01/prepare.html</loc>
-    <lastmod>2022-04-08</lastmod>
+    <loc>https://byui-cse.github.io/cse111-course/lesson01/example.html</loc>
+    <lastmod>2022-02-18</lastmod>
   </url>
   <url>
-    <loc>https://barzeer.github.io/lesson01/prove.html</loc>
+    <loc>https://byui-cse.github.io/cse111-course/lesson01/prepare.html</loc>
     <lastmod>2022-04-09</lastmod>
   </url>
   <url>
-    <loc>https://barzeer.github.io/lesson01/teach.html</loc>
+    <loc>https://byui-cse.github.io/cse111-course/lesson01/prove.html</loc>
+    <lastmod>2022-05-24</lastmod>
+  </url>
+  <url>
+    <loc>https://byui-cse.github.io/cse111-course/lesson01/teach.html</loc>
     <lastmod>2022-04-09</lastmod>
   </url>
   <url>
-    <loc>https://barzeer.github.io/lesson02/check.html</loc>
+    <loc>https://byui-cse.github.io/cse111-course/lesson02/check.html</loc>
     <lastmod>2022-04-09</lastmod>
   </url>
   <url>
-    <loc>https://barzeer.github.io/lesson02/prepare.html</loc>
-    <lastmod>2022-05-02</lastmod>
+    <loc>https://byui-cse.github.io/cse111-course/lesson02/prepare.html</loc>
+    <lastmod>2022-05-24</lastmod>
   </url>
   <url>
-    <loc>https://barzeer.github.io/lesson02/prove.html</loc>
+    <loc>https://byui-cse.github.io/cse111-course/lesson02/prove.html</loc>
     <lastmod>2022-05-05</lastmod>
   </url>
   <url>
-    <loc>https://barzeer.github.io/lesson02/teach.html</loc>
-    <lastmod>2022-05-10</lastmod>
-  </url>
-  <url>
-    <loc>https://barzeer.github.io/lesson03/check.html</loc>
-    <lastmod>2022-04-09</lastmod>
-  </url>
-  <url>
-    <loc>https://barzeer.github.io/lesson03/draw2d.html</loc>
-    <lastmod>2022-03-31</lastmod>
-  </url>
-  <url>
-    <loc>https://barzeer.github.io/lesson03/prepare.html</loc>
-    <lastmod>2022-04-09</lastmod>
-  </url>
-  <url>
-    <loc>https://barzeer.github.io/lesson03/prove.html</loc>
-    <lastmod>2022-04-09</lastmod>
-  </url>
-  <url>
-    <loc>https://barzeer.github.io/lesson03/teach.html</loc>
-    <lastmod>2022-05-10</lastmod>
-  </url>
-  <url>
-    <loc>https://barzeer.github.io/lesson04/check.html</loc>
+    <loc>https://byui-cse.github.io/cse111-course/lesson02/teach.html</loc>
     <lastmod>2022-05-11</lastmod>
   </url>
   <url>
-    <loc>https://barzeer.github.io/lesson04/gallery/</loc>
-    <lastmod>2021-12-23</lastmod>
-  </url>
-  <url>
-    <loc>https://barzeer.github.io/lesson04/prepare.html</loc>
+    <loc>https://byui-cse.github.io/cse111-course/lesson03/check.html</loc>
     <lastmod>2022-04-09</lastmod>
   </url>
   <url>
-    <loc>https://barzeer.github.io/lesson04/prove.html</loc>
-    <lastmod>2022-05-20</lastmod>
+    <loc>https://byui-cse.github.io/cse111-course/lesson03/draw2d.html</loc>
+    <lastmod>2022-02-18</lastmod>
   </url>
   <url>
-    <loc>https://barzeer.github.io/lesson04/teach.html</loc>
+    <loc>https://byui-cse.github.io/cse111-course/lesson03/prepare.html</loc>
+    <lastmod>2022-04-09</lastmod>
+  </url>
+  <url>
+    <loc>https://byui-cse.github.io/cse111-course/lesson03/prove.html</loc>
+    <lastmod>2022-05-24</lastmod>
+  </url>
+  <url>
+    <loc>https://byui-cse.github.io/cse111-course/lesson03/teach.html</loc>
     <lastmod>2022-05-11</lastmod>
   </url>
   <url>
-    <loc>https://barzeer.github.io/lesson05/check.html</loc>
+    <loc>https://byui-cse.github.io/cse111-course/lesson04/check.html</loc>
+    <lastmod>2022-05-11</lastmod>
+  </url>
+  <url>
+    <loc>https://byui-cse.github.io/cse111-course/lesson04/prepare.html</loc>
     <lastmod>2022-04-09</lastmod>
   </url>
   <url>
-    <loc>https://barzeer.github.io/lesson05/prepare.html</loc>
-    <lastmod>2022-04-09</lastmod>
+    <loc>https://byui-cse.github.io/cse111-course/lesson04/prove.html</loc>
+    <lastmod>2022-05-24</lastmod>
   </url>
   <url>
-    <loc>https://barzeer.github.io/lesson05/prove.html</loc>
-    <lastmod>2022-04-25</lastmod>
+    <loc>https://byui-cse.github.io/cse111-course/lesson04/teach.html</loc>
+    <lastmod>2022-05-11</lastmod>
   </url>
   <url>
-    <loc>https://barzeer.github.io/lesson05/teach.html</loc>
-    <lastmod>2022-04-25</lastmod>
+    <loc>https://byui-cse.github.io/cse111-course/lesson05/check.html</loc>
+    <lastmod>2022-05-24</lastmod>
   </url>
   <url>
-    <loc>https://barzeer.github.io/lesson06/check.html</loc>
-    <lastmod>2022-04-09</lastmod>
+    <loc>https://byui-cse.github.io/cse111-course/lesson05/example.html</loc>
+    <lastmod>2022-02-18</lastmod>
   </url>
   <url>
-    <loc>https://barzeer.github.io/lesson06/prepare.html</loc>
-    <lastmod>2022-04-09</lastmod>
+    <loc>https://byui-cse.github.io/cse111-course/lesson05/prepare.html</loc>
+    <lastmod>2022-05-24</lastmod>
   </url>
   <url>
-    <loc>https://barzeer.github.io/lesson06/prove.html</loc>
+    <loc>https://byui-cse.github.io/cse111-course/lesson05/prove.html</loc>
+    <lastmod>2022-05-31</lastmod>
+  </url>
+  <url>
+    <loc>https://byui-cse.github.io/cse111-course/lesson05/teach.html</loc>
+    <lastmod>2022-05-24</lastmod>
+  </url>
+  <url>
+    <loc>https://byui-cse.github.io/cse111-course/lesson06/check.html</loc>
+    <lastmod>2022-05-24</lastmod>
+  </url>
+  <url>
+    <loc>https://byui-cse.github.io/cse111-course/lesson06/prepare.html</loc>
+    <lastmod>2022-05-24</lastmod>
+  </url>
+  <url>
+    <loc>https://byui-cse.github.io/cse111-course/lesson06/prove.html</loc>
     <lastmod>2022-05-05</lastmod>
   </url>
   <url>
-    <loc>https://barzeer.github.io/lesson06/teach.html</loc>
+    <loc>https://byui-cse.github.io/cse111-course/lesson06/teach.html</loc>
+    <lastmod>2022-05-24</lastmod>
+  </url>
+  <url>
+    <loc>https://byui-cse.github.io/cse111-course/lesson07/check.html</loc>
+    <lastmod>2022-04-11</lastmod>
+  </url>
+  <url>
+    <loc>https://byui-cse.github.io/cse111-course/lesson07/exercises.html</loc>
+    <lastmod>2022-06-02</lastmod>
+  </url>
+  <url>
+    <loc>https://byui-cse.github.io/cse111-course/lesson07/prepare.html</loc>
+    <lastmod>2022-06-02</lastmod>
+  </url>
+  <url>
+    <loc>https://byui-cse.github.io/cse111-course/lesson07/prove.html</loc>
+    <lastmod>2022-04-11</lastmod>
+  </url>
+  <url>
+    <loc>https://byui-cse.github.io/cse111-course/lesson07/teach.html</loc>
     <lastmod>2022-04-25</lastmod>
   </url>
   <url>
-    <loc>https://barzeer.github.io/lesson07/check.html</loc>
+    <loc>https://byui-cse.github.io/cse111-course/lesson08/check.html</loc>
+    <lastmod>2022-04-11</lastmod>
+  </url>
+  <url>
+    <loc>https://byui-cse.github.io/cse111-course/lesson08/prepare.html</loc>
     <lastmod>2022-04-09</lastmod>
   </url>
   <url>
-    <loc>https://barzeer.github.io/lesson07/prepare.html</loc>
-    <lastmod>2022-04-09</lastmod>
-  </url>
-  <url>
-    <loc>https://barzeer.github.io/lesson07/prove.html</loc>
-    <lastmod>2022-04-09</lastmod>
-  </url>
-  <url>
-    <loc>https://barzeer.github.io/lesson07/teach.html</loc>
-    <lastmod>2022-04-25</lastmod>
-  </url>
-  <url>
-    <loc>https://barzeer.github.io/lesson08/check.html</loc>
-    <lastmod>2022-04-09</lastmod>
-  </url>
-  <url>
-    <loc>https://barzeer.github.io/lesson08/prepare.html</loc>
-    <lastmod>2022-04-09</lastmod>
-  </url>
-  <url>
-    <loc>https://barzeer.github.io/lesson08/prove.html</loc>
+    <loc>https://byui-cse.github.io/cse111-course/lesson08/prove.html</loc>
     <lastmod>2022-05-05</lastmod>
   </url>
   <url>
-    <loc>https://barzeer.github.io/lesson08/teach.html</loc>
+    <loc>https://byui-cse.github.io/cse111-course/lesson08/teach.html</loc>
     <lastmod>2022-04-25</lastmod>
   </url>
   <url>
-    <loc>https://barzeer.github.io/lesson09/check.html</loc>
+    <loc>https://byui-cse.github.io/cse111-course/lesson09/check.html</loc>
+    <lastmod>2022-04-11</lastmod>
+  </url>
+  <url>
+    <loc>https://byui-cse.github.io/cse111-course/lesson09/example.html</loc>
     <lastmod>2022-04-09</lastmod>
   </url>
   <url>
-    <loc>https://barzeer.github.io/lesson09/file_setup.html</loc>
-    <lastmod>2022-03-31</lastmod>
+    <loc>https://byui-cse.github.io/cse111-course/lesson09/file_setup.html</loc>
+    <lastmod>2022-02-18</lastmod>
   </url>
   <url>
-    <loc>https://barzeer.github.io/lesson09/prepare.html</loc>
+    <loc>https://byui-cse.github.io/cse111-course/lesson09/prepare.html</loc>
     <lastmod>2022-04-09</lastmod>
   </url>
   <url>
-    <loc>https://barzeer.github.io/lesson09/prove.html</loc>
+    <loc>https://byui-cse.github.io/cse111-course/lesson09/prove.html</loc>
+    <lastmod>2022-05-24</lastmod>
+  </url>
+  <url>
+    <loc>https://byui-cse.github.io/cse111-course/lesson09/teach.html</loc>
+    <lastmod>2022-05-26</lastmod>
+  </url>
+  <url>
+    <loc>https://byui-cse.github.io/cse111-course/lesson10/check.html</loc>
+    <lastmod>2022-04-11</lastmod>
+  </url>
+  <url>
+    <loc>https://byui-cse.github.io/cse111-course/lesson10/example.html</loc>
     <lastmod>2022-04-09</lastmod>
   </url>
   <url>
-    <loc>https://barzeer.github.io/lesson09/teach.html</loc>
-    <lastmod>2022-04-25</lastmod>
+    <loc>https://byui-cse.github.io/cse111-course/lesson10/prepare.html</loc>
+    <lastmod>2022-06-01</lastmod>
   </url>
   <url>
-    <loc>https://barzeer.github.io/lesson10/check.html</loc>
-    <lastmod>2022-04-09</lastmod>
-  </url>
-  <url>
-    <loc>https://barzeer.github.io/lesson10/prepare.html</loc>
-    <lastmod>2022-04-09</lastmod>
-  </url>
-  <url>
-    <loc>https://barzeer.github.io/lesson10/prove.html</loc>
+    <loc>https://byui-cse.github.io/cse111-course/lesson10/prove.html</loc>
     <lastmod>2022-05-05</lastmod>
   </url>
   <url>
-    <loc>https://barzeer.github.io/lesson10/teach.html</loc>
-    <lastmod>2022-04-25</lastmod>
+    <loc>https://byui-cse.github.io/cse111-course/lesson10/teach.html</loc>
+    <lastmod>2022-05-24</lastmod>
   </url>
   <url>
-    <loc>https://barzeer.github.io/lesson11/check.html</loc>
-    <lastmod>2022-04-10</lastmod>
+    <loc>https://byui-cse.github.io/cse111-course/lesson11/check.html</loc>
+    <lastmod>2022-04-11</lastmod>
   </url>
   <url>
-    <loc>https://barzeer.github.io/lesson11/prepare.html</loc>
+    <loc>https://byui-cse.github.io/cse111-course/lesson11/prepare.html</loc>
     <lastmod>2022-04-09</lastmod>
   </url>
   <url>
-    <loc>https://barzeer.github.io/lesson11/prove.html</loc>
-    <lastmod>2022-04-10</lastmod>
+    <loc>https://byui-cse.github.io/cse111-course/lesson11/prove.html</loc>
+    <lastmod>2022-04-11</lastmod>
   </url>
   <url>
-    <loc>https://barzeer.github.io/lesson11/teach.html</loc>
+    <loc>https://byui-cse.github.io/cse111-course/lesson11/teach.html</loc>
     <lastmod>2022-04-25</lastmod>
   </url>
   <url>
-    <loc>https://barzeer.github.io/lesson11wwb/prove.html</loc>
-    <lastmod>2022-04-10</lastmod>
+    <loc>https://byui-cse.github.io/cse111-course/lesson12/check.html</loc>
+    <lastmod>2022-04-11</lastmod>
   </url>
   <url>
-    <loc>https://barzeer.github.io/lesson12/check.html</loc>
-    <lastmod>2022-04-10</lastmod>
-  </url>
-  <url>
-    <loc>https://barzeer.github.io/lesson12/prepare.html</loc>
+    <loc>https://byui-cse.github.io/cse111-course/lesson12/prepare.html</loc>
     <lastmod>2022-04-09</lastmod>
   </url>
   <url>
-    <loc>https://barzeer.github.io/lesson12/prove.html</loc>
-    <lastmod>2022-04-10</lastmod>
+    <loc>https://byui-cse.github.io/cse111-course/lesson12/prove.html</loc>
+    <lastmod>2022-04-11</lastmod>
   </url>
   <url>
-    <loc>https://barzeer.github.io/lesson12/teach.html</loc>
+    <loc>https://byui-cse.github.io/cse111-course/lesson12/teach.html</loc>
     <lastmod>2022-04-25</lastmod>
   </url>
   <url>
-    <loc>https://barzeer.github.io/lesson12wwb/prove.html</loc>
-    <lastmod>2022-04-10</lastmod>
+    <loc>https://byui-cse.github.io/cse111-course/lesson13/prove.html</loc>
+    <lastmod>2022-04-11</lastmod>
   </url>
   <url>
-    <loc>https://barzeer.github.io/lesson13/prove.html</loc>
-    <lastmod>2022-04-10</lastmod>
-  </url>
-  <url>
-    <loc>https://barzeer.github.io/lesson13wwb/prove.html</loc>
-    <lastmod>2022-04-10</lastmod>
-  </url>
-  <url>
-    <loc>https://barzeer.github.io/lesson14/prepare.html</loc>
-    <lastmod>2022-03-31</lastmod>
-  </url>
-  <url>
-    <loc>https://barzeer.github.io/overview/syllabus.html</loc>
-    <lastmod>2022-04-13</lastmod>
+    <loc>https://byui-cse.github.io/cse111-course/lesson14/prepare.html</loc>
+    <lastmod>2022-02-18</lastmod>
   </url>
 </urlset>
