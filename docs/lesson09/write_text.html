@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<!-- Copyright 2022, Brigham Young University - Idaho. All rights reserved. -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSE 111 - Writing Text Files</title>
+    <script src="../site/color.js"></script>
+    <script src="../site/linenums.js"></script>
+    <script src="../site/hljs/highlight.pack.js"></script>
+    <link rel="icon" type="image/png" href="../site/icon.png">
+    <link rel="stylesheet" type="text/css" href="../site/style.css">
+    <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
+</head>
+
+<body>
+<header>
+    <div class="colorCtrl">&nbsp;</div>
+    <a class="logo" title="BYU-Idaho Website" href="https://www.byui.edu">&#xe000;</a>
+    <h2><a href="https://byui.instructure.com">CSE 111</a> |
+        <a href="../index.html">Programming with Functions</a></h2>
+</header>
+<article>
+    <h1>Writing Text Files</h1>
+
+    <h2 id="text_files">Text Files</h2>
+    <p>Broadly speaking, there are two types of files: text files and
+    binary files. A <dfn>text file</dfn> stores words and numbers as
+    human readable text. A <dfn>binary file</dfn> stores pictures,
+    diagrams, sounds, music, movies, and other media as numbers in a
+    format that is not directly readable by humans.</p>
+
+    <h3 id="write">Writing into a Text File</h3>
+    <p>In order to write text to a file, a program must call the
+    built-in <code>open</code> function to open the file for writing or
+    appending text and then call the <code>.write</code> method or the
+    built-in <code>print</code> function. Example&nbsp;1 contains a
+    program that asks the user for an inspirational quote and then
+    appends that quote to a text file. At
+    <span class="cross" data-ref="ex1">line&nbsp;8</span>, the program
+    calls the built-in open <code>function</code>, and at
+    <span class="cross" data-ref="ex1">line&nbsp;11</span>, the program
+    calls the built-in <code>print</code> function.</p>
+
+<div class="pre" id="ex1"><pre class="linenums"></pre>
+<pre class="python"># Example 1
+
+def main():
+    # Ask the user to enter a quote.
+    quote = input("Please enter an inspirational quote: ")
+
+    # Open the quotes.txt file for appending text.
+    with open("quotes.txt", "at") as quotes_file:
+
+        # Print the quote to the text file.
+        print(quote, file=quotes_file)
+
+
+# Call main to start this program.
+if __name__ == "__main__":
+    main()</pre></div>
+
+    <p>Example&nbsp;2 shows how to write the contents of a list into a
+    text file. At <span class="cross" data-ref="ex2">line&nbsp;21</span>,
+    the program calls the built-in <code>open</code> function to open a
+    text file for writing. At
+    lines&nbsp;<span class="cross" data-ref="ex2">25&ndash;26</span>,
+    the program uses a <code>for</code> loop to print each element of a
+    list on a separate line.</p>
+
+<div class="pre" id="ex2"><pre class="linenums"></pre>
+<pre class="python"># Example 2
+
+def main():
+    # Create a list that contains types of small boats.
+    boat_list = ["canoe", "kayak", "skiff", "dinghy"]
+
+    # Write the list to a file named small_boats.txt
+    write_list("small_boats.txt", boat_list)
+
+
+def write_list(filename, text_list):
+    """Write the contents of a list into a text file.
+
+    Parameters
+        filename: the name of the text file to write
+        text_list: the list to write to the text file
+    Return: nothing
+    """
+    # Open the text file for writing and store a reference
+    # to the opened file in a variable named text_file.
+    with open(filename, "wt") as text_file:
+
+        # Print the contents of the list into
+        # the text file, one line at a time.
+        for element in text_list:
+            print(element, file=text_file)
+
+
+# Call main to start this program.
+if __name__ == "__main__":
+    main()</pre></div>
+
+    <h2 id="csv_files">CSV Files</h2>
+    <p>Many computer systems import and export data in CSV files. CSV is
+    an acronym for comma separated values. A <dfn>CSV file</dfn> is a
+    text file that contains tabular data with each row on a separate
+    line of the file and each cell (column) separated by a comma. The
+    following example shows the contents of a CSV file named
+    <a download href="hymns.csv"><code>hymns.csv</code></a> that stores
+    data about religious songs. Notice that the first row of the file
+    contains column headings, the next four rows contain data about four
+    hymns, and each row contains three columns separated by commas.</p>
+
+<div class="pre"><pre class="csv">
+Title,Author,Composer
+O Holy Night,John Dwight,Adolphe Adam
+"Oh, Come, All Ye Faithful",John Wade,John Wade
+Joy to the World,Isaac Watts,George Handel
+With Wondering Awe,Anonymous,Anonymous
+</pre></div>
+
+    <p>Python has a standard
+    <a href="https://docs.python.org/3/library/csv.html">module named <code>csv</code></a>
+    that includes functionality to read from and write to CSV files.
+
+    <h3 id="list_to_csv">Writing a Compound List into a CSV File</h3>
+    <p>Example&nbsp;3 shows how to write the contents of a compound list
+    into a CSV file. At
+    <span class="cross" data-ref="ex3">line&nbsp;35</span>, the program
+    calls the built-in <code>open</code> function to open a text file
+    for writing. At
+    <span class="cross" data-ref="ex3">line&nbsp;39</span>, the program
+    uses the <code>csv</code> module to create a <code>csv.writer</code>
+    object. At
+    lines&nbsp;<span class="cross" data-ref="ex3">47&ndash;48</span>,
+    the program uses a <code>for</code> loop and the
+    <code>csv.writer</code> object to write each row to the CSV
+    file.</p>
+
+<div class="pre" id="ex3"><pre class="linenums"></pre>
+<pre class="python"># Example 3
+
+import csv
+
+def main():
+    heading_list = ["Title", "Author", "Composer"]
+
+    # Create a compound list of hymns.
+    hymns_list = [
+        ["O Holy Night", "John Dwight", "Adolphe Adam"],
+        ["Oh, Come, All Ye Faithful", "John Wade", "John Wade"],
+        ["Joy to the World", "Isaac Watts", "George Handel"],
+        ["With Wondering Awe", "Anonymous", "Anonymous"]
+    ]
+
+    # Call the write_compound_list function which will
+    # write the list of hymns to a file named "hymns.csv".
+    write_compound_list("hymns.csv", hymns_list, heading_list)
+
+
+def write_compound_list(filename, compound_list,
+        heading_list=None):
+    """Write the contents of a compound list into a CSV file.
+
+    Parameters
+        filename: the name of the CSV file to write
+        compound_list: the list to write to the CSV file
+        heading_list: a list that contains the column headings.
+            If heading_list is None, this function will not
+            write headings to the CSV File.
+    Return: nothing
+    """
+    # Open the text file for writing and store a reference
+    # to the opened file in a variable named csv_file.
+    with open(filename, "wt", newline="") as csv_file:
+
+        # Use the csv module to create a writer object
+        # that will write to the opened CSV file.
+        writer = csv.writer(csv_file)
+
+        # Write the heading_list to the CSV file.
+        if heading_list is not None:
+            writer.writerow(heading_list)
+
+        # Write the contents of the list into
+        # the CSV file, one row at a time.
+        for row_list in compound_list:
+            writer.writerow(row_list)
+
+
+# Call main to start this program.
+if __name__ == "__main__":
+    main()</pre></div>
+
+    <h3 id="dict_to_csv">Writing a Dictionary into a CSV File</h3>
+    <p>Example&nbsp;4 shows how to write the contents of a dictionary
+    into a CSV file. At
+    <span class="cross" data-ref="ex4">line&nbsp;46</span>, the program
+    calls the built-in <code>open</code> function to open a text file
+    for writing. At
+    <span class="cross" data-ref="ex4">line&nbsp;50</span>, the program
+    uses the <code>csv</code> module to create a <code>csv.writer</code>
+    object. At
+    lines&nbsp;<span class="cross" data-ref="ex4">59&ndash;77</span>,
+    the program uses a <code>for</code> loop and the
+    <code>csv.writer</code> object to write each row to the CSV
+    file.</p>
+
+<div class="pre" id="ex4"><pre class="linenums"></pre>
+<pre class="python"># Example 4
+
+import csv
+
+def main():
+    heading_list = ["I-Number", "Name"]
+
+    # Create a dictionary that contains student
+    # I-Numbers and names.
+    students_dict = {
+        # I-Number : Name
+        "751766201" : "James Smith",
+        "751762102" : "Esther Einboden",
+        "052058203" : "Cassidy Benavidez",
+        "323021604" : "Joel Hatch",
+        "251041405" : "Brianna Ririe",
+        "001152306" : "Stefano Hisler",
+        "182706207" : "Hyeonbeom Park",
+        "124712708" : "Maren Thomas",
+        "212505409" : "Tyler Clark"
+    }
+
+    # Call the write_dict function which will write
+    # the students dictionary file named "students.csv".
+    write_dict("students.csv", students_dict, heading_list, 0)
+
+
+def write_dict(filename, dictionary, heading_list=None,
+        key_column_index=None):
+    """Write the contents of a dictionary into a CSV file.
+
+    Parameters
+        filename: the name of the CSV file to write
+        dictionary: the dictionary to write to the CSV file
+        heading_list: a list that contains the column headings.
+            If heading_list is None, this function will not
+            write headings to the CSV File.
+        key_column_index: the index of the column in the CSV
+            file where this function should write the keys.
+            If key_column_index is None, this function will
+            not write the keys to the CSV file.
+    Return: nothing
+    """
+    # Open the text file for writing and store a reference
+    # to the opened file in a variable named csv_file.
+    with open(filename, "wt", newline="") as csv_file:
+
+        # Use the csv module to create a writer object
+        # that will write to the opened CSV file.
+        writer = csv.writer(csv_file)
+
+        # Write the heading_list to the CSV file.
+        if heading_list is not None:
+            writer.writerow(heading_list)
+
+        # Get each key value pair from the dictionary
+        # and write each pair on a separate row in thee
+        # CSV file.
+        for key, value in dictionary.items():
+
+            # If a value stored in the dictionary is a
+            # list, make a temporary copy of that value.
+            # Otherwise, create a list with that contains
+            # the value.
+            if isinstance(value, list):
+                row_list = value.copy()
+            else:
+                row_list = [value]
+
+            # If key_column_index is an integer, insert
+            # the key into the row_list so that this
+            # function will write the key to the CSV file.
+            if key_column_index is not None:
+                row_list.insert(key_column_index, key)
+
+            # Write a row to the CSV file.
+            writer.writerow(row_list)
+
+
+# Call main to start this program.
+if __name__ == "__main__":
+    main()</pre></div>
+
+    <h2 id="summary">Summary</h2>
+    <p>A text file stores words and numbers as human readable text.
+    To write text into file, your program must first open the file by
+    calling the built-in <code>open</code> function. You should write
+    the code to open a file in a Python <code>with</code> block because
+    the computer will automatically close the file when the
+    <code>with</code> block ends, and you won't need to remember to
+    write code to close the file. To write text to an open text file,
+    your program can call the built-in <code>print</code> function with
+    the <code>file</code> named argument.</p>
+
+    <p>A CSV file is a text file that contains rows and columns of data.
+    CSV is an acronym that stands for comma separated values. Within
+    each row in a CSV file, the data values are separated by commas.
+    Python includes a standard module named <code>csv</code> that helps
+    us easily write Python code to write to a CSV file.</p>
+</article>
+<footer>
+    <small>Copyright &copy; 2022, Brigham Young University - Idaho. All
+    rights reserved.</small>
+</footer>
+</body>
+</html>
