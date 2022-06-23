@@ -66,8 +66,8 @@
     to raise an exception is <code>raise</code>. Normally, you will not
     need to write code to raise an exception because the built-in
     functions, such as <code>open</code>, <code>int</code>, and
-    <code>float</code>, will raise an exception when
-    necessary.</p>
+    <code>float</code>, will raise an exception when necessary. You will
+    need to write code in your programs to handle exceptions.</p>
 
     <h3 id="handle_except">How to Handle an Exception</h3>
     <p>The Python keywords to handle exceptions are <code>try</code>,
@@ -119,8 +119,8 @@
     cause an exception. Then we write <code>except</code> blocks to
     handle the exceptions. Each <code>except</code> block may handle one
     type of exception like the code at
-    <span class="cross" data-ref="ex1">line&nbsp;12</span>:</p>
-<div class="pre"><pre class="python">except ValueError as val_err:</pre></div>
+    <span class="cross" data-ref="ex1">line&nbsp;9</span>:</p>
+<div class="pre"><pre class="python">except ZeroDivisionError as zero_div_err:</pre></div>
 
     <p>Or each <code>except</code> block may handle several types of
     exceptions, like the code at
@@ -144,7 +144,10 @@
     specific (most general) at the bottom. However, in most programs, it
     is a bad idea to write <code>except</code> blocks that are very
     general, including an <code>except</code> block that handles all
-    possible exception types and a bare <code>except</code> block.</p>
+    possible exception types
+    (<span class="cross" data-ref="ex1">line&nbsp;19</span>)
+    and a bare <code>except</code> block
+    (<span class="cross" data-ref="ex1">line&nbsp;23</span>).</p>
 
     <p>It is usually a bad idea to write an <code>except</code> block that
     handles all types of exceptions or a bare except block because such
@@ -710,7 +713,7 @@ if __name__ == "__main__":
     </ul>
 
     <p>The official Python <a href="https://docs.python.org/3/library/exceptions.html#bltin-exceptions">built-in
-    exceptions</a> reference contains a list of all the built-in
+    exceptions reference</a> contains a list of all the built-in
     exceptions. It also includes the <a href="https://docs.python.org/3/library/exceptions.html#exception-hierarchy">class
     hierarchy</a> for the built-in exceptions that is helpful for
     ordering <code>except</code> blocks from most specific to most
@@ -720,10 +723,10 @@ if __name__ == "__main__":
     <p>Errors and exceptional situations sometimes occur while a program
     is running. When an exceptional situation occurs, a computer will
     raise an exception. With the <code>try</code> and <code>except</code>
-    keywords, you can write Python code that will handle exceptions. Put
-    normal program code inside a <code>try</code> block and write an
-    <code>except</code> block for each type of exception that you want
-    your program to handle.</p>
+    keywords, you can write Python code that will handle exceptions.
+    Write normal program code inside a <code>try</code> block and write
+    an <code>except</code> block for each type of exception that you
+    want your program to handle.</p>
 
     <p>There are many types of exceptions in Python, but there are only
     seven types that your code will need to handle in
