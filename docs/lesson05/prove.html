@@ -279,6 +279,14 @@ def get_verb(quantity, tense):
         </tbody></table>
         </div></li>
 
+        <li><div>At the bottom of your <code>sentences.py</code> file,
+        write a call to your <code>main</code> function. Be certain to
+        write the call to the <code>main</code> function inside the body
+        of an <code>if</code> statement as explained in this lesson's
+        prepare content in the section titled
+        <a href="prepare.html#separate">Separating Program Code from
+        Test Code</a>.</div></li>
+
         <li><div>In a new file named <code>test_sentences.py</code>,
         write three test functions named
         <code>test_get_determiner</code>, <code>test_get_noun</code>,
@@ -397,7 +405,19 @@ test_sentences.py::test_get_noun <span class="pass">PASSED               [ 66%]<
 test_sentences.py::test_get_verb <span class="pass">PASSED               [100%]</span>
 
 <span class="pass">==================== 3 passed in 0.10s =====================</span></pre>
-        </div></li>
+
+        <p>Notice in the <code>pytest</code> output above that running
+        the test functions in <code>test_sentences.py</code> did not run
+        the <code>sentences.py</code> program. In other words, running
+        the test functions did not cause the program to print the pseudo
+        random sentences. If running your test functions causes your
+        program to print the pseudo random sentences, then at the bottom
+        of your <code>sentences.py</code> file you must rewrite the call
+        to your <code>main</code> function so that it is inside the body
+        of an <code>if</code> statement. In the prepare content for this
+        lesson, the section titled
+        <a href="prepare.html#separate">Separating Program Code from
+        Test Code</a> explains why and how.</div></li>
 
         <li><div>Run your <code>sentences.py</code> program and ensure
         that your program outputs six sentences with the following
