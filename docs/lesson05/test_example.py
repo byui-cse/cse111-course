@@ -14,10 +14,14 @@ def test_wind_chill():
     Parameters: none
     Return: nothing
     """
+    # Call the wind_chill function and verify that it returns a number.
     chill = wind_chill(0, 3)
     assert isinstance(chill, int) or isinstance(chill, float), \
         "wind_chill function must return a number"
 
+    # Call the wind_chill function three times, each time with
+    # different arguments. Use an assert statement to verify that
+    # the wind_chill function returns the correct result each time.
     chill = wind_chill(0, 3)
     assert chill == approx(-6.9)
 
@@ -33,10 +37,14 @@ def test_heat_index():
     Parameters: none
     Return: nothing
     """
+    # Call the heat_index function and verify that it returns a number.
     index = heat_index(80, 80)
     assert isinstance(index, int) or isinstance(index, float), \
         "heat_index function must return a number"
 
+    # Call the heat_index function three times, each time with
+    # different arguments. Use an assert statement to verify that
+    # the heat_index function returns the correct result each time.
     assert heat_index(80, 80) == approx(84.2)
     assert heat_index(85, 80) == approx(96.8)
     assert heat_index(96, 70) == approx(126.4)

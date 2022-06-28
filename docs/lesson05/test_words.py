@@ -9,9 +9,13 @@ def test_prefix():
     Parameters: none
     Return: nothing
     """
+    # Call the prefix function and verify that it returns a string.
     pre = prefix("upbeat", "upgrade")
     assert isinstance(pre, str), "prefix function must return a string"
 
+    # Call the prefix function ten times and use an assert
+    # statement to verify that the string returned by the
+    # prefix function is correct each time.
     assert prefix("cat", "catalog") == "cat"
     assert prefix("", "") == ""
     assert prefix("", "correct") == ""
