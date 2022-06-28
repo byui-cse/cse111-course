@@ -197,13 +197,14 @@ def compute_molar_mass(symbol_quantity_list, periodic_table_dict):
     elements listed in symbol_quantity_list.
 
     Parameters
-        symbol_quantity_list is a compound list. Each small
+        symbol_quantity_list is a compound list returned
+            from the parse_formula function. Each small
             list in symbol_quantity_list has this form:
             ["symbol", quantity].
-        periodic_table_dict is the compound dictionary returned
-            from make_periodic_table.
-        Return: the total molar mass of all the elements in
-            symbol_quantity_list.
+        periodic_table_dict is the compound dictionary
+            returned from make_periodic_table.
+    Return: the total molar mass of all the elements in
+        symbol_quantity_list.
 
     For example, if symbol_quantity_list is [["H", 2], ["O", 1]],
     this function will calculate and return
@@ -348,6 +349,12 @@ def get_formula_name(formula, known_molecules_dict):
     If formula is in the known_molecules_dict, return
     the name of the chemical formula; otherwise return
     "unknown compound".
+
+    Parameters
+        formula: a string that contains a chemical formula
+        known_molecules_dict: a dictionary that contains
+            known chemical formulas and their names
+    Return: the name of a chemical formula
     """</pre></div>
 
         Call the <code>get_formula_name</code> function from your
@@ -363,6 +370,16 @@ def get_formula_name(formula, known_molecules_dict):
 def sum_protons(symbol_quantity_list, periodic_table_dict):
     """Compute and return the total number of protons in
     all the elements listed in symbol_quantity_list.
+
+    Parameters
+        symbol_quantity_list is a compound list returned
+            from the parse_formula function. Each small
+            list in symbol_quantity_list has this form:
+            ["symbol", quantity].
+        periodic_table_dict: the compound dictionary
+            returned from make_periodic_table.
+    Return: the total number of protons of all
+        the elements in symbol_quantity_list.
     """</pre></div>
 
         Call the <code>sum_protons</code> function from your
