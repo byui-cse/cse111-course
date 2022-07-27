@@ -565,15 +565,15 @@ def main():
             print("Date,Start,End,Gallons,Miles/Gallon")
 
             # Process each row in the CSV file.
-            for row in reader:
+            for row_list in reader:
 
                 # From the current row of the CSV file, get
                 # the date, the starting and ending odometer
                 # readings, and the number of gallons used.
-                date = row[DATE_INDEX]
-                start_miles = float(row[START_MILES_INDEX])
-                end_miles = float(row[END_MILES_INDEX])
-                gallons = float(row[GALLONS_INDEX])
+                date = row_list[DATE_INDEX]
+                start_miles = float(row_list[START_MILES_INDEX])
+                end_miles = float(row_list[END_MILES_INDEX])
+                gallons = float(row_list[GALLONS_INDEX])
 
                 # Call the miles_per_gallon function.
                 mpg = miles_per_gallon(
