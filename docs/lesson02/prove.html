@@ -106,7 +106,7 @@
         class from the <code>datetime</code> module and calls the
         <code>datetime.now</code> method to get the current date and
         time from a computer's operating system. Then it uses an
-        f-string to format and print the current date and time.</p>
+        f-string to format and print the current date.</p>
 
 <div class="pre" id="ex1"><pre class="linenums"></pre>
 <pre class="python">
@@ -119,14 +119,15 @@ from datetime import datetime
 # the computer's operating system.
 current_date_and_time = datetime.now()
 
-# Print only the date part of the current date and time.
+# Use an f-string to print only the date
+# part of the current date and time.
 print(f"{current_date_and_time:%Y-%m-%d}")</pre></div>
 
         <p>After the computer executes
         <span class="cross" data-ref="ex1">line&nbsp;8</span> in the
         above code, the variable <var>current_date_and_time</var> will
         hold the current date and time. Within the f-string at
-        <span class="cross" data-ref="ex1">line&nbsp;11</span>,
+        <span class="cross" data-ref="ex1">line&nbsp;12</span>,
         the string sequences that begin with the percent symbol (%) are
         called format codes. The format codes and their meaning are
         listed in the official Python reference about

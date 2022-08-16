@@ -111,14 +111,15 @@ from datetime import datetime
 # the computer's operating system.
 current_date_and_time = datetime.now()
 
-# Print the current day of the week and the current time.
+# Use an f-string to print the current
+# day of the week and the current time.
 print(f"{current_date_and_time:%A %I:%M %p}")</pre></div>
 
         <p>After the computer executes
         <span class="cross" data-ref="ex1">line&nbsp;8</span> in the
         above code, the variable <var>current_date_and_time</var> will
         hold the current date and time. Within the f-string at
-        <span class="cross" data-ref="ex1">line&nbsp;11</span>,
+        <span class="cross" data-ref="ex1">line&nbsp;12</span>,
         the string sequences that begin with the percent symbol (%) are
         called format codes. The
         <a href="https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes">format codes and their meaning</a>
