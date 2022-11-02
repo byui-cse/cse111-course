@@ -47,7 +47,7 @@ cse111.linenums = {
 		const elems = document.querySelectorAll('div.pre');
 		for (let i = 0;  i < elems.length;  ++i) {
 			let image = document.createElement('img');
-			image.setAttribute('src', '../site/copy.png');
+			image.setAttribute('src', '../site/icons/copy.png');
 			image.setAttribute('alt', 'Copy code to the clipboard');
 			let button = document.createElement('button');
 			button.setAttribute('type', 'button');

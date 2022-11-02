@@ -403,7 +403,7 @@ article ul.mixed {
 
 article ul.references > li,
 article ul.mixed > li.reference {
-	background-image: url("reference.png");
+	background-image: url("icons/reference.png");
 	background-repeat: no-repeat;
 	min-height: 30px;
 	padding-left: 22px;
@@ -411,7 +411,7 @@ article ul.mixed > li.reference {
 
 article ul.tutorials > li,
 article ul.mixed > li.tutorial {
-	background-image: url("tutorial.png");
+	background-image: url("icons/tutorial.png");
 	background-repeat: no-repeat;
 	min-height: 30px;
 	padding-left: 22px;
@@ -419,7 +419,7 @@ article ul.mixed > li.tutorial {
 
 article ul.videos > li,
 article ul.mixed > li.video {
-	background-image: url("video.png");
+	background-image: url("icons/video.png");
 	background-repeat: no-repeat;
 	min-height: 30px;
 	padding-left: 34px;
