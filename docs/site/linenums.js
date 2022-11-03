@@ -42,6 +42,16 @@ cse111.linenums = {
 			document.addEventListener('copy', listener);
 			document.execCommand('copy');
 			document.removeEventListener('copy', listener);
+
+			// Select the text as a hint to the user that it was
+			// copied to the clipboard. Selecting the text is not
+			// necessary for copying the text to the clipboard.
+			// Selecting the text is simply feedback to the user.
+			const select = window.getSelection();
+			let range = document.createRange();
+			range.selectNodeContents(pre);
+			select.removeAllRanges();
+			select.addRange(range);
 		};
 
 		const elems = document.querySelectorAll('div.pre');
@@ -181,10 +191,22 @@ cse111.linenums = {
 		const consoles = document.querySelectorAll('pre.console[data-for]');
 		for (let i = 0;  i < consoles.length;  ++i) {
 			let console = consoles[i];
+
 			let id = console.getAttribute('data-for');
-			let divElem = document.getElementById(id);
-			let width = window.getComputedStyle(divElem).getPropertyValue('width');
-			console.style.width = width;
+			let style = window.getComputedStyle(document.getElementById(id));
+			let width = parseFloat(style.getPropertyValue('width'));
+
+			// The element width returned by getPropertyValue does not
+			// include the border width, but the element.style.width
+			// property does include the border width. In order to use
+			// element.style.width to set the width of the console div,
+			// we must first add the border width to the computed width.
+			style = window.getComputedStyle(console);
+			let left = parseFloat(style.getPropertyValue('border-left-width'));
+			let right= parseFloat(style.getPropertyValue('border-right-width'));
+			width += left + right;
+
+			console.style.width = width + 'px';
 		}
 	},
 
