@@ -29,6 +29,10 @@
 	--coral: rgba(255, 127, 80, 1);
 	--dark-coral: rgba(33, 16, 10, 1);
 
+	--chartreuse: rgba(192, 255, 80);
+	--pastel-green: rgba(224, 255, 140);
+	--pale-yellow: rgba(255, 255, 200);
+
 	--light-green: rgba(127, 255, 127, 1);
 	--dark-green: rgba(37, 76, 37, 1);
 
@@ -57,6 +61,10 @@
 
 	--code-line-hilite: var(--light-green);
 	--console-line-hilite: rgba(208, 229, 241, 1);
+
+	--compare-same-color: var(--chartreuse);
+	--compare-similar-color: var(--pastel-green);
+	--compare-diff-color: var(--pale-yellow);
 
 	--body-font-size: 110%;
 	--formula-font-size: 118%;
@@ -117,6 +125,23 @@ body {
 		text-decoration: none;
 		color: inherit;
 	}
+	header > a.byui-logo {
+		font-family: 'icomoon';
+		font-size: 400%;
+		font-style: normal;
+		font-weight: normal;
+		font-variant: normal;
+		text-transform: none;
+		line-height: 0.6;
+		margin-right: 0.4em;
+		vertical-align: middle;
+		/* Better font rendering */
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+	header > a.byui-logo::after { content: "\e000"; }
+	/* TODO: within all HTML files, change the a.logo element
+	 * to a.byui-logo and then remove the following CSS rule. */
 	header > a.logo {
 		font-family: 'icomoon';
 		font-size: 400%;
@@ -800,6 +825,11 @@ article table td {
 	padding: 0.1em 0.25em;
 }
 
+article table.long tbody th,
+article table.long tbody td {
+	padding-bottom: 1em;
+}
+
 article table td.center { text-align: center; }
 article table td.number { text-align: right; }
 
@@ -823,6 +853,16 @@ article table.contents tbody > tr > th {
 }
 article table.contents tbody > tr > td { padding-top: 0.3em; }
 article table.contents tbody > tr > td:first-child { min-width: 10em; }
+
+article table.compare tbody > tr.same > th {
+	background-color: var(--compare-same-color);
+}
+article table.compare tbody > tr.similar > th {
+	background-color: var(--compare-similar-color);
+}
+article table.compare tbody > tr.diff > th {
+	background-color: var(--compare-diff-color);
+}
 
 article table.prec > tbody > tr > td {
     border: 1px solid var(--border-color);

@@ -18,7 +18,7 @@
 <body>
 <header>
     <div class="colorCtrl">&nbsp;</div>
-    <a class="logo" title="BYU-Idaho Website" href="https://www.byui.edu">&#xe000;</a>
+    <a class="byui-logo" title="BYU-Idaho Website" href="https://www.byui.edu"></a>
     <h2><a href="https://byui.instructure.com">CSE 111</a> |
         <a href="../index.html">Programming with Functions</a></h2>
 </header>
@@ -58,9 +58,9 @@
         <tr><td>42-039-4736</td> <td>Clint Huish</td>
             <td class="center">&uarr;</td></tr>
         <tr><td>61-315-0160</td> <td>Amelia Davis</td>
-            <td class="center">5</td></tr>
+            <td class="center">|</td></tr>
         <tr><td>10-450-1203</td> <td>Ana Soares</td>
-            <td class="center">items</td></tr>
+            <td class="center">5 items</td></tr>
         <tr><td>75-421-2310</td> <td>Abdul Ali</td>
             <td class="center">|</td></tr>
         <tr><td>07-103-5621</td> <td>Amelia Davis</td>
@@ -424,78 +424,180 @@ Total credits earned by all students: 47</pre>
     table shows the similarities and differences of lists and
     dictionaries.</p>
 
-    <table class="center"><thead>
+    <table class="compare center long"><thead>
         <tr><th></th> <th>Lists</th> <th>Dictionaries</th></tr>
     </thead><tbody>
-        <tr>
-        <th>Similar</th>
-        <td><p>A list can store many elements.</p></td>
-        <td><p>A dictionary can store many items.</p></td></tr>
+        <tr class="similar"><th>Similar</th>
+        <td>A list can store many <em>elements</em>.</td>
+        <td>A dictionary can store many <em>items</em>.</td></tr>
 
-        <tr>
-        <th>Same</th>
-        <td><p>Lists are mutable, meaning a program can add and remove
-        elements after a list is created.</p></td>
-        <td><p>Dictionaries are mutable, meaning a program can add and
-        remove items after a dictionary is created.</p></td></tr>
+        <tr class="diff"><th>Different</th>
+        <td>Each element in a list does not have to be unique.</td>
+        <td>Each item in a dictionary is a key value pair. Each key must
+        be unique within a dictionary. Each value does not have to be
+        unique.</td></tr>
 
-        <tr>
-        <th>Different</th>
-        <td><p>Each element in a list does not have to be unique.</p></td>
-        <td><p>Each item in a dictionary is a key value pair. Each key
-        must be unique within a dictionary. Each value does not have to
-        be unique.</p></td></tr>
-
-        <tr>
-        <th>Different</th>
-        <td><p>Lists were designed for efficiently storing elements.
-        Lists use less memory than dictionaries. However, finding an
-        element in a list is relatively slow.</p></td>
-        <td><p>Dictionaries were designed for quickly finding items.
+        <tr class="diff"><th></th>
+        <td>Lists were designed for efficiently storing elements. Lists
+        use less memory than dictionaries. However, finding an element
+        in a list is relatively slow.</td>
+        <td>Dictionaries were designed for quickly finding items.
         Finding an item in a dictionary is fast. However, dictionaries
-        use more memory than lists.</p></td></tr>
+        use more memory than lists.</td></tr>
 
-        <tr>
-        <th>Same</th>
-        <td><p>Lists are passed by reference into a function.</p></td>
-        <td><p>Dictionaries are passed by reference into a
-        function.</p></td></tr>
+        <tr class="diff"><th></th>
+        <td>A programmer uses square brackets ([&nbsp;and&nbsp;]) to
+        create a list.</td>
+        <td>A programmer uses curly braces ({&nbsp;and&nbsp;}) to create
+        a dictionary.</td></tr>
 
-        <tr>
-        <th>Different</th>
-        <td><p>A programmer uses square brackets ([&nbsp;and&nbsp;]) to
-        create a list.</p></td>
-        <td><p>A programmer uses curly braces ({&nbsp;and&nbsp;}) to
-        create a dictionary.</p></td></tr>
+        <tr class="diff"><th></th>
+        <td colspan="2"><div class="pre"><pre class="python">
+    # Create a list of cities.
+    cities_list = ["Delhi", "Lagos", "Dallas"]
 
-        <tr>
-        <th>Different</th>
-        <td><p>A programmer calls the <code>insert</code> and
-        <code>append</code> methods to add an element to a
-        list.</p></td>
-        <td><p>A programmer uses square brackets ([&nbsp;and&nbsp;]) to
-        add an item to a dictionary.</p></td></tr>
+    # Create a dictionary of people.
+    people_dict = {
+        "P203": "Ignacio Torres",
+        "P445": "Whitney Nelson",
+        "P128": "Yasmin Li"
+    }
+</pre></div></td></tr>
 
-        <tr>
-        <th>Similar</th>
-        <td><p>A programmer uses square brackets ([&nbsp;and&nbsp;]) and
-        an index to retrieve an element from a list.</p></td>
-        <td><p>A programmer uses square brackets ([&nbsp;and&nbsp;]) and
-        a key to retrieve a value from a dictionary.</p></td></tr>
+        <tr class="same"><th>Same</th>
+        <td>Lists are mutable, which means a program can add and remove
+        elements after a list is created.</td>
+        <td>Dictionaries are mutable, which means a program can add and
+        remove items after a dictionary is created.</td></tr>
 
-        <tr>
-        <th>Similar</th>
-        <td><p>A programmer uses square brackets ([&nbsp;and&nbsp;]) and
-        an index to replace an element in a list.</p></td>
-        <td><p>A programmer uses square brackets ([&nbsp;and&nbsp;]) and
-        a key to replace a value in a dictionary.</p></td></tr>
+        <tr class="diff"><th>Different</th>
+        <td>A programmer calls the <code>insert</code> and
+        <code>append</code> methods to add an element to a list.</td>
+        <td>A programmer uses square brackets ([&nbsp;and&nbsp;]) to add
+        an item to a dictionary.</td></tr>
 
-        <tr>
-        <th>Same</th>
-        <td><p>A programmer uses the <code>pop</code> method to remove
-        an element from a list.</p></td>
-        <td><p>A programmer uses the <code>pop</code> method to remove
-        an item from a dictionary.</p></td></tr>
+        <tr class="diff"><th></th>
+        <td colspan="2"><div class="pre"><pre class="python">
+    # Add two cities to the cities list.
+    cities_list.insert(1, "Paris")
+    cities_list.append("Tokyo")
+
+    # Add two people to the people dictionary.
+    people_dict["P205"] = "Liam Myers"
+    people_dict["P317"] = "Davina Patel"
+</pre></div></td></tr>
+
+        <tr class="same"><th>Same</th>
+        <td>To cause the computer to check whether an element is in a
+        list, a programmer uses the <code>in</code> keyword.</td>
+        <td>To cause the computer to check whether an element is in a
+        dictionary, a programmer uses the <code>in</code> keyword.</td></tr>
+
+        <tr class="same"><th></th>
+        <td colspan="2"><div class="pre"><pre class="python">
+    if "Paris" in cities_list:
+        print("Paris is in the list of cities.")
+
+    if "P203" in people_dict:
+        print("P203 is in the dictionary of people.")
+</pre></div></td></tr>
+
+        <tr class="diff"><th>Different</th>
+        <td>A programmer uses the <code>index</code> method to find an
+        element in a list.</td>
+        <td>A programmer uses square brackets ([&nbsp;and&nbsp;]) and a
+        key to find an item in a list.</td>
+
+        <tr class="diff"><th></th>
+        <td colspan="2"><div class="pre"><pre class="python">
+    # Find Dallas in the cities list.
+    index = cities_list.index("Dallas")
+
+    # Find person P128 in the people dictionary.
+    person_name = people_dict["P128"]
+</pre></div></td></tr>
+
+        <tr class="similar"><th>Similar</th>
+        <td>A programmer uses square brackets ([&nbsp;and&nbsp;]) and an
+        index to retrieve an element from a list.</td>
+        <td>A programmer uses square brackets ([&nbsp;and&nbsp;]) and a
+        key to retrieve a value from a dictionary.</td></tr>
+
+        <tr class="similar"><th></th>
+        <td colspan="2"><div class="pre"><pre class="python">
+    # Retrieve the element stored at
+    # index 2 in the cities list.
+    city_name = cities_list[2]
+
+    # Find person P128 in the people dictionary
+    # and retrieve the corresponding value.
+    person_name = people_dict["P128"]
+</pre></div></td></tr>
+
+        <tr class="similar"><th></th>
+        <td>A programmer uses square brackets ([&nbsp;and&nbsp;]) and
+        an index to replace an element in a list.</td>
+        <td>A programmer uses square brackets ([&nbsp;and&nbsp;]) and
+        a key to replace a value in a dictionary.</td></tr>
+
+        <tr class="similar"><th></th>
+        <td colspan="2"><div class="pre"><pre class="python">
+    # Change the city name at index 2 to London.
+    cities_list[2] = "London"
+
+    # Change the name of person P205 to Finn Meyers.
+    people_dict["P205"] = "Finn Myers"
+</pre></div></td></tr>
+
+        <tr class="similar"><th></th>
+        <td>A programmer can use a <code>for</code> loop to process
+        all the elements in a list.</td>
+        <td>A programmer can use a <code>for</code> loop to process
+        all the items in a dictionary.</td></tr>
+
+        <tr class="similar"><th></th>
+        <td colspan="2"><div class="pre"><pre class="python">
+    # Process all the elements in the cities list.
+    for city_name in cities_list:
+        print(city_name)
+
+    # Process all the items in the people dictionary.
+    for person_key, person_name in people_dict.items():
+        print(person_name)
+</pre></div></td></tr>
+
+        <tr class="same"><th>Same</th>
+        <td>A programmer uses the <code>pop</code> method to remove
+        an element from a list.</td>
+        <td>A programmer uses the <code>pop</code> method to remove
+        an item from a dictionary.</td></tr>
+
+        <tr class="same"><th></th>
+        <td colspan="2"><div class="pre"><pre class="python">
+    # Remove the element at index 3
+    # from the cities list.
+    cities_list.pop(3)
+
+    # Remove the key "P203" and its
+    # value from the people dictionary.
+    people_dict.pop("P203")
+</pre></div></td></tr>
+
+        <tr class="same"><th></th>
+        <td>Lists are passed by reference into a function.</td>
+        <td>Dictionaries are passed by reference into a
+        function.</td></tr>
+
+        <tr class="same"><th></th>
+        <td colspan="2"><div class="pre"><pre class="python">
+    # Call the draw_chart function and pass
+    # the citites list to that function.
+    draw_chart(cities_list)
+
+    # Call the hire_people function and pass
+    # the people dictionary to that function.
+    hire_people(people_dict)
+</pre></div></td></tr>
     </tbody></table>
 
     <h3 id="lists_to_dict">Converting between Lists and Dictionaries</h3>
