@@ -25,20 +25,26 @@
 
 	--border-color: rgba(112, 112, 112, 1);
 
-	--light-coral: rgba(255, 245, 242, 1);
-	--coral: rgba(255, 127, 80, 1);
-	--dark-coral: rgba(33, 16, 10, 1);
+	--lighter-yellow: rgba(255, 236, 211, 1);
+	--yellow: rgba(255, 179, 80, 1);
+	--darker-yellow: rgba(77, 54, 24, 1);
 
-	--chartreuse: rgba(192, 255, 80);
-	--pastel-green: rgba(224, 255, 140);
-	--pale-yellow: rgba(255, 255, 200);
+	--lightest-coral: rgba(255, 245, 241, 1);
+	--lighter-coral: rgba(255, 223, 211, 1);
+	--coral: rgba(255, 127, 80, 1);
+	--darker-coral: rgba(64, 32, 20, 1);
+	--darkest-coral: rgba(36, 16, 10, 1);
+
+	--lighter-raspberry: rgba(248, 209, 221, 1);
+	--raspberry: rgba(226, 71, 121, 1);
+	--darker-raspberry: rgba(57, 18, 30, 1);
 
 	--light-green: rgba(127, 255, 127, 1);
 	--dark-green: rgba(37, 76, 37, 1);
 
-	--light-byui-blue: rgba(237, 245, 249, 1);
+	--lightest-byui-blue: rgba(235, 244, 249, 1);
 	--byui-blue: rgba(0, 118, 182, 1);
-	--dark-byui-blue: rgba(0, 23, 36, 1);
+	--darkest-byui-blue: rgba(0, 24, 36, 1);
 
 	--bk-color: var(--light-bk-color);
 	--fg-color: var(--light-fg-color);
@@ -56,15 +62,15 @@
 	--user-input-fg-color: white;
 
 	--line-number-hilite: var(--byui-blue);
-	--python-bk-color: var(--light-coral);
-	--console-bk-color: var(--light-byui-blue);
+	--python-bk-color: var(--lightest-coral);
+	--console-bk-color: var(--lightest-byui-blue);
 
 	--code-line-hilite: var(--light-green);
 	--console-line-hilite: rgba(208, 229, 241, 1);
 
-	--compare-same-color: var(--chartreuse);
-	--compare-similar-color: var(--pastel-green);
-	--compare-diff-color: var(--pale-yellow);
+	--compare-same-color: var(--lighter-yellow);
+	--compare-similar-color: var(--lighter-coral);
+	--compare-diff-color: var(--lighter-raspberry);
 
 	--body-font-size: 110%;
 	--formula-font-size: 118%;
@@ -83,9 +89,13 @@ body {
 		--bk-color: var(--dark-bk-color);
 		--fg-color: var(--dark-fg-color);
 
-		--python-bk-color: var(--dark-coral);
+		--python-bk-color: var(--darkest-coral);
 		--code-line-hilite: var(--dark-green);
-		--console-bk-color: var(--dark-byui-blue);
+		--console-bk-color: var(--darkest-byui-blue);
+
+		--compare-same-color: var(--darker-yellow);
+		--compare-similar-color: var(--darker-coral);
+		--compare-diff-color: var(--darker-raspberry);
 	}
 }
 @media print {
@@ -670,10 +680,10 @@ article figure > img {
 }
 article figure.code > img {
 	border: 1px solid var(--border-color);
-	/* Instead of --python-bk-color, we must use --light-coral for
+	/* Instead of --python-bk-color, we must use --lightest-coral for
 	 * figures with code in them, because the figure foreground
 	 * colors will not change if the reader switches to dark mode. */
-	background-color: var(--light-coral);
+	background-color: var(--lightest-coral);
 }
 article figure.callgraph > img {
 	border: 1px solid var(--border-color);
@@ -854,12 +864,15 @@ article table.contents tbody > tr > th {
 article table.contents tbody > tr > td { padding-top: 0.3em; }
 article table.contents tbody > tr > td:first-child { min-width: 10em; }
 
+article span.same,
 article table.compare tbody > tr.same > th {
 	background-color: var(--compare-same-color);
 }
+article span.similar,
 article table.compare tbody > tr.similar > th {
 	background-color: var(--compare-similar-color);
 }
+article span.diff,
 article table.compare tbody > tr.diff > th {
 	background-color: var(--compare-diff-color);
 }
