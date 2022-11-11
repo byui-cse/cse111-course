@@ -149,7 +149,6 @@ body {
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 	}
-	header > a.byui-logo::after { content: "\e000"; }
 	header > h2 {
 		display: inline-block;
 		vertical-align: middle;
@@ -160,21 +159,19 @@ body {
 	header > h2 > a {
 		white-space: nowrap;
 	}
-	header > div.brightness {
+	header > div.controls {
 		float: right;
+		margin: 0 0 0 1.5em;
+		text-align: center;
+	}
+	header > div.controls > .brightness {
 		cursor: pointer;
-		margin: 0.25em 0 0 1.5em;
 		font-size: 125%;
 	}
-}
-@media print {
-	iframe.video {
-		display: none;
-	}
-	section {
-		page-break-before: always !important;
-		widows: 2;
-		orphans: 2;
+	header > div.controls > .combined {
+		font-size: 75%;
+		white-space: nowrap;
+		margin-top: 0.5em;
 	}
 }
 
@@ -219,9 +216,16 @@ p.author {
 	}
 }
 @media print {
+	body {
+		max-width: 6.5in;
+	}
 	article {
 		line-height: 1.15;
-		max-width: 6.5in;
+	}
+	section {
+		page-break-before: always !important;
+		widows: 2;
+		orphans: 2;
 	}
 }
 
@@ -285,6 +289,9 @@ article h4 {
 	article h2 > span.copy,
 	article h3 > span.copy,
 	article h4 > span.copy {
+		display: none;
+	}
+	article iframe.video {
 		display: none;
 	}
 }

@@ -6,19 +6,31 @@ if (! window.hasOwnProperty('cse111')) {
 }
 
 
-/** The brightness object allows users to click a moon or sun symbol to
- * toggle the brightness of an HTML document between dark and light
- * mode. To use this code in an HTML document, the document must include
- * the following:
- *
- * 1. <script src="../site/main.js"></script> in the document head
- *
- * 2. At least one div with class="brightness":
- *    <div class="brightness"></div>
- *    This div will contain the moon or sun symbol that the user will
- *    click to toggle dark and light modes.
- */
-cse111.brightness = {
+cse111.header = {
+	addHeader : function() {
+		let header = document.createElement('header');
+		header.innerHTML =
+'<div class="controls">\n' +
+'\t<span class="brightness"></span>\n' +
+'\t<div class="combined">\n' +
+'\t\t<a download title="Download a PDF that contains all CSE 111 HTML content"'+
+' href="../combined/cse111_content.pdf">[pdf]</a>\n' +
+'\t\t<a download title="Download a zip file that contains all CSE 111 content"'+
+' href="../combined/cse111_content.zip">[zip]</a>\n' +
+'\t</div>\n' +
+'</div>\n' +
+'<a class="byui-logo" title="BYU-Idaho Website" href="https://www.byui.edu">&#xe000;</a>\n' +
+'<h2><a title="I-Learn" href="https://byui.instructure.com">CSE 111</a> |\n' +
+'\t<a title="CSE 111 Content" href="../index.html">Programming with Functions</a></h2>';
+		let body = document.body;
+		let article = body.getElementsByTagName('article')[0];
+		body.insertBefore(header, article);
+	},
+
+
+	/** The <span class="brightness"> element allows a user to click a
+	 * moon or sun symbol to toggle the brightness of an HTML document
+	 * between dark and light mode. */
 	addBrightnessHandler : function() {
 		const dark = 'dark';
 		const light = 'light';
@@ -42,8 +54,8 @@ cse111.brightness = {
 			// Change the title and symbol for all
 			// brightness controls in the document.
 			let ctrls = document.getElementsByClassName('brightness');
-			for (let c = 0;  c < ctrls.length;  ++c) {
-				let elem = ctrls[c];
+			for (let i = 0;  i < ctrls.length;  ++i) {
+				let elem = ctrls[i];
 				elem.setAttribute('title', data.title);
 				elem.innerHTML = data.symbol;
 			}
@@ -68,8 +80,8 @@ cse111.brightness = {
 		// Add the toggle function as a click handler
 		// to all brightness controls in the document.
 		let ctrls = document.getElementsByClassName('brightness');
-		for (let c = 0;  c < ctrls.length;  ++c) {
-			ctrls[c].addEventListener('click', toggle);
+		for (let i = 0;  i < ctrls.length;  ++i) {
+			ctrls[i].addEventListener('click', toggle);
 		}
 	}
 };
@@ -417,13 +429,14 @@ cse111.solution = {
 
 
 cse111.onDOMLoaded = function() {
-	cse111.brightness.addBrightnessHandler();
-	cse111.solution.addAnchorCopyChar();
+	cse111.header.addHeader();  // Not for PDF
+	cse111.header.addBrightnessHandler(); // "
+	cse111.solution.addAnchorCopyChar();  // "
 	cse111.solution.modifyHyperlinks();
 	cse111.linenums.addLineNumbers();
-	cse111.linenums.addCopyButtons();
+	cse111.linenums.addCopyButtons();     // "
 	cse111.linenums.addCrossRefs();
-	cse111.consoles.addTitles();
+	cse111.consoles.addTitles();          // "
 };
 
 cse111.onFullDocLoaded = function() {
@@ -436,4 +449,4 @@ cse111.onFullDocLoaded = function() {
 };
 
 window.addEventListener('DOMContentLoaded', cse111.onDOMLoaded);
-window.addEventListener('load', cse111.onFullDocLoaded);
+window.addEventListener('load', cse111.onFullDocLoaded);  // Not for PDF
