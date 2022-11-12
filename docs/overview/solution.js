@@ -48,7 +48,7 @@ cse111.show = {
 		if (className) {
 			document.getElementById('code').classList.add(className);
 
-			const links = document.querySelectorAll('a[download]');
+			let links = document.querySelectorAll('a[download]');
 			for (let i = 0;  i < links.length;  ++i) {
 				let link = links[i];
 				link.setAttribute('href', href);
@@ -114,10 +114,10 @@ cse111.show = {
     },
 
 
-	onLoad : function() {
-		cse111.show.readCode();
+	onDOMLoaded : function() {
+		cse111.solution.readCode();
 	}
 };
 
 
-window.addEventListener('DOMContentLoaded', cse111.show.onLoad);
+window.addEventListener('DOMContentLoaded', cse111.solution.onDOMLoaded);

@@ -263,7 +263,7 @@ def zip_content():
 
 
 def combine_html():
-    with open(html_pathname, "wt") as outfile:
+    with open(html_pathname, "wt", newline="\n") as outfile:
         write_head(outfile)
         for original in content_filenames:
             #print(original, flush=True)
@@ -381,7 +381,8 @@ def write_foot(outfile):
     outfile.write(
 '''</article>
 </body>
-</html>''')
+</html>
+''')
 
 
 def entity_from_char(code):
