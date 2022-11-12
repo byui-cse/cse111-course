@@ -7,16 +7,16 @@ if (! window.hasOwnProperty('cse111')) {
 
 
 cse111.common = {
-	upsToRoot : "",
-
-	/** Returns true if the current HTML document is the combined HTML
-	 * file that is used for creating the combined PDF. */
+	/** Returns true if the current HTML document is a combined HTML
+	 * file that is used for creating a combined PDF. */
 	isCombined : function() {
 		let pathname = document.location.pathname;
 		let parts = pathname.split('/');
 		return parts[parts.length - 1] == "cse111_content.html";
 	},
 
+
+	upsToRoot : "",
 
 	countLevels : function() {
 		let siteIcon = document.head.querySelector('link[rel="icon"]');
@@ -175,6 +175,8 @@ cse111.common = {
 
 
 cse111.linenums = {
+	lineNumbersAdded : false,
+
 	/* The line number functions in this object expect a source code
 	 * example and its corresponding console div to be organized like
 	 * this in their containing HTML document:
@@ -201,6 +203,7 @@ cse111.linenums = {
 			}
 			elem.innerHTML = linenums;
 		}
+		this.lineNumbersAdded = true;
 	},
 
 
@@ -494,27 +497,36 @@ cse111.onDOMLoaded = function() {
 	}
 	else {
 		cse111.common.countLevels();  // Not for PDF
-		cse111.common.addHeader();            // "
 		cse111.common.addBrightnessHandler(); // "
-		cse111.common.addAnchorCopyChar();    // "
+		cse111.common.addHeader();            // "
 		cse111.linenums.addLineNumbers();
+		cse111.solution.modifyHyperlinks();   // "
+		cse111.common.addFooter();            // "
+
+		cse111.common.addAnchorCopyChar();    // "
 		cse111.linenums.addCopyButtons();     // "
 		cse111.linenums.addCrossRefs();       // "
 		cse111.consoles.addTitles();          // "
-		cse111.solution.modifyHyperlinks();   // "
-		cse111.common.addFooter();            // "
 	}
-
 };
 
 cse111.onFullDocLoaded = function() {
 	if (! cse111.common.isCombined()) {
-		// Without a delay, the consoles are resized before the line
-		// numbers are generated which makes the consoles narrower than
-		// their corresponding example code.
-		window.setTimeout(function() {
-			cse111.consoles.resizeConsoles();
-		}, 400);
+		let attempts = 20;
+		const checkLineNumbers = function() {
+			if (cse111.linenums.lineNumbersAdded) {
+				// Without a delay, the consoles are resized before the
+				// line numbers are generated which makes the consoles
+				// narrower than their corresponding example code.
+				window.setTimeout(function() {
+					cse111.consoles.resizeConsoles();
+				}, 100);
+			}
+			else if (--attempts > 0) {
+				window.setTimeout(checkLineNumbers(), 100);
+			}
+		}
+		checkLineNumbers();
 	}
 };
 
