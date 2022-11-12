@@ -9,6 +9,15 @@ if (! window.hasOwnProperty('cse111')) {
 cse111.common = {
 	upsToRoot : "",
 
+	/** Returns true if the current HTML document is the combined HTML
+	 * file that is used for creating the combined PDF. */
+	isCombined : function() {
+		let pathname = document.location.pathname;
+		let parts = pathname.split('/');
+		return parts[parts.length - 1] == "cse111_content.html";
+	},
+
+
 	countLevels : function() {
 		let siteIcon = document.head.querySelector('link[rel="icon"]');
 		if (siteIcon) {
@@ -26,25 +35,32 @@ cse111.common = {
 	},
 
 
+	/** If the document body doesn't have a header element, this
+	 * functions adds a header to the body. */
 	addHeader : function() {
 		let header = document.body.querySelector('header');
 		if (! header) {
-			header = document.createElement('header');
-			header.innerHTML =
+			let html =
 '<div class="controls">\n' +
-'\t<span class="brightness"></span>\n' +
+'\t<span class="brightness"></span>\n';
+			if (document.location.protocol != "file:") {
+				html +=
 '\t<div class="combined">\n' +
 '\t\t<a download title="Download a PDF that contains all CSE 111 HTML content"'+
 ' href="' + this.makeRelPath('combined/cse111_content.pdf') + '">[pdf]</a>\n' +
 '\t\t<a download title="Download a zip file that contains all CSE 111 content"'+
 ' href="' + this.makeRelPath('combined/cse111_content.zip') + '">[zip]</a>\n' +
-'\t</div>\n' +
+'\t</div>\n';
+			}
+			html +=
 '</div>\n' +
 '<a class="byui-logo" title="BYU-Idaho Website" href="https://www.byui.edu">&#xe000;</a>\n' +
 '<h2><a title="CSE 111 Content" href="' + this.makeRelPath('index.html') + '">CSE 111</a> |\n' +
-'\tProgramming with Functions</h2>';
+'\t<span>Programming with Functions</span></h2>';
 			let body = document.body;
 			let article = body.querySelector('article');
+			header = document.createElement('header');
+			header.innerHTML = html;
 			body.insertBefore(header, article);
 		}
 	},
@@ -108,7 +124,7 @@ cse111.common = {
 	},
 
 
-	/** Add a copy character to each h2, h3, or h4 that has an id. */
+	/** Adds a copy character to each h2, h3, or h4 that has an id. */
 	addAnchorCopyChar : function() {
 		const copyFunc = function(event) {
 			let span = event.currentTarget;
@@ -144,6 +160,8 @@ cse111.common = {
 	},
 
 
+	/** If the document body doesn't have a footer element, this
+	 * functions adds a footer to the body. */
 	addFooter : function() {
 		let footer = document.body.querySelector('footer');
 		if (! footer) {
@@ -471,25 +489,33 @@ cse111.solution = {
 
 
 cse111.onDOMLoaded = function() {
-	cse111.common.countLevels();
-	cse111.common.addHeader();  // Not for PDF
-	cse111.common.addBrightnessHandler(); // "
-	cse111.common.addAnchorCopyChar();    // "
-	cse111.linenums.addLineNumbers();
-	cse111.linenums.addCopyButtons();     // "
-	cse111.linenums.addCrossRefs();
-	cse111.consoles.addTitles();          // "
-	cse111.solution.modifyHyperlinks();   // "
-	cse111.common.addFooter();            // "
+	if (cse111.common.isCombined()) {
+		cse111.linenums.addLineNumbers();
+	}
+	else {
+		cse111.common.countLevels();  // Not for PDF
+		cse111.common.addHeader();            // "
+		cse111.common.addBrightnessHandler(); // "
+		cse111.common.addAnchorCopyChar();    // "
+		cse111.linenums.addLineNumbers();
+		cse111.linenums.addCopyButtons();     // "
+		cse111.linenums.addCrossRefs();       // "
+		cse111.consoles.addTitles();          // "
+		cse111.solution.modifyHyperlinks();   // "
+		cse111.common.addFooter();            // "
+	}
+
 };
 
 cse111.onFullDocLoaded = function() {
-	// Without a delay, the consoles are resized before the line
-	// numbers are generated which makes the consoles narrower than
-	// their corresponding example code.
-	window.setTimeout(function() {
-		cse111.consoles.resizeConsoles();
-	}, 400);
+	if (! cse111.common.isCombined()) {
+		// Without a delay, the consoles are resized before the line
+		// numbers are generated which makes the consoles narrower than
+		// their corresponding example code.
+		window.setTimeout(function() {
+			cse111.consoles.resizeConsoles();
+		}, 400);
+	}
 };
 
 window.addEventListener('DOMContentLoaded', cse111.onDOMLoaded);

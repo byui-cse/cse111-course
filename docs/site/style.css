@@ -156,7 +156,8 @@ body {
 		font-weight: normal;
 		white-space: normal;
 	}
-	header > h2 > a {
+	header > h2 > a,
+	header > h2 > span {
 		white-space: nowrap;
 	}
 	header > div.controls {
