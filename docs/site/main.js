@@ -428,21 +428,21 @@ cse111.solution = {
 			}
 		}
 		else {
-			//const splitURL = /^.+\/([^\/]+\/[^\/]+)$/;
+			const splitURL = /^.+\/([^\/]+\/[^\/]+)$/;
 
 			for (let i = 0;  i < links.length;  ++i) {
 				let link = links[i];
 
 				// Get the relative href.
 				let absURL = link.href;
-				//let relpath = absURL.replace(splitURL, '$1');
+
 				// It would be great if we could use the window.URL
 				// class, but it isn't in Internet Explorer, and it's
 				// possible that international students are still using
 				// Internet Explorer.
 				//let relpath = new URL(absURL).pathname.substring(1);
-				let parts = absURL.split('://');
-				let relpath = parts[parts.length - 1];
+				let relpath = absURL.replace(splitURL, '$1');
+
 				let newHref =
 					cse111.common.makeRelPath('overview/solution.html') +
 					'?file=' + relpath;
