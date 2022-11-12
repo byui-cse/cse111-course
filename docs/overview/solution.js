@@ -29,7 +29,7 @@ cse111.show = {
 
 		// Set the title of this document.
         document.title = heading;
-        document.head.getElementsByClassName('title')[0].innerHTML = heading;
+        document.querySelector('title').innerHTML = heading;
 
 		const isPython = /^.+\.py$/;
 		const isCSV = /^.+\.csv$/;
