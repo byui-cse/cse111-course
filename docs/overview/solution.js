@@ -22,18 +22,14 @@ cse111.show = {
 			return null;
 		};
 
-        let href = getQueryValue('file');
-        const heading = href;
-		const parts = href.split('/');
-		//const lesson = parts[0];
+        const heading = getQueryValue('file');
+		const parts = heading.split('/');
 		const filename = parts[parts.length - 1];
-		//const splitURL = /^([^\/]+)\/([^\/]+)$/;
-        //const lesson = href.replace(this.splitURL, '$1');
-        //const filename = href.replace(this.splitURL, '$2');
-		href = "../" + href;
+        const href = cse111.common.makeRelPath(heading);
 
+		// Set the title of this document.
         document.title = heading;
-        document.getElementsByClassName('title')[0].innerHTML = heading;
+        document.head.getElementsByClassName('title')[0].innerHTML = heading;
 
 		const isPython = /^.+\.py$/;
 		const isCSV = /^.+\.csv$/;
@@ -52,7 +48,8 @@ cse111.show = {
 		if (className) {
 			document.getElementById('code').classList.add(className);
 
-			let links = document.querySelectorAll('a[download]');
+			let article = document.querySelector('article');
+			let links = article.querySelectorAll('a[download]');
 			for (let i = 0;  i < links.length;  ++i) {
 				let link = links[i];
 				link.setAttribute('href', href);

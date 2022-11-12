@@ -17,20 +17,6 @@ cse111.common = {
 			if (href.endsWith(pathname)) {
 				let end = href.length - pathname.length;
 				this.upsToRoot = href.substring(0, end);
-				/*
-				let ups = href.substring(0, end);
-				let levelsBelowRoot = ups.length / "../".length;
-
-				// Apparently string.repeat(n) is not if Internet
-				// Explore, so I decided to write a loop instead of call
-				// string.repeat(n).
-				let ups = "";
-				for (let i = 0;  i < levelsBelowRoot;  ++i) {
-					ups += "../";
-				}
-				console.log(ups):
-				this.upsToRoot = ups;
-				*/
 			}
 		}
 	},
@@ -44,7 +30,6 @@ cse111.common = {
 		let header = document.body.querySelector('header');
 		if (! header) {
 			header = document.createElement('header');
-			const relpath = this.makeRelPath;
 			header.innerHTML =
 '<div class="controls">\n' +
 '\t<span class="brightness"></span>\n' +
@@ -451,7 +436,13 @@ cse111.solution = {
 				// Get the relative href.
 				let absURL = link.href;
 				//let relpath = absURL.replace(splitURL, '$1');
-				let relpath = new URL(absURL).pathname.substring(1);
+				// It would be great if we could use the window.URL
+				// class, but it isn't in Internet Explorer, and it's
+				// possible that international students are still using
+				// Internet Explorer.
+				//let relpath = new URL(absURL).pathname.substring(1);
+				let parts = absURL.split('://');
+				let relpath = parts[parts.length - 1];
 				let newHref =
 					cse111.common.makeRelPath('overview/solution.html') +
 					'?file=' + relpath;
