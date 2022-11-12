@@ -5,7 +5,7 @@ if (! window.hasOwnProperty('cse111')) {
 }
 
 
-cse111.show = {
+cse111.solution = {
     readCode : function() {
         const self = this;
 
