@@ -1,4 +1,4 @@
-/* Copyright 2020 by Brigham Young University - Idaho. All rights eeserved. */
+/* Copyright 2022 by Brigham Young University - Idaho. All rights eeserved. */
 "use strict";
 
 if (! window.hasOwnProperty('cse111')) {
@@ -6,25 +6,62 @@ if (! window.hasOwnProperty('cse111')) {
 }
 
 
-cse111.header = {
+cse111.common = {
+	upsToRoot : "",
+
+	countLevels : function() {
+		let siteIcon = document.head.querySelector('link[rel="icon"]');
+		if (siteIcon) {
+			let href = siteIcon.getAttribute('href');
+			const pathname = "site/icons/logo.png";
+			if (href.endsWith(pathname)) {
+				let end = href.length - pathname.length;
+				this.upsToRoot = href.substring(0, end);
+				/*
+				let ups = href.substring(0, end);
+				let levelsBelowRoot = ups.length / "../".length;
+
+				// Apparently string.repeat(n) is not if Internet
+				// Explore, so I decided to write a loop instead of call
+				// string.repeat(n).
+				let ups = "";
+				for (let i = 0;  i < levelsBelowRoot;  ++i) {
+					ups += "../";
+				}
+				console.log(ups):
+				this.upsToRoot = ups;
+				*/
+			}
+		}
+	},
+
+	makeRelPath : function(subpath) {
+		return this.upsToRoot + subpath;
+	},
+
+
 	addHeader : function() {
-		let header = document.createElement('header');
-		header.innerHTML =
+		let header = document.body.querySelector('header');
+		if (! header) {
+			header = document.createElement('header');
+			const relpath = this.makeRelPath;
+			header.innerHTML =
 '<div class="controls">\n' +
 '\t<span class="brightness"></span>\n' +
 '\t<div class="combined">\n' +
 '\t\t<a download title="Download a PDF that contains all CSE 111 HTML content"'+
-' href="../combined/cse111_content.pdf">[pdf]</a>\n' +
+' href="' + this.makeRelPath('combined/cse111_content.pdf') + '">[pdf]</a>\n' +
 '\t\t<a download title="Download a zip file that contains all CSE 111 content"'+
-' href="../combined/cse111_content.zip">[zip]</a>\n' +
+' href="' + this.makeRelPath('combined/cse111_content.zip') + '">[zip]</a>\n' +
 '\t</div>\n' +
 '</div>\n' +
 '<a class="byui-logo" title="BYU-Idaho Website" href="https://www.byui.edu">&#xe000;</a>\n' +
-'<h2><a title="I-Learn" href="https://byui.instructure.com">CSE 111</a> |\n' +
-'\t<a title="CSE 111 Content" href="../index.html">Programming with Functions</a></h2>';
-		let body = document.body;
-		let article = body.getElementsByTagName('article')[0];
-		body.insertBefore(header, article);
+'<h2><a title="CSE 111 Content" href="' + this.makeRelPath('index.html') + '">CSE 111</a> |\n' +
+'\tProgramming with Functions</h2>';
+			let body = document.body;
+			let article = body.querySelector('article');
+			body.insertBefore(header, article);
+		}
 	},
 
 
@@ -82,6 +119,53 @@ cse111.header = {
 		let ctrls = document.getElementsByClassName('brightness');
 		for (let i = 0;  i < ctrls.length;  ++i) {
 			ctrls[i].addEventListener('click', toggle);
+		}
+	},
+
+
+	/** Add a copy character to each h2, h3, or h4 that has an id. */
+	addAnchorCopyChar : function() {
+		const copyFunc = function(event) {
+			let span = event.currentTarget;
+			let heading = span.parentElement;
+			let url = window.location.href;
+			let anchor =  '#' + heading.getAttribute('id');
+			let newURL = url.replace(/#.*/, '') + anchor;
+
+			// Copy the new URL to the clipboard.
+			const listener = function(event) {
+				event.clipboardData.setData('text/plain', newURL);
+				event.preventDefault();
+			};
+			document.addEventListener('copy', listener);
+			document.execCommand('copy');
+			document.removeEventListener('copy', listener);
+
+			// Load the new URL in the current browser window.
+			window.location.assign(anchor);
+		};
+
+		let elems = document.querySelectorAll('h2[id], h3[id], h4[id]');
+		for (let i = 0;  i < elems.length;  ++i) {
+			let span = document.createElement('span');
+			span.classList.add('copy');
+			span.setAttribute('title', 'Copy URL to the clipboard');
+			span.addEventListener('click', copyFunc);
+			span.innerText = '¶';
+
+			let heading = elems[i];
+			heading.appendChild(span);
+		}
+	},
+
+
+	addFooter : function() {
+		let footer = document.body.querySelector('footer');
+		if (! footer) {
+			footer = document.createElement('footer');
+			footer.innerHTML = '<small>Copyright &copy; 2020&ndash;2022, ' +
+				'<a title="BYU-Idaho Website" href="https://www.byui.edu">Brigham Young University - Idaho</a>. All rights reserved.</small>';
+			document.body.appendChild(footer);
 		}
 	}
 };
@@ -156,7 +240,7 @@ cse111.linenums = {
 		const getAllLineNumbers = function(target) {
 			let refId = target.getAttribute('data-ref');
 			let preDiv = document.getElementById(refId);
-			let lineNumPre = preDiv.getElementsByTagName('pre')[0];
+			let lineNumPre = preDiv.querySelector('pre');
 			return lineNumPre.children;
 		};
 
@@ -272,7 +356,8 @@ cse111.linenums = {
 		let elems = document.querySelectorAll('div.pre');
 		for (let i = 0;  i < elems.length;  ++i) {
 			let image = document.createElement('img');
-			image.setAttribute('src', '../site/icons/copy.png');
+			image.setAttribute('src',
+					cse111.common.makeRelPath('site/icons/copy.png'));
 			image.setAttribute('alt', 'Copy code to the clipboard');
 			let button = document.createElement('button');
 			button.setAttribute('type', 'button');
@@ -338,42 +423,6 @@ cse111.consoles = {
 
 
 cse111.solution = {
-	/** Add a copy character to each h2, h3, or h4 that has an id. */
-	addAnchorCopyChar : function() {
-		const copyFunc = function(event) {
-			let span = event.currentTarget;
-			let heading = span.parentElement;
-			let url = window.location.href;
-			let anchor =  '#' + heading.getAttribute('id');
-			let newURL = url.replace(/#.*/, '') + anchor;
-
-			// Copy the new URL to the clipboard.
-			const listener = function(event) {
-				event.clipboardData.setData('text/plain', newURL);
-				event.preventDefault();
-			};
-			document.addEventListener('copy', listener);
-			document.execCommand('copy');
-			document.removeEventListener('copy', listener);
-
-			// Load the new URL in the current browser window.
-			window.location.assign(anchor);
-		};
-
-		let elems = document.querySelectorAll('h2[id], h3[id], h4[id]');
-		for (let i = 0;  i < elems.length;  ++i) {
-			let span = document.createElement('span');
-			span.classList.add('copy');
-			span.setAttribute('title', 'Copy URL to the clipboard');
-			span.addEventListener('click', copyFunc);
-			span.innerText = '¶';
-
-			let heading = elems[i];
-			heading.appendChild(span);
-		}
-	},
-
-
 	/** Modifies all <a class="solution"> elements. */
 	modifyHyperlinks : function() {
 		// Get all <a class="solution"> elements.
@@ -381,8 +430,7 @@ cse111.solution = {
 
 		// Is the user viewing the CSE 111 files
 		// from his local hard drive?
-		let isLocal = /^file:\/\/\//.test(window.location);
-		if (isLocal) {
+		if (window.location.protocol == "file:") {
 			for (let i = 0;  i < links.length;  ++i) {
 				let link = links[i];
 
@@ -395,17 +443,20 @@ cse111.solution = {
 			}
 		}
 		else {
-			const splitURL = /^.+\/([^\/]+\/[^\/]+)$/;
+			//const splitURL = /^.+\/([^\/]+\/[^\/]+)$/;
 
 			for (let i = 0;  i < links.length;  ++i) {
 				let link = links[i];
 
 				// Get the relative href.
-				let hrefAttr = link.getAttribute('href');
 				let absURL = link.href;
-				let relpath = absURL.replace(splitURL, '$1');
-				let newHref = '../overview/solution.html?file=' + relpath;
+				//let relpath = absURL.replace(splitURL, '$1');
+				let relpath = new URL(absURL).pathname.substring(1);
+				let newHref =
+					cse111.common.makeRelPath('overview/solution.html') +
+					'?file=' + relpath;
 
+				let hrefAttr = link.getAttribute('href');
 				link.setAttribute('title', 'View ' + hrefAttr);
 				link.setAttribute('href', newHref);
 
@@ -429,14 +480,16 @@ cse111.solution = {
 
 
 cse111.onDOMLoaded = function() {
-	cse111.header.addHeader();  // Not for PDF
-	cse111.header.addBrightnessHandler(); // "
-	cse111.solution.addAnchorCopyChar();  // "
-	cse111.solution.modifyHyperlinks();
+	cse111.common.countLevels();
+	cse111.common.addHeader();  // Not for PDF
+	cse111.common.addBrightnessHandler(); // "
+	cse111.common.addAnchorCopyChar();    // "
 	cse111.linenums.addLineNumbers();
 	cse111.linenums.addCopyButtons();     // "
 	cse111.linenums.addCrossRefs();
 	cse111.consoles.addTitles();          // "
+	cse111.solution.modifyHyperlinks();   // "
+	cse111.common.addFooter();            // "
 };
 
 cse111.onFullDocLoaded = function() {

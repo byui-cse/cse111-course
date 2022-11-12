@@ -14,6 +14,7 @@ site_filenames = [
     "site/main.js",
     "site/reset.js",
     "site/scope.js",
+    "site/reset.css",
     "site/style.css",
     "site/fonts/icomoon.eot",
     "site/fonts/icomoon.svg",

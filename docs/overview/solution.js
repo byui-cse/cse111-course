@@ -1,3 +1,4 @@
+/* Copyright 2020 by Brigham Young University - Idaho. All rights eeserved. */
 "use strict";
 
 if (! window.hasOwnProperty('cse111')) {
@@ -5,7 +6,7 @@ if (! window.hasOwnProperty('cse111')) {
 }
 
 
-cse111.solution = {
+cse111.show = {
     readCode : function() {
         const self = this;
 
@@ -23,9 +24,12 @@ cse111.solution = {
 
         let href = getQueryValue('file');
         const heading = href;
-		const splitURL = /^([^\/]+)\/([^\/]+)$/;
-        const lesson = href.replace(this.splitURL, '$1');
-        const filename = href.replace(this.splitURL, '$2');
+		const parts = href.split('/');
+		//const lesson = parts[0];
+		const filename = parts[parts.length - 1];
+		//const splitURL = /^([^\/]+)\/([^\/]+)$/;
+        //const lesson = href.replace(this.splitURL, '$1');
+        //const filename = href.replace(this.splitURL, '$2');
 		href = "../" + href;
 
         document.title = heading;
@@ -115,9 +119,9 @@ cse111.solution = {
 
 
 	onDOMLoaded : function() {
-		cse111.solution.readCode();
+		cse111.show.readCode();
 	}
 };
 
 
-window.addEventListener('DOMContentLoaded', cse111.solution.onDOMLoaded);
+window.addEventListener('DOMContentLoaded', cse111.show.onDOMLoaded);
