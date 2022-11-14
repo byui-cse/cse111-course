@@ -27,11 +27,10 @@
     parts of the molar mass calculator that you started writing in the
     previous lesson's prove milestone. When you are finished with this
     prove assignment, your <code>chemistry.py</code> program must
-    contain at least four functions named as follows:</p>
+    contain at least three functions named as follows:</p>
     <ol>
         <li><div><code>main</code></div></li>
         <li><div><code>make_periodic_table</code></div></li>
-        <li><div><code>parse_formula</code></div></li>
         <li><div><code>compute_molar_mass</code></div></li>
     </ol>
 
@@ -76,24 +75,26 @@
         milestone. The <code>formula.py</code> file includes a
         <code>FormulaError</code> class and a function named
         <code>parse_formula</code>. Both of them are complete and work
-        correctly, and you should not change them.
+        correctly, and you should not change them.</div></li>
 
-        <p>The <code>parse_formula</code> function converts a chemical
-        formula for a molecule, such as "C13H16N2O2" (melatonin), into a
-        compound list, such as
+        <li><div>Open the <code>formula.py</code> file in VS Code and
+        read the triple quoted string at the top of the
+        <code>parse_formula</code> function. As the triple quoted string
+        states, the <code>parse_formula</code> function converts a
+        chemical formula for a molecule, such as "C13H16N2O2"
+        (melatonin), into a compound list, such as
         <span class="nowrap">[["C", 13], ["H", 16], ["N", 2], ["O", 2]].</span>
         This compound list is known as a <var>symbol_quantity_list</var>
         because it contains the symbols of chemical elements and the
         quantity of atoms of each element that appear in a chemical
-        formula.</p></div></li>
+        formula.</div></li>
 
         <li><div>Copy and paste the following import statement into your
         <code>chemistry.py</code> program at the top of your program.
         This statement will import the <code>parse_formula</code>
-        function from the <code>formula.py</code> file that you
-        downloaded into your <code>chemistry.py</code> program so that
-        you can call the <code>parse_formula</code> function in your
-        program.
+        function from the <code>formula.py</code> file into your
+        <code>chemistry.py</code> program so that you can call the
+        <code>parse_formula</code> function in your program.
 <div class="pre"><pre class="python">from formula import parse_formula</pre></div>
         </div></li>
 
@@ -110,7 +111,12 @@
         "Al": ["Aluminum", 26.9815386],
           &vellip;
     }</pre></div>
-        </div></li>
+        We <strong>strongly recommend</strong> that you use <strong>find
+        and replace</strong> or <strong>multi-line editing</strong> in
+        VS&nbsp;Code to quickly change the periodic table to a compound
+        dictionary. If you don't know how to use find and replace or
+        multi-line editing, ask a fellow student, a tutor, a teaching
+        assistant, or your teacher for help.</div></li>
 
         <li><div>Copy and paste the following Python code into your
         <code>chemistry.py</code> program. Be certain not to paste the
@@ -333,4 +339,3 @@ def sum_protons(symbol_quantity_list, periodic_table_dict):
 </article>
 </body>
 </html>
-

@@ -23,14 +23,14 @@
     compound list.</p>
 
     <h2 id="problem">Problem Statement</h2>
-    <p>In chemistry, the <dfn>molar mass</dfn> of a substance is the
-    mass in grams of one mole of the substance (grams / mole). A
-    <dfn>mole</dfn> is simply a fixed very large quantity, specifically
-    602,214,076,000,000,000,000,000 (usually written as 6.02214076
-    &times; 10<sup>23</sup>). A molar mass calculator is a program that
-    computes the molar mass of a substance and the number of moles of a
-    sample of that substance. To use a molar mass calculator, a chemist
-    enters two inputs:</p>
+    <p>In chemistry, a <dfn>mole</dfn> is a very large, fixed quantity,
+    specifically 602,214,076,000,000,000,000,000 (usually written as
+    6.02214076 &times; 10<sup>23</sup>). The <dfn>molar mass</dfn> of a
+    substance is the mass in grams of one mole of the substance (grams /
+    mole). A molar mass calculator is a program that computes the molar
+    mass of a substance and the number of moles of a sample of that
+    substance. To use a molar mass calculator, a chemist enters two
+    inputs:</p>
 
     <ul>
         <li><div>The formula for a molecule, such as H<sub>2</sub>O
@@ -69,7 +69,7 @@
     grams. To use a molar mass calculator, a chemist would enter</p>
     <ul>
         <li><div><span class="input">C6H12O6</span></div></li>
-        <li><div><span class="input">12.37 grams</span></div></li>
+        <li><div><span class="input">12.37</span></div></li>
     </ul>
     <p>The calculator would compute the molar mass of glucose by doing
     the following:</p>
@@ -122,9 +122,9 @@
     </ul>
 
     <h3 id="elements">Table of Elements</h3>
-    <p>There are 94 elements known to occur naturally on earth. The
-    symbol, name, and atomic mass of all 94 elements are shown in the
-    following table.</p>
+    <p>There are 94 chemical elements known to occur naturally on earth.
+    The symbol, name, and atomic mass of all 94 elements are shown in
+    the following table.</p>
 
     <table class="center"><thead>
         <tr><th>Symbol</th> <th>Name</th> <th>Atomic Mass</th></tr>
@@ -277,9 +277,9 @@
         <li><div>In the <code>chemistry.py</code> file, write a function
         named <code>make_periodic_table</code> that takes no parameters
         and creates and returns a compound list. The compound list must
-        contain all the data in the table of elements shown in the
-        Problem Statement section above. The data within the compound
-        list must be organized like this:
+        contain all the data in the table of elements shown in the Table
+        of Elements section above. The data within the compound list
+        must be organized like this:
 <div class="pre"><pre class="python">
     periodic_table_list = [
         # [symbol, name, atomic_mass]
