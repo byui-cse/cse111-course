@@ -1,4 +1,4 @@
-/* Copyright 2020 by Brigham Young University - Idaho. All rights eeserved. */
+/* Copyright 2022 by Brigham Young University - Idaho. All rights eeserved. */
 "use strict";
 
 if (! window.hasOwnProperty('cse111')) {
@@ -6,19 +6,69 @@ if (! window.hasOwnProperty('cse111')) {
 }
 
 
-/** The brightness object allows users to click a moon or sun symbol to
- * toggle the brightness of an HTML document between dark and light
- * mode. To use this code in an HTML document, the document must include
- * the following:
- *
- * 1. <script src="../site/main.js"></script> in the document head
- *
- * 2. At least one div with class="brightness":
- *    <div class="brightness"></div>
- *    This div will contain the moon or sun symbol that the user will
- *    click to toggle dark and light modes.
- */
-cse111.brightness = {
+cse111.common = {
+	/** Returns true if the current HTML document is a combined HTML
+	 * file that is used for creating a combined PDF. */
+	isCombined : function() {
+		let pathname = document.location.pathname;
+		let parts = pathname.split('/');
+		return parts[parts.length - 1] == "cse111_content.html";
+	},
+
+
+	upsToRoot : "",
+
+	countLevels : function() {
+		let siteIcon = document.head.querySelector('link[rel="icon"]');
+		if (siteIcon) {
+			let href = siteIcon.getAttribute('href');
+			const pathname = "site/icons/logo.png";
+			if (href.endsWith(pathname)) {
+				let end = href.length - pathname.length;
+				this.upsToRoot = href.substring(0, end);
+			}
+		}
+	},
+
+	makeRelPath : function(subpath) {
+		return this.upsToRoot + subpath;
+	},
+
+
+	/** If the document body doesn't have a header element, this
+	 * functions adds a header to the body. */
+	addHeader : function() {
+		let header = document.body.querySelector('header');
+		if (! header) {
+			let html =
+'<div class="controls">\n' +
+'\t<span class="brightness"></span>\n';
+			if (document.location.protocol != "file:") {
+				html +=
+'\t<div class="combined">\n' +
+'\t\t<a download title="Download a PDF that contains all CSE 111 HTML content"'+
+' href="' + this.makeRelPath('combined/cse111_content.pdf') + '">[pdf]</a>\n' +
+'\t\t<a download title="Download a zip file that contains all CSE 111 content"'+
+' href="' + this.makeRelPath('combined/cse111_content.zip') + '">[zip]</a>\n' +
+'\t</div>\n';
+			}
+			html +=
+'</div>\n' +
+'<a class="byui-logo" title="BYU-Idaho Website" href="https://www.byui.edu">&#xe000;</a>\n' +
+'<h2><a title="CSE 111 Content" href="' + this.makeRelPath('index.html') + '">CSE 111</a> |\n' +
+'\t<span>Programming with Functions</span></h2>';
+			let body = document.body;
+			let article = body.querySelector('article');
+			header = document.createElement('header');
+			header.innerHTML = html;
+			body.insertBefore(header, article);
+		}
+	},
+
+
+	/** The <span class="brightness"> element allows a user to click a
+	 * moon or sun symbol to toggle the brightness of an HTML document
+	 * between dark and light mode. */
 	addBrightnessHandler : function() {
 		const dark = 'dark';
 		const light = 'light';
@@ -42,8 +92,8 @@ cse111.brightness = {
 			// Change the title and symbol for all
 			// brightness controls in the document.
 			let ctrls = document.getElementsByClassName('brightness');
-			for (let c = 0;  c < ctrls.length;  ++c) {
-				let elem = ctrls[c];
+			for (let i = 0;  i < ctrls.length;  ++i) {
+				let elem = ctrls[i];
 				elem.setAttribute('title', data.title);
 				elem.innerHTML = data.symbol;
 			}
@@ -68,14 +118,65 @@ cse111.brightness = {
 		// Add the toggle function as a click handler
 		// to all brightness controls in the document.
 		let ctrls = document.getElementsByClassName('brightness');
-		for (let c = 0;  c < ctrls.length;  ++c) {
-			ctrls[c].addEventListener('click', toggle);
+		for (let i = 0;  i < ctrls.length;  ++i) {
+			ctrls[i].addEventListener('click', toggle);
+		}
+	},
+
+
+	/** Adds a copy character to each h2, h3, or h4 that has an id. */
+	addAnchorCopyChar : function() {
+		const copyFunc = function(event) {
+			let span = event.currentTarget;
+			let heading = span.parentElement;
+			let url = window.location.href;
+			let anchor =  '#' + heading.getAttribute('id');
+			let newURL = url.replace(/#.*/, '') + anchor;
+
+			// Copy the new URL to the clipboard.
+			const listener = function(event) {
+				event.clipboardData.setData('text/plain', newURL);
+				event.preventDefault();
+			};
+			document.addEventListener('copy', listener);
+			document.execCommand('copy');
+			document.removeEventListener('copy', listener);
+
+			// Load the new URL in the current browser window.
+			window.location.assign(anchor);
+		};
+
+		let elems = document.querySelectorAll('h2[id], h3[id], h4[id]');
+		for (let i = 0;  i < elems.length;  ++i) {
+			let span = document.createElement('span');
+			span.classList.add('copy');
+			span.setAttribute('title', 'Copy URL to the clipboard');
+			span.addEventListener('click', copyFunc);
+			span.innerText = '¶';
+
+			let heading = elems[i];
+			heading.appendChild(span);
+		}
+	},
+
+
+	/** If the document body doesn't have a footer element, this
+	 * functions adds a footer to the body. */
+	addFooter : function() {
+		let footer = document.body.querySelector('footer');
+		if (! footer) {
+			footer = document.createElement('footer');
+			footer.innerHTML = '<small>Copyright &copy; 2020&ndash;2022, ' +
+				'<a title="BYU-Idaho Website" href="https://www.byui.edu">Brigham Young University - Idaho</a>. All rights reserved.</small>';
+			document.body.appendChild(footer);
 		}
 	}
 };
 
 
 cse111.linenums = {
+	lineNumbersAdded : false,
+
 	/* The line number functions in this object expect a source code
 	 * example and its corresponding console div to be organized like
 	 * this in their containing HTML document:
@@ -102,6 +203,7 @@ cse111.linenums = {
 			}
 			elem.innerHTML = linenums;
 		}
+		this.lineNumbersAdded = true;
 	},
 
 
@@ -144,7 +246,7 @@ cse111.linenums = {
 		const getAllLineNumbers = function(target) {
 			let refId = target.getAttribute('data-ref');
 			let preDiv = document.getElementById(refId);
-			let lineNumPre = preDiv.getElementsByTagName('pre')[0];
+			let lineNumPre = preDiv.querySelector('pre');
 			return lineNumPre.children;
 		};
 
@@ -260,7 +362,8 @@ cse111.linenums = {
 		let elems = document.querySelectorAll('div.pre');
 		for (let i = 0;  i < elems.length;  ++i) {
 			let image = document.createElement('img');
-			image.setAttribute('src', '../site/icons/copy.png');
+			image.setAttribute('src',
+					cse111.common.makeRelPath('site/icons/copy.png'));
 			image.setAttribute('alt', 'Copy code to the clipboard');
 			let button = document.createElement('button');
 			button.setAttribute('type', 'button');
@@ -326,42 +429,6 @@ cse111.consoles = {
 
 
 cse111.solution = {
-	/** Add a copy character to each h2, h3, or h4 that has an id. */
-	addAnchorCopyChar : function() {
-		const copyFunc = function(event) {
-			let span = event.currentTarget;
-			let heading = span.parentElement;
-			let url = window.location.href;
-			let anchor =  '#' + heading.getAttribute('id');
-			let newURL = url.replace(/#.*/, '') + anchor;
-
-			// Copy the new URL to the clipboard.
-			const listener = function(event) {
-				event.clipboardData.setData('text/plain', newURL);
-				event.preventDefault();
-			};
-			document.addEventListener('copy', listener);
-			document.execCommand('copy');
-			document.removeEventListener('copy', listener);
-
-			// Load the new URL in the current browser window.
-			window.location.assign(anchor);
-		};
-
-		let elems = document.querySelectorAll('h2[id], h3[id], h4[id]');
-		for (let i = 0;  i < elems.length;  ++i) {
-			let span = document.createElement('span');
-			span.classList.add('copy');
-			span.setAttribute('title', 'Copy URL to the clipboard');
-			span.addEventListener('click', copyFunc);
-			span.innerText = '¶';
-
-			let heading = elems[i];
-			heading.appendChild(span);
-		}
-	},
-
-
 	/** Modifies all <a class="solution"> elements. */
 	modifyHyperlinks : function() {
 		// Get all <a class="solution"> elements.
@@ -369,8 +436,7 @@ cse111.solution = {
 
 		// Is the user viewing the CSE 111 files
 		// from his local hard drive?
-		let isLocal = /^file:\/\/\//.test(window.location);
-		if (isLocal) {
+		if (window.location.protocol == "file:") {
 			for (let i = 0;  i < links.length;  ++i) {
 				let link = links[i];
 
@@ -389,11 +455,20 @@ cse111.solution = {
 				let link = links[i];
 
 				// Get the relative href.
-				let hrefAttr = link.getAttribute('href');
 				let absURL = link.href;
-				let relpath = absURL.replace(splitURL, '$1');
-				let newHref = '../overview/solution.html?file=' + relpath;
 
+				// It would be great if we could use the window.URL
+				// class, but it isn't in Internet Explorer, and it's
+				// possible that international students are still using
+				// Internet Explorer.
+				//let relpath = new URL(absURL).pathname.substring(1);
+				let relpath = absURL.replace(splitURL, '$1');
+
+				let newHref =
+					cse111.common.makeRelPath('overview/solution.html') +
+					'?file=' + relpath;
+
+				let hrefAttr = link.getAttribute('href');
 				link.setAttribute('title', 'View ' + hrefAttr);
 				link.setAttribute('href', newHref);
 
@@ -417,23 +492,43 @@ cse111.solution = {
 
 
 cse111.onDOMLoaded = function() {
-	cse111.brightness.addBrightnessHandler();
-	cse111.solution.addAnchorCopyChar();
-	cse111.solution.modifyHyperlinks();
-	cse111.linenums.addLineNumbers();
-	cse111.linenums.addCopyButtons();
-	cse111.linenums.addCrossRefs();
-	cse111.consoles.addTitles();
+	if (cse111.common.isCombined()) {
+		cse111.linenums.addLineNumbers();
+	}
+	else {
+		cse111.common.countLevels();  // Not for PDF
+		cse111.common.addBrightnessHandler(); // "
+		cse111.common.addHeader();            // "
+		cse111.linenums.addLineNumbers();
+		cse111.solution.modifyHyperlinks();   // "
+		cse111.common.addFooter();            // "
+
+		cse111.common.addAnchorCopyChar();    // "
+		cse111.linenums.addCopyButtons();     // "
+		cse111.linenums.addCrossRefs();       // "
+		cse111.consoles.addTitles();          // "
+	}
 };
 
 cse111.onFullDocLoaded = function() {
-	// Without a delay, the consoles are resized before the line
-	// numbers are generated which makes the consoles narrower than
-	// their corresponding example code.
-	window.setTimeout(function() {
-		cse111.consoles.resizeConsoles();
-	}, 400);
+	if (! cse111.common.isCombined()) {
+		let attempts = 20;
+		const checkLineNumbers = function() {
+			if (cse111.linenums.lineNumbersAdded) {
+				// Without a delay, the consoles are resized before the
+				// line numbers are generated which makes the consoles
+				// narrower than their corresponding example code.
+				window.setTimeout(function() {
+					cse111.consoles.resizeConsoles();
+				}, 100);
+			}
+			else if (--attempts > 0) {
+				window.setTimeout(checkLineNumbers(), 100);
+			}
+		}
+		checkLineNumbers();
+	}
 };
 
 window.addEventListener('DOMContentLoaded', cse111.onDOMLoaded);
-window.addEventListener('load', cse111.onFullDocLoaded);
+window.addEventListener('load', cse111.onFullDocLoaded);  // Not for PDF

@@ -15,12 +15,6 @@
 </head>
 
 <body>
-<header>
-    <div class="brightness"></div>
-    <a class="byui-logo" title="BYU-Idaho Website" href="https://www.byui.edu"></a>
-    <h2><a href="https://byui.instructure.com">CSE 111</a> |
-        <a href="../index.html">Programming with Functions</a></h2>
-</header>
 <article>
     <h1>09 Prove Milestone: Text Files</h1>
 
@@ -45,7 +39,7 @@
     functions:
     <ol>
         <li><div><code>main</code></div></li>
-        <li><div><code>read_dict</code></div></li>
+        <li><div><code>read_dictionary</code></div></li>
     </ol>
     <p>and must read and process these two CSV files:</p>
     <ul>
@@ -114,13 +108,13 @@
         files.</div></li>
 
         <li><div><p>In <code>receipt.py</code>, write a function named
-        <code>read_dict</code> that will open a CSV file for reading and
-        use a <code>csv.reader</code> to read each row and populate a
-        compound dictionary with the contents of the
-        <code>products.csv</code> file. The read_dict function must have
-        this header and documentation string:</p>
+        <code>read_dictionary</code> that will open a CSV file for
+        reading and use a <code>csv.reader</code> to read each row and
+        populate a compound dictionary with the contents of the
+        <code>products.csv</code> file. The read_dictionary function
+        must have this header and documentation string:</p>
 
-    <div class="pre"><pre class="python">def read_dict(filename, key_column_index):
+    <div class="pre"><pre class="python">def read_dictionary(filename, key_column_index):
     """Read the contents of a CSV file into a compound
     dictionary and return the dictionary.
 
@@ -165,7 +159,7 @@
         <li><div>In your <code>receipt.py</code> program, write another
         function named <code>main</code> that does the following:
         <ol>
-            <li><div>Calls the <code>read_dict</code> function and
+            <li><div>Calls the <code>read_dictionary</code> function and
             stores the compound dictionary in a variable named
             <var>products_dict</var>.</div></li>
 
@@ -174,9 +168,13 @@
             <li><div>Opens the <code>request.csv</code> file for
             reading.</div></li>
 
-            <li><div>Contains a loop that reads and processes each row
-            from the <code>request.csv</code> file. Within the body of
-            the loop, your program must do the following for each row:
+            <li><div>Skips the first line of the
+            <code>request.csv</code> file because the first line
+            contains column headings.</div></li>
+
+            <li><div>Uses a loop that reads and processes each row from
+            the <code>request.csv</code> file. Within the body of the
+            loop, your program must do the following for each row:
             <ol>
                 <li><div>Use the requested product number to find the
                 corresponding item in the <var>products_dict</var>.</div></li>
@@ -223,11 +221,11 @@
         file and save it in the same folder where you saved your
         <code>receipt.py</code> program. Run the
         <code>test_products.py</code> file and ensure that the
-        <code>test_read_dict</code> function passes. If it doesn't pass,
-        there is a mistake in your <code>read_dict</code> function. Read
-        the output from <code>pytest</code>, fix the mistake, and run
-        the <code>test_products.py</code> file again until the test
-        function passes.
+        <code>test_read_dictionary</code> function passes. If it doesn't
+        pass, there is a mistake in your <code>read_dictionary</code>
+        function. Read the output from <code>pytest</code>, fix the
+        mistake, and run the <code>test_products.py</code> file again
+        until the test function passes.
 
 <pre class="console">&gt; python test_products.py
 =================== test session starts ====================
@@ -235,7 +233,7 @@ platform win32--Python 3.8.6, pytest-6.1.2, py-1.9.0, pluggy
 rootdir: C:\Users\cse111\lesson09
 collected 1 item
 
-test_products.py::test_read_dict <span class="pass">PASSED               [100%]</span>
+test_products.py::test_read_dictionary <span class="pass">PASSED         [100%]</span>
 
 <span class="pass">==================== 1 passed in 0.12s =====================</span></pre>
         </div></li>
@@ -274,9 +272,5 @@ twix candy bar: 2 @ 0.85
     <p>On or before the due date, return to I-Learn and report your
     progress on this milestone.</p>
 </article>
-<footer>
-    <small>Copyright &copy; 2020, Brigham Young University - Idaho. All
-    rights reserved.</small>
-</footer>
 </body>
 </html>

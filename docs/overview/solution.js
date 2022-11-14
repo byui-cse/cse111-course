@@ -1,3 +1,4 @@
+/* Copyright 2020 by Brigham Young University - Idaho. All rights eeserved. */
 "use strict";
 
 if (! window.hasOwnProperty('cse111')) {
@@ -21,15 +22,14 @@ cse111.show = {
 			return null;
 		};
 
-        let href = getQueryValue('file');
-        const heading = href;
-		const splitURL = /^([^\/]+)\/([^\/]+)$/;
-        const lesson = href.replace(this.splitURL, '$1');
-        const filename = href.replace(this.splitURL, '$2');
-		href = "../" + href;
+        const heading = getQueryValue('file');
+		const parts = heading.split('/');
+		const filename = parts[parts.length - 1];
+        const href = cse111.common.makeRelPath(heading);
 
+		// Set the title of this document.
         document.title = heading;
-        document.getElementsByClassName('title')[0].innerHTML = heading;
+        document.querySelector('title').innerHTML = heading;
 
 		const isPython = /^.+\.py$/;
 		const isCSV = /^.+\.csv$/;
@@ -48,7 +48,8 @@ cse111.show = {
 		if (className) {
 			document.getElementById('code').classList.add(className);
 
-			const links = document.querySelectorAll('a[download]');
+			let article = document.querySelector('article');
+			let links = article.querySelectorAll('a[download]');
 			for (let i = 0;  i < links.length;  ++i) {
 				let link = links[i];
 				link.setAttribute('href', href);
@@ -114,10 +115,10 @@ cse111.show = {
     },
 
 
-	onLoad : function() {
+	onDOMLoaded : function() {
 		cse111.show.readCode();
 	}
 };
 
 
-window.addEventListener('DOMContentLoaded', cse111.show.onLoad);
+window.addEventListener('DOMContentLoaded', cse111.show.onDOMLoaded);
