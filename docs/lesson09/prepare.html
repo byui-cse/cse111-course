@@ -428,13 +428,13 @@ def main():
     # Read the contents of the dentists.csv into a
     # compound dictionary named dentists_dict. Use
     # the phone numbers as the keys in the dictionary.
-    dentists_dict = read_dict("dentists.csv", PHONE_INDEX)
+    dentists_dict = read_dictionary("dentists.csv", PHONE_INDEX)
 
     # Print the dentists compound dictionary.
     print(dentists_dict)
 
 
-def read_dict(filename, key_column_index):
+def read_dictionary(filename, key_column_index):
     """Read the contents of a CSV file into a compound
     dictionary and return the dictionary.
 

@@ -15,7 +15,7 @@ def main():
 
     # Read the information about all music
     # into a dictionary named music_dict.
-    music_dict = read_dict("all_music.csv", TITLE)
+    music_dict = read_dictionary("all_music.csv", TITLE)
 
     # Read the list of music in the evening.txt
     # file into a list named playlist.
@@ -56,7 +56,7 @@ def main():
     print(f"Total time: {minutes} minutes")
 
 
-def read_dict(filename, key_column_index):
+def read_dictionary(filename, key_column_index):
     """Read the contens of a CSV file into a dictionary
     and return the dictionary.
     Parameters

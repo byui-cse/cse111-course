@@ -1,38 +1,38 @@
 # Copyright 2020, Brigham Young University-Idaho. All rights reserved.
 
-from receipt import read_dict
+from receipt import read_dictionary
 from os import path
 from tempfile import mktemp
 from pytest import approx
 import pytest
 
 
-def test_read_dict():
-    """Verify that the read_dict function works correctly.
+def test_read_dictionary():
+    """Verify that the read_dictionary function works correctly.
     Parameters: none
     Return: nothing
     """
     PRODUCT_NUM_INDEX = 0
 
-    # Verify that the read_dict function uses its filename
+    # Verify that the read_dictionary function uses its filename
     # parameter by doing the following:
     # 1. Get a filename for a file that doesn't exist.
-    # 2. Call the read_dict function with the filename.
-    # 3. Verify that the open function inside the read_dict
+    # 2. Call the read_dictionary function with the filename.
+    # 3. Verify that the open function inside the read_dictionary
     #    function raises a FileNotFoundError.
     filename = mktemp(dir=".", prefix="not", suffix=".csv")
     with pytest.raises(FileNotFoundError):
-        read_dict(filename, PRODUCT_NUM_INDEX)
-        pytest.fail("read_dict function must use its filename parameter")
+        read_dictionary(filename, PRODUCT_NUM_INDEX)
+        pytest.fail("read_dictionary function must use its filename parameter")
 
-    # Call the read_dict function and store the returned
+    # Call the read_dictionary function and store the returned
     # dictionary in a variable named products_dict.
     filename = path.join(path.dirname(__file__), "products.csv")
-    products_dict = read_dict(filename, PRODUCT_NUM_INDEX)
+    products_dict = read_dictionary(filename, PRODUCT_NUM_INDEX)
 
-    # Verify that the read_dict function returns a dictionary.
+    # Verify that the read_dictionary function returns a dictionary.
     assert isinstance(products_dict, dict), \
-        "read_dict function must return a dictionary:" \
+        "read_dictionary function must return a dictionary:" \
         f" expected a dictionary but found a {type(products_dict)}"
 
     # Verify that the products dictionry contains exactly 16 items.

@@ -19,7 +19,7 @@ def main():
     # Read the contents of a CSV file named students.csv
     # into a dictionary named students_dict. Use the I-Number
     # as the key in the dictionary.
-    students_dict = read_dict("students.csv", I_NUMBER_INDEX)
+    students_dict = read_dictionary("students.csv", I_NUMBER_INDEX)
 
     # Get an I-Number from the user.
     inumber = input("Please enter an I-Number (xx-xxx-xxxx): ")
@@ -51,7 +51,7 @@ def main():
                 print(name)
 
 
-def read_dict(filename, key_column_index):
+def read_dictionary(filename, key_column_index):
     """Read the contents of a CSV file into a compound
     dictionary and return the dictionary.
 
