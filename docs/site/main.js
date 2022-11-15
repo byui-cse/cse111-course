@@ -497,8 +497,8 @@ cse111.onDOMLoaded = function() {
 	}
 	else {
 		cse111.common.countLevels();  // Not for PDF
-		cse111.common.addBrightnessHandler(); // "
 		cse111.common.addHeader();            // "
+		cse111.common.addBrightnessHandler(); // "
 		cse111.linenums.addLineNumbers();
 		cse111.solution.modifyHyperlinks();   // "
 		cse111.common.addFooter();            // "
