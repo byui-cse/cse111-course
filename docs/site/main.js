@@ -1,5 +1,5 @@
 /* Copyright 2022 by Brigham Young University - Idaho. All rights eeserved. */
-"use strict";
+'use strict';
 
 if (! window.hasOwnProperty('cse111')) {
 	window.cse111 = {};
@@ -12,17 +12,17 @@ cse111.common = {
 	isCombined : function() {
 		let pathname = document.location.pathname;
 		let parts = pathname.split('/');
-		return parts[parts.length - 1] == "cse111_content.html";
+		return parts[parts.length - 1] == 'cse111_content.html';
 	},
 
 
-	upsToRoot : "",
+	upsToRoot : '',
 
 	countLevels : function() {
 		let siteIcon = document.head.querySelector('link[rel="icon"]');
 		if (siteIcon) {
 			let href = siteIcon.getAttribute('href');
-			const pathname = "site/icons/logo.png";
+			const pathname = 'site/icons/logo.png';
 			if (href.endsWith(pathname)) {
 				let end = href.length - pathname.length;
 				this.upsToRoot = href.substring(0, end);
@@ -47,16 +47,16 @@ cse111.common = {
 				html +=
 '\t<div class="combined">\n' +
 '\t\t<a download title="Download a PDF that contains all CSE 111 HTML content"'+
-' href="' + this.makeRelPath('combined/cse111_content.pdf') + '">[pdf]</a>\n' +
+' href="'+ this.makeRelPath('combined/cse111_content.pdf') +'">[pdf]</a>\n' +
 '\t\t<a download title="Download a zip file that contains all CSE 111 content"'+
-' href="' + this.makeRelPath('combined/cse111_content.zip') + '">[zip]</a>\n' +
+' href="'+ this.makeRelPath('combined/cse111_content.zip') +'">[zip]</a>\n' +
 '\t</div>\n';
 			}
 			html +=
 '</div>\n' +
 '<a class="byui-logo" title="BYU-Idaho Website" href="https://www.byui.edu">&#xe000;</a>\n' +
-'<h2><a title="CSE 111 Content" href="' + this.makeRelPath('index.html') + '">CSE 111</a> |\n' +
-'\t<span>Programming with Functions</span></h2>';
+'<h2><a title="CSE 111 Content" href="'+ this.makeRelPath('index.html') +'">CSE 111</a> |\n' +
+'\t<span>Programming with Functions</span></h2>\n';
 			let body = document.body;
 			let article = body.querySelector('article');
 			header = document.createElement('header');
@@ -124,6 +124,41 @@ cse111.common = {
 	},
 
 
+	/** Adds a navigation element with a previous arrow and a next arrow
+	 * to both the top and the bottom of the document. */
+	addNavigation : function() {
+		let head = document.head;
+		let prev = head.querySelector('link[rel="prev"]');
+		let next = head.querySelector('link[rel="next"]');
+		if (prev || next) {
+			let html = '';
+			if (prev) {
+				html +=
+					'<a class="prev" title="View previous document"\n' +
+					'\thref="'+ prev.href +'">&larr;</a>\n';
+			}
+			if (next) {
+				html +=
+					'<a class="next" title="View next document"\n' +
+					'\thref="'+ next.href +'">&rarr;</a>\n';
+			}
+
+			// Add a nav element to the top of the document.
+			let body = document.body;
+			let article = body.querySelector('article');
+			let nav = document.createElement('nav');
+			nav.innerHTML = html;
+			body.insertBefore(nav, article);
+
+			// Add a nav element to the bottom of the document.
+			let footer = body.querySelector('footer');
+			nav = document.createElement('nav');
+			nav.innerHTML = html;
+			body.insertBefore(nav, footer);
+		}
+	},
+
+
 	/** Adds a copy character to each h2, h3, or h4 that has an id. */
 	addAnchorCopyChar : function() {
 		const copyFunc = function(event) {
@@ -163,20 +198,21 @@ cse111.common = {
 	/** If the document body doesn't have a footer element, this
 	 * functions adds a footer to the body. */
 	addFooter : function() {
-		let footer = document.body.querySelector('footer');
+		let body = document.body;
+		let footer = body.querySelector('footer');
 		if (! footer) {
 			footer = document.createElement('footer');
-			footer.innerHTML = '<small>Copyright &copy; 2020&ndash;2022, ' +
-				'<a title="BYU-Idaho Website" href="https://www.byui.edu">Brigham Young University - Idaho</a>. All rights reserved.</small>';
-			document.body.appendChild(footer);
+			footer.innerHTML =
+'<small>Copyright &copy; 2020&ndash;2022,\n' +
+'\t<a title="BYU-Idaho Website" href="https://www.byui.edu">Brigham Young University - Idaho</a>.\n' +
+'\tAll rights reserved.</small>';
+			body.appendChild(footer);
 		}
 	}
 };
 
 
 cse111.linenums = {
-	lineNumbersAdded : false,
-
 	/* The line number functions in this object expect a source code
 	 * example and its corresponding console div to be organized like
 	 * this in their containing HTML document:
@@ -186,6 +222,8 @@ cse111.linenums = {
 	 * </div>
 	 * <pre class="console" date-for="exN"> ... </pre>
 	 */
+
+	lineNumbersAdded : false,
 
 	/** Adds line numbers to all <pre class="linenums"> elements. */
 	addLineNumbers : function() {
@@ -436,7 +474,7 @@ cse111.solution = {
 
 		// Is the user viewing the CSE 111 files
 		// from his local hard drive?
-		if (window.location.protocol == "file:") {
+		if (window.location.protocol == 'file:') {
 			for (let i = 0;  i < links.length;  ++i) {
 				let link = links[i];
 
@@ -496,17 +534,18 @@ cse111.onDOMLoaded = function() {
 		cse111.linenums.addLineNumbers();
 	}
 	else {
-		cse111.common.countLevels();  // Not for PDF
-		cse111.common.addHeader();            // "
-		cse111.common.addBrightnessHandler(); // "
+		cse111.common.countLevels();
+		cse111.common.addHeader();
+		cse111.common.addBrightnessHandler();
 		cse111.linenums.addLineNumbers();
-		cse111.solution.modifyHyperlinks();   // "
-		cse111.common.addFooter();            // "
+		cse111.solution.modifyHyperlinks();
+		cse111.common.addFooter();
+		cse111.common.addNavigation();
 
-		cse111.common.addAnchorCopyChar();    // "
-		cse111.linenums.addCopyButtons();     // "
-		cse111.linenums.addCrossRefs();       // "
-		cse111.consoles.addTitles();          // "
+		cse111.common.addAnchorCopyChar();
+		cse111.linenums.addCopyButtons();
+		cse111.linenums.addCrossRefs();
+		cse111.consoles.addTitles();
 	}
 };
 
@@ -531,4 +570,4 @@ cse111.onFullDocLoaded = function() {
 };
 
 window.addEventListener('DOMContentLoaded', cse111.onDOMLoaded);
-window.addEventListener('load', cse111.onFullDocLoaded);  // Not for PDF
+window.addEventListener('load', cse111.onFullDocLoaded);

@@ -13,6 +13,10 @@
     <link rel="icon" type="image/png" href="../site/icons/logo.png">
     <link rel="stylesheet" type="text/css" href="../site/style.css">
     <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
+    <link rel="prev" type="text/html" href="../overview/syllabus.html">
+    <link rel="next" type="text/html" href="check.html">
+    <link rel="search" type="text/html" href="../index.html">
+    <link rel="help" type="text/html" href="../overview/help.html">
 </head>
 
 <body>
@@ -37,13 +41,8 @@
     program. Computers ignore comments in a program. In Python, a
     comment begins with the hash symbol (#) and extends to the end of
     the current line.</p>
-
-    <h3 id="user_input">User Input</h3>
-    <p>In a Python program, we use the
-    <a href="https://docs.python.org/3/library/functions.html#input"><code>input()</code> function</a>
-    to get input from a user in a terminal window. The
-    <code>input</code> function always returns a string of
-    characters.</p>
+<div class="pre"><pre class="python"># This is a comment because it has
+# hash symbols at the beginning.</pre></div>
 
     <h3 id="variables">Variables</h3>
     <p>A <dfn>variable</dfn> is a location in a computer's memory where
@@ -52,6 +51,13 @@
     assignment operator, which is the equals symbol (=). A computer may
     change the value and data type of a variable while executing a
     program.</p>
+
+<div class="pre"><pre class="python">
+length = 5
+time = 7.2
+in_flight = True
+first_name = "Cho"
+</pre></div>
 
     <h3 id="data_types">Data Types</h3>
     <p>Python has many <dfn>data types</dfn> including <code>str</code>,
@@ -65,9 +71,8 @@
         double quotes, any text that a user enters, and any text in a
         text file. For example:
 <div class="pre"><pre class="python">
-greet = "Hello"
+greeting = "Hello"
 text = "23"
-color = input("What is your favorite color? ")
 </pre></div>
         </div></li>
 
@@ -75,25 +80,19 @@ color = input("What is your favorite color? ")
         stores either <code>True</code> or <code>False</code>. A Boolean
         variable may not store any other value besides <code>True</code>
         or <code>False</code>. For example:
-<div class="pre"><pre class="python">
-found = True
-</pre></div>
+<div class="pre"><pre class="python">found = True</pre></div>
         </div></li>
 
         <li><div>An <dfn>int</dfn> (integer) is a whole number like 14.
         An <code>int</code> may not have a fractional part or digits
         after the decimal point. For example:
-<div class="pre"><pre class="python">
-x = 14
-</pre></div>
+<div class="pre"><pre class="python">x = 14</pre></div>
         </div></li>
 
         <li><div>A <dfn>float</dfn> (floating point number) is a number
         that may have a fractional part or digits after the decimal
         point like 7.51. For example:
-<div class="pre"><pre class="python">
-sample = 7.51
-</pre></div>
+<div class="pre"><pre class="python">sample = 7.51</pre></div>
         </div></li>
 
         <li><div>A <dfn>list</dfn> is a collection of values. Each value
@@ -107,7 +106,9 @@ sample = 7.51
 colors = ["yellow", "red", "green", "yellow", "blue"]
 samples = [6.5, 7.2, 7.0, 8.1, 7.2, 6.8, 6.8]
 </pre></div>
-        You will study lists in lesson&nbsp;7 of this course.</div></li>
+        You will study lists in
+        <a href="../lesson07/prepare.html">lesson&nbsp;7</a>
+        of this course.</div></li>
 
         <li><div>A <dfn>dict</dfn> (dictionary) is a collection of
         items. Each item is a key value pair. The primary purpose of a
@@ -123,8 +124,9 @@ students = {
     "75-421-2310": "Abdul Ali",
     "07-103-5621": "Amelia Davis"
 }</pre></div>
-        You will study dictionaries in lesson&nbsp;8 of this
-        course.</div></li>
+        You will study dictionaries in
+        <a href="../lesson08/prepare.html">lesson&nbsp;8</a>
+        of this course.</div></li>
     </ul>
 
     <p>It is possible to convert between many of the data types. For
@@ -139,6 +141,17 @@ students = {
     to a number. See the program in <a href="#ex2">example&nbsp;2</a>
     below.</p>
 
+    <h3 id="user_input">User Input</h3>
+    <p>In a Python program, we use the
+    <a href="https://docs.python.org/3/library/functions.html#input"><code>input()</code></a>
+    function to get input from a user in a terminal window. The
+    <code>input</code> function always returns a string of
+    characters.</p>
+<div class="pre"><pre class="python">
+text = input("Please enter your name: ")
+color = input("What is your favorite color? ")
+</pre></div>
+
     <h3 id="print">Displaying Results</h3>
     <p>In a Python program, we use the
     <a href="https://docs.python.org/3/library/functions.html#print"><code>print()</code></a>
@@ -146,12 +159,13 @@ students = {
     text and numbers together is to use a
     <a href="https://docs.python.org/3/tutorial/inputoutput.html#formatted-string-literals">formatted string literal</a>
     (also known as an f-string).</p>
+<div class="pre"><pre class="python">print(f"Heart rate: {rate}")</pre></div>
 
     <p>The Python program in example&nbsp;1 creates ten different
     variables. Some of the variables are of type <code>str</code>, some
-    are of type <code>bool</code>, some of type <code>int</code>,
-    and some of type <code>float</code>. The program uses f-strings
-    to print the name, data type, and value of each variable.</p>
+    of type <code>bool</code>, some of type <code>int</code>, and some
+    of type <code>float</code>. The program uses f-strings to print the
+    name, data type, and value of each variable.</p>
 
 <div class="pre" id="ex1"><pre class="linenums"></pre>
 <pre class="python"># Example 1

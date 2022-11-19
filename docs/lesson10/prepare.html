@@ -12,6 +12,10 @@
     <link rel="icon" type="image/png" href="../site/icons/logo.png">
     <link rel="stylesheet" type="text/css" href="../site/style.css">
     <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
+    <link rel="prev" type="text/html" href="../lesson09/prove.html">
+    <link rel="next" type="text/html" href="check.html">
+    <link rel="search" type="text/html" href="../index.html">
+    <link rel="help" type="text/html" href="../overview/help.html">
 </head>
 
 <body>
@@ -408,8 +412,8 @@ KeyError '50-420-1021'</pre>
 def main():
     try:
         with open("products.vcs", "rt") as products_file:
-            for line in products_file:
-                print(line)
+            for row in products_file:
+                print(row)
 
     except FileNotFoundError as not_found_err:
         print(not_found_err)
@@ -438,8 +442,8 @@ if __name__ == "__main__":
 def main():
     try:
         with open("contacts.csv", "rt") as contacts_file:
-            for line in contacts_file:
-                print(line)
+            for row in contacts_file:
+                print(row)
 
     except PermissionError as perm_err:
         print(perm_err)
@@ -613,15 +617,16 @@ if __name__ == "__main__":
     <p>To <dfn>validate user input</dfn> means to check user input to
     ensure it is in the correct format before using that input. The
     program in example&nbsp;12 validates user input by handling
-    exceptions. Notice in the <code>get_float</code> function at
-    <span class="cross" data-ref="ex12">line&nbsp;14</span> there is a
-    <code>try</code> block. The <code>try</code> block is part of a loop
-    that validates user input in the <code>get_float</code> function.
-    Notice at <span class="cross" data-ref="ex12">line&nbsp;44</span>
-    that the <code>except</code> block handles <code>ValueError</code>
-    which is the type of exception that the <code>float</code> function
-    raises when it tries to convert text to a number but the text
-    contains characters that are not numeric.</p>
+    exceptions. Notice in the <code>get_float</code> function, there is
+    a <code>try</code> block at
+    <span class="cross" data-ref="ex12">line&nbsp;29</span>. The
+    <code>try</code> block is part of a loop that validates user input
+    in the <code>get_float</code> function. Notice at
+    <span class="cross" data-ref="ex12">line&nbsp;44</span> that the
+    <code>except</code> block handles <code>ValueError</code> which is
+    the type of exception that the <code>float</code> function raises
+    when it tries to convert text to a number but the text contains
+    characters that are not numeric.</p>
 
 <div class="pre" id="ex12"><pre class="linenums"></pre>
 <pre class="python"># Example 12
