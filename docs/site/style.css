@@ -101,6 +101,7 @@ body {
 @media print {
 	body {
 		font-family: "Crimson Pro", Georgia, "Times New Roman", serif;
+		max-width: 6.5in;
 
 		--bk-color: white;
 		--fg-color: black;
@@ -202,22 +203,22 @@ body {
 	}
 }
 
-/* Paragraph classes that are used by overview/title.html which
-* is a title page that is used when the content for this course
-* is printed. */
-p.course_code {
+/* Paragraph classes that are used by combined/title.html which
+ * is a title page that is used when the content for this course
+ * is printed. */
+section p.course_code {
 	margin: 6em 0 0 0;
 	font-size: 180%;
 	text-align: center;
 }
-p.course_title {
+section p.course_title {
 	margin: 0.5em 0 0 0;
 	color: var(--heading-fg-color);
 	font-size: 220%;
 	font-weight: bold;
 	text-align: center;
 }
-p.author {
+section p.author {
 	margin: 18em 0 0 0;
 	font-size: 130%;
 	font-weight: bold;
@@ -243,9 +244,6 @@ p.author {
 	}
 }
 @media print {
-	body {
-		max-width: 6.5in;
-	}
 	article {
 		line-height: 1.15;
 	}
@@ -323,8 +321,8 @@ article h4 {
 }
 
 /* As of November 2021, Chrome doesn't honor "page-break-after: avoid",
-so changing "-after" to "-inside" plus the following code is a work
-around.
+ * so changing "-after" to "-inside" plus the following code is a work
+ * around.
 article h1::after,
 article h2::after,
 article h3::after,
@@ -337,7 +335,8 @@ article h4::after {
 
 article p,
 article div.p,
-article iframe {
+article iframe,
+article form {
 	margin: 1em 0;
 }
 
@@ -394,6 +393,11 @@ article span.duration {
 
 article span.nowrap {
 	white-space: nowrap;
+}
+
+input[type="text"],
+button {
+	font-size: inherit;
 }
 
 
@@ -917,6 +921,11 @@ article figure.list > table > tbody > tr.elems > td {
 article figure.list > table > tbody > tr > td.label {
 	border: none;
 	text-align: right;
+}
+
+
+article details {
+	margin-bottom: 1em;
 }
 
 

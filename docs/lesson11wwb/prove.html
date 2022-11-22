@@ -124,7 +124,7 @@
     </ul>
 
     <p>If you don't understand the description of one of these possible
-    projects, ask your CSE 111 team members or your instructor to
+    projects, ask your CSE&bnsp;111 team members or your instructor to
     explain the project to you.</p>
 
     <h2 id="organize">Organization</h2>
@@ -143,15 +143,25 @@
     <p>You should follow good coding practices by writing test functions
     for many of your program functions. Run your test functions with
     <code>pytest</code> to verify that your program functions work
-    correctly. Many students believe that the program functions they
-    write cannot be tested with test functions and <code>pytest</code>.
-    Such claims are simply false. Here are just some of the reasons that
-    students have claimed make their program functions untestable and
-    example code that shows such claims are false.</p>
+    correctly.</p>
+
+    <p>Some students believe that the program functions they write
+    cannot be tested with test functions and <code>pytest</code>. Such
+    beliefs are simply false. Below are just some of the reasons that
+    students have thought make their program functions untestable and
+    example code that shows how to write those test functions. Notice
+    that you can expand and collapse the example code by clicking the
+    triangle icons
+    (<img src="collapsed.png"
+    alt="Right facing triangle that shows a topic is collapsed and can be expanded by clicking on it."
+    title="Right facing triangle that shows a topic is collapsed and can be expanded by clicking on it."> or
+    <img src="expanded.png"
+    alt="Down facing triangle that shows a topic is expanded and can be collapsed by clicking on it."
+    title="Down facing triangle that shows a topic is expanded and can be collapsed by clicking on it.">).</p>
 
     <h3>My function can't be tested because it:</h3>
-    <ul class="long">
-        <li><div>Calculates numbers
+    <details open>
+        <summary>Calculates numbers</summary>
 <div class="pre"><pre class="python">
 def payment(amt, ar, y, ppy):
     """Computes and returns the payment amount
@@ -167,9 +177,10 @@ def test_payment():
     """Verify that the payment function works correctly."""
     assert payment(10_000, 0.07, 4, 12) == 239.46
     assert payment(80_000, 0.04, 15, 4) == 1779.56</pre></div>
-        </div></li>
+    </details>
 
-        <li><div>Processes text instead of numbers
+    <details>
+        <summary>Processes text instead of numbers</summary>
 <div class="pre"><pre class="python">
 def prefix(s1, s2):
     """Return the prefix, if any, that appears in both s1
@@ -200,9 +211,10 @@ def test_prefix():
     assert prefix("jump", "joyous") == "j"
     assert prefix("unwise", "ungrateful") == "un"
     assert prefix("Disable", "dIstasteful") == "dis"</pre></div>
-        </div></li>
+    </details>
 
-        <li><div>Gets user input from a terminal
+    <details>
+        <summary>Gets user input from a terminal</summary>
 <div class="pre"><pre class="python">
 def get_int(prompt, min, max):
     """Prompt the user for an integer, verify that it is
@@ -252,9 +264,10 @@ def test_get_int(monkeypatch):
     output = stdout.getvalue()
     assert re.compile(pattern).match(output) != None
     assert num == 8</pre></div>
-        </div></li>
+    </details>
 
-        <li><div>Gets user input from a GUI
+    <details>
+        <summary>Gets user input from a GUI</summary>
 <div class="pre"><pre class="python">
 """
 In order to test a program that gets user input from a
@@ -296,9 +309,10 @@ def test_tire_volume():
     """Verify that the tire_volume function works correctly."""
     assert tire_volume(185, 60, 14) == approx(30101.58, 0.01)
     assert tire_volume(205, 60, 15) == approx(39924.49, 0.01)</pre></div>
-        </div></li>
+    </details>
 
-        <li><div>Writes to a file
+    <details>
+        <summary>Writes to a file</summary>
 <div class="pre"><pre class="python">
 def write_file(filename, lines):
     """Create a file and write lines of text to it.
@@ -349,9 +363,10 @@ def test_write_file():
 
     # Verify that write_file correctly wrote the fruits.txt file.
     assert lines == written</pre></div>
-        </div></li>
+    </details>
 
-        <li><div>Reads from a file
+    <details>
+        <summary>Reads from a file</summary>
 <div class="pre"><pre class="python">
 def read_file(filename):
     """Reads and returns the contents
@@ -389,9 +404,10 @@ def test_read_file():
 
     # Verify that read_file read the file correctly.
     assert read == lines</pre></div>
-        </div></li>
+    </details>
 
-        <li><div>Uses the <code>pandas</code> module
+    <details>
+        <summary>Uses the <code>pandas</code> module</summary>
 <div class="pre"><pre class="python">
 def filter_for_meter(df, meter_number):
     """Return a new DataFrame that contains only the rows
@@ -431,10 +447,11 @@ def test_filter_for_meter():
     # filtered data frame are the correct number.
     for value in filtered_df["meterNumber"]:
         assert value == meter_num</pre></div>
-        </div></li>
+    </details>
 
-        <li><div>
-        <p>My code is so good that it doesn't need to be tested.</p>
+    <details>
+        <summary>My code is so good that it doesn't need to be
+        tested.</summary>
 
         <p>Good luck with that attitude, hot shot. In all seriousness,
         how do you know your code is good? Besides, no matter how good
@@ -442,8 +459,7 @@ def test_filter_for_meter():
         to find those mistakes yourself by writing and running test
         functions than it is to make users of your software find your
         mistakes.</p>
-        </div></li>
-    </ul>
+    </details>
 
     <h2 id="submit">Submission</h2>
     <p>In I-Learn in the lesson&nbsp;11 prove milestone, read the rubric

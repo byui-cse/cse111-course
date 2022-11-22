@@ -91,7 +91,7 @@ cse111.common = {
 
 			// Change the title and symbol for all
 			// brightness controls in the document.
-			let ctrls = document.getElementsByClassName('brightness');
+			let ctrls = document.body.getElementsByClassName('brightness');
 			for (let i = 0;  i < ctrls.length;  ++i) {
 				let elem = ctrls[i];
 				elem.setAttribute('title', data.title);
@@ -117,7 +117,7 @@ cse111.common = {
 
 		// Add the toggle function as a click handler
 		// to all brightness controls in the document.
-		let ctrls = document.getElementsByClassName('brightness');
+		let ctrls = document.body.getElementsByClassName('brightness');
 		for (let i = 0;  i < ctrls.length;  ++i) {
 			ctrls[i].addEventListener('click', toggle);
 		}
@@ -181,7 +181,7 @@ cse111.common = {
 			window.location.assign(anchor);
 		};
 
-		let elems = document.querySelectorAll('h2[id], h3[id], h4[id]');
+		let elems = document.body.querySelectorAll('h2[id], h3[id], h4[id]');
 		for (let i = 0;  i < elems.length;  ++i) {
 			let span = document.createElement('span');
 			span.classList.add('copy');
@@ -228,7 +228,7 @@ cse111.linenums = {
 	/** Adds line numbers to all <pre class="linenums"> elements. */
 	addLineNumbers : function() {
 		const newline = /<br>\n?|\n/g;
-		let elems = document.querySelectorAll('pre.linenums');
+		let elems = document.body.querySelectorAll('pre.linenums');
 		for (let i = 0;  i < elems.length;  ++i) {
 			let elem = elems[i];
 			let code = elem.nextElementSibling.innerHTML;
@@ -355,7 +355,7 @@ cse111.linenums = {
 		};
 
 		// Add event handlers to each <span class="cross"> element.
-		let targets = document.querySelectorAll('span.cross');
+		let targets = document.body.querySelectorAll('span.cross');
 		for (let i = 0;  i < targets.length;  ++i) {
 			let target = targets[i];
 			target.addEventListener('mouseover', on);
@@ -397,7 +397,7 @@ cse111.linenums = {
 
 		// Add a copy button with a click listener to each
 		// <div class="pre"> element.
-		let elems = document.querySelectorAll('div.pre');
+		let elems = document.body.querySelectorAll('div.pre');
 		for (let i = 0;  i < elems.length;  ++i) {
 			let image = document.createElement('img');
 			image.setAttribute('src',
@@ -420,7 +420,7 @@ cse111.consoles = {
 	 * will use the titles as small tool tips that display when the user
 	 * holds the mouse pointer over an HTML element. */
 	addTitles : function() {
-		let elems = document.querySelectorAll('pre.console');
+		let elems = document.body.querySelectorAll('pre.console');
 		for (let i = 0;  i < elems.length;  ++i) {
 			let pre = elems[i];
 			pre.setAttribute('title', 'Terminal Window');
@@ -438,7 +438,7 @@ cse111.consoles = {
 	 * shows user input and program output. Making their widths the same
 	 * helps the reader to see that they go together. */
 	resizeConsoles : function() {
-		let consoles = document.querySelectorAll('pre.console[data-for]');
+		let consoles = document.body.querySelectorAll('pre.console[data-for]');
 		for (let i = 0;  i < consoles.length;  ++i) {
 			let console = consoles[i];
 
@@ -470,7 +470,7 @@ cse111.solution = {
 	/** Modifies all <a class="solution"> elements. */
 	modifyHyperlinks : function() {
 		// Get all <a class="solution"> elements.
-		let links = document.querySelectorAll('a.solution');
+		let links = document.body.querySelectorAll('a.solution');
 
 		// Is the user viewing the CSE 111 files
 		// from his local hard drive?
@@ -529,6 +529,41 @@ cse111.solution = {
 };
 
 
+cse111.print = {
+	expandDetails : function() {
+		const open = 'open';
+		const dataWas = 'data-was-open';
+		let allDetails = document.body.querySelectorAll('details');
+		for (let i = 0;  i < allDetails.length;  ++i) {
+			let detailsElem = allDetails[i];
+			let isOpen = detailsElem.hasAttribute(open);
+			if (isOpen) {
+				detailsElem.setAttribute(dataWas, true);
+			}
+			else {
+				detailsElem.setAttribute(open, '');
+			}
+		}
+	},
+
+	collapseDetails : function() {
+		const open = 'open';
+		const dataWas = 'data-was-open';
+		let allDetails = document.body.querySelectorAll('details');
+		for (let i = 0;  i < allDetails.length;  ++i) {
+			let detailsElem = allDetails[i];
+			let wasOpen = detailsElem.hasAttribute(dataWas);
+			if (wasOpen) {
+				detailsElem.removeAttribute(dataWas);
+			}
+			else {
+				detailsElem.removeAttribute(open);
+			}
+		}
+	}
+};
+
+
 cse111.onDOMLoaded = function() {
 	if (cse111.common.isCombined()) {
 		cse111.linenums.addLineNumbers();
@@ -571,3 +606,5 @@ cse111.onFullDocLoaded = function() {
 
 window.addEventListener('DOMContentLoaded', cse111.onDOMLoaded);
 window.addEventListener('load', cse111.onFullDocLoaded);
+window.addEventListener('beforeprint', cse111.print.expandDetails);
+window.addEventListener('afterprint', cse111.print.collapseDetails);
