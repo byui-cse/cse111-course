@@ -67,7 +67,7 @@
     <dfn>higher-order function</dfn>. Higher-order functions are often
     used to process the elements in a list. Before seeing an example of
     using a higher-order function to process a list, first consider the
-    program in example&nbsp;1 that doesn't use a higher-order function
+    program in example&nbsp;1 that doesn’t use a higher-order function
     but instead uses a <code>for</code> loop to convert a list of
     temperatures from Fahrenheit to Celsius.</p>
 
@@ -112,7 +112,7 @@ Celsius: [22.2, 18.3, 21.7, 23.9, 27.8, 30.6, 20.0]</pre>
     each Fahrenheit temperature to Celsius and then appends the Celsius
     temperature onto a new list. Writing a <code>for</code> loop like
     this is the traditional way to process all the elements in a list
-    and doesn't use higher-order functions.</p>
+    and doesn’t use higher-order functions.</p>
 
     <p>Python includes a built-in higher-order function named
     <code>map</code> that will process all the elements in a list and
@@ -120,7 +120,7 @@ Celsius: [22.2, 18.3, 21.7, 23.9, 27.8, 30.6, 20.0]</pre>
     <a href="https://docs.python.org/3/library/functions.html#map"><code>map</code> function</a>
     accepts a function and a list as arguments and contains a loop
     inside it, so that when a programmer calls the <code>map</code>
-    function, he doesn't need to write a loop. The <code>map</code>
+    function, he doesn’t need to write a loop. The <code>map</code>
     function is a higher-order function because it accepts a function as
     an argument. Consider the program in example&nbsp;2 that produces
     the same results as example&nbsp;1.</p>
@@ -158,11 +158,11 @@ if __name__ == "__main__":
 Fahrenheit: [72, 65, 71, 75, 82, 87, 68]
 Celsius: [22.2, 18.3, 21.7, 23.9, 27.8, 30.6, 20.0]</pre>
 
-    <p>Notice that example&nbsp;2, doesn't contain a <code>for</code>
+    <p>Notice that example&nbsp;2, doesn’t contain a <code>for</code>
     loop. Instead, at <span class="cross" data-ref="ex2">line&nbsp;11</span>,
     it contains a call to the <code>map</code> function. Remember that
     the <code>map</code> function has a loop inside it, so that the
-    programmer who calls <code>map</code>, doesn't have to write the
+    programmer who calls <code>map</code>, doesn’t have to write the
     loop. Notice also at <span class="cross" data-ref="ex2">line&nbsp;11</span>
     that the first argument to the <code>map</code> function is the name
     of the <code>cels_from_fahr</code> function. In other words, at
@@ -564,10 +564,10 @@ List of countries sorted by population
 ['Mexico', 1972550, 126014024, 21362]
 ['Brazil', 8515767, 210147125, 14563]</pre>
 
-    <p>By using a key function it's possible to sort a compound list
-    with a key element that isn't in the list. Consider the compound
+    <p>By using a key function it’s possible to sort a compound list
+    with a key element that isn’t in the list. Consider the compound
     list named <var>students</var> that contains data about various
-    students in example&nbsp;8. Within the list, each student's
+    students in example&nbsp;8. Within the list, each student’s
     given name and surname are stored separately. It is common for a
     user to want such a list to be sorted by surname and then by
     given name. A simple way to do that is to write a key function
@@ -577,7 +577,7 @@ List of countries sorted by population
 
     <p><span class="cross" data-ref="ex8">Lines&nbsp;21&ndash;22</span>
     in example&nbsp;8 contain a <code>lambda</code> function that
-    combines a student's surname and given name into a string that is
+    combines a student’s surname and given name into a string that is
     used as the key by the sorted function at
     <span class="cross" data-ref="ex8">line&nbsp;25</span>. Notice in
     the output from example&nbsp;8 that the students are sorted by

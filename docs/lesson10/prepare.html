@@ -23,10 +23,10 @@
     <h1>10 Prepare: Handling Exceptions</h1>
     <p>Errors and exceptional situations sometimes occur while a program
     is running. Such errors include a program attempting to read from a
-    file that doesn't exist, a connection error when connecting to a
+    file that doesn’t exist, a connection error when connecting to a
     server on a network, data that cannot be found on a server, and
     calculations that produce undefined results. A well written program
-    doesn't crash when an error occurs but instead handles errors in a
+    doesn’t crash when an error occurs but instead handles errors in a
     graceful manner that may include adjusting to an error, printing an
     error message for the user to see, and saving an error message to a
     log file. During this lesson, you will learn to write code that
@@ -54,7 +54,7 @@
     <p>An <dfn>exception</dfn> is a relatively rare event that sometimes
     occurs while a Python program is running. For example, an exception
     occurs when a Python program tries to open a file for reading, and
-    that file doesn't exist. There are many different
+    that file doesn’t exist. There are many different
     <a href="https://docs.python.org/3/library/exceptions.html">built-in
     exceptions</a> that may occur while a Python program is running.</p>
 
@@ -182,7 +182,7 @@
     frees resources that the code in the <code>try</code> block used.
     For example, if the code in the <code>try</code> block opens a file,
     the code in the <code>finally</code> block could close that file. In
-    CSE&nbsp;111, you won't need to write a <code>finally</code>
+    CSE&nbsp;111, you won’t need to write a <code>finally</code>
     block.</p>
 
     <h2 id="except_types">Common Exception Types</h2>
@@ -277,7 +277,7 @@ division by zero</pre>
     <p>Recall from <a href="../lesson07/prepare.html">lesson&nbsp;7</a>
     that each element in a list is stored at a unique index and that an
     index is always an integer. If we write code that tries to use an
-    index that doesn't exist in a list, when the computer executes that
+    index that doesn’t exist in a list, when the computer executes that
     code, the computer will raise an
     <a href="https://docs.python.org/3/library/exceptions.html#IndexError"><code>IndexError</code></a>.
     The program in example&nbsp;5 creates a list that contains three
@@ -340,7 +340,7 @@ list index out of range</pre>
 
     <h3 id="key_err">KeyError</h3>
     <p>As shown in example&nbsp;7, if we write code that attempts to
-    find a key in a dictionary and that key doesn't exist in the
+    find a key in a dictionary and that key doesn’t exist in the
     dictionary, then the computer will raise a
     <a href="https://docs.python.org/3/library/exceptions.html#KeyError"><code>KeyError</code></a>.
 
@@ -402,7 +402,7 @@ KeyError '50-420-1021'</pre>
 
     <h3 id="file_not_found_err">FileNotFoundError</h3>
     <p>If we write a call to the <code>open</code> function that
-    attempts to open a file for reading and that file doesn't exist, the
+    attempts to open a file for reading and that file doesn’t exist, the
     computer will raise a
     <a href="https://docs.python.org/3/library/exceptions.html#FileNotFoundError"><code>FileNotFoundError</code></a>.
     Example&nbsp;8 contains code where such an error might occur.</p>
@@ -432,7 +432,7 @@ if __name__ == "__main__":
     rules help to prevent unauthorized access to files.</p>
 
     <p>If we write a call to the <code>open</code> function that
-    attempts to open a file and the person executing our program doesn't
+    attempts to open a file and the person executing our program doesn’t
     have permission to access the file, the computer will raise a
     <a href="https://docs.python.org/3/library/exceptions.html#PermissionError"><code>PermissionError</code></a>.
     Example&nbsp;9 contains code where such an error might occur.</p>
@@ -737,7 +737,7 @@ if __name__ == "__main__":
     <code>except</code> blocks to handle <code>FileNotFoundError</code>
     and <code>PermissionError</code>. Also, when writing code that gets
     input from a user, a programmer usually writes <code>try</code> and
-    <code>except</code> blocks to help validate the user's input.</p>
+    <code>except</code> blocks to help validate the user’s input.</p>
 </article>
 </body>
 </html>
