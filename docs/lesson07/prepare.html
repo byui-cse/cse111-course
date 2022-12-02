@@ -14,6 +14,10 @@
     <link rel="icon" type="image/png" href="../site/icons/logo.png">
     <link rel="stylesheet" type="text/css" href="../site/style.css">
     <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
+    <link rel="prev" type="text/html" href="../lesson06/prove.html">
+    <link rel="next" type="text/html" href="check.html">
+    <link rel="search" type="text/html" href="../index.html">
+    <link rel="help" type="text/html" href="../overview/help.html">
 </head>
 
 <body onload="cse111.scope.addVarHandlers('ex10', 'ex11', 'ex12')">
@@ -818,16 +822,16 @@ After calling modify_args():  x 5  <em>lx [7, -2, 4]</em></pre>
     function, the number is passed by value which means the computer
     copies the value of the number variable into the parameter of the
     called function. This works well for numbers because each number
-    variable occupies a small amount of the computer's memory. Making a
+    variable occupies a small amount of the computer’s memory. Making a
     copy of a number is fast, and the copy uses a small amount of
     memory.</p>
 
     <p>However, a list may contain millions of elements and therefore
-    occupy a large amount of the computer's memory. If lists were passed
+    occupy a large amount of the computer’s memory. If lists were passed
     by value to a function, the computer would have to make a copy of a
     list each time it is passed to a function. If a list is large,
     copying the list takes a relatively long time and uses a lot of the
-    computer's memory for the copy. Therefore, to make programs fast and
+    computer’s memory for the copy. Therefore, to make programs fast and
     use less memory, lists (and other large data types) are passed to a
     function by reference.</p>
 

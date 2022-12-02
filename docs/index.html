@@ -6,11 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CSE 111 - Contents</title>
-    <script src="site/main.js"></script>
     <meta name="description" content="An unofficial listing of the course content for the BYU-Idaho course, CSE 111 - Programming with Functions.">
+    <script src="site/main.js"></script>
     <link rel="canonical" href="https://byui-cse.github.io/cse111-course/">
     <link rel="icon" type="image/png" href="site/icons/logo.png">
     <link rel="stylesheet" type="text/css" href="site/style.css">
+    <link rel="search" href="https://www.google.com/search?q=site%3Abyui-cse.github.io%2Fcse111-course%2F">
+
+    <script>
+    'use strict';
+    cse111.search = {
+        keypress : function(event) {
+            if (event.key == 'Enter') {
+                event.preventDefault();
+                document.getElementById('btnSearch').click();
+            }
+        },
+
+        submit : function(event) {
+            let text = document.getElementById('txtSearch').value.trim();
+            if (text.length > 0) {
+                // Replace all white space characters with space.
+                text = text.replace(/\s+/g, ' ');
+
+                let url = 'https://www.google.com/search?q=' +
+                    encodeURI('site:byui-cse.github.io/cse111-course/ ' + text);
+                window.open(url, '_blank');
+            }
+        }
+    };
+    </script>
 </head>
 
 <body>
@@ -298,6 +323,12 @@
             <td></td>
             <td></td></tr>
     </tbody></table>
+
+    <h3>Search CSE 111 Content</h3>
+    <input type="text" id="txtSearch" size="40"
+        onkeypress="cse111.search.keypress(event)">
+    <button type="button" id="btnSearch"
+        onclick="cse111.search.submit()">Search</button>
 </article>
 </body>
 </html>

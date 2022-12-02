@@ -101,6 +101,7 @@ body {
 @media print {
 	body {
 		font-family: "Crimson Pro", Georgia, "Times New Roman", serif;
+		max-width: 6.5in;
 
 		--bk-color: white;
 		--fg-color: black;
@@ -174,24 +175,50 @@ body {
 		white-space: nowrap;
 		margin-top: 0.5em;
 	}
+
+	nav {
+		max-width: 40em;
+		margin: 0 auto;
+		padding: 0 1em;
+	}
+	nav a {
+		font-size: 150%;
+		font-weight: 900;
+		transform: scale(1, 1.5);
+	}
+	nav a:link,
+	nav a:hover,
+	nav a:active,
+	nav a:visited {
+		text-decoration: none;
+		color: var(--byui-blue);
+	}
+	nav a.prev {
+		float: left;
+		padding-right: 1em;
+	}
+	nav a.next {
+		float: right;
+		padding-left: 1em;
+	}
 }
 
-/* Paragraph classes that are used by overview/title.html which
-* is a title page that is used when the content for this course
-* is printed. */
-p.course_code {
+/* Paragraph classes that are used by combined/title.html which
+ * is a title page that is used when the content for this course
+ * is printed. */
+section p.course_code {
 	margin: 6em 0 0 0;
 	font-size: 180%;
 	text-align: center;
 }
-p.course_title {
+section p.course_title {
 	margin: 0.5em 0 0 0;
 	color: var(--heading-fg-color);
 	font-size: 220%;
 	font-weight: bold;
 	text-align: center;
 }
-p.author {
+section p.author {
 	margin: 18em 0 0 0;
 	font-size: 130%;
 	font-weight: bold;
@@ -203,8 +230,8 @@ p.author {
 	article {
 		line-height: 1.4;
 		max-width: 40em;
-		margin: 1em auto;
-		padding: 0 1em 0.5em 1em;
+		margin: 0.5em auto 1em auto;
+		padding: 0 1em;
 	}
 
 	/* article.solution is used by overview/solution.html, which
@@ -217,9 +244,6 @@ p.author {
 	}
 }
 @media print {
-	body {
-		max-width: 6.5in;
-	}
 	article {
 		line-height: 1.15;
 	}
@@ -231,7 +255,6 @@ p.author {
 }
 
 article h1 {
-	clear: both;
 	text-align: center;
 	font-size: 175%;
 	margin: 0 0 1em 0;
@@ -298,8 +321,8 @@ article h4 {
 }
 
 /* As of November 2021, Chrome doesn't honor "page-break-after: avoid",
-so changing "-after" to "-inside" plus the following code is a work
-around.
+ * so changing "-after" to "-inside" plus the following code is a work
+ * around.
 article h1::after,
 article h2::after,
 article h3::after,
@@ -312,12 +335,13 @@ article h4::after {
 
 article p,
 article div.p,
-article iframe {
-	margin: 1em 0 1em 0;
+article iframe,
+article form {
+	margin: 1em 0;
 }
 
 article blockquote {
-	margin: 1em 1em 1em 1em;
+	margin: 1em 1em;
 	border-left: 0.12em solid var(--bullet-fg-color);
 	padding-left: 0.5em;
 }
@@ -369,6 +393,11 @@ article span.duration {
 
 article span.nowrap {
 	white-space: nowrap;
+}
+
+input[type="text"],
+button {
+	font-size: inherit;
 }
 
 
@@ -895,9 +924,14 @@ article figure.list > table > tbody > tr > td.label {
 }
 
 
+article details {
+	margin-bottom: 1em;
+}
+
+
 @media screen {
 	footer {
-		margin: 0 auto 1em auto;
+		margin: 0.5em auto 1em auto;
 		padding: 0 1em;
 		line-height: 1.15;
 		max-width: 40em;

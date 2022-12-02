@@ -12,6 +12,10 @@
     <link rel="icon" type="image/png" href="../site/icons/logo.png">
     <link rel="stylesheet" type="text/css" href="../site/style.css">
     <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
+    <link rel="prev" type="text/html" href="../lesson04/prove.html">
+    <link rel="next" type="text/html" href="check.html">
+    <link rel="search" type="text/html" href="../index.html">
+    <link rel="help" type="text/html" href="../overview/help.html">
 </head>
 
 <body>
@@ -31,12 +35,12 @@
 
     <h3 id="ineff_test">Inefficient Testing</h3>
     <p>During previous lessons, you tested your programs by running
-    them, typing user input, reading the program's output, and verifying
+    them, typing user input, reading the program’s output, and verifying
     that the output was correct. This is a valid way to test a program.
     However, it is time consuming, tedious, and error prone. A much
     better way to test a program is to test its functions individually
     and to write separate <dfn>test functions</dfn> that
-    <em>automatically</em> verify that the program's functions are
+    <em>automatically</em> verify that the program’s functions are
     correct.</p>
 
     <p>In this course, you will write test functions in a Python file
@@ -53,7 +57,7 @@
     <code>AssertionError</code>, which will likely cause the program to
     terminate. (In <a href="../lesson10/prepare.html">lesson&nbsp;10</a>
     you will learn how to write code to handle errors so that a program
-    won't terminate when the computer raises an error.)</p>
+    won’t terminate when the computer raises an error.)</p>
 
     <p>A programmer writes assertions in a program to inform the
     computer of comparisons that must be true in order for the program
@@ -127,7 +131,7 @@ def deposit(amount):
     cause <code>pytest</code> to print an error message.</p>
 
     <h3 id="compare_floats">Comparing Floating Point Numbers</h3>
-    <p>Within a computer's memory, everything (all numbers, text, sound,
+    <p>Within a computer’s memory, everything (all numbers, text, sound,
     pictures, movies, everything) is stored using the binary number
     system. While executing a Python program, a computer stores integers
     in binary in a way that exactly represents the integers. For
@@ -296,7 +300,7 @@ test_weather.py::test_cels_from_fahr <span class="pass">PASSED               [10
     from program functions. It is a good idea to separate test functions
     and program functions because the separation makes it easy to
     release a program to users without releasing the test functions to
-    them. In general, users of a program don't want the test functions.
+    them. In general, users of a program don’t want the test functions.
     One consequence of writing program functions and test functions in
     separate files is that we must add an import statement at the top of
     the test file that imports all the program functions that will be
@@ -322,7 +326,7 @@ main()</pre></div>
     <p>This means that when we run our test functions, the computer will
     import our program functions and at the same time, will execute the
     call to <code>main()</code> which will start the program executing.
-    However, we don't want the computer to execute the program while it
+    However, we don’t want the computer to execute the program while it
     is executing the test functions, so we have a problem. How can we
     get the computer to import the program functions without executing
     the <code>main</code> function? Fortunately, the developers of
@@ -368,8 +372,8 @@ if __name__ == "__main__":
     window. During the next eight lessons in CSE&nbsp;111, we will
     usually write one test function for each program function that is
     easy to test, meaning each function that does not get user input and
-    does not print to a terminal window. This means that you won't write
-    a test function for your program's <code>main</code> function
+    does not print to a terminal window. This means that you won’t write
+    a test function for your program’s <code>main</code> function
     because <code>main</code> usually gets user input and prints to a
     terminal window.</p>
 

@@ -1,5 +1,5 @@
 /* Copyright 2022 by Brigham Young University - Idaho. All rights eeserved. */
-"use strict";
+'use strict';
 
 if (! window.hasOwnProperty('cse111')) {
 	window.cse111 = {};
@@ -12,17 +12,17 @@ cse111.common = {
 	isCombined : function() {
 		let pathname = document.location.pathname;
 		let parts = pathname.split('/');
-		return parts[parts.length - 1] == "cse111_content.html";
+		return parts[parts.length - 1] == 'cse111_content.html';
 	},
 
 
-	upsToRoot : "",
+	upsToRoot : '',
 
 	countLevels : function() {
 		let siteIcon = document.head.querySelector('link[rel="icon"]');
 		if (siteIcon) {
 			let href = siteIcon.getAttribute('href');
-			const pathname = "site/icons/logo.png";
+			const pathname = 'site/icons/logo.png';
 			if (href.endsWith(pathname)) {
 				let end = href.length - pathname.length;
 				this.upsToRoot = href.substring(0, end);
@@ -47,16 +47,16 @@ cse111.common = {
 				html +=
 '\t<div class="combined">\n' +
 '\t\t<a download title="Download a PDF that contains all CSE 111 HTML content"'+
-' href="' + this.makeRelPath('combined/cse111_content.pdf') + '">[pdf]</a>\n' +
+' href="'+ this.makeRelPath('combined/cse111_content.pdf') +'">[pdf]</a>\n' +
 '\t\t<a download title="Download a zip file that contains all CSE 111 content"'+
-' href="' + this.makeRelPath('combined/cse111_content.zip') + '">[zip]</a>\n' +
+' href="'+ this.makeRelPath('combined/cse111_content.zip') +'">[zip]</a>\n' +
 '\t</div>\n';
 			}
 			html +=
 '</div>\n' +
 '<a class="byui-logo" title="BYU-Idaho Website" href="https://www.byui.edu">&#xe000;</a>\n' +
-'<h2><a title="CSE 111 Content" href="' + this.makeRelPath('index.html') + '">CSE 111</a> |\n' +
-'\t<span>Programming with Functions</span></h2>';
+'<h2><a title="CSE 111 Content" href="'+ this.makeRelPath('index.html') +'">CSE 111</a> |\n' +
+'\t<span>Programming with Functions</span></h2>\n';
 			let body = document.body;
 			let article = body.querySelector('article');
 			header = document.createElement('header');
@@ -91,7 +91,7 @@ cse111.common = {
 
 			// Change the title and symbol for all
 			// brightness controls in the document.
-			let ctrls = document.getElementsByClassName('brightness');
+			let ctrls = document.body.getElementsByClassName('brightness');
 			for (let i = 0;  i < ctrls.length;  ++i) {
 				let elem = ctrls[i];
 				elem.setAttribute('title', data.title);
@@ -117,9 +117,44 @@ cse111.common = {
 
 		// Add the toggle function as a click handler
 		// to all brightness controls in the document.
-		let ctrls = document.getElementsByClassName('brightness');
+		let ctrls = document.body.getElementsByClassName('brightness');
 		for (let i = 0;  i < ctrls.length;  ++i) {
 			ctrls[i].addEventListener('click', toggle);
+		}
+	},
+
+
+	/** Adds a navigation element with a previous arrow and a next arrow
+	 * to both the top and the bottom of the document. */
+	addNavigation : function() {
+		let head = document.head;
+		let prev = head.querySelector('link[rel="prev"]');
+		let next = head.querySelector('link[rel="next"]');
+		if (prev || next) {
+			let html = '';
+			if (prev) {
+				html +=
+					'<a class="prev" title="View previous document"\n' +
+					'\thref="'+ prev.href +'">&larr;</a>\n';
+			}
+			if (next) {
+				html +=
+					'<a class="next" title="View next document"\n' +
+					'\thref="'+ next.href +'">&rarr;</a>\n';
+			}
+
+			// Add a nav element to the top of the document.
+			let body = document.body;
+			let article = body.querySelector('article');
+			let nav = document.createElement('nav');
+			nav.innerHTML = html;
+			body.insertBefore(nav, article);
+
+			// Add a nav element to the bottom of the document.
+			let footer = body.querySelector('footer');
+			nav = document.createElement('nav');
+			nav.innerHTML = html;
+			body.insertBefore(nav, footer);
 		}
 	},
 
@@ -146,7 +181,7 @@ cse111.common = {
 			window.location.assign(anchor);
 		};
 
-		let elems = document.querySelectorAll('h2[id], h3[id], h4[id]');
+		let elems = document.body.querySelectorAll('h2[id], h3[id], h4[id]');
 		for (let i = 0;  i < elems.length;  ++i) {
 			let span = document.createElement('span');
 			span.classList.add('copy');
@@ -163,20 +198,21 @@ cse111.common = {
 	/** If the document body doesn't have a footer element, this
 	 * functions adds a footer to the body. */
 	addFooter : function() {
-		let footer = document.body.querySelector('footer');
+		let body = document.body;
+		let footer = body.querySelector('footer');
 		if (! footer) {
 			footer = document.createElement('footer');
-			footer.innerHTML = '<small>Copyright &copy; 2020&ndash;2022, ' +
-				'<a title="BYU-Idaho Website" href="https://www.byui.edu">Brigham Young University - Idaho</a>. All rights reserved.</small>';
-			document.body.appendChild(footer);
+			footer.innerHTML =
+'<small>Copyright &copy; 2020&ndash;2022,\n' +
+'\t<a title="BYU-Idaho Website" href="https://www.byui.edu">Brigham Young University - Idaho</a>.\n' +
+'\tAll rights reserved.</small>';
+			body.appendChild(footer);
 		}
 	}
 };
 
 
 cse111.linenums = {
-	lineNumbersAdded : false,
-
 	/* The line number functions in this object expect a source code
 	 * example and its corresponding console div to be organized like
 	 * this in their containing HTML document:
@@ -187,10 +223,12 @@ cse111.linenums = {
 	 * <pre class="console" date-for="exN"> ... </pre>
 	 */
 
+	lineNumbersAdded : false,
+
 	/** Adds line numbers to all <pre class="linenums"> elements. */
 	addLineNumbers : function() {
 		const newline = /<br>\n?|\n/g;
-		let elems = document.querySelectorAll('pre.linenums');
+		let elems = document.body.querySelectorAll('pre.linenums');
 		for (let i = 0;  i < elems.length;  ++i) {
 			let elem = elems[i];
 			let code = elem.nextElementSibling.innerHTML;
@@ -317,7 +355,7 @@ cse111.linenums = {
 		};
 
 		// Add event handlers to each <span class="cross"> element.
-		let targets = document.querySelectorAll('span.cross');
+		let targets = document.body.querySelectorAll('span.cross');
 		for (let i = 0;  i < targets.length;  ++i) {
 			let target = targets[i];
 			target.addEventListener('mouseover', on);
@@ -359,7 +397,7 @@ cse111.linenums = {
 
 		// Add a copy button with a click listener to each
 		// <div class="pre"> element.
-		let elems = document.querySelectorAll('div.pre');
+		let elems = document.body.querySelectorAll('div.pre');
 		for (let i = 0;  i < elems.length;  ++i) {
 			let image = document.createElement('img');
 			image.setAttribute('src',
@@ -382,7 +420,7 @@ cse111.consoles = {
 	 * will use the titles as small tool tips that display when the user
 	 * holds the mouse pointer over an HTML element. */
 	addTitles : function() {
-		let elems = document.querySelectorAll('pre.console');
+		let elems = document.body.querySelectorAll('pre.console');
 		for (let i = 0;  i < elems.length;  ++i) {
 			let pre = elems[i];
 			pre.setAttribute('title', 'Terminal Window');
@@ -400,7 +438,7 @@ cse111.consoles = {
 	 * shows user input and program output. Making their widths the same
 	 * helps the reader to see that they go together. */
 	resizeConsoles : function() {
-		let consoles = document.querySelectorAll('pre.console[data-for]');
+		let consoles = document.body.querySelectorAll('pre.console[data-for]');
 		for (let i = 0;  i < consoles.length;  ++i) {
 			let console = consoles[i];
 
@@ -432,11 +470,11 @@ cse111.solution = {
 	/** Modifies all <a class="solution"> elements. */
 	modifyHyperlinks : function() {
 		// Get all <a class="solution"> elements.
-		let links = document.querySelectorAll('a.solution');
+		let links = document.body.querySelectorAll('a.solution');
 
 		// Is the user viewing the CSE 111 files
 		// from his local hard drive?
-		if (window.location.protocol == "file:") {
+		if (window.location.protocol == 'file:') {
 			for (let i = 0;  i < links.length;  ++i) {
 				let link = links[i];
 
@@ -491,22 +529,58 @@ cse111.solution = {
 };
 
 
+cse111.print = {
+	expandDetails : function() {
+		const open = 'open';
+		const dataWas = 'data-was-open';
+		let allDetails = document.body.querySelectorAll('details');
+		for (let i = 0;  i < allDetails.length;  ++i) {
+			let detailsElem = allDetails[i];
+			let isOpen = detailsElem.hasAttribute(open);
+			if (isOpen) {
+				detailsElem.setAttribute(dataWas, true);
+			}
+			else {
+				detailsElem.setAttribute(open, '');
+			}
+		}
+	},
+
+	collapseDetails : function() {
+		const open = 'open';
+		const dataWas = 'data-was-open';
+		let allDetails = document.body.querySelectorAll('details');
+		for (let i = 0;  i < allDetails.length;  ++i) {
+			let detailsElem = allDetails[i];
+			let wasOpen = detailsElem.hasAttribute(dataWas);
+			if (wasOpen) {
+				detailsElem.removeAttribute(dataWas);
+			}
+			else {
+				detailsElem.removeAttribute(open);
+			}
+		}
+	}
+};
+
+
 cse111.onDOMLoaded = function() {
 	if (cse111.common.isCombined()) {
 		cse111.linenums.addLineNumbers();
 	}
 	else {
-		cse111.common.countLevels();  // Not for PDF
-		cse111.common.addBrightnessHandler(); // "
-		cse111.common.addHeader();            // "
+		cse111.common.countLevels();
+		cse111.common.addHeader();
+		cse111.common.addBrightnessHandler();
 		cse111.linenums.addLineNumbers();
-		cse111.solution.modifyHyperlinks();   // "
-		cse111.common.addFooter();            // "
+		cse111.solution.modifyHyperlinks();
+		cse111.common.addFooter();
+		cse111.common.addNavigation();
 
-		cse111.common.addAnchorCopyChar();    // "
-		cse111.linenums.addCopyButtons();     // "
-		cse111.linenums.addCrossRefs();       // "
-		cse111.consoles.addTitles();          // "
+		cse111.common.addAnchorCopyChar();
+		cse111.linenums.addCopyButtons();
+		cse111.linenums.addCrossRefs();
+		cse111.consoles.addTitles();
 	}
 };
 
@@ -531,4 +605,6 @@ cse111.onFullDocLoaded = function() {
 };
 
 window.addEventListener('DOMContentLoaded', cse111.onDOMLoaded);
-window.addEventListener('load', cse111.onFullDocLoaded);  // Not for PDF
+window.addEventListener('load', cse111.onFullDocLoaded);
+window.addEventListener('beforeprint', cse111.print.expandDetails);
+window.addEventListener('afterprint', cse111.print.collapseDetails);

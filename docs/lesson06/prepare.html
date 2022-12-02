@@ -12,12 +12,16 @@
     <link rel="icon" type="image/png" href="../site/icons/logo.png">
     <link rel="stylesheet" type="text/css" href="../site/style.css">
     <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
+    <link rel="prev" type="text/html" href="../lesson05/prove.html">
+    <link rel="next" type="text/html" href="check.html">
+    <link rel="search" type="text/html" href="../index.html">
+    <link rel="help" type="text/html" href="../overview/help.html">
 </head>
 
 <body>
 <article>
     <h1>06 Prepare: Troubleshooting Functions</h1>
-    <p>What should you do when your program isn't working? If your
+    <p>What should you do when your program isn’t working? If your
     program is small, you could examine each line of the program.
     However, if your program is large or contains multiple functions,
     there are better ways to find and fix the problems, including
@@ -79,7 +83,7 @@ if __name__ == "__main__":
     <dfn>EOF</dfn> and <dfn>EOT</dfn> which mean "end of file" and "end
     of transmission."</p>
 
-    <p>If the computer prints an error message that you don't
+    <p>If the computer prints an error message that you don’t
     understand, you can search the internet for its meaning. Simply copy
     and paste the error message into the search bar of your browser.
     Here are two of the search results from Google for the error message
@@ -94,7 +98,7 @@ SyntaxError: EOL while scanning string literal "EOL" stands for "end of line". A
 EOL stands for "End of Line". The error means that the Python Interpreter reached the end of the line when it tried to scan the string literal. The string literals (constants) must be enclosed in single and double quotation marks.</div>
 
     <h3 id="print">Print Statements</h3>
-    <p>If the computer doesn't print an error message, but your program
+    <p>If the computer doesn’t print an error message, but your program
     is producing incorrect results, you could add print statements to
     your program in strategic locations to help you find the mistakes.
     These print statements should print the value of the variables in
@@ -206,9 +210,9 @@ Balance remaining: 66156.33</pre>
     <ol>
         <li><div>Run the program and enter input like a user
         would.</div></li>
-        <li><div>Examine the program's output and discover that the
+        <li><div>Examine the program’s output and discover that the
         output is incorrect.</div></li>
-        <li><div>Review all the program's code, make some small changes,
+        <li><div>Review all the program’s code, make some small changes,
         and add print statements.</div></li>
         <li><div>Repeat steps 1&ndash;3 again and again and again,
         spending lots of time trying to find and fix the
@@ -225,7 +229,7 @@ Balance remaining: 66156.33</pre>
     <p>A <dfn>debugger</dfn> is a software development tool that allows
     a programmer to watch the computer execute the statements in a
     program. While using a debugger, a programmer can examine the values
-    stored in a program's variables as the computer executes each line
+    stored in a program’s variables as the computer executes each line
     of the program. A debugger is a very effective tool for finding
     mistakes in a program. Nearly all programming languages and
     environments include a debugger. Professional software developers
@@ -252,7 +256,7 @@ Balance remaining: 66156.33</pre>
     <p>A debugger is also a great learning tool. Using a debugger to
     step through the statements of your program one at a time and
     examining the values of the variables after each step will show you
-    exactly how Python works. Try it! If you don't completely understand
+    exactly how Python works. Try it! If you don’t completely understand
     <code>if</code>-<code>elif</code>-<code>else</code> statements,
     <code>while</code> loops, <code>for</code> loops, passing
     parameters, or returning a value from a function, then put one or

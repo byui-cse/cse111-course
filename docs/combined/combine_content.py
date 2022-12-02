@@ -12,7 +12,6 @@ html_pathname = "combined/cse111_content.html"
 
 site_filenames = [
     "site/main.js",
-    "site/reset.js",
     "site/scope.js",
     "site/reset.css",
     "site/style.css",
@@ -111,7 +110,7 @@ text_filenames = [
 ]
 
 content_filenames = [
-    "overview/title.html",
+    "combined/title.html",
     "index.html",
     "overview/syllabus.html",
 

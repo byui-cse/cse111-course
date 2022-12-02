@@ -12,6 +12,8 @@
     <link rel="icon" type="image/png" href="../site/icons/logo.png">
     <link rel="stylesheet" type="text/css" href="../site/style.css">
     <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
+    <link rel="search" type="text/html" href="../index.html">
+    <link rel="help" type="text/html" href="../overview/help.html">
 </head>
 
 <body>
@@ -23,7 +25,7 @@
     canvas in a computer window. To use the Draw 2-D library, your
     program must do the following:</p>
     <ol class="long">
-        <li><div>Import the library's functions</div></li>
+        <li><div>Import the library’s functions</div></li>
 
         <li><div>Call the <code>start_drawing</code> function once. The
         <code>start_drawing</code> function returns a canvas, that your
@@ -442,7 +444,7 @@ main()</pre></div>
         <h4>Parameters</h4>
         <ul>
             <li><div><b>title</b>: the title that will appear in the
-            window's title bar</div></li>
+            window’s title bar</div></li>
             <li><div><b>width</b>: the width in pixels of the
             canvas</div></li>
             <li><div><b>height</b>: the height in pixels of the
@@ -469,9 +471,9 @@ main()</pre></div>
             <li><div><b>x0, y0, x1, y1, &hellip; xn, yn</b>: the
             coordinates for the segments of a line that this function
             will draw</div></li>
-            <li><div><b>width</b>: the line's width. The default is 1
+            <li><div><b>width</b>: the line’s width. The default is 1
             pixel.</div></li>
-            <li><div><b>fill</b>: the line's color. The default is
+            <li><div><b>fill</b>: the line’s color. The default is
             black.</div></li>
         </ul>
         <h4>Return</h4>
@@ -494,12 +496,12 @@ main()</pre></div>
             <code>start_drawing</code> function</div></li>
             <li><div><b>x0, y0, x1, y1</b>: the coordinates of a bounding
             box for the oval that this function will draw</div></li>
-            <li><div><b>width</b>: the width of the oval's outline. The
+            <li><div><b>width</b>: the width of the oval’s outline. The
             default is 1 pixel. A width of 0 will draw an oval without
             an outline.</div></li>
-            <li><div><b>outline</b>: the color of the oval's outline.
+            <li><div><b>outline</b>: the color of the oval’s outline.
             The default is black.</div></li>
-            <li><div><b>fill</b>: the color of the oval's interior. The
+            <li><div><b>fill</b>: the color of the oval’s interior. The
             default is "" which means transparent.</div></li>
         </ul>
         <h4>Return</h4>
@@ -524,11 +526,11 @@ main()</pre></div>
             <code>start_drawing</code> function</div></li>
             <li><div><b>x0, y0, x1, y1</b>: the bounding box for the
             oval from which this function will draw a wedge</div></li>
-            <li><div><b>width</b>: the width of the oval's outline;
+            <li><div><b>width</b>: the width of the oval’s outline;
             default is 1 pixel</div></li>
-            <li><div><b>outline</b>: the color of the oval's outline;
+            <li><div><b>outline</b>: the color of the oval’s outline;
             default is black</div></li>
-            <li><div><b>fill</b>: the color of the oval's interior;
+            <li><div><b>fill</b>: the color of the oval’s interior;
             default is "" which means transparent</div></li>
         </ul>
         <h4>Return</h4>
@@ -552,11 +554,11 @@ main()</pre></div>
             <code>start_drawing</code> function</div></li>
             <li><div><b>x0, y0, x1, y1</b>: the bounding box for the
             rectangle that this function will draw</div></li>
-            <li><div><b>width</b>: the width of the rectangle's outline;
+            <li><div><b>width</b>: the width of the rectangle’s outline;
             default is 1 pixel</div></li>
-            <li><div><b>outline</b>: the color of the rectangle's
+            <li><div><b>outline</b>: the color of the rectangle’s
             outline; default is black</div></li>
-            <li><div><b>fill</b>: the color of the rectangle's interior;
+            <li><div><b>fill</b>: the color of the rectangle’s interior;
             default is "" which means transparent</div></li>
         </ul>
         <h4>Return</h4>
@@ -585,11 +587,11 @@ main()</pre></div>
             <li><div><b>x0, y0, x1, y1, x2, y2, &hellip; xn, yn</b>: the
             coordinates for the vertices of the polygon that this
             function will draw</div></li>
-            <li><div><b>width</b>: the width of the polygon's outline;
+            <li><div><b>width</b>: the width of the polygon’s outline;
             default is 1 pixel</div></li>
-            <li><div><b>outline</b>: the color of the polygon's outline;
+            <li><div><b>outline</b>: the color of the polygon’s outline;
             default is black</div></li>
-            <li><div><b>fill</b>: the color of the polygon's interior;
+            <li><div><b>fill</b>: the color of the polygon’s interior;
             default is "" which means transparent</div></li>
         </ul>
         <h4>Return</h4>
@@ -628,7 +630,7 @@ main()</pre></div>
 <pre class="python">finish_drawing(canvas)</pre>
         </dt>
         <dd>Call all functions that are necessary to display the drawing
-        on the computer's monitor.
+        on the computer’s monitor.
 
         <h4>Parameters</h4>
         <ul>

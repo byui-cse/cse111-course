@@ -12,6 +12,10 @@
     <link rel="icon" type="image/png" href="../site/icons/logo.png">
     <link rel="stylesheet" type="text/css" href="../site/style.css">
     <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
+    <link rel="prev" type="text/html" href="check.html">
+    <link rel="next" type="text/html" href="prove.html">
+    <link rel="search" type="text/html" href="../index.html">
+    <link rel="help" type="text/html" href="../overview/help.html">
 </head>
 
 <body>
@@ -19,14 +23,14 @@
     <h1>02 Team Activity: Calling Functions</h1>
 
     <h2 id="instrucs">Instructions</h2>
-    <p>Each lesson in CSE 111 contains a team activity that is designed
-    to take about one hour to complete. You should prepare for all team
-    activities by completing the preparation material and the individual
-    checkpoint assignment before starting a team activity. The goal of
-    the team activities is for students to work together and teach and
-    learn from each other. As your team completes a team activity,
-    instead of moving through it as quickly as you can, you should help
-    everyone understand the concepts.</p>
+    <p>Each lesson in CSE&nbsp;111 contains a team activity that is
+    designed to take about one hour to complete. You should prepare for
+    all team activities by completing the preparation material and the
+    individual checkpoint assignment before starting a team activity.
+    The goal of the team activities is for students to work together and
+    teach and learn from each other. As your team completes a team
+    activity, instead of moving through it as quickly as you can, you
+    should help everyone understand the concepts.</p>
 
     <h3>Face-to-Face Students</h3>
     <p>Face-to-face students will complete the team activities in their
@@ -61,17 +65,17 @@
 
     <h2 id="problem">Problem Statement</h2>
     <p>You work for a retail store that wants to increase sales on
-    Tuesday and Wednesday, which are the store's slowest sales days. On
-    Tuesday and Wednesday, if a customer's subtotal is $50 or greater,
-    the store will discount the customer's subtotal by 10%.</p>
+    Tuesday and Wednesday, which are the store’s slowest sales days. On
+    Tuesday and Wednesday, if a customer’s subtotal is $50 or greater,
+    the store will discount the customer’s subtotal by 10%.</p>
 
     <h2 id="assign">Assignment</h2>
     <p>Work as a team to write a Python program named
-    <code>discount.py</code> that gets a customer's subtotal as input
-    and gets the current day of the week from your computer's operating
+    <code>discount.py</code> that gets a customer’s subtotal as input
+    and gets the current day of the week from your computer’s operating
     system. Your program must <strong>not</strong> ask the user to enter
     the day of the week. Instead, it must get the day of the week from
-    your computer's operating system.</p>
+    your computer’s operating system.</p>
 
     <p>If the subtotal is $50 or greater and today is Tuesday or
     Wednesday, your program must subtract 10% from the subtotal. Your
@@ -83,7 +87,7 @@
     <ol class="long">
         <li><div>Your program asks the user for the subtotal but does
         <strong>not</strong> ask the user for the day of the week. Your
-        program gets the day of the week from your computer's
+        program gets the day of the week from your computer’s
         operating system.</div></li>
 
         <li><div>Your program correctly computes and prints the discount
@@ -120,7 +124,7 @@
 
         <li><div><p>The <a href="https://docs.python.org/3/library/datetime.html#datetime.datetime.now"><code>datetime.now()</code> method</a>
         from the standard Python <code>datetime</code> module will get
-        the current date and time from your computer's operating system.
+        the current date and time from your computer’s operating system.
         Here is an excerpt from the official reference for the
         <code>datetime.now</code> method:</p>
         <dl class="function">
@@ -152,7 +156,7 @@
         <p>The following Python code imports the <code>datetime</code>
         class from the <code>datetime</code> module, calls the
         <code>datetime.now</code> method to get the current date and
-        time from a computer's operating system, and then calls the
+        time from a computer’s operating system, and then calls the
         <code>weekday</code> method to get the day of the week as an
         integer.</p>
 
@@ -193,7 +197,7 @@ print(day_of_week)</pre></div>
     <ol class="test long">
         <li><div>If today is any day except Tuesday or Wednesday, run
         your program using the inputs shown below. Ensure that your
-        program's output matches the output shown below.
+        program’s output matches the output shown below.
 <pre class="console">&gt; python discount.py
 Please enter the subtotal: <span class="input">42.75</span>
 Sales tax amount: 2.56
@@ -206,7 +210,7 @@ Total: 58.51</pre>
         </div></li>
 
         <li><div>If today is Tuesday or Wednesday, run your program
-        using the input shown below. Ensure that your program's output
+        using the input shown below. Ensure that your program’s output
         matches output shown below.
 <pre class="console">&gt; python discount.py
 Please enter the subtotal: <span class="input">42.75</span>
@@ -222,7 +226,7 @@ Total: 52.66</pre>
 
         <li><div>Is there a simple way to test your program for all the
         days of the week without testing on seven consecutive days and
-        without changing your computer's operating system date? Hint: In
+        without changing your computer’s operating system date? Hint: In
         your program immediately after these three lines of code:
 
 <div class="pre"><pre class="python">
@@ -252,7 +256,7 @@ day_of_week = current_date_and_time.weekday()</pre></div>
     <p>During this assignment, you wrote code that calls the
     <code>datetime.now()</code> and <code>datetime.weekday()</code>
     methods. What did these two methods do in your program? If these two
-    methods didn't exist, would this assignment have been more difficult
+    methods didn’t exist, would this assignment have been more difficult
     to complete?</p>
 
     <h2 id="submit">Submission</h2>

@@ -6,76 +6,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>CSE 111 - Scene Gallery</title>
-    <script src="../../site/main.js"></script>
-    <script>
-"use strict";
-
-cse111.gallery = {
-    show : function(images) {
-        let gallery = document.getElementById('gallery');
-        let row;
-        let col = 0;
-        for (let i = 0;  i < images.length;  ++i) {
-            let image = images[i];
-            if (col == 0) {
-                row = document.createElement('div');
-                gallery.appendChild(row);
-            }
-            let img = document.createElement('img');
-            img.setAttribute('src', image.file);
-            img.setAttribute('alt', 'A scene by ' + image.name);
-            let link = document.createElement('a');
-            link.setAttribute('target', '_blank');
-            link.setAttribute('href', image.file);
-            link.appendChild(img);
-            let caption = document.createElement('div');
-            caption.innerText = 'by ' + image.name;
-            let cell = document.createElement('div');
-            cell.appendChild(link);
-            cell.appendChild(caption);
-            row.appendChild(cell);
-            if (++col == 5) {
-                col = 0;
-            }
-        }
-    }
-};
-
-window.addEventListener("DOMContentLoaded",
-    function() { cse111.gallery.show([
-        { name:'Cort', file:'cort.png' },
-        { name:'Robbie', file:'robbie.png' },
-        { name:'Benjamin', file:'benjamin.png' },
-        { name:'Benjamin', file:'benjamin2.png' },
-        { name:'Adessa', file:'adessa.png' },
-        { name:'Mark', file:'mark.png' },
-        { name:'Matthew', file:'matthew.png' },
-        { name:'Bryson', file:'bryson.png' },
-        { name:'Benjamin', file:'benjamin3.png' },
-        { name:'Grant', file:'grant.png' },
-        { name:'Ethan', file:'ethan.png' },
-        { name:'Rachel', file:'rachel.png' },
-        { name:'Mike', file:'mike.png' },
-        { name:'Conner', file:'conner.png' },
-        { name:'Austin', file:'austin.png' },
-        { name:'Shayue', file:'shayue.png' },
-        { name:'Sama', file:'sama.png' },
-        { name:'Rebecca', file:'rebecca.png' },
-        { name:'M\xf3nica', file:'monica.png' },
-        { name:'Carter', file:'carter.png' },
-        { name:'Patrick', file:'patrick.png' },
-        { name:'Markus', file:'markus.png' },
-        { name:'Jared', file:'jared.png' },
-        { name:'Jonathan', file:'jonathan.png' },
-        { name:'Matthew', file:'matthew2.png' },
-        { name:'Eric', file:'eric.png' },
-        { name:'Josh', file:'josh.png' },
-        { name:'You', file:'you.png' }
-    ])});
-    </script>
     <link rel="canonical" href="https://byui-cse.github.io/cse111-course/lesson04/gallery/">
     <link rel="icon" type="image/png" href="../../site/icons/logo.png">
     <link rel="stylesheet" type="text/css" href="../../site/style.css">
+    <link rel="search" type="text/css" href="../../index.html">
+    <link rel="help" type="text/css" href="../../overview/help.html">
+    <script src="../../site/main.js"></script>
+    <script>
+    'use strict';
+
+    cse111.gallery = {
+        show : function(images) {
+            let gallery = document.getElementById('gallery');
+            let row;
+            let col = 0;
+            for (let i = 0;  i < images.length;  ++i) {
+                let image = images[i];
+                if (col == 0) {
+                    row = document.createElement('div');
+                    gallery.appendChild(row);
+                }
+                let img = document.createElement('img');
+                img.setAttribute('src', image.file);
+                img.setAttribute('alt', 'A scene by ' + image.name);
+                let link = document.createElement('a');
+                link.setAttribute('target', '_blank');
+                link.setAttribute('href', image.file);
+                link.appendChild(img);
+                let caption = document.createElement('div');
+                caption.innerText = 'by ' + image.name;
+                let cell = document.createElement('div');
+                cell.appendChild(link);
+                cell.appendChild(caption);
+                row.appendChild(cell);
+                if (++col == 5) {
+                    col = 0;
+                }
+            }
+        }
+    };
+
+    window.addEventListener('DOMContentLoaded',
+        function() { cse111.gallery.show([
+            { name:'Cort', file:'cort.png' },
+            { name:'Robbie', file:'robbie.png' },
+            { name:'Benjamin', file:'benjamin.png' },
+            { name:'Benjamin', file:'benjamin2.png' },
+            { name:'Adessa', file:'adessa.png' },
+            { name:'Mark', file:'mark.png' },
+            { name:'Matthew', file:'matthew.png' },
+            { name:'Bryson', file:'bryson.png' },
+            { name:'Benjamin', file:'benjamin3.png' },
+            { name:'Grant', file:'grant.png' },
+            { name:'Ethan', file:'ethan.png' },
+            { name:'Rachel', file:'rachel.png' },
+            { name:'Mike', file:'mike.png' },
+            { name:'Conner', file:'conner.png' },
+            { name:'Austin', file:'austin.png' },
+            { name:'Shayue', file:'shayue.png' },
+            { name:'Sama', file:'sama.png' },
+            { name:'Rebecca', file:'rebecca.png' },
+            { name:'M\xf3nica', file:'monica.png' },
+            { name:'Carter', file:'carter.png' },
+            { name:'Patrick', file:'patrick.png' },
+            { name:'Markus', file:'markus.png' },
+            { name:'Jared', file:'jared.png' },
+            { name:'Jonathan', file:'jonathan.png' },
+            { name:'Matthew', file:'matthew2.png' },
+            { name:'Eric', file:'eric.png' },
+            { name:'Josh', file:'josh.png' },
+            { name:'You', file:'you.png' }
+        ])});
+    </script>
     <style>
         div#gallery {
             display: table;

@@ -13,6 +13,10 @@
     <link rel="icon" type="image/png" href="../site/icons/logo.png">
     <link rel="stylesheet" type="text/css" href="../site/style.css">
     <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
+    <link rel="prev" type="text/html" href="../lesson08/prove.html">
+    <link rel="next" type="text/html" href="check.html">
+    <link rel="search" type="text/html" href="../index.html">
+    <link rel="help" type="text/html" href="../overview/help.html">
 </head>
 
 <body>
@@ -34,7 +38,7 @@
 
     <h3 id="text_files">Text Files</h3>
     <p>In order to read data from a text file, the file must exist on
-    one of the computer's drives, and your program must do these three
+    one of the computer’s drives, and your program must do these three
     things:</p>
 
     <ol>
@@ -136,7 +140,7 @@ if __name__ == "__main__":
     shown at
     lines&nbsp;<span class="cross" data-ref="ex1">30&ndash;38</span>.
     When the <code>with</code> block ends, the computer will
-    automatically close the file, so that the programmer doesn't have to
+    automatically close the file, so that the programmer doesn’t have to
     write a call to the <code>file.close</code> method.</p>
 
     <h3 id="csv_files">CSV Files</h3>
@@ -259,7 +263,7 @@ Cornerstone Family Dental,44 S Center Street,208-356-4240,8,1453
     <code>dentists.csv</code> file to determine which dental office has
     the most patients per employee. Notice that the first row of the
     <code>dentists.csv</code> file contains column headings. The
-    headings contain no numbers and aren't needed for the calculations,
+    headings contain no numbers and aren’t needed for the calculations,
     so the program skips the first row by calling the built-in
     <code>next</code> function at
     <span class="cross" data-ref="ex3">line&nbsp;25</span>.</p>
@@ -508,7 +512,7 @@ if __name__ == "__main__":
     first open the file by calling the built-in <code>open</code>
     function. You should write the code to open a file in a Python
     <code>with</code> block because the computer will automatically
-    close the file when the <code>with</code> block ends, and you won't
+    close the file when the <code>with</code> block ends, and you won’t
     need to remember to write code to close the file.</p>
 
     <p>A CSV file is a text file that contains rows and columns of data.

@@ -12,6 +12,10 @@
     <link rel="icon" type="image/png" href="../site/icons/logo.png">
     <link rel="stylesheet" type="text/css" href="../site/style.css">
     <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
+    <link rel="prev" type="text/html" href="teach.html">
+    <link rel="next" type="text/html" href="../lesson11/prepare.html">
+    <link rel="search" type="text/html" href="../index.html">
+    <link rel="help" type="text/html" href="../overview/help.html">
 </head>
 
 <body>
@@ -27,7 +31,7 @@
     <p>A local grocery store subscribes to an online service that
     enables its customers to order groceries online. After a customer
     completes an order, the online service sends a CSV file that
-    contains the customer's requests to the grocery store. The store
+    contains the customer’s requests to the grocery store. The store
     needs you to write a program that reads the CSV file and prints to
     the terminal window a receipt that lists the purchased items and
     shows the subtotal, the sales tax amount, and the total.</p>
@@ -36,7 +40,7 @@
     <p>During the prove milestone for the previous lesson, you wrote the
     part of this program that reads and processes two CSV files, one
     named <code>products.csv</code> that contains a catalog of products
-    and one named <code>request.csv</code> that contains a customer's
+    and one named <code>request.csv</code> that contains a customer’s
     order. During this prove assignment, you will add code to finish
     printing a receipt and to handle any exceptions that might occur
     while your program is running. Specifically, your program must do
@@ -51,7 +55,7 @@
         sales tax rate.</div></li>
         <li><div>Compute and print the total amount due.</div></li>
         <li><div>Print a thank you message.</div></li>
-        <li><div>Get the current date and time from your computer's
+        <li><div>Get the current date and time from your computer’s
         operating system and print the current date and time.</div></li>
         <li><div>Include a <code>try</code> block and
         <code>except</code> blocks to handle
@@ -70,7 +74,7 @@
 
         <li><div>The <a href="https://docs.python.org/3/library/datetime.html#datetime.datetime.now"><code>datetime.now() method</code></a>
         from the standard Python <code>datetime</code> module
-        will get the current date and time from your computer's
+        will get the current date and time from your computer’s
         operating system. Here is an excerpt from the official
         documentation for the <code>datetime.now</code> method:
         <dl class="function">
@@ -92,7 +96,7 @@
         <p>The following Python code imports the <code>datetime</code>
         class from the <code>datetime</code> module and calls the
         <code>datetime.now</code> method to get the current date and
-        time from a computer's operating system. Then it uses an
+        time from a computer’s operating system. Then it uses an
         f-string to format and print the current date and time.</p>
 
 <div class="pre" id="ex1"><pre class="linenums"></pre>
@@ -129,13 +133,13 @@ Tuesday 01:23 PM</pre>
 
     <h2 id="tutor">Help from a Tutor</h2>
     <p>As a BYU-Idaho campus or online student you can get help from a
-    tutor to complete your CSE 111 assignments. Each tutor is a current
-    BYU-Idaho student employed by BYU-Idaho. Meeting with a tutor is
-    free. It will not cost you any money to meet with a tutor. To get
-    help from a tutor, you simply make an appointment and then meet with
-    the tutor. Campus students meet with tutors in the tutoring center.
-    Online students meet with tutors in Zoom. To make an appointment,
-    follow the instructions in the
+    tutor to complete your CSE&nbsp;111 assignments. Each tutor is a
+    current BYU-Idaho student employed by BYU-Idaho. Meeting with a
+    tutor is free. It will not cost you any money to meet with a tutor.
+    To get help from a tutor, you simply make an appointment and then
+    meet with the tutor. Campus students meet with tutors in the
+    tutoring center. Online students meet with tutors in Zoom. To make
+    an appointment, follow the instructions in the
     <a href="https://courses.byui.edu/AcademicSupport/tutoring-center/online-tutoring/online-courses-tutoring-guide.pdf">course tutoring guide</a>.</p>
 
     <h2 id="testing">Testing Procedure</h2>
@@ -184,7 +188,7 @@ Error: unknown product ID in the request.csv file
             program to handle <code>KeyError</code> and added "R002,5"
             to the <code>requests.csv</code> file and saved the
             <code>requests.csv</code> file and ran your program but your
-            program isn't raising a <code>KeyError</code>, then look in
+            program isn’t raising a <code>KeyError</code>, then look in
             your program to see if you wrote an <code>if</code>
             statement before the statement that finds a value in the
             <var>products</var> dictionary. Look for code similar to
