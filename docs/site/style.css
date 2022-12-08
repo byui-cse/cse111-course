@@ -161,10 +161,6 @@ body {
 		font-weight: normal;
 		white-space: normal;
 	}
-	header > h2 > a,
-	header > h2 > span {
-		white-space: nowrap;
-	}
 	header > img.menuIcon {
 		flex: 0 0 auto;
 		width: 1.2em;

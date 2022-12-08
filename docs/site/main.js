@@ -144,13 +144,10 @@ cse111.common = {
 			let courseCode = createElem('a', null,
 					{title : strings.courseHint,
 					href : this.makeRelPath(filenames.contents)});
-				courseCode.innerText = strings.courseCode;
-			let courseTitle = createElem('span');
-				courseTitle.innerText = strings.courseTitle;
+				courseCode.innerText =
+					strings.courseCode + ' | ' + strings.courseTitle;
 			let h2 = createElem('h2');
 				h2.appendChild(courseCode);
-				h2.appendChild(createText(' | '));
-				h2.appendChild(courseTitle);
 			let menuIcon = createElem('img', ['menuIcon'],
 					{title : strings.menuHint,
 					alt : strings.menuHint,
@@ -180,6 +177,7 @@ cse111.common = {
 		const createText = self.createTextNode;
 		const ul = createElem('ul');
 
+		/** Creates one menu item. */
 		const addMenuItem = function(icon, text, hint, action, classes, down) {
 			let img = createElem('img', null,
 					{alt : strings.hint,
@@ -204,6 +202,7 @@ cse111.common = {
 			ul.appendChild(item);
 		};
 
+		// Create the menu items.
 		const dark = 'dark';
 		const light = 'light';
 		addMenuItem(filenames.lightIcon, strings.lightText,
