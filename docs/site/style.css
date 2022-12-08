@@ -17,14 +17,6 @@
 :root {
 	--transpar: rgba(0, 0, 0, 0);
 
-	--light-bk-color: rgba(255, 255, 255, 1);
-	--light-fg-color: rgba(4, 4, 4, 1);
-
-	--dark-bk-color: rgba(0, 0, 0, 1);
-	--dark-fg-color: rgba(184, 184, 184, 1);
-
-	--border-color: rgba(112, 112, 112, 1);
-
 	--lighter-yellow: rgba(255, 236, 211, 1);
 	--yellow: rgba(255, 179, 80, 1);
 	--darker-yellow: rgba(77, 54, 24, 1);
@@ -46,34 +38,68 @@
 	--byui-blue: rgba(0, 118, 182, 1);
 	--darkest-byui-blue: rgba(0, 24, 36, 1);
 
-	--bk-color: var(--light-bk-color);
-	--fg-color: var(--light-fg-color);
+	--light-bk-color: rgba(255, 255, 255, 1);
+	--light-fg-color: rgba(4, 4, 4, 1);
 
-	--link-before-fg-color: var(--byui-blue);
-	--link-hover-fg-color: var(--coral);
-	--link-active-fg-color: red;
-	--link-visited-fg-color: purple;
+	--dark-bk-color: rgba(0, 0, 0, 1);
+	--dark-fg-color: rgba(184, 184, 184, 1);
 
-	--heading-fg-color: var(--byui-blue);
-	--bullet-fg-color: var(--byui-blue);
-	--dfn-fg-color: var(--coral);
-	--strong-fg-color: var(--coral);
-	--user-input-bk-color: var(--coral);
-	--user-input-fg-color: white;
-
-	--line-number-hilite: var(--byui-blue);
-	--python-bk-color: var(--lightest-coral);
-	--console-bk-color: var(--lightest-byui-blue);
-
-	--code-line-hilite: var(--light-green);
-	--console-line-hilite: rgba(208, 229, 241, 1);
+	--border-color: rgba(112, 112, 112, 1);
 
 	--compare-same-color: var(--lighter-yellow);
 	--compare-similar-color: var(--lighter-coral);
 	--compare-diff-color: var(--lighter-raspberry);
+}
+@media screen {
+	:root {
+		--bk-color: var(--light-bk-color);
+		--fg-color: var(--light-fg-color);
 
-	--body-font-size: 110%;
-	--formula-font-size: 118%;
+		--heading-fg-color: var(--byui-blue);
+		--bullet-fg-color: var(--byui-blue);
+
+		--dfn-fg-color: var(--coral);
+		--strong-fg-color: var(--coral);
+		--user-input-bk-color: var(--coral);
+		--user-input-fg-color: white;
+
+		--line-number-hilite: var(--byui-blue);
+		--python-bk-color: var(--lightest-coral);
+		--console-bk-color: var(--lightest-byui-blue);
+
+		--link-before-fg-color: var(--byui-blue);
+		--link-hover-fg-color: var(--coral);
+		--link-active-fg-color: red;
+		--link-visited-fg-color: purple;
+
+		--body-font-size: 110%;
+		--formula-font-size: 118%;
+	}
+}
+@media print {
+	:root {
+		--bk-color: white;
+		--fg-color: black;
+
+		--heading-fg-color: black;
+		--bullet-fg-color: darkgray;
+
+		--dfn-fg-color: black;
+		--strong-fg-color: black;
+		--user-input-bk-color: white;
+		--user-input-fg-color: darkgray;
+
+		--python-bk-color: white;
+		--console-bk-color: white;
+
+		--link-before-fg-color: var(--byui-blue);
+		--link-hover-fg-color: var(--byui-blue);
+		--link-active-fg-color: var(--byui-blue);
+		--link-visited-fg-color: var(--byui-blue);
+
+		--body-font-size: 110%;
+		--formula-font-size: 105%;
+	}
 }
 
 body {
@@ -90,7 +116,6 @@ body {
 		--fg-color: var(--dark-fg-color);
 
 		--python-bk-color: var(--darkest-coral);
-		--code-line-hilite: var(--dark-green);
 		--console-bk-color: var(--darkest-byui-blue);
 
 		--compare-same-color: var(--darker-yellow);
@@ -102,41 +127,20 @@ body {
 	body {
 		font-family: "Crimson Pro", Georgia, "Times New Roman", serif;
 		max-width: 6.5in;
-
-		--bk-color: white;
-		--fg-color: black;
-
-		--heading-fg-color: black;
-		--bullet-fg-color: darkgray;
-
-		--dfn-fg-color: black;
-		--strong-fg-color: black;
-		--user-input-bk-color: white;
-		--user-input-fg-color: darkgray;
-
-		--python-bk-color: white;
-		--console-bk-color: white;
-
-		--body-font-size: 110%;
-		--formula-font-size: 105%;
 	}
 }
 
 
 @media screen {
 	header {
+		display: flex;
+		align-items: center;
 		padding: 0.5em 1.5em;
 		background-color: var(--byui-blue);
 		color: white;
 	}
-	header a:link,
-	header a:hover,
-	header a:active,
-	header a:visited {
-		text-decoration: none;
-		color: inherit;
-	}
-	header > a.byui-logo {
+	header > a.byuiLogo {
+		flex: 0 0 auto;
 		font-family: 'icomoon';
 		font-size: 400%;
 		font-style: normal;
@@ -151,7 +155,7 @@ body {
 		-moz-osx-font-smoothing: grayscale;
 	}
 	header > h2 {
-		display: inline-block;
+		flex: 1 1 auto;
 		vertical-align: middle;
 		font-size: 125%;
 		font-weight: normal;
@@ -161,57 +165,83 @@ body {
 	header > h2 > span {
 		white-space: nowrap;
 	}
-	header > div.controls {
-		float: right;
-		margin: 0 0 0 1.5em;
-		text-align: center;
-	}
-	header > div.controls > .brightness {
+	header > img.menuIcon {
+		flex: 0 0 auto;
+		width: 1.2em;
 		cursor: pointer;
-		font-size: 125%;
-	}
-	header > div.controls > .combined {
-		font-size: 75%;
-		white-space: nowrap;
-		margin-top: 0.5em;
+		margin: auto 0 auto 1.5em;
 	}
 
-	nav {
-		max-width: 40em;
-		margin: 0 auto;
-		padding: 0 1em;
+	nav.menu {
+		position: absolute;
+		right: 0;
+		z-index: 1;
+		border: 1px solid white;
+		padding-top: 0.5em;
+		background-color: var(--byui-blue);
+		color: white;
 	}
-	nav a {
-		font-size: 150%;
+	nav.menu.closed {
+		display: none;
+	}
+	nav.menu li {
+		padding: 0 1em 0.5em 1em;
+		cursor: pointer;
+	}
+	nav.menu li:hover {
 		font-weight: 900;
-		transform: scale(1, 1.5);
 	}
-	nav a:link,
-	nav a:hover,
-	nav a:active,
-	nav a:visited {
+	nav.menu li.first {
+		border-top: 1px solid white;
+		padding-top: 0.5em;
+	}
+	nav.menu li.dark,
+	body.dark nav.menu li.light {
+		display: block;
+	}
+	nav.menu li.light,
+	body.dark nav.menu li.dark {
+		display: none;
+	}
+	nav.menu a {
+		/* Force the a tags to occupy the entire
+		 * width of the navigation list item. */
+		display: block;
+		width: 100%;
+	}
+	nav.menu img {
+		width: 1em;
+		vertical-align: middle;
+		margin-right: 0.5em;
+	}
+
+	header a:link,
+	header a:hover,
+	header a:active,
+	header a:visited,
+	nav.menu a:link,
+	nav.menu a:hover,
+	nav.menu a:active,
+	nav.menu a:visited {
 		text-decoration: none;
-		color: var(--byui-blue);
-	}
-	nav a.prev {
-		float: left;
-		padding-right: 1em;
-	}
-	nav a.next {
-		float: right;
-		padding-left: 1em;
+		color: inherit;
 	}
 }
+@media print {
+	header { display: none; }
+	nav.menu { display: none; }
+}
 
-/* Paragraph classes that are used by combined/title.html which
+
+/** Paragraph classes that are used by combined/title.html which
  * is a title page that is used when the content for this course
  * is printed. */
-section p.course_code {
+section p.courseCode {
 	margin: 6em 0 0 0;
 	font-size: 180%;
 	text-align: center;
 }
-section p.course_title {
+section p.courseTitle {
 	margin: 0.5em 0 0 0;
 	color: var(--heading-fg-color);
 	font-size: 220%;
@@ -307,6 +337,7 @@ article h4 {
 	article h3 > span.copy:hover,
 	article h4 > span.copy:hover {
 		background-color: var(--console-bk-color);
+		font-weight: 900;
 	}
 }
 @media print {
@@ -371,17 +402,14 @@ article dfn {
 article b {
 	font-weight: bold;
 }
-
 article em {
 	font-style: italic;
 }
-
 article strong {
 	font-weight: bold;
 	font-style: italic;
 	color: var(--strong-fg-color);
 }
-
 article var {
 	font-style: italic;
 }
@@ -390,7 +418,6 @@ article span.duration {
 	font-size: smaller;
 	white-space: nowrap;
 }
-
 article span.nowrap {
 	white-space: nowrap;
 }
@@ -398,6 +425,10 @@ article span.nowrap {
 input[type="text"],
 button {
 	font-size: inherit;
+}
+
+article details {
+	margin-bottom: 1em;
 }
 
 
@@ -906,6 +937,7 @@ article table.prec > tbody > tr > td.prec {
     text-align: center;
 }
 
+/* Figures that contain tables */
 article figure.list > table {
 	margin: 1em;
 }
@@ -924,11 +956,6 @@ article figure.list > table > tbody > tr > td.label {
 }
 
 
-article details {
-	margin-bottom: 1em;
-}
-
-
 @media screen {
 	footer {
 		margin: 0.5em auto 1em auto;
@@ -937,4 +964,7 @@ article details {
 		max-width: 40em;
 		font-size: 80%;
 	}
+}
+@media print {
+	footer { display: none; }
 }

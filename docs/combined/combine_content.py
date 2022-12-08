@@ -27,7 +27,15 @@ site_filenames = [
     "site/icons/logo.png",
     "site/icons/reference.png",
     "site/icons/tutorial.png",
-    "site/icons/video.png"
+    "site/icons/video.png",
+    "site/icons/arrow-left.svg",
+    "site/icons/arrow-right.svg",
+    "site/icons/bars.svg",
+    "site/icons/list.svg",
+    "site/icons/magnify-glass.svg",
+    "site/icons/moon.svg",
+    "site/icons/question.svg",
+    "site/icons/sun.svg"
 ]
 
 image_filenames = [

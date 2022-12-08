@@ -6,23 +6,107 @@ if (! window.hasOwnProperty('cse111')) {
 }
 
 
+/** Contains all user visible strings so that translating them to
+ * another language will be easier. */
+cse111.strings = {
+	byuiEntity  : '&#xe000;',
+	byuiName    : 'Brigham Young University - Idaho',
+	byuiHint    : 'BYU-Idaho Website',
+	courseCode  : 'CSE 111',
+	courseTitle : 'Programming with Functions',
+	courseHint  : 'CSE 111 Content',
+
+	menuHint    : 'Click to open the navigation menu',
+	lightText   : 'Light Mode',
+	darkText    : 'Dark Mode',
+	contentsText: 'Contents',
+	prevText    : 'Previous Document',
+	nextText    : 'Next Document',
+	searchText  : 'Search',
+	helpText    : 'Help',
+	pdfText     : '.pdf File',
+	zipText     : '.zip File',
+
+	lightHint   : 'Change to light mode',
+	darkHint    : 'Change to dark mode',
+	contentsHint: 'View list of contents for CSE 111',
+	prevHint    : 'View previous document',
+	nextHint    : 'View next document',
+	searchHint  : 'Search the CSE 111 content',
+	helpHint    : 'Get help for CSE 111',
+	pdfHint     : 'Download a PDF that contains\nall CSE 111 HTML content',
+	zipHint     : 'Download a zip file that\ncontains all CSE 111 content',
+
+	paraSymbol : '¶',
+	copyURL    : 'Copy URL to the clipboard',
+
+	offHint : 'Click to turn highlights off.',
+	onHint  : 'Move mouse over to turn highlights on.\n' +
+			'Click to keep highlights on.',
+
+	copyHint  : 'Copy code to the clipboard',
+	termHint  : 'Terminal Window',
+	inputHint : 'User input',
+
+	viewText     : 'View',
+	downloadText : 'Download',
+
+	copyright : 'Copyright © 2020–2022',
+	rights    : 'All rights reserved.'
+};
+
+
+/** Contains the filenames of all user visible icons and other files so
+ * that changing them, if necessary, will be easier. */
+cse111.filenames = {
+	byui     : 'https://www.byui.edu',
+	contents : 'index.html',
+	search   : 'index.html#search',
+	help     : 'overview/help.html',
+
+	logoIcon     : 'site/icons/logo.png',
+	menuIcon     : 'site/icons/bars.svg',
+	lightIcon    : 'site/icons/sun.svg',
+	darkIcon     : 'site/icons/moon.svg',
+	contentsIcon : 'site/icons/list.svg',
+	prevIcon     : 'site/icons/arrow-left.svg',
+	nextIcon     : 'site/icons/arrow-right.svg',
+	searchIcon   : 'site/icons/magnify-glass.svg',
+	helpIcon     : 'site/icons/question.svg',
+	pdfIcon      : 'site/icons/file-pdf.svg',
+	zipIcon      : 'site/icons/file-zip.svg',
+	copyIcon     : 'site/icons/copy.png',
+
+	htmlFile : 'combined/cse111_content.html',
+	pdfFile  : 'combined/cse111_content.pdf',
+	zipFile  : 'combined/cse111_content.zip'
+};
+
+
 cse111.common = {
 	/** Returns true if the current HTML document is a combined HTML
 	 * file that is used for creating a combined PDF. */
 	isCombined : function() {
-		let pathname = document.location.pathname;
-		let parts = pathname.split('/');
-		return parts[parts.length - 1] == 'cse111_content.html';
+		const getFilename = function(pathname) {
+			let parts = pathname.split('/');
+			return parts[parts.length - 1];
+		};
+
+		let expectedFilename = getFilename(cse111.filenames.htmlFile);
+		let actualFilename = getFilename(document.location.pathname);
+		return actualFilename == expectedFilename;
 	},
 
 
+	/** Contains the relative path to get up from the current webpage to
+	 * the root directory of this website. */
 	upsToRoot : '',
 
 	countLevels : function() {
 		let siteIcon = document.head.querySelector('link[rel="icon"]');
 		if (siteIcon) {
 			let href = siteIcon.getAttribute('href');
-			const pathname = 'site/icons/logo.png';
+			const pathname = cse111.filenames.logoIcon;
 			if (href.endsWith(pathname)) {
 				let end = href.length - pathname.length;
 				this.upsToRoot = href.substring(0, end);
@@ -40,127 +124,200 @@ cse111.common = {
 	addHeader : function() {
 		let header = document.body.querySelector('header');
 		if (! header) {
-			let html =
-'<div class="controls">\n' +
-'\t<span class="brightness"></span>\n';
-			if (document.location.protocol != "file:") {
-				html +=
-'\t<div class="combined">\n' +
-'\t\t<a download title="Download a PDF that contains all CSE 111 HTML content"'+
-' href="'+ this.makeRelPath('combined/cse111_content.pdf') +'">[pdf]</a>\n' +
-'\t\t<a download title="Download a zip file that contains all CSE 111 content"'+
-' href="'+ this.makeRelPath('combined/cse111_content.zip') +'">[zip]</a>\n' +
-'\t</div>\n';
-			}
-			html +=
-'</div>\n' +
-'<a class="byui-logo" title="BYU-Idaho Website" href="https://www.byui.edu">&#xe000;</a>\n' +
-'<h2><a title="CSE 111 Content" href="'+ this.makeRelPath('index.html') +'">CSE 111</a> |\n' +
-'\t<span>Programming with Functions</span></h2>\n';
-			let body = document.body;
-			let article = body.querySelector('article');
-			header = document.createElement('header');
-			header.innerHTML = html;
+			const self = this;
+			const strings = cse111.strings;
+			const filenames = cse111.filenames;
+			const createElem = self.createElement;
+			const createText = self.createTextNode;
+
+			/** Opens or closes the navigation menu. */
+			const toggleNavMenu = function() {
+				let nav = document.body.querySelector('nav.menu');
+				nav.classList.toggle('closed');
+			};
+
+			// Create the children of the header.
+			let byuiLogo = createElem('a', ['byuiLogo'],
+					{title : strings.byuiHint,
+					href : filenames.byui});
+				byuiLogo.innerHTML = strings.byuiEntity;
+			let courseCode = createElem('a', null,
+					{title : strings.courseHint,
+					href : this.makeRelPath(filenames.contents)});
+				courseCode.innerText = strings.courseCode;
+			let courseTitle = createElem('span');
+				courseTitle.innerText = strings.courseTitle;
+			let h2 = createElem('h2');
+				h2.appendChild(courseCode);
+				h2.appendChild(createText(' | '));
+				h2.appendChild(courseTitle);
+			let menuIcon = createElem('img', ['menuIcon'],
+					{title : strings.menuHint,
+					alt : strings.menuHint,
+					src : this.makeRelPath(filenames.menuIcon)});
+				menuIcon.addEventListener('click', toggleNavMenu);
+
+			// Create the header and add it to the document body.
+			header = createElem('header');
+				header.appendChild(byuiLogo);
+				header.appendChild(h2);
+				header.appendChild(menuIcon);
+			const body = document.body;
+			const article = body.querySelector('article');
 			body.insertBefore(header, article);
+
+			this.addNavMenu(body, article);
 		}
 	},
 
 
-	/** The <span class="brightness"> element allows a user to click a
-	 * moon or sun symbol to toggle the brightness of an HTML document
-	 * between dark and light mode. */
-	addBrightnessHandler : function() {
+	/** Creates and adds the navigation menu. */
+	addNavMenu : function(body, article) {
+		const self = this;
+		const strings = cse111.strings;
+		const filenames = cse111.filenames;
+		const createElem = self.createElement;
+		const createText = self.createTextNode;
+		const ul = createElem('ul');
+
+		const addMenuItem = function(icon, text, hint, action, classes, down) {
+			let img = createElem('img', null,
+					{alt : strings.hint,
+					src : self.makeRelPath(icon)});
+			let node = createText(' ' + text);
+			let item = createElem('li', classes, {title : hint});
+			if (typeof(action) == 'function') {
+				item.appendChild(img);
+				item.appendChild(node);
+				item.addEventListener('click', action);
+			}
+			else if (typeof(action) == 'string') {
+				let anchor = createElem('a', null,
+						down ?
+						{download : '', href : action} :
+						{href : action});
+				anchor.appendChild(img);
+				anchor.appendChild(node);
+				item.appendChild(anchor);
+			}
+			item.addEventListener('click', self.closeNavMenu);
+			ul.appendChild(item);
+		};
+
 		const dark = 'dark';
 		const light = 'light';
-		const brightnessData = {
-			dark: {remove:light, symbol:'\u263c', title:'Change to light mode'},
-			light: {remove:dark, symbol:'\u263e', title:'Change to dark mode'}
-		};
+		addMenuItem(filenames.lightIcon, strings.lightText,
+				strings.lightHint,
+				function() { self.setBrightness(light); }, [light]);
+		addMenuItem(filenames.darkIcon, strings.darkText,
+				strings.darkHint,
+				function() { self.setBrightness(dark); }, [dark]);
 
-		/** Sets the brightness. */
-		const set = function(clist, brightness) {
-			let data = brightnessData[brightness];
+		addMenuItem(filenames.contentsIcon, strings.contentsText,
+				strings.contentsHint,
+				self.makeRelPath(filenames.contents), ['first']);
 
-			// Store the chosen brightness
-			// (light or dark) in local storage.
-			localStorage.setItem('brightness', brightness);
-
-			// Change the classList for the document body.
-			clist.remove(data.remove);
-			clist.add(brightness);
-
-			// Change the title and symbol for all
-			// brightness controls in the document.
-			let ctrls = document.body.getElementsByClassName('brightness');
-			for (let i = 0;  i < ctrls.length;  ++i) {
-				let elem = ctrls[i];
-				elem.setAttribute('title', data.title);
-				elem.innerHTML = data.symbol;
-			}
-		};
-
-		/** Toggles the brightness from light to dark and vice versa. */
-		const toggle = function(event) {
-			let clist = document.body.classList;
-			let brightness = clist.contains(dark) ? light : dark;
-			set(clist, brightness);
-		};
-
-		// Set the brightness to the one
-		// most recently chosen by the user.
-		let clist = document.body.classList;
-		let brightness = localStorage.getItem('brightness');
-		if (! brightness) {
-			brightness = clist.contains(dark) ? dark : light;
+		const head = document.head;
+		let prev = head.querySelector('link[rel="prev"]');
+		let next = head.querySelector('link[rel="next"]');
+		if (prev) {
+			addMenuItem(filenames.prevIcon, strings.prevText,
+					strings.prevHint, prev.href);
 		}
-		set(clist, brightness);
-
-		// Add the toggle function as a click handler
-		// to all brightness controls in the document.
-		let ctrls = document.body.getElementsByClassName('brightness');
-		for (let i = 0;  i < ctrls.length;  ++i) {
-			ctrls[i].addEventListener('click', toggle);
+		if (next) {
+			addMenuItem(filenames.nextIcon, strings.nextText,
+					strings.nextHint, next.href);
 		}
+
+		addMenuItem(filenames.searchIcon, strings.searchText,
+				strings.searchHint, self.makeRelPath(filenames.search),
+				['first']);
+		addMenuItem(filenames.helpIcon, strings.helpText,
+				strings.helpHint, self.makeRelPath(filenames.help));
+
+		if (document.location.protocol != "file:") {
+			addMenuItem(filenames.pdfIcon, strings.pdfText,
+					strings.pdfHint, self.makeRelPath(filenames.pdfFile),
+					['first'], true);
+			addMenuItem(filenames.zipIcon, strings.zipText,
+					strings.zipHint, self.makeRelPath(filenames.zipFile),
+					null, true);
+		}
+
+		// Add the navigation menu to the document body.
+		let nav = createElem('nav', ['menu', 'closed']);
+		nav.appendChild(ul);
+		body.insertBefore(nav, article);
 	},
 
 
-	/** Adds a navigation element with a previous arrow and a next arrow
-	 * to both the top and the bottom of the document. */
-	addNavigation : function() {
-		let head = document.head;
-		let prev = head.querySelector('link[rel="prev"]');
-		let next = head.querySelector('link[rel="next"]');
-		if (prev || next) {
-			let html = '';
-			if (prev) {
-				html +=
-					'<a class="prev" title="View previous document"\n' +
-					'\thref="'+ prev.href +'">&larr;</a>\n';
-			}
-			if (next) {
-				html +=
-					'<a class="next" title="View next document"\n' +
-					'\thref="'+ next.href +'">&rarr;</a>\n';
-			}
-
-			// Add a nav element to the top of the document.
-			let body = document.body;
-			let article = body.querySelector('article');
-			let nav = document.createElement('nav');
-			nav.innerHTML = html;
-			body.insertBefore(nav, article);
-
-			// Add a nav element to the bottom of the document.
-			let footer = body.querySelector('footer');
-			nav = document.createElement('nav');
-			nav.innerHTML = html;
-			body.insertBefore(nav, footer);
+	/** Initializes the brightness to the one most recently chosen by
+	 * the user. */
+	initBrightness : function() {
+		let brightness = localStorage.getItem('brightness');
+		if (! brightness) {
+			const light = 'light';
+			const dark = 'dark';
+			let clist = document.body.classList;
+			brightness = clist.contains(dark) ? dark : light;
 		}
+		this.setBrightness(brightness);
+	},
+
+	/** Sets the brightness. */
+	setBrightness : function(brightness) {
+		// Store the chosen brightness (light or dark) in local storage.
+		localStorage.setItem('brightness', brightness);
+
+		// Change the classList for the document body.
+		let clist = document.body.classList;
+		let remove = this.oppositeBrightness(brightness);
+		clist.remove(remove);
+		clist.add(brightness);
+	},
+
+	oppositeBrightness : function(brightness) {
+		const light = 'light';
+		const dark = 'dark';
+		return brightness == light ? dark : light;
+	},
+
+
+	/** Creates an HTML element. */
+	createElement : function(tag, classes, attrs) {
+		let elem = document.createElement(tag);
+		if (classes) {
+			for (let i = 0;  i < classes.length;  ++i) {
+				elem.classList.add(classes[i]);
+			}
+		}
+		if (attrs) {
+			for (name in attrs) {
+				let value = attrs[name];
+				elem.setAttribute(name, value);
+			}
+		}
+		return elem;
+	},
+
+	/** Creates an HTML text node. */
+	createTextNode : function(text) {
+		return document.createTextNode(text);
+	},
+
+
+	/** Closes the navigation menu. */
+	closeNavMenu : function() {
+		let nav = document.body.querySelector('nav.menu');
+		nav.classList.add('closed');
 	},
 
 
 	/** Adds a copy character to each h2, h3, or h4 that has an id. */
 	addAnchorCopyChar : function() {
+		const strings = cse111.strings;
+		const createElem = cse111.common.createElement;
+
 		const copyFunc = function(event) {
 			let span = event.currentTarget;
 			let heading = span.parentElement;
@@ -183,14 +340,10 @@ cse111.common = {
 
 		let elems = document.body.querySelectorAll('h2[id], h3[id], h4[id]');
 		for (let i = 0;  i < elems.length;  ++i) {
-			let span = document.createElement('span');
-			span.classList.add('copy');
-			span.setAttribute('title', 'Copy URL to the clipboard');
-			span.addEventListener('click', copyFunc);
-			span.innerText = '¶';
-
-			let heading = elems[i];
-			heading.appendChild(span);
+			let span = createElem('span', ['copy'], {title : strings.copyURL});
+				span.addEventListener('click', copyFunc);
+				span.innerText = strings.paraSymbol;
+			elems[i].appendChild(span);
 		}
 	},
 
@@ -198,14 +351,24 @@ cse111.common = {
 	/** If the document body doesn't have a footer element, this
 	 * functions adds a footer to the body. */
 	addFooter : function() {
-		let body = document.body;
+		const body = document.body;
 		let footer = body.querySelector('footer');
 		if (! footer) {
-			footer = document.createElement('footer');
-			footer.innerHTML =
-'<small>Copyright &copy; 2020&ndash;2022,\n' +
-'\t<a title="BYU-Idaho Website" href="https://www.byui.edu">Brigham Young University - Idaho</a>.\n' +
-'\tAll rights reserved.</small>';
+			const strings = cse111.strings;
+			const filenames = cse111.filenames;
+			const createElem = cse111.common.createElement;
+			const createText = cse111.common.createTextNode;
+
+			let anchor = createElem('a', null,
+					{title : strings.byuiHint,
+					href : filenames.byui});
+			anchor.innerText = strings.byuiName;
+
+			footer = createElem('footer');
+			footer.appendChild(createText(strings.copyright + ', '));
+			footer.appendChild(anchor);
+			footer.appendChild(createText('. ' + strings.rights));
+
 			body.appendChild(footer);
 		}
 	}
@@ -228,18 +391,19 @@ cse111.linenums = {
 	/** Adds line numbers to all <pre class="linenums"> elements. */
 	addLineNumbers : function() {
 		const newline = /<br>\n?|\n/g;
+		const createElem = cse111.common.createElement;
+		const createText = cse111.common.createTextNode;
 		let elems = document.body.querySelectorAll('pre.linenums');
 		for (let i = 0;  i < elems.length;  ++i) {
 			let elem = elems[i];
 			let code = elem.nextElementSibling.innerHTML;
 			let count = code.split(newline).length;
-			let linenums = '';
-			let sep = '';
 			for (let n = 1;  n <= count;  ++n) {
-				linenums += sep + '<span>' + n + '</span>';
-				sep = '\n';
+				let span = createElem('span');
+				span.innerText = n.toString();
+				elem.appendChild(span);
+				elem.appendChild(createText('\n'));
 			}
-			elem.innerHTML = linenums;
 		}
 		this.lineNumbersAdded = true;
 	},
@@ -281,6 +445,8 @@ cse111.linenums = {
 			return references;
 		};
 
+		/** Returns a (list like) collection of all line number
+		 * elements inside a <pre class="linenums"> element. */
 		const getAllLineNumbers = function(target) {
 			let refId = target.getAttribute('data-ref');
 			let preDiv = document.getElementById(refId);
@@ -288,7 +454,7 @@ cse111.linenums = {
 			return lineNumPre.children;
 		};
 
-		const findLineNumber = function(lineNumbers, key) {
+		const getLineNumber = function(lineNumbers, key) {
 			// The line numbers begin with 1 at index 0 and are
 			// sequential, so it's easy to find and return the
 			// span with the desired line number.
@@ -302,7 +468,7 @@ cse111.linenums = {
 			let references = getReferences(target);
 			for (let i = 0;  i < references.length;  ++i) {
 				let number = references[i];
-				let elem = findLineNumber(lineNumbers, number);
+				let elem = getLineNumber(lineNumbers, number);
 				elem.classList.add('hi');
 			}
 		};
@@ -314,14 +480,14 @@ cse111.linenums = {
 			let references = getReferences(target);
 			for (let i = 0;  i < references.length;  ++i) {
 				let number = references[i];
-				let elem = findLineNumber(lineNumbers, number);
+				let elem = getLineNumber(lineNumbers, number);
 				elem.classList.remove('hi');
 			}
 		};
 
-		const offTitle = 'Click to turn highlights off.';
-		const onTitle = 'Move mouse over to turn highlights on.\n' +
-			'Click to keep highlights on.';
+		const strings = cse111.strings;
+		const offHint = strings.offHint;
+		const onHint = strings.onHint;
 
 		const toggle = function(event) {
 			let target = event.target;
@@ -334,7 +500,7 @@ cse111.linenums = {
 				target.removeEventListener('mouseover', on);
 				target.removeEventListener('mouseout', off);
 				target.setAttribute('data-on', 'true');
-				target.setAttribute('title', offTitle);
+				target.setAttribute('title', offHint);
 			}
 			else {
 				// Highlights are on because the user clicked on the
@@ -344,13 +510,13 @@ cse111.linenums = {
 				let references = getReferences(target);
 				for (let i = 0;  i < references.length;  ++i) {
 					let number = references[i];
-					let elem = findLineNumber(lineNumbers, number);
+					let elem = getLineNumber(lineNumbers, number);
 					elem.classList.remove('hi');
 				}
 				target.removeAttribute('data-on');
 				target.addEventListener('mouseover', on);
 				target.addEventListener('mouseout', off);
-				target.setAttribute('title', onTitle);
+				target.setAttribute('title', onHint);
 			}
 		};
 
@@ -361,7 +527,7 @@ cse111.linenums = {
 			target.addEventListener('mouseover', on);
 			target.addEventListener('mouseout', off);
 			target.addEventListener('click', toggle);
-			target.setAttribute('title', onTitle);
+			target.setAttribute('title', onHint);
 		}
 	},
 
@@ -397,15 +563,17 @@ cse111.linenums = {
 
 		// Add a copy button with a click listener to each
 		// <div class="pre"> element.
+		const copyHint = cse111.strings.copyHint;
+		const copyIcon = cse111.common.makeRelPath(cse111.filenames.copyIcon);
+		const createElem = cse111.common.createElement;
 		let elems = document.body.querySelectorAll('div.pre');
 		for (let i = 0;  i < elems.length;  ++i) {
 			let image = document.createElement('img');
-			image.setAttribute('src',
-					cse111.common.makeRelPath('site/icons/copy.png'));
-			image.setAttribute('alt', 'Copy code to the clipboard');
+			image.setAttribute('src', copyIcon);
+			image.setAttribute('alt', copyHint);
 			let button = document.createElement('button');
 			button.setAttribute('type', 'button');
-			button.setAttribute('title', 'Copy code to the clipboard');
+			button.setAttribute('title', copyHint);
 			button.classList.add('copy')
 			button.appendChild(image);
 			button.addEventListener('click', copyFunc);
@@ -419,24 +587,27 @@ cse111.consoles = {
 	/** Adds title attributes to consoles and user inputs. Most browsers
 	 * will use the titles as small tool tips that display when the user
 	 * holds the mouse pointer over an HTML element. */
-	addTitles : function() {
+	addHints : function() {
+		const termHint = cse111.strings.termHint;
+		const inputHint = cse111.strings.inputHint;
 		let elems = document.body.querySelectorAll('pre.console');
 		for (let i = 0;  i < elems.length;  ++i) {
 			let pre = elems[i];
-			pre.setAttribute('title', 'Terminal Window');
+			pre.setAttribute('title', termHint);
 
 			let spans = pre.querySelectorAll('span.input');
 			for (let i = 0;  i < spans.length;  ++i) {
-				spans[i].setAttribute('title', 'User input');
+				spans[i].setAttribute('title', inputHint);
 			}
 		}
 	},
 
 
-	/** Resizes each pre.console[data-for] element so that its width is
-	 * the same as the width of the div.pre > pre.python for which it
-	 * shows user input and program output. Making their widths the same
-	 * helps the reader to see that they go together. */
+	/** Resizes each <pre class="console" data-for="..."> element so
+	 * that its width is the same as the width of the div.pre >
+	 * pre.python for which it shows user input and program output.
+	 * Making their widths the same helps the reader to see that they go
+	 * together. */
 	resizeConsoles : function() {
 		let consoles = document.body.querySelectorAll('pre.console[data-for]');
 		for (let i = 0;  i < consoles.length;  ++i) {
@@ -473,13 +644,13 @@ cse111.solution = {
 		let links = document.body.querySelectorAll('a.solution');
 
 		// Is the user viewing the CSE 111 files
-		// from his local hard drive?
+		// from the local hard drive?
 		if (window.location.protocol == 'file:') {
 			for (let i = 0;  i < links.length;  ++i) {
 				let link = links[i];
 
 				// Because the user is viewing the CSE 111 files from
-				// his local hard drive, there is no reason to have both
+				// the local hard drive, there is no reason to have both
 				// a view and download link. A standard download link
 				// will simply open the file for viewing, so a download
 				// link is sufficient.
@@ -488,13 +659,18 @@ cse111.solution = {
 		}
 		else {
 			const splitURL = /^.+\/([^\/]+\/[^\/]+)$/;
+			const strings = cse111.strings;
+			const viewText = cse111.strings.viewText + ' ';
+			const downText = cse111.strings.downloadText + ' ';
+			const createElem = cse111.common.createElement;
 
 			for (let i = 0;  i < links.length;  ++i) {
 				let link = links[i];
 
-				// Get the relative href.
+				// Get the absolute href.
 				let absURL = link.href;
 
+				// Get the relative href.
 				// It would be great if we could use the window.URL
 				// class, but it isn't in Internet Explorer, and it's
 				// possible that international students are still using
@@ -507,14 +683,14 @@ cse111.solution = {
 					'?file=' + relpath;
 
 				let hrefAttr = link.getAttribute('href');
-				link.setAttribute('title', 'View ' + hrefAttr);
+				link.setAttribute('title', viewText + hrefAttr);
 				link.setAttribute('href', newHref);
 
 				// Create a new <a download> element.
-				let downlink = document.createElement('a');
-				downlink.setAttribute('download', '');
-				downlink.setAttribute('title', 'Download ' + hrefAttr);
-				downlink.setAttribute('href', hrefAttr);
+				let downlink = createElem('a', null,
+						{download : '',
+						title : downText + hrefAttr,
+						href : hrefAttr});
 				downlink.innerHTML = '[&darr;]';
 
 				// Insert the new <a download> element after
@@ -530,9 +706,12 @@ cse111.solution = {
 
 
 cse111.print = {
+	open : 'open',
+	dataWas : 'data-was-open',
+
 	expandDetails : function() {
-		const open = 'open';
-		const dataWas = 'data-was-open';
+		const open = this.open;
+		const dataWas = this.dataWas;
 		let allDetails = document.body.querySelectorAll('details');
 		for (let i = 0;  i < allDetails.length;  ++i) {
 			let detailsElem = allDetails[i];
@@ -547,8 +726,8 @@ cse111.print = {
 	},
 
 	collapseDetails : function() {
-		const open = 'open';
-		const dataWas = 'data-was-open';
+		const open = this.open;
+		const dataWas = this.dataWas;
 		let allDetails = document.body.querySelectorAll('details');
 		for (let i = 0;  i < allDetails.length;  ++i) {
 			let detailsElem = allDetails[i];
@@ -565,22 +744,24 @@ cse111.print = {
 
 
 cse111.onDOMLoaded = function() {
-	if (cse111.common.isCombined()) {
-		cse111.linenums.addLineNumbers();
+	const common = cse111.common;
+	const linenums = cse111.linenums;
+
+	if (common.isCombined()) {
+		linenums.addLineNumbers();
 	}
 	else {
-		cse111.common.countLevels();
-		cse111.common.addHeader();
-		cse111.common.addBrightnessHandler();
-		cse111.linenums.addLineNumbers();
+		common.countLevels();
+		common.addHeader();
+		common.initBrightness();
+		linenums.addLineNumbers();
 		cse111.solution.modifyHyperlinks();
-		cse111.common.addFooter();
-		cse111.common.addNavigation();
+		common.addFooter();
 
-		cse111.common.addAnchorCopyChar();
-		cse111.linenums.addCopyButtons();
-		cse111.linenums.addCrossRefs();
-		cse111.consoles.addTitles();
+		common.addAnchorCopyChar();
+		linenums.addCopyButtons();
+		linenums.addCrossRefs();
+		cse111.consoles.addHints();
 	}
 };
 
@@ -604,7 +785,17 @@ cse111.onFullDocLoaded = function() {
 	}
 };
 
+cse111.beforePrint = function() {
+	cse111.common.closeNavMenu();
+	cse111.print.expandDetails();
+};
+
+cse111.afterPrint = function() {
+	cse111.print.collapseDetails();
+};
+
+
 window.addEventListener('DOMContentLoaded', cse111.onDOMLoaded);
 window.addEventListener('load', cse111.onFullDocLoaded);
-window.addEventListener('beforeprint', cse111.print.expandDetails);
-window.addEventListener('afterprint', cse111.print.collapseDetails);
+window.addEventListener('beforeprint', cse111.beforePrint);
+window.addEventListener('afterprint', cse111.afterPrint);

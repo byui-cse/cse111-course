@@ -1,7 +1,7 @@
 /* Copyright 2020 by Brigham Young University - Idaho. All rights reserved. */
 "use strict";
 
-if (!window.hasOwnProperty('cse111')) {
+if (! window.hasOwnProperty('cse111')) {
 	window.cse111 = {};
 }
 
@@ -27,21 +27,21 @@ cse111.scope = {
 
 
 	addScopeHandlers : function(/* HTML ID's as strings */) {
-		const sels = this.selectors;
+		const selects = this.selectors;
 		for (let i = 0;  i < arguments.length;  ++i) {
 			let pre = $('#' + arguments[i]);
-			pre.find(sels.def)
+			pre.find(selects.def)
 				.mouseover(this.showScope)
 				.mouseout(this.hideScope);
 		}
 	},
 
 	addVarHandlers : function(/* HTML ID's as strings */) {
-		const sels = this.selectors;
+		const selects = this.selectors;
 		const attrs = this.attributes;
 		for (let i = 0;  i < arguments.length;  ++i) {
 			let pre = $('#' + arguments[i]);
-			pre.find(sels.def)
+			pre.find(selects.def)
 				.each(function(index, elem) {
 					let span = $(elem);
 					let text = span.text();
@@ -49,7 +49,7 @@ cse111.scope = {
 				})
 				.mouseover(this.showVars)
 				.mouseout(this.hideVars);
-			pre.find(sels.use)
+			pre.find(selects.use)
 				.each(function(index, elem) {
 					let span = $(elem);
 					let text = span.text();
@@ -62,51 +62,51 @@ cse111.scope = {
 
 
 	showScope : function(event) {
-		const sels = cse111.scope.selectors;
-		const clss = cse111.scope.classes;
+		const selects = cse111.scope.selectors;
+		const classes = cse111.scope.classes;
 		// span holds a variable definition.
 		let span = $(event.target);
-		span.addClass(clss.hiDef);
-		span.closest(sels.scope).addClass(clss.hiScope);
+		span.addClass(classes.hiDef);
+		span.closest(selects.scope).addClass(classes.hiScope);
 	},
 
 	hideScope : function(event) {
-		const sels = cse111.scope.selectors;
-		const clss = cse111.scope.classes;
+		const selects = cse111.scope.selectors;
+		const classes = cse111.scope.classes;
 		// span holds a variable definition.
 		let span = $(event.target);
-		span.removeClass(clss.hiDef);
-		span.closest(sels.scope).removeClass(clss.hiScope);
+		span.removeClass(classes.hiDef);
+		span.closest(selects.scope).removeClass(classes.hiScope);
 	},
 
 
 	showVars : function(event) {
-		const clss = cse111.scope.classes;
+		const classes = cse111.scope.classes;
 		// span holds a variable definition or use.
 		let span = $(event.target);
 		let def = cse111.scope.findDefinition(span);
 		if (def.length > 0) {
 			let uses = cse111.scope.findUses(def);
-			def.addClass(clss.hiDef);
-			uses.addClass(clss.hiUse);
+			def.addClass(classes.hiDef);
+			uses.addClass(classes.hiUse);
 		}
 		else {
-			span.addClass(clss.hiErr);
+			span.addClass(classes.hiErr);
 		}
 	},
 
 	hideVars : function(event) {
-		const clss = cse111.scope.classes;
+		const classes = cse111.scope.classes;
 		// span holds a variable definition or use.
 		let span = $(event.target);
 		let def = cse111.scope.findDefinition(span);
 		if (def.length > 0) {
 			let uses = cse111.scope.findUses(def);
-			def.removeClass(clss.hiDef);
-			uses.removeClass(clss.hiUse);
+			def.removeClass(classes.hiDef);
+			uses.removeClass(classes.hiUse);
 		}
 		else {
-			span.removeClass(clss.hiErr);
+			span.removeClass(classes.hiErr);
 		}
 	},
 
@@ -114,25 +114,26 @@ cse111.scope = {
 	/** Finds and returns the variable definition for the variable
 	 * that is inside span. span contains a definition or a use. */
 	findDefinition : function(span) {
+		const selects = this.selectors;
 		const attrs = this.attributes;
-		const sels = this.selectors;
-		let def = span.closest('.varDef');
+
+		let def = span.closest(selects.def);
 		if (def.length > 0) {
 			def = def.first();
 		}
 		else {
-			span = span.closest('.varUse');
+			span = span.closest(selects.use);
 			const name = span.attr(attrs.use);
 			const selDef = '[' + attrs.def + '="' + name + '"]';
 			let scope = span;
 			do {
-				scope = scope.parent().closest(sels.scope);
+				scope = scope.parent().closest(selects.scope);
 
 				// Find all definitions of variables with name.
 				def = scope.find(selDef);
 
 				// Remove definitions that are within a different scope.
-				scope.find(sels.scope).each(function(index, elem) {
+				scope.find(selects.scope).each(function(index, elem) {
 					let childScope = $(elem);
 					def = def.not(childScope.find(selDef));
 				});
@@ -144,12 +145,12 @@ cse111.scope = {
 	/** Finds and returns a list of spans that contain
 	 * a use of the variable that is defined in def. */
 	findUses : function(def) {
-		def = def.closest('.varDef');
-
+		const selects = this.selectors;
 		const attrs = this.attributes;
-		const sels = this.selectors;
+
+		def = def.closest(selects.def);
 		let name = def.attr(attrs.def);
-		let scope = def.closest(sels.scope);
+		let scope = def.closest(selects.scope);
 		const selDef = '[' + attrs.def + '="' + name + '"]';
 		const selUse = '[' + attrs.use + '="' + name + '"]';
 
@@ -158,7 +159,7 @@ cse111.scope = {
 
 		// Remove uses for variables that are
 		// defined within a different scope.
-		scope.find(sels.scope).each(function(index, elem) {
+		scope.find(selects.scope).each(function(index, elem) {
 			let childScope = $(elem);
 			if (childScope.find(selDef).length > 0) {
 				uses = uses.not(childScope.find(selUse));
