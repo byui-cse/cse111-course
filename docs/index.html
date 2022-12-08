@@ -11,7 +11,6 @@
     <link rel="canonical" href="https://byui-cse.github.io/cse111-course/">
     <link rel="icon" type="image/png" href="site/icons/logo.png">
     <link rel="stylesheet" type="text/css" href="site/style.css">
-    <link rel="search" href="https://www.google.com/search?q=site%3Abyui-cse.github.io%2Fcse111-course%2F">
 
     <script>
     'use strict';
@@ -39,25 +38,12 @@
 </head>
 
 <body>
-<header>
-    <div class="controls">
-        <span class="brightness"></span>
-        <div class="combined">
-            <a title="Download a PDF that contains all CSE 111 HTML content"
-                href="combined/cse111_content.pdf" download>[pdf]</a>
-            <a title="Download a zip file that contains all CSE 111 content"
-                href="combined/cse111_content.zip" download>[zip]</a>
-        </div>
-    </div>
-    <a class="byui-logo" title="BYU-Idaho Website"
-        href="https://www.byui.edu">&#xe000;</a>
-    <h2><span>CSE 111</span> | <span>Programming with Functions</span></h2>
-</header>
 <article>
-    <h1>Contents</h1>
+    <h1 id="contents">Contents</h1>
     <p>This is an unofficial listing of the course content for
-    CSE&nbsp;111 Programming with Functions. Please see I-Learn for the
-    official list of materials, including quizzes and due dates.</p>
+    CSE&nbsp;111 Programming with Functions. Please see
+    <a href="byui.instructure.com">I-Learn</a> for the official list,
+    including quizzes and due dates.</p>
 
     <table class="contents"><thead>
         <tr><th>Lesson</th>
@@ -324,11 +310,14 @@
             <td></td></tr>
     </tbody></table>
 
-    <h3>Search CSE 111 Content</h3>
-    <input type="text" id="txtSearch" size="40"
+    <h3 id="search">Search CSE&nbsp;111 Content</h3>
+    <form name="search" accept-charset="utf-8" autocomplete="on">
+    <input type="text" id="txtSearch" name="txtSearch" size="40"
+        autocomplete="on" required placeholder="Enter search text"
         onkeypress="cse111.search.keypress(event)">
     <button type="button" id="btnSearch"
         onclick="cse111.search.submit()">Search</button>
+    </form>
 </article>
 </body>
 </html>
