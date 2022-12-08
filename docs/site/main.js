@@ -10,13 +10,13 @@ if (! window.hasOwnProperty('cse111')) {
  * another language will be easier. */
 cse111.strings = {
 	byuiEntity  : '&#xe000;',
+	byuiURL     : 'https://www.byui.edu',
 	byuiName    : 'Brigham Young University - Idaho',
 	byuiHint    : 'BYU-Idaho Website',
 	courseCode  : 'CSE 111',
 	courseTitle : 'Programming with Functions',
 	courseHint  : 'CSE 111 Content',
 
-	menuHint    : 'Click to open the navigation menu',
 	lightText   : 'Light Mode',
 	darkText    : 'Dark Mode',
 	contentsText: 'Contents',
@@ -27,6 +27,7 @@ cse111.strings = {
 	pdfText     : '.pdf File',
 	zipText     : '.zip File',
 
+	menuHint    : 'Click to open the navigation menu',
 	lightHint   : 'Change to light mode',
 	darkHint    : 'Change to dark mode',
 	contentsHint: 'View list of contents for CSE 111',
@@ -59,11 +60,6 @@ cse111.strings = {
 /** Contains the filenames of all user visible icons and other files so
  * that changing them, if necessary, will be easier. */
 cse111.filenames = {
-	byui     : 'https://www.byui.edu',
-	contents : 'index.html',
-	search   : 'index.html#search',
-	help     : 'overview/help.html',
-
 	logoIcon     : 'site/icons/logo.png',
 	menuIcon     : 'site/icons/bars.svg',
 	lightIcon    : 'site/icons/sun.svg',
@@ -76,6 +72,11 @@ cse111.filenames = {
 	pdfIcon      : 'site/icons/file-pdf.svg',
 	zipIcon      : 'site/icons/file-zip.svg',
 	copyIcon     : 'site/icons/copy.png',
+
+	contents : 'index.html',
+	search   : 'index.html#search',
+	help     : 'overview/help.html',
+	solution : 'overview/solution.html',
 
 	htmlFile : 'combined/cse111_content.html',
 	pdfFile  : 'combined/cse111_content.pdf',
@@ -106,10 +107,20 @@ cse111.common = {
 		let siteIcon = document.head.querySelector('link[rel="icon"]');
 		if (siteIcon) {
 			let href = siteIcon.getAttribute('href');
-			const pathname = cse111.filenames.logoIcon;
+			let pathname = cse111.filenames.logoIcon;
 			if (href.endsWith(pathname)) {
 				let end = href.length - pathname.length;
-				this.upsToRoot = href.substring(0, end);
+				let upsToRoot = href.substring(0, end);
+
+				// Change all filenames to be relative to the sub
+				// directory of the current HTML document.
+				let filenames = cse111.filenames;
+				for (let key in filenames) {
+					let subname = filenames[key]
+					filenames[key] = upsToRoot + subname;
+				}
+
+				this.upsToRoot = upsToRoot;
 			}
 		}
 	},
@@ -139,11 +150,11 @@ cse111.common = {
 			// Create the children of the header.
 			let byuiLogo = createElem('a', ['byuiLogo'],
 					{title : strings.byuiHint,
-					href : filenames.byui});
+					href : strings.byuiURL});
 				byuiLogo.innerHTML = strings.byuiEntity;
 			let courseCode = createElem('a', null,
 					{title : strings.courseHint,
-					href : this.makeRelPath(filenames.contents)});
+					href : filenames.contents});
 				courseCode.innerText =
 					strings.courseCode + ' | ' + strings.courseTitle;
 			let h2 = createElem('h2');
@@ -151,7 +162,7 @@ cse111.common = {
 			let menuIcon = createElem('img', ['menuIcon'],
 					{title : strings.menuHint,
 					alt : strings.menuHint,
-					src : this.makeRelPath(filenames.menuIcon)});
+					src : filenames.menuIcon});
 				menuIcon.addEventListener('click', toggleNavMenu);
 
 			// Create the header and add it to the document body.
@@ -181,7 +192,7 @@ cse111.common = {
 		const addMenuItem = function(icon, text, hint, action, classes, down) {
 			let img = createElem('img', null,
 					{alt : strings.hint,
-					src : self.makeRelPath(icon)});
+					src : icon});
 			let node = createText(' ' + text);
 			let item = createElem('li', classes, {title : hint});
 			if (typeof(action) == 'function') {
@@ -203,18 +214,15 @@ cse111.common = {
 		};
 
 		// Create the menu items.
-		const dark = 'dark';
-		const light = 'light';
 		addMenuItem(filenames.lightIcon, strings.lightText,
 				strings.lightHint,
-				function() { self.setBrightness(light); }, [light]);
+				function() { self.setBrightness('light'); }, ['light']);
 		addMenuItem(filenames.darkIcon, strings.darkText,
 				strings.darkHint,
-				function() { self.setBrightness(dark); }, [dark]);
+				function() { self.setBrightness('dark'); }, ['dark']);
 
 		addMenuItem(filenames.contentsIcon, strings.contentsText,
-				strings.contentsHint,
-				self.makeRelPath(filenames.contents), ['first']);
+				strings.contentsHint, filenames.contents, ['first']);
 
 		const head = document.head;
 		let prev = head.querySelector('link[rel="prev"]');
@@ -229,18 +237,15 @@ cse111.common = {
 		}
 
 		addMenuItem(filenames.searchIcon, strings.searchText,
-				strings.searchHint, self.makeRelPath(filenames.search),
-				['first']);
+				strings.searchHint, filenames.search, ['first']);
 		addMenuItem(filenames.helpIcon, strings.helpText,
-				strings.helpHint, self.makeRelPath(filenames.help));
+				strings.helpHint, filenames.help);
 
 		if (document.location.protocol != "file:") {
 			addMenuItem(filenames.pdfIcon, strings.pdfText,
-					strings.pdfHint, self.makeRelPath(filenames.pdfFile),
-					['first'], true);
+					strings.pdfHint, filenames.pdfFile, ['first'], true);
 			addMenuItem(filenames.zipIcon, strings.zipText,
-					strings.zipHint, self.makeRelPath(filenames.zipFile),
-					null, true);
+					strings.zipHint, filenames.zipFile, null, true);
 		}
 
 		// Add the navigation menu to the document body.
@@ -255,10 +260,8 @@ cse111.common = {
 	initBrightness : function() {
 		let brightness = localStorage.getItem('brightness');
 		if (! brightness) {
-			const light = 'light';
-			const dark = 'dark';
 			let clist = document.body.classList;
-			brightness = clist.contains(dark) ? dark : light;
+			brightness = clist.contains('dark') ? 'dark' : 'light';
 		}
 		this.setBrightness(brightness);
 	},
@@ -269,16 +272,10 @@ cse111.common = {
 		localStorage.setItem('brightness', brightness);
 
 		// Change the classList for the document body.
+		let remove = (brightness == 'dark' ? 'light' : 'dark');
 		let clist = document.body.classList;
-		let remove = this.oppositeBrightness(brightness);
 		clist.remove(remove);
 		clist.add(brightness);
-	},
-
-	oppositeBrightness : function(brightness) {
-		const light = 'light';
-		const dark = 'dark';
-		return brightness == light ? dark : light;
 	},
 
 
@@ -360,7 +357,7 @@ cse111.common = {
 
 			let anchor = createElem('a', null,
 					{title : strings.byuiHint,
-					href : filenames.byui});
+					href : strings.byuiURL});
 			anchor.innerText = strings.byuiName;
 
 			footer = createElem('footer');
@@ -563,7 +560,7 @@ cse111.linenums = {
 		// Add a copy button with a click listener to each
 		// <div class="pre"> element.
 		const copyHint = cse111.strings.copyHint;
-		const copyIcon = cse111.common.makeRelPath(cse111.filenames.copyIcon);
+		const copyIcon = cse111.filenames.copyIcon;
 		const createElem = cse111.common.createElement;
 		let elems = document.body.querySelectorAll('div.pre');
 		for (let i = 0;  i < elems.length;  ++i) {
@@ -677,9 +674,7 @@ cse111.solution = {
 				//let relpath = new URL(absURL).pathname.substring(1);
 				let relpath = absURL.replace(splitURL, '$1');
 
-				let newHref =
-					cse111.common.makeRelPath('overview/solution.html') +
-					'?file=' + relpath;
+				let newHref = cse111.filenames.solution + '?file=' + relpath;
 
 				let hrefAttr = link.getAttribute('href');
 				link.setAttribute('title', viewText + hrefAttr);
