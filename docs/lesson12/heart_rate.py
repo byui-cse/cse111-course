@@ -1,7 +1,8 @@
 # Copyright 2020, Brigham Young University-Idaho. All rights reserved.
 
 import tkinter as tk
-import number_entry as nent
+from tkinter import Frame, Label, Button
+from number_entry import IntEntry
 
 
 def main():
@@ -10,7 +11,7 @@ def main():
 
     # Create the main window. In tkinter,
     # a window is also called a frame.
-    frm_main = tk.Frame(root)
+    frm_main = Frame(root)
     frm_main.master.title("Heart Rate")
     frm_main.pack(padx=4, pady=3, fill=tk.BOTH, expand=1)
 
@@ -47,20 +48,20 @@ def populate_main_window(frm_main):
     Return: nothing
     """
     # Create a label that displays "Age:"
-    lbl_age = tk.Label(frm_main, text="Age:")
+    lbl_age = Label(frm_main, text="Age:")
 
     # Create a integer entry box where the user will enter her age.
-    ent_age = nent.IntEntry(frm_main, 12, 90, width=5)
+    ent_age = IntEntry(frm_main, lower_bound=12, upper_bound=90, width=5)
 
     # Create a label that displays "Rates:"
-    lbl_rates = tk.Label(frm_main, text="Rates:")
+    lbl_rates = Label(frm_main, text="Rates:")
 
     # Create labels that will display the results.
-    lbl_slow = tk.Label(frm_main, width=4)
-    lbl_fast = tk.Label(frm_main, width=4)
+    lbl_slow = Label(frm_main, width=4)
+    lbl_fast = Label(frm_main, width=4)
 
     # Create the Clear button.
-    btn_clear = tk.Button(frm_main, text="Clear")
+    btn_clear = Button(frm_main, text="Clear")
 
     # Layout all the labels, entry boxes, and buttons in a grid.
     lbl_age.grid(  row=0, column=0, padx=3, pady=3)
@@ -129,4 +130,6 @@ def populate_main_window(frm_main):
 # then call the main function. However, if this file is simply
 # imported (e.g. into a test file), then skip the call to main.
 if __name__ == "__main__":
+    import sys
+    print(sys.float_info.max)
     main()

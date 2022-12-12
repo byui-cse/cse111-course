@@ -2,7 +2,8 @@
 
 import math
 import tkinter as tk
-import number_entry as nent
+from tkinter import Frame, Label, Button
+from number_entry import IntEntry, FloatEntry
 
 
 def main():
@@ -11,7 +12,7 @@ def main():
 
     # Create the main window. In tkinter,
     # a window is also called a frame.
-    frm_main = tk.Frame(root)
+    frm_main = Frame(root)
     frm_main.master.title("Tire Volume")
     frm_main.pack(padx=4, pady=3, fill=tk.BOTH, expand=1)
 
@@ -48,21 +49,21 @@ def populate_main_window(frm_main):
     Return: nothing
     """
     # Create labels for the text fields and the results.
-    lbl_width = tk.Label(frm_main, text="Width (mm):")
-    lbl_ratio = tk.Label(frm_main, text="Aspect Ratio:")
-    lbl_diam = tk.Label(frm_main, text="Diameter (in):")
-    lbl_vol = tk.Label(frm_main, text="Volume (liters):")
+    lbl_width = Label(frm_main, text="Width (mm):")
+    lbl_ratio = Label(frm_main, text="Aspect Ratio:")
+    lbl_diam = Label(frm_main, text="Diameter (in):")
+    lbl_vol = Label(frm_main, text="Volume (liters):")
 
     # Create three text fields.
-    ent_width = nent.IntEntry(frm_main, 80, 300, width=5)
-    ent_ratio = nent.FloatEntry(frm_main, 30, 90, width=5)
-    ent_diam = nent.FloatEntry(frm_main, 10, 30, width=5)
+    ent_width = IntEntry(frm_main, lower_bound=80, upper_bound=300, width=5)
+    ent_ratio = FloatEntry(frm_main, lower_bound=30, upper_bound=90, width=5)
+    ent_diam = FloatEntry(frm_main, lower_bound=10, upper_bound=30, width=5)
 
     # Create a label to display the result.
-    lbl_result = tk.Label(frm_main, width=8, anchor="w")
+    lbl_result = Label(frm_main, width=8, anchor="w")
 
     # Create the Clear button.
-    btn_clear = tk.Button(frm_main, text="Clear")
+    btn_clear = Button(frm_main, text="Clear")
 
     # Layout all the labels, text fields, and buttons in a grid.
     lbl_width.grid( row=0, column=0, padx=3, pady=2, sticky="e")
