@@ -48,33 +48,46 @@ def populate_main_window(frm_main):
         frm_main: the main frame (window)
     Return: nothing
     """
-    # Create labels for the text fields and the results.
-    lbl_width = Label(frm_main, text="Width (mm):")
-    lbl_ratio = Label(frm_main, text="Aspect Ratio:")
-    lbl_diam = Label(frm_main, text="Diameter (in):")
-    lbl_vol = Label(frm_main, text="Volume (liters):")
+    # Create labels for the number entries and the result.
+    lbl_width = Label(frm_main, text="Width (80 - 300):")
+    lbl_ratio = Label(frm_main, text="Aspect Ratio (30 - 90):")
+    lbl_diam = Label(frm_main, text="Diameter (10 - 30):")
+    lbl_volume = Label(frm_main, text="Volume:")
 
-    # Create three text fields.
-    ent_width = IntEntry(frm_main, lower_bound=80, upper_bound=300, width=5)
-    ent_ratio = FloatEntry(frm_main, lower_bound=30, upper_bound=90, width=5)
-    ent_diam = FloatEntry(frm_main, lower_bound=10, upper_bound=30, width=5)
+    # Create three number entries.
+    ent_width = IntEntry(frm_main, width=5, lower_bound=80, upper_bound=300)
+    ent_ratio = IntEntry(frm_main, width=5, lower_bound=30, upper_bound=90)
+    ent_diam = FloatEntry(frm_main, width=5, lower_bound=7, upper_bound=30)
 
     # Create a label to display the result.
-    lbl_result = Label(frm_main, width=8, anchor="w")
+    txt_volume = Label(frm_main, width=5, anchor="e")
+
+    # Create labels to display the units.
+    lbl_width_units = Label(frm_main, text="millimeters")
+    # Ratios don't have units
+    lbl_diam_units = Label(frm_main, text="inches")
+    lbl_vol_units = Label(frm_main, text="liters")
 
     # Create the Clear button.
     btn_clear = Button(frm_main, text="Clear")
 
-    # Layout all the labels, text fields, and buttons in a grid.
-    lbl_width.grid( row=0, column=0, padx=3, pady=2, sticky="e")
-    ent_width.grid( row=0, column=1, padx=3, pady=2, sticky="w")
-    lbl_ratio.grid( row=1, column=0, padx=3, pady=2, sticky="e")
-    ent_ratio.grid( row=1, column=1, padx=3, pady=2, sticky="w")
-    lbl_diam.grid(  row=2, column=0, padx=3, pady=2, sticky="e")
-    ent_diam.grid(  row=2, column=1, padx=3, pady=2, sticky="w")
-    lbl_vol.grid(   row=3, column=0, padx=3, pady=2, sticky="e")
-    lbl_result.grid(row=3, column=1, padx=3, pady=2, sticky="w")
-    btn_clear.grid( row=3, column=2, padx=3, pady=2)
+    # Layout all the labels, number entries, and buttons in a grid.
+    lbl_width.grid(      row=0, column=0, padx=3, pady=2, sticky="e")
+    ent_width.grid(      row=0, column=1, padx=3, pady=2, sticky="w")
+    lbl_width_units.grid(row=0, column=2, padx=0, pady=2, sticky="w")
+
+    lbl_ratio.grid(     row=1, column=0, padx=3, pady=2, sticky="e")
+    ent_ratio.grid(     row=1, column=1, padx=3, pady=2, sticky="w")
+    # Ratios don't have units.
+
+    lbl_diam.grid(      row=2, column=0, padx=3, pady=2, sticky="e")
+    ent_diam.grid(      row=2, column=1, padx=3, pady=2, sticky="w")
+    lbl_diam_units.grid(row=2, column=2, padx=0, pady=2, sticky="w")
+
+    lbl_volume.grid(   row=3, column=0, padx=3, pady=2, sticky="e")
+    txt_volume.grid(   row=3, column=1, padx=3, pady=2, sticky="w")
+    lbl_vol_units.grid(row=3, column=2, padx=0, pady=2, sticky="w")
+    btn_clear.grid(    row=3, column=3, padx=3, pady=2)
 
 
     # This function is called each time the user releases a key.
@@ -89,30 +102,31 @@ def populate_main_window(frm_main):
             # Compute the tire volume in liters.
             v = (math.pi * w * w * a * (w * a + 2540 * d)) / 10_000_000_000
 
-            # Display the volume rounded to one place after
-            # the decimal for the for the user to see.
-            lbl_result.config(text=f"{v:.1f}")
+            # Display the volume rounded to one digit
+            # after the decimal for the user to see.
+            txt_volume.config(text=f"{v:.1f}")
 
         except ValueError:
             # When the user deletes all the digits in one
-            # of the text fields, clear the result labels.
-            lbl_result.config(text="")
+            # of the number entries, clear the result.
+            txt_volume.config(text="")
 
 
     # This function is called each time
     # the user clicks the "Clear" button.
     def clear():
         """Clear all the inputs and outputs."""
-        ent_width.delete(0, tk.END)
-        ent_ratio.delete(0, tk.END)
-        ent_diam.delete(0, tk.END)
-        lbl_result.config(text="")
+        frm_main.focus()
+        ent_width.clear()
+        ent_ratio.clear()
+        ent_diam.clear()
+        txt_volume.config(text="")
         ent_width.focus()
 
 
-    # Bind the calculate function to the three text fields
-    # so that the calculate function will be called when
-    # the user changes the text in the text fields.
+    # Bind the calculate function to the three number
+    # entries so that the calculate function will be called
+    # when the user changes the text in the number entries.
     ent_width.bind("<KeyRelease>", calculate)
     ent_ratio.bind("<KeyRelease>", calculate)
     ent_diam.bind("<KeyRelease>", calculate)

@@ -48,28 +48,36 @@ def populate_main_window(frm_main):
     Return: nothing
     """
     # Create a label that displays "Age:"
-    lbl_age = Label(frm_main, text="Age:")
+    lbl_age = Label(frm_main, text="Age (12 - 90):")
 
-    # Create a integer entry box where the user will enter her age.
-    ent_age = IntEntry(frm_main, lower_bound=12, upper_bound=90, width=5)
+    # Create an integer entry box where the user will enter her age.
+    ent_age = IntEntry(frm_main, width=4, lower_bound=12, upper_bound=90)
+
+    # Create a label that displays "years"
+    lbl_age_units = Label(frm_main, text="years")
 
     # Create a label that displays "Rates:"
     lbl_rates = Label(frm_main, text="Rates:")
 
     # Create labels that will display the results.
-    lbl_slow = Label(frm_main, width=4)
-    lbl_fast = Label(frm_main, width=4)
+    lbl_slow = Label(frm_main, width=3)
+    lbl_fast = Label(frm_main, width=3)
+    lbl_rate_units = Label(frm_main, text="beats/minute")
 
     # Create the Clear button.
     btn_clear = Button(frm_main, text="Clear")
 
     # Layout all the labels, entry boxes, and buttons in a grid.
-    lbl_age.grid(  row=0, column=0, padx=3, pady=3)
-    ent_age.grid(  row=0, column=1, padx=3, pady=3)
-    lbl_rates.grid(row=0, column=2, padx=(30,3), pady=3)
-    lbl_slow.grid( row=0, column=3, padx=3, pady=3)
-    lbl_fast.grid( row=0, column=4, padx=3, pady=3)
-    btn_clear.grid(row=1, column=0, padx=3, pady=3, columnspan=5, sticky="w")
+    lbl_age.grid(      row=0, column=0, padx=3, pady=3)
+    ent_age.grid(      row=0, column=1, padx=3, pady=3)
+    lbl_age_units.grid(row=0, column=2, padx=0, pady=3)
+
+    lbl_rates.grid(     row=1, column=0, padx=(30,3), pady=3)
+    lbl_slow.grid(      row=1, column=1, padx=3, pady=3)
+    lbl_fast.grid(      row=1, column=2, padx=3, pady=3)
+    lbl_rate_units.grid(row=1, column=3, padx=0, pady=3)
+
+    btn_clear.grid(row=2, column=0, padx=3, pady=3, columnspan=4, sticky="w")
 
 
     # This function will be called each time the user releases a key.
@@ -105,20 +113,20 @@ def populate_main_window(frm_main):
     # the user presses the "Clear" button.
     def clear():
         """Clear all the inputs and outputs."""
-        ent_age.delete(0, tk.END)
+        frm_main.focus()
+        ent_age.clear()
         lbl_slow.config(text="")
         lbl_fast.config(text="")
         ent_age.focus()
 
-
-    # Bind the calculate function to the age entry box
-    # so that the calculate function will be called when
-    # the user changes the text in the entry box.
+    # Bind the calculate function to the age entry box so
+    # that the computer will call the calculate function
+    # when the user changes the text in the entry box.
     ent_age.bind("<KeyRelease>", calculate)
 
     # Bind the clear function to the clear button so
-    # that the clear function will be called when the
-    # user clicks the clear button.
+    # that the computer will call the clear function
+    # when the user clicks the clear button.
     btn_clear.config(command=clear)
 
     # Give the keyboard focus to the age entry box.
@@ -130,6 +138,4 @@ def populate_main_window(frm_main):
 # then call the main function. However, if this file is simply
 # imported (e.g. into a test file), then skip the call to main.
 if __name__ == "__main__":
-    import sys
-    print(sys.float_info.max)
     main()
