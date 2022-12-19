@@ -51,7 +51,7 @@ def populate_main_window(frm_main):
     # Create labels for the number entries and the result.
     lbl_width = Label(frm_main, text="Width (80 - 300):")
     lbl_ratio = Label(frm_main, text="Aspect Ratio (30 - 90):")
-    lbl_diam = Label(frm_main, text="Diameter (10 - 30):")
+    lbl_diam = Label(frm_main, text="Diameter (7 - 30):")
     lbl_volume = Label(frm_main, text="Volume:")
 
     # Create three number entries.
@@ -104,7 +104,7 @@ def populate_main_window(frm_main):
 
             # Display the volume rounded to one digit
             # after the decimal for the user to see.
-            txt_volume.config(text=f"{v:.1f}")
+            txt_volume.config(text=f"{v:.2f}")
 
         except ValueError:
             # When the user deletes all the digits in one
@@ -116,7 +116,6 @@ def populate_main_window(frm_main):
     # the user clicks the "Clear" button.
     def clear():
         """Clear all the inputs and outputs."""
-        frm_main.focus()
         ent_width.clear()
         ent_ratio.clear()
         ent_diam.clear()

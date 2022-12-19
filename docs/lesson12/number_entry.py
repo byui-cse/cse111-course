@@ -8,12 +8,10 @@ import tkinter as tk
 from tkinter import Entry
 from numbers import Number
 from sys import float_info
-import string
 
 
 class _NumberEntry(Entry):
-    _POSSIBLE_STYLE = {"bg":"pink", "fg":"black"}
-    __ERROR_STYLE = {"bg":"red", "fg":"white"}
+    _ERROR_STYLE = {"bg":"pink", "fg":"black"}
 
 
     def __init__(self, parent, datatype, dataname,
@@ -44,6 +42,7 @@ class _NumberEntry(Entry):
             self.insert(0, str(default))
 
         self.__set_tk_args(kwargs)
+        self.bind("<FocusIn>", _NumberEntry.__select_all)
 
 
     def __set_tk_args(self, kwargs):
@@ -53,29 +52,28 @@ class _NumberEntry(Entry):
         if "width" not in kwargs:
             kwargs["width"] = \
                 max(len(str(self.__lower_bound)), len(str(self.__upper_bound)))
-        kwargs["validate"] = "all"
+        kwargs["validate"] = "focusin"
         kwargs["validatecommand"] = \
                 (self.register(self.__validate_all), "%V", "%s", "%P")
         self.config(**kwargs)
+        self._original_style = {"bg":self["bg"], "fg":self["fg"]}
 
-        self._save_style = {"bg":self["bg"], "fg":self["fg"]}
 
-        # Each time an entry gets the keyboard focus,
-        # select all the text in that entry.
-        def select_all(event):
-            """ Select all the characters in the entry. """
-            entry = event.widget
-            entry.select_range(0, tk.END)
-            entry.icursor(tk.END)
-
-        self.bind("<FocusIn>", select_all)
+    # Each time a _NumberEntry gets the keyboard focus,
+    # select all the text in that entry.
+    @staticmethod
+    def __select_all(event):
+        """Select all the characters in the entry."""
+        entry = event.widget
+        entry.select_range(0, tk.END)
+        entry.icursor(tk.END)
 
 
     @staticmethod
     def _contains_space(text):
         has_space = False
-        for ch in string.whitespace:
-            has_space = ch in text
+        for ch in text:
+            has_space = ch.isspace()
             if has_space:
                 break
         return has_space
@@ -86,23 +84,30 @@ class _NumberEntry(Entry):
         if reason == "key":
             valid = self._validate_key(current_text, text_if_allowed)
         elif reason == "focusin":
-            valid = self.__validate_focus(
-                    current_text, _NumberEntry._POSSIBLE_STYLE)
+            valid = self.__focus_in(current_text)
         elif reason == "focusout":
-            valid = self.__validate_focus(
-                    current_text, _NumberEntry.__ERROR_STYLE)
+            valid = self.__focus_out(current_text)
         return valid
 
 
-    def __validate_focus(self, current_text, style):
+    def __focus_in(self, current_text):
+        self.config({"validate": "all"})
+        return self.__validate_focus(current_text)
+
+    def __focus_out(self, current_text):
+        self.config({"validate": "focusin"})
+        return self.__validate_focus(current_text)
+
+    def __validate_focus(self, current_text):
+        valid = False
         try:
             n = self._convert(current_text)
-            if self._in_bounds(n):
-                style = self._save_style
+            valid = self._in_bounds(n)
         except ValueError:
             pass
+        style = self._original_style if valid else _NumberEntry._ERROR_STYLE
         self.config(style)
-        return True
+        return valid
 
 
     def _in_bounds(self, n):
@@ -129,6 +134,8 @@ class _NumberEntry(Entry):
 
 
     def clear(self):
+        self.config({"validate": "focusin"})
+        self.config(self._original_style)
         self.delete(0, tk.END)
 
 
@@ -152,22 +159,30 @@ class IntEntry(_NumberEntry):
             if not _NumberEntry._contains_space(text_if_allowed):
                 n = int(text_if_allowed)
                 allowed = self.__lower_entry <= n <= self.__upper_entry
-                valid = self._in_bounds(n)
+                # If text_if_allowed is allowed, we must allow it, and
+                # we must check only text_if_allowed for validity.
+                if allowed:
+                    valid = self._in_bounds(n)
         except ValueError:
             allowed = (len(text_if_allowed) == 0 or
                     (self.__allow_negative and text_if_allowed == "-"))
+
+        # If text_if_allowed is not allowed, we must not allow
+        # it, and we must check only current_text for validity.
+        if not allowed:
             try:
                 n = int(current_text)
                 valid = self._in_bounds(n)
             except ValueError:
                 pass
 
-        style = self._save_style if valid else _NumberEntry._POSSIBLE_STYLE
+        style = self._original_style if valid else _NumberEntry._ERROR_STYLE
         self.config(style)
         return allowed
 
 
-    def _convert(self, text): return int(text)
+    @staticmethod
+    def _convert(text): return int(text)
 
 
 class FloatEntry(_NumberEntry):
@@ -179,10 +194,23 @@ class FloatEntry(_NumberEntry):
         super().__init__(parent, Number, "a number",
                 lower_bound, upper_bound, default, kwargs)
 
-        self.__lower_entry = lower_bound if lower_bound <= 0 else 0
-        self.__upper_entry = upper_bound if upper_bound >= 0 else 0
+        if lower_bound < 0:    # [-, 0)
+            self.__lower_entry = lower_bound
+        elif lower_bound < 1:  # [0, 1)
+            self.__lower_entry = 0
+        else:                  # [1, +]
+            self.__lower_entry = 1
+
+        if upper_bound <= -1:   # [-, -1]
+            self.__upper_entry = -1
+        elif upper_bound <= 0:  # (-1, 0]
+            self.__upper_entry = 0
+        else:                   # (0, +]
+            self.__upper_entry = upper_bound
+
         self.__allow_negative = (lower_bound < 0)
-        self.__allow_leading_dot = ((-1 < lower_bound < 1) or
+        self.__allow_leading_dot = (
+                (-1 < lower_bound < 1) or
                 (-1 < upper_bound < 1) or
                 (lower_bound <= -1 and 1 <= upper_bound))
 
@@ -193,22 +221,30 @@ class FloatEntry(_NumberEntry):
             if not _NumberEntry._contains_space(text_if_allowed):
                 n = float(text_if_allowed)
                 allowed = self.__lower_entry <= n <= self.__upper_entry
-                valid = self._in_bounds(n)
+                # If text_if_allowed is allowed, we must allow it, and
+                # we must check only text_if_allowed for validity.
+                if allowed:
+                    valid = self._in_bounds(n)
         except ValueError:
             allowed = (len(text_if_allowed) == 0 or
                     (self.__allow_negative and text_if_allowed == "-") or
                     (self.__allow_leading_dot and text_if_allowed == ".") or
                     (self.__allow_negative and self.__allow_leading_dot
                         and text_if_allowed == "-."))
+
+        # If text_if_allowed is not allowed, we must not allow
+        # it, and we must check only current_text for validity.
+        if not allowed:
             try:
                 n = float(current_text)
                 valid = self._in_bounds(n)
             except ValueError:
                 pass
 
-        style = self._save_style if valid else _NumberEntry._POSSIBLE_STYLE
+        style = self._original_style if valid else _NumberEntry._ERROR_STYLE
         self.config(style)
         return allowed
 
 
-    def _convert(self, text): return float(text)
+    @staticmethod
+    def _convert(text): return float(text)
