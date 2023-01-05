@@ -123,6 +123,7 @@ def populate_main_window(frm_main):
     # the user clicks the "Clear" button.
     def clear():
         """Clear all the inputs and outputs."""
+        btn_clear.focus()
         for entry in entries:
             entry.clear()
         txt_correct.config(text="")

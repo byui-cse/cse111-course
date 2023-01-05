@@ -113,6 +113,7 @@ def populate_main_window(frm_main):
     # the user presses the "Clear" button.
     def clear():
         """Clear all the inputs and outputs."""
+        btn_clear.focus()
         ent_age.clear()
         lbl_slow.config(text="")
         lbl_fast.config(text="")

@@ -116,6 +116,7 @@ def populate_main_window(frm_main):
     # the user clicks the "Clear" button.
     def clear():
         """Clear all the inputs and outputs."""
+        btn_clear.focus()
         ent_width.clear()
         ent_ratio.clear()
         ent_diam.clear()
