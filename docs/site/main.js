@@ -142,7 +142,8 @@ cse111.common = {
 			const createText = self.createTextNode;
 
 			/** Opens or closes the navigation menu. */
-			const toggleNavMenu = function() {
+			const toggleNavMenu = function(event) {
+				event.stopPropagation();
 				let nav = document.body.querySelector('nav.menu');
 				nav.classList.toggle('closed');
 			};
@@ -175,6 +176,7 @@ cse111.common = {
 			body.insertBefore(header, article);
 
 			this.addNavMenu(body, article);
+			body.addEventListener('click', self.closeNavMenu);
 		}
 	},
 
@@ -209,7 +211,6 @@ cse111.common = {
 				anchor.appendChild(node);
 				item.appendChild(anchor);
 			}
-			item.addEventListener('click', self.closeNavMenu);
 			ul.appendChild(item);
 		};
 
@@ -252,6 +253,13 @@ cse111.common = {
 		let nav = createElem('nav', ['menu', 'closed']);
 		nav.appendChild(ul);
 		body.insertBefore(nav, article);
+	},
+
+
+	/** Closes the navigation menu. */
+	closeNavMenu : function() {
+		let nav = document.body.querySelector('nav.menu');
+		nav.classList.add('closed');
 	},
 
 
@@ -299,13 +307,6 @@ cse111.common = {
 	/** Creates an HTML text node. */
 	createTextNode : function(text) {
 		return document.createTextNode(text);
-	},
-
-
-	/** Closes the navigation menu. */
-	closeNavMenu : function() {
-		let nav = document.body.querySelector('nav.menu');
-		nav.classList.add('closed');
 	},
 
 
