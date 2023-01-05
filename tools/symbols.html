@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Symbols</title>
+
+    <script>
+    "use strict";
+
+    const symbols = {
+        makeButtons : function() {
+            const copyFunc = function(event) {
+                let text = event.target.getAttribute('data-entity');
+
+                // Copy the text to the clipboard.
+                const listener = function(event) {
+                    event.clipboardData.setData('text/plain', text);
+                    event.preventDefault();
+                };
+                document.addEventListener('copy', listener);
+                document.execCommand('copy');
+                document.removeEventListener('copy', listener);
+            };
+
+            const body = document.body;
+            const entities = [
+                ['&lsquo;', '&copy;', '&rsquo;'],
+                ['&ldquo;', '&para;', '&rdquo;'],
+                ['&mdash;', '&ndash;'],
+                ['&minus;', '&plus;', '&infin;', '&times;', '&div;']
+            ];
+
+            // Create a button for each HTML entity (symbol).
+            for (let i = 0;  i < entities.length;  ++i) {
+                let rowList = entities[i];
+                let para = document.createElement('p');
+                for (let e = 0;  e < rowList.length;  ++e) {
+                    let entity = rowList[e];
+
+                    // Create the button.
+                    let button = document.createElement('button');
+                    button.setAttribute('type', 'button');
+                    button.innerHTML = entity;
+                    button.setAttribute('data-entity', button.innerHTML);
+                    button.innerHTML = '&nbsp;' + entity + '&nbsp;';
+                    button.addEventListener('click', copyFunc);
+
+                    // Append the new button and a space to a paragraph.
+                    para.appendChild(button);
+                    para.appendChild(document.createTextNode(' '));
+                }
+                // Append the new paragraph to the document body.
+                body.appendChild(para);
+            }
+        }
+    };
+
+    window.addEventListener('DOMContentLoaded', symbols.makeButtons);
+    </script>
+
+    <style>
+        body { font-family: Arial, Helvetica, Verdana, sans-serif; }
+        button { font-size: 200%; }
+    </style>
+</head>
+
+<body>
+<h2>Unicode Symbols</h2>
+</body>
+</html>

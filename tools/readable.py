@@ -1,5 +1,5 @@
 import os
-import os.path
+import os.path as path
 import re
 import sys
 import readability
@@ -11,7 +11,7 @@ def main(argv):
     if len(argv) == 0:
         argv = ["."]
 
-    if len(argv) == 2 and os.path.isfile(argv[0]) and os.path.isfile(argv[1]):
+    if len(argv) == 2 and path.isfile(argv[0]) and path.isfile(argv[1]):
         srcpath = argv[0]
         dstpath = argv[1]
         measure = measure_file(srcpath, dstpath)
@@ -19,7 +19,7 @@ def main(argv):
     else:
         measures = []
         for srcpath in argv:
-            if os.path.isdir(srcpath):
+            if path.isdir(srcpath):
                 measures.extend(process_dir(srcpath))
             else:
                 measures.append(process_dir(srcpath))
@@ -32,20 +32,20 @@ def process_dir(dirpath):
     measures = []
     for root, dirnames, filenames in os.walk(dirpath):
         for filename in filenames:
-            suffix = os.path.splitext(filename)[1]
+            suffix = path.splitext(filename)[1]
             if suffix == '.html':
-                srcpath = os.path.join(root, filename)
+                srcpath = path.join(root, filename)
                 measures.append(process_file(srcpath))
     return measures
 
 
 def process_file(srcpath, dstpath=None):
     if dstpath is None:
-        parts = os.path.split(srcpath)
+        parts = path.split(srcpath)
         dirname = parts[0]
         filename = parts[1]
-        basename = os.path.splitext(filename)[0]
-        dstpath = os.path.join(dirname, f"{basename}.txt")
+        basename = path.splitext(filename)[0]
+        dstpath = path.join(dirname, f"{basename}.txt")
     return measure_file(srcpath, dstpath), srcpath
 
 
