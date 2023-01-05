@@ -22,4 +22,4 @@ doing any of the following:
 
 
 2. In I-Learn, submit this completed text file, your Python program, your
-Python test file, and any program data files such as .txt and .csv files.
+Python test file, and any project data files such as .txt and .csv files.

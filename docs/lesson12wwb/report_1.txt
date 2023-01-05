@@ -22,15 +22,15 @@ doing any of the following:
 2021-12-02      1.5     Read tutorials about the Python requests module
 
 
-2. Write the names of the functions in your project.
+2. Write the names of the functions in your program.
 
 
-3. Answer the following questions about the functions in your project.
+3. Answer the following questions about the functions in your program.
     a. Does each function perform a single task?
 
     b. Does the name of each function describe or convey the task?
 
-    c. Do most of your project functions have parameters and return a result?
+    c. Do most of your program functions have parameters and return a result?
 
     If you answered "no" to any of the above three questions, what are
     you planning to change in your project?

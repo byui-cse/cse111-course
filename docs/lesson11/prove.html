@@ -183,11 +183,11 @@ def test_payment():
         <summary>Processes text instead of numbers</summary>
 <div class="pre"><pre class="python">
 def prefix(s1, s2):
-    """Return the prefix, if any, that appears in both s1
-    and s2. In other words, return a string of the
-    characters that appear at the beginning of both s1 and
-    s2. For example, if s1 is "inconceivable" and s2 is
-    "inconvenient", this function will return "incon".
+    """Return the prefix, if any, that appears in both
+    s1 and s2. In other words, return a string of the
+    characters that appear at the beginning of both s1
+    and s2. For example, if s1 is "inconceivable" and s2
+    is "inconvenient", this function will return "incon".
     """
     s1 = s1.lower()
     s2 = s2.lower()
@@ -226,9 +226,11 @@ def get_int(prompt, min, max):
             text = input(prompt)
             number = int(text)
             if number &lt; min:
-                print(f"Invalid input: number must be {min} or greater.")
+                print("Invalid input: "
+                    f"number must be {min} or greater.")
             elif number &gt; max:
-                print(f"Invalid input: number must be {max} or less.")
+                print("Invalid input: "
+                    f"number must be {max} or less.")
             else:
                 done = True
         except ValueError as val_err:
@@ -278,7 +280,8 @@ event function and into a calculation function that takes
 parameters, performs a calculation, and returns a result.
 Then write a test function for the new calculation function.
 """
-    # This function is called each time the user releases a key.
+    # This function is called each
+    # time the user releases a key.
     def calc(event):
         try:
             # Get the user input.
@@ -361,7 +364,8 @@ def test_write_file():
     # Delete the fruits.txt file.
     os.remove(filename)
 
-    # Verify that write_file correctly wrote the fruits.txt file.
+    # Verify that write_file correctly
+    # wrote the fruits.txt file.
     assert lines == written</pre></div>
     </details>
 
@@ -463,7 +467,7 @@ def test_filter_for_meter():
 
     <h2 id="submit">Submission</h2>
     <p>At the end of this lesson and lessons&nbsp;12 and&nbsp;13, you
-    must submit a description or your work, and your teacher or teaching
+    must submit a description of your work, and your teacher or teaching
     assistant will grade your work according to the following
     rubrics.</p>
 

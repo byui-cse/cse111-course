@@ -255,19 +255,18 @@ pytest.main(["-v", "--tb=line", "-rN", __file__])</pre></div>
 
     <p>Notice in <code>test_weather.py</code> at
     <span class="cross" data-ref="ex6">lines&nbsp;13&ndash;16</span>
-    that the test function
-    <code>test_cels_from_fahr</code>
-    calls the program function <code>cels_from_fahr</code> four
-    times: once with a negative number, once with zero, and twice with
-    positive numbers. Notice also that the test function uses
-    <code>assert</code> and <code>approx</code>.</p>
+    that the test function <code>test_cels_from_fahr</code> calls the
+    program function <code>cels_from_fahr</code> four times: once with a
+    negative number, once with zero, and twice with positive numbers.
+    Notice also that the test function uses <code>assert</code> and
+    <code>approx</code>.</p>
 
     <p>After writing the test function, we use <code>pytest</code> to
     run the test function. At
     <span class="cross" data-ref="ex6">line&nbsp;20</span>,
     instead of writing a call to the <code>main</code> function, as we
     do in program files, we write a call to the <code>pytest.main</code>
-    fnction. In CSE&nbsp;111, at the bottom of all test files, we will
+    function. In CSE&nbsp;111, at the bottom of all test files, we will
     write a call to <code>pytest.main</code> exactly as shown on
     <span class="cross" data-ref="ex6">line&nbsp;20</span>. This call to
     <code>pytest.main</code> will cause the <code>pytest</code> module

@@ -37,7 +37,7 @@
     <strong>propose your program to your instructor</strong> to ensure
     that the program is neither too easy nor too difficult for the time
     remaining in this course. If you finish your program more quickly
-    than you or your instructor expected, and there is time remaining in
+    than you of your instructor expected, and there is time remaining in
     this course, then choose and write another program.</p>
 
     <h2 id="proposal">Proposal</h2>
@@ -46,7 +46,7 @@
     Open the downloaded file in VS Code. Answer each of the questions
     and save your file.</p>
 
-    <h2 id="possible">Possible Programs</h2>
+    <h2 id="possible">Possible Projects</h2>
     <p>If you find it difficult to choose a program to write, you may
     choose to write one of the following programs:</p>
 
@@ -122,7 +122,7 @@
     </ul>
 
     <p>If you don’t understand the description of one of these possible
-    projects, ask your CSE&bnsp;111 team members or your instructor to
+    projects, ask your CSE&nbsp;111 team members or your instructor to
     explain the project to you.</p>
 
     <h2 id="organize">Organization</h2>
@@ -150,10 +150,10 @@
     example code that shows how to write those test functions. Notice
     that you can expand and collapse the example code by clicking the
     triangle icons
-    (<img src="collapsed.png"
+    (<img src="../site/icons/collapsed.png"
     alt="Right facing triangle that shows a topic is collapsed and can be expanded by clicking on it."
     title="Right facing triangle that shows a topic is collapsed and can be expanded by clicking on it."> or
-    <img src="expanded.png"
+    <img src="../site/icons/expanded.png"
     alt="Down facing triangle that shows a topic is expanded and can be collapsed by clicking on it."
     title="Down facing triangle that shows a topic is expanded and can be collapsed by clicking on it.">).</p>
 
@@ -181,11 +181,11 @@ def test_payment():
         <summary>Processes text instead of numbers</summary>
 <div class="pre"><pre class="python">
 def prefix(s1, s2):
-    """Return the prefix, if any, that appears in both s1
-    and s2. In other words, return a string of the
-    characters that appear at the beginning of both s1 and
-    s2. For example, if s1 is "inconceivable" and s2 is
-    "inconvenient", this function will return "incon".
+    """Return the prefix, if any, that appears in both
+    s1 and s2. In other words, return a string of the
+    characters that appear at the beginning of both s1
+    and s2. For example, if s1 is "inconceivable" and s2
+    is "inconvenient", this function will return "incon".
     """
     s1 = s1.lower()
     s2 = s2.lower()
@@ -224,9 +224,11 @@ def get_int(prompt, min, max):
             text = input(prompt)
             number = int(text)
             if number &lt; min:
-                print(f"Invalid input: number must be {min} or greater.")
+                print("Invalid input: "
+                    f"number must be {min} or greater.")
             elif number &gt; max:
-                print(f"Invalid input: number must be {max} or less.")
+                print("Invalid input: "
+                    f"number must be {max} or less.")
             else:
                 done = True
         except ValueError as val_err:
@@ -276,7 +278,8 @@ event function and into a calculation function that takes
 parameters, performs a calculation, and returns a result.
 Then write a test function for the new calculation function.
 """
-    # This function is called each time the user releases a key.
+    # This function is called each
+    # time the user releases a key.
     def calc(event):
         try:
             # Get the user input.
@@ -359,7 +362,8 @@ def test_write_file():
     # Delete the fruits.txt file.
     os.remove(filename)
 
-    # Verify that write_file correctly wrote the fruits.txt file.
+    # Verify that write_file correctly
+    # wrote the fruits.txt file.
     assert lines == written</pre></div>
     </details>
 
