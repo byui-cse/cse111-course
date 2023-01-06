@@ -37,13 +37,14 @@ cse111.strings = {
 	helpHint    : 'Get help for CSE 111',
 	pdfHint     : 'Download a PDF that contains\nall CSE 111 HTML content',
 	zipHint     : 'Download a zip file that\ncontains all CSE 111 content',
+	upHint      : 'Scroll to the top of this document',
 
 	paraSymbol : '¶',
 	copyURL    : 'Copy URL to the clipboard',
 
 	offHint : 'Click to turn highlights off.',
 	onHint  : 'Move mouse over to turn highlights on.\n' +
-			'Click to keep highlights on.',
+			  'Click to keep highlights on.',
 
 	copyHint  : 'Copy code to the clipboard',
 	termHint  : 'Terminal Window',
@@ -67,6 +68,7 @@ cse111.filenames = {
 	contentsIcon : 'site/icons/list.svg',
 	prevIcon     : 'site/icons/arrow-left.svg',
 	nextIcon     : 'site/icons/arrow-right.svg',
+	upIcon       : 'site/icons/arrow-up-long.svg',
 	searchIcon   : 'site/icons/magnify-glass.svg',
 	helpIcon     : 'site/icons/question.svg',
 	pdfIcon      : 'site/icons/file-pdf.svg',
@@ -192,9 +194,7 @@ cse111.common = {
 
 		/** Creates one menu item. */
 		const addMenuItem = function(icon, text, hint, action, classes, down) {
-			let img = createElem('img', null,
-					{alt : strings.hint,
-					src : icon});
+			let img = createElem('img', null, {alt : hint, src : icon});
 			let node = createText(' ' + text);
 			let item = createElem('li', classes, {title : hint});
 			if (typeof(action) == 'function') {
@@ -217,17 +217,19 @@ cse111.common = {
 		// Create the menu items.
 		addMenuItem(filenames.lightIcon, strings.lightText,
 				strings.lightHint,
-				function() { self.setBrightness('light'); }, ['light']);
+				function() { self.setBrightness('light'); },
+				['light']);
 		addMenuItem(filenames.darkIcon, strings.darkText,
 				strings.darkHint,
-				function() { self.setBrightness('dark'); }, ['dark']);
+				function() { self.setBrightness('dark'); },
+				['dark']);
 
 		addMenuItem(filenames.contentsIcon, strings.contentsText,
 				strings.contentsHint, filenames.contents, ['first']);
 
 		const head = document.head;
-		let prev = head.querySelector('link[rel="prev"]');
-		let next = head.querySelector('link[rel="next"]');
+		const prev = head.querySelector('link[rel="prev"]');
+		const next = head.querySelector('link[rel="next"]');
 		if (prev) {
 			addMenuItem(filenames.prevIcon, strings.prevText,
 					strings.prevHint, prev.href);
@@ -346,7 +348,7 @@ cse111.common = {
 
 
 	/** If the document body doesn't have a footer element, this
-	 * functions adds a footer to the body. */
+	 * function adds a footer to the body. */
 	addFooter : function() {
 		const body = document.body;
 		let footer = body.querySelector('footer');
@@ -356,15 +358,23 @@ cse111.common = {
 			const createElem = cse111.common.createElement;
 			const createText = cse111.common.createTextNode;
 
+			let up = createElem('img', ['up'],
+					{alt : strings.upHint,
+					title : strings.upHint,
+					src : filenames.upIcon});
+			up.addEventListener('click', function() {window.scrollTo(0, 0);});
+
 			let anchor = createElem('a', null,
-					{title : strings.byuiHint,
-					href : strings.byuiURL});
+					{title : strings.byuiHint, href : strings.byuiURL});
 			anchor.innerText = strings.byuiName;
+			let copy = createElem('div', ['copyright']);
+			copy.appendChild(createText(strings.copyright + ', '));
+			copy.appendChild(anchor);
+			copy.appendChild(createText('. ' + strings.rights));
 
 			footer = createElem('footer');
-			footer.appendChild(createText(strings.copyright + ', '));
-			footer.appendChild(anchor);
-			footer.appendChild(createText('. ' + strings.rights));
+			footer.appendChild(up);
+			footer.appendChild(copy);
 
 			body.appendChild(footer);
 		}

@@ -17,34 +17,31 @@
 :root {
 	--transpar: rgba(0, 0, 0, 0);
 
-	--lighter-yellow: rgba(255, 236, 211, 1);
-	--yellow: rgba(255, 179, 80, 1);
-	--darker-yellow: rgba(77, 54, 24, 1);
+	--lighter-yellow: rgb(255, 236, 211);
+	--yellow: rgb(255, 179, 80);
+	--darker-yellow: rgb(77, 54, 24);
 
-	--lightest-coral: rgba(255, 245, 241, 1);
-	--lighter-coral: rgba(255, 223, 211, 1);
-	--coral: rgba(255, 127, 80, 1);
-	--darker-coral: rgba(64, 32, 20, 1);
-	--darkest-coral: rgba(36, 16, 10, 1);
+	--lightest-coral: rgb(255, 245, 241);
+	--lighter-coral: rgb(255, 223, 211);
+	--coral: rgb(255, 127, 80);
+	--darker-coral: rgb(64, 32, 20);
+	--darkest-coral: rgb(36, 16, 10);
 
-	--lighter-raspberry: rgba(248, 209, 221, 1);
-	--raspberry: rgba(226, 71, 121, 1);
-	--darker-raspberry: rgba(57, 18, 30, 1);
+	--lighter-raspberry: rgb(248, 209, 221);
+	--raspberry: rgb(226, 71, 121);
+	--darker-raspberry: rgb(57, 18, 30);
 
-	--light-green: rgba(127, 255, 127, 1);
-	--dark-green: rgba(37, 76, 37, 1);
+	--lightest-byui-blue: rgb(235, 244, 249);
+	--byui-blue: rgb(0, 118, 182);
+	--darkest-byui-blue: rgb(0, 24, 36);
 
-	--lightest-byui-blue: rgba(235, 244, 249, 1);
-	--byui-blue: rgba(0, 118, 182, 1);
-	--darkest-byui-blue: rgba(0, 24, 36, 1);
+	--light-bk-color: rgb(255, 255, 255);
+	--light-fg-color: rgb(4, 4, 4);
 
-	--light-bk-color: rgba(255, 255, 255, 1);
-	--light-fg-color: rgba(4, 4, 4, 1);
+	--dark-bk-color: rgb(0, 0, 0);
+	--dark-fg-color: rgb(184, 184, 184);
 
-	--dark-bk-color: rgba(0, 0, 0, 1);
-	--dark-fg-color: rgba(184, 184, 184, 1);
-
-	--border-color: rgba(112, 112, 112, 1);
+	--border-color: rgb(112, 112, 112);
 
 	--compare-same-color: var(--lighter-yellow);
 	--compare-similar-color: var(--lighter-coral);
@@ -954,11 +951,17 @@ article figure.list > table > tbody > tr > td.label {
 
 @media screen {
 	footer {
-		margin: 0.5em auto 1em auto;
-		padding: 0 1em;
-		line-height: 1.15;
+		margin: 2em auto;
 		max-width: 40em;
+	}
+	footer div.copyright {
 		font-size: 80%;
+		text-align: center;
+	}
+	footer img.up {
+		float: right;
+		cursor: pointer;
+		width: 1em;
 	}
 }
 @media print {
