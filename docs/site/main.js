@@ -53,7 +53,8 @@ cse111.strings = {
 	viewText     : 'View',
 	downloadText : 'Download',
 
-	copyright : 'Copyright © 2020–2022',
+	modified  : 'Last modified',
+	copyright : 'Copyright ©',
 	rights    : 'All rights reserved.'
 };
 
@@ -364,20 +365,52 @@ cse111.common = {
 					src : filenames.upIcon});
 			up.addEventListener('click', function() {window.scrollTo(0, 0);});
 
+			const dates = this.getCopyrightDates();
+			let mod = createText(strings.modified + ' ' + dates.modified);
+			let br = createElem('br');
+			let copy = createText(strings.copyright +' '+ dates.year + ', ');
 			let anchor = createElem('a', null,
 					{title : strings.byuiHint, href : strings.byuiURL});
 			anchor.innerText = strings.byuiName;
-			let copy = createElem('div', ['copyright']);
-			copy.appendChild(createText(strings.copyright + ', '));
-			copy.appendChild(anchor);
-			copy.appendChild(createText('. ' + strings.rights));
+			let rights = createText('. ' + strings.rights);
+
+			let div = createElem('div');
+			div.appendChild(mod);
+			div.appendChild(br);
+			div.appendChild(copy);
+			div.appendChild(anchor);
+			div.appendChild(rights);
 
 			footer = createElem('footer');
 			footer.appendChild(up);
-			footer.appendChild(copy);
+			footer.appendChild(div);
 
 			body.appendChild(footer);
 		}
+	},
+
+
+	/** Gets the copyright year and the last modified date, from the
+	 * search engine structured data in this document's head. Returns
+	 * the two values in an object. */
+	getCopyrightDates : function() {
+		let copyYear = 2019;
+		let modified = '2022-09-26';
+		const query = 'script[type="application/ld+json"]';
+		const script = document.head.querySelector(query);
+		if (script) {
+			const object = JSON.parse(script.innerHTML);
+			if (object.hasOwnProperty('copyrightYear')) {
+				copyYear = object.copyrightYear;
+			}
+			else if (object.hasOwnProperty('datePublished')) {
+				copyYear = parseInt(object.datePublished);
+			}
+			if (object.hasOwnProperty('dateModified')) {
+				modified = object.dateModified;
+			}
+		}
+		return {year: copyYear, modified: modified};
 	}
 };
 

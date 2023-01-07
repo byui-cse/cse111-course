@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://byui-cse.github.io/cse111-course/</loc>
-    <lastmod>2022-12-07</lastmod>
+    <lastmod>2023-01-07</lastmod>
   </url>
   <url>
     <loc>https://byui-cse.github.io/cse111-course/lesson01/approx_tire_vol.html</loc>
-    <lastmod>2022-12-07</lastmod>
+    <lastmod>2022-12-08</lastmod>
   </url>
   <url>
     <loc>https://byui-cse.github.io/cse111-course/lesson01/check.html</loc>
@@ -15,10 +15,6 @@
   <url>
     <loc>https://byui-cse.github.io/cse111-course/lesson01/dev_env.html</loc>
     <lastmod>2023-01-05</lastmod>
-  </url>
-  <url>
-    <loc>https://byui-cse.github.io/cse111-course/lesson01/example.html</loc>
-    <lastmod>2022-12-07</lastmod>
   </url>
   <url>
     <loc>https://byui-cse.github.io/cse111-course/lesson01/prepare.html</loc>
@@ -34,91 +30,87 @@
   </url>
   <url>
     <loc>https://byui-cse.github.io/cse111-course/lesson02/check.html</loc>
-    <lastmod>2022-12-07</lastmod>
+    <lastmod>2023-01-06</lastmod>
   </url>
   <url>
     <loc>https://byui-cse.github.io/cse111-course/lesson02/prepare.html</loc>
-    <lastmod>2022-12-07</lastmod>
+    <lastmod>2022-12-09</lastmod>
   </url>
   <url>
     <loc>https://byui-cse.github.io/cse111-course/lesson02/prove.html</loc>
-    <lastmod>2022-12-07</lastmod>
+    <lastmod>2023-01-06</lastmod>
   </url>
   <url>
     <loc>https://byui-cse.github.io/cse111-course/lesson02/teach.html</loc>
-    <lastmod>2022-12-07</lastmod>
+    <lastmod>2023-01-06</lastmod>
   </url>
   <url>
     <loc>https://byui-cse.github.io/cse111-course/lesson03/check.html</loc>
-    <lastmod>2022-12-07</lastmod>
+    <lastmod>2023-01-06</lastmod>
   </url>
   <url>
     <loc>https://byui-cse.github.io/cse111-course/lesson03/draw2d.html</loc>
-    <lastmod>2022-12-07</lastmod>
+    <lastmod>2022-12-08</lastmod>
   </url>
   <url>
     <loc>https://byui-cse.github.io/cse111-course/lesson03/prepare.html</loc>
-    <lastmod>2022-12-07</lastmod>
+    <lastmod>2022-12-09</lastmod>
   </url>
   <url>
     <loc>https://byui-cse.github.io/cse111-course/lesson03/prove.html</loc>
-    <lastmod>2022-12-07</lastmod>
+    <lastmod>2022-12-09</lastmod>
   </url>
   <url>
     <loc>https://byui-cse.github.io/cse111-course/lesson03/teach.html</loc>
-    <lastmod>2022-12-07</lastmod>
+    <lastmod>2023-01-06</lastmod>
   </url>
   <url>
     <loc>https://byui-cse.github.io/cse111-course/lesson04/check.html</loc>
-    <lastmod>2022-12-07</lastmod>
+    <lastmod>2023-01-06</lastmod>
   </url>
   <url>
     <loc>https://byui-cse.github.io/cse111-course/lesson04/prepare.html</loc>
-    <lastmod>2022-12-07</lastmod>
+    <lastmod>2022-12-08</lastmod>
   </url>
   <url>
     <loc>https://byui-cse.github.io/cse111-course/lesson04/prove.html</loc>
-    <lastmod>2022-12-07</lastmod>
+    <lastmod>2023-01-06</lastmod>
   </url>
   <url>
     <loc>https://byui-cse.github.io/cse111-course/lesson04/teach.html</loc>
-    <lastmod>2022-12-07</lastmod>
+    <lastmod>2023-01-06</lastmod>
   </url>
   <url>
     <loc>https://byui-cse.github.io/cse111-course/lesson05/check.html</loc>
-    <lastmod>2022-12-07</lastmod>
-  </url>
-  <url>
-    <loc>https://byui-cse.github.io/cse111-course/lesson05/example.html</loc>
-    <lastmod>2022-12-07</lastmod>
+    <lastmod>2023-01-06</lastmod>
   </url>
   <url>
     <loc>https://byui-cse.github.io/cse111-course/lesson05/prepare.html</loc>
-    <lastmod>2022-12-07</lastmod>
+    <lastmod>2023-01-05</lastmod>
   </url>
   <url>
     <loc>https://byui-cse.github.io/cse111-course/lesson05/prove.html</loc>
-    <lastmod>2022-12-07</lastmod>
+    <lastmod>2023-01-06</lastmod>
   </url>
   <url>
     <loc>https://byui-cse.github.io/cse111-course/lesson05/teach.html</loc>
-    <lastmod>2022-12-07</lastmod>
+    <lastmod>2023-01-06</lastmod>
   </url>
   <url>
     <loc>https://byui-cse.github.io/cse111-course/lesson06/check.html</loc>
-    <lastmod>2022-12-07</lastmod>
+    <lastmod>2023-01-06</lastmod>
   </url>
   <url>
     <loc>https://byui-cse.github.io/cse111-course/lesson06/prepare.html</loc>
-    <lastmod>2022-12-07</lastmod>
+    <lastmod>2022-12-08</lastmod>
   </url>
   <url>
     <loc>https://byui-cse.github.io/cse111-course/lesson06/prove.html</loc>
-    <lastmod>2022-12-07</lastmod>
+    <lastmod>2023-01-06</lastmod>
   </url>
   <url>
     <loc>https://byui-cse.github.io/cse111-course/lesson06/teach.html</loc>
-    <lastmod>2022-12-07</lastmod>
+    <lastmod>2023-01-06</lastmod>
   </url>
   <url>
     <loc>https://byui-cse.github.io/cse111-course/lesson07/check.html</loc>
@@ -161,10 +153,6 @@
     <lastmod>2022-12-07</lastmod>
   </url>
   <url>
-    <loc>https://byui-cse.github.io/cse111-course/lesson09/example.html</loc>
-    <lastmod>2022-12-07</lastmod>
-  </url>
-  <url>
     <loc>https://byui-cse.github.io/cse111-course/lesson09/file_setup.html</loc>
     <lastmod>2022-12-07</lastmod>
   </url>
@@ -186,10 +174,6 @@
   </url>
   <url>
     <loc>https://byui-cse.github.io/cse111-course/lesson10/check.html</loc>
-    <lastmod>2022-12-07</lastmod>
-  </url>
-  <url>
-    <loc>https://byui-cse.github.io/cse111-course/lesson10/example.html</loc>
     <lastmod>2022-12-07</lastmod>
   </url>
   <url>
