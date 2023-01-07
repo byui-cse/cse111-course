@@ -11,7 +11,7 @@ if (! window.hasOwnProperty('cse111')) {
 cse111.strings = {
 	byuiEntity  : '&#xe000;',
 	byuiURL     : 'https://www.byui.edu',
-	byuiName    : 'Brigham Young University - Idaho',
+	byuiName    : 'Brigham Young University–Idaho',
 	byuiHint    : 'BYU-Idaho Website',
 	courseCode  : 'CSE 111',
 	courseTitle : 'Programming with Functions',
@@ -244,7 +244,7 @@ cse111.common = {
 		addMenuItem(filenames.helpIcon, strings.helpText,
 				strings.helpHint, filenames.help);
 
-		if (document.location.protocol != "file:") {
+		if (document.location.protocol != 'file:') {
 			addMenuItem(filenames.pdfIcon, strings.pdfText,
 					strings.pdfHint, filenames.pdfFile, ['first'], true);
 			addMenuItem(filenames.zipIcon, strings.zipText,
@@ -773,6 +773,7 @@ cse111.onDOMLoaded = function() {
 cse111.onFullDocLoaded = function() {
 	if (! cse111.common.isCombined()) {
 		let attempts = 20;
+
 		const checkLineNumbers = function() {
 			if (cse111.linenums.lineNumbersAdded) {
 				// Without a delay, the consoles are resized before the
@@ -786,6 +787,7 @@ cse111.onFullDocLoaded = function() {
 				window.setTimeout(checkLineNumbers(), 100);
 			}
 		}
+
 		checkLineNumbers();
 	}
 };
