@@ -5,19 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="canonical" href="https://byui-cse.github.io/cse111-course/lesson05/prove.html">
+    <link rel="canonical" href="https://byui-cse.github.io/cse111-course/lesson03/prove_exper.html">
     <link rel="prev" type="text/html" href="teach.html">
-    <link rel="next" type="text/html" href="../lesson06/prepare.html">
-    <title>05 Prove Milestone: Testing and Fixing Functions</title>
+    <link rel="next" type="text/html" href="../lesson04/prepare.html">
+    <title>03 Prove Milestone: Writing Functions</title>
     <script type="application/ld+json">
     {
         "@context": "https://schema.org/",
         "@type": "Article",
-        "headline": "05 Prove Milestone: Testing and Fixing Functions",
+        "headline": "03 Prove Milestone: Writing Functions",
         "copyrightHolder": "Brigham Young University - Idaho",
         "copyrightYear": 2020,
         "datePublished": "2020-02-26",
-        "dateModified": "2023-01-06"
+        "dateModified": "2023-01-07"
     }
     </script>
     <script src="../site/main.js"></script>
@@ -29,11 +29,11 @@
 
 <body>
 <article>
-    <h1>05 Prove Milestone: Testing and Fixing Functions</h1>
+    <h1>03 Prove Milestone: Writing Functions</h1>
 
     <h2 id="purpose">Purpose</h2>
-    <p>Prove that you can write a Python program and write and run test
-    functions to help you find and fix mistakes.</p>
+    <p>Prove that you can write functions with parameters and call those
+    functions multiple times with arguments.</p>
 
     <h2 id="problem">Problem Statement</h2>
     <p>The <dfn>Turing test</dfn>, named after Alan Turing, is a test of
@@ -75,8 +75,7 @@
     <h2 id="assign">Assignment</h2>
     <p>Write a Python program named <code>sentences.py</code> that
     generates simple English sentences. During this prove milestone, you
-    will write and test functions that generate sentences with three
-    parts:</p>
+    will write functions that generate sentences with three parts:</p>
     <ol>
         <li><div>a determiner (sometimes known as an article)</div></li>
         <li><div>a noun</div></li>
@@ -95,27 +94,18 @@
     functions:</p>
     <ol>
         <li><div><code>main</code></div></li>
+        <li><div><code>make_sentence</code></div></li>
         <li><div><code>get_determiner</code></div></li>
         <li><div><code>get_noun</code></div></li>
         <li><div><code>get_verb</code></div></li>
     </ol>
 
-    <p>You may add other program functions if you want. The functions
+    <p>You may add other functions if you want. The functions
     <code>get_determiner</code>, <code>get_noun</code>, and
     <code>get_verb</code>, must randomly choose a word from a list of
-    words and return the randomly chosen word.</p>
-
-    <p>In addition, for this milestone assignment, you must write a file
-    named <code>test_senetences.py</code> that contains three functions
-    named as follows:</p>
-    <ol>
-        <li><div><code>test_get_determiner</code></div></li>
-        <li><div><code>test_get_noun</code></div></li>
-        <li><div><code>test_get_verb</code></div></li>
-    </ol>
-
-    <p>All the functions that you must write for this milestone
-    assignment are described in the Steps section below.</p>
+    words and return the randomly chosen word. All the functions that
+    you must write for this milestone assignment are described in the
+    Steps section below.</p>
 
     <h2 id="helpful_docs">Helpful Documentation</h2>
     <ul class="mixed long">
@@ -128,6 +118,14 @@
 # the list to a variable named words.
 words = ["boy", "girl", "cat", "dog", "bird", "house"]</pre></div>
         </div></li>
+
+        <li class="tutorial"><div>The
+        <a href="../lesson02/prepare.html">preparation content for the
+        previous lesson</a> explains how to call functions.</div></li>
+
+        <li class="tutorial"><div>The
+        <a href="prepare.html">preparation content for this lesson</a>
+        explains how to write functions.</div></li>
 
         <li class="reference"><div>The standard Python
         <code>random</code> module includes a
@@ -158,31 +156,16 @@ word = "horse"
 <em>cap_word = word.capitalize()</em></pre></div>
         </div></li>
 
-        <li class="tutorial"><div>The
-        <a href="prepare.html">preparation content</a> for this lesson
-        explains how to use <code>pytest</code> and <code>assert</code>
-        to automatically verify that functions are correct. It also
-        contains an <a href="prepare.html#example">example test
-        function</a> and links to additional documentation about
-        <code>pytest</code>.</div></li>
+        <li class="tutorial"><div>In Python, it is easy to use an
+        <a href="https://realpython.com/python-f-strings/#f-strings-a-new-and-improved-way-to-format-strings-in-python">f-string</a>
+        to combine many strings into one large string like this:
+<div class="pre"><pre class="python">given = "Michelle"
+middle = "Aya"
+surname = "Takechi"
 
-        <li class="video"><div>This
-        <a href="https://video.byui.edu/media/t/1_9ickss60">video about
-        test functions</a> <span class="duration">(20 minutes)</span>
-        shows a BYU-Idaho faculty member writing two test functions and
-        using <code>pytest</code> to run them.</div></li>
+<em>full_name = f"{given} {middle} {surname}"</em></pre></div>
+        </div></li>
     </ul>
-
-    <h2 id="tutor">Help from a Tutor</h2>
-    <p>As a BYU-Idaho campus or online student you can get help from a
-    tutor to complete your CSE&nbsp;111 assignments. Each tutor is a
-    current BYU-Idaho student employed by BYU-Idaho. Meeting with a
-    tutor is free. It will not cost you any money to meet with a tutor.
-    To get help from a tutor, you simply make an appointment and then
-    meet with the tutor. Campus students meet with tutors in the
-    tutoring center. Online students meet with tutors in Zoom. To make
-    an appointment, follow the instructions in the
-    <a href="https://courses.byui.edu/AcademicSupport/tutoring-center/online-tutoring/online-courses-tutoring-guide.pdf">course tutoring guide</a>.</p>
 
     <h2 id="steps">Steps</h2>
     <p>Do the following:</p>
@@ -280,9 +263,29 @@ def get_verb(quantity, tense):
     """</pre></div>
         </div></li>
 
-        <li><div><p>Write the <code>main</code> function and any other
-        functions that you think are necessary for your program to
-        generate and print six sentences with these characteristics:</p>
+        <li><div>Write a function named <code>make_sentence</code> with
+        the following header and documentation string. Your
+        <code>make_sentence</code> function must call your
+        <code>get_determiner</code>, <code>get_noun</code>, and
+        <code>get_verb</code> function once each and build and return a
+        sentence. Your <code>make_sentence</code> function must
+        capitalize the first letter of the sentence and end it with a
+        period (.).
+
+<div class="pre"><pre class="python">
+def make_sentence(quantity, tense):
+    """Build and return a sentence with three words:
+    a determiner, a noun, and a verb. The grammatical
+    quantity of the determiner and noun will match the
+    number in the quantity parameter. The grammatical
+    quantity and tense of the verb will match the number
+    and tense in the quantity and tense parameters.
+    """</pre></div>
+        </div></li>
+
+        <li><div><p>Write the <code>main</code> function to call your
+        <code>make_sentence</code> function six times and print six
+        sentences with these characteristics:</p>
 
         <table class="center"><thead>
             <tr><th></th> <th>Quantity</th> <th>Verb Tense</th></tr>
@@ -297,107 +300,10 @@ def get_verb(quantity, tense):
         </div></li>
 
         <li><div>At the bottom of your <code>sentences.py</code> file,
-        write a call to your <code>main</code> function. Be certain to
-        write the call to the <code>main</code> function inside the body
-        of an <code>if</code> statement as explained in this lesson’s
-        preparation content in the section titled
-        <a href="prepare.html#separate">Separating Program Code from
-        Test Code</a>.</div></li>
-
-        <li><div><p>In a new file named <code>test_sentences.py</code>,
-        write three test functions named
-        <code>test_get_determiner</code>, <code>test_get_noun</code>,
-        and <code>test_get_verb</code>. Each of these three test
-        functions must test one of the program functions:
-        <code>get_determiner</code>, <code>get_noun</code>, and
-        <code>get_verb</code>.</p>
-
-        <p>Recall that each of the three program functions
-        (<code>get_determiner</code>, <code>get_noun</code>, and
-        <code>get_verb</code>) returns a word that the computer chooses
-        randomly from a list of words. The random nature of the program
-        functions makes the corresponding test functions a little
-        difficult to implement. How do we write code to verify that a
-        word chosen randomly is correct? One possible way is to verify
-        that the chosen word is from the correct list. For example, if
-        we write a call to the <code>get_determiner</code> function and
-        pass 1 as the quantity like this:</p>
-
-<div class="pre"><pre class="python">    determ = get_determiner(1)</pre></div>
-
-        <p>Then the word in the <var>determ</var> variable should be in
-        this list:</p>
-
-<div class="pre"><pre class="python">    ["a", "one", "the"]</pre></div>
-
-        <p>We can use the <code>assert</code> keyword and the Python
-        membership operator, which is the keyword <code>in</code>, to
-        verify that the word in the <var>determ</var> variable is in the
-        list, like this:</p>
-
-<div class="pre"><pre class="python">def test_get_determiner():
-    # Call the get_determiner function.
-    determ = get_determiner(1)
-
-    # Verify that the word stored in the variable
-    # determ is in the list of single determiners.
-    words = ["a", "one", "the"]
-    <em>assert determ in words</em></pre></div>
-
-        <p>The following example contains code for
-        the <code>test_get_determiner</code> function. Copy and paste
-        the code into your <code>test_sentences.py</code> file and use
-        it as an example to help you write <code>test_get_noun</code>
-        and <code>test_get_verb</code>.
-
-<div class="pre"><pre class="python">
-from sentences import get_determiner, get_noun, get_verb
-import random
-import pytest
-
-
-def test_get_determiner():
-    # 1. Test the single determiners.
-
-    single_determiners = ["a", "one", "the"]
-
-    # This loop will repeat the statements inside it 4 times.
-    # If a loop's counting variable is not used inside the
-    # body of the loop, many programmers will use underscore
-    # (_) as the variable name for the counting variable.
-    for _ in range(4):
-
-        # Call the get_determiner function which
-        # should return a single determiner.
-        word = get_determiner(1)
-
-        # Verify that the word returned from get_determiner
-        # is one of the words in the single_determiners list.
-        assert word in single_determiners
-
-    # 2. Test the plural determiners.
-
-    plural_determiners = ["some", "many", "the"]
-
-    # This loop will repeat the statements inside it 4 times.
-    for _ in range(4):
-
-        # Call the get_determiner function which
-        # should return a plural determiner.
-        word = get_determiner(2)
-
-        # Verify that the word returned from get_determiner
-        # is one of the words in the plural_determiners list.
-        assert word in plural_determiners</pre></div>
-        </div></li>
-
-        <li><div>At the bottom of your <code>test_sentences.py</code>
-        file, write a call to the <code>pytest.main</code> function like
-        this:
-<div class="pre"><pre class="python"># Call the main function that is part of pytest so that the
-# computer will execute the test functions in this file.
-pytest.main(["-v", "--tb=line", "-rN", __file__])</pre></div>
-        </div></li>
+        write a call to your <code>main</code> function as explained in
+        this lesson’s preparation content in the section titled
+        <a href="prepare.html#main">The <code>main</code> User-Defined
+        Function</a>.</div></li>
     </ol>
 
     <h2 id="testing">Testing Procedure</h2>
@@ -405,37 +311,6 @@ pytest.main(["-v", "--tb=line", "-rN", __file__])</pre></div>
     step in this procedure:</p>
 
     <ol class="test">
-        <li><div>Run your <code>test_sentences.py</code> program and
-        verify that all three of the test functions pass. If one or more
-        of the tests don’t pass, find and fix the mistakes in your
-        program functions or test functions until the tests pass as
-        shown in this output:
-
-<pre class="console">&gt; python test_sentences.py
-=================== test session starts ====================
-platform win32--Python 3.8.6, pytest-6.1.2, py-1.9.0, pluggy
-rootdir: C:\Users\cse111\lesson05
-collected 3 items
-
-test_sentences.py::test_get_determiner <span class="pass">PASSED         [ 33%]</span>
-test_sentences.py::test_get_noun <span class="pass">PASSED               [ 66%]</span>
-test_sentences.py::test_get_verb <span class="pass">PASSED               [100%]</span>
-
-<span class="pass">==================== 3 passed in 0.10s =====================</span></pre>
-
-        <p>Notice in the <code>pytest</code> output above that running
-        the test functions in <code>test_sentences.py</code> did not run
-        the <code>sentences.py</code> program. In other words, running
-        the test functions did not cause the program to print the pseudo
-        random sentences. If running your test functions causes your
-        program to print the pseudo random sentences, then at the bottom
-        of your <code>sentences.py</code> file you must rewrite the call
-        to your <code>main</code> function so that it is inside the body
-        of an <code>if</code> statement. In the preparation content for
-        this lesson, the section titled
-        <a href="prepare.html#separate">Separating Program Code from
-        Test Code</a> explains why and how.</div></li>
-
         <li><div>Run your <code>sentences.py</code> program and ensure
         that your program outputs six sentences with the following
         characteristics:
@@ -454,7 +329,7 @@ test_sentences.py::test_get_verb <span class="pass">PASSED               [100%]<
         Your program’s output should be similar to the sample run output
         shown here. However, because your program randomly chooses the
         determiners, nouns, and verbs, your program will generate
-        different sentences than the ones shown here.
+        different sentences than the six shown here.
 
 <pre class="console">&gt; python sentences.py
 The cat laughed.
@@ -466,18 +341,42 @@ Many men will write.</pre>
         </div></li>
     </ol>
 
+    <h2 id="call_graph">Call Graph</h2>
+    <p>The following call graph shows the function calls and returns as
+    you should write them in your <code>sentences.py</code> program.
+    From this call graph we see that the computer starts executing the
+    sample program by calling the <code>main</code> function. While
+    executing the <code>main</code> function, the computer calls the
+    <code>make_sentence</code> function. While executing the
+    <code>make_sentence</code> function, the computer calls the
+    <code>get_determiner</code>, <code>get_noun</code>, and
+    <code>get_verb</code> functions and the
+    <code>string.capitalize</code> method. While executing the
+    <code>get_determiner</code>, <code>get_noun</code>, and
+    <code>get_verb</code> functions, the computer calls the
+    <code>random.choice</code> function.</p>
+
+    <figure class="center callgraph" style="width:35em">
+        <img src="call_graph_prove_exper.svg"
+        alt="The call graph from a well-designed program that prints sentences"
+        title="The call graph from a well-designed program that prints sentences">
+        <figcaption>The call graph for a well-designed program. Because
+        the program is divided into small functions that each perform a
+        single task, the program is well-designed.</figcaption>
+    </figure>
+
     <h2 id="ponder">Ponder</h2>
-    <p>During this assignment, you wrote four program functions named
-    <code>main</code>, <code>get_determiner</code>,
-    <code>get_noun</code>, and <code>get_verb</code>. Also, in a
-    separate file, you wrote three test functions named
-    <code>test_get_determiner</code>, <code>test_get_noun</code>, and
-    <code>test_get_verb</code>. Each of the test functions called one of
-    the program functions and automatically verified that the value
-    returned from the program function was correct. If you worked as a
-    software developer on a large project with four other software
-    developers, how would test functions help you and the other
-    developers write better code?</p>
+    <p>During this assignment, you wrote five functions named
+    <code>main</code>, <code>make_sentence</code>,
+    <code>get_determiner</code>, <code>get_noun</code>, and
+    <code>get_verb</code>. The <code>main</code> function is not easily
+    reusable in another program because it prints to the terminal
+    window. However, the <code>make_sentence</code>,
+    <code>get_determiner</code>, <code>get_noun</code>, and
+    <code>get_verb</code> functions are easily reusable in another
+    program because each one gets input from its parameters and returns
+    a value and does not get input from a user and does not print
+    anything.</p>
 
     <h2 id="submit">Submission</h2>
     <p>On or before the due date, return to I‑Learn and report your

@@ -314,18 +314,26 @@ Enter the radius in centimeters: <span class="input">3</span>
 Enter the height in centimeters: <span class="input">8</span>
 Volume: 226.19</pre>
 
-    <p>Writing statements outside a function can lead to poor
-    organization within a large program. Professional software
-    developers write statements inside a function whenever possible.
-    Beginning with this lesson, you will write nearly all statements
-    inside a user-defined function. Also, in each program, you will
-    write a user-defined function named <code>main</code>, which will
-    contain the beginning statements of the program. In addition, in
-    each program you will write one or more user-defined functions that
-    have parameteters, perform calculations and other useful work, and
-    return a result to the call point. Example&nbsp;5 contains the same
-    Python program as example&nbsp;4 except most of the statements are
-    inside a user-defined function named <code>main</code>.</p>
+    <p>In a large program, writing statements outside a function can
+    lead to poor organization. Professional software developers write
+    statements inside a function whenever possible. Beginning with this
+    lesson, you will do the following in each program:</p>
+    <ol>
+        <li><div>Write nearly all statements inside a user-defined
+        function.</div></li>
+        <li><div>Write a user-defined function named <code>main</code>,
+        which contains the beginning statements of your
+        program.</div></li>
+        <li><div>Write one or more user-defined functions that have
+        parameteters, perform calculations and other useful work, and
+        return a result to the call point.</div></li>
+        <li><div>Write a call to the <code>main</code> function at the
+        bottom of your program.</div></li>
+    </ol>
+
+    <p>Example&nbsp;5 contains the same Python program as example&nbsp;4
+    except most of the statements are inside a user-defined function
+    named <code>main</code>.</p>
 
 <div class="pre" id="ex5"><pre class="linenums"></pre>
 <pre class="python"># Example 5
@@ -353,13 +361,14 @@ Enter the radius in centimeters: <span class="input">3</span>
 Enter the height in centimeters: <span class="input">8</span>
 Volume: 226.19</pre>
 
-    <p>Notice the call to the <code>main</code> function at
-    <span class="cross" data-ref="ex5">line&nbsp;19</span> in
-    example&nbsp;5. Without that call to the <code>main</code> function,
-    when we run the program, the program will do nothing. In all of your
-    future programs in CSE&nbsp;111 you will write a user-defined
-    function named <code>main</code> and will have a call to
-    <code>main</code> at the bottom of the program.</p>
+    <p>Notice the call to the <code>main</code> function in
+    example&nbsp;5 at
+    <span class="cross" data-ref="ex5">line&nbsp;19</span>. Without that
+    call to the <code>main</code> function, when we run the program, the
+    program will do nothing. In all of your future programs in
+    CSE&nbsp;111 you will write a user-defined function named
+    <code>main</code> and will write a call to <code>main</code> at the
+    bottom of the program.</p>
 
     <h3 id="user_func_ex">A Complete Program with User-Defined Functions</h3>
     <p>If you look closely at the code in examples&nbsp;1 and&nbsp;5,
