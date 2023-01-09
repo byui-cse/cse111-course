@@ -11,7 +11,6 @@ if (! window.hasOwnProperty('cse111')) {
 cse111.strings = {
 	byuiEntity  : '&#xe000;',
 	byuiURL     : 'https://www.byui.edu',
-	byuiName    : 'Brigham Young University–Idaho',
 	byuiHint    : 'BYU-Idaho Website',
 	courseCode  : 'CSE 111',
 	courseTitle : 'Programming with Functions',
@@ -54,8 +53,7 @@ cse111.strings = {
 	downloadText : 'Download',
 
 	modified  : 'Last modified',
-	copyright : 'Copyright ©',
-	rights    : 'All rights reserved.'
+	copyrightNotice : 'Copyright © 2019 Brigham Young University–Idaho. All rights reserved.'
 };
 
 
@@ -365,21 +363,15 @@ cse111.common = {
 					src : filenames.upIcon});
 			up.addEventListener('click', function() {window.scrollTo(0, 0);});
 
-			const dates = this.getCopyrightDates();
-			let mod = createText(strings.modified + ' ' + dates.modified);
+			const copyData = this.getCopyrightData();
+			let mod = createText(strings.modified + ' ' + copyData.modified);
 			let br = createElem('br');
-			let copy = createText(strings.copyright +' '+ dates.year + ', ');
-			let anchor = createElem('a', null,
-					{title : strings.byuiHint, href : strings.byuiURL});
-			anchor.innerText = strings.byuiName;
-			let rights = createText('. ' + strings.rights);
+			let copy = createText(copyData.notice);
 
 			let div = createElem('div');
 			div.appendChild(mod);
 			div.appendChild(br);
 			div.appendChild(copy);
-			div.appendChild(anchor);
-			div.appendChild(rights);
 
 			footer = createElem('footer');
 			footer.appendChild(up);
@@ -390,27 +382,25 @@ cse111.common = {
 	},
 
 
-	/** Gets the copyright year and the last modified date, from the
+	/** Gets the copyright notice and the last modified date, from the
 	 * search engine structured data in this document's head. Returns
 	 * the two values in an object. */
-	getCopyrightDates : function() {
-		let copyYear = 2019;
-		let modified = '2022-09-26';
+	getCopyrightData : function() {
+		const strings = cse111.strings;
+		let notice = strings.copyrightNotice;
+		let modified = 'unknown';
 		const query = 'script[type="application/ld+json"]';
 		const script = document.head.querySelector(query);
 		if (script) {
 			const object = JSON.parse(script.innerHTML);
-			if (object.hasOwnProperty('copyrightYear')) {
-				copyYear = object.copyrightYear;
-			}
-			else if (object.hasOwnProperty('datePublished')) {
-				copyYear = parseInt(object.datePublished);
+			if (object.hasOwnProperty('copyrightNotice')) {
+				notice = object.copyrightNotice;
 			}
 			if (object.hasOwnProperty('dateModified')) {
 				modified = object.dateModified;
 			}
 		}
-		return {year: copyYear, modified: modified};
+		return {notice: notice, modified: modified};
 	}
 };
 
