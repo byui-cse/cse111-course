@@ -90,7 +90,7 @@
     Many dogs run.<br>
     Many men will write.</blockquote>
 
-    <p>For this milestone, your program must include at least these four
+    <p>For this milestone, your program must include at least these five
     functions:</p>
     <ol>
         <li><div><code>main</code></div></li>
@@ -342,27 +342,43 @@ Many men will write.</pre>
     </ol>
 
     <h2 id="call_graph">Call Graph</h2>
-    <p>The following call graph shows the function calls and returns as
-    you should write them in your <code>sentences.py</code> program.
-    From this call graph we see that the computer starts executing the
-    sample program by calling the <code>main</code> function. While
-    executing the <code>main</code> function, the computer calls the
-    <code>make_sentence</code> function. While executing the
-    <code>make_sentence</code> function, the computer calls the
-    <code>get_determiner</code>, <code>get_noun</code>, and
-    <code>get_verb</code> functions and the
-    <code>string.capitalize</code> method. While executing the
-    <code>get_determiner</code>, <code>get_noun</code>, and
-    <code>get_verb</code> functions, the computer calls the
-    <code>random.choice</code> function.</p>
+    <p>The following call graph shows the user-defined functions and
+    function calls and returns as you should write them in your
+    <code>sentences.py</code> program. From this call graph we see the
+    following function calls:</p>
+
+    <ol>
+        <li><div>The computer starts executing the
+        <code>sentences.py</code> program by calling the
+        <code>main</code> function.</li></div>
+
+        <li><div>While executing the <code>main</code> function, the
+        computer calls the <code>make_sentence</code>
+        function.</li></div>
+
+        <li><div>While executing the <code>make_sentence</code>
+        function, the computer calls the <code>get_determiner</code>,
+        <code>get_noun</code>, and <code>get_verb</code>
+        functions.</div></li>
+
+        <li><div>While executing each of the
+        <code>get_determiner</code>, <code>get_noun</code>, and
+        <code>get_verb</code> functions, the computer calls the
+        <code>random.choice</code> function.</div></li>
+
+        <li><div>Then, the computer executes the
+        <code>str.capitalize</code> method.</div></li>
+
+        <li><div>Finally, the computer executes the <code>print</code>
+        function.</div></li>
+    </ol>
 
     <figure class="center callgraph" style="width:35em">
         <img src="call_graph_prove_exper.svg"
-        alt="The call graph from a well-designed program that prints sentences"
-        title="The call graph from a well-designed program that prints sentences">
-        <figcaption>The call graph for a well-designed program. Because
-        the program is divided into small functions that each perform a
-        single task, the program is well-designed.</figcaption>
+        alt="The call graph for a program that builds and prints sentences"
+        title="The call graph for a program that builds and prints sentences">
+        <figcaption class="center">The call graph for a program that
+        builds and prints sentences.</figcaption>
     </figure>
 
     <h2 id="ponder">Ponder</h2>
