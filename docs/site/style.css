@@ -226,7 +226,7 @@ body {
 }
 
 
-/** Paragraph classes that are used by combined/title.html which
+/* Paragraph classes that are used by combined/title.html which
  * is a title page that is used when the content for this course
  * is printed. */
 section p.courseCode {
@@ -759,6 +759,7 @@ article code {
 article pre {
 	font-family: "Source Code Pro", "Lucida Console", Consolas, monospace;
 	line-height: 1.15;
+	overflow: auto hidden;
 }
 @media screen {
 	article code,
@@ -807,18 +808,20 @@ article pre.console span.fail {
 
 /* Containers for line numbers and Python source code */
 article div.pre {
-	display: table;
-	position: relative;
+	position: relative;  /* Necessary for button.copy */
 	margin: 0 auto 1em 1.25em;
 	border: 1px solid var(--border-color);
 	background-color: var(--python-bk-color);
 	padding: 0.25em 0.5em;
+	white-space: nowrap;   /* Never separate line numbers from code. */
+	overflow: auto hidden; /* Show a horizontal scrollbar when needed. */
 }
 article div.pre.solution {
 	margin: 1em 0;
 }
 
 @media screen {
+	/* A button that copies code to the clipboard. */
 	article div.pre > button.copy {
 		position: absolute;
 		top: 0.5em;
@@ -843,7 +846,7 @@ article div.pre.solution {
 }
 
 article div.pre > pre {
-	display: table-cell;
+	display: inline-block;
 }
 
 article div.pre > pre.linenums {
@@ -901,7 +904,7 @@ article table > tbody > tr > th {
 	font-weight: bold;
 }
 
-article table.contents tbody > tr > th {
+article table.contents tbody > tr > th[colspan="3"] {
 	font-weight: bold;
 	font-size: 120%;
 	color: var(--heading-fg-color);
@@ -952,20 +955,18 @@ article figure.list > table > tbody > tr > td.label {
 
 @media screen {
 	footer {
-		position: relative;
 		max-width: 40em;
 		margin: 2em auto 1em auto;
 		padding: 0 1em;
 	}
 	footer img.up {
-		position: absolute;
-		right: 1em;
-		bottom: 0;
-		margin-left: 1em;
+		float: right;
+		margin: 0.5em 0 0 1em;
 		width: 1em;
 		cursor: pointer;
 	}
 	footer div {
+		display: inline-block;
 		font-size: 80%;
 		margin: 0 auto;
 		width: fit-content;
