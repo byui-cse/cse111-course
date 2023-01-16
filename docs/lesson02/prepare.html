@@ -88,13 +88,15 @@
     that called the built-in <code>input</code> and <code>print</code>
     functions like this:</p>
 
-<div class="pre" id="ex1"><pre class="python">
+<div class="example" id="ex1">
+<pre class="python">
 name = input("Please enter your name: ")
-print(f"Hello {name}")</pre></div>
+print(f"Hello {name}")</pre>
 
-<pre class="console" data-for="ex1">&gt; python example_1.py
+<pre class="console">&gt; python example_1.py
 Please enter your name: <span class="input">Miyuki</span>
 Hello Miyuki</pre>
+</div>
 
     <p>To call a function you must know the following three things:</p>
     <ol>
@@ -155,7 +157,9 @@ Hello Miyuki</pre>
     enter your name: "</code> as the argument for the <var>prompt</var>
     parameter.</p>
 
-<div class="pre"><pre class="python">name = input("Please enter your name: ")</pre></div>
+<div class="example"><pre class="python">
+name = input("Please enter your name: ")
+</pre></div>
 
     <p>When a function has more than one parameter and a programmer
     writes code to call that function, the programmer nearly always
@@ -187,15 +191,16 @@ Hello Miyuki</pre>
     rounds that number to two digits after the decimal, and then prints
     the rounded number.</p>
 
-<div class="pre" id="ex2"><pre class="linenums"></pre>
+<div class="example" id="ex2"><pre class="linenums"></pre>
 <pre class="python">
 n = float(input("Please enter a number: "))
 r = round(n, 2)
-print(r)</pre></div>
+print(r)</pre>
 
-<pre class="console" data-for="ex2">&gt; python example_2.py
+<pre class="console">&gt; python example_2.py
 Please enter a number: <span class="input">95.716</span>
 95.72</pre>
+</div>
 
     <p>In the previous example,</p>
     <ul>
@@ -244,15 +249,16 @@ Please enter a number: <span class="input">95.716</span>
     number in its first parameter to an integer, which is shown in the
     output below.</p>
 
-<div class="pre" id="ex3"><pre class="linenums"></pre>
+<div class="example" id="ex3"><pre class="linenums"></pre>
 <pre class="python">
 n = float(input("Please enter a number: "))
 r = round(n)
-print(r)</pre></div>
+print(r)</pre>
 
-<pre class="console" data-for="ex3">&gt; python example_3.py
+<pre class="console">&gt; python example_3.py
 Please enter a number: <span class="input">95.716</span>
 96</pre>
+</div>
 
     <h3 id="named_args">Named Arguments</h3>
     <p>For some optional arguments, we must pass a <dfn>named
@@ -277,14 +283,15 @@ Please enter a number: <span class="input">95.716</span>
     three words all separated by a vertical bar (|). Notice the named
     arguments <var>sep</var> and <var>flush</var>.</p>
 
-<div class="pre" id="ex4"><pre class="python">
+<div class="example" id="ex4"><pre class="python">
 x = "sun"
 y = "moon"
 z = "stars"
-print(x, y, z, sep="|", flush=True)</pre></div>
+print(x, y, z, sep="|", flush=True)</pre>
 
-<pre class="console" data-for="ex4">&gt; python example_4.py
+<pre class="console">&gt; python example_4.py
 sun|moon|stars</pre>
+</div>
 
     <h3 id="call_module_func">How to Call a Function that Is inside a Module</h3>
     <p>A Python <dfn>module</dfn> is a collection of related functions.
@@ -322,12 +329,16 @@ sun|moon|stars</pre>
     then type <code>math.</code> in front of <code>sqrt</code> like
     this:</p>
 
-<div class="pre" id="ex5"><pre class="python">import math
+<div class="example" id="ex5">
+<pre class="python">
+import math
 
 r = math.sqrt(71)
-print(r)</pre></div>
-<pre class="console" data-for="ex5">&gt; python example_5.py
+print(r)</pre>
+
+<pre class="console">&gt; python example_5.py
 8.426149773176359</pre>
+</div>
 
     <p>In the above example, 71 is the argument that will be passed
     through the parameter <var>x</var> into the <code>math.sqrt</code>
@@ -352,7 +363,7 @@ print(r)</pre></div>
     from a user and prints the number of characters in the string and
     prints the string in all upper case characters.</p>
 
-<div class="pre" id="ex6"><pre class="linenums"></pre>
+<div class="example" id="ex6"><pre class="linenums"></pre>
 <pre class="python"># Example 6
 
 # Get a string of text from the user.
@@ -369,11 +380,12 @@ text2 = <em>text1.upper()</em>
 # Call the built-in print function to print
 # the length of the text and the text in all
 # upper case for the user to see.
-print(length, text2)</pre></div>
+print(length, text2)</pre>
 
 <pre class="console">&gt; python example_6.py
 Enter a motivational quote: <span class="input">Rise, take up thy bed, and walk.</span>
 32 RISE, TAKE UP THY BED, AND WALK.</pre>
+</div>
 
     <p>Notice the code on
     <span class="cross" data-ref="ex6">line&nbsp;8</span>
@@ -398,7 +410,9 @@ Enter a motivational quote: <span class="input">Rise, take up thy bed, and walk.
     parentheses. In other words, if you write a line of code to call the
     <code>upper</code> method but don’t type the empty parentheses, like
     this:</p>
-<div class="pre"><pre class="python">text2 = text1.upper  # Does NOT call the upper method</pre></div>
+<div class="example"><pre class="python">
+text2 = text1.upper  # Does NOT call the upper method
+</pre></div>
 
     <p>the computer will not call the <code>upper</code> method. Instead
     the computer will assign a reference to the <code>upper</code>
@@ -410,14 +424,16 @@ Enter a motivational quote: <span class="input">Rise, take up thy bed, and walk.
     <p>All the previous examples in this preparation content use the
     assignment operator (=) to store the value returned from a function
     in a variable. For example:</p>
-<div class="pre"><pre class="python"><em>text =</em> input("Enter a motivational quote: ")</pre></div>
+<div class="example"><pre class="python">
+<em>text =</em> input("Enter a motivational quote: ")
+</pre></div>
 
     <p>While it’s usually a good practice, you don’t <em>have</em> to
     store the value that is returned from a function in a variable.
     Sometimes you will see it used directly as shown in example&nbsp;7 at
     lines <span class="cross" data-ref="ex7">10,&nbsp;14, and&nbsp;16</span>.
 
-<div class="pre" id="ex7"><pre class="linenums"></pre>
+<div class="example" id="ex7"><pre class="linenums"></pre>
 <pre class="python"># Example 7
 
 import math
@@ -436,12 +452,13 @@ if <em>math.sqrt(number)</em> &lt; 100:
 elif <em>math.sqrt(number)</em> &gt; 100:
     print(f"The square root is more than 100.")
 else:
-    print(f"The square root is exactly 100.")</pre></div>
+    print(f"The square root is exactly 100.")</pre>
 
-<pre class="console" data-for="ex7">&gt; python example_7.py
+<pre class="console">&gt; python example_7.py
 Enter a number: <span class="input">675</span>
 25.98076211353316
 The square root is less than 100.</pre>
+</div>
 
     <p>Notice in example&nbsp;7, there are three statements that call
     the <code>math.sqrt</code> function, one at
@@ -461,7 +478,7 @@ The square root is less than 100.</pre>
     <span class="cross" data-ref="ex8">10,&nbsp;12,&nbsp;14,
     and&nbsp;16</span>.</p>
 
-<div class="pre" id="ex8"><pre class="linenums"></pre>
+<div class="example" id="ex8"><pre class="linenums"></pre>
 <pre class="python"># Example 8
 
 import math
@@ -480,12 +497,13 @@ if <em>root</em> &lt; 100:
 elif <em>root</em> &gt; 100:
     print(f"The square root is more than 100.")
 else:
-    print(f"The square root is exactly 100.")</pre></div>
+    print(f"The square root is exactly 100.")</pre>
 
-<pre class="console" data-for="ex8">&gt; python example_8.py
+<pre class="console">&gt; python example_8.py
 Enter a number: <span class="input">675</span>
 The square root is 25.98
 The square root is less than 100.</pre>
+</div>
 
     <h2 id="video">Video</h2>
     <p>The following video shows a BYU-Idaho student writing Python code
@@ -517,19 +535,24 @@ The square root is less than 100.</pre>
     <ol>
         <li><div>To call a built-in function, write code that
         follows this template:
-<div class="pre"><pre class="python"><var>variable_name</var> = <var>function_name</var>(<var>arg1</var>, <var>arg2</var>, &hellip; <var>argN</var>)</pre></div>
+<div class="example"><pre class="python">
+<var>variable_name</var> = <var>function_name</var>(<var>arg1</var>, <var>arg2</var>, &hellip; <var>argN</var>)
+</pre></div>
         </div></li>
 
         <li><div>To call a function from a module, import the module
         and write code that follows this template:
-<div class="pre"><pre class="python">
+<div class="example"><pre class="python">
 import <var>module_name</var>
 
-<var>variable_name</var> = <var>module_name</var>.<var>function_name</var>(<var>arg1</var>, <var>arg2</var>, &hellip; <var>argN</var>)</pre></div>
+<var>variable_name</var> = <var>module_name</var>.<var>function_name</var>(<var>arg1</var>, <var>arg2</var>, &hellip; <var>argN</var>)
+</pre></div>
         </div></li>
 
         <li><div>To call a method, write code that follows this template:
-<div class="pre"><pre class="python"><var>variable_name</var> = <var>object_name</var>.<var>method_name</var>(<var>arg1</var>, <var>arg2</var>, &hellip; <var>argN</var>)</pre></div>
+<div class="example"><pre class="python">
+<var>variable_name</var> = <var>object_name</var>.<var>method_name</var>(<var>arg1</var>, <var>arg2</var>, &hellip; <var>argN</var>)
+</pre></div>
         </div></li>
     </ol>
 </article>

@@ -424,6 +424,10 @@ article details {
 	margin-bottom: 1em;
 }
 
+article .clear {
+	clear: both;
+}
+
 
 /* Lists */
 article ol {
@@ -755,25 +759,19 @@ article code {
 	white-space: nowrap;
 }
 
-
 article pre {
+	padding: 0.25em 0.5em;
 	font-family: "Source Code Pro", "Lucida Console", Consolas, monospace;
 	line-height: 1.15;
-	overflow: auto hidden;
+	overflow: auto hidden;  /* Show a horizontal scroll bar when needed. */
 }
 @media screen {
 	article code,
-	article pre {
-		font-size: 95%;
-	}
+	article pre  { font-size: 95%; }
 }
 @media print {
-	article code {
-		font-size: 78%;
-	}
-	article pre {
-		font-size: 75%;
-	}
+	article code { font-size: 78%; }
+	article pre  { font-size: 75%; }
 }
 
 article pre em,
@@ -782,47 +780,83 @@ article code em {
 	font-style: normal;
 }
 
+article div.example {
+	position: relative;  /* Necessary for button.copy */
+	margin: 1em auto 1em 1.25em;
+	display: grid;
+	grid-template-columns: auto 1fr;
+	max-width: fit-content;
+}
+article li div.example {
+	margin-left: 0;  /* In a list, don't indent example code. */
+}
+
+article div.example > pre.linenums {
+	grid-column: 1;
+	border-color: var(--border-color);
+	border-style: solid;
+	border-width: 1px 0 1px 1px;
+	padding-right: 1.25em;
+	text-align: right;
+	background-color: var(--python-bk-color);
+	color: var(--border-color);
+}
+article div.example > pre.linenums > .hi {
+	background-color: var(--line-number-hilite);
+	color: white;
+}
+
+article div.example > pre:first-child.csv,
+article div.example > pre:first-child.sql,
+article div.example > pre:first-child.python {
+	grid-column: 1 / span 2;
+	border: 1px solid var(--border-color);
+	background-color: var(--python-bk-color);
+}
+article div.example > pre:nth-child(2).python {
+	grid-column: 2;
+	border-color: var(--border-color);
+	border-style: solid;
+	border-width: 1px 1px 1px 0;
+	padding-left: 0;
+	background-color: var(--python-bk-color);
+}
+
+/* Span classes used by the JavaScript code in scope.js
+ * to show global and local variable scope to students. */
+article div.example > pre.python span.hiScope  { background-color: yellow; }
+article div.example > pre.python span.hiVarDef { background-color: orange; }
+article div.example > pre.python span.hiVarUse { background-color: yellow; }
+article div.example > pre.python span.hiError  { background-color: red; }
+
+
 /* Container for console (terminal) input and output. */
 article pre.console {
 	margin: 1em 0 1em 1.25em;
 	border: 1px solid var(--border-color);
 	background-color: var(--console-bk-color);
-	padding: 0.25em 0.5em;
-	page-break-inside: avoid !important;
+}
+article li pre.console {
+	margin-left: 0;  /* In a list, don't indent pre.console elements. */
+}
+article div.example > pre.console {
+	grid-column: 1 / span 2;
+	margin: 1em 0 0 0;  /* In an example, don't indent pre.console elements. */
 }
 
-article pre.console span.input {
+article pre.console > span.input {
 	border: 1px solid var(--border-color);
 	padding: 0 0.25em;
 	background-color: var(--user-input-bk-color);
 	color: var(--user-input-fg-color);
 }
 
-article pre.console span.pass {
-	color: green;
-}
-
-article pre.console span.fail {
-	color: red;
-}
-
-/* Containers for line numbers and Python source code */
-article div.pre {
-	position: relative;  /* Necessary for button.copy */
-	margin: 0 auto 1em 1.25em;
-	border: 1px solid var(--border-color);
-	background-color: var(--python-bk-color);
-	padding: 0.25em 0.5em;
-	white-space: nowrap;   /* Never separate line numbers from code. */
-	overflow: auto hidden; /* Show a horizontal scrollbar when needed. */
-}
-article div.pre.solution {
-	margin: 1em 0;
-}
+article pre.console > span.pass { color: green; }
+article pre.console > span.fail { color: red; }
 
 @media screen {
 	/* A button that copies code to the clipboard. */
-	article div.pre > button.copy {
+	article div.example > button.copy {
 		position: absolute;
 		top: 0.5em;
 		right: 0.25em;
@@ -831,43 +865,19 @@ article div.pre.solution {
 		background-color: var(--light-bk-color);
 	}
 
-	article div.pre:hover > button.copy {
+	article div.example:hover > button.copy {
 		visibility: visible;
 	}
 
-	article div.pre > button.copy > img {
+	article div.example > button.copy > img {
 		width: 2em;
 	}
 }
 @media print {
-	article div.pre > button.copy {
+	article div.example > button.copy {
 		display: none;
 	}
 }
-
-article div.pre > pre {
-	display: inline-block;
-}
-
-article div.pre > pre.linenums {
-	padding-right: 1.25em;
-	text-align: right;
-	color: var(--border-color);
-}
-
-article div.pre > pre.linenums > .hi {
-	background-color: var(--line-number-hilite);
-	color: white;
-}
-
-article div.pre > pre.python {
-	min-width: 18em;
-}
-
-article pre.python span.hiScope  { background-color: yellow; }
-article pre.python span.hiVarDef { background-color: orange; }
-article pre.python span.hiVarUse { background-color: yellow; }
-article pre.python span.hiError  { background-color: red; }
 
 
 /* Tables */

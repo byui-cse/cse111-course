@@ -173,7 +173,7 @@
     <h3>My function can’t be tested because it:</h3>
     <details open>
         <summary>Calculates numbers</summary>
-<div class="pre"><pre class="python">
+<div class="example"><pre class="python">
 def payment(amt, ar, y, ppy):
     """Computes and returns the payment amount
     for a loan with a fixed annual interest rate.
@@ -181,18 +181,20 @@ def payment(amt, ar, y, ppy):
     r = ar / ppy
     n = y * ppy
     p = amt * r / (1 - (1 + r) ** -n)
-    return round(p, 2)</pre></div>
+    return round(p, 2)
+</pre></div>
 
-<div class="pre"><pre class="python">
+<div class="example"><pre class="python">
 def test_payment():
     """Verify that the payment function works correctly."""
     assert payment(10_000, 0.07, 4, 12) == 239.46
-    assert payment(80_000, 0.04, 15, 4) == 1779.56</pre></div>
+    assert payment(80_000, 0.04, 15, 4) == 1779.56
+</pre></div>
     </details>
 
     <details>
         <summary>Processes text instead of numbers</summary>
-<div class="pre"><pre class="python">
+<div class="example"><pre class="python">
 def prefix(s1, s2):
     """Return the prefix, if any, that appears in both
     s1 and s2. In other words, return a string of the
@@ -210,7 +212,7 @@ def prefix(s1, s2):
         i += 1
     return s1[0:i]</pre></div>
 
-<div class="pre"><pre class="python">
+<div class="example"><pre class="python">
 def test_prefix():
     """Verify that the prefix function works correctly."""
     assert prefix("", "") == ""
@@ -221,12 +223,13 @@ def test_prefix():
     assert prefix("dogmatic", "dog") == "dog"
     assert prefix("jump", "joyous") == "j"
     assert prefix("unwise", "ungrateful") == "un"
-    assert prefix("Disable", "dIstasteful") == "dis"</pre></div>
+    assert prefix("Disable", "dIstasteful") == "dis"
+</pre></div>
     </details>
 
     <details>
         <summary>Gets user input from a terminal</summary>
-<div class="pre"><pre class="python">
+<div class="example"><pre class="python">
 def get_int(prompt, min, max):
     """Prompt the user for an integer, verify that it is
     between min and max inclusive, and return the integer.
@@ -246,9 +249,10 @@ def get_int(prompt, min, max):
                 done = True
         except ValueError as val_err:
             print(f"Invalid integer: {text}. Please try again.")
-    return number</pre></div>
+    return number
+</pre></div>
 
-<div class="pre"><pre class="python">
+<div class="example"><pre class="python">
 from io import StringIO
 import re
 import sys
@@ -276,12 +280,13 @@ def test_get_int(monkeypatch):
         + prompt + "\\s*"
     output = stdout.getvalue()
     assert re.compile(pattern).match(output) != None
-    assert num == 8</pre></div>
+    assert num == 8
+</pre></div>
     </details>
 
     <details>
         <summary>Gets user input from a GUI</summary>
-<div class="pre"><pre class="python">
+<div class="example"><pre class="python">
 """
 In order to test a program that gets user input from a
 graphical user interface, separate the event functions (the
@@ -316,18 +321,20 @@ def tire_volume(width, ratio, diam):
     """Compute and return the approximate volume of a tire."""
     vol = (math.pi * width * width * ratio *
             (width * ratio + 2540 * diam)) / 10_000_000
-    return vol</pre></div>
+    return vol
+</pre></div>
 
-<div class="pre"><pre class="python">
+<div class="example"><pre class="python">
 def test_tire_volume():
     """Verify that the tire_volume function works correctly."""
     assert tire_volume(185, 60, 14) == approx(30101.58, 0.01)
-    assert tire_volume(205, 60, 15) == approx(39924.49, 0.01)</pre></div>
+    assert tire_volume(205, 60, 15) == approx(39924.49, 0.01)
+</pre></div>
     </details>
 
     <details>
         <summary>Writes to a file</summary>
-<div class="pre"><pre class="python">
+<div class="example"><pre class="python">
 def write_file(filename, lines):
     """Create a file and write lines of text to it.
     Parameter
@@ -336,9 +343,10 @@ def write_file(filename, lines):
     """
     with open(filename, "wt") as outfile:
         for text in lines:
-            print(text, file=outfile)</pre></div>
+            print(text, file=outfile)
+</pre></div>
 
-<div class="pre"><pre class="python">
+<div class="example"><pre class="python">
 import os
 
 def test_write_file():
@@ -377,12 +385,13 @@ def test_write_file():
 
     # Verify that write_file correctly
     # wrote the fruits.txt file.
-    assert lines == written</pre></div>
+    assert lines == written
+</pre></div>
     </details>
 
     <details>
         <summary>Reads from a file</summary>
-<div class="pre"><pre class="python">
+<div class="example"><pre class="python">
 def read_file(filename):
     """Reads and returns the contents
     of a text file as a list of strings.
@@ -400,7 +409,7 @@ def read_file(filename):
 
     return lines</pre></div>
 
-<div class="pre"><pre class="python">
+<div class="example"><pre class="python">
 import os
 
 def test_read_file():
@@ -418,12 +427,13 @@ def test_read_file():
     os.remove(filename)
 
     # Verify that read_file read the file correctly.
-    assert read == lines</pre></div>
+    assert read == lines
+</pre></div>
     </details>
 
     <details>
         <summary>Uses the <code>pandas</code> module</summary>
-<div class="pre"><pre class="python">
+<div class="example"><pre class="python">
 def filter_for_meter(df, meter_number):
     """Return a new DataFrame that contains only the rows
     where the meterNumber column equals the parameter
@@ -437,9 +447,10 @@ def filter_for_meter(df, meter_number):
     """
     filter = (df["meterNumber"] == meter_number)
     filtered_df = df[filter]
-    return filtered_df</pre></div>
+    return filtered_df
+</pre></div>
 
-<div class="pre"><pre class="python">
+<div class="example"><pre class="python">
 import pandas as pd
 
 def test_filter_for_meter():
@@ -461,7 +472,8 @@ def test_filter_for_meter():
     # Verify that all the meter numbers in the
     # filtered data frame are the correct number.
     for value in filtered_df["meterNumber"]:
-        assert value == meter_num</pre></div>
+        assert value == meter_num
+</pre></div>
     </details>
 
     <details>

@@ -123,10 +123,11 @@
         lists. You should recall that we create a Python list with
         square brackets and commas like this list of strings:
 
-<div class="pre"><pre class="python">
+<div class="example"><pre class="python">
 # Create a list of strings and assign
 # the list to a variable named words.
-words = ["boy", "girl", "cat", "dog", "bird", "house"]</pre></div>
+words = ["boy", "girl", "cat", "dog", "bird", "house"]
+</pre></div>
         </div></li>
 
         <li class="reference"><div>The standard Python
@@ -134,7 +135,7 @@ words = ["boy", "girl", "cat", "dog", "bird", "house"]</pre></div>
         <a href="https://docs.python.org/3/library/random.html#random.choice"><code>function named choice</code></a>
         that randomly chooses one element from a list and returns that
         element. The choice function is easy to call like this:
-<div class="pre"><pre class="python">import random
+<div class="example"><pre class="python">import random
 
 # Create a list of strings and assign
 # the list to a variable named words.
@@ -143,19 +144,22 @@ words = ["boy", "girl", "cat", "dog", "bird", "house"]
 # Call the random.choice function which will choose
 # one string from the words list. Store the chosen
 # string in a variable named word.
-word = <em>random.choice(words)</em></pre></div>
+word = <em>random.choice(words)</em>
+</pre></div>
         </div></li>
 
         <li class="reference"><div>The Python
         <a href="https://docs.python.org/3/library/stdtypes.html#str.capitalize">str.capitalize method</a>
         will capitalize the first letter in a word. The capitalize
         method is easy to call like this:
-<div class="pre"><pre class="python"># This could be any word from any source.
+<div class="example"><pre class="python">
+# This could be any word from any source.
 word = "horse"
 
 # Call the capitalize method which will
 # capitalize the first letter of the word.
-<em>cap_word = word.capitalize()</em></pre></div>
+<em>cap_word = word.capitalize()</em>
+</pre></div>
         </div></li>
 
         <li class="tutorial"><div>The
@@ -194,7 +198,7 @@ word = "horse"
         <li><div>Copy and paste the following
         <code>get_determiner</code> function into your program.
 
-<div class="pre"><pre class="python">
+<div class="example"><pre class="python">
 def get_determiner(quantity):
     """Return a randomly chosen determiner. A determiner is
     a word like "the", "a", "one", "some", "many".
@@ -217,7 +221,8 @@ def get_determiner(quantity):
 
     # Randomly choose and return a determiner.
     word = random.choice(words)
-    return word</pre></div>
+    return word
+</pre></div>
         </div></li>
 
         <li><div>Use the <code>get_determiner</code> function as an
@@ -226,7 +231,7 @@ def get_determiner(quantity):
         header and fulfill the requirements of the following
         documentation string.
 
-<div class="pre"><pre class="python">
+<div class="example"><pre class="python">
 def get_noun(quantity):
     """Return a randomly chosen noun.
     If quantity is 1, this function will
@@ -242,7 +247,8 @@ def get_noun(quantity):
         quantity: an integer that determines if
             the returned noun is single or plural.
     Return: a randomly chosen noun.
-    """</pre></div>
+    """
+</pre></div>
         </div></li>
 
         <li><div>Use the <code>get_determiner</code> function as an
@@ -251,7 +257,7 @@ def get_noun(quantity):
         header and fulfill the requirements of the following
         documentation string.
 
-<div class="pre"><pre class="python">
+<div class="example"><pre class="python">
 def get_verb(quantity, tense):
     """Return a randomly chosen verb. If tense is "past",
     this function will return one of these ten verbs:
@@ -277,7 +283,8 @@ def get_verb(quantity, tense):
         tense: a string that determines the verb conjugation,
             either "past", "present" or "future".
     Return: a randomly chosen verb.
-    """</pre></div>
+    """
+</pre></div>
         </div></li>
 
         <li><div><p>Write the <code>main</code> function and any other
@@ -323,26 +330,32 @@ def get_verb(quantity, tense):
         we write a call to the <code>get_determiner</code> function and
         pass 1 as the quantity like this:</p>
 
-<div class="pre"><pre class="python">    determ = get_determiner(1)</pre></div>
+<div class="example"><pre class="python">
+    determ = get_determiner(1)
+</pre></div>
 
         <p>Then the word in the <var>determ</var> variable should be in
         this list:</p>
 
-<div class="pre"><pre class="python">    ["a", "one", "the"]</pre></div>
+<div class="example"><pre class="python">
+    ["a", "one", "the"]
+</pre></div>
 
         <p>We can use the <code>assert</code> keyword and the Python
         membership operator, which is the keyword <code>in</code>, to
         verify that the word in the <var>determ</var> variable is in the
         list, like this:</p>
 
-<div class="pre"><pre class="python">def test_get_determiner():
+<div class="example"><pre class="python">
+def test_get_determiner():
     # Call the get_determiner function.
     determ = get_determiner(1)
 
     # Verify that the word stored in the variable
     # determ is in the list of single determiners.
     words = ["a", "one", "the"]
-    <em>assert determ in words</em></pre></div>
+    <em>assert determ in words</em>
+</pre></div>
 
         <p>The following example contains code for
         the <code>test_get_determiner</code> function. Copy and paste
@@ -350,7 +363,7 @@ def get_verb(quantity, tense):
         it as an example to help you write <code>test_get_noun</code>
         and <code>test_get_verb</code>.
 
-<div class="pre"><pre class="python">
+<div class="example"><pre class="python">
 from sentences import get_determiner, get_noun, get_verb
 import random
 import pytest
@@ -388,15 +401,18 @@ def test_get_determiner():
 
         # Verify that the word returned from get_determiner
         # is one of the words in the plural_determiners list.
-        assert word in plural_determiners</pre></div>
+        assert word in plural_determiners
+</pre></div>
         </div></li>
 
         <li><div>At the bottom of your <code>test_sentences.py</code>
         file, write a call to the <code>pytest.main</code> function like
         this:
-<div class="pre"><pre class="python"># Call the main function that is part of pytest so that the
+<div class="example"><pre class="python">
+# Call the main function that is part of pytest so that the
 # computer will execute the test functions in this file.
-pytest.main(["-v", "--tb=line", "-rN", __file__])</pre></div>
+pytest.main(["-v", "--tb=line", "-rN", __file__])
+</pre></div>
         </div></li>
     </ol>
 

@@ -114,9 +114,11 @@
 
         <li><div>Using VS Code, open a new Python file and copy and
         paste the following import statements at the top of the file.
-<div class="pre"><pre class="python">from names import make_full_name, \
+<div class="example"><pre class="python">
+from names import make_full_name, \
     extract_family_name, extract_given_name
-import pytest</pre></div>
+import pytest
+</pre></div>
         Save the file with the name <code>test_names.py</code> in the
         same folder where you downloaded and saved the
         <code>names.py</code> file.</div></li>
@@ -144,10 +146,11 @@ import pytest</pre></div>
 
         <li><div>At the bottom of your <code>test_names.py</code> file,
         write a call to the <code>pytest.main</code> function like this:
-<div class="pre"><pre class="python">
+<div class="example"><pre class="python">
 # Call the main function that is part of pytest so that the
 # computer will execute the test functions in this file.
-pytest.main(["-v", "--tb=line", "-rN", __file__])</pre></div>
+pytest.main(["-v", "--tb=line", "-rN", __file__])
+</pre></div>
         </div></li>
 
         <li><div>Save your <code>test_names.py</code> file and run it by

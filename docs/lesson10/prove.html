@@ -108,8 +108,9 @@
         time from a computer’s operating system. Then it uses an
         f-string to format and print the current date and time.</p>
 
-<div class="pre" id="ex1"><pre class="linenums"></pre>
-<pre class="python"># Import the datetime class from the datetime
+<div class="example" id="ex1"><pre class="linenums"></pre>
+<pre class="python">
+# Import the datetime class from the datetime
 # module so that it can be used in this program.
 from datetime import datetime
 
@@ -120,7 +121,11 @@ current_date_and_time = datetime.now()
 
 # Use an f-string to print the current
 # day of the week and the current time.
-print(f"{current_date_and_time:%A %I:%M %p}")</pre></div>
+print(f"{current_date_and_time:%A %I:%M %p}")</pre>
+
+<pre class="console">&gt; python example_1.py
+Tuesday 01:23 PM</pre>
+</div>
 
         <p>After the computer executes
         <span class="cross" data-ref="ex1">line&nbsp;8</span> in the
@@ -131,12 +136,9 @@ print(f"{current_date_and_time:%A %I:%M %p}")</pre></div>
         called format codes. The
         <a href="https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes">format codes and their meaning</a>
         are listed in the official Python <code>datetime</code>
-        reference</a>. When executed, the previous example code will
-        print the current date and time to the terminal window like
-        this:</p>
-
-<pre class="console" data-for="ex1">&gt; python example_1.py
-Tuesday 01:23 PM</pre>
+        reference. As shown in the terminal window above, the previous
+        example code will print the current day of the week and time to
+        the terminal window.</p>
         </div></li>
     </ul>
 
@@ -186,7 +188,7 @@ Wed Nov  4 05:10:30 2020</pre>
         <ol>
             <li><div>Temporarily add the following line to the end of
             your <code>requests.csv</code> file and then save the file.
-<div class="pre"><pre class="csv">R002,5</pre></div>
+<div class="example"><pre class="csv">R002,5</pre></div>
             </div></li>
             <li><div>Run your program again and verify that it prints an
             error message like the one shown below.
@@ -203,9 +205,11 @@ Error: unknown product ID in the request.csv file
             <var>products</var> dictionary. Look for code similar to
             this:
 
-<div class="pre"><pre class="python">    <em>if prod_num in products_dict:</em>
+<div class="example"><pre class="python">
+    <em>if prod_num in products_dict:</em>
         prod_info_list = products_dict[prod_num]
-        &vellip;</pre></div>
+        &vellip;
+</pre></div>
 
             If your program contains an <code>if</code> statement
             similar to the one above, then the <code>if</code> statement

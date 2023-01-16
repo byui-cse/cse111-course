@@ -86,7 +86,8 @@
     list, retrieves and prints one item from the list, changes one item
     in the list, and then prints the entire list.</p>
 
-<div class="pre" id="ex1"><pre class="python"># Example 1
+<div class="example" id="ex1">
+<pre class="python"># Example 1
 
 def main():
     # Create a list that contains five strings.
@@ -111,12 +112,13 @@ def main():
 
 # Call main to start this program.
 if __name__ == "__main__":
-    main()</pre></div>
+    main()</pre>
 
-<pre class="console" data-for="ex1">&gt; python example_1.py
+<pre class="console">&gt; python example_1.py
 Number of elements: 5
 green
 ['yellow', 'red', 'green', 'purple', 'blue']</pre>
+</div>
 
     <p>We can add an item to a list by using the <code>insert</code> and
     <code>append</code> methods. We can determine if an element is in a
@@ -127,7 +129,7 @@ green
     Example&nbsp;2 shows how to create a list and add, find, and remove
     items from a list.</p>
 
-<div class="pre" id="ex2"><pre class="python"># Example 2
+<div class="example" id="ex2"><pre class="python"># Example 2
 
 def main():
     # Create an empty list that will hold fabric names.
@@ -168,13 +170,14 @@ def main():
 
 # Call main to start this program.
 if __name__ == "__main__":
-    main()</pre></div>
+    main()</pre>
 
-<pre class="console" data-for="ex2">&gt; python example_2.py
+<pre class="console">&gt; python example_2.py
 ['chiffon', 'velvet', 'denim', 'gingham']
 gingham is in the list.
 The fabrics list contains 2 elements.
 ['chiffon', 'taffeta']</pre>
+</div>
 
     <p>The lists in examples&nbsp;1 and&nbsp;2 store strings. Of course,
     it is possible to store numbers in a list, too. In fact, Python
@@ -200,7 +203,7 @@ The fabrics list contains 2 elements.
     body of a loop can do much more with each element than simply print
     it.</p>
 
-<div class="pre" id="ex3"><pre class="linenums"></pre>
+<div class="example" id="ex3"><pre class="linenums"></pre>
 <pre class="python"># Example 3
 
 def main():
@@ -214,14 +217,15 @@ def main():
 
 # Call main to start this program.
 if __name__ == "__main__":
-    main()</pre></div>
+    main()</pre>
 
-<pre class="console" data-for="ex3">&gt; python example_3.py
+<pre class="console">&gt; python example_3.py
 red
 orange
 yellow
 green
 blue</pre>
+</div>
 
     <p>Notice in example&nbsp;3 at
     <span class="cross" data-ref="ex3">lines&nbsp;8&ndash;9</span> that
@@ -238,7 +242,7 @@ blue</pre>
     Example&nbsp;4 shows four <code>for</code> loops that iterate over a
     range of numbers.</p>
 
-<div class="pre" id="ex4"><pre class="python"># Example 4
+<div class="example" id="ex4"><pre class="python"># Example 4
 
 def main():
     # Count from zero to nine by one.
@@ -263,9 +267,9 @@ def main():
 
 # Call main to start this program.
 if __name__ == "__main__":
-    main()</pre></div>
+    main()</pre>
 
-<pre class="console" data-for="ex4">&gt; python example_4.py
+<pre class="console">&gt; python example_4.py
 0
 1
 2
@@ -291,6 +295,7 @@ if __name__ == "__main__":
  &vellip;
 73
 70</pre>
+</div>
 
     <p>In example&nbsp;5 at
     <span class="cross" data-ref="ex5">lines&nbsp;8&ndash;9</span> and
@@ -306,7 +311,7 @@ if __name__ == "__main__":
     because it is simpler than the one at
     <span class="cross" data-ref="ex5">lines&nbsp;15&ndash;17</span>.</p>
 
-<div class="pre" id="ex5"><pre class="linenums"></pre>
+<div class="example" id="ex5"><pre class="linenums"></pre>
 <pre class="python"># Example 5
 
 def main():
@@ -331,9 +336,9 @@ def main():
 
 # Call main to start this program.
 if __name__ == "__main__":
-    main()</pre></div>
+    main()</pre>
 
-<pre class="console" data-for="ex5">&gt; python example_5.py
+<pre class="console">&gt; python example_5.py
 red
 orange
 yellow
@@ -345,6 +350,7 @@ orange
 yellow
 green
 blue</pre>
+</div>
 
     <p>In the previous example, the code in the body of both
     <code>for</code> loops is very short and simply prints one element
@@ -362,7 +368,7 @@ blue</pre>
     <code>break</code> statement at
     lines&nbsp;<span class="cross" data-ref="ex6">10 and&nbsp;11</span>.</p>
 
-<div class="pre" id="ex6"><pre class="linenums"></pre>
+<div class="example" id="ex6"><pre class="linenums"></pre>
 <pre class="python"># Example 6
 
 def main():
@@ -382,14 +388,15 @@ def main():
 
 # Call main to start this program.
 if __name__ == "__main__":
-    main()</pre></div>
+    main()</pre>
 
-<pre class="console" data-for="ex6">&gt; python example_6.py
+<pre class="console">&gt; python example_6.py
 Please enter a number: 6
 Please enter a number: 4
 Please enter a number: -2
 Please enter a number: 0
 sum: 8.0</pre>
+</div>
 
     <h4 id="while">while loop</h4>
     <p>A <code>while</code> loop is more flexible than a
@@ -402,7 +409,7 @@ sum: 8.0</pre>
     <span class="cross" data-ref="ex7">line&nbsp;42</span> that finds
     the first index where two lists differ.</p>
 
-<div class="pre" id="ex7"><pre class="linenums"></pre>
+<div class="example" id="ex7"><pre class="linenums"></pre>
 <pre class="python"># Example 7
 
 def main():
@@ -462,7 +469,7 @@ def compare_lists(list1, list2):
 
 # Call main to start this program.
 if __name__ == "__main__":
-    main()</pre></div>
+    main()</pre>
 
 <!--
 def test_compare_lists():
@@ -491,8 +498,9 @@ def test_compare_lists():
 pytest.main(["-v", "- -tb=line", "-rN", __file__])
 -->
 
-<pre class="console" data-for="ex7">&gt; python example_7.py
+<pre class="console">&gt; python example_7.py
 list1 and list2 differ at index 2</pre>
+</div>
 
     <h3 id="compound_list">Compound Lists</h3>
     <p>A <dfn>compound list</dfn> is a list that contains other lists.
@@ -501,7 +509,7 @@ list1 and list2 differ at index 2</pre>
     inner list from the compound list, and retrieve an individual number
     from the inner list.</p>
 
-<div class="pre" id="ex8"><pre class="python"># Example 8
+<div class="example" id="ex8"><pre class="python"># Example 8
 
 def main():
     # These are the indexes of each
@@ -532,10 +540,11 @@ def main():
 
 # Call main to start this program.
 if __name__ == "__main__":
-    main()</pre></div>
+    main()</pre>
 
-<pre class="console" data-for="ex8">&gt; python example_8.py
+<pre class="console">&gt; python example_8.py
 height: 2.3</pre>
+</div>
 
     <p>Example&nbsp;9 shows how to process all elements in a compound
     list. The <code>for</code> loop at
@@ -549,7 +558,7 @@ height: 2.3</pre>
     <span class="cross" data-ref="ex9">line&nbsp;34</span>
     adds one fruit amount to the total fruit amount.</p>
 
-<div class="pre" id="ex9"><pre class="linenums"></pre>
+<div class="example" id="ex9"><pre class="linenums"></pre>
 <pre class="python"># Example 9
 
 def main():
@@ -591,14 +600,15 @@ def main():
 
 # Call main to start this program.
 if __name__ == "__main__":
-    main()</pre></div>
+    main()</pre>
 
-<pre class="console" data-for="ex9">&gt; python example_9.py
+<pre class="console">&gt; python example_9.py
 70.5
 81.3
 62.7
 42.1
 Total fruit amount: 256.6</pre>
+</div>
 
     <h3 id="vals_and_refs">Values and References</h3>
     <p>In a Python program, the computer assigns values to variables
@@ -635,7 +645,7 @@ Total fruit amount: 256.6</pre>
     other words, <var>x</var> and <var>y</var> are two separate
     variables, each with its own value.</p>
 
-<div class="pre" id="ex10"><pre class="linenums"></pre>
+<div class="example" id="ex10"><pre class="linenums"></pre>
 <pre class="python"># Example 10
 
 <span data-scope="global"><span data-scope="main">def main():
@@ -647,11 +657,12 @@ Total fruit amount: 256.6</pre>
 
 # Call main to start this program.
 if __name__ == "__main__":
-    main()</span></pre></div>
+    main()</span></pre>
 
-<pre class="console" data-for="ex10">&gt; python example_10.py
+<pre class="console">&gt; python example_10.py
 Before changing x: x 17  y 17
 After changing x:  <em>x 18  y 17</em></pre>
+</div>
 
     <p>Example&nbsp;11 shows a small Python program that contains two
     variables named <var>lx</var> and <var>ly</var> that each refer to a
@@ -692,7 +703,7 @@ After changing x:  <em>x 18  y 17</em></pre>
     the list through variable <var>lx</var> can be seen through variable
     <var>ly</var>.</p>
 
-<div class="pre" id="ex11"><pre class="linenums"></pre>
+<div class="example" id="ex11"><pre class="linenums"></pre>
 <pre class="python"># Example 11
 
 <span data-scope="global"><span data-scope="main">def main():
@@ -704,11 +715,12 @@ After changing x:  <em>x 18  y 17</em></pre>
 
 # Call main to start this program.
 if __name__ == "__main__":
-    main()</span></pre></div>
+    main()</span></pre>
 
-<pre class="console" data-for="ex11">&gt; python example_11.py
+<pre class="console">&gt; python example_11.py
 Before changing lx: lx [7, -2]  ly [7, -2]
 After changing lx:  <em>lx [7, -2, 5]  ly [7, -2, 5]</em></pre>
+</div>
 
     <p>From examples&nbsp;10 and&nbsp;11, we learn that when a computer
     executes a Python statement to assign the value of a boolean,
@@ -761,7 +773,7 @@ After changing lx:  <em>lx [7, -2, 5]  ly [7, -2, 5]</em></pre>
         function.</div></li>
     </ul>
 
-<div class="pre" id="ex12"><pre class="linenums"></pre>
+<div class="example" id="ex12"><pre class="linenums"></pre>
 <pre class="python"># Example 12
 
 <span data-scope="global"><span data-scope="main">def main():
@@ -797,15 +809,16 @@ After changing lx:  <em>lx [7, -2, 5]  ly [7, -2, 5]</em></pre>
 
 # Call main to start this program.
 if __name__ == "__main__":
-    main()</span></pre></div>
+    main()</span></pre>
 
-<pre class="console" data-for="ex12">&gt; python example_12.py
+<pre class="console">&gt; python example_12.py
 main()
 Before calling modify_args(): x 5  <em>lx [7, -2]</em>
     modify_args(n, alist)
     Before changing n and alist: n 5  alist [7, -2]
     After changing n and alist:  n 6  alist [7, -2, 4]
 After calling modify_args():  x 5  <em>lx [7, -2, 4]</em></pre>
+</div>
 
     <p>From the output of example&nbsp;12, we see that modifying an
     integer parameter changes the integer within the called function

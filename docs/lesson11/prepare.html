@@ -80,7 +80,7 @@
     but instead uses a <code>for</code> loop to convert a list of
     temperatures from Fahrenheit to Celsius.</p>
 
-<div class="pre" id="ex1"><pre class="linenums"></pre>
+<div class="example" id="ex1"><pre class="linenums"></pre>
 <pre class="python"># Example 1
 
 def main():
@@ -110,11 +110,12 @@ def cels_from_fahr(fahr):
 
 # Call main to start this program.
 if __name__ == "__main__":
-    main()</pre></div>
+    main()</pre>
 
 <pre class="console" data-for="ex1">&gt; python example_1.py
 Fahrenheit: [72, 65, 71, 75, 82, 87, 68]
 Celsius: [22.2, 18.3, 21.7, 23.9, 27.8, 30.6, 20.0]</pre>
+</div>
 
     <p>At <span class="cross" data-ref="ex1">lines&nbsp;12&ndash;14</span>
     in example&nbsp;1, there is a <code>for</code> loop that converts
@@ -134,7 +135,7 @@ Celsius: [22.2, 18.3, 21.7, 23.9, 27.8, 30.6, 20.0]</pre>
     an argument. Consider the program in example&nbsp;2 that produces
     the same results as example&nbsp;1.</p>
 
-<div class="pre" id="ex2"><pre class="linenums"></pre>
+<div class="example" id="ex2"><pre class="linenums"></pre>
 <pre class="python"># Example 2
 
 def main():
@@ -161,18 +162,21 @@ def cels_from_fahr(fahr):
 
 # Call main to start this program.
 if __name__ == "__main__":
-    main()</pre></div>
+    main()</pre>
 
 <pre class="console" data-for="ex2">&gt; python example_2.py
 Fahrenheit: [72, 65, 71, 75, 82, 87, 68]
 Celsius: [22.2, 18.3, 21.7, 23.9, 27.8, 30.6, 20.0]</pre>
+</div>
 
     <p>Notice that example&nbsp;2, doesn’t contain a <code>for</code>
-    loop. Instead, at <span class="cross" data-ref="ex2">line&nbsp;11</span>,
+    loop. Instead, at
+    <span class="cross" data-ref="ex2">line&nbsp;11</span>,
     it contains a call to the <code>map</code> function. Remember that
     the <code>map</code> function has a loop inside it, so that the
     programmer who calls <code>map</code>, doesn’t have to write the
-    loop. Notice also at <span class="cross" data-ref="ex2">line&nbsp;11</span>
+    loop. Notice also at
+    <span class="cross" data-ref="ex2">line&nbsp;11</span>
     that the first argument to the <code>map</code> function is the name
     of the <code>cels_from_fahr</code> function. In other words, at
     line&nbsp;11, we are passing the <code>cels_from_fahr</code>
@@ -201,7 +205,7 @@ Celsius: [22.2, 18.3, 21.7, 23.9, 27.8, 30.6, 20.0]</pre>
     that the <code>cels_from_fahr</code> function is nested inside the
     <code>main</code> function.</p>
 
-<div class="pre" id="ex3"><pre class="linenums"></pre>
+<div class="example" id="ex3"><pre class="linenums"></pre>
 <pre class="python"># Example 3
 
 def main():
@@ -228,11 +232,12 @@ def main():
 
 # Call main to start this program.
 if __name__ == "__main__":
-    main()</pre></div>
+    main()</pre>
 
 <pre class="console" data-for="ex3">&gt; python example_3.py
 Fahrenheit: [72, 65, 71, 75, 82, 87, 68]
 Celsius: [22.2, 18.3, 21.7, 23.9, 27.8, 30.6, 20.0]</pre>
+</div>
 
     <h3 id="lambda_func">Lambda Functions</h3>
     <p id="lambda">A Python <dfn>lambda function</dfn> is a small
@@ -247,7 +252,7 @@ Celsius: [22.2, 18.3, 21.7, 23.9, 27.8, 30.6, 20.0]</pre>
     <span class="cross" data-ref="ex4">line&nbsp;16</span>, the lambda
     function is passed into the <code>map</code> function.</p>
 
-<div class="pre" id="ex4"><pre class="linenums"></pre>
+<div class="example" id="ex4"><pre class="linenums"></pre>
 <pre class="python"># Example 4
 
 def main():
@@ -271,11 +276,12 @@ def main():
 
 # Call main to start this program.
 if __name__ == "__main__":
-    main()</pre></div>
+    main()</pre>
 
 <pre class="console" data-for="ex4">&gt; python example_4.py
 Fahrenheit: [72, 65, 71, 75, 82, 87, 68]
 Celsius: [22.2, 18.3, 21.7, 23.9, 27.8, 30.6, 20.0]</pre>
+</div>
 
     <p>Some students are confused by the statement that a lambda
     function is an anonymous function (a function without a name).
@@ -289,7 +295,7 @@ Celsius: [22.2, 18.3, 21.7, 23.9, 27.8, 30.6, 20.0]</pre>
     function is defined inside the parentheses for the call to the
     <code>map</code> function.</p>
 
-<div class="pre"><pre class="python">
+<div class="example"><pre class="python">
     # Convert each Fahrenheit temperature to Celsius and store
     # the Celsius temperatures in a list named cels_temps.
     cels_temps = list(map(
@@ -300,8 +306,9 @@ Celsius: [22.2, 18.3, 21.7, 23.9, 27.8, 30.6, 20.0]</pre>
         <p>To write a lambda function write code that follows this
         template:</p>
 
-<div class="pre"><pre class="python">
-    lambda <var>param1</var>, <var>param2</var>, &hellip; <var>paramN</var>: <var>expression</var></pre></div>
+<div class="example"><pre class="python">
+    lambda <var>param1</var>, <var>param2</var>, &hellip; <var>paramN</var>: <var>expression</var>
+</pre></div>
 
     <p>As shown in the template, type the keyword <code>lambda</code>,
     then parameters separated by commas, then a colon (:), and finally
@@ -321,51 +328,37 @@ Celsius: [22.2, 18.3, 21.7, 23.9, 27.8, 30.6, 20.0]</pre>
 
     <p>Example&nbsp;5 contains a program that uses the <code>map</code>
     and <code>filter</code> functions to complete the requirements of
-    <a href="../lesson09/check.html">checkpoint&nbsp;9</a>. The example
-    program works by doing the following:</p>
+    the <a href="../lesson09/check.html">lesson&nbsp;9 checkpoint</a>.
+    The example program works by doing the following:</p>
     <ol>
+        <li><div>Calling the <code>read_list</code> function at
+        <span class="cross" data-ref="ex5">line&nbsp;6</span> to read
+        all the provinces from a text file into a list. (The
+        <code>read_list</code> function is in the
+        <a href="../lesson09/check.html">preparation content for
+        lesson&nbsp;9</a>.)</div></li>
+
         <li><div>Calling the <code>map</code> function at
-        <span class="cross" data-ref="ex5">line&nbsp;42</span> to
+        <span class="cross" data-ref="ex5">line&nbsp;22</span> to
         convert all elements that are "AB" to "Alberta."</div></li>
 
         <li><div>Calling the <code>filter</code> function at
-        <span class="cross" data-ref="ex5">line&nbsp;55</span> to
+        <span class="cross" data-ref="ex5">line&nbsp;34</span> to
         remove all elements that are not "Alberta."</div></li>
 
         <li><div>Calling the <code>len</code> function at
-        <span class="cross" data-ref="ex5">line&nbsp;63</span> to count
+        <span class="cross" data-ref="ex5">line&nbsp;42</span> to count
         the number of elements that remain in the filtered
         list.</div></li>
     </ol>
 
-<div class="pre" id="ex5"><pre class="linenums"></pre>
-<pre class="python">
-# Example 5
+<div class="example" id="ex5"><pre class="linenums"></pre>
+<pre class="python"># Example 5
 
 def main():
-    # Create a list that contains the names of Canadian provinces.
-    provinces_list = [
-        "Alberta", "Ontario", "Prince Edward Island", "Ontario",
-        "Quebec", "Saskatchewan", "AB", "Nova Scotia", "Alberta",
-        "Northwest Territories", "Saskatchewan", "Nunavut",
-        "Nova Scotia", "Prince Edward Island", "Alberta",
-        "Nova Scotia", "Prince Edward Island", "Saskatchewan",
-        "Nova Scotia", "Newfoundland and Labrador", "Ontario",
-        "Ontario", "Ontario", "British Columbia", "Ontario",
-        "Nova Scotia", "Prince Edward Island", "Saskatchewan",
-        "Newfoundland and Labrador", "Ontario", "Ontario",
-        "Manitoba", "British Columbia", "Ontario", "Alberta",
-        "Saskatchewan", "Ontario", "Manitoba", "Ontario",
-        "New Brunswick", "Yukon", "British Columbia", "Yukon",
-        "Newfoundland and Labrador", "Manitoba", "Ontario",
-        "Yukon", "British Columbia", "Yukon", "Ontario", "AB",
-        "Newfoundland and Labrador", "Nova Scotia", "Yukon",
-        "Northwest Territories", "Nunavut", "Yukon", "Nunavut",
-        "Ontario", "British Columbia", "AB", "Saskatchewan",
-        "Prince Edward Island", "Saskatchewan",
-        "Prince Edward Island", "Alberta", "Ontario", "Alberta",
-        "Manitoba", "AB", "British Columbia", "Alberta"
-    ]
+    # Read a file that contains a list
+    # of Canadian province names.
+    provinces_list = read_list("provinces.txt")
 
     # As a debugging aid, print the entire list.
     print("Original list of provinces:")
@@ -386,10 +379,9 @@ def main():
     print(new_list)
     print()
 
-    # Define a nested function that returns True if
-    # province_name is Alberta and returns False otherwise.
-    def is_alberta(province_name):
-        return province_name == "Alberta"
+    # Define a lambda function that returns True if a
+    # province's name is Alberta and returns False otherwise.
+    is_alberta = lambda name: name == "Alberta"
 
     # Filter the new list to only those provinces that
     # are "Alberta" by calling the filter function and
@@ -409,52 +401,55 @@ def main():
 
 # Call main to start this program.
 if __name__ == "__main__":
-    main()</pre></div>
+    main()</pre>
 
 <pre class="console" data-for="ex5">&gt; python example_5.py
-
 Original list of provinces:
 ['Alberta', 'Ontario', 'Prince Edward Island', 'Ontario', 'Quebec',
-'Saskatchewan', 'AB', 'Nova Scotia', 'Alberta', 'Northwest
-Territories', 'Saskatchewan', 'Nunavut', 'Nova Scotia', 'Prince Edward
-Island', 'Alberta', 'Nova Scotia', 'Prince Edward Island',
-'Saskatchewan', 'Nova Scotia', 'Newfoundland and Labrador', 'Ontario',
-'Ontario', 'Ontario', 'British Columbia', 'Ontario', 'Nova Scotia',
-'Prince Edward Island', 'Saskatchewan', 'Newfoundland and Labrador',
-'Ontario', 'Ontario', 'Manitoba', 'British Columbia', 'Ontario',
-'Alberta', 'Saskatchewan', 'Ontario', 'Manitoba', 'Ontario', 'New
-Brunswick', 'Yukon', 'British Columbia', 'Yukon', 'Newfoundland and
-Labrador', 'Manitoba', 'Ontario', 'Yukon', 'British Columbia', 'Yukon',
-'Ontario', 'AB', 'Newfoundland and Labrador', 'Nova Scotia', 'Yukon',
-'Northwest Territories', 'Nunavut', 'Yukon', 'Nunavut', 'Ontario',
-'British Columbia', 'AB', 'Saskatchewan', 'Prince Edward Island',
-'Saskatchewan', 'Prince Edward Island', 'Alberta', 'Ontario',
-'Alberta', 'Manitoba', 'AB', 'British Columbia', 'Alberta']
+'Saskatchewan', 'AB', 'Nova Scotia', 'Alberta',
+'Northwest Territories', 'Saskatchewan', 'Nunavut', 'Nova Scotia',
+'Prince Edward Island', 'Alberta', 'Nova Scotia', 'Nova Scotia',
+'Prince Edward Island', 'British Columbia', 'Ontario', 'Ontario',
+'Newfoundland and Labrador', 'Ontario', 'Ontario', 'Saskatchewan',
+'Nova Scotia', 'Prince Edward Island', 'Saskatchewan', 'Ontario',
+'Newfoundland and Labrador', 'Ontario', 'British Columbia',
+'Manitoba', 'Ontario', 'Alberta', 'Saskatchewan', 'Ontario',
+'Yukon', 'Ontario', 'New Brunswick', 'British Columbia',
+'Manitoba', 'Yukon', 'British Columbia', 'Manitoba', 'Yukon',
+'Newfoundland and Labrador', 'Ontario', 'Yukon', 'Ontario',
+'AB', 'Nova Scotia', 'Newfoundland and Labrador', 'Yukon',
+'Nunavut', 'Northwest Territories', 'Nunavut', 'Yukon',
+'British Columbia', 'Ontario', 'AB', 'Saskatchewan',
+'Prince Edward Island', 'Saskatchewan', 'Prince Edward Island',
+'Alberta', 'Ontario', 'Alberta', 'Manitoba', 'AB',
+'British Columbia', 'Alberta']
 
 List of provinces after AB was changed to Alberta:
 ['Alberta', 'Ontario', 'Prince Edward Island', 'Ontario', 'Quebec',
-'Saskatchewan', 'Alberta', 'Nova Scotia', 'Alberta', 'Northwest
-Territories', 'Saskatchewan', 'Nunavut', 'Nova Scotia', 'Prince Edward
-Island', 'Alberta', 'Nova Scotia', 'Prince Edward Island',
-'Saskatchewan', 'Nova Scotia', 'Newfoundland and Labrador', 'Ontario',
-'Ontario', 'Ontario', 'British Columbia', 'Ontario', 'Nova Scotia',
-'Prince Edward Island', 'Saskatchewan', 'Newfoundland and Labrador',
-'Ontario', 'Ontario', 'Manitoba', 'British Columbia', 'Ontario',
-'Alberta', 'Saskatchewan', 'Ontario', 'Manitoba', 'Ontario', 'New
-Brunswick', 'Yukon', 'British Columbia', 'Yukon', 'Newfoundland and
-Labrador', 'Manitoba', 'Ontario', 'Yukon', 'British Columbia', 'Yukon',
-'Ontario', 'Alberta', 'Newfoundland and Labrador', 'Nova Scotia',
-'Yukon', 'Northwest Territories', 'Nunavut', 'Yukon', 'Nunavut',
-'Ontario', 'British Columbia', 'Alberta', 'Saskatchewan', 'Prince
-Edward Island', 'Saskatchewan', 'Prince Edward Island', 'Alberta',
-'Ontario', 'Alberta', 'Manitoba', 'Alberta', 'British Columbia',
-'Alberta']
+'Saskatchewan', 'Alberta', 'Nova Scotia', 'Alberta',
+'Northwest Territories', 'Saskatchewan', 'Nunavut', 'Nova Scotia',
+'Prince Edward Island', 'Alberta', 'Nova Scotia', 'Nova Scotia',
+'Prince Edward Island', 'British Columbia', 'Ontario', 'Ontario',
+'Newfoundland and Labrador', 'Ontario', 'Ontario', 'Saskatchewan',
+'Nova Scotia', 'Prince Edward Island', 'Saskatchewan', 'Ontario',
+'Newfoundland and Labrador', 'Ontario', 'British Columbia',
+'Manitoba', 'Ontario', 'Alberta', 'Saskatchewan', 'Ontario',
+'Yukon', 'Ontario', 'New Brunswick', 'British Columbia',
+'Manitoba', 'Yukon', 'British Columbia', 'Manitoba', 'Yukon',
+'Newfoundland and Labrador', 'Ontario', 'Yukon', 'Ontario',
+'Alberta', 'Nova Scotia', 'Newfoundland and Labrador', 'Yukon',
+'Nunavut', 'Northwest Territories', 'Nunavut', 'Yukon',
+'British Columbia', 'Ontario', 'Alberta', 'Saskatchewan',
+'Prince Edward Island', 'Saskatchewan', 'Prince Edward Island',
+'Alberta', 'Ontario', 'Alberta', 'Manitoba', 'Alberta',
+'British Columbia', 'Alberta']
 
 List filtered to Alberta only:
 ['Alberta', 'Alberta', 'Alberta', 'Alberta', 'Alberta', 'Alberta',
 'Alberta', 'Alberta', 'Alberta', 'Alberta', 'Alberta']
 
 Alberta occurs 11 times in the modified list.</pre>
+</div>
 
     <h2 id="sort_list">Example - Sorting a Compound List</h2>
     <p>Python includes a built-in higher-order function named
@@ -463,12 +458,15 @@ Alberta occurs 11 times in the modified list.</pre>
     straightforward for a simple list such as a list of strings or a
     list of numbers as shown in example&nbsp;6 and its output.</p>
 
-<div class="pre" id="ex6"><pre class="linenums"></pre>
+<div class="example" id="ex6"><pre class="linenums"></pre>
 <pre class="python"># Example 6
 
 def main():
-    # Create a list that contains country names and print the list.
-    countries = ["Canada", "France", "Ghana", "Brazil", "Japan"]
+    # Create a list that contains country names
+    # and print the list.
+    countries = [
+        "Canada", "France", "Ghana", "Brazil", "Japan"
+    ]
     print(countries)
 
     # Sort the list. Then print the sorted list.
@@ -478,17 +476,18 @@ def main():
 
 # Call main to start this program.
 if __name__ == "__main__":
-    main()</pre></div>
+    main()</pre>
 
 <pre class="console" data-for="ex6">&gt; python countries.py
 ['Mexico', 'France', 'Ghana', 'Brazil', 'Japan']
 ['Brazil', 'France', 'Ghana', 'Japan', 'Mexico']</pre>
+</div>
 
     <p>A <dfn>compound list</dfn> is a list that contains lists. Sorting
     a compound list is more complex than sorting a simple list. Consider
     this compound list that contains data about some countries.</p>
 
-<div class="pre"><pre class="python">
+<div class="example"><pre class="python">
     # Create a list that contains data about countries.
     countries = [
         # [country_name, land_area, population, gdp_per_capita]
@@ -497,7 +496,8 @@ if __name__ == "__main__":
         ["Ghana",   239567,  31072940,  7343],
         ["Brazil", 8515767, 210147125, 14563],
         ["Japan",   377975, 125480000, 41634]
-    ]</pre></div>
+    ]
+</pre></div>
 
     <p>Perhaps we want the <var>countries</var> compound list sorted by
     country name or perhaps we want it sorted by population. The element
@@ -517,7 +517,7 @@ if __name__ == "__main__":
     <code>sorted</code> function will sort the list of countries by the
     population.</p>
 
-<div class="pre" id="ex7"><pre class="linenums"></pre>
+<div class="example" id="ex7"><pre class="linenums"></pre>
 <pre class="python"># Example 7
 
 def main():
@@ -556,7 +556,7 @@ def main():
 
 # Call main to start this program.
 if __name__ == "__main__":
-    main()</pre></div>
+    main()</pre>
 
 <pre class="console" data-for="ex7">&gt; python countries.py
 Original unsorted list of countries
@@ -572,6 +572,7 @@ List of countries sorted by population
 ['Japan', 377975, 125480000, 41634]
 ['Mexico', 1972550, 126014024, 21362]
 ['Brazil', 8515767, 210147125, 14563]</pre>
+</div>
 
     <p>By using a key function it’s possible to sort a compound list
     with a key element that isn’t in the list. Consider the compound
@@ -592,7 +593,7 @@ List of countries sorted by population
     the output from example&nbsp;8 that the students are sorted by
     surname and then by given name.</p>
 
-<div class="pre" id="ex8"><pre class="linenums"></pre>
+<div class="example" id="ex8"><pre class="linenums"></pre>
 <pre class="python"># Example 8
 
 def main():
@@ -626,7 +627,7 @@ def main():
 
 # Call main to start this program.
 if __name__ == "__main__":
-    main()</pre></div>
+    main()</pre>
 
 <pre class="console" data-for="ex8">&gt; python students.py
 ['Alex', 'Harris', 5.8]
@@ -636,6 +637,7 @@ if __name__ == "__main__":
 ['Sofia', 'Lopez', 5.3]
 ['Annie', 'Smith', 6.2]
 ['Robert', 'Smith', 6.7]</pre>
+</div>
 
     <h2 id="videos">Videos</h2>
     <p>If you wish to learn more about functional programming in Python,

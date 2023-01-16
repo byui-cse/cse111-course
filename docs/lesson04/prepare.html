@@ -50,7 +50,7 @@
     <var>x</var> is defined inside the <code>main</code> function and
     therefore has local scope.</p>
 
-<div class="pre" id="ex1"><pre class="python">
+<div class="example" id="ex1"><pre class="python">
 <span data-scope="global"># g is a global variable because it
 # is defined outside of all functions.
 <span class="varDef">g</span> = 25
@@ -58,7 +58,8 @@
 <span data-scope="main">def main():
     # x is a local variable because
     # it is defined inside a function.
-    <span class="varDef">x</span> = 1</span></span></pre></div>
+    <span class="varDef">x</span> = 1</span></span>
+</pre></div>
 
     <p>As shown in the following table, a local variable (a variable
     with local scope) is defined inside a function, exists for as long
@@ -102,7 +103,7 @@
     parameters named <var>width</var> and <var>length</var> and the
     variable named <var>area</var> have local scope.</p>
 
-<div class="pre" id="ex2"><pre class="python">
+<div class="example" id="ex2"><pre class="python">
 <span data-scope="global"><span class="varDef">nShapes</span> = 0
 
 <span data-scope="square">def square_area(<span class="varDef">length</span>):
@@ -111,7 +112,8 @@
 
 <span data-scope="rect">def rectangle_area(<span class="varDef">width</span>, <span class="varDef">length</span>):
     <span class="varDef">area</span> = <span class="varUse">width</span> * <span class="varUse">length</span>
-    return <span class="varUse">area</span></span></span></pre></div>
+    return <span class="varUse">area</span></span></span>
+</pre></div>
 
     <p>Because local variables are visible only within the function
     where they are defined, a programmer can define two variables with
@@ -137,7 +139,7 @@
     inside another function. The local variables from <code>main</code>
     cannot be used inside <code>circle_area</code>.</p>
 
-<div class="pre" id="ex3"><pre class="linenums"></pre>
+<div class="example" id="ex3"><pre class="linenums"></pre>
 <pre class="python"># Example 3
 
 <span data-scope="global">import <span class="varDef">math</span>
@@ -154,9 +156,9 @@
     <span class="varDef">area</span> = <span class="varUse">math</span>.pi * <em><span class="varUse">radius</span></em> * <em><span class="varUse">radius</span></em>
     return <span class="varUse">area</span></span>
 
-main()</span></pre></div>
+main()</span></pre>
 
-<pre class="console" data-for="ex3">&gt; python example_3.py
+<pre class="console">&gt; python example_3.py
 Enter the radius of a circle: <span class="input">4.17</span>
 Traceback (most recent call last):
   File "c:\Users\cse111\example_3.py", line 17, in &lt;module&gt;
@@ -165,7 +167,9 @@ Traceback (most recent call last):
     area = circle_area()
   File "c:\Users\cse111\example_3.py", line 14, in circle_area
     area = math.pi * radius * radius
+                     ^^^^^^
 NameError: name 'radius' is not defined</pre>
+</div>
 
     <p>The correct way to fix the mistake in example&nbsp;3 is to add a
     parameter to the <code>circle_area</code> function as shown at
@@ -175,7 +179,7 @@ NameError: name 'radius' is not defined</pre>
     <span class="cross" data-ref="ex4">line&nbsp;7</span>
     in example&nbsp;4.</p>
 
-<div class="pre" id="ex4"><pre class="linenums"></pre>
+<div class="example" id="ex4"><pre class="linenums"></pre>
 <pre class="python"># Example 4
 
 <span data-scope="global">import <span class="varDef">math</span>
@@ -189,11 +193,12 @@ NameError: name 'radius' is not defined</pre>
     <span class="varDef">area</span> = <span class="varUse">math</span>.pi * <span class="varUse">radius</span> * <span class="varUse">radius</span>
     return <span class="varUse">area</span></span>
 
-main()</span></pre></div>
+main()</span></pre>
 
-<pre class="console" data-for="ex4">&gt; python example_4.py
+<pre class="console">&gt; python example_4.py
 Enter the radius of a circle: <span class="input">4.17</span>
 area: 54.6</pre>
+</div>
 
     <h2 id="default_params">Default Parameter Values and Optional
     Arguments</h2>
@@ -224,7 +229,7 @@ area: 54.6</pre>
     <code>arc_length</code>, the value of <var>degrees</var> will be
     270.</p>
 
-<div class="pre" id="ex5"><pre class="linenums"></pre>
+<div class="example" id="ex5"><pre class="linenums"></pre>
 <pre class="python"># Example 5
 
 <span data-scope="global">import <span class="varDef">math</span>
@@ -250,11 +255,12 @@ area: 54.6</pre>
     return <span class="varUse">length</span></span>
 
 
-main()</span></pre></div>
+main()</span></pre>
 
-<pre class="console" data-for="ex5">&gt; python example_5.py
+<pre class="console">&gt; python example_5.py
 len1: 29.5
 len2: 22.1</pre>
+</div>
 
     <h2 id="func_design">Function Design</h2>
     <p>What are the properties of a good function?</p>
@@ -306,13 +312,17 @@ len2: 22.1</pre>
 
     <p>A parameter may have a default value like the parameter
     <var>degrees</var> in this function header:</p>
-<div class="pre"><pre class="python">def arc_length(radius, degrees=360):
-    &vellip;</pre></div>
+<div class="example"><pre class="python">
+def arc_length(radius, degrees=360):
+    &vellip;
+</pre></div>
 
     <p>When a function’s parameter has a default value, you can write a
     call to that function without passing an argument for the parameter
     like this:</p>
-<div class="pre"><pre class="python">length = arc_length(3.5)</pre></div>
+<div class="example"><pre class="python">
+length = arc_length(3.5)
+</pre></div>
     <p>In other words, the argument for a parameter that has a default
     value is optional.</p>
 </article>

@@ -76,7 +76,7 @@
     deposits, and withdrawals. A programmer might write the first few
     lines of the <code>deposit</code> function like this:</p>
 
-<div class="pre" id="ex1"><pre class="linenums"></pre>
+<div class="example" id="ex1"><pre class="linenums"></pre>
 <pre class="python">
 def deposit(amount):
     # In order for this program to work correctly and
@@ -99,14 +99,15 @@ def deposit(amount):
     <code>assert</code> statement. Here are a few examples from various
     unrelated programs:</p>
 
-<div class="pre" id="ex2"><pre class="python">
+<div class="example" id="ex2"><pre class="python">
     assert temperature &lt; 0
 
     assert len(given_name) &gt; 0
 
     assert balance == 0
 
-    assert school_year != "senior"</pre></div>
+    assert school_year != "senior"
+</pre></div>
 
     <h3 id="pytest">The pytest Module</h3>
     <p><a href="https://docs.pytest.org/en/latest/reference/reference.html"><code>pytest</code></a>
@@ -126,8 +127,10 @@ def deposit(amount):
     want to verify that the built-in <code>min</code> function works
     correctly, we could write a test function like this:</p>
 
-<div class="pre" id="ex3"><pre class="python">def test_min():
-    assert min(7, -3, 0, 2) == -3</pre></div>
+<div class="example" id="ex3"><pre class="python">
+def test_min():
+    assert min(7, -3, 0, 2) == -3
+</pre></div>
 
     <p>In the previous function, the assert statement will cause the
     computer to first call the <code>min</code> function and pass 7,
@@ -181,8 +184,10 @@ def deposit(amount):
     <code>math.sqrt</code> function, we could write a test function like
     this:</p>
 
-<div class="pre" id="ex4"><pre class="python">def test_sqrt():
-    assert math.sqrt(5) == approx(2.24, 0.01)</pre></div>
+<div class="example" id="ex4"><pre class="python">
+def test_sqrt():
+    assert math.sqrt(5) == approx(2.24, 0.01)
+</pre></div>
 
     <p>The <code>assert</code> statement in the previous test function
     verifies that the value returned from <code>math.sqrt(5)</code> is
@@ -215,7 +220,7 @@ def deposit(amount):
     part of a larger Python program in a file named
     <code>weather.py</code>.</p>
 
-<div class="pre" id="ex5"><pre class="linenums"></pre>
+<div class="example" id="ex5"><pre class="linenums"></pre>
 <pre class="python"># weather.py
 
 def cels_from_fahr(fahr):
@@ -223,7 +228,8 @@ def cels_from_fahr(fahr):
     Celsius and return the Celsius temperature.
     """
     cels = (fahr - 32) * 5 / 9
-    return cels</pre></div>
+    return cels</pre>
+</div>
 
     <p>We want to test the <code>cels_from_fahr</code> function. From
     the function header at
@@ -242,7 +248,7 @@ def cels_from_fahr(fahr):
     <p>In a separate file named <code>test_weather.py</code> we write a
     test function named <code>test_cels_from_fahr</code> as follows:</p>
 
-<div class="pre" id="ex6"><pre class="linenums"></pre>
+<div class="example" id="ex6"><pre class="linenums"></pre>
 <pre class="python"># test_weather.py
 
 from weather import cels_from_fahr
@@ -262,7 +268,8 @@ def <em>test_cels_from_fahr()</em>:
 
 # Call the main function that is part of pytest so that the
 # computer will execute the test functions in this file.
-pytest.main(["-v", "--tb=line", "-rN", __file__])</pre></div>
+pytest.main(["-v", "--tb=line", "-rN", __file__])</pre>
+</div>
 
     <p>Notice in <code>test_weather.py</code> at
     <span class="cross" data-ref="ex6">lines&nbsp;13&ndash;16</span>
@@ -319,17 +326,20 @@ test_weather.py::test_cels_from_fahr <span class="pass">PASSED               [10
     statement that imports functions from a program file. Line&nbsp;3
     matches this template:</p>
 
-<div class="pre"><pre class="python">from <var>file_name</var> import <var>function_1</var>, <var>function_2</var>, &hellip; <var>function_N</var></pre></div>
+<div class="example"><pre class="python">
+from <var>file_name</var> import <var>function_1</var>, <var>function_2</var>, &hellip; <var>function_N</var>
+</pre></div>
 
     <p>When the computer imports functions from a file, the computer
     immediately executes all statements that are not written inside a
     function. This includes the statement to call the <code>main</code>
     function:</p>
 
-<div class="pre"><pre class="python">
+<div class="example"><pre class="python">
 # Start this program by
 # calling the main function.
-main()</pre></div>
+main()
+</pre></div>
 
     <p>This means that when we run our test functions, the computer will
     import our program functions and at the same time, will execute the
@@ -341,21 +351,23 @@ main()</pre></div>
     Python gave us a solution to this problem. Instead of writing the
     following code to start our program running:</p>
 
-<div class="pre"><pre class="python">
+<div class="example"><pre class="python">
 # Start this program by
 # calling the main function.
-main()</pre></div>
+main()
+</pre></div>
 
     <p>We write an <code>if</code> statement above the call to
     <code>main()</code> like this:</p>
 
-<div class="pre"><pre class="python">
+<div class="example"><pre class="python">
 # If this file is executed like this:
 # &gt; python program.py
 # then call the main function. However, if this file is simply
 # imported (e.g. into a test file), then skip the call to main.
 if __name__ == "__main__":
-    main()</pre></div>
+    main()
+</pre></div>
 
     <p>Writing the <code>if</code> statement above the call to
     <code>main()</code> is the correct way to write code to start a

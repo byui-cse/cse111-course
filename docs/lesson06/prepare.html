@@ -64,7 +64,7 @@
     a syntax error. The message that the computer printed because of the
     syntax error is shown below example&nbsp;1.</p>
 
-<div class="pre" id="ex1"><pre class="linenums"></pre>
+<div class="example" id="ex1"><pre class="linenums"></pre>
 <pre class="python"># Example 1
 
 def main():
@@ -73,14 +73,14 @@ def main():
 # Start this program by
 # calling the main function.
 if __name__ == "__main__":
-    main()</pre></div>
+    main()</pre>
 
 <pre class="console">&gt; python surprise.py
-  File "C:\Users\cse111\lesson06\surprise.py", <em>line 4</em>
+  File "C:\Users\cse111\surprise.py", <em>line 4</em>
     print("Are you surprised, Clark?)
                                     ^
-<em>SyntaxError</em>: EOL while scanning string literal
-</pre>
+<em>SyntaxError</em>: EOL while scanning string literal</pre>
+</div>
 
     <p>From the error message, we read that example&nbsp;1 contains a
     syntax error and that the error is on line&nbsp;4 of the program
@@ -122,7 +122,7 @@ EOL stands for "End of Line". The error means that the Python Interpreter reache
     the program, specifically near the beginning of each function and in
     the middle of the calculations.</p>
 
-<div class="pre" id="ex2"><pre class="linenums"></pre>
+<div class="example" id="ex2"><pre class="linenums"></pre>
 <pre class="python"># Example 2
 
 def main():
@@ -180,9 +180,9 @@ def compute_payment(princ, ar, years, ppy):
 # Start this program by
 # calling the main function.
 if __name__ == "__main__":
-    main()</pre></div>
+    main()</pre>
 
-<pre class="console" data-for="ex2">&gt; python balance.py
+<pre class="console">&gt; python balance.py
 This program computes and prints the remaining
 balance for a loan with a fixed annual percentage
 rate and a fixed number of payments per year.
@@ -203,6 +203,7 @@ compute_balance(80000.0, 0.06, 15, 12, 45)
     balance: 66156.33</em>
 
 Balance remaining: 66156.33</pre>
+</div>
 
     <p>Although print statements are simple to understand and add to a
     program and often helpful, in many situations they are not the most

@@ -137,8 +137,9 @@
         the functions from the Draw 2-D library and creates a window and
         a canvas that your program will draw into.
 
-<div class="pre" id="ex1"><pre class="linenums"></pre>
-<pre class="python"># Import the functions from the Draw 2-D library
+<div class="example" id="ex1">
+<pre class="python">
+# Import the functions from the Draw 2-D library
 # so that they can be used in this program.
 from draw2d import \
     start_drawing, draw_line, draw_oval, draw_arc, \
@@ -171,7 +172,8 @@ def main():
 
 # Call the main function so that
 # this program will start executing.
-main()</pre></div>
+main()</pre>
+</div>
         </div></li>
 
         <li><div>Save your new file as <code>scene.py</code> and run
@@ -188,12 +190,12 @@ main()</pre></div>
         <a href="draw2d.html">documentation for the Draw 2-D library</a>.</div></li>
 
         <li><div>Starting at
-        <span class="cross" data-ref="ex1">line&nbsp;31</span> of your
+        <span class="cross" data-ref="ex1">line&nbsp;29</span> of your
         new program, write your functions to draw the sky, ground, and
         clouds.</div></li>
 
         <li><div>Starting at
-        <span class="cross" data-ref="ex1">line&nbsp;21</span>,
+        <span class="cross" data-ref="ex1">line&nbsp;19</span>,
         write calls to your drawing functions.</div></li>
     </ol>
 
@@ -227,7 +229,7 @@ main()</pre></div>
     simply examples, and you can change them in your program or even
     exclude them from your program.</p>
 
-<div class="pre"><pre class="python">
+<div class="example"><pre class="python">
 def draw_house(canvas, house_left, house_bottom):
 
 def draw_bird(canvas, bird_center, bird_top):
@@ -236,7 +238,8 @@ def draw_pebble(canvas, pebble_left, pebble_top, pebble_radius):
 
 def draw_picket(canvas, picket_left, picket_bottom):
 
-def draw_grass_blade(canvas, blade_left, blade_top, blade_height):</pre></div>
+def draw_grass_blade(canvas, blade_left, blade_top, blade_height):
+</pre></div>
 
     <p>The following call graph shows the functions for a well-designed
     scene drawing program. From the call graph we see that this program

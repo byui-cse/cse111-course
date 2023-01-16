@@ -84,7 +84,7 @@
         <code>draw_pine_tree</code> function.</div></li>
     </ol>
 
-<div class="pre" id="ex1"><pre class="linenums"></pre>
+<div class="example" id="ex1"><pre class="linenums"></pre>
 <pre class="python"># Example 1
 
 # Import the functions from the Draw 2-D library
@@ -174,7 +174,8 @@ def draw_pine_tree(canvas, center_x, bottom, height):
 
 # Call the main function so that
 # this program will start executing.
-main()</pre></div>
+main()</pre>
+</div>
 
     <h3>Coordinate Grid</h3>
     <p>Example program&nbsp;2 draws a grid that can help a programmer
@@ -193,7 +194,7 @@ main()</pre></div>
     lines&nbsp;<span class="cross" data-ref="ex2">30&ndash;32</span>
     causes the computer to draw the vertical lines in the grid.</p>
 
-<div class="pre" id="ex2"><pre class="linenums"></pre>
+<div class="example" id="ex2"><pre class="linenums"></pre>
 <pre class="python"># Example 2
 
 from draw2d import \
@@ -230,7 +231,8 @@ def draw_grid(canvas, width, height, interval, color="blue"):
 
 # Call the main function so that
 # this program will start executing.
-main()</pre></div>
+main()</pre>
+</div>
 
     <h3>Row, Column, and Diagonal of Shapes</h3>
     <p>The program in example&nbsp;3 uses three <code>for</code> loops
@@ -251,7 +253,7 @@ main()</pre></div>
     draw many shapes. Of course, your program can call any draw function
     within a <code>for</code> loop and draw any shape you like.</p>
 
-<div class="pre" id="ex3"><pre class="linenums"></pre>
+<div class="example" id="ex3"><pre class="linenums"></pre>
 <pre class="python"># Example 3
 
 from draw2d import start_drawing, draw_oval, finish_drawing
@@ -297,7 +299,8 @@ def main():
 
 # Call the main function so that
 # this program will start executing.
-main()</pre></div>
+main()</pre>
+</div>
 
     <h3>Rectangular Group of Shapes</h3>
     <p>The program in example&nbsp;4 uses two <code>for</code> loops and
@@ -323,7 +326,7 @@ main()</pre></div>
     words, the program in example&nbsp;4 will draw six rows with 20
     circles in each row, which makes 120 circles.</p>
 
-<div class="pre" id="ex4"><pre class="linenums"></pre>
+<div class="example" id="ex4"><pre class="linenums"></pre>
 <pre class="python"># Example 4
 
 from draw2d import start_drawing, draw_oval, finish_drawing
@@ -354,7 +357,8 @@ def main():
 
 # Call the main function so that
 # this program will start executing.
-main()</pre></div>
+main()</pre>
+</div>
 
     <h3>Randomly Located Shapes</h3>
     <p>The program in example&nbsp;5 draws a row of circles but some of
@@ -391,7 +395,7 @@ main()</pre></div>
     <span class="cross" data-ref="ex5">lines&nbsp;40&ndash;41</span>
     the computer uses those random numbers to draw a circle.</p>
 
-<div class="pre" id="ex5"><pre class="linenums"></pre>
+<div class="example" id="ex5"><pre class="linenums"></pre>
 <pre class="python"># Example 5
 
 from draw2d import start_drawing, draw_oval, finish_drawing
@@ -441,7 +445,8 @@ def main():
 
 # Call the main function so that
 # this program will start executing.
-main()</pre></div>
+main()</pre>
+</div>
 
     <h2 id="functions">Function Reference</h2>
     <p>The following functions are contained in the Draw 2-D library.</p>
@@ -464,7 +469,9 @@ main()</pre></div>
             <li><div>the new canvas</div></li>
         </ul>
         <h4>Example</h4>
-<div class="pre"><pre class="python">canvas = start_drawing("Scene", 800, 500)</pre></div>
+<div class="example"><pre class="python">
+canvas = start_drawing("Scene", 800, 500)
+</pre></div>
         </dd>
 
         <dt>
@@ -490,7 +497,9 @@ main()</pre></div>
             <li><div>nothing</div></li>
         </ul>
         <h4>Example</h4>
-<div class="pre"><pre class="python">draw_line(canvas, 0, 5, 100, 50, width=10, fill="blue")</pre></div>
+<div class="example"><pre class="python">
+draw_line(canvas, 0, 5, 100, 50, width=10, fill="blue")
+</pre></div>
         </dd>
 
         <dt>
@@ -518,7 +527,9 @@ main()</pre></div>
             <li><div>nothing</div></li>
         </ul>
         <h4>Example</h4>
-<div class="pre"><pre class="python">draw_oval(canvas, 100, 100, 300, 200, fill="pink")</pre></div>
+<div class="example"><pre class="python">
+draw_oval(canvas, 100, 100, 300, 200, fill="pink")
+</pre></div>
         </dd>
 
         <dt>
@@ -547,7 +558,9 @@ main()</pre></div>
             <li><div>nothing</div></li>
         </ul>
         <h4>Example</h4>
-<div class="pre"><pre class="python">draw_arc(canvas, 100, 100, 300, 200, start=180, extent=270)</pre></div>
+<div class="example"><pre class="python">
+draw_arc(canvas, 100, 100, 300, 200, start=180, extent=270)
+</pre></div>
         </dd>
 
         <dt>
@@ -575,7 +588,9 @@ main()</pre></div>
             <li><div>nothing</div></li>
         </ul>
         <h4>Example</h4>
-<div class="pre"><pre class="python">draw_rectangle(canvas, 100, 100, 300, 200, width=5)</pre></div>
+<div class="example"><pre class="python">
+draw_rectangle(canvas, 100, 100, 300, 200, width=5)
+</pre></div>
         </dd>
 
         <dt>
@@ -608,8 +623,10 @@ main()</pre></div>
             <li><div>nothing</div></li>
         </ul>
         <h4>Example</h4>
-<div class="pre"><pre class="python">draw_polygon(canvas,
-        100, 100, 200, 100, 200, 150, fill="green")</pre></div>
+<div class="example"><pre class="python">
+draw_polygon(canvas,
+        100, 100, 200, 100, 200, 150, fill="green")
+</pre></div>
         </dd>
 
         <dt>
@@ -632,7 +649,9 @@ main()</pre></div>
             <li><div>nothing</div></li>
         </ul>
         <h4>Example</h4>
-<div class="pre"><pre class="python">draw_text(canvas, 250, 200, "Olá", fill="purple")</pre></div>
+<div class="example"><pre class="python">
+draw_text(canvas, 250, 200, "Olá", fill="purple")
+</pre></div>
         </dd>
 
         <dt>
@@ -651,7 +670,9 @@ main()</pre></div>
             <li><div>nothing</div></li>
         </ul>
         <h4>Example</h4>
-<div class="pre"><pre class="python">finish_drawing(canvas)</pre></div>
+<div class="example"><pre class="python">
+finish_drawing(canvas)
+</pre></div>
         </dd>
     </dl>
 

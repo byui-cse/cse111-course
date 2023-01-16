@@ -409,11 +409,11 @@ cse111.linenums = {
 	/* The line number functions in this object expect a source code
 	 * example and its corresponding console div to be organized like
 	 * this in their containing HTML document:
-	 * <div class="pre" id="exN">
+	 * <div class="example" id="exN">
 	 *     <pre class="linenums"></pre>
 	 *     <pre class="python"> ... </pre>
+	 *     <pre class="console"> ... </pre>
 	 * </div>
-	 * <pre class="console" date-for="exN"> ... </pre>
 	 */
 
 	lineNumbersAdded : false,
@@ -567,8 +567,10 @@ cse111.linenums = {
 		const copyFunc = function(event) {
 			let button = event.currentTarget;
 			let div = button.parentElement;
-			let elems = div.getElementsByTagName('pre');
-			let pre = elems[elems.length - 1];
+
+			// Within the div, get the last pre.python element,
+			// which will be the pre that contains source code.
+			let pre = div.querySelector('pre.python');
 			let text = pre.textContent;
 
 			// Copy the text to the clipboard.
@@ -592,11 +594,11 @@ cse111.linenums = {
 		};
 
 		// Add a copy button with a click listener to each
-		// <div class="pre"> element.
+		// <div class="example"> element.
 		const copyHint = cse111.strings.copyHint;
 		const copyIcon = cse111.filenames.copyIcon;
 		const createElem = cse111.common.createElement;
-		let elems = document.body.querySelectorAll('div.pre');
+		let elems = document.body.querySelectorAll('div.example');
 		for (let i = 0;  i < elems.length;  ++i) {
 			let image = document.createElement('img');
 			image.setAttribute('src', copyIcon);
@@ -629,39 +631,6 @@ cse111.consoles = {
 			for (let i = 0;  i < spans.length;  ++i) {
 				spans[i].setAttribute('title', inputHint);
 			}
-		}
-	},
-
-
-	/** Resizes each <pre class="console" data-for="..."> element so
-	 * that its width is the same as the width of the div.pre >
-	 * pre.python for which it shows user input and program output.
-	 * Making their widths the same helps the reader to see that they go
-	 * together. */
-	resizeConsoles : function() {
-		let consoles = document.body.querySelectorAll('pre.console[data-for]');
-		for (let i = 0;  i < consoles.length;  ++i) {
-			let console = consoles[i];
-
-			// Get the computed style width of the pre.python element
-			// that corresponds to the current pre.console element.
-			let id = console.getAttribute('data-for');
-			let style = window.getComputedStyle(document.getElementById(id));
-			let width = parseFloat(style.getPropertyValue('width'));
-
-			// The element width returned by getPropertyValue does not
-			// include the border width, but the element.style.width
-			// property does include the border width. In order to use
-			// element.style.width to set the width of the console div,
-			// we must first add the border width to the computed width.
-			style = window.getComputedStyle(console);
-			let left = parseFloat(style.getPropertyValue('border-left-width'));
-			let right= parseFloat(style.getPropertyValue('border-right-width'));
-			width += left + right;
-
-			// Set the width of the current pre.console element to match
-			// the width of its corresponding pre.python element.
-			console.style.width = width + 'px';
 		}
 	}
 };
@@ -793,27 +762,6 @@ cse111.onDOMLoaded = function() {
 	}
 };
 
-cse111.onFullDocLoaded = function() {
-	if (! cse111.common.isCombined()) {
-		let attempts = 20;
-
-		const checkLineNumbers = function() {
-			if (cse111.linenums.lineNumbersAdded) {
-				// Without a delay, the consoles are resized before the
-				// line numbers are generated which makes the consoles
-				// narrower than their corresponding example code.
-				window.setTimeout(function() {
-					cse111.consoles.resizeConsoles();
-				}, 100);
-			}
-			else if (--attempts > 0) {
-				window.setTimeout(checkLineNumbers(), 100);
-			}
-		}
-
-		checkLineNumbers();
-	}
-};
 
 cse111.beforePrint = function() {
 	cse111.common.closeNavMenu();
@@ -826,6 +774,6 @@ cse111.afterPrint = function() {
 
 
 window.addEventListener('DOMContentLoaded', cse111.onDOMLoaded);
-window.addEventListener('load', cse111.onFullDocLoaded);
+//window.addEventListener('load', cse111.onFullDocLoaded);
 window.addEventListener('beforeprint', cse111.beforePrint);
 window.addEventListener('afterprint', cse111.afterPrint);

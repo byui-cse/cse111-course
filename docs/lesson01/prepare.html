@@ -51,8 +51,10 @@
     program. Computers ignore comments in a program. In Python, a
     comment begins with the hash symbol (#) and extends to the end of
     the current line.</p>
-<div class="pre"><pre class="python"># This is a comment because it has
-# hash symbols at the beginning.</pre></div>
+<div class="example"><pre class="python">
+# This is a comment because it has
+# hash symbols at the beginning.
+</pre></div>
 
     <h3 id="variables">Variables</h3>
     <p>A <dfn>variable</dfn> is a location in a computer’s memory where
@@ -62,7 +64,7 @@
     change the value and data type of a variable while executing a
     program.</p>
 
-<div class="pre"><pre class="python">
+<div class="example"><pre class="python">
 length = 5
 time = 7.2
 in_flight = True
@@ -80,7 +82,7 @@ first_name = "Cho"
         <li><div>A <dfn>str</dfn> (string) is any text inside single or
         double quotes, any text that a user enters, and any text in a
         text file. For example:
-<div class="pre"><pre class="python">
+<div class="example"><pre class="python">
 greeting = "Hello"
 text = "23"
 </pre></div>
@@ -90,19 +92,25 @@ text = "23"
         stores either <code>True</code> or <code>False</code>. A Boolean
         variable may not store any other value besides <code>True</code>
         or <code>False</code>. For example:
-<div class="pre"><pre class="python">found = True</pre></div>
+<div class="example"><pre class="python">
+found = True
+</pre></div>
         </div></li>
 
         <li><div>An <dfn>int</dfn> (integer) is a whole number like 14.
         An <code>int</code> may not have a fractional part or digits
         after the decimal point. For example:
-<div class="pre"><pre class="python">x = 14</pre></div>
+<div class="example"><pre class="python">
+x = 14
+</pre></div>
         </div></li>
 
         <li><div>A <dfn>float</dfn> (floating point number) is a number
         that may have a fractional part or digits after the decimal
         point like 7.51. For example:
-<div class="pre"><pre class="python">sample = 7.51</pre></div>
+<div class="example"><pre class="python">
+sample = 7.51
+</pre></div>
         </div></li>
 
         <li><div>A <dfn>list</dfn> is a collection of values. Each value
@@ -112,7 +120,7 @@ text = "23"
         square brackets ([&nbsp;and&nbsp;]) and separating the elements
         with commas (,). For example here are two lists named
         <code>colors</code> and <code>samples</code>:
-<div class="pre"><pre class="python">
+<div class="example"><pre class="python">
 colors = ["yellow", "red", "green", "yellow", "blue"]
 samples = [6.5, 7.2, 7.0, 8.1, 7.2, 6.8, 6.8]
 </pre></div>
@@ -126,14 +134,15 @@ samples = [6.5, 7.2, 7.0, 8.1, 7.2, 6.8, 6.8]
         In a Python program, we can create a dictionary by using curly
         braces ({&nbsp;and&nbsp;}) and separating the items with commas
         (,). For example:
-<div class="pre"><pre class="python">
+<div class="example"><pre class="python">
 students = {
     "42-039-4736": "Clint Huish",
     "61-315-0160": "Amelia Davis",
     "10-450-1203": "Ana Soares",
     "75-421-2310": "Abdul Ali",
     "07-103-5621": "Amelia Davis"
-}</pre></div>
+}
+</pre></div>
         You will study dictionaries in
         <a href="../lesson08/prepare.html">lesson&nbsp;8</a>
         of this course.</div></li>
@@ -157,7 +166,7 @@ students = {
     function to get input from a user in a terminal window. The
     <code>input</code> function always returns a string of
     characters.</p>
-<div class="pre"><pre class="python">
+<div class="example"><pre class="python">
 text = input("Please enter your name: ")
 color = input("What is your favorite color? ")
 </pre></div>
@@ -169,7 +178,9 @@ color = input("What is your favorite color? ")
     text and numbers together is to use a
     <a href="https://docs.python.org/3/tutorial/inputoutput.html#formatted-string-literals">formatted string literal</a>
     (also known as an f-string).</p>
-<div class="pre"><pre class="python">print(f"Heart rate: {rate}")</pre></div>
+<div class="example"><pre class="python">
+print(f"Heart rate: {rate}")
+</pre></div>
 
     <p>The Python program in example&nbsp;1 creates ten different
     variables. Some of the variables are of type <code>str</code>, some
@@ -177,7 +188,7 @@ color = input("What is your favorite color? ")
     of type <code>float</code>. The program uses f-strings to print the
     name, data type, and value of each variable.</p>
 
-<div class="pre" id="ex1"><pre class="linenums"></pre>
+<div class="example" id="ex1"><pre class="linenums"></pre>
 <pre class="python"># Example 1
 
 # Create variables of different data types and then
@@ -208,9 +219,9 @@ print()
 i = "True"   # string because of the surrounding quotes
 j = "2.718"  # string because of the surrounding quotes
 print(f"i: {type(i)} {i}")
-print(f"j: {type(j)} {j}")</pre></div>
+print(f"j: {type(j)} {j}")</pre>
 
-<pre class="console" data-for="ex1">&gt; python example_1.py
+<pre class="console">&gt; python example_1.py
 a: &lt;class 'str'&gt; Her name is
 b: &lt;class 'str'&gt; Isabella
 c: &lt;class 'str'&gt; Her name is Isabella
@@ -224,6 +235,7 @@ h: &lt;class 'float'&gt; 22.62
 
 i: &lt;class 'str'&gt; True
 j: &lt;class 'str'&gt; 2.718</pre>
+</div>
 
     <p>The Python program in example&nbsp;2 creates six different
     variables, some of type <code>string</code>, some of type
@@ -236,7 +248,7 @@ j: &lt;class 'str'&gt; 2.718</pre>
     functions to convert a string to a number so that the numbers can be
     used in calculations.</p>
 
-<div class="pre" id="ex2"><pre class="linenums"></pre>
+<div class="example" id="ex2"><pre class="linenums"></pre>
 <pre class="python"># Example 2
 
 # The input function always returns a string.
@@ -254,9 +266,9 @@ q = float(input("Please enter another number: "))  # float
 r = p + q                     # int plus float makes float
 print(f"p: {type(p)} {p}")
 print(f"q: {type(q)} {q}")
-print(f"r: {type(r)} {r}")</pre></div>
+print(f"r: {type(r)} {r}")</pre>
 
-<pre class="console" data-for="ex2">&gt; python example_2.py
+<pre class="console">&gt; python example_2.py
 Please enter a number: <span class="input">6</span>
 Please enter another number: <span class="input">4</span>
 k: &lt;class 'str'&gt; 6
@@ -268,6 +280,7 @@ Please enter another number: <span class="input">3</span>
 p: &lt;class 'int'&gt; 5
 q: &lt;class 'float'&gt; 3.0
 r: &lt;class 'float'&gt; 8.0</pre>
+</div>
 
     <h3 id="arith">Arithmetic</h3>
     <p>Python has many <dfn>arithmetic operators</dfn> including power
@@ -325,7 +338,7 @@ r: &lt;class 'float'&gt; 8.0</pre>
     program uses an f-string to print the length rounded to two places
     after the decimal point.</p>
 
-<div class="pre" id="ex3"><pre class="linenums"></pre>
+<div class="example" id="ex3"><pre class="linenums"></pre>
 <pre class="python"># Example 3
 
 # Given the distance that a cable will span and the distance
@@ -342,12 +355,13 @@ length = span + (8 * dip**2) / (3 * span)
 
 # Print the cable length in the
 # console window for the user to see.
-print(f"Length of cable in meters: {length:.2f}")</pre></div>
+print(f"Length of cable in meters: {length:.2f}")</pre>
 
-<pre class="console" data-for="ex3">&gt; python example_3.py
+<pre class="console">&gt; python example_3.py
 Distance the cable must span in meters: <span class="input">500</span>
 Distance the cable will sag or dip in meters: <span class="input">18.5</span>
 Length of cable in meters: 501.83</pre>
+</div>
 
     <p>In example&nbsp;3, the arithmetic that is written on
     <span class="cross" data-ref="ex3">line&nbsp;13</span>
@@ -365,7 +379,9 @@ Length of cable in meters: 501.83</pre>
     precedence as the assignment operator (=). Here is a list of some of
     the Python shorthand operators:</p>
 
-<div class="pre"><pre class="python">**=  *=  /=  //=  %=  +=  -=</pre></div>
+<div class="example"><pre class="python">
+**=  *=  /=  //=  %=  +=  -=
+</pre></div>
 
     <p>To understand what the shorthand operators do and why Python
     includes them, imagine a program that computes the price of a pizza.
@@ -375,7 +391,7 @@ Length of cable in meters: 501.83</pre>
     the user for the number of toppings and computes the price of a
     pizza:</p>
 
-<div class="pre" id="ex4"><pre class="linenums"></pre>
+<div class="example" id="ex4"><pre class="linenums"></pre>
 <pre class="python"># Example 4
 
 # Compute the total price of a pizza.
@@ -394,11 +410,12 @@ toppings_cost = number_of_toppings * price_per_topping
 <em>price = price + toppings_cost</em>
 
 # Print the price for the user to see.
-print(f"Price: ${price:.2f}")</pre></div>
+print(f"Price: ${price:.2f}")</pre>
 
-<pre class="console" data-for="ex4">&gt; python example_4.py
+<pre class="console">&gt; python example_4.py
 How many toppings? <span class="input">3</span>
 Price: $15.30</pre>
+</div>
 
     <p>The statement at
     <span class="cross" data-ref="ex4">line&nbsp;16</span> in
@@ -409,7 +426,9 @@ Price: $15.30</pre>
     combines addition (+) and assignment (=) into one operator (+=). We
     can use this shorthand operator to rewrite line&nbsp;16 like
     this:</p>
-<div class="pre"><pre class="python">price += toppings_cost</pre></div>
+<div class="example"><pre class="python">
+price += toppings_cost
+</pre></div>
 
     <p>This statement with the shorthand operator is equivalent to the
     statement on
@@ -419,7 +438,7 @@ Price: $15.30</pre>
     example&nbsp;4 but uses the shorthand operator += at
     <span class="cross" data-ref="ex5">line&nbsp;16</span>.</p>
 
-<div class="pre" id="ex5"><pre class="linenums"></pre>
+<div class="example" id="ex5"><pre class="linenums"></pre>
 <pre class="python"># Example 5
 
 # Compute the total price of a pizza.
@@ -438,11 +457,12 @@ toppings_cost = number_of_toppings * price_per_topping
 <em>price += toppings_cost</em>
 
 # Print the price for the user to see.
-print(f"Price: ${price:.2f}")</pre></div>
+print(f"Price: ${price:.2f}")</pre>
 
-<pre class="console" data-for="ex5">&gt; python example_5.py
+<pre class="console">&gt; python example_5.py
 How many toppings? <span class="input">3</span>
 Price: $15.30</pre>
+</div>
 
     <h3 id="if">if Statements</h3>
     <p>In Python, we use <code>if</code> statements to cause the
@@ -466,7 +486,7 @@ Price: $15.30</pre>
     <p>Example&nbsp;6 contains Python code that checks if a number is
     greater than 500.</p>
 
-<div class="pre" id="ex6"><pre class="linenums"></pre>
+<div class="example" id="ex6"><pre class="linenums"></pre>
 <pre class="python"># Example 6
 
 # Get an account balance as a number from the user.
@@ -479,15 +499,16 @@ if <em>balance &gt; 500</em>:
     balance += interest
 
 # Print the balance.
-print(f"balance: {balance:.2f}")</pre></div>
+print(f"balance: {balance:.2f}")</pre>
 
-<pre class="console" data-for="ex6">&gt; python example_6.py
+<pre class="console">&gt; python example_6.py
 Enter the account balance: <span class="input">350</span>
 balance: 350.0
 
 &gt; python example_6.py
 Enter the account balance: <span class="input">525</span>
 balance: 540.75</pre>
+</div>
 
     <p>If you have written programs in other programming languages such
     as JavaScript, Java, or C++, you always used curly braces to mark
@@ -517,7 +538,7 @@ balance: 540.75</pre>
     keyword <code>elif</code> as shown on lines
     <span class="cross" data-ref="ex7">9&nbsp;and&nbsp;11</span>.
 
-<div class="pre" id="ex7"><pre class="linenums"></pre>
+<div class="example" id="ex7"><pre class="linenums"></pre>
 <pre class="python"># Example 7
 
 # Get the cost of an item from the user.
@@ -539,11 +560,12 @@ discount = cost * rate
 cost -= discount
 
 # Print the discounted cost for the user to see.
-print(f"After the discount, you will pay {cost:.2f}")</pre></div>
+print(f"After the discount, you will pay {cost:.2f}")</pre>
 
-<pre class="console" data-for="ex7">&gt; python example_7.py
+<pre class="console">&gt; python example_7.py
 Please enter the cost: <span class="input">300</span>
 After the discount, you will pay 246.0</pre>
+</div>
 
     <h3 id="logic_ops">Logical Operators</h3>
     <p>Python includes two <dfn>logic operators</dfn> which are the
@@ -553,9 +575,10 @@ After the discount, you will pay 246.0</pre>
     operators are literally the words: <code>and</code>,
     <code>or</code>, <code>not</code> and not symbols as in other
     programming languages:
-<div class="pre"><pre class="python">
+<div class="example"><pre class="python">
 if driver &gt;= 54 <em>or</em> (driver &gt;= 32 <em>and</em> passenger &gt;= 54):
-    message = "Enjoy the ride!"</pre></div>
+    message = "Enjoy the ride!"
+</pre></div>
 
     <h2 id="videos">Videos</h2>
     <p>If any of the concepts or topics in the previous list seem

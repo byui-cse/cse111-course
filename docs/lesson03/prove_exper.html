@@ -113,10 +113,11 @@
         lists. You should recall that we create a Python list with
         square brackets and commas like this list of strings:
 
-<div class="pre"><pre class="python">
+<div class="example"><pre class="python">
 # Create a list of strings and assign
 # the list to a variable named words.
-words = ["boy", "girl", "cat", "dog", "bird", "house"]</pre></div>
+words = ["boy", "girl", "cat", "dog", "bird", "house"]
+</pre></div>
         </div></li>
 
         <li class="tutorial"><div>The
@@ -132,7 +133,8 @@ words = ["boy", "girl", "cat", "dog", "bird", "house"]</pre></div>
         <a href="https://docs.python.org/3/library/random.html#random.choice"><code>function named choice</code></a>
         that randomly chooses one element from a list and returns that
         element. The choice function is easy to call like this:
-<div class="pre"><pre class="python">import random
+<div class="example"><pre class="python">
+import random
 
 # Create a list of strings and assign
 # the list to a variable named words.
@@ -141,29 +143,34 @@ words = ["boy", "girl", "cat", "dog", "bird", "house"]
 # Call the random.choice function which will choose
 # one string from the words list. Store the chosen
 # string in a variable named word.
-word = <em>random.choice(words)</em></pre></div>
+word = <em>random.choice(words)</em>
+</pre></div>
         </div></li>
 
         <li class="reference"><div>The Python
         <a href="https://docs.python.org/3/library/stdtypes.html#str.capitalize">str.capitalize method</a>
         will capitalize the first letter in a word. The capitalize
         method is easy to call like this:
-<div class="pre"><pre class="python"># This could be any word from any source.
+<div class="example"><pre class="python">
+# This could be any word from any source.
 word = "horse"
 
 # Call the capitalize method which will
 # capitalize the first letter of the word.
-<em>cap_word = word.capitalize()</em></pre></div>
+<em>cap_word = word.capitalize()</em>
+</pre></div>
         </div></li>
 
         <li class="tutorial"><div>In Python, it is easy to use an
         <a href="https://realpython.com/python-f-strings/#f-strings-a-new-and-improved-way-to-format-strings-in-python">f-string</a>
         to combine many strings into one large string like this:
-<div class="pre"><pre class="python">given = "Michelle"
+<div class="example"><pre class="python">
+given = "Michelle"
 middle = "Aya"
 surname = "Takechi"
 
-<em>full_name = f"{given} {middle} {surname}"</em></pre></div>
+<em>full_name = f"{given} {middle} {surname}"</em>
+</pre></div>
         </div></li>
     </ul>
 
@@ -177,7 +184,7 @@ surname = "Takechi"
         <li><div>Copy and paste the following
         <code>get_determiner</code> function into your program.
 
-<div class="pre"><pre class="python">
+<div class="example"><pre class="python">
 def get_determiner(quantity):
     """Return a randomly chosen determiner. A determiner is
     a word like "the", "a", "one", "some", "many".
@@ -200,7 +207,8 @@ def get_determiner(quantity):
 
     # Randomly choose and return a determiner.
     word = random.choice(words)
-    return word</pre></div>
+    return word
+</pre></div>
         </div></li>
 
         <li><div>Use the <code>get_determiner</code> function as an
@@ -209,7 +217,7 @@ def get_determiner(quantity):
         header and fulfill the requirements of the following
         documentation string.
 
-<div class="pre"><pre class="python">
+<div class="example"><pre class="python">
 def get_noun(quantity):
     """Return a randomly chosen noun.
     If quantity is 1, this function will
@@ -225,7 +233,8 @@ def get_noun(quantity):
         quantity: an integer that determines if
             the returned noun is single or plural.
     Return: a randomly chosen noun.
-    """</pre></div>
+    """
+</pre></div>
         </div></li>
 
         <li><div>Use the <code>get_determiner</code> function as an
@@ -234,7 +243,7 @@ def get_noun(quantity):
         header and fulfill the requirements of the following
         documentation string.
 
-<div class="pre"><pre class="python">
+<div class="example"><pre class="python">
 def get_verb(quantity, tense):
     """Return a randomly chosen verb. If tense is "past",
     this function will return one of these ten verbs:
@@ -260,7 +269,8 @@ def get_verb(quantity, tense):
         tense: a string that determines the verb conjugation,
             either "past", "present" or "future".
     Return: a randomly chosen verb.
-    """</pre></div>
+    """
+</pre></div>
         </div></li>
 
         <li><div>Write a function named <code>make_sentence</code> with
@@ -272,7 +282,7 @@ def get_verb(quantity, tense):
         capitalize the first letter of the sentence and end it with a
         period (.).
 
-<div class="pre"><pre class="python">
+<div class="example"><pre class="python">
 def make_sentence(quantity, tense):
     """Build and return a sentence with three words:
     a determiner, a noun, and a verb. The grammatical
@@ -280,7 +290,8 @@ def make_sentence(quantity, tense):
     number in the quantity parameter. The grammatical
     quantity and tense of the verb will match the number
     and tense in the quantity and tense parameters.
-    """</pre></div>
+    """
+</pre></div>
         </div></li>
 
         <li><div><p>Write the <code>main</code> function to call your
@@ -350,11 +361,11 @@ Many men will write.</pre>
     <ol>
         <li><div>The computer starts executing the
         <code>sentences.py</code> program by calling the
-        <code>main</code> function.</li></div>
+        <code>main</code> function.</div></li>
 
         <li><div>While executing the <code>main</code> function, the
         computer calls the <code>make_sentence</code>
-        function.</li></div>
+        function.</div></li>
 
         <li><div>While executing the <code>make_sentence</code>
         function, the computer calls the <code>get_determiner</code>,

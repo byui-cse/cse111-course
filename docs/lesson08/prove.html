@@ -109,7 +109,9 @@
         function from the <code>formula.py</code> file into your
         <code>chemistry.py</code> program so that you can call the
         <code>parse_formula</code> function in your program.
-<div class="pre"><pre class="python">from formula import parse_formula</pre></div>
+<div class="example"><pre class="python">
+from formula import parse_formula
+</pre></div>
         </div></li>
 
         <li><div>In your <code>chemistry.py</code> program, change the
@@ -117,14 +119,15 @@
         function to a compound dictionary. Each item in the dictionary
         should have a chemical symbol as the key and the chemical name
         and atomic mass in a list as the value, like this:
-<div class="pre"><pre class="python">
+<div class="example"><pre class="python">
     periodic_table_dict = {
         # symbol: [name, atomic_mass]
         "Ac": ["Actinium", 227],
         "Ag": ["Silver", 107.8682],
         "Al": ["Aluminum", 26.9815386],
           &vellip;
-    }</pre></div>
+    }
+</pre></div>
         We <strong>strongly recommend</strong> that you use <strong>find
         and replace</strong> or <strong>multi-line editing</strong> in
         VS&nbsp;Code to quickly change the periodic table to a compound
@@ -136,7 +139,7 @@
         <code>chemistry.py</code> program. Be certain not to paste the
         code inside an existing function.
 
-<div class="pre"><pre class="python">
+<div class="example"><pre class="python">
 # Indexes for inner lists in the periodic table
 NAME_INDEX = 0
 ATOMIC_MASS_INDEX = 1
@@ -174,7 +177,8 @@ def compute_molar_mass(symbol_quantity_list, periodic_table_dict):
         # Add the product into the total molar mass.
 
     # Return the total molar mass.
-    return</pre></div>
+    return
+</pre></div>
 
         The code that you pasted includes the header and documentation
         string for a function named <code>compute_molar_mass</code>.
@@ -187,7 +191,7 @@ def compute_molar_mass(symbol_quantity_list, periodic_table_dict):
         <li><div>Modify the <code>main</code> function in your
         <code>chemistry.py</code> program so that it does the following:
 
-<div class="pre"><pre class="python">
+<div class="example"><pre class="python">
 def main():
     # Get a chemical formula for a molecule from the user.
 
@@ -266,7 +270,7 @@ Enter the mass in grams of the sample: <span class="input">25.04</span>
     <ul class="long">
         <li><div>Add a dictionary that contains known chemical formulas
         and their names. For example:
-<div class="pre"><pre class="python">
+<div class="example"><pre class="python">
     known_molecules_dict = {
         "Al2O3": "aluminum oxide",
         "CH3OH": "methanol",
@@ -284,11 +288,13 @@ Enter the mass in grams of the sample: <span class="input">25.04</span>
         "Fe2O3": "iron oxide",
         "FeS2": "iron pyrite",
         "H2O": "water"
-    }</pre></div>
+    }
+</pre></div>
 
         Then write a function named <code>get_formula_name</code> with
         the following header and documentation string.
-<div class="pre"><pre class="python">
+
+<div class="example"><pre class="python">
 def get_formula_name(formula, known_molecules_dict):
     """Try to find formula in the known_molecules_dict.
     If formula is in the known_molecules_dict, return
@@ -300,7 +306,8 @@ def get_formula_name(formula, known_molecules_dict):
         known_molecules_dict is a dictionary that contains
             known chemical formulas and their names
     Return: the name of a chemical formula
-    """</pre></div>
+    """
+</pre></div>
 
         Call the <code>get_formula_name</code> function from your
         <code>main</code> function and print the compound name for the
@@ -311,7 +318,8 @@ def get_formula_name(formula, known_molecules_dict):
         number of protons in the nucleus of that element. Write a
         function named <code>sum_protons</code> with the following
         header and documentation string.
-<div class="pre"><pre class="python">
+
+<div class="example"><pre class="python">
 def sum_protons(symbol_quantity_list, periodic_table_dict):
     """Compute and return the total number of protons in
     all the elements listed in symbol_quantity_list.
@@ -325,7 +333,8 @@ def sum_protons(symbol_quantity_list, periodic_table_dict):
             returned from make_periodic_table.
     Return: the total number of protons of all
         the elements in symbol_quantity_list.
-    """</pre></div>
+    """
+</pre></div>
 
         Call the <code>sum_protons</code> function from your
         <code>main</code> function and print the number of protons for

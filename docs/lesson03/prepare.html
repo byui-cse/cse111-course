@@ -101,14 +101,15 @@
     <p>To write a user-defined function in Python, simply type code
     that matches this template:</p>
 
-<div class="pre"><pre class="python">
+<div class="example"><pre class="python">
 def <var>function_name</var>(<var>param1</var>, <var>param2</var>, &hellip; <var>paramN</var>):
     """<var>documentation string</var>"""
     <var>statement1</var>
     <var>statement2</var>
         &vellip;
     <var>statementN</var>
-    return <var>value</var></pre></div>
+    return <var>value</var>
+</pre></div>
 
     <p>The first line of a function is called the <dfn>header</dfn> or
     <dfn>signature</dfn>, and it includes the following:
@@ -124,7 +125,9 @@ def <var>function_name</var>(<var>param1</var>, <var>param2</var>, &hellip; <var
     that takes three parameters named <code>x</code>, <code>y</code>,
     and <code>radius</code>:</p>
 
-<div class="pre"><pre class="python">def draw_circle(x, y, radius):</pre></div>
+<div class="example"><pre class="python">
+def draw_circle(x, y, radius):
+</pre></div>
 
     <p>You could read the previous line of code as, “Define a function
     named <code>draw_circle</code> that takes three parameters named
@@ -162,7 +165,7 @@ def <var>function_name</var>(<var>param1</var>, <var>param2</var>, &hellip; <var
     and uses those numbers to compute the volume of a right circular
     cylinder and then prints the volume for the user to see.</p>
 
-<div class="pre" id="ex1">
+<div class="example clear" id="ex1">
 <pre class="python"># Example 1
 
 import math
@@ -181,13 +184,16 @@ def print_cylinder_volume():
     volume = math.pi * radius**2 * height
 
     # Print the volume of the cylinder.
-    print(f"Volume: {volume:.2f}")</pre></div>
+    print(f"Volume: {volume:.2f}")</pre>
+</div>
 
     <p>Because the <code>print_cylinder_volume</code> function in
     example&nbsp;1 doesn’t accept parameters, it must be called without
     any arguments like this:</p>
 
-<div class="pre"><pre class="python">    print_cylinder_volume()</pre></div>
+<div class="example"><pre class="python">
+    print_cylinder_volume()
+</pre></div>
 
     <h3 id="reusable_user_func">How to Make a User-Defined Function
     Reusable</h3>
@@ -219,7 +225,7 @@ def print_cylinder_volume():
     input through its two parameters named <var>radius</var> and
     <var>height</var>.</p>
 
-<div class="pre" id="ex2">
+<div class="example" id="ex2">
 <pre class="python"># Example 2
 
 import math
@@ -236,13 +242,16 @@ def print_cylinder_volume(<em>radius</em>, <em>height</em>):
     volume = math.pi * radius**2 * height
 
     # Print the volume of the cylinder.
-    print(volume)</pre></div>
+    print(volume)</pre>
+</div>
 
     <p>Because the second version of the
     <code>print_cylinder_volume</code> function accepts two parameters,
     it must be called with two arguments like this:</p>
 
-<div class="pre"><pre class="python">    print_cylinder_volume(2.5, 4.1)</pre></div>
+<div class="example"><pre class="python">
+    print_cylinder_volume(2.5, 4.1)
+</pre></div>
 
     <p>To <dfn>return</dfn> a result from a function, simply type the
     keyword <code>return</code> followed by whatever result you want
@@ -255,7 +264,7 @@ def print_cylinder_volume(<em>radius</em>, <em>height</em>):
     <code>compute_cylinder_volume</code> because this version doesn’t
     print the volume but instead returns it.</p>
 
-<div class="pre" id="ex3">
+<div class="example" id="ex3">
 <pre class="python"># Example 3
 
 import math
@@ -273,7 +282,8 @@ def compute_cylinder_volume(radius, height):
 
     # Return the volume of the cylinder so that the
     # volume can be used somewhere else in the program.
-    <em>return volume</em></pre></div>
+    <em>return volume</em></pre>
+</div>
 
     <p>Many functions that you’ve used in the past such as
     <code>input</code>, <code>float</code>, and <code>round</code>,
@@ -281,20 +291,24 @@ def compute_cylinder_volume(radius, height):
     code to store that returned result in a variable to use later in the
     program like this:</p>
 
-<div class="pre"><pre class="python">    <em>text =</em> input("Please enter your name: ")</pre></div>
+<div class="example"><pre class="python">
+    <em>text =</em> input("Please enter your name: ")
+</pre></div>
 
     <p>Because the <code>compute_cylinder_volume</code> function in
     example&nbsp;3 accepts two parameters and returns a result, it
     could be called like this:</p>
 
-<div class="pre"><pre class="python">     volume = compute_cylinder_volume(2.5, 4.1)</pre></div>
+<div class="example"><pre class="python">
+    volume = compute_cylinder_volume(2.5, 4.1)
+</pre></div>
 
     <h3 id="main_func">The <code>main</code> User-Defined Function</h3>
     <p>In all previous Python programs that you wrote in CSE&nbsp;110
     and&nbsp;111, you wrote statements that were not in a function like
     the simple program in example&nbsp;4.
 
-<div class="pre" id="ex4"><pre class="linenums"></pre>
+<div class="example" id="ex4"><pre class="linenums"></pre>
 <pre class="python"># Example 4
 
 import math
@@ -307,12 +321,13 @@ height = float(input("Enter the height of a cylinder: "))
 volume = math.pi * radius**2 * height
 
 # Print the volume of the cylinder.
-print(f"Volume: {volume:.2f}")</pre></div>
+print(f"Volume: {volume:.2f}")</pre>
 
-<pre class="console" data-for="ex4">&gt; python example_4.py
+<pre class="console">&gt; python example_4.py
 Enter the radius in centimeters: <span class="input">3</span>
 Enter the height in centimeters: <span class="input">8</span>
 Volume: 226.19</pre>
+</div>
 
     <p>In a large program, writing statements outside a function can
     lead to poor organization. Professional software developers write
@@ -335,7 +350,7 @@ Volume: 226.19</pre>
     except most of the statements are inside a user-defined function
     named <code>main</code>.</p>
 
-<div class="pre" id="ex5"><pre class="linenums"></pre>
+<div class="example" id="ex5"><pre class="linenums"></pre>
 <pre class="python"># Example 5
 
 import math
@@ -354,12 +369,13 @@ def main():
 
 # Start this program by
 # calling the main function.
-main()</pre></div>
+main()</pre>
 
-<pre class="console" data-for="ex5">&gt; python example_5.py
+<pre class="console">&gt; python example_5.py
 Enter the radius in centimeters: <span class="input">3</span>
 Enter the height in centimeters: <span class="input">8</span>
 Volume: 226.19</pre>
+</div>
 
     <p>Notice the call to the <code>main</code> function in
     example&nbsp;5 at
@@ -394,7 +410,7 @@ Volume: 226.19</pre>
     other programs, including programs that run automatically without a
     user.</p>
 
-<div class="pre" id="ex6"><pre class="linenums"></pre>
+<div class="example" id="ex6"><pre class="linenums"></pre>
 <pre class="python"># Example 6
 
 import math
@@ -433,12 +449,13 @@ def compute_cylinder_volume(radius, height):
 
 # Start this program by
 # calling the main function.
-main()</pre></div>
+main()</pre>
 
-<pre class="console" data-for="ex6">&gt; python example_6.py
+<pre class="console">&gt; python example_6.py
 Enter the radius in centimeters: <span class="input">3</span>
 Enter the height in centimeters: <span class="input">8</span>
 Volume: 226.19</pre>
+</div>
 
     <p>The most reusable functions are ones that have parameters,
     perform calculations, and return a result but <em>do not perform
@@ -554,18 +571,21 @@ Volume: 226.19</pre>
     like you. To write a user-defined function, write code that follows
     this template:</p>
 
-<div class="pre"><pre class="python">
+<div class="example"><pre class="python">
 def <var>function_name</var>(<var>param1</var>, <var>param2</var>, &hellip; <var>paramN</var>):
     """<var>documentation string</var>"""
     <var>statement1</var>
     <var>statement2</var>
         &vellip;
     <var>statementN</var>
-    return <var>value</var></pre></div>
+    return <var>value</var>
+</pre></div>
 
     <p>To call a user-defined function, write code that follows this
     template:</p>
-<div class="pre"><pre class="python"><var>variable_name</var> = <var>function_name</var>(<var>arg1</var>, <var>arg2</var>, &hellip; <var>argN</var>)</pre></div>
+<div class="example"><pre class="python">
+<var>variable_name</var> = <var>function_name</var>(<var>arg1</var>, <var>arg2</var>, &hellip; <var>argN</var>)
+</pre></div>
 
     <p>The most reusable functions are ones that take parameters,
     perform calculations, and return a result but <em>do not perform

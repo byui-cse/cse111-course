@@ -80,7 +80,7 @@
     dictionary, add an item, remove an item, and find an item in a
     dictionary.</p>
 
-<div class="pre" id="ex1"><pre class="linenums"></pre>
+    <div class="example" id="ex1"><pre class="linenums"></pre>
 <pre class="python"># Example 1
 
 def main():
@@ -100,7 +100,7 @@ def main():
     # Remove an item from the dictionary.
     students.pop("61-315-0160")
 
-    # Get the number of items in the dictionary and print it.
+    # Get the number of items in the dictionary.
     length = len(students)
     print(f"length: {length}")
 
@@ -127,9 +127,9 @@ def main():
 
 # Call main to start this program.
 if __name__ == "__main__":
-    main()</pre></div>
+    main()</pre>
 
-<pre class="console" data-for="ex1">&gt; python example_1.py
+<pre class="console">&gt; python example_1.py
 length: 5
 {'42-039-4736': 'Clint Huish', '10-450-1203': 'Ana Soares',
 '75-421-2310': 'Abdul Ali', '07-103-5621': 'Amelia Davis',
@@ -137,12 +137,15 @@ length: 5
 
 Enter a student ID: <span class="input">10-450-1203</span>
 Ana Soares</pre>
+    </div>
 
     <p><span class="cross" data-ref="ex1">Line&nbsp;15</span> in the
     previous code example, adds an item to the dictionary. To add an
     item to an existing dictionary, write code that follows this
     template:</p>
-<div class="pre"><pre class="python">    <var>dictionary_name</var>[<var>key</var>] = <var>value</var></pre></div>
+<div class="example"><pre class="python">
+    <var>dictionary_name</var>[<var>key</var>] = <var>value</var>
+</pre></div>
     <p>Notice that <span class="cross" data-ref="ex1">line&nbsp;15</span>
     follows this template.</p>
 
@@ -151,7 +154,9 @@ Ana Soares</pre>
     the keyword <code>in</code>, to check if a key is stored in a
     dictionary. To check if a key is stored in a dictionary, write code
     that follows this template:</p>
-<div class="pre"><pre class="python">    if <var>key</var> in <var>dictionary_name</var>:</pre></div>
+<div class="example"><pre class="python">
+    if <var>key</var> in <var>dictionary_name</var>:
+</pre></div>
     <p>Notice that <span class="cross" data-ref="ex1">line&nbsp;32</span>
     follows this template.</p>
 
@@ -159,7 +164,9 @@ Ana Soares</pre>
     previous code example, finds a key and retrieves its corresponding
     value from a dictionary. To find a key and retrieve its
     corresponding value, write code that follows this template:</p>
-<div class="pre"><pre class="python">    <var>value</var> = <var>dictionary_name</var>[<var>key</var>]</pre></div>
+<div class="example"><pre class="python">
+    <var>value</var> = <var>dictionary_name</var>[<var>key</var>]
+</pre></div>
     <p>Notice that <span class="cross" data-ref="ex1">line&nbsp;36</span>
     follows this template.</p>
 
@@ -174,7 +181,7 @@ Ana Soares</pre>
     list. Because each list contains multiple parts, we say that the
     dictionary stores compound values.</p>
 
-<div class="pre" id="ex2"><pre class="python"># Example 2
+<div class="example" id="ex2"><pre class="python"># Example 2
 
 def main():
     # Create a dictionary with student IDs as the keys
@@ -196,7 +203,9 @@ def main():
     in a dictionary, a programmer needs to write just one line of code
     that follows this template:</p>
 
-<div class="pre"><pre class="python">    <var>value</var> = <var>dictionary_name</var>[<var>key</var>]</pre></div>
+<div class="example"><pre class="python">
+    <var>value</var> = <var>dictionary_name</var>[<var>key</var>]
+</pre></div>
 
     <p>That one line of code will cause the computer to search the
     dictionary until it finds the <var>key</var>. Then the computer will
@@ -207,7 +216,7 @@ def main():
     <span class="cross" data-ref="ex3">lines&nbsp;24&ndash;28</span>
     in example&nbsp;3.</p>
 
-<div class="pre" id="ex3"><pre class="linenums"></pre>
+<div class="example" id="ex3"><pre class="linenums"></pre>
 <pre class="python"># Example 3
 
 def main():
@@ -236,12 +245,15 @@ def main():
         if key == id:                   <em># Don't use a loop like</em>
             student = value             <em># this to find an item</em>
             break                       <em># in a dictionary.</em>
-</pre></div>
+</pre>
+</div>
 
     <p>Compare the <code>for</code> loop at
     <span class="cross" data-ref="ex3">lines&nbsp;24&ndash;28</span> in
     the previous example to this one line of code.</p>
-<div class="pre"><pre class="python">    value = students[id]</pre></div>
+<div class="example"><pre class="python">
+    value = students[id]
+</pre></div>
 
     <p>Clearly, writing one line of code is easier for a programmer than
     writing the <code>for</code> loop. Not only is the one line of code
@@ -252,7 +264,7 @@ def main():
     ([&nbsp;and&nbsp;]) and a key to find an item. Example&nbsp;4 shows
     the correct way to find an item in a dictionary.</p>
 
-<div class="pre" id="ex4"><pre class="linenums"></pre>
+<div class="example" id="ex4"><pre class="linenums"></pre>
 <pre class="python"># Example 4
 
 def main():
@@ -297,15 +309,16 @@ def main():
 
 # Call main to start this program.
 if __name__ == "__main__":
-    main()</pre></div>
+    main()</pre>
 
-<pre class="console" data-for="ex4">&gt; python example_4.py
+<pre class="console">&gt; python example_4.py
 Enter a student ID: <span class="input">61-315-0160</span>
 Amelia Davis
 
 &gt; python example_4.py
 Enter a student ID: <span class="input">25-143-1202</span>
 No such student</pre>
+</div>
 
     <h3 id="process_all">Processing All Items</h3>
     <p>Occasionally, you may need to write a program that processes all
@@ -315,7 +328,7 @@ No such student</pre>
     <code>dict.items()</code> method as shown in example&nbsp;5 on
     <span class="cross" data-ref="ex5">line&nbsp;25</span>.</p>
 
-<div class="pre" id="ex5"><pre class="linenums"></pre>
+<div class="example" id="ex5"><pre class="linenums"></pre>
 <pre class="python"># Example 5
 
 def main():
@@ -355,10 +368,11 @@ def main():
 
 # Call main to start this program.
 if __name__ == "__main__":
-    main()</pre></div>
+    main()</pre>
 
-<pre class="console" data-for="ex5">&gt; python example_5.py
+<pre class="console">&gt; python example_5.py
 Total credits earned by all students: 47</pre>
+</div>
 
     <p>As with all the example code in CSE&nbsp;111, example&nbsp;5
     contains working Python code. Even though the code works, we can
@@ -366,23 +380,25 @@ Total credits earned by all students: 47</pre>
     into a single line of code by using a Python shortcut called
     unpacking. Instead of writing lines&nbsp;25&ndash;27, like this:</p>
 
-<div class="pre"><pre class="python">
+<div class="example"><pre class="python">
     for item in students.items():
         key = item[0]
-        value = item[1]</pre></div>
+        value = item[1]
+</pre></div>
 
     <p>We can write one line of code that combines the three lines of
     code and unpacks the item in the <code>for</code> statement like
     this:</p>
 
-<div class="pre"><pre class="python">
-    for key, value in students.items():</pre></div>
+<div class="example"><pre class="python">
+    for key, value in students.items():
+</pre></div>
 
     <p>Example&nbsp;6 contains the same code as example&nbsp;5 except
     example&nbsp;6 uses the Python unpacking shortcut at
     <span class="cross" data-ref="ex6">line&nbsp;25</span>.</p>
 
-<div class="pre" id="ex6"><pre class="linenums"></pre>
+<div class="example" id="ex6"><pre class="linenums"></pre>
 <pre class="python"># Example 6
 
 def main():
@@ -420,10 +436,11 @@ def main():
 
 # Call main to start this program.
 if __name__ == "__main__":
-    main()</pre></div>
+    main()</pre>
 
-<pre class="console" data-for="ex6">&gt; python example_6.py
+<pre class="console">&gt; python example_6.py
 Total credits earned by all students: 47</pre>
+</div>
 
     <h3 id="dict_vs_list">Dictionaries Are Similar to Lists</h3>
     <p>Dictionaries are similar to lists in a few ways. The following
@@ -459,7 +476,8 @@ Total credits earned by all students: 47</pre>
         a dictionary.</td></tr>
 
         <tr class="diff"><th></th>
-        <td colspan="2"><div class="pre"><pre class="python">
+        <td colspan="2">
+<div class="example"><pre class="python">
     # Create a list of cities.
     cities_list = ["Delhi", "Lagos", "Dallas"]
 
@@ -469,7 +487,8 @@ Total credits earned by all students: 47</pre>
         "P445": "Whitney Nelson",
         "P128": "Yasmin Li"
     }
-</pre></div></td></tr>
+</pre></div>
+        </td></tr>
 
         <tr class="same"><th>Same</th>
         <td>Lists are mutable, which means a program can add and remove
@@ -484,7 +503,8 @@ Total credits earned by all students: 47</pre>
         an item to a dictionary.</td></tr>
 
         <tr class="diff"><th></th>
-        <td colspan="2"><div class="pre"><pre class="python">
+        <td colspan="2">
+<div class="example"><pre class="python">
     # Add two cities to the cities list.
     cities_list.insert(1, "Paris")
     cities_list.append("Tokyo")
@@ -492,7 +512,8 @@ Total credits earned by all students: 47</pre>
     # Add two people to the people dictionary.
     people_dict["P205"] = "Liam Myers"
     people_dict["P317"] = "Davina Patel"
-</pre></div></td></tr>
+</pre></div>
+        </td></tr>
 
         <tr class="same"><th>Same</th>
         <td>To cause the computer to check whether an element is in a
@@ -501,13 +522,15 @@ Total credits earned by all students: 47</pre>
         dictionary, a programmer uses the <code>in</code> keyword.</td></tr>
 
         <tr class="same"><th></th>
-        <td colspan="2"><div class="pre"><pre class="python">
+        <td colspan="2">
+<div class="example"><pre class="python">
     if "Paris" in cities_list:
         print("Paris is in the list of cities.")
 
     if "P203" in people_dict:
         print("P203 is in the dictionary of people.")
-</pre></div></td></tr>
+</pre></div>
+        </td></tr>
 
         <tr class="diff"><th>Different</th>
         <td>A programmer uses the <code>index</code> method to find an
@@ -516,13 +539,15 @@ Total credits earned by all students: 47</pre>
         key to find an item in a list.</td>
 
         <tr class="diff"><th></th>
-        <td colspan="2"><div class="pre"><pre class="python">
+        <td colspan="2">
+<div class="example"><pre class="python">
     # Find Dallas in the cities list.
     index = cities_list.index("Dallas")
 
     # Find person P128 in the people dictionary.
     person_name = people_dict["P128"]
-</pre></div></td></tr>
+</pre></div>
+        </td></tr>
 
         <tr class="similar"><th>Similar</th>
         <td>A programmer uses square brackets ([&nbsp;and&nbsp;]) and an
@@ -531,7 +556,8 @@ Total credits earned by all students: 47</pre>
         key to retrieve a value from a dictionary.</td></tr>
 
         <tr class="similar"><th></th>
-        <td colspan="2"><div class="pre"><pre class="python">
+        <td colspan="2">
+<div class="example"><pre class="python">
     # Retrieve the element stored at
     # index 2 in the cities list.
     city_name = cities_list[2]
@@ -539,7 +565,8 @@ Total credits earned by all students: 47</pre>
     # Find person P128 in the people dictionary
     # and retrieve the corresponding value.
     person_name = people_dict["P128"]
-</pre></div></td></tr>
+</pre></div>
+        </td></tr>
 
         <tr class="similar"><th></th>
         <td>A programmer uses square brackets ([&nbsp;and&nbsp;]) and
@@ -548,13 +575,15 @@ Total credits earned by all students: 47</pre>
         a key to replace a value in a dictionary.</td></tr>
 
         <tr class="similar"><th></th>
-        <td colspan="2"><div class="pre"><pre class="python">
+        <td colspan="2">
+<div class="example"><pre class="python">
     # Change the city name at index 2 to London.
     cities_list[2] = "London"
 
     # Change the name of person P205 to Finn Meyers.
     people_dict["P205"] = "Finn Myers"
-</pre></div></td></tr>
+</pre></div>
+        </td></tr>
 
         <tr class="similar"><th></th>
         <td>A programmer can use a <code>for</code> loop to process
@@ -563,7 +592,8 @@ Total credits earned by all students: 47</pre>
         all the items in a dictionary.</td></tr>
 
         <tr class="similar"><th></th>
-        <td colspan="2"><div class="pre"><pre class="python">
+        <td colspan="2">
+<div class="example"><pre class="python">
     # Process all the elements in the cities list.
     for city_name in cities_list:
         print(city_name)
@@ -571,7 +601,8 @@ Total credits earned by all students: 47</pre>
     # Process all the items in the people dictionary.
     for person_key, person_name in people_dict.items():
         print(person_name)
-</pre></div></td></tr>
+</pre></div>
+        </td></tr>
 
         <tr class="same"><th>Same</th>
         <td>A programmer uses the <code>pop</code> method to remove
@@ -580,7 +611,8 @@ Total credits earned by all students: 47</pre>
         an item from a dictionary.</td></tr>
 
         <tr class="same"><th></th>
-        <td colspan="2"><div class="pre"><pre class="python">
+        <td colspan="2">
+<div class="example"><pre class="python">
     # Remove the element at index 3
     # from the cities list.
     cities_list.pop(3)
@@ -588,7 +620,8 @@ Total credits earned by all students: 47</pre>
     # Remove the key "P203" and its
     # value from the people dictionary.
     people_dict.pop("P203")
-</pre></div></td></tr>
+</pre></div>
+        </td></tr>
 
         <tr class="same"><th></th>
         <td>Lists are passed by reference into a function.</td>
@@ -596,7 +629,8 @@ Total credits earned by all students: 47</pre>
         function.</td></tr>
 
         <tr class="same"><th></th>
-        <td colspan="2"><div class="pre"><pre class="python">
+        <td colspan="2">
+<div class="example"><pre class="python">
     # Call the draw_chart function and pass
     # the citites list to that function.
     draw_chart(cities_list)
@@ -604,7 +638,8 @@ Total credits earned by all students: 47</pre>
     # Call the hire_people function and pass
     # the people dictionary to that function.
     hire_people(people_dict)
-</pre></div></td></tr>
+</pre></div>
+        </td></tr>
     </tbody></table>
 
     <h3 id="lists_to_dict">Converting between Lists and Dictionaries</h3>
@@ -622,7 +657,7 @@ Total credits earned by all students: 47</pre>
     starts with two lists, converts them into a dictionary, and then
     converts the dictionary into two lists.</p>
 
-<div class="pre" id="ex7"><pre class="linenums"></pre>
+    <div class="example" id="ex7"><pre class="linenums"></pre>
 <pre class="python"># Example 7
 
 def main():
@@ -654,9 +689,9 @@ def main():
 
 # Call main to start this program.
 if __name__ == "__main__":
-    main()</pre></div>
+    main()</pre>
 
-<pre class="console" data-for="ex7">&gt; python example_7.py
+<pre class="console">&gt; python example_7.py
 Dictionary: {'42-039-4736': 'Clint Huish',
 '61-315-0160': 'Amelia Davis', '10-450-1203': 'Ana Soares',
 '75-421-2310': 'Abdul Ali', '07-103-5621': 'Amelia Davis'}
@@ -666,6 +701,7 @@ Keys: ['42-039-4736', '61-315-0160', '10-450-1203',
 
 Values: ['Clint Huish', 'Amelia Davis', 'Ana Soares',
 'Abdul Ali', 'Amelia Davis']</pre>
+    </div>
 
     <h2 id="tutorials">Tutorials</h2>
     <p>The following tutorials contain more information about

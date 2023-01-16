@@ -88,7 +88,7 @@
     the code removes surrounding white space, if there is any, from each
     line of text and then stores each line of text in a list.</p>
 
-<div class="pre" id="ex1"><pre class="linenums"></pre>
+<div class="example" id="ex1"><pre class="linenums"></pre>
 <pre class="python"># Example 1
 
 def main():
@@ -134,9 +134,10 @@ def read_list(filename):
 
 # Call main to start this program.
 if __name__ == "__main__":
-    main()</pre></div>
+    main()</pre>
+</div>
 
-<pre class="console" data-for="ex1">&gt; python example_1.py
+<pre class="console">&gt; python example_1.py
 ['baobab', 'kangaroo paw', 'eucalyptus', 'heliconia', 'tulip',
 'chupasangre cactus', 'prickly pear cactus', 'ginkgo biloba']</pre>
 
@@ -163,7 +164,7 @@ if __name__ == "__main__":
     contains column headings, the next four rows contain data about four
     hymns, and each row contains three columns separated by commas.</p>
 
-<div class="pre"><pre class="csv">
+<div class="example"><pre class="csv">
 Title,Author,Composer
 O Holy Night,John Dwight,Adolphe Adam
 Away in a Manger,Anonymous,William Kirkpatrick
@@ -187,7 +188,7 @@ With Wondering Awe,Anonymous,Anonymous
     the <code>csv.reader</code> reads and prints each row from the CSV
     file.</p>
 
-<div class="pre" id="ex2"><pre class="linenums"></pre>
+<div class="example" id="ex2"><pre class="linenums"></pre>
 <pre class="python"># Example 2
 
 import csv
@@ -209,15 +210,15 @@ def main():
 
 # Call main to start this program.
 if __name__ == "__main__":
-    main()</pre></div>
+    main()</pre>
 
-<pre class="console" data-for="ex2">&gt; python example_2.py
+<pre class="console">&gt; python example_2.py
 ['Title', 'Author', 'Composer']
 ['O Holy Night', 'John Dwight', 'Adolphe Adam']
 ['Away in a Manger', 'Anonymous', 'William Kirkpatrick']
 ['Joy to the World', 'Isaac Watts', 'George Handel']
 ['With Wondering Awe', 'Anonymous', 'Anonymous']</pre>
-
+</div>
 
     <p>When a <code>csv.reader</code> reads a row from a CSV file, the
     reader returns the row as a list of strings. The output from
@@ -242,7 +243,7 @@ if __name__ == "__main__":
     <code>csv.reader</code> will correctly split rows in all valid CSV
     files.</p>
 
-<div class="pre"><pre class="csv">
+<div class="example"><pre class="csv">
 Title,Author,Composer
 "Far, Far Way on Judea's Plains",John Mcfarlane,John Mcfarlane
 "Oh, Come, All Ye Faithful",John Wade,John Wade
@@ -260,7 +261,7 @@ Title,Author,Composer
     about four dental offices, and each row contains five columns
     separated by commas.</p>
 
-<div class="pre"><pre class="csv">
+<div class="example"><pre class="csv">
 Company Name,Address,Phone Number,Employees,Patients
 Eagle Rock Dental Care,556 Trejo Suite C,208-359-2224,7,1205
 Apple Tree Dental,33 Winn Drive Suite 2,208-359-1500,10,1520
@@ -277,7 +278,7 @@ Cornerstone Family Dental,44 S Center Street,208-356-4240,8,1453
     <code>next</code> function at
     <span class="cross" data-ref="ex3">line&nbsp;25</span>.</p>
 
-<div class="pre" id="ex3"><pre class="linenums"></pre>
+<div class="example" id="ex3"><pre class="linenums"></pre>
 <pre class="python"># Example 3
 
 import csv
@@ -336,10 +337,11 @@ def main():
 
 # Call main to start this program.
 if __name__ == "__main__":
-    main()</pre></div>
+    main()</pre>
 
-<pre class="console" data-for="ex3">&gt; python example_3.py
+<pre class="console">&gt; python example_3.py
 Cornerstone Family Dental has 181.6 patients per employee</pre>
+</div>
 
     <h3 id="csv_to_list">Reading a CSV File into a Compound List</h3>
     <p>The program in example&nbsp;3 reads and processes each row in a
@@ -351,7 +353,7 @@ Cornerstone Family Dental has 181.6 patients per employee</pre>
     <code>read_compound_list</code> that reads the contents of a CSV
     file into a compound list.</p>
 
-<div class="pre" id="ex4"><pre class="linenums"></pre>
+<div class="example" id="ex4"><pre class="linenums"></pre>
 <pre class="python"># Example 4
 
 import csv
@@ -404,9 +406,9 @@ def read_compound_list(filename):
 
 # Call main to start this program.
 if __name__ == "__main__":
-    main()</pre></div>
+    main()</pre>
 
-<pre class="console" data-for="ex4">&gt; python example_4.py
+<pre class="console">&gt; python example_4.py
 [['Company Name', 'Address', 'Phone Number', 'Employees',
 'Patients'], ['Eagle Rock Dental Care', '556 Trejo Suite C',
 '208-359-2224', '7', '1205'], ['Apple Tree Dental',
@@ -414,6 +416,7 @@ if __name__ == "__main__":
 ['Rockhouse Dentistry', '106 E 1st N', '208-356-5600', '12',
 '1982'], ['Cornerstone Family Dental', '44 S Center Street',
 '208-356-4240', '8', '1453']]</pre>
+</div>
 
     <h3 id="csv_to_dict">Reading a CSV File into a Compound Dictionary</h3>
     <p>If the values in one of the columns of a CSV file are unique,
@@ -427,7 +430,7 @@ if __name__ == "__main__":
     58,&nbsp;and&nbsp;62</span>, that the program uses the dental office
     phone numbers as the keys in the dictionary.</p>
 
-<div class="pre" id="ex5"><pre class="linenums"></pre>
+<div class="example" id="ex5"><pre class="linenums"></pre>
 <pre class="python"># Example 5
 
 import csv
@@ -497,13 +500,14 @@ def read_dictionary(filename, key_column_index):
 
 # Call main to start this program.
 if __name__ == "__main__":
-    main()</pre></div>
+    main()</pre>
 
-<pre class="console" data-for="ex5">&gt; python example_5.py
+<pre class="console">&gt; python example_5.py
 {'208-359-2224': ['Eagle Rock Dental Care', '556 Trejo Suite&hellip;],
 '208-359-1500': ['Apple Tree Dental', '33 Winn Drive Suite 2&hellip;],
 '208-356-5600': ['Rockhouse Dentistry', '106 E 1st N', '208-&hellip;],
 '208-356-4240': ['Cornerstone Family Dental', '44 S Center S&hellip;]}</pre>
+</div>
 
     <h2 id="more_info">Additional Information</h2>
     <p>The following tutorials contain additional information that you

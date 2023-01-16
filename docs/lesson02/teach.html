@@ -172,7 +172,7 @@
         <code>weekday</code> method to get the day of the week as an
         integer.</p>
 
-<div class="pre" id="ex1"><pre class="linenums"></pre>
+<div class="example" id="ex1"><pre class="linenums"></pre>
 <pre class="python">
 # Import the datetime class from the datetime
 # module so that it can be used in this program.
@@ -188,10 +188,11 @@ current_date_and_time = datetime.now()
 day_of_week = current_date_and_time.weekday()
 
 # Print the day of the week for the user to see.
-print(day_of_week)</pre></div>
+print(day_of_week)</pre>
 
-<pre class="console" data-for="ex1">&gt; python day_of_week.py
+<pre class="console">&gt; python day_of_week.py
 4</pre>
+</div>
 
         <p>After the computer executes
         <span class="cross" data-ref="ex1">line&nbsp;8</span> in the
@@ -241,14 +242,17 @@ Total: 52.66</pre>
         without changing your computer’s operating system date? Hint: In
         your program immediately after these three lines of code:
 
-<div class="pre"><pre class="python">
+<div class="example"><pre class="python">
 # Call the weekday() method to get the day of the
 # week from the current_date_and_time object.
-day_of_week = current_date_and_time.weekday()</pre></div>
+day_of_week = current_date_and_time.weekday()
+</pre></div>
 
         temporarily add a line of code like this one:
 
-<div class="pre"><pre class="python">day_of_week = 2</pre></div>
+<div class="example"><pre class="python">
+day_of_week = 2
+</pre></div>
         </div></li>
     </ol>
 
