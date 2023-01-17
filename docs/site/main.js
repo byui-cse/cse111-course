@@ -427,12 +427,19 @@ cse111.linenums = {
 		for (let i = 0;  i < elems.length;  ++i) {
 			let elem = elems[i];
 			let code = elem.nextElementSibling.innerHTML;
-			let count = code.split(newline).length;
-			for (let n = 1;  n <= count;  ++n) {
-				let span = createElem('span');
-				span.innerText = n.toString();
-				elem.appendChild(span);
-				elem.appendChild(createText('\n'));
+			if (code.length > 0) {
+
+				// If the pre.linenums element contains
+				// any children nodes, remove them.
+				elem.replaceChildren();
+
+				let count = code.split(newline).length;
+				for (let n = 1;  n <= count;  ++n) {
+					let span = createElem('span');
+					span.innerText = n.toString();
+					elem.appendChild(span);
+					elem.appendChild(createText('\n'));
+				}
 			}
 		}
 		this.lineNumbersAdded = true;
@@ -774,6 +781,5 @@ cse111.afterPrint = function() {
 
 
 window.addEventListener('DOMContentLoaded', cse111.onDOMLoaded);
-//window.addEventListener('load', cse111.onFullDocLoaded);
 window.addEventListener('beforeprint', cse111.beforePrint);
 window.addEventListener('afterprint', cse111.afterPrint);
