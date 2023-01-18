@@ -52,7 +52,7 @@ cse111.strings = {
 	viewText     : 'View',
 	downloadText : 'Download',
 
-	modified  : 'Last modified',
+	modified : 'Last modified',
 	copyrightNotice : 'Copyright © 2019 Brigham Young University–Idaho. All rights reserved.'
 };
 
@@ -131,8 +131,8 @@ cse111.common = {
 	},
 
 
-	/** If the document body doesn't have a header element, this
-	 * functions adds a header to the body. */
+	/** If the document body doesn't have a header element,
+	 * this function adds a header to the body. */
 	addHeader : function() {
 		let header = document.body.querySelector('header');
 		if (! header) {
@@ -173,11 +173,11 @@ cse111.common = {
 				header.appendChild(h2);
 				header.appendChild(menuIcon);
 			const body = document.body;
-			const article = body.querySelector('article');
-			body.insertBefore(header, article);
+				const article = body.querySelector('article');
+				body.insertBefore(header, article);
 
-			this.addNavMenu(body, article);
-			body.addEventListener('click', self.closeNavMenu);
+				this.addNavMenu(body, article);
+				body.addEventListener('click', self.closeNavMenu);
 		}
 	},
 
@@ -288,29 +288,6 @@ cse111.common = {
 	},
 
 
-	/** Creates an HTML element. */
-	createElement : function(tag, classes, attrs) {
-		let elem = document.createElement(tag);
-		if (classes) {
-			for (let i = 0;  i < classes.length;  ++i) {
-				elem.classList.add(classes[i]);
-			}
-		}
-		if (attrs) {
-			for (name in attrs) {
-				let value = attrs[name];
-				elem.setAttribute(name, value);
-			}
-		}
-		return elem;
-	},
-
-	/** Creates an HTML text node. */
-	createTextNode : function(text) {
-		return document.createTextNode(text);
-	},
-
-
 	/** Adds a copy character to each h2, h3, or h4 that has an id. */
 	addAnchorCopyChar : function() {
 		const strings = cse111.strings;
@@ -363,15 +340,18 @@ cse111.common = {
 					src : filenames.upIcon});
 			up.addEventListener('click', function() {window.scrollTo(0, 0);});
 
-			const copyData = this.getCopyrightData();
-			let mod = createText(strings.modified + ' ' + copyData.modified);
-			let br = createElem('br');
-			let copy = createText(copyData.notice);
-
 			let div = createElem('div');
-			div.appendChild(mod);
+			const copyData = this.getCopyrightData();
+			if (copyData.modified) {
+				let mod = createText(strings.modified +' '+ copyData.modified);
+				div.appendChild(mod);
+			}
+			let br = createElem('br');
 			div.appendChild(br);
-			div.appendChild(copy);
+			if (copyData.notice) {
+				let copy = createText(copyData.notice);
+				div.appendChild(copy);
+			}
 
 			footer = createElem('footer');
 			footer.appendChild(up);
@@ -388,7 +368,7 @@ cse111.common = {
 	getCopyrightData : function() {
 		const strings = cse111.strings;
 		let notice = strings.copyrightNotice;
-		let modified = 'unknown';
+		let modified;
 		const query = 'script[type="application/ld+json"]';
 		const script = document.head.querySelector(query);
 		if (script) {
@@ -401,6 +381,28 @@ cse111.common = {
 			}
 		}
 		return {notice: notice, modified: modified};
+	},
+
+
+	/** Creates an HTML element. */
+	createElement : function(tag, classes, attrs) {
+		let elem = document.createElement(tag);
+		if (classes) {
+			for (let i = 0;  i < classes.length;  ++i) {
+				elem.classList.add(classes[i]);
+			}
+		}
+		if (attrs) {
+			for (name in attrs) {
+				elem.setAttribute(name, attrs[name]);
+			}
+		}
+		return elem;
+	},
+
+	/** Creates an HTML text node. */
+	createTextNode : function(text) {
+		return document.createTextNode(text);
 	}
 };
 
