@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
 
+/*
 @font-face {
 	font-family: 'icomoon';
 	src: url('fonts/icomoon.eot');
@@ -13,6 +14,7 @@
 	font-weight: normal;
 	font-style: normal;
 }
+*/
 
 :root {
 	--transpar: rgba(0, 0, 0, 0);
@@ -138,22 +140,14 @@ body {
 	}
 	header > a.byuiLogo {
 		flex: 0 0 auto;
-		font-family: 'icomoon';
-		font-size: 400%;
-		font-style: normal;
-		font-weight: normal;
-		font-variant: normal;
-		text-transform: none;
-		line-height: 0.6;
-		margin-right: 0.4em;
-		vertical-align: middle;
-		/* Better font rendering */
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
+		margin: auto 0;
+	}
+	header > a.byuiLogo > img {
+		width: 4.8em;
 	}
 	header > h2 {
 		flex: 1 1 auto;
-		vertical-align: middle;
+		margin: auto 1.5em auto 1.5em;
 		font-size: 125%;
 		font-weight: normal;
 		white-space: normal;
@@ -161,7 +155,7 @@ body {
 	header > img.menuIcon {
 		flex: 0 0 auto;
 		width: 1.2em;
-		margin: auto 0 auto 1.5em;
+		margin: auto 0;
 		cursor: pointer;
 	}
 

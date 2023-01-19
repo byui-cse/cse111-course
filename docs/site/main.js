@@ -9,9 +9,9 @@ if (! window.hasOwnProperty('cse111')) {
 /** Contains all user visible strings so that translating them to
  * another language will be easier. */
 cse111.strings = {
-	byuiEntity  : '&#xe000;',
 	byuiURL     : 'https://www.byui.edu',
 	byuiHint    : 'BYU-Idaho Website',
+	byuiLogoAlt : 'BYU-Idaho Logo',
 	courseCode  : 'CSE 111',
 	courseTitle : 'Programming with Functions',
 	courseHint  : 'CSE 111 Content',
@@ -60,6 +60,7 @@ cse111.strings = {
 /** Contains the filenames of all user visible icons and other files so
  * that changing them, if necessary, will be easier. */
 cse111.filenames = {
+	byuiLogo     : 'site/icons/byui-logo.svg',
 	logoIcon     : 'site/icons/logo.png',
 	menuIcon     : 'site/icons/bars.svg',
 	lightIcon    : 'site/icons/sun.svg',
@@ -150,10 +151,13 @@ cse111.common = {
 			};
 
 			// Create the children of the header.
+			let img = createElem('img', null,
+					{alt : strings.byuiLogoAlt,
+					src : filenames.byuiLogo});
 			let byuiLogo = createElem('a', ['byuiLogo'],
 					{title : strings.byuiHint,
 					href : strings.byuiURL});
-				byuiLogo.innerHTML = strings.byuiEntity;
+				byuiLogo.appendChild(img);
 			let courseCode = createElem('a', null,
 					{title : strings.courseHint,
 					href : filenames.contents});
