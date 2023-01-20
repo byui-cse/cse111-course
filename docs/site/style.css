@@ -1,8 +1,3 @@
-@import url("reset.css");
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
-
 :root {
 	--transpar: rgba(0, 0, 0, 0);
 
@@ -60,6 +55,23 @@
 
 		--body-font-size: 110%;
 		--formula-font-size: 118%;
+		--article-line-height: 1.4;
+	}
+}
+@media screen and (max-width: 600px) {
+	/* Small screens */
+	:root {
+		--header-padding-side: 0.75em;
+		--header-separation: 0.75em;
+		--article-padding-side: 0.75em;
+	}
+}
+@media screen and (min-width: 600px) {
+	/* Medium and large screens */
+	:root {
+		--header-padding-side: 1em;
+		--header-separation: 1em;
+		--article-padding-side: 1em;
 	}
 }
 @media print {
@@ -85,6 +97,9 @@
 
 		--body-font-size: 110%;
 		--formula-font-size: 105%;
+
+		--article-padding-side: 0;
+		--article-line-height: 1.15;
 	}
 }
 
@@ -119,10 +134,10 @@ body {
 
 @media screen {
 	header {
-		padding: 0.5em 1.5em;
 		display: flex;
 		flex-flow: row nowrap;
 		align-items: center;
+		padding: 0.5em var(--header-padding-side);
 		background-color: var(--byui-blue);
 		color: white;
 	}
@@ -133,11 +148,11 @@ body {
 		width: 4em;
 	}
 	header > h2 {
+		margin: 0 var(--header-separation);
 		flex: 1 1 auto;
-		margin: 0 1.5em;
 		font-size: 125%;
 		font-weight: normal;
-		white-space: normal;
+		line-height: 1.15;
 	}
 	header > img.menuIcon {
 		flex: 0 0 auto;
@@ -229,12 +244,15 @@ section p.author {
 }
 
 
+article {
+	padding: 0 var(--article-padding-side);
+	line-height: var(--article-line-height);
+}
+
 @media screen {
 	article {
-		line-height: 1.4;
 		max-width: 40em;
 		margin: 0.5em auto 1em auto;
-		padding: 0 1em;
 	}
 
 	/* article.solution is used by overview/solution.html, which
@@ -247,9 +265,6 @@ section p.author {
 	}
 }
 @media print {
-	article {
-		line-height: 1.15;
-	}
 	section {
 		page-break-before: always !important;
 		widows: 2;
@@ -261,7 +276,6 @@ article h1 {
 	text-align: center;
 	font-size: 175%;
 	margin: 0 0 1em 0;
-	page-break-after: avoid !important;
 }
 
 article h2 {
@@ -271,7 +285,6 @@ article h2 {
 	margin: 1.5em 0 0.25em 0;
 	padding-bottom: 0.25em;
 	border-bottom: 1px solid;
-	page-break-after: avoid !important;
 }
 
 article h3 {
@@ -279,14 +292,12 @@ article h3 {
 	font-size: 130%;
 	color: var(--heading-fg-color);
 	margin: 1.5em 0 0.5em 0;
-	page-break-after: avoid !important;
 }
 
 article h4 {
 	font-weight: bold;
 	font-size: 110%;
 	margin: 1em 0 0.5em 0;
-	page-break-after: avoid !important;
 }
 
 @media screen {
@@ -312,6 +323,18 @@ article h4 {
 		background-color: var(--console-bk-color);
 		font-weight: 900;
 	}
+
+	/* Together the next two rules specify the width and height of videos. */
+	article div.video {
+		position: relative;
+		width: 100%;
+		padding-bottom: 56.25%;
+	}
+	article div.video > iframe {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
 }
 @media print {
 	article h2 > span.copy,
@@ -319,27 +342,33 @@ article h4 {
 	article h4 > span.copy {
 		display: none;
 	}
-	article iframe.video {
+	article div.video {
 		display: none;
+	}
+
+	/* As of November 2021, Chrome doesn't honor
+	 * "page-break-after: avoid". Changing "-after" to "-inside"
+	 * plus the following CSS rule is a work around. */
+	article h1::after,
+	article h2::after,
+	article h3::after,
+	article h4::after {
+		content: " ";
+		display: block;
+		height: 1em;
+		margin-bottom: -1em;
+	}
+
+	article h1,
+	article h2,
+	article h3,
+	article h4 {
+		page-break-inside: avoid !important;
 	}
 }
 
-/* As of November 2021, Chrome doesn't honor "page-break-after: avoid",
- * so changing "-after" to "-inside" plus the following code is a work
- * around.
-article h1::after,
-article h2::after,
-article h3::after,
-article h4::after {
-    content: " ";
-    display: block;
-    height: 100px;
-    margin-bottom: -100px;
-} */
-
 article p,
 article div.p,
-article iframe,
 article form {
 	margin: 1em 0;
 }
