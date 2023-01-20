@@ -338,28 +338,27 @@ cse111.common = {
 			const createElem = cse111.common.createElement;
 			const createText = cse111.common.createTextNode;
 
-			let up = createElem('img', ['up'],
-					{alt : strings.upHint,
-					title : strings.upHint,
-					src : filenames.upIcon});
-			up.addEventListener('click', function() {window.scrollTo(0, 0);});
-
 			let div = createElem('div');
 			const copyData = this.getCopyrightData();
 			if (copyData.modified) {
 				let mod = createText(strings.modified +' '+ copyData.modified);
 				div.appendChild(mod);
 			}
-			let br = createElem('br');
-			div.appendChild(br);
+			div.appendChild(createElem('br'));
 			if (copyData.notice) {
 				let copy = createText(copyData.notice);
 				div.appendChild(copy);
 			}
 
+			let up = createElem('img', ['up'],
+					{alt : strings.upHint,
+					title : strings.upHint,
+					src : filenames.upIcon});
+			up.addEventListener('click', function() {window.scrollTo(0, 0);});
+
 			footer = createElem('footer');
-			footer.appendChild(up);
 			footer.appendChild(div);
+			footer.appendChild(up);
 
 			body.appendChild(footer);
 		}

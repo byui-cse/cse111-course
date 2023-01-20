@@ -119,22 +119,22 @@ body {
 
 @media screen {
 	header {
-		display: flex;
-		align-items: center;
 		padding: 0.5em 1.5em;
+		display: flex;
+		flex-flow: row nowrap;
+		align-items: center;
 		background-color: var(--byui-blue);
 		color: white;
 	}
 	header > a.byuiLogo {
 		flex: 0 0 auto;
-		margin: auto 0;
 	}
 	header > a.byuiLogo > img {
 		width: 4em;
 	}
 	header > h2 {
 		flex: 1 1 auto;
-		margin: auto 1.5em auto 1.5em;
+		margin: 0 1.5em;
 		font-size: 125%;
 		font-weight: normal;
 		white-space: normal;
@@ -142,7 +142,6 @@ body {
 	header > img.menuIcon {
 		flex: 0 0 auto;
 		width: 1.2em;
-		margin: auto 0;
 		cursor: pointer;
 	}
 
@@ -951,22 +950,23 @@ article figure.list > table > tbody > tr > td.label {
 
 @media screen {
 	footer {
-		max-width: 40em;
 		margin: 2em auto 1em auto;
 		padding: 0 1em;
+		max-width: 40em;
+		display: flex;
+		flex-flow: row nowrap;
+		align-items: end;
 	}
-	footer img.up {
-		float: right;
-		margin: 0.5em 0 0 1em;
+	footer > div {
+		flex: 1 1 auto;
+		font-size: 80%;
+		line-height: 1.4;
+	}
+	footer > img.up {
+		flex: 0 0 auto;
+		margin-left: 1em;
 		width: 1em;
 		cursor: pointer;
-	}
-	footer div {
-		display: inline-block;
-		font-size: 80%;
-		margin: 0 auto;
-		width: fit-content;
-		line-height: 1.4;
 	}
 }
 @media print {
