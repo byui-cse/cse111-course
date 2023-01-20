@@ -80,8 +80,8 @@ cse111.filenames = {
 	help     : 'overview/help.html',
 	solution : 'overview/solution.html',
 
-	htmlFile : 'combined/cse111_content.html',
-	pdfFile  : 'combined/cse111_content.pdf',
+	htmlFile : 'combined/cse111_prepare_content.html',
+	pdfFile  : 'combined/cse111_prepare_content.pdf',
 	zipFile  : 'combined/cse111_content.zip'
 };
 
@@ -651,7 +651,7 @@ cse111.consoles = {
 
 cse111.solution = {
 	/** Modifies all <a class="solution"> elements. */
-	modifyHyperlinks : function() {
+	modifyLinks : function() {
 		// Get all <a class="solution"> elements.
 		let links = document.body.querySelectorAll('a.solution');
 
@@ -765,7 +765,7 @@ cse111.onDOMLoaded = function() {
 		common.addHeader();
 		common.initBrightness();
 		linenums.addLineNumbers();
-		cse111.solution.modifyHyperlinks();
+		cse111.solution.modifyLinks();
 		common.addFooter();
 
 		common.addAnchorCopyChar();

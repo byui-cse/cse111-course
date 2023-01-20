@@ -744,15 +744,20 @@ article pre {
 	padding: 0.25em 0.5em;
 	font-family: "Source Code Pro", "Lucida Console", Consolas, monospace;
 	line-height: 1.15;
-	overflow: auto hidden;  /* Show a horizontal scroll bar when needed. */
 }
 @media screen {
-	article code,
-	article pre  { font-size: 95%; }
+	article code { font-size: 95%; }
+	article pre {
+		font-size: 95%;
+		overflow: auto hidden;  /* Show a horizontal scroll bar when needed. */
+	}
 }
 @media print {
 	article code { font-size: 78%; }
-	article pre  { font-size: 75%; }
+	article pre {
+		font-size: 78%;
+		overflow: clip hidden;  /* Clip code that is too wide. */
+	}
 }
 
 article pre em,

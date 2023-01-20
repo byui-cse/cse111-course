@@ -8,6 +8,7 @@ edge_pathname = "C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"
 
 zip_pathname = "combined/cse111_content.zip"
 html_pathname = "combined/cse111_content.html"
+prepare_pathname = "combined/cse111_prepare_content.html"
 
 
 site_filenames = [
@@ -23,6 +24,7 @@ site_filenames = [
     "site/hljs/README.md",
     "site/hljs/highlight.min.js",
     "site/hljs/vscode.css",
+    "site/icons/byui-logo.svg",
     "site/icons/copy.png",
     "site/icons/logo.png",
     "site/icons/reference.png",
@@ -190,7 +192,7 @@ content_filenames = [
     "lesson08/family_history.py",
     "lesson08/teach_solution.py",
     "lesson08/prove.html",
-    #"lesson08/formula.py",
+    "lesson08/formula.py",
     "lesson08/test_chemistry_2.py",
 
     "lesson09/prepare.html",
@@ -245,37 +247,61 @@ content_filenames = [
     "lesson14/prepare.html"
 ]
 
+prepare_filenames = [
+    "combined/title.html",
+    "index.html",
+    "overview/syllabus.html",
+
+    "lesson01/prepare.html",
+    "lesson02/prepare.html",
+    "lesson03/prepare.html",
+    "lesson04/prepare.html",
+    "lesson05/prepare.html",
+    "lesson06/prepare.html",
+    "lesson07/prepare.html",
+    "lesson08/prepare.html",
+    "lesson09/prepare.html",
+    "lesson10/prepare.html",
+    "lesson11/prepare.html",
+    "lesson12/prepare.html",
+
+    "lesson14/prepare.html"
+]
+
 
 def main():
     cwd = os.getcwd()
     print(cwd)
     if cwd.endswith("combined"):
         os.chdir("..")
-    zip_content()
-    combine_html()
+    zip_content(zip_pathname)
+    combine_html(html_pathname, content_filenames)
+    combine_html(prepare_pathname, prepare_filenames)
 
 
-def zip_content():
-    if os.path.exists(zip_pathname):
-        os.remove(zip_pathname)
-    command = ["zip", "-qo9", zip_pathname]
+def zip_content(outname):
+    if os.path.exists(outname):
+        os.remove(outname)
+
+    command = ["zip", "-qo9", outname]
     command.extend(site_filenames)
     command.extend(image_filenames)
     command.extend(text_filenames)
-    print(command)
+    #print(command)
     subprocess.run(command)
-    command = ["zip", "-qo9", zip_pathname]
+
+    command = ["zip", "-qo9", outname]
     command.extend(content_filenames)
-    print(command)
+    #print(command)
     subprocess.run(command)
 
 
-def combine_html():
-    with open(html_pathname, "wt", newline="\n") as outfile:
+def combine_html(outname, innames):
+    with open(outname, "wt", encoding="utf-8", newline="\n") as outfile:
         write_head(outfile)
-        for original in content_filenames:
+        for original in innames:
             #print(original, flush=True)
-            with open(original, "rt") as infile:
+            with open(original, "rt", encoding="utf-8") as infile:
                 if original.endswith(".py") \
                         or original.endswith(".csv") \
                         or original.endswith(".txt"):
@@ -283,7 +309,11 @@ def combine_html():
                 else:
                     write_html(outfile, infile, original)
         write_foot(outfile)
-    pathname = os.path.join(os.getcwd(), html_pathname)
+    open_html(outname)
+
+
+def open_html(outname):
+    pathname = os.path.join(os.getcwd(), outname)
     url = "file:///" + re.sub(r"\\", "/", pathname)
     print(url)
 
@@ -323,14 +353,14 @@ def write_html(outfile, infile, original):
     datarefpat = re.compile(r'data-ref="([^"]+)"')
     dataforpat = re.compile(r'data-for="([^"]+)"')
 
-    #filename = os.path.basename(original)
-    #print(folder, filename)
     prefix = re.sub("lesson([0-9][0-9])", r"l\1", original)
     prefix = prefix.replace(".html", "")
     prefix = prefix.replace("/", "_")
     #print(prefix)
 
     folder = os.path.dirname(original)
+    #filename = os.path.basename(original)
+    print(original)
 
     # Skip all lines up to and including <article>.
     for text in infile:
@@ -367,18 +397,18 @@ def write_html(outfile, infile, original):
 def write_head(outfile):
     outfile.write(
 '''<!DOCTYPE html>
-<!-- Copyright 2020, Brigham Young University - Idaho. All rights reserved. -->
+<!-- Copyright 2019, Brigham Young University - Idaho. All rights reserved. -->
 <html lang="en">
-<head>
+<head
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CSE 111</title>
+    <script src="../site/main.js"></script>
+    <script src="../site/hljs/highlight.min.js"></script>
     <link rel="icon" type="image/png" href="../site/icons/logo.png">
     <link rel="stylesheet" type="text/css" href="../site/style.css">
     <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
-    <script src="../site/main.js"></script>
-    <script src="../site/hljs/highlight.min.js"></script>
 </head>
 
 <body>
