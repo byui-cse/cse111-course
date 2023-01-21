@@ -37,8 +37,12 @@
     }
     </script>
 
-    <script defer>
+    <script>
     'use strict';
+
+    if (! window.hasOwnProperty('cse111')) {
+        window.cse111 = {};
+    }
 
     cse111.search = {
         keypress : function(event) {
