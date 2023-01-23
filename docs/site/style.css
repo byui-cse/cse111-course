@@ -74,6 +74,34 @@
 		--article-padding-side: 1em;
 	}
 }
+@media print {
+	:root {
+		--bk-color: white;
+		--fg-color: black;
+
+		--heading-fg-color: black;
+		--bullet-fg-color: darkgray;
+
+		--dfn-fg-color: black;
+		--strong-fg-color: black;
+		--user-input-bk-color: white;
+		--user-input-fg-color: darkgray;
+
+		--python-bk-color: white;
+		--console-bk-color: white;
+
+		--link-before-fg-color: var(--byui-blue);
+		--link-hover-fg-color: var(--byui-blue);
+		--link-active-fg-color: var(--byui-blue);
+		--link-visited-fg-color: var(--byui-blue);
+
+		--body-font-size: 110%;
+		--formula-font-size: 105%;
+
+		--article-padding-side: 0;
+		--article-line-height: 1.15;
+	}
+}
 
 body {
 	background-color: var(--bk-color);
@@ -94,6 +122,12 @@ body {
 		--compare-same-color: var(--darker-yellow);
 		--compare-similar-color: var(--darker-coral);
 		--compare-diff-color: var(--darker-raspberry);
+	}
+}
+@media print {
+	body {
+		font-family: "Crimson Pro", Georgia, "Times New Roman", serif;
+		max-width: 6.5in;
 	}
 }
 
@@ -180,6 +214,10 @@ body {
 		text-decoration: none;
 		color: inherit;
 	}
+}
+@media print {
+	header { display: none; }
+	nav.menu { display: none; }
 }
 
 
@@ -291,6 +329,42 @@ article h4 {
 		height: 100%;
 	}
 }
+@media print {
+	section {
+		page-break-before: always !important;
+		widows: 2;
+		orphans: 2;
+	}
+
+	article h2 > span.copy,
+	article h3 > span.copy,
+	article h4 > span.copy {
+		display: none;
+	}
+	article div.video {
+		display: none;
+	}
+
+	/* As of November 2021, Chrome doesn't honor "page-break-after: avoid".
+	 * Changing "-after" to "-inside" plus the following CSS rule is a
+	 * work around. */
+	article h1::after,
+	article h2::after,
+	article h3::after,
+	article h4::after {
+		content: " ";
+		display: block;
+		height: 1em;
+		margin-bottom: -1em;
+	}
+
+	article h1,
+	article h2,
+	article h3,
+	article h4 {
+		page-break-inside: avoid !important;
+	}
+}
 
 article p,
 article div.p,
@@ -319,6 +393,11 @@ article a:visited { color: var(--link-visited-fg-color); }
 
 article dfn {
 	color: var(--dfn-fg-color)
+}
+@media print {
+	article dfn {
+		font-weight: bold;
+	}
 }
 
 article b {
@@ -700,6 +779,17 @@ article pre {
 		overflow: auto hidden;  /* Show a horizontal scroll bar when needed. */
 	}
 }
+@media print {
+	article code { font-size: 78%; }
+	article pre {
+		font-size: 78%;
+		overflow: clip hidden;  /* Clip code that is too wide. */
+	}
+
+	article div.example > button.copy {
+		display: none;
+	}
+}
 
 article pre em,
 article code em {
@@ -905,4 +995,7 @@ article figure.list > table > tbody > tr > td.label {
 		width: 1em;
 		cursor: pointer;
 	}
+}
+@media print {
+	footer { display: none; }
 }

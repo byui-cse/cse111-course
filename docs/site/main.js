@@ -53,7 +53,8 @@ cse111.strings = {
 	downloadText : 'Download',
 
 	modified : 'Last modified',
-	copyrightNotice : 'Copyright © 2019 Brigham Young University–Idaho. All rights reserved.'
+	copyrightNotice : 'Copyright © 2019 Brigham Young University–Idaho. All rights reserved.',
+	printFontURL : 'https://fonts.googleapis.com/css2?family=Crimson+Pro&display=swap'
 };
 
 
@@ -75,6 +76,8 @@ cse111.filenames = {
 	zipIcon      : 'site/icons/file-zip.svg',
 	copyIcon     : 'site/icons/copy.png',
 
+	printStyle : 'site/print.css',
+
 	contents : 'index.html',
 	search   : 'index.html#search',
 	help     : 'overview/help.html',
@@ -90,14 +93,8 @@ cse111.common = {
 	/** Returns true if the current HTML document is a combined HTML
 	 * file that is used for creating a combined PDF. */
 	isCombined : function() {
-		const getFilename = function(pathname) {
-			let parts = pathname.split('/');
-			return parts[parts.length - 1];
-		};
-
-		let expectedFilename = getFilename(cse111.filenames.htmlFile);
-		let actualFilename = getFilename(document.location.pathname);
-		return actualFilename == expectedFilename;
+		return document.location.protocol == 'file:' &&
+			/^.*\/combined\/[^\/]+$/.test(document.location.pathname);
 	},
 
 
@@ -264,7 +261,9 @@ cse111.common = {
 	/** Closes the navigation menu. */
 	closeNavMenu : function() {
 		let nav = document.body.querySelector('nav.menu');
-		nav.classList.add('closed');
+		if (nav) {
+			nav.classList.add('closed');
+		}
 	},
 
 

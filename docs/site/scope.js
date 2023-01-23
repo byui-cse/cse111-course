@@ -19,7 +19,7 @@ cse111.scope = {
 		def   : '.varDef',
 		use   : '.varUse'
 	},
-	attributes : {
+	attribNames : {
 		scope : 'data-scope',
 		def   : 'data-varDef',
 		use   : 'data-varUse'
@@ -27,36 +27,47 @@ cse111.scope = {
 
 
 	addScopeHandlers : function(/* HTML ID's as strings */) {
-		const selectors = this.selectors;
+		const showScope = this.showScope;
+		const hideScope = this.hideScope;
+
+		function setupSpans(div, selector, attrName) {
+			let spans = div.querySelectorAll(selector);
+			for (let i = 0;  i < spans.length;  ++i) {
+				let span = spans[i];
+				span.addEventListener('mouseover', showScope);
+				span.addEventListener('mouseout', hideScope);
+			}
+		}
+
+		const varDef = this.selectors.def;
 		for (let i = 0;  i < arguments.length;  ++i) {
-			let div = $('#' + arguments[i]);
-			div.find(selectors.def)
-				.mouseover(this.showScope)
-				.mouseout(this.hideScope);
+			let div = document.getElementById(arguments[i]);
+			setupSpans(div, varDef);
 		}
 	},
 
+
 	addVarHandlers : function(/* HTML ID's as strings */) {
+		const showVars = this.showVars;
+		const hideVars = this.hideVars;
+
+		function setupSpans(div, selector, attrName) {
+			let spans = div.querySelectorAll(selector);
+			for (let i = 0;  i < spans.length;  ++i) {
+				let span = spans[i];
+				let text = span.textContent;
+				span.setAttribute(attrName, text);
+				span.addEventListener('mouseover', showVars);
+				span.addEventListener('mouseout', hideVars);
+			}
+		}
+
 		const selectors = this.selectors;
-		const attrs = this.attributes;
+		const attribNames = this.attribNames;
 		for (let i = 0;  i < arguments.length;  ++i) {
-			let div = $('#' + arguments[i]);
-			div.find(selectors.def)
-				.each(function(index, elem) {
-					let span = $(elem);
-					let text = span.text();
-					span.attr(attrs.def, text);
-				})
-				.mouseover(this.showVars)
-				.mouseout(this.hideVars);
-			div.find(selectors.use)
-				.each(function(index, elem) {
-					let span = $(elem);
-					let text = span.text();
-					span.attr(attrs.use, text);
-				})
-				.mouseover(this.showVars)
-				.mouseout(this.hideVars);
+			let div = document.getElementById(arguments[i]);
+			setupSpans(div, selectors.def, attribNames.def);
+			setupSpans(div, selectors.use, attribNames.use);
 		}
 	},
 
@@ -65,107 +76,140 @@ cse111.scope = {
 		const selectors = cse111.scope.selectors;
 		const classes = cse111.scope.classes;
 		// span holds a variable definition.
-		let span = $(event.target);
-		span.addClass(classes.hiDef);
-		span.closest(selectors.scope).addClass(classes.hiScope);
+		let span = event.target;
+		span.classList.add(classes.hiDef);
+		let ancestor = span.closest(selectors.scope);
+		ancestor.classList.add(classes.hiScope);
 	},
 
 	hideScope : function(event) {
 		const selectors = cse111.scope.selectors;
 		const classes = cse111.scope.classes;
 		// span holds a variable definition.
-		let span = $(event.target);
-		span.removeClass(classes.hiDef);
-		span.closest(selectors.scope).removeClass(classes.hiScope);
+		let span = event.target;
+		span.classList.remove(classes.hiDef);
+		let ancestor = span.closest(selectors.scope);
+		ancestor.classList.remove(classes.hiScope);
 	},
 
 
 	showVars : function(event) {
 		const classes = cse111.scope.classes;
 		// span holds a variable definition or use.
-		let span = $(event.target);
-		let def = cse111.scope.findDefinition(span);
-		if (def.length > 0) {
-			let uses = cse111.scope.findUses(def);
-			def.addClass(classes.hiDef);
-			uses.addClass(classes.hiUse);
+		let span = event.target;
+		let varDef = cse111.scope.findDefinition(span);
+		if (varDef) {
+			let varUses = cse111.scope.findUses(varDef);
+			varDef.classList.add(classes.hiDef);
+			varUses.forEach(function(varUse) {
+				varUse.classList.add(classes.hiUse);
+			});
 		}
 		else {
-			span.addClass(classes.hiErr);
+			span.classList.add(classes.hiErr);
 		}
 	},
 
 	hideVars : function(event) {
 		const classes = cse111.scope.classes;
 		// span holds a variable definition or use.
-		let span = $(event.target);
-		let def = cse111.scope.findDefinition(span);
-		if (def.length > 0) {
-			let uses = cse111.scope.findUses(def);
-			def.removeClass(classes.hiDef);
-			uses.removeClass(classes.hiUse);
+		let span = event.target;
+		let varDef = cse111.scope.findDefinition(span);
+		if (varDef) {
+			let varUses = cse111.scope.findUses(varDef);
+			varDef.classList.remove(classes.hiDef);
+			varUses.forEach(function(varUse) {
+				varUse.classList.remove(classes.hiUse);
+			});
 		}
 		else {
-			span.removeClass(classes.hiErr);
+			span.classList.remove(classes.hiErr);
 		}
 	},
 
 
-	/** Finds and returns the variable definition for the variable
-	 * that is inside span. span contains a definition or a use. */
+	/** Finds and returns the variable definition
+	 * for the variable that is inside span.
+	 * span must contain a variable definition or use. */
 	findDefinition : function(span) {
 		const selectors = this.selectors;
-		const attrs = this.attributes;
-
-		let def = span.closest(selectors.def);
-		if (def.length > 0) {
-			def = def.first();
-		}
-		else {
+		let varDef = span.closest(selectors.def);
+		if (! varDef) {
 			span = span.closest(selectors.use);
-			const name = span.attr(attrs.use);
-			const selDef = '[' + attrs.def + '="' + name + '"]';
+			const attribNames = this.attribNames;
+			const name = span.getAttribute(attribNames.use);
+			const selDef = '[' + attribNames.def + '="' + name + '"]';
+			const selScope = selectors.scope;
+			const removeAll = this.removeAll;
+			let varDefs;
 			let scope = span;
 			do {
-				scope = scope.parent().closest(selectors.scope);
 
-				// Find all definitions of variables with name.
-				def = scope.find(selDef);
+				// Get the parent scope.
+				scope = scope.parentNode.closest(selScope);
+				if (scope) {
 
-				// Remove definitions that are within a different scope.
-				scope.find(selectors.scope).each(function(index, elem) {
-					let childScope = $(elem);
-					def = def.not(childScope.find(selDef));
-				});
-			} while (scope.length > 0 && def.length == 0);
+					// Within the parent scope, search for the variable
+					// definition.
+					varDefs = Array.from(scope.querySelectorAll(selDef));
+					if (varDefs.length > 0) {
+
+						// Remove definitions that are within a different scope.
+						let childScopes = scope.querySelectorAll(selScope);
+						for (let i = 0;  i < childScopes.length;  ++i) {
+							let childScope = childScopes[i];
+							let otherDefs = childScope.querySelectorAll(selDef);
+							removeAll(varDefs, otherDefs);
+						}
+					}
+				}
+			} while (scope && varDefs.length == 0);
+			varDef = varDefs.length == 1 ? varDefs[0] : null;
 		}
-		return def;
+		return varDef;
 	},
 
-	/** Finds and returns a list of spans that contain
-	 * a use of the variable that is defined in def. */
-	findUses : function(def) {
-		const selectors = this.selectors;
-		const attrs = this.attributes;
 
-		def = def.closest(selectors.def);
-		let name = def.attr(attrs.def);
-		let scope = def.closest(selectors.scope);
-		const selDef = '[' + attrs.def + '="' + name + '"]';
-		const selUse = '[' + attrs.use + '="' + name + '"]';
+	/** Finds and returns an array of spans that contain
+	 * a use of the variable that is defined in varDef. */
+	findUses : function(varDef) {
+		const selectors = this.selectors;
+		const attribNames = this.attribNames;
+
+		varDef = varDef.closest(selectors.def);
+		let name = varDef.getAttribute(attribNames.def);
+		let scope = varDef.closest(selectors.scope);
+		const selDef = '[' + attribNames.def + '="' + name + '"]';
+		const selUse = '[' + attribNames.use + '="' + name + '"]';
+		const selScope = selectors.scope;
 
 		// Find all uses of variables with name.
-		let uses = scope.find(selUse);
+		let varUses = Array.from(scope.querySelectorAll(selUse));
+		if (varUses.length > 0) {
+			const removeAll = this.removeAll;
 
-		// Remove uses for variables that are
-		// defined within a different scope.
-		scope.find(selectors.scope).each(function(index, elem) {
-			let childScope = $(elem);
-			if (childScope.find(selDef).length > 0) {
-				uses = uses.not(childScope.find(selUse));
+			// Remove uses for variables that are
+			// defined within a different scope.
+			let childScopes = scope.querySelectorAll(selScope);
+			for (let i = 0;  i < childScopes.length;  ++i) {
+				let childScope = childScopes[i];
+				let otherDefs = childScope.querySelectorAll(selDef);
+				if (otherDefs.length > 0) {
+					let otherUses = childScope.querySelectorAll(selUse);
+					removeAll(varUses, otherUses);
+				}
 			}
-		});
+		}
+		return varUses;
+	},
 
-		return uses;
+
+	removeAll : function(array, toRemove) {
+		for (let i = 0;  i < toRemove.length;  ++i) {
+			let index = array.indexOf(toRemove[i]);
+			if (index != -1) {
+				array.splice(index, 1);
+			}
+		}
 	}
 };

@@ -16,28 +16,31 @@ site_filenames = [
     "site/scope.js",
     "site/reset.css",
     "site/style.css",
-    "site/fonts/icomoon.eot",
-    "site/fonts/icomoon.svg",
-    "site/fonts/icomoon.ttf",
-    "site/fonts/icomoon.woff",
     "site/hljs/LICENSE",
     "site/hljs/README.md",
     "site/hljs/highlight.min.js",
     "site/hljs/vscode.css",
-    "site/icons/byui-logo.svg",
-    "site/icons/copy.png",
-    "site/icons/logo.png",
-    "site/icons/reference.png",
-    "site/icons/tutorial.png",
-    "site/icons/video.png",
+
     "site/icons/arrow-left.svg",
     "site/icons/arrow-right.svg",
+    "site/icons/arrow-up-long.svg",
     "site/icons/bars.svg",
+    "site/icons/byui-logo.svg",
+    "site/icons/file-pdf.png",
+    "site/icons/file-zip.png",
     "site/icons/list.svg",
     "site/icons/magnify-glass.svg",
     "site/icons/moon.svg",
     "site/icons/question.svg",
     "site/icons/sun.svg"
+
+    "site/icons/collapsed.png",
+    "site/icons/copy.png",
+    "site/icons/expanded.png",
+    "site/icons/logo.png",
+    "site/icons/reference.png",
+    "site/icons/tutorial.png",
+    "site/icons/video.png",
 ]
 
 image_filenames = [
@@ -399,16 +402,17 @@ def write_head(outfile):
 '''<!DOCTYPE html>
 <!-- Copyright 2019, Brigham Young University - Idaho. All rights reserved. -->
 <html lang="en">
-<head
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>CSE 111</title>
-    <script src="../site/main.js"></script>
-    <script src="../site/hljs/highlight.min.js"></script>
+    <script defer src="../site/main.js"></script>
+    <script defer src="../site/hljs/highlight.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Source+Code+Profamily=Crimson+Pro&display=swap">
+    <link rel="stylesheet" href="../site/reset.css">
+    <link rel="stylesheet" href="../site/style.css">
+    <link rel="stylesheet" href="../site/hljs/vscode.css">
     <link rel="icon" type="image/png" href="../site/icons/logo.png">
-    <link rel="stylesheet" type="text/css" href="../site/style.css">
-    <link rel="stylesheet" type="text/css" href="../site/hljs/vscode.css">
+    <title>CSE 111</title>
 </head>
 
 <body>
