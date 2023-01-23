@@ -53,8 +53,7 @@ cse111.strings = {
 	downloadText : 'Download',
 
 	modified : 'Last modified',
-	copyrightNotice : 'Copyright © 2019 Brigham Young University–Idaho. All rights reserved.',
-	printFontURL : 'https://fonts.googleapis.com/css2?family=Crimson+Pro&display=swap'
+	copyrightNotice : 'Copyright © 2019 Brigham Young University–Idaho. All rights reserved.'
 };
 
 
@@ -90,14 +89,6 @@ cse111.filenames = {
 
 
 cse111.common = {
-	/** Returns true if the current HTML document is a combined HTML
-	 * file that is used for creating a combined PDF. */
-	isCombined : function() {
-		return document.location.protocol == 'file:' &&
-			/^.*\/combined\/[^\/]+$/.test(document.location.pathname);
-	},
-
-
 	/** Contains the relative path to get up from the current webpage to
 	 * the root directory of this website. */
 	upsToRoot : '',
@@ -292,7 +283,7 @@ cse111.common = {
 
 
 	/** Adds a copy character to each h2, h3, or h4 that has an id. */
-	addAnchorCopyChar : function() {
+	addURLCopyChars : function() {
 		const strings = cse111.strings;
 		const createElem = cse111.common.createElement;
 
@@ -413,7 +404,7 @@ cse111.linenums = {
 	/* The line number functions in this object expect a source code
 	 * example and its corresponding console div to be organized like
 	 * this in their containing HTML document:
-	 * <div class="example" id="exN">
+	 * <div class="example" id="ex#">
 	 *     <pre class="linenums"></pre>
 	 *     <pre class="python"> ... </pre>
 	 *     <pre class="console"> ... </pre>
@@ -573,15 +564,12 @@ cse111.linenums = {
 	},
 
 
-	/** Adds a copy button to each <div class="pre"> element. */
-	addCopyButtons : function() {
+	/** Adds a copy button to each <pre class="python"> element
+	 * that is inside a <div class="example"> element. */
+	addCodeCopyButtons : function() {
 		const copyFunc = function(event) {
 			let button = event.currentTarget;
-			let div = button.parentElement;
-
-			// Within the div, get the last pre.python element,
-			// which will be the pre that contains source code.
-			let pre = div.querySelector('pre.python');
+			let pre = button.parentElement;
 			let text = pre.textContent;
 
 			// Copy the text to the clipboard.
@@ -609,18 +597,16 @@ cse111.linenums = {
 		const copyHint = cse111.strings.copyHint;
 		const copyIcon = cse111.filenames.copyIcon;
 		const createElem = cse111.common.createElement;
-		let elems = document.body.querySelectorAll('div.example');
-		for (let i = 0;  i < elems.length;  ++i) {
-			let image = document.createElement('img');
-			image.setAttribute('src', copyIcon);
-			image.setAttribute('alt', copyHint);
-			let button = document.createElement('button');
-			button.setAttribute('type', 'button');
-			button.setAttribute('title', copyHint);
-			button.classList.add('copy')
+		let divs = document.body.querySelectorAll('div.example');
+		for (let i = 0;  i < divs.length;  ++i) {
+			let image = createElem('img', null,
+					{'src' : copyIcon, 'alt' : copyHint});
+			let button = createElem('button', ['copy'],
+					{'type' : 'button', 'title' : copyHint});
 			button.appendChild(image);
 			button.addEventListener('click', copyFunc);
-			elems[i].appendChild(button);
+			let pre = divs[i].querySelector('pre.python, pre.csv, pre.sql');
+			pre.appendChild(button);
 		}
 	}
 };
@@ -755,22 +741,17 @@ cse111.onDOMLoaded = function() {
 	const common = cse111.common;
 	const linenums = cse111.linenums;
 
-	if (common.isCombined()) {
-		linenums.addLineNumbers();
-	}
-	else {
-		common.countLevels();
-		common.addHeader();
-		common.initBrightness();
-		linenums.addLineNumbers();
-		cse111.solution.modifyLinks();
-		common.addFooter();
+	common.countLevels();
+	common.addHeader();
+	common.initBrightness();
+	linenums.addLineNumbers();
+	cse111.solution.modifyLinks();
+	common.addFooter();
 
-		common.addAnchorCopyChar();
-		linenums.addCopyButtons();
-		linenums.addCrossRefs();
-		cse111.consoles.addHints();
-	}
+	common.addURLCopyChars();
+	linenums.addCodeCopyButtons();
+	linenums.addCrossRefs();
+	cse111.consoles.addHints();
 };
 
 

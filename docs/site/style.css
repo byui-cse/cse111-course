@@ -755,9 +755,11 @@ article figure > figcaption {
 
 
 /* Cross reference link for line numbers in example code. */
-article span.cross {
-	cursor: pointer;
-	text-decoration: underline var(--link-before-fg-color) dotted;
+@media screen {
+	article span.cross {
+		cursor: pointer;
+		text-decoration: underline var(--link-before-fg-color) dotted;
+	}
 }
 
 
@@ -784,10 +786,6 @@ article pre {
 	article pre {
 		font-size: 78%;
 		overflow: clip hidden;  /* Clip code that is too wide. */
-	}
-
-	article div.example > button.copy {
-		display: none;
 	}
 }
 
@@ -873,21 +871,26 @@ article pre.console > span.fail { color: red; }
 
 @media screen {
 	/* A button that copies code to the clipboard. */
-	article div.example > button.copy {
+	article div.example > pre > button.copy {
 		position: absolute;
 		top: 0.5em;
-		right: 0.25em;
+		right: 0.5em;
 		cursor: pointer;
 		visibility: hidden;
 		background-color: var(--light-bk-color);
 	}
 
-	article div.example:hover > button.copy {
+	article div.example > pre:hover > button.copy {
 		visibility: visible;
 	}
 
-	article div.example > button.copy > img {
+	article div.example > pre > button.copy > img {
 		width: 2em;
+	}
+}
+@media print {
+	article div.example > pre > button.copy {
+		display: none;
 	}
 }
 
