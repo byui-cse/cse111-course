@@ -914,7 +914,9 @@ article table.long tbody td {
 	padding-bottom: 1em;
 }
 
+article table tr.center > td,
 article table td.center { text-align: center; }
+article table tr.number > td,
 article table td.number { text-align: right; }
 
 article table > thead > tr > th {
