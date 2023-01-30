@@ -23,7 +23,7 @@
         "educationalUse": "assignment",
         "copyrightNotice": "Copyright © 2023, Brigham Young University–Idaho. All rights reserved.",
         "datePublished": "2023-01-20",
-        "dateModified": "2023-01-20"
+        "dateModified": "2023-01-28"
     }
     </script>
 </head>
@@ -36,12 +36,12 @@
     <p>Prove that you can write a Python program and write and run test
     functions to help you find and fix mistakes.</p>
 
-    <h2 id="problem">Problem Statement</h2>
-
     <h2 id="assign">Assignment</h2>
-    <p>Write the second half of the Python program that you began in the
-    previous lesson’s <a href="../lesson05/prove.html">prove milestone</a>,
-    a program that </p>
+    <p>Write the second half of the Python program to help an engineer
+    design a water distribution system that you began in the previous
+    lesson’s <a href="../lesson05/prove.html">prove milestone</a>. Also,
+    write more test functions that will automatically verify that your
+    program functions work correctly.</p>
 
     <h2 id="helpful_docs">Helpful Documentation</h2>
     <ul class="mixed long">
@@ -51,8 +51,151 @@
     </ul>
 
     <h2 id="steps">Steps</h2>
+
     <p>Do the following:</p>
     <ol class="long">
+        <li><div>In your <code>water_flow.py</code> program, write a
+        function named <code>pressure_loss_from_fittings</code> that
+        calculates the water pressure lost because of fittings such as
+        45° and 90° bends that are in a pipeline. The function must have
+        this header:
+<div class="example"><pre class="python">def pressure_loss_from_fittings(
+        fluid_velocity, quantity_fittings):</pre></div>
+
+        <p>In your function, use the following formula for calculating
+        pressure loss from pipe fittings.</p>
+        <div class="block formula"><var>P</var> = <div class="fract">
+        <div>&minus;0.04&#8201;<var>&rho;</var>&#8201;<var>v</var><sup>2</sup>&#8201;<var>n</var></div>
+        <div>2000&#8201;</div></div></div>
+        where
+        <ul>
+            <li><div><var>P</var> is the lost pressure</div></li>
+            <li><div><var>&rho;</var> is the density of water
+            (998.2)</div></li>
+            <li><div><var>v</var> is the velocity of the water flowing
+            through the pipe</div></li>
+            <li><div><var>n</var> is the quantity of fittings</div></li>
+        </ul>
+        </div></li>
+
+        <li><div>In your <code>test_water_flow.py</code> file, write a
+        test function named
+        <code>test_pressure_loss_from_fittings</code>. This test
+        function must call <code>pressure_loss_from_fittings</code> at
+        least five times to verify that it is working correctly. Use the
+        following numbers in your test function.
+        <table class="center"><thead>
+            <tr><th>Fluid<br>Velocity</th>
+                <th>Quantity of<br>Fittings</th>
+                <th>Expected<br>Pressure<br>Loss</th>
+                <th><code>approx</code><br>Absolute<br>Tolerance</th></tr>
+        </thead><tbody>
+            <tr class="number"><td>0</td> <td>3</td>
+                <td>0</td> <td>1e-3</td></tr>
+            <tr class="number"><td>1.65</td> <td>0</td>
+                <td>0</td> <td>1e-3</td></tr>
+            <tr class="number"><td>1.65</td> <td>2</td>
+                <td>-0.109</td> <td>1e-3</td></tr>
+            <tr class="number"><td>1.75</td> <td>2</td>
+                <td>-0.122</td> <td>1e-3</td></tr>
+            <tr class="number"><td>1.75</td> <td>5</td>
+                <td>-0.306</td> <td>1e-3</td></tr>
+        </tbody></table>
+        </div></li>
+
+        <li><div>In your <code>water_flow.py</code> program write a
+        function named <code>reynolds_number</code> that calculates and
+        returns the Reynolds number for a pipe with water flowing
+        through it. The <dfn>Reynolds number</dfn> is a unitless ratio
+        of the inertial and viscous forces in a fluid that is useful for
+        predicting fluid flow in different situations. The function must
+        have this header.
+
+<div class="example"><pre class="python">def reynolds_number(hydraulic_diameter, fluid_velocity):</pre></div>
+
+        <p>In your function, use the following formula for calculating
+        the Reynolds number.</p>
+        <div class="block formula"><var>R</var> =
+        <div class="fract"><div><var>&rho;</var><var>d</var><var>v</var></div>
+        <div>2<var>&mu;</var></div></div></div>
+        where
+        <ul>
+            <li><div><var>R</var> is the Reynolds number</div></li>
+            <li><div><var>&rho;</var> is the density of water
+            (998.2)</div></li>
+            <li><div><var>d</var> is the hydraulic diameter of a
+            pipe</div></li>
+            <li><div><var>v</var> is the velocity of the water flowing
+            through the pipe</div></li>
+            <li><div><var>&mu;</var> is the dynamic viscosity of water
+            (0.0010016)</div></li>
+        </ul>
+        </div></li>
+
+        <li><div>In your <code>test_water_flow.py</code> file, write a
+        test function named <code>test_reynolds_number</code>. This test
+        function must call <code>reynolds_number</code> at least five
+        times to verify that it is working correctly. Use the following
+        numbers in your test function.
+        <table class="center"><thead>
+            <tr><th>Hydraulic<br>Diameter</th>
+                <th>Fluid<br>Velocity</th>
+                <th>Expected<br>Reynolds<br>Number</th>
+                <th><code>approx</code><br>Absolute<br>Tolerance</th></tr>
+        </thead><tbody>
+            <tr class="number"><td>0</td> <td>3</td>
+                <td>0</td> <td>1e-3</td></tr>
+            <tr class="number"><td>1.65</td> <td>0</td>
+                <td>0</td> <td>1e-3</td></tr>
+            <tr class="number"><td>1.65</td> <td>2</td>
+                <td>-0.109</td> <td>1e-3</td></tr>
+            <tr class="number"><td>1.75</td> <td>2</td>
+                <td>-0.122</td> <td>1e-3</td></tr>
+            <tr class="number"><td>1.75</td> <td>5</td>
+                <td>-0.306</td> <td>1e-3</td></tr>
+        </tbody></table>
+        </div></li>
+
+        <li><div>In your <code>water_flow.py</code> program write a
+        function named <code>pressure_loss_from_pipe_reduction</code>
+        that calculates the water pressure lost because of water moving
+        from a pipe with a large diameter into a pipe with a smaller
+        diameter. The function must have this header.
+
+<div class="example"><pre class="python">def pressure_loss_from_pipe_reduction(reynolds_number,
+        fluid_velocity, larger_diameter, smaller_diameter):</pre></div>
+
+        <p>In your function, use the following two formulas for
+        calculating pressure loss from rounded reduction in a pipe’s
+        diameter.</p>
+        <div class="block formula"><var>k</var> =
+        <div class="paren two">0.1 +
+        <div class="fract"><div>50</div><div>R</div></div>&#8201;</div><div class="paren two"><div class="paren two">&#8201;<div class="fract"><div>D</div><div>d</div></div>&#8201;</div><sup class="two">4</sup>
+        &minus; 1</div></div>
+
+        <div class="block formula"><var>P</var> = <div class="fract">
+        <div>&minus;&#8201;<var>k</var>&#8201;<var>&rho;</var>&#8201;<var>v</var><sup>2</sup></div>
+        <div>2000&#8201;</div></div></div>
+        where
+        <ul>
+            <li><div><var>k</var> is a constant computed by the first
+            formula and used in the second formula</div></li>
+            <li><div><var>R</var> is the Reynolds number that
+            corresponds to the pipe with the larger diameter</div></li>
+            <li><div><var>D</var> is the diameter of the larger pipe</div></li>
+            <li><div><var>d</var> is the diameter of the smaller pipe</div></li>
+            <li><div><var>P</var> is the lost pressure</div></li>
+            <li><div><var>&rho;</var> is the density of water
+            (998.2)</div></li>
+            <li><div><var>v</var> is the velocity of the water flowing
+            through the larger diameter pipe</div></li>
+        </ul>
+        </div></li>
+
+        <li><div></div></li>
+
+        <li><div></div></li>
+        <li><div></div></li>
         <li><div></div></li>
     </ol>
 
