@@ -34,7 +34,7 @@
 
     <h2 id="purpose">Purpose</h2>
     <p>Prove that you can write a Python program and write and run test
-    functions to help you find and fix mistakes.</p>
+    functions to help you find and fix mistakes in your program.</p>
 
     <h2 id="problem">Problem Statement</h2>
     <p>Getting clean water to all buildings in a city is a large and
@@ -90,9 +90,14 @@
         from <code>pressure_loss_from_fittings</code> to &minus;0.306 to
         only the third digit after the decimal point and to ignore all
         digits in the actual number after the 6.
+
 <div class="example"><pre class="python">    assert pressure_loss_from_fittings(1.75, 5) \
-        == approx(-0.306, <em>abs=1e-3</em>)</pre></div>
-        </div></li>
+        == approx(-0.306, <em>abs=0.001</em>)</pre></div>
+
+        Notice in the previous example, that the value for
+        <var>abs</var> is 0.001, which causes the approx function to
+        ignore all digits after the third digit after the decimal
+        point.</div></li>
 
         <li class="video"><div>This
         <a href="https://video.byui.edu/media/t/1_9ickss60">video about
@@ -178,7 +183,7 @@ import pytest</pre></div>
             (998.2)</div></li>
             <li><div><var>g</var> is the acceleration from Earths
             gravity (9.80665)</div></li>
-            <li><div><var>h</var> is the height of the tower</div></li>
+            <li><div><var>h</var> is the height of the water column</div></li>
         </ul>
         </div></li>
 
@@ -186,7 +191,7 @@ import pytest</pre></div>
         test function named
         <code>test_pressure_gain_from_water_height</code>. This test
         function must call <code>pressure_gain_from_water_height</code>
-        three times to verify that it is working correctly.
+        at least three times to verify that it is working correctly.
         Use the following numbers in your test function.
         <table class="center test"><thead>
             <tr><th colspan="2">Height</th>
@@ -194,19 +199,19 @@ import pytest</pre></div>
                 <th><code>approx</code><br>Absolute<br>Tolerance</th></tr>
         </thead><tbody>
             <tr><td>0</td> <td></td>
-				<td class="expect">0</td> <td></td> <td>1e-3</td></tr>
+				<td class="expect">0</td> <td></td> <td>0.001</td></tr>
             <tr><td>30</td> <td>.2</td>
-				<td class="expect">295</td> <td>.628</td> <td>1e-3</td></tr>
+				<td class="expect">295</td> <td>.628</td> <td>0.001</td></tr>
             <tr><td>50</td> <td></td>
-				<td class="expect">489</td> <td>.450</td> <td>1e-3</td></tr>
+				<td class="expect">489</td> <td>.450</td> <td>0.001</td></tr>
         </tbody></table>
         </div></li>
 
         <li><div>In your <code>water_flow.py</code> program, write a
         function named <code>pressure_loss_from_pipe</code> that
         calculates and returns the water pressure lost because of the
-        friction between the water and a pipe that it flows through. The
-        function must have this header:
+        friction between the water and the walls of a pipe that it flows
+        through. The function must have this header:
 <div class="example"><pre class="python">def pressure_loss_from_pipe(pipe_diameter,
         pipe_length, friction_factor, fluid_velocity):</pre></div>
 
@@ -231,9 +236,9 @@ import pytest</pre></div>
         <li><div>In your <code>test_water_flow.py</code> file, write a
         test function named <code>test_pressure_loss_from_pipe</code>
         <code></code>. This test function must call
-        <code>pressure_loss_from_pipe</code> seven times to verify that
-        it is working correctly. Use the following numbers in your test
-        function.
+        <code>pressure_loss_from_pipe</code> at least seven times to
+        verify that it is working correctly. Use the following numbers
+        in your test function.
         <table class="center test"><thead>
             <tr><th colspan="2">Pipe<br>Diameter</th>
                 <th colspan="2">Pipe<br>Length</th>
@@ -246,37 +251,37 @@ import pytest</pre></div>
 				<td>0</td> <td></td>
 				<td>0</td> <td>.018</td>
                 <td>1</td> <td>.75</td>
-				<td class="expect">0</td> <td></td> <td>1e-3</td></tr>
+				<td class="expect">0</td> <td></td> <td>0.001</td></tr>
             <tr><td>0</td> <td>.048692</td>
 				<td>200</td> <td></td>
 				<td>0</td> <td></td>
                 <td>1</td> <td>.75</td>
-				<td class="expect">0</td> <td></td> <td>1e-3</td></tr>
+				<td class="expect">0</td> <td></td> <td>0.001</td></tr>
             <tr><td>0</td> <td>.048692</td>
 				<td>200</td> <td></td>
 				<td>0</td> <td>.018</td>
                 <td>0</td> <td></td>
-				<td class="expect">0</td> <td></td> <td>1e-3</td></tr>
+				<td class="expect">0</td> <td></td> <td>0.001</td></tr>
             <tr><td>0</td> <td>.048692</td>
 				<td>200</td> <td></td>
 				<td>0</td> <td>.018</td>
                 <td>1</td> <td>.75</td>
-				<td class="expect">-113</td> <td>.008</td> <td>1e-3</td></tr>
+				<td class="expect">-113</td> <td>.008</td> <td>0.001</td></tr>
             <tr><td>0</td> <td>.048692</td>
 				<td>200</td> <td></td>
 				<td>0</td> <td>.018</td>
                 <td>1</td> <td>.65</td>
-				<td class="expect">-100</td> <td>.462</td> <td>1e-3</td></tr>
+				<td class="expect">-100</td> <td>.462</td> <td>0.001</td></tr>
             <tr><td>0</td> <td>.28687</td>
 				<td>1000</td> <td></td>
 				<td>0</td> <td>.013</td>
                 <td>1</td> <td>.65</td>
-				<td class="expect">-61</td> <td>.576</td> <td>1e-3</td></tr>
+				<td class="expect">-61</td> <td>.576</td> <td>0.001</td></tr>
             <tr><td>0</td> <td>.28687</td>
 				<td>1800</td> <td>.75</td>
 				<td>0</td> <td>.013</td>
                 <td>1</td> <td>.65</td>
-				<td class="expect">-110</td> <td>.884</td> <td>1e-3</td></tr>
+				<td class="expect">-110</td> <td>.884</td> <td>0.001</td></tr>
         </tbody></table>
         </div></li>
 
@@ -291,8 +296,8 @@ pytest.main(["-v", "--tb=line", "-rN", __file__])
     </ol>
 
     <h2 id="testing">Testing Procedure</h2>
-    <p>Verify that your test program works correctly by following each
-    step in this procedure:</p>
+    <p>Verify that your functions work correctly by following each step
+    in this procedure:</p>
 
     <ol class="test">
         <li><div>Run your <code>test_water_flow.py</code> file and

@@ -34,7 +34,7 @@
 
     <h2 id="purpose">Purpose</h2>
     <p>Prove that you can write a Python program and write and run test
-    functions to help you find and fix mistakes.</p>
+    functions to help you find and fix mistakes in your program.</p>
 
     <h2 id="assign">Assignment</h2>
     <p>Write the second half of the Python program to help an engineer
@@ -50,14 +50,14 @@
         previous lesson</a> explains how to use <code>pytest</code>,
         <code>assert</code>, and <code>approx</code> to automatically
         verify that functions are correct. It also contains an
-        <a href="prepare.html#example">example test function</a> and
-        links to additional documentation about
+        <a href="../lesson05/prepare.html#example">example test
+        function</a> and links to additional documentation about
         <code>pytest</code>.</div></li>
 
         <li class="tutorial"><div>The <a href="prepare.html">preparation
         content for this lesson explains</a> how to use the Python
-        debugger to step watch the computer execute a program and to
-        find mistakes in the program.</div></li>
+        debugger to watch the computer execute a program and to find
+        mistakes in the program.</div></li>
     </ul>
 
     <h2 id="steps">Steps</h2>
@@ -102,19 +102,19 @@
         </thead><tbody>
             <tr><td>0</td> <td></td>
 				<td>3</td> <td></td>
-                <td class="expect">0</td> <td></td> <td>1e-3</td></tr>
+                <td class="expect">0</td> <td></td> <td>0.001</td></tr>
             <tr><td>1</td> <td>.65</td>
 				<td>0</td> <td></td>
-                <td class="expect">0</td> <td></td> <td>1e-3</td></tr>
+                <td class="expect">0</td> <td></td> <td>0.001</td></tr>
             <tr><td>1</td> <td>.65</td>
 				<td>2</td> <td></td>
-                <td class="expect">-0</td> <td>.109</td> <td>1e-3</td></tr>
+                <td class="expect">-0</td> <td>.109</td> <td>0.001</td></tr>
             <tr><td>1</td> <td>.75</td>
 				<td>2</td> <td></td>
-                <td class="expect">-0</td> <td>.122</td> <td>1e-3</td></tr>
+                <td class="expect">-0</td> <td>.122</td> <td>0.001</td></tr>
             <tr><td>1</td> <td>.75</td>
 				<td>5</td> <td></td>
-                <td class="expect">-0</td> <td>.306</td> <td>1e-3</td></tr>
+                <td class="expect">-0</td> <td>.306</td> <td>0.001</td></tr>
         </tbody></table>
         </div></li>
 
@@ -232,17 +232,17 @@
 				<td>0</td> <td></td>
                 <td>1</td> <td></td>
 				<td>0</td> <td>.048692</td>
-                <td class="expect">0</td> <td></td> <td>1e-3</td></tr>
+                <td class="expect">0</td> <td></td> <td>0.001</td></tr>
             <tr><td>0</td> <td>.28687</td>
 				<td>1</td> <td>.65</td>
                 <td>471729</td> <td></td>
 				<td>0</td> <td>.048692</td>
-                <td class="expect">-163</td> <td>.744</td> <td>1e-3</td></tr>
+                <td class="expect">-163</td> <td>.744</td> <td>0.001</td></tr>
             <tr><td>0</td> <td>.28687</td>
 				<td>1</td> <td>.75</td>
                 <td>500318</td> <td></td>
 				<td>0</td> <td>.048692</td>
-                <td class="expect">-184</td> <td>.182</td> <td>1e-3</td></tr>
+                <td class="expect">-184</td> <td>.182</td> <td>0.001</td></tr>
         </tbody></table>
         </div></li>
 
@@ -346,9 +346,9 @@ Pressure at house: 158.7 kilopascals
     your program if you wish.</p>
 
     <ul class="long">
-        <li><div>In your <code>water_flow.py</code> program inside your
-        functions, you may have typed numbers for Earth’s acceleration
-        of gravity, the density of water, and the dynamic viscosity of
+        <li><div>Inside the functions of your <code>water_flow.py</code>
+        program, you may have typed numbers for Earth’s acceleration of
+        gravity, the density of water, and the dynamic viscosity of
         water. Instead of using the numbers inside your functions,
         define the following constants outside your functions. Then use
         the constant names in place of the numbers inside your
@@ -367,9 +367,10 @@ Pressure at house: 158.7 kilopascals
         calculate water pressure in kilopascals (kPa). In the United
         States, water pressure is usually expressed in pounds per square
         inch (psi). Write a function in your <code>water_flow.py</code>
-        program that converts kPa to psi. Then at the bottom of the
+        program that converts kPa to psi. Then at the bottom of your
         <code>main</code> function, add code that calls your conversion
-        function and prints the final pressure value in psi.</div></li>
+        function and prints the final pressure value in both kPa and
+        psi.</div></li>
 
         <li><div>Add a test function to your
         <code>test_water_flow.py</code> file that verifies that your
