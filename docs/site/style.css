@@ -932,6 +932,7 @@ article table.long tbody td {
 
 article table tr.center > td,
 article table td.center { text-align: center; }
+
 article table tr.number > td,
 article table td.number { text-align: right; }
 
@@ -975,6 +976,26 @@ article table.prec > tbody > tr > td {
 article table.prec > tbody > tr > td.prec {
     border: none;
     text-align: center;
+}
+
+article table.test thead th.expect,
+article table.test thead th.expect ~ th {
+	color: var(--byui-blue);
+}
+article table.test tbody td:nth-child(odd) {
+	padding-right: 0;
+	text-align: right;
+}
+article table.test tbody td:nth-child(even) {
+	padding-left: 0;
+	text-align: left;
+}
+article table.test tbody td.expect {
+	border-left: 1px solid var(--byui-blue);
+	color: var(--byui-blue);
+}
+article table.test tbody td.expect ~ td {
+	color: var(--byui-blue);
 }
 
 /* Figures that contain tables */

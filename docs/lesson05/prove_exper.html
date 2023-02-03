@@ -70,11 +70,11 @@
 
     <h2 id="helpful_docs">Helpful Documentation</h2>
     <ul class="mixed long">
-        <li class="tutorial"><div>The
-        <a href="prepare.html">preparation content</a> for this lesson
-        explains how to use <code>pytest</code>, <code>assert</code>,
-        and <code>approx</code> to automatically verify that functions
-        are correct. It also contains an
+        <li class="tutorial"><div>The <a href="prepare.html">preparation
+        content</a> for this lesson explains how to use
+        <code>pytest</code>, <code>assert</code>, and
+        <code>approx</code> to automatically verify that functions are
+        correct. It also contains an
         <a href="prepare.html#example">example test function</a> and
         links to additional documentation about
         <code>pytest</code>.</div></li>
@@ -108,8 +108,12 @@
         <li><div>Using VS Code, create a new file and save it as
         <code>water_flow.py</code></div></li>
 
-        <li><div>Create another new file and save it as
-        <code>test_water_flow.py</code></div></li>
+        <li><div>Create another new file, save it as
+        <code>test_water_flow.py</code>, and copy and paste the
+        following import statements into the file.
+<div class="example"><pre class="python">from pytest import approx
+import pytest</pre></div>
+        </div></li>
 
         <li><div>In your <code>water_flow.py</code> program, write a
         function named <code>water_column_height</code> that calculates
@@ -135,15 +139,23 @@
         test function must call <code>water_column_height</code> at
         least four times to verify that it is working correctly. Use
         the following numbers in your test function.
-        <table class="center"><thead>
-            <tr><th>Tower<br>Height</th>
-                <th>Tank Wall<br>Height</th>
-                <th>Expected Water<br>Column Height</th></tr>
+        <table class="center test"><thead>
+            <tr><th colspan="2">Tower<br>Height</th>
+                <th colspan="2">Tank Wall<br>Height</th>
+                <th colspan="2" class="expect">Expected Water<br>Column Height</th></tr>
         </thead><tbody>
-            <tr class="number"><td>0</td> <td>0</td> <td>0</td></tr>
-            <tr class="number"><td>25</td> <td>0</td> <td>25</td></tr>
-            <tr class="number"><td>0</td> <td>10</td> <td>7.5</td></tr>
-            <tr class="number"><td>48.3</td> <td>12.8</td> <td>57.9</td></tr>
+            <tr><td>0</td> <td></td>
+                <td>0</td> <td></td>
+                <td class="expect">0</td> <td></td></tr>
+            <tr><td>0</td> <td></td>
+                <td>10</td> <td></td>
+                <td class="expect">7</td> <td>.5</td></tr>
+            <tr><td>25</td> <td></td>
+                <td>0</td> <td></td>
+                <td class="expect">25</td> <td></td></tr>
+            <tr><td>48</td> <td>.3</td>
+                <td>12</td> <td>.8</td>
+                <td class="expect">57</td> <td>.9</td></tr>
         </tbody></table>
         </div></li>
 
@@ -157,12 +169,12 @@
         <p>In your function, use the following formula for calculating
         pressure caused by Earth’s gravity.</p>
         <div class="block formula"><var>P</var> = <div class="fract">
-        <div><var>&rho;</var><var>g</var><var>h</var></div>
+        <div><var>ρ</var><var>g</var><var>h</var></div>
         <div>1000</div></div></div>
         where
         <ul>
             <li><div><var>P</var> is the pressure</div></li>
-            <li><div><var>&rho;</var> is the density of water
+            <li><div><var>ρ</var> is the density of water
             (998.2)</div></li>
             <li><div><var>g</var> is the acceleration from Earths
             gravity (9.80665)</div></li>
@@ -176,14 +188,17 @@
         function must call <code>pressure_gain_from_tank_height</code>
         three times to verify that it is working correctly.
         Use the following numbers in your test function.
-        <table class="center"><thead>
-            <tr><th>Height</th>
-                <th>Expected<br>Pressure</th>
+        <table class="center test"><thead>
+            <tr><th colspan="2">Height</th>
+                <th colspan="2" class="expect">Expected<br>Pressure</th>
                 <th><code>approx</code><br>Absolute<br>Tolerance</th></tr>
         </thead><tbody>
-            <tr class="number"><td>0</td> <td>0</td> <td>1e-3</td></tr>
-            <tr class="number"><td>30.2</td> <td>295.628</td> <td>1e-3</td></tr>
-            <tr class="number"><td>50.0</td> <td>489.450</td> <td>1e-3</td></tr>
+            <tr><td>0</td> <td></td>
+				<td class="expect">0</td> <td></td> <td>1e-3</td></tr>
+            <tr><td>30</td> <td>.2</td>
+				<td class="expect">295</td> <td>.628</td> <td>1e-3</td></tr>
+            <tr><td>50</td> <td></td>
+				<td class="expect">489</td> <td>.450</td> <td>1e-3</td></tr>
         </tbody></table>
         </div></li>
 
@@ -198,14 +213,14 @@
         <p>In your function, use the following formula for calculating
         pressure loss from friction within a pipe.</p>
         <div class="block formula"><var>P</var> = <div class="fract">
-        <div>&minus;&#8201;<var>f</var>&#8201;<var>L</var>&#8201;<var>&rho;</var>&#8201;<var>v</var><sup>2</sup></div>
+        <div>&minus;&#8201;<var>f</var>&#8201;<var>L</var>&#8201;<var>ρ</var>&#8201;<var>v</var><sup>2</sup></div>
         <div>2000&#8201;<var>d</var></div></div></div>
         where
         <ul>
             <li><div><var>P</var> is the lost pressure</div></li>
             <li><div><var>f</var> is the pipe’s friction factor</div></li>
             <li><div><var>L</var> is the length of the pipe</div></li>
-            <li><div><var>&rho;</var> is the density of water
+            <li><div><var>ρ</var> is the density of water
             (998.2)</div></li>
             <li><div><var>v</var> is the velocity of the water flowing
             through the pipe</div></li>
@@ -219,28 +234,49 @@
         <code>pressure_loss_from_pipe</code> seven times to verify that
         it is working correctly. Use the following numbers in your test
         function.
-        <table class="center"><thead>
-            <tr><th>Pipe<br>Diameter</th>
-                <th>Pipe<br>Length</th>
-                <th>Friction<br>Factor</th>
-                <th>Fluid<br>Velocity</th>
-                <th>Expected<br>Pressure<br>Loss</th>
+        <table class="center test"><thead>
+            <tr><th colspan="2">Pipe<br>Diameter</th>
+                <th colspan="2">Pipe<br>Length</th>
+                <th colspan="2">Friction<br>Factor</th>
+                <th colspan="2">Fluid<br>Velocity</th>
+                <th colspan="2" class="expect">Expected<br>Pressure<br>Loss</th>
                 <th><code>approx</code><br>Absolute<br>Tolerance</th></tr>
         </thead><tbody>
-            <tr class="number"><td>0.048692</td> <td>0</td> <td>0.018</td>
-                <td>1.75</td> <td>0</td> <td>1e-3</td></tr>
-            <tr class="number"><td>0.048692</td> <td>200</td> <td>0</td>
-                <td>1.75</td> <td>0</td> <td>1e-3</td></tr>
-            <tr class="number"><td>0.048692</td> <td>200</td> <td>0.018</td>
-                <td>0</td> <td>0</td> <td>1e-3</td></tr>
-            <tr class="number"><td>0.048692</td> <td>200</td> <td>0.018</td>
-                <td>1.75</td> <td>-113.008</td> <td>1e-3</td></tr>
-            <tr class="number"><td>0.048692</td> <td>200</td> <td>0.018</td>
-                <td>1.65</td> <td>-100.462</td> <td>1e-3</td></tr>
-            <tr class="number"><td>0.28687</td> <td>1000</td> <td>0.013</td>
-                <td>1.65</td> <td>-61.576</td> <td>1e-3</td></tr>
-            <tr class="number"><td>0.28687</td> <td>1800.75</td> <td>0.013</td>
-                <td>1.65</td> <td>-110.884</td> <td>1e-3</td></tr>
+            <tr><td>0</td> <td>.048692</td>
+				<td>0</td> <td></td>
+				<td>0</td> <td>.018</td>
+                <td>1</td> <td>.75</td>
+				<td class="expect">0</td> <td></td> <td>1e-3</td></tr>
+            <tr><td>0</td> <td>.048692</td>
+				<td>200</td> <td></td>
+				<td>0</td> <td></td>
+                <td>1</td> <td>.75</td>
+				<td class="expect">0</td> <td></td> <td>1e-3</td></tr>
+            <tr><td>0</td> <td>.048692</td>
+				<td>200</td> <td></td>
+				<td>0</td> <td>.018</td>
+                <td>0</td> <td></td>
+				<td class="expect">0</td> <td></td> <td>1e-3</td></tr>
+            <tr><td>0</td> <td>.048692</td>
+				<td>200</td> <td></td>
+				<td>0</td> <td>.018</td>
+                <td>1</td> <td>.75</td>
+				<td class="expect">-113</td> <td>.008</td> <td>1e-3</td></tr>
+            <tr><td>0</td> <td>.048692</td>
+				<td>200</td> <td></td>
+				<td>0</td> <td>.018</td>
+                <td>1</td> <td>.65</td>
+				<td class="expect">-100</td> <td>.462</td> <td>1e-3</td></tr>
+            <tr><td>0</td> <td>.28687</td>
+				<td>1000</td> <td></td>
+				<td>0</td> <td>.013</td>
+                <td>1</td> <td>.65</td>
+				<td class="expect">-61</td> <td>.576</td> <td>1e-3</td></tr>
+            <tr><td>0</td> <td>.28687</td>
+				<td>1800</td> <td>.75</td>
+				<td>0</td> <td>.013</td>
+                <td>1</td> <td>.65</td>
+				<td class="expect">-110</td> <td>.884</td> <td>1e-3</td></tr>
         </tbody></table>
         </div></li>
 

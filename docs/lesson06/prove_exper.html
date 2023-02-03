@@ -75,12 +75,12 @@
         <p>In your function, use the following formula for calculating
         pressure loss from pipe fittings.</p>
         <div class="block formula"><var>P</var> = <div class="fract">
-        <div>&minus;0.04&#8201;<var>&rho;</var>&#8201;<var>v</var><sup>2</sup>&#8201;<var>n</var></div>
+        <div>&minus;0.04&#8201;<var>ρ</var>&#8201;<var>v</var><sup>2</sup>&#8201;<var>n</var></div>
         <div>2000&#8201;</div></div></div>
         where
         <ul>
             <li><div><var>P</var> is the lost pressure</div></li>
-            <li><div><var>&rho;</var> is the density of water
+            <li><div><var>ρ</var> is the density of water
             (998.2)</div></li>
             <li><div><var>v</var> is the velocity of the water flowing
             through the pipe</div></li>
@@ -94,22 +94,27 @@
         function must call <code>pressure_loss_from_fittings</code> at
         least five times to verify that it is working correctly. Use the
         following numbers in your test function.
-        <table class="center"><thead>
-            <tr><th>Fluid<br>Velocity</th>
-                <th>Quantity of<br>Fittings</th>
-                <th>Expected<br>Pressure<br>Loss</th>
+        <table class="center test"><thead>
+            <tr><th colspan="2">Fluid<br>Velocity</th>
+                <th colspan="2">Quantity<br>of Fittings</th>
+                <th colspan="2" class="expect">Expected<br>Pressure<br>Loss</th>
                 <th><code>approx</code><br>Absolute<br>Tolerance</th></tr>
         </thead><tbody>
-            <tr class="number"><td>0</td> <td>3</td>
-                <td>0</td> <td>1e-3</td></tr>
-            <tr class="number"><td>1.65</td> <td>0</td>
-                <td>0</td> <td>1e-3</td></tr>
-            <tr class="number"><td>1.65</td> <td>2</td>
-                <td>-0.109</td> <td>1e-3</td></tr>
-            <tr class="number"><td>1.75</td> <td>2</td>
-                <td>-0.122</td> <td>1e-3</td></tr>
-            <tr class="number"><td>1.75</td> <td>5</td>
-                <td>-0.306</td> <td>1e-3</td></tr>
+            <tr><td>0</td> <td></td>
+				<td>3</td> <td></td>
+                <td class="expect">0</td> <td></td> <td>1e-3</td></tr>
+            <tr><td>1</td> <td>.65</td>
+				<td>0</td> <td></td>
+                <td class="expect">0</td> <td></td> <td>1e-3</td></tr>
+            <tr><td>1</td> <td>.65</td>
+				<td>2</td> <td></td>
+                <td class="expect">-0</td> <td>.109</td> <td>1e-3</td></tr>
+            <tr><td>1</td> <td>.75</td>
+				<td>2</td> <td></td>
+                <td class="expect">-0</td> <td>.122</td> <td>1e-3</td></tr>
+            <tr><td>1</td> <td>.75</td>
+				<td>5</td> <td></td>
+                <td class="expect">-0</td> <td>.306</td> <td>1e-3</td></tr>
         </tbody></table>
         </div></li>
 
@@ -126,19 +131,19 @@
         <p>In your function, use the following formula for calculating
         the Reynolds number.</p>
         <div class="block formula"><var>R</var> =
-        <div class="fract"><div><var>&rho;</var><var>d</var><var>v</var></div>
-        <div>2<var>&mu;</var></div></div></div>
+        <div class="fract"><div><var>ρ</var><var>d</var><var>v</var></div>
+        <div>2<var>μ</var></div></div></div>
         where
         <ul>
             <li><div><var>R</var> is the Reynolds number</div></li>
-            <li><div><var>&rho;</var> is the density of water
+            <li><div><var>ρ</var> is the density of water
             (998.2)</div></li>
-            <li><div><var>d</var> is the hydraulic diameter of a
-            pipe. For a round pipe, the hydraulic diameter is the same
-            as the pipe’s inner diameter.</div></li>
+            <li><div><var>d</var> is the hydraulic diameter of a pipe.
+            For a round pipe, the hydraulic diameter is the same as the
+            pipe’s inner diameter.</div></li>
             <li><div><var>v</var> is the velocity of the water flowing
             through the pipe</div></li>
-            <li><div><var>&mu;</var> is the dynamic viscosity of water
+            <li><div><var>μ</var> is the dynamic viscosity of water
             (0.0010016)</div></li>
         </ul>
         </div></li>
@@ -148,22 +153,27 @@
         function must call <code>reynolds_number</code> at least five
         times to verify that it is working correctly. Use the following
         numbers in your test function.
-        <table class="center"><thead>
-            <tr><th>Hydraulic<br>Diameter</th>
-                <th>Fluid<br>Velocity</th>
-                <th>Expected<br>Reynolds<br>Number</th>
+        <table class="center test"><thead>
+            <tr><th colspan="2">Hydraulic<br>Diameter</th>
+                <th colspan="2">Fluid<br>Velocity</th>
+                <th colspan="2" class="expect">Expected<br>Reynolds<br>Number</th>
                 <th><code>approx</code><br>Absolute<br>Tolerance</th></tr>
         </thead><tbody>
-            <tr class="number"><td>0.048692</td> <td>0</td>
-                <td>0</td> <td>1</td></tr>
-            <tr class="number"><td>0.048692</td> <td>1.65</td>
-                <td>80069</td> <td>1</td></tr>
-            <tr class="number"><td>0.048692</td> <td>1.75</td>
-                <td>84921</td> <td>1</td></tr>
-            <tr class="number"><td>0.28687</td> <td>1.65</td>
-                <td>471729</td> <td>1</td></tr>
-            <tr class="number"><td>0.28687</td> <td>1.75</td>
-                <td>500318</td> <td>1</td></tr>
+            <tr><td>0</td> <td>.048692</td>
+				<td>0</td> <td></td>
+                <td class="expect">0</td> <td></td> <td>1</td></tr>
+            <tr><td>0</td> <td>.048692</td>
+				<td>1</td> <td>.65</td>
+                <td class="expect">80069</td> <td></td> <td>1</td></tr>
+            <tr><td>0</td> <td>.048692</td>
+				<td>1</td> <td>.75</td>
+                <td class="expect">84921</td> <td></td> <td>1</td></tr>
+            <tr><td>0</td> <td>.28687</td>
+				<td>1</td> <td>.65</td>
+                <td class="expect">471729</td> <td></td> <td>1</td></tr>
+            <tr><td>0</td> <td>.28687</td>
+				<td>1</td> <td>.75</td>
+                <td class="expect">500318</td> <td></td> <td>1</td></tr>
         </tbody></table>
         </div></li>
 
@@ -185,7 +195,7 @@
         &minus; 1</div></div>
 
         <div class="block formula"><var>P</var> = <div class="fract">
-        <div>&minus;&#8201;<var>k</var>&#8201;<var>&rho;</var>&#8201;<var>v</var><sup>2</sup></div>
+        <div>&minus;&#8201;<var>k</var>&#8201;<var>ρ</var>&#8201;<var>v</var><sup>2</sup></div>
         <div>2000&#8201;</div></div></div>
         where
         <ul>
@@ -196,7 +206,7 @@
             <li><div><var>D</var> is the diameter of the larger pipe</div></li>
             <li><div><var>d</var> is the diameter of the smaller pipe</div></li>
             <li><div><var>P</var> is the lost pressure</div></li>
-            <li><div><var>&rho;</var> is the density of water
+            <li><div><var>ρ</var> is the density of water
             (998.2)</div></li>
             <li><div><var>v</var> is the velocity of the water flowing
             through the larger diameter pipe</div></li>
@@ -210,23 +220,29 @@
         <code>pressure_loss_from_pipe_reduction</code> at least three
         times to verify that it is working correctly. Use the following
         numbers in your test function.
-        <table class="center"><thead>
-            <tr><th>Larger<br>Diameter</th>
-                <th>Fluid<br>Velocity</th>
-                <th>Reynolds<br>Number</th>
-                <th>Smaller<br>Diameter</th>
-                <th>Expected<br>Pressure<br>Loss</th>
+        <table class="center test"><thead>
+            <tr><th colspan="2">Larger<br>Diameter</th>
+                <th colspan="2">Fluid<br>Velocity</th>
+                <th colspan="2">Reynolds<br>Number</th>
+                <th colspan="2">Smaller<br>Diameter</th>
+                <th colspan="2" class="expect">Expected<br>Pressure<br>Loss</th>
                 <th><code>approx</code><br>Absolute<br>Tolerance</th></tr>
         </thead><tbody>
-            <tr class="number"><td>0.28687</td> <td>0</td>
-                <td>1</td> <td>0.048692</td>
-                <td>0</td> <td>1e-3</td></tr>
-            <tr class="number"><td>0.28687</td> <td>1.65</td>
-                <td>471729</td> <td>0.048692</td>
-                <td>-163.744</td> <td>1e-3</td></tr>
-            <tr class="number"><td>0.28687</td> <td>1.75</td>
-                <td>500318</td> <td>0.048692</td>
-                <td>-184.182</td> <td>1e-3</td></tr>
+            <tr><td>0</td> <td>.28687</td>
+				<td>0</td> <td></td>
+                <td>1</td> <td></td>
+				<td>0</td> <td>.048692</td>
+                <td class="expect">0</td> <td></td> <td>1e-3</td></tr>
+            <tr><td>0</td> <td>.28687</td>
+				<td>1</td> <td>.65</td>
+                <td>471729</td> <td></td>
+				<td>0</td> <td>.048692</td>
+                <td class="expect">-163</td> <td>.744</td> <td>1e-3</td></tr>
+            <tr><td>0</td> <td>.28687</td>
+				<td>1</td> <td>.75</td>
+                <td>500318</td> <td></td>
+				<td>0</td> <td>.048692</td>
+                <td class="expect">-184</td> <td>.182</td> <td>1e-3</td></tr>
         </tbody></table>
         </div></li>
 
