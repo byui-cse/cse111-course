@@ -23,7 +23,7 @@
         "educationalUse": "assignment",
         "copyrightNotice": "Copyright © 2023, Brigham Young University–Idaho. All rights reserved.",
         "datePublished": "2023-01-20",
-        "dateModified": "2023-01-30"
+        "dateModified": "2023-02-03"
     }
     </script>
 </head>
@@ -167,7 +167,7 @@
                 <td class="expect">80069</td> <td></td> <td>1</td></tr>
             <tr><td>0</td> <td>.048692</td>
 				<td>1</td> <td>.75</td>
-                <td class="expect">84921</td> <td></td> <td>1</td></tr>
+                <td class="expect">84922</td> <td></td> <td>1</td></tr>
             <tr><td>0</td> <td>.28687</td>
 				<td>1</td> <td>.65</td>
                 <td class="expect">471729</td> <td></td> <td>1</td></tr>
@@ -187,7 +187,7 @@
         fluid_velocity, reynolds_number, smaller_diameter):</pre></div>
 
         <p>In your function, use the following two formulas for
-        calculating pressure loss from rounded reduction in a pipe’s
+        calculating pressure loss from a rounded reduction in a pipe’s
         diameter.</p>
         <div class="block formula"><var>k</var> =
         <div class="paren two">0.1 +
@@ -249,6 +249,46 @@
         <li><div>Copy and paste the following code at the bottom of your
         <code>water_flow.py</code> program.
 <div class="example"><pre class="python">
+PVC_SCHED80_12_INNER_DIAMETER = 0.28687 # (meters)  11.294 inches
+PVC_SCHED80_12_FRICTION_FACTOR = 0.013  # (unitless)
+SUPPLY_VELOCITY = 1.65  # (meters / second)
+
+HDPE_SDR11_INNER_DIAMETER = 0.048692  # (meters)  1.917 inches
+HDPE_SDR11_FRICTION_FACTOR = 0.018  # (unitless)
+HOUSEHOLD_VELOCITY = 1.75  # (meters / second)
+
+
+def main():
+    tower_height = float(input("Height of water tower (meters): "))
+    tank_height = float(input("Height of water tank walls (meters): "))
+    length1 = float(input("Length of supply pipe from tank to lot (meters): "))
+    quantity_angles = int(input("Number of 90° angles in supply pipe: "))
+    length2 = float(input("Length of pipe from supply to house (meters): "))
+
+    water_height = water_column_height(tower_height, tank_height)
+    pressure = pressure_gain_from_water_height(water_height)
+
+    diameter = PVC_SCHED80_12_INNER_DIAMETER
+    friction = PVC_SCHED80_12_FRICTION_FACTOR
+    velocity = SUPPLY_VELOCITY
+    reynolds = reynolds_number(diameter, velocity)
+    loss = pressure_loss_from_pipe(diameter, length1, friction, velocity)
+    pressure += loss
+
+    loss = pressure_loss_from_fittings(velocity, quantity_angles)
+    pressure += loss
+
+    loss = pressure_loss_from_pipe_reduction(diameter,
+            velocity, reynolds, HDPE_SDR11_INNER_DIAMETER)
+    pressure += loss
+
+    diameter = HDPE_SDR11_INNER_DIAMETER
+    friction = HDPE_SDR11_FRICTION_FACTOR
+    velocity = HOUSEHOLD_VELOCITY
+    loss = pressure_loss_from_pipe(diameter, length2, friction, velocity)
+    pressure += loss
+
+    print(f"Pressure at house: {pressure:.1f} kilopascals")
 </pre></div>
         </div></li>
     </ol>
@@ -273,7 +313,7 @@ rootdir: C:\Users\cse111\lesson05
 collected 3 items
 
 test_water_flow.py::test_water_column_height <span class="pass">PASSED                [ 16%]</span>
-test_water_flow.py::test_pressure_gain_from_tank_height <span class="pass">PASSED     [ 33%]</span>
+test_water_flow.py::test_pressure_gain_from_water_height <span class="pass">PASSED    [ 33%]</span>
 test_water_flow.py::test_pressure_loss_from_pipe <span class="pass">PASSED            [ 50%]</span>
 test_water_flow.py::test_pressure_loss_from_fittings <span class="pass">PASSED        [ 66%]</span>
 test_water_flow.py::test_reynolds_number <span class="pass">PASSED                    [ 83%]</span>
@@ -282,7 +322,18 @@ test_water_flow.py::test_pressure_loss_from_pipe_reduction <span class="pass">PA
 <span class="pass">=========================== 3 passed in 0.08s ===========================</span></pre>
         </div></li>
 
-        <li><div></div></li>
+        <li><div>Run your finished <code>water_flow.py</code> program.
+        Enter the input shown below and ensure that your program prints
+        the output shown below.
+<pre class="console">
+Height of water tower (meters): <span class="input">36.6</span>
+Height of water tank walls (meters): <span class="input">9.1</span>
+Length of supply pipe from tank to lot (meters): <span class="input">1524.0</span>
+Number of 90° angles in supply pipe: <span class="input">3</span>
+Length of pipe from supply to house (meters): <span class="input">15.2</span>
+Pressure at house: 158.7 kilopascals
+</pre>
+        </div></li>
     </ol>
 
     <h2 id="exceed">Exceeding the Requirements</h2>
@@ -295,10 +346,47 @@ test_water_flow.py::test_pressure_loss_from_pipe_reduction <span class="pass">PA
     your program if you wish.</p>
 
     <ul class="long">
-        <li><div></div></li>
+        <li><div>In your <code>water_flow.py</code> program inside your
+        functions, you may have typed numbers for Earth’s acceleration
+        of gravity, the density of water, and the dynamic viscosity of
+        water. Instead of using the numbers inside your functions,
+        define the following constants outside your functions. Then use
+        the constant names in place of the numbers inside your
+        functions.
+
+        <table class="center"><thead>
+            <tr><th>Name</th> <th>Value</th></tr>
+        </thead><tbody>
+            <tr><td>EARTH_ACCELERATION_OF_GRAVITY</td> <td>9.80665</td></tr>
+            <tr><td>WATER_DENSITY</td> <td>998.2</td></tr>
+            <tr><td>WATER_DYNAMIC_VISCOSITY</td> <td>0.0010016</td></tr>
+        </tbody></table>
+        </div></li>
+
+        <li><div>The functions that you wrote for this assignment,
+        calculate water pressure in kilopascals (kPa). In the United
+        States, water pressure is usually expressed in pounds per square
+        inch (psi). Write a function in your <code>water_flow.py</code>
+        program that converts kPa to psi. Then at the bottom of the
+        <code>main</code> function, add code that calls your conversion
+        function and prints the final pressure value in psi.</div></li>
+
+        <li><div>Add a test function to your
+        <code>test_water_flow.py</code> file that verifies that your
+        psi-from-kPa conversion function works correctly. In your test
+        function, call your conversion function multiple times so that
+        your test function is a rigorous test.</div></li>
     </ul>
 
     <h2 id="ponder">Ponder</h2>
+    <p>To complete this prove assignment, you wrote at least six program
+    functions that perform calculations. Some of the calculations are
+    complex, especially the calculation for pressure loss from pipe
+    reduction. You also wrote a test function for each program function
+    except <code>main</code>. Did the test functions help you find
+    mistakes in your program functions? Can you see why it is important
+    to write and run test functions when you are developing a large
+    program?</p>
 
     <h2 id="submit">Submission</h2>
     <p>To submit your program, return to I‑Learn and do these two

@@ -23,7 +23,7 @@
         "educationalUse": "assignment",
         "copyrightNotice": "Copyright © 2023, Brigham Young University–Idaho. All rights reserved.",
         "datePublished": "2023-01-20",
-        "dateModified": "2023-01-30"
+        "dateModified": "2023-02-03"
     }
     </script>
 </head>
@@ -160,11 +160,11 @@ import pytest</pre></div>
         </div></li>
 
         <li><div>In your <code>water_flow.py</code> program, write a
-        function named <code>pressure_gain_from_tank_height</code> that
+        function named <code>pressure_gain_from_water_height</code> that
         calculates and returns the pressure caused by Earth’s gravity
         pulling on the water stored in an elevated tank. The function
         must have this header:
-        <div class="example"><pre class="python">def pressure_gain_from_tank_height(height):</pre></div>
+        <div class="example"><pre class="python">def pressure_gain_from_water_height(height):</pre></div>
 
         <p>In your function, use the following formula for calculating
         pressure caused by Earth’s gravity.</p>
@@ -184,8 +184,8 @@ import pytest</pre></div>
 
         <li><div>In your <code>test_water_flow.py</code> file, write a
         test function named
-        <code>test_pressure_gain_from_tank_height</code>. This test
-        function must call <code>pressure_gain_from_tank_height</code>
+        <code>test_pressure_gain_from_water_height</code>. This test
+        function must call <code>pressure_gain_from_water_height</code>
         three times to verify that it is working correctly.
         Use the following numbers in your test function.
         <table class="center test"><thead>
@@ -304,23 +304,23 @@ pytest.main(["-v", "--tb=line", "-rN", __file__])
         until all the test functions pass.
 
 <pre class="console">&gt; python test_water_flow.py
-======================== test session starts =========================
+======================== test session starts ==========================
 platform win32 -- Python 3.11.1, pytest-7.2.1, pluggy-1.0.0 --
 rootdir: C:\Users\cse111\lesson05
 collected 3 items
 
-test_water_flow.py::test_water_column_height <span class="pass">PASSED             [ 33%]</span>
-test_water_flow.py::test_pressure_gain_from_tank_height <span class="pass">PASSED  [ 66%]</span>
-test_water_flow.py::test_pressure_loss_from_pipe <span class="pass">PASSED         [100%]</span>
+test_water_flow.py::test_water_column_height <span class="pass">PASSED              [ 33%]</span>
+test_water_flow.py::test_pressure_gain_from_water_height <span class="pass">PASSED  [ 66%]</span>
+test_water_flow.py::test_pressure_loss_from_pipe <span class="pass">PASSED          [100%]</span>
 
-<span class="pass">========================= 3 passed in 0.07s ==========================</span></pre>
+<span class="pass">========================= 3 passed in 0.07s ===========================</span></pre>
         </div></li>
     </ol>
 
     <h2 id="ponder">Ponder</h2>
     <p>During this assignment, you wrote three program functions named
     <code>water_column_height</code>,
-    <code>pressure_gain_from_tank_height</code>, and
+    <code>pressure_gain_from_water_height</code>, and
     <code>pressure_loss_from_pipe</code>. Also, in a separate file, you
     wrote three test functions. Each of the test functions called one of
     the program functions multiple times and automatically verified that
