@@ -145,22 +145,22 @@ import pytest</pre></div>
         least four times to verify that it is working correctly. Use
         the following numbers in your test function.
         <table class="center test"><thead>
-            <tr><th colspan="2">Tower<br>Height</th>
-                <th colspan="2">Tank Wall<br>Height</th>
-                <th colspan="2" class="expect">Expected Water<br>Column Height</th></tr>
+            <tr><th>Tower<br>Height</th>
+                <th>Tank Wall<br>Height</th>
+                <th class="expect">Expected Water<br>Column Height</th></tr>
         </thead><tbody>
-            <tr><td>0</td> <td></td>
-                <td>0</td> <td></td>
-                <td class="expect">0</td> <td></td></tr>
-            <tr><td>0</td> <td></td>
-                <td>10</td> <td></td>
-                <td class="expect">7</td> <td>.5</td></tr>
-            <tr><td>25</td> <td></td>
-                <td>0</td> <td></td>
-                <td class="expect">25</td> <td></td></tr>
-            <tr><td>48</td> <td>.3</td>
-                <td>12</td> <td>.8</td>
-                <td class="expect">57</td> <td>.9</td></tr>
+            <tr><td>0<span class="hidden">.0</span></td>
+                <td>0<span class="hidden">.0</span></td>
+                <td class="expect">0<span class="hidden">.0</span></td></tr>
+            <tr><td>0<span class="hidden">.0</span></td>
+                <td>10<span class="hidden">.0</span></td>
+                <td class="expect">7.5</td></tr>
+            <tr><td>25<span class="hidden">.0</span></td>
+                <td>0<span class="hidden">.0</span></td>
+                <td class="expect">25<span class="hidden">.0</span></td></tr>
+            <tr><td>48.3</td>
+                <td>12.8</td>
+                <td class="expect">57.9</td></tr>
         </tbody></table>
         </div></li>
 
@@ -194,16 +194,19 @@ import pytest</pre></div>
         at least three times to verify that it is working correctly.
         Use the following numbers in your test function.
         <table class="center test"><thead>
-            <tr><th colspan="2">Height</th>
-                <th colspan="2" class="expect">Expected<br>Pressure</th>
+            <tr><th>Height</th>
+                <th class="expect">Expected<br>Pressure</th>
                 <th><code>approx</code><br>Absolute<br>Tolerance</th></tr>
         </thead><tbody>
-            <tr><td>0</td> <td></td>
-				<td class="expect">0</td> <td></td> <td>0.001</td></tr>
-            <tr><td>30</td> <td>.2</td>
-				<td class="expect">295</td> <td>.628</td> <td>0.001</td></tr>
-            <tr><td>50</td> <td></td>
-				<td class="expect">489</td> <td>.450</td> <td>0.001</td></tr>
+            <tr><td>0<span class="hidden">.0</span></td>
+				<td class="expect">0<span class="hidden">.000</span></td>
+                <td>0.001</td></tr>
+            <tr><td>30.2</td>
+				<td class="expect">295.628</td>
+                <td>0.001</td></tr>
+            <tr><td>50<span class="hidden">.0</span></td>
+				<td class="expect">489.450</td>
+                <td>0.001</td></tr>
         </tbody></table>
         </div></li>
 
@@ -240,48 +243,55 @@ import pytest</pre></div>
         verify that it is working correctly. Use the following numbers
         in your test function.
         <table class="center test"><thead>
-            <tr><th colspan="2">Pipe<br>Diameter</th>
-                <th colspan="2">Pipe<br>Length</th>
-                <th colspan="2">Friction<br>Factor</th>
-                <th colspan="2">Fluid<br>Velocity</th>
-                <th colspan="2" class="expect">Expected<br>Pressure<br>Loss</th>
+            <tr><th>Pipe<br>Diameter</th>
+                <th>Pipe<br>Length</th>
+                <th>Friction<br>Factor</th>
+                <th>Fluid<br>Velocity</th>
+                <th class="expect">Expected<br>Pressure<br>Loss</th>
                 <th><code>approx</code><br>Absolute<br>Tolerance</th></tr>
         </thead><tbody>
-            <tr><td>0</td> <td>.048692</td>
-				<td>0</td> <td></td>
-				<td>0</td> <td>.018</td>
-                <td>1</td> <td>.75</td>
-				<td class="expect">0</td> <td></td> <td>0.001</td></tr>
-            <tr><td>0</td> <td>.048692</td>
-				<td>200</td> <td></td>
-				<td>0</td> <td></td>
-                <td>1</td> <td>.75</td>
-				<td class="expect">0</td> <td></td> <td>0.001</td></tr>
-            <tr><td>0</td> <td>.048692</td>
-				<td>200</td> <td></td>
-				<td>0</td> <td>.018</td>
-                <td>0</td> <td></td>
-				<td class="expect">0</td> <td></td> <td>0.001</td></tr>
-            <tr><td>0</td> <td>.048692</td>
-				<td>200</td> <td></td>
-				<td>0</td> <td>.018</td>
-                <td>1</td> <td>.75</td>
-				<td class="expect">-113</td> <td>.008</td> <td>0.001</td></tr>
-            <tr><td>0</td> <td>.048692</td>
-				<td>200</td> <td></td>
-				<td>0</td> <td>.018</td>
-                <td>1</td> <td>.65</td>
-				<td class="expect">-100</td> <td>.462</td> <td>0.001</td></tr>
-            <tr><td>0</td> <td>.28687</td>
-				<td>1000</td> <td></td>
-				<td>0</td> <td>.013</td>
-                <td>1</td> <td>.65</td>
-				<td class="expect">-61</td> <td>.576</td> <td>0.001</td></tr>
-            <tr><td>0</td> <td>.28687</td>
-				<td>1800</td> <td>.75</td>
-				<td>0</td> <td>.013</td>
-                <td>1</td> <td>.65</td>
-				<td class="expect">-110</td> <td>.884</td> <td>0.001</td></tr>
+            <tr><td>0.048692</td>
+				<td>0<span class="hidden">.00</span></td>
+				<td>0.018</td>
+                <td>1.75</td>
+				<td class="expect">0<span class="hidden">.000</span></td>
+                <td>0.001</td></tr>
+            <tr><td>0.048692</td>
+				<td>200<span class="hidden">.00</span></td>
+				<td>0<span class="hidden">.000</span></td>
+                <td>1.75</td>
+				<td class="expect">0<span class="hidden">.000</span></td>
+                <td>0.001</td></tr>
+            <tr><td>0.048692</td>
+				<td>200<span class="hidden">.00</span></td>
+				<td>0.018</td>
+                <td>0<span class="hidden">.00</span></td>
+				<td class="expect">0<span class="hidden">.000</span></td>
+                <td>0.001</td></tr>
+            <tr><td>0.048692</td>
+				<td>200<span class="hidden">.00</span></td>
+				<td>0.018</td>
+                <td>1.75</td>
+				<td class="expect">-113.008</td>
+                <td>0.001</td></tr>
+            <tr><td>0.048692</td>
+				<td>200<span class="hidden">.00</span></td>
+				<td>0.018</td>
+                <td>1.65</td>
+				<td class="expect">-100.462</td>
+                <td>0.001</td></tr>
+            <tr><td>0.28687<span class="hidden">0</span></td>
+				<td>1000<span class="hidden">.00</span></td>
+				<td>0.013</td>
+                <td>1.65</td>
+				<td class="expect">-61.576</td>
+                <td>0.001</td></tr>
+            <tr><td>0.28687<span class="hidden">0</span></td>
+				<td>1800.75</td>
+				<td>0.013</td>
+                <td>1.65</td>
+				<td class="expect">-110.884</td>
+                <td>0.001</td></tr>
         </tbody></table>
         </div></li>
 

@@ -95,26 +95,31 @@
         least five times to verify that it is working correctly. Use the
         following numbers in your test function.
         <table class="center test"><thead>
-            <tr><th colspan="2">Fluid<br>Velocity</th>
-                <th colspan="2">Quantity<br>of Fittings</th>
-                <th colspan="2" class="expect">Expected<br>Pressure<br>Loss</th>
+            <tr><th>Fluid<br>Velocity</th>
+                <th>Quantity<br>of Fittings</th>
+                <th class="expect">Expected<br>Pressure<br>Loss</th>
                 <th><code>approx</code><br>Absolute<br>Tolerance</th></tr>
         </thead><tbody>
-            <tr><td>0</td> <td></td>
-				<td>3</td> <td></td>
-                <td class="expect">0</td> <td></td> <td>0.001</td></tr>
-            <tr><td>1</td> <td>.65</td>
-				<td>0</td> <td></td>
-                <td class="expect">0</td> <td></td> <td>0.001</td></tr>
-            <tr><td>1</td> <td>.65</td>
-				<td>2</td> <td></td>
-                <td class="expect">-0</td> <td>.109</td> <td>0.001</td></tr>
-            <tr><td>1</td> <td>.75</td>
-				<td>2</td> <td></td>
-                <td class="expect">-0</td> <td>.122</td> <td>0.001</td></tr>
-            <tr><td>1</td> <td>.75</td>
-				<td>5</td> <td></td>
-                <td class="expect">-0</td> <td>.306</td> <td>0.001</td></tr>
+            <tr><td>0<span class="hidden">.00</span></td>
+				<td>3</td>
+                <td class="expect">0<span class="hidden">.000</span></td>
+                <td>0.001</td></tr>
+            <tr><td>1.65</td>
+				<td>0</td>
+                <td class="expect">0<span class="hidden">.000</span></td>
+                <td>0.001</td></tr>
+            <tr><td>1.65</td>
+				<td>2</td>
+                <td class="expect">-0.109</td>
+                <td>0.001</td></tr>
+            <tr><td>1.75</td>
+				<td>2</td>
+                <td class="expect">-0.122</td>
+                <td>0.001</td></tr>
+            <tr><td>1.75</td>
+				<td>5</td>
+                <td class="expect">-0.306</td>
+                <td>0.001</td></tr>
         </tbody></table>
         </div></li>
 
@@ -154,26 +159,26 @@
         times to verify that it is working correctly. Use the following
         numbers in your test function.
         <table class="center test"><thead>
-            <tr><th colspan="2">Hydraulic<br>Diameter</th>
-                <th colspan="2">Fluid<br>Velocity</th>
-                <th colspan="2" class="expect">Expected<br>Reynolds<br>Number</th>
+            <tr><th>Hydraulic<br>Diameter</th>
+                <th>Fluid<br>Velocity</th>
+                <th class="expect">Expected<br>Reynolds<br>Number</th>
                 <th><code>approx</code><br>Absolute<br>Tolerance</th></tr>
         </thead><tbody>
-            <tr><td>0</td> <td>.048692</td>
-				<td>0</td> <td></td>
-                <td class="expect">0</td> <td></td> <td>1</td></tr>
-            <tr><td>0</td> <td>.048692</td>
-				<td>1</td> <td>.65</td>
-                <td class="expect">80069</td> <td></td> <td>1</td></tr>
-            <tr><td>0</td> <td>.048692</td>
-				<td>1</td> <td>.75</td>
-                <td class="expect">84922</td> <td></td> <td>1</td></tr>
-            <tr><td>0</td> <td>.28687</td>
-				<td>1</td> <td>.65</td>
-                <td class="expect">471729</td> <td></td> <td>1</td></tr>
-            <tr><td>0</td> <td>.28687</td>
-				<td>1</td> <td>.75</td>
-                <td class="expect">500318</td> <td></td> <td>1</td></tr>
+            <tr><td>0.048692</td>
+				<td>0<span class="hidden">.00</span></td>
+                <td class="expect">0</td> <td>1</td></tr>
+            <tr><td>0.048692</td>
+				<td>1.65</td>
+                <td class="expect">80069</td> <td>1</td></tr>
+            <tr><td>0.048692</td>
+				<td>1.75</td>
+                <td class="expect">84922</td> <td>1</td></tr>
+            <tr><td>0.28687<span class="hidden">0</span></td>
+				<td>1.65</td>
+                <td class="expect">471729</td> <td>1</td></tr>
+            <tr><td>0.28687<span class="hidden">0</span></td>
+				<td>1.75</td>
+                <td class="expect">500318</td> <td>1</td></tr>
         </tbody></table>
         </div></li>
 
@@ -221,41 +226,44 @@
         times to verify that it is working correctly. Use the following
         numbers in your test function.
         <table class="center test"><thead>
-            <tr><th colspan="2">Larger<br>Diameter</th>
-                <th colspan="2">Fluid<br>Velocity</th>
-                <th colspan="2">Reynolds<br>Number</th>
-                <th colspan="2">Smaller<br>Diameter</th>
-                <th colspan="2" class="expect">Expected<br>Pressure<br>Loss</th>
+            <tr><th>Larger<br>Diameter</th>
+                <th>Fluid<br>Velocity</th>
+                <th>Reynolds<br>Number</th>
+                <th>Smaller<br>Diameter</th>
+                <th class="expect">Expected<br>Pressure<br>Loss</th>
                 <th><code>approx</code><br>Absolute<br>Tolerance</th></tr>
         </thead><tbody>
-            <tr><td>0</td> <td>.28687</td>
-				<td>0</td> <td></td>
-                <td>1</td> <td></td>
-				<td>0</td> <td>.048692</td>
-                <td class="expect">0</td> <td></td> <td>0.001</td></tr>
-            <tr><td>0</td> <td>.28687</td>
-				<td>1</td> <td>.65</td>
-                <td>471729</td> <td></td>
-				<td>0</td> <td>.048692</td>
-                <td class="expect">-163</td> <td>.744</td> <td>0.001</td></tr>
-            <tr><td>0</td> <td>.28687</td>
-				<td>1</td> <td>.75</td>
-                <td>500318</td> <td></td>
-				<td>0</td> <td>.048692</td>
-                <td class="expect">-184</td> <td>.182</td> <td>0.001</td></tr>
+            <tr><td>0.28687</td>
+				<td>0<span class="hidden">.00</span></td>
+                <td>1</td>
+				<td>0.048692</td>
+                <td class="expect">0<span class="hidden">.000</span></td>
+                <td>0.001</td></tr>
+            <tr><td>0.28687</td>
+				<td>1.65</td>
+                <td>471729</td>
+				<td>0.048692</td>
+                <td class="expect">-163.744</td>
+                <td>0.001</td></tr>
+            <tr><td>0.28687</td>
+				<td>1.75</td>
+                <td>500318</td>
+				<td>0.048692</td>
+                <td class="expect">-184.182</td>
+                <td>0.001</td></tr>
         </tbody></table>
         </div></li>
 
         <li><div>Copy and paste the following code at the bottom of your
         <code>water_flow.py</code> program.
 <div class="example"><pre class="python">
-PVC_SCHED80_12_INNER_DIAMETER = 0.28687 # (meters)  11.294 inches
-PVC_SCHED80_12_FRICTION_FACTOR = 0.013  # (unitless)
-SUPPLY_VELOCITY = 1.65  # (meters / second)
+PVC_SCHED80_INNER_DIAMETER = 0.28687 # (meters)  11.294 inches
+PVC_SCHED80_FRICTION_FACTOR = 0.013  # (unitless)
+SUPPLY_VELOCITY = 1.65               # (meters / second)
 
-HDPE_SDR11_INNER_DIAMETER = 0.048692  # (meters)  1.917 inches
-HDPE_SDR11_FRICTION_FACTOR = 0.018  # (unitless)
-HOUSEHOLD_VELOCITY = 1.75  # (meters / second)
+HDPE_SDR11_INNER_DIAMETER = 0.048692 # (meters)  1.917 inches
+HDPE_SDR11_FRICTION_FACTOR = 0.018   # (unitless)
+HOUSEHOLD_VELOCITY = 1.75            # (meters / second)
 
 
 def main():
@@ -268,8 +276,8 @@ def main():
     water_height = water_column_height(tower_height, tank_height)
     pressure = pressure_gain_from_water_height(water_height)
 
-    diameter = PVC_SCHED80_12_INNER_DIAMETER
-    friction = PVC_SCHED80_12_FRICTION_FACTOR
+    diameter = PVC_SCHED80_INNER_DIAMETER
+    friction = PVC_SCHED80_FRICTION_FACTOR
     velocity = SUPPLY_VELOCITY
     reynolds = reynolds_number(diameter, velocity)
     loss = pressure_loss_from_pipe(diameter, length1, friction, velocity)
@@ -357,9 +365,12 @@ Pressure at house: 158.7 kilopascals
         <table class="center"><thead>
             <tr><th>Name</th> <th>Value</th></tr>
         </thead><tbody>
-            <tr><td>EARTH_ACCELERATION_OF_GRAVITY</td> <td>9.80665</td></tr>
-            <tr><td>WATER_DENSITY</td> <td>998.2</td></tr>
-            <tr><td>WATER_DYNAMIC_VISCOSITY</td> <td>0.0010016</td></tr>
+            <tr><td>EARTH_ACCELERATION_OF_GRAVITY</td>
+                <td class="number">9.80665<span class="hidden">00</span></td></tr>
+            <tr><td>WATER_DENSITY</td>
+                <td class="number">998.2<span class="hidden">000000</span></td></tr>
+            <tr><td>WATER_DYNAMIC_VISCOSITY</td>
+                <td class="number">0.0010016</td></tr>
         </tbody></table>
         </div></li>
 
