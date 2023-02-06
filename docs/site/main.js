@@ -638,6 +638,7 @@ cse111.solution = {
 			}
 		}
 		else {
+			const splitURL = /^.+\/([^\/]+\/[^\/]+)$/;
 			const strings = cse111.strings;
 			const viewText = cse111.strings.viewText + ' ';
 			const downText = cse111.strings.downloadText + ' ';
@@ -648,7 +649,7 @@ cse111.solution = {
 				let absURL = link.href;
 
 				// Get the relative href.
-				let relpath = new URL(absURL).pathname.substring(1);
+				let relpath = absURL.replace(splitURL, '$1');
 				let newHref = cse111.filenames.solution + '?file=' + relpath;
 
 				let hrefAttr = link.getAttribute('href');

@@ -8,20 +8,19 @@ if (! window.hasOwnProperty('cse111')) {
 
 cse111.show = {
     readCode : function() {
-        const self = this;
-
-		const getQueryValue = function(key) {
+		function getQueryValue(key) {
 			let query = window.location.search.substring(1);
-			let vars = query.split('&');
-			for (let i = 0;  i < vars.length;  i++) {
-				let pair = vars[i].split('=');
+			let options = query.split('&');
+			for (let option of options) {
+				let pair = option.split('=');
 				if (pair[0] == key) {
 					return pair[1];
 				}
 			}
 			return null;
-		};
+		}
 
+        const self = this;
         const heading = getQueryValue('file');
 		const parts = heading.split('/');
 		const filename = parts[parts.length - 1];
@@ -50,8 +49,7 @@ cse111.show = {
 
 			let article = document.querySelector('article');
 			let links = article.querySelectorAll('a[download]');
-			for (let i = 0;  i < links.length;  ++i) {
-				let link = links[i];
+			for (let link of links) {
 				link.setAttribute('href', href);
 				link.setAttribute('title', 'Download ' + href);
 			}
@@ -84,7 +82,7 @@ cse111.show = {
 
         /** Converts the characters &, <, and > to HTML entities and
          * converts non-ascii charaters to HTML entity sequences. */
-        const entityFromChar = function(plain) {
+        function entityFromChar(plain) {
             const symbols = {
                 '&':'&amp;', '<':'&lt;', '>':'&gt;',
                 '\u2018':'&lsquo;', '\u2019':'&rsquo;',
@@ -106,7 +104,7 @@ cse111.show = {
                     });
 
             return encoded;
-        };
+        }
 
         code = entityFromChar(code.trim());
 		document.getElementById('code').innerHTML = code;
