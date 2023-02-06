@@ -88,9 +88,26 @@ cse111.filenames = {
 };
 
 
+/** Creates an HTML element. */
+cse111.createElement = function(tag, classes, attrs) {
+	let elem = document.createElement(tag);
+	if (classes) {
+		for (let clss of classes) {
+			elem.classList.add(clss);
+		}
+	}
+	if (attrs) {
+		for (name in attrs) {
+			elem.setAttribute(name, attrs[name]);
+		}
+	}
+	return elem;
+};
+
+
 cse111.common = {
-	/** Contains the relative path to get up from the current webpage to
-	 * the root directory of this website. */
+	/** Contains the relative path to get up from the current
+	 * webpage to the root directory of this website. */
 	upsToRoot : '',
 
 	countLevels : function() {
@@ -125,18 +142,16 @@ cse111.common = {
 	addHeader : function() {
 		let header = document.body.querySelector('header');
 		if (! header) {
-			const self = this;
 			const strings = cse111.strings;
 			const filenames = cse111.filenames;
-			const createElem = self.createElement;
-			const createText = self.createTextNode;
+			const createElem = cse111.createElement;
 
 			/** Opens or closes the navigation menu. */
-			const toggleNavMenu = function(event) {
+			function toggleNavMenu(event) {
 				event.stopPropagation();
 				let nav = document.body.querySelector('nav.menu');
 				nav.classList.toggle('closed');
-			};
+			}
 
 			// Create the children of the header.
 			let img = createElem('img', null,
@@ -159,17 +174,19 @@ cse111.common = {
 					src : filenames.menuIcon});
 				menuIcon.addEventListener('click', toggleNavMenu);
 
-			// Create the header and add it to the document body.
+			// Create the header.
 			header = createElem('header');
 				header.appendChild(byuiLogo);
 				header.appendChild(h2);
 				header.appendChild(menuIcon);
-			const body = document.body;
-				const article = body.querySelector('article');
-				body.insertBefore(header, article);
 
-				this.addNavMenu(body, article);
-				body.addEventListener('click', self.closeNavMenu);
+			// Add the header to the document body.
+			const body = document.body;
+			const article = body.querySelector('article');
+			body.insertBefore(header, article);
+			body.addEventListener('click', this.closeNavMenu);
+
+			this.addNavMenu(body, article);
 		}
 	},
 
@@ -179,14 +196,13 @@ cse111.common = {
 		const self = this;
 		const strings = cse111.strings;
 		const filenames = cse111.filenames;
-		const createElem = self.createElement;
-		const createText = self.createTextNode;
+		const createElem = cse111.createElement;
 		const ul = createElem('ul');
 
 		/** Creates one menu item. */
-		const addMenuItem = function(icon, text, hint, action, classes, down) {
+		function addMenuItem(icon, text, hint, action, classes, down) {
 			let img = createElem('img', null, {alt : hint, src : icon});
-			let node = createText(' ' + text);
+			let node = document.createTextNode(' ' + text);
 			let item = createElem('li', classes, {title : hint});
 			if (typeof(action) == 'function') {
 				item.appendChild(img);
@@ -203,7 +219,7 @@ cse111.common = {
 				item.appendChild(anchor);
 			}
 			ul.appendChild(item);
-		};
+		}
 
 		// Create the menu items.
 		addMenuItem(filenames.lightIcon, strings.lightText,
@@ -285,9 +301,9 @@ cse111.common = {
 	/** Adds a copy character to each h2, h3, or h4 that has an id. */
 	addURLCopyChars : function() {
 		const strings = cse111.strings;
-		const createElem = cse111.common.createElement;
+		const createElem = cse111.createElement;
 
-		const copyFunc = function(event) {
+		function copyFunc(event) {
 			let span = event.currentTarget;
 			let heading = span.parentElement;
 			let url = window.location.href;
@@ -295,24 +311,24 @@ cse111.common = {
 			let newURL = url.replace(/#.*/, '') + anchor;
 
 			// Copy the new URL to the clipboard.
-			const listener = function(event) {
+			function listener(event) {
 				event.clipboardData.setData('text/plain', newURL);
 				event.preventDefault();
-			};
+			}
 			document.addEventListener('copy', listener);
 			document.execCommand('copy');
 			document.removeEventListener('copy', listener);
 
 			// Load the new URL in the current browser window.
 			window.location.assign(anchor);
-		};
+		}
 
-		let elems = document.body.querySelectorAll('h2[id], h3[id], h4[id]');
-		for (let i = 0;  i < elems.length;  ++i) {
+		let elements = document.body.querySelectorAll('h2[id], h3[id], h4[id]');
+		for (let elem of elements) {
 			let span = createElem('span', ['copy'], {title : strings.copyURL});
 				span.addEventListener('click', copyFunc);
 				span.innerText = strings.paraSymbol;
-			elems[i].appendChild(span);
+			elem.appendChild(span);
 		}
 	},
 
@@ -325,18 +341,18 @@ cse111.common = {
 		if (! footer) {
 			const strings = cse111.strings;
 			const filenames = cse111.filenames;
-			const createElem = cse111.common.createElement;
-			const createText = cse111.common.createTextNode;
+			const createElem = cse111.createElement;
 
 			let div = createElem('div');
 			const copyData = this.getCopyrightData();
 			if (copyData.modified) {
-				let mod = createText(strings.modified +' '+ copyData.modified);
+				let mod = document.createTextNode(
+						strings.modified + ' ' + copyData.modified);
 				div.appendChild(mod);
 			}
 			div.appendChild(createElem('br'));
 			if (copyData.notice) {
-				let copy = createText(copyData.notice);
+				let copy = document.createTextNode(copyData.notice);
 				div.appendChild(copy);
 			}
 
@@ -344,7 +360,7 @@ cse111.common = {
 					{alt : strings.upHint,
 					title : strings.upHint,
 					src : filenames.upIcon});
-			up.addEventListener('click', function() {window.scrollTo(0, 0);});
+			up.addEventListener('click', function() { window.scroll(0, 0); });
 
 			footer = createElem('footer');
 			footer.appendChild(div);
@@ -375,28 +391,6 @@ cse111.common = {
 		}
 		return {notice: notice, modified: modified};
 	},
-
-
-	/** Creates an HTML element. */
-	createElement : function(tag, classes, attrs) {
-		let elem = document.createElement(tag);
-		if (classes) {
-			for (let i = 0;  i < classes.length;  ++i) {
-				elem.classList.add(classes[i]);
-			}
-		}
-		if (attrs) {
-			for (name in attrs) {
-				elem.setAttribute(name, attrs[name]);
-			}
-		}
-		return elem;
-	},
-
-	/** Creates an HTML text node. */
-	createTextNode : function(text) {
-		return document.createTextNode(text);
-	}
 };
 
 
@@ -416,24 +410,21 @@ cse111.linenums = {
 	/** Adds line numbers to all <pre class="linenums"> elements. */
 	addLineNumbers : function() {
 		const newline = /<br>\n?|\n/g;
-		const createElem = cse111.common.createElement;
-		const createText = cse111.common.createTextNode;
-		let elems = document.body.querySelectorAll('pre.linenums');
-		for (let i = 0;  i < elems.length;  ++i) {
-			let elem = elems[i];
-			let code = elem.nextElementSibling.innerHTML;
+		let elements = document.body.querySelectorAll('pre.linenums');
+		for (let pre of elements) {
+			let code = pre.nextElementSibling.innerHTML;
 			if (code.length > 0) {
 
 				// If the pre.linenums element contains
 				// any children nodes, remove them.
-				elem.replaceChildren();
+				pre.replaceChildren();
 
 				let count = code.split(newline).length;
 				for (let n = 1;  n <= count;  ++n) {
-					let span = createElem('span');
+					let span = document.createElement('span');
 					span.innerText = n.toString();
-					elem.appendChild(span);
-					elem.appendChild(createText('\n'));
+					pre.appendChild(span);
+					pre.appendChild(document.createTextNode('\n'));
 				}
 			}
 		}
@@ -446,7 +437,7 @@ cse111.linenums = {
 	 * <span class="cross"> element highlights the corresponding line
 	 * numbers in a code example. */
 	addCrossRefs : function() {
-		const getReferences = function(target) {
+		function getReferences(target) {
 			const space = /(\s|&nbsp;|<br>)+/g;
 
 			// Notice the dash and en dash in the character class.
@@ -455,15 +446,14 @@ cse111.linenums = {
 			let text = target.innerText;
 			let candidates = text.split(space);
 			let references = [];
-			for (let i = 0;  i < candidates.length;  ++i) {
-				let candidate = candidates[i];
+			for (let candidate of candidates) {
 				if (dash.test(candidate)) {
 					let limits = candidate.split(dash);
 					let start = parseInt(limits[0]);
 					let end = parseInt(limits[1]);
 					if (! (Number.isNaN(start) || Number.isNaN(end))) {
-						for (let j = start;  j <= end;  ++j) {
-							references.push(j);
+						for (let n = start;  n <= end;  ++n) {
+							references.push(n);
 						}
 					}
 				}
@@ -475,53 +465,51 @@ cse111.linenums = {
 				}
 			}
 			return references;
-		};
+		}
 
 		/** Returns a (list like) collection of all line number
 		 * elements inside a <pre class="linenums"> element. */
-		const getAllLineNumbers = function(target) {
+		function getAllLineNumbers(target) {
 			let refId = target.getAttribute('data-ref');
-			let preDiv = document.getElementById(refId);
-			let lineNumPre = preDiv.querySelector('pre');
+			let div = document.getElementById(refId);
+			let lineNumPre = div.querySelector('pre.linenums');
 			return lineNumPre.children;
-		};
+		}
 
-		const getLineNumber = function(lineNumbers, key) {
+		function getLineNumber(lineNumbers, key) {
 			// The line numbers begin with 1 at index 0 and are
 			// sequential, so it's easy to find and return the
 			// span with the desired line number.
 			return lineNumbers[key - 1];
-		};
+		}
 
-		const on = function(event) {
+		function on(event) {
 			/** Turn on highlighting for one or more line numbers. */
 			let target = event.target;
 			let lineNumbers = getAllLineNumbers(target);
 			let references = getReferences(target);
-			for (let i = 0;  i < references.length;  ++i) {
-				let number = references[i];
+			for (let number of references) {
 				let elem = getLineNumber(lineNumbers, number);
 				elem.classList.add('hi');
 			}
-		};
+		}
 
-		const off = function(event) {
+		function off(event) {
 			/** Turn off highlighting for one or more line numbers. */
 			let target = event.target;
 			let lineNumbers = getAllLineNumbers(target);
 			let references = getReferences(target);
-			for (let i = 0;  i < references.length;  ++i) {
-				let number = references[i];
+			for (let number of references) {
 				let elem = getLineNumber(lineNumbers, number);
 				elem.classList.remove('hi');
 			}
-		};
+		}
 
 		const strings = cse111.strings;
 		const offHint = strings.offHint;
 		const onHint = strings.onHint;
 
-		const toggle = function(event) {
+		function toggle(event) {
 			let target = event.target;
 			let state = target.getAttribute('data-on');
 			if (state == null) {
@@ -540,8 +528,7 @@ cse111.linenums = {
 				// so turn the highlights off.
 				let lineNumbers = getAllLineNumbers(target);
 				let references = getReferences(target);
-				for (let i = 0;  i < references.length;  ++i) {
-					let number = references[i];
+				for (number of references) {
 					let elem = getLineNumber(lineNumbers, number);
 					elem.classList.remove('hi');
 				}
@@ -550,12 +537,11 @@ cse111.linenums = {
 				target.addEventListener('mouseout', off);
 				target.setAttribute('title', onHint);
 			}
-		};
+		}
 
 		// Add event handlers to each <span class="cross"> element.
 		let targets = document.body.querySelectorAll('span.cross');
-		for (let i = 0;  i < targets.length;  ++i) {
-			let target = targets[i];
+		for (let target of targets) {
 			target.addEventListener('mouseover', on);
 			target.addEventListener('mouseout', off);
 			target.addEventListener('click', toggle);
@@ -567,16 +553,16 @@ cse111.linenums = {
 	/** Adds a copy button to each <pre class="python"> element
 	 * that is inside a <div class="example"> element. */
 	addCodeCopyButtons : function() {
-		const copyFunc = function(event) {
+		function copyFunc(event) {
 			let button = event.currentTarget;
 			let pre = button.parentElement;
-			let text = pre.textContent;
+			let text = pre.innerText;
 
 			// Copy the text to the clipboard.
-			const listener = function(event) {
+			function listener(event) {
 				event.clipboardData.setData('text/plain', text);
 				event.preventDefault();
-			};
+			}
 			document.addEventListener('copy', listener);
 			document.execCommand('copy');
 			document.removeEventListener('copy', listener);
@@ -590,22 +576,23 @@ cse111.linenums = {
 			range.selectNodeContents(pre);
 			select.removeAllRanges();
 			select.addRange(range);
-		};
+		}
+
+		const copyHint = cse111.strings.copyHint;
+		const copyIcon = cse111.filenames.copyIcon;
+		const createElem = cse111.createElement;
 
 		// Add a copy button with a click listener to each
 		// <div class="example"> element.
-		const copyHint = cse111.strings.copyHint;
-		const copyIcon = cse111.filenames.copyIcon;
-		const createElem = cse111.common.createElement;
-		let divs = document.body.querySelectorAll('div.example');
-		for (let i = 0;  i < divs.length;  ++i) {
+		let elements = document.body.querySelectorAll('div.example');
+		for (let div of elements) {
 			let image = createElem('img', null,
 					{'src' : copyIcon, 'alt' : copyHint});
 			let button = createElem('button', ['copy'],
 					{'type' : 'button', 'title' : copyHint});
 			button.appendChild(image);
 			button.addEventListener('click', copyFunc);
-			let pre = divs[i].querySelector('pre.python, pre.csv, pre.sql');
+			let pre = div.querySelector('pre.python, pre.csv, pre.sql');
 			pre.appendChild(button);
 		}
 	}
@@ -619,14 +606,13 @@ cse111.consoles = {
 	addHints : function() {
 		const termHint = cse111.strings.termHint;
 		const inputHint = cse111.strings.inputHint;
-		let elems = document.body.querySelectorAll('pre.console');
-		for (let i = 0;  i < elems.length;  ++i) {
-			let pre = elems[i];
+		let elements = document.body.querySelectorAll('pre.console');
+		for (let pre of elements) {
 			pre.setAttribute('title', termHint);
 
 			let spans = pre.querySelectorAll('span.input');
-			for (let i = 0;  i < spans.length;  ++i) {
-				spans[i].setAttribute('title', inputHint);
+			for (let span of spans) {
+				span.setAttribute('title', inputHint);
 			}
 		}
 	}
@@ -642,9 +628,7 @@ cse111.solution = {
 		// Is the user viewing the CSE 111 files
 		// from the local hard drive?
 		if (window.location.protocol == 'file:') {
-			for (let i = 0;  i < links.length;  ++i) {
-				let link = links[i];
-
+			for (let link of links) {
 				// Because the user is viewing the CSE 111 files from
 				// the local hard drive, there is no reason to have both
 				// a view and download link. A standard download link
@@ -654,26 +638,17 @@ cse111.solution = {
 			}
 		}
 		else {
-			const splitURL = /^.+\/([^\/]+\/[^\/]+)$/;
 			const strings = cse111.strings;
 			const viewText = cse111.strings.viewText + ' ';
 			const downText = cse111.strings.downloadText + ' ';
-			const createElem = cse111.common.createElement;
+			const createElem = cse111.createElement;
 
-			for (let i = 0;  i < links.length;  ++i) {
-				let link = links[i];
-
+			for (let link of links) {
 				// Get the absolute href.
 				let absURL = link.href;
 
 				// Get the relative href.
-				// It would be great if we could use the window.URL
-				// class, but it isn't in Internet Explorer, and it's
-				// possible that international students are still using
-				// Internet Explorer.
-				//let relpath = new URL(absURL).pathname.substring(1);
-				let relpath = absURL.replace(splitURL, '$1');
-
+				let relpath = new URL(absURL).pathname.substring(1);
 				let newHref = cse111.filenames.solution + '?file=' + relpath;
 
 				let hrefAttr = link.getAttribute('href');
@@ -685,7 +660,7 @@ cse111.solution = {
 						{download : '',
 						title : downText + hrefAttr,
 						href : hrefAttr});
-				downlink.innerHTML = '[&darr;]';
+				downlink.innerText = '[↓]';
 
 				// Insert the new <a download> element after
 				// the current <a class="solution"> element.
@@ -707,14 +682,13 @@ cse111.print = {
 		const open = this.open;
 		const dataWas = this.dataWas;
 		let allDetails = document.body.querySelectorAll('details');
-		for (let i = 0;  i < allDetails.length;  ++i) {
-			let detailsElem = allDetails[i];
-			let isOpen = detailsElem.hasAttribute(open);
+		for (let elem of allDetails) {
+			let isOpen = elem.hasAttribute(open);
 			if (isOpen) {
-				detailsElem.setAttribute(dataWas, true);
+				elem.setAttribute(dataWas, true);
 			}
 			else {
-				detailsElem.setAttribute(open, '');
+				elem.setAttribute(open, '');
 			}
 		}
 	},
@@ -723,14 +697,13 @@ cse111.print = {
 		const open = this.open;
 		const dataWas = this.dataWas;
 		let allDetails = document.body.querySelectorAll('details');
-		for (let i = 0;  i < allDetails.length;  ++i) {
-			let detailsElem = allDetails[i];
-			let wasOpen = detailsElem.hasAttribute(dataWas);
+		for (let elem of allDetails) {
+			let wasOpen = elem.hasAttribute(dataWas);
 			if (wasOpen) {
-				detailsElem.removeAttribute(dataWas);
+				elem.removeAttribute(dataWas);
 			}
 			else {
-				detailsElem.removeAttribute(open);
+				elem.removeAttribute(open);
 			}
 		}
 	}

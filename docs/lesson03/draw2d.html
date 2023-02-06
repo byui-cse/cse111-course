@@ -478,16 +478,16 @@ canvas = start_drawing("Scene", 800, 500)
         </dd>
 
         <dt>
-<pre class="python">draw_line(canvas, x0, y0, x1, y1, &hellip; xn, yn, width=1, fill="black")</pre>
+<pre class="python">draw_line(canvas, x0, y0, x1, y1, … xn, yn, width=1, fill="black")</pre>
         </dt>
         <dd>Draw a that line goes through the series of points
-        (x0,&nbsp;y0), (x1,&nbsp;y1), &hellip; (xn,&nbsp;yn)
+        (x0,&nbsp;y0), (x1,&nbsp;y1), … (xn,&nbsp;yn)
 
         <h4>Parameters</h4>
         <ul>
             <li><div><b>canvas</b>: the canvas returned from the
             <code>start_drawing</code> function</div></li>
-            <li><div><b>x0, y0, x1, y1, &hellip; xn, yn</b>: the
+            <li><div><b>x0, y0, x1, y1, … xn, yn</b>: the
             coordinates for the segments of a line that this function
             will draw</div></li>
             <li><div><b>width</b>: the line’s width. The default is 1
@@ -597,21 +597,21 @@ draw_rectangle(canvas, 100, 100, 300, 200, width=5)
         </dd>
 
         <dt>
-<pre class="python">draw_polygon(canvas, x0, y0, x1, y1, x2, y2, &hellip; xn, yn,
+<pre class="python">draw_polygon(canvas, x0, y0, x1, y1, x2, y2, … xn, yn,
         width=1, outline="black", fill="")</pre>
         </dt>
         <dd>Draw a polygon with vertices (x0,&nbsp;y0), (x1,&nbsp;y1),
-        &hellip; (xn,&nbsp;yn). The polygon is always a closed polygon
+        … (xn,&nbsp;yn). The polygon is always a closed polygon
         with the same quantity of segments as vertices. In other words,
         the segments are defined as follows:
-        <span class="nowrap">(x0, y0) -&gt; (x1, y1) -&gt; &hellip;
+        <span class="nowrap">(x0, y0) -&gt; (x1, y1) -&gt; …
         -&gt; (xn, yn) -&gt; (x0, y0)</span>
 
         <h4>Parameters</h4>
         <ul>
             <li><div><b>canvas</b>: the canvas returned from the
             <code>start_drawing</code> function</div></li>
-            <li><div><b>x0, y0, x1, y1, x2, y2, &hellip; xn, yn</b>: the
+            <li><div><b>x0, y0, x1, y1, x2, y2, … xn, yn</b>: the
             coordinates for the vertices of the polygon that this
             function will draw</div></li>
             <li><div><b>width</b>: the width of the polygon’s outline;
