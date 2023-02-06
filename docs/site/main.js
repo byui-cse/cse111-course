@@ -164,7 +164,7 @@ cse111.common = {
 			let courseCode = createElem('a', null,
 					{title : strings.courseHint,
 					href : filenames.contents});
-				courseCode.innerText =
+				courseCode.textContent =
 					strings.courseCode + ' | ' + strings.courseTitle;
 			let h2 = createElem('h2');
 				h2.appendChild(courseCode);
@@ -327,7 +327,7 @@ cse111.common = {
 		for (let elem of elements) {
 			let span = createElem('span', ['copy'], {title : strings.copyURL});
 				span.addEventListener('click', copyFunc);
-				span.innerText = strings.paraSymbol;
+				span.textContent = strings.paraSymbol;
 			elem.appendChild(span);
 		}
 	},
@@ -422,7 +422,7 @@ cse111.linenums = {
 				let count = code.split(newline).length;
 				for (let n = 1;  n <= count;  ++n) {
 					let span = document.createElement('span');
-					span.innerText = n.toString();
+					span.textContent = n.toString();
 					pre.appendChild(span);
 					pre.appendChild(document.createTextNode('\n'));
 				}
@@ -443,7 +443,7 @@ cse111.linenums = {
 			// Notice the dash and en dash in the character class.
 			const dash = /[-–]|&ndash;/;
 
-			let text = target.innerText;
+			let text = target.textContent;
 			let candidates = text.split(space);
 			let references = [];
 			for (let candidate of candidates) {
@@ -556,7 +556,7 @@ cse111.linenums = {
 		function copyFunc(event) {
 			let button = event.currentTarget;
 			let pre = button.parentElement;
-			let text = pre.innerText;
+			let text = pre.textContent;
 
 			// Copy the text to the clipboard.
 			function listener(event) {
@@ -660,7 +660,7 @@ cse111.solution = {
 						{download : '',
 						title : downText + hrefAttr,
 						href : hrefAttr});
-				downlink.innerText = '[↓]';
+				downlink.textContent = '[↓]';
 
 				// Insert the new <a download> element after
 				// the current <a class="solution"> element.

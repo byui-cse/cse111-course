@@ -75,7 +75,7 @@
                 link.setAttribute('href', image.file);
                 link.appendChild(img);
                 let caption = document.createElement('div');
-                caption.innerText = 'by ' + image.name;
+                caption.textContent = 'by ' + image.name;
                 let cell = document.createElement('div');
                 cell.appendChild(link);
                 cell.appendChild(caption);
