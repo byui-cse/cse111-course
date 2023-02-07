@@ -448,7 +448,7 @@ cse111.linenums = {
 				// any children nodes, remove them.
 				pre.replaceChildren();
 
-				let span = document.createElem('span');
+				let span = document.createElement('span');
 				pre.appendChild(span);
 				let count = code.split(newline).length;
 				for (let n = 2;  n <= count;  ++n) {

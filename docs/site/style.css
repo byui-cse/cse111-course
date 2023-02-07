@@ -706,7 +706,7 @@ article div.formula div.sum > div > span.onePlus {
 
 article div.formula div.sum > div > span.two {
 	margin: 0.3em 0 1em 0;
-	transform: scale(2.5, 3.2); /* W3C */
+	transform: scale(2.5, 3.2);
 }
 
 article div.formula div.sum > div:last-child {
