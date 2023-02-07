@@ -154,10 +154,11 @@ body {
 		font-weight: normal;
 		line-height: 1.15;
 	}
-	header > img.menuIcon {
+	header > .menuIcon {
 		flex: 0 0 auto;
 		width: 1.2em;
 		cursor: pointer;
+		fill: white;
 	}
 
 	nav.menu {
@@ -201,6 +202,12 @@ body {
 		width: 1em;
 		vertical-align: middle;
 		margin-right: 0.5em;
+	}
+	nav.menu svg {
+		width: 1em;
+		vertical-align: middle;
+		margin-right: 0.5em;
+		fill: white;
 	}
 
 	header a:link,
@@ -891,17 +898,21 @@ article pre.console > span.fail { color: red; }
 		position: absolute;
 		top: 0.5em;
 		right: 0.5em;
+		border-color: var(--byui-blue);
+		width: 3em;
+		height: 3em;
+		padding: 0.2em 0.4em;
 		cursor: pointer;
 		visibility: hidden;
-		background-color: var(--light-bk-color);
+		background-color: white;
 	}
 
 	article div.example > pre:hover > button.copy {
 		visibility: visible;
 	}
 
-	article div.example > pre > button.copy > img {
-		width: 2em;
+	article div.example > pre > button.copy > svg {
+		fill: var(--byui-blue);
 	}
 }
 @media print {
@@ -1018,6 +1029,7 @@ article figure.list > table > tbody > tr > td.label {
 }
 
 
+svg.cache { display: none; }
 @media screen {
 	footer {
 		margin: 2em auto 1em auto;
@@ -1032,11 +1044,12 @@ article figure.list > table > tbody > tr > td.label {
 		font-size: 80%;
 		line-height: 1.4;
 	}
-	footer > img.up {
+	footer > .up {
 		flex: 0 0 auto;
 		margin-left: 1em;
 		width: 1em;
 		cursor: pointer;
+		fill: var(--byui-blue);
 	}
 }
 @media print {
