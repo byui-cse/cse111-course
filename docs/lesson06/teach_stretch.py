@@ -85,7 +85,7 @@ def ask_question(statement, pos_or_neg):
     if answer == 'D':
         score = 1
     elif answer == 'd':
-        score = 1
+        score = 2
     elif answer == 'a':
         score = 4
     elif answer == 'A':
@@ -94,6 +94,11 @@ def ask_question(statement, pos_or_neg):
         score = 3
 
     if pos_or_neg == NEGATIVE:
+        # This is a negative question, and the scores for
+        # negative questions are the opposite of scores for
+        # positive questions. Therefore, to calculate a score
+        # for a negative question, we subtract the postive
+        # score from the maximum score plus 1 (5 + 1 = 6).
         score = 6 - score
 
     return score
