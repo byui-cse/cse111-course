@@ -497,7 +497,7 @@ cse111.linenums = {
 				span.textContent = start.toString();
 				pre.appendChild(span);
 				let limit = start + code.split(newline).length;
-				for (let n = start + 1;  n <= limit;  ++n) {
+				for (let n = start + 1;  n < limit;  ++n) {
 					pre.appendChild(document.createTextNode('\n'));
 					span = document.createElement('span');
 					span.textContent = n.toString();

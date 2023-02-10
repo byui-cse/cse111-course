@@ -135,11 +135,11 @@ def test_min():
     assert min(7, -3, 0, 2) == -3
 </pre></div>
 
-    <p>In the previous function, the assert statement will cause the
-    computer to first call the <code>min</code> function and pass 7,
-    &minus;3, 0, and 2 as arguments to the <code>min</code> function.
-    The <code>min</code> function will find the minimum value of its
-    parameters and return that minimum value. Then the
+    <p>In the previous function, the <code>assert</code> statement will
+    cause the computer to first call the <code>min</code> function and
+    pass 7, &minus;3, 0, and 2 as arguments to the <code>min</code>
+    function. The <code>min</code> function will find the minimum value
+    of its parameters and return that minimum value. Then the
     <code>assert</code> statement will compare the returned minimum
     value to &minus;3. If the returned value is not &minus;3, the
     <code>assert</code> statement will raise an exception which will
@@ -152,9 +152,9 @@ def test_min():
     in binary in a way that exactly represents the integers. For
     example, a computer stores the integer 23 as 00010111 in binary
     which is an exact representation of decimal 23. However, a computer
-    approximates floating point numbers (numbers with digits after the
+    approximates floating-point numbers (numbers with digits after the
     decimal place). For example, while executing a Python program, a
-    computer stores the floating point number 23.7 as binary
+    computer stores the floating-point number 23.7 as binary
     0100000000110111101100110011001100110011001100110011001100110011.
     This binary number is actually 23.69999999999999928945726424 in
     decimal which is an approximation to 23.7</p>
@@ -177,24 +177,143 @@ def test_min():
     23.699999999999999289457264239899814128875732421875
     -->
 
-    <p>Because computers approximate floating point numbers, we must
-    carefully compare floating point numbers in our test functions. It
-    is bad practice to check if floating point numbers are equal using
-    just the equality operator (==). The <code>pytest</code> module
-    contains a function named
-    <a href="https://docs.pytest.org/en/latest/reference/reference.html#pytest-approx"><code>approx</code></a>
-    to help us compare floating point numbers. For example, to test the
+    <p>Because computers approximate floating-point numbers, we must
+    carefully compare them in our test functions. It is a bad practice
+    to check if floating-point numbers are equal using just the equality
+    operator (==). A better way to compare two floating-point numbers is
+    to subtract them and check if their difference is small as shown at
+    <span class="cross" data-ref="ex4">line&nbsp;8</span> of
+    example&nbsp;4.</p>
+
+<div class="example" id="ex4"><pre class="linenums"></pre>
+<pre class="python"># Example 4
+
+    # The variables e and f can be any floating-
+    # point numbers from any calculation.
+    e = 7.135
+    f = 7.128
+
+    if <em>abs(e - f) &lt; 0.01</em>:
+        print(f"{e} and {f} are close enough so")
+        print("we'll consider them to be equal.")
+    else:
+        print(f"{e} and {f} are not close and")
+        print("therefor not equal.")</pre></div>
+
+    <p>In example&nbsp;4 at
+    <span class="cross" data-ref="ex4">line&nbsp;8</span>, if the
+    difference between <var>e</var> and <var>f</var> is less than 0.01,
+    the computer will consider the two numbers to be equal. The number
+    0.01 in the comparison at
+    <span class="cross" data-ref="ex4">line&nbsp;6</span> is called the
+    tolerance. The <dfn>tolerance</dfn> is the maximum difference
+    between two floating-point numbers that the programmer will allow
+    and still consider the numbers to be equal.</p>
+
+    <h3 id="approx"><code>approx</code> Function</h3>
+    <p>The comparison in example&nbsp;4 at
+    <span class="cross" data-ref="ex4">line&nbsp;8</span> is a little
+    tedious to write and read. Also, choosing the tolerance is sometimes
+    difficult. The <code>pytest</code> module contains a function named
+    <code>approx</code> to help us compare floating-point numbers more
+    easily. The
+    <a href="https://docs.pytest.org/en/latest/reference/reference.html#pytest-approx"><code>approx</code> function</a><sup>*</sup>
+    compares two floating-point numbers and returns <code>True</code> if
+    they are equal within an appropriate tolerance.</p>
+
+    <ul class="notes">
+        <li><code>approx</code> is not a function. It is a Python class.
+        Because CSE&nbsp;111 students have not yet learned about
+        classes, this document refers to <code>approx</code> as a
+        function. For the purposes of CSE&nbsp;111, it is sufficient for
+        students to think of <code>approx</code> as a function.</li>
+    </ul>
+
+    <p>The <code>approx</code> function has the following function
+    header:</p>
+    <div class="example"><pre class="python">def approx(expected_value, rel=None, abs=None, nan_ok=False)</pre></div>
+
+    <p>Notice that the last three parameters of the <code>approx</code>
+    function have default values: <code>rel=None, abs=None,
+    nan_ok=False</code>. Because they have default values, when we call
+    <code>approx</code>, we’re not required to pass arguments for the
+    last three parameters. In other words in a test function, we can
+    call <code>approx</code> like this:
+
+<div class="example"><pre class="python">def test_function():
+    assert <var>actual_value</var> == approx(<var>expected_value</var>)</pre></div>
+
+    <p>If we call <code>approx</code> with just one argument,
+    <code>approx</code> will compare the actual value and expected value
+    and return <code>True</code> if the difference between the two
+    values is less than one millionth of the expected value. In other
+    words, one millionth of the expected value is the default tolerance.
+    Sometimes this is not the right tolerance. The <code>approx</code>
+    function has two parameters, <code>rel</code> and <code>abs</code>,
+    that we can use to give <code>approx</code> a better tolerance to
+    use in its comparison. For example, to test the
     <code>math.sqrt</code> function, we could write a test function like
     this:</p>
 
-<div class="example" id="ex4"><pre class="python">
-def test_sqrt():
-    assert math.sqrt(5) == approx(2.24, 0.01)
-</pre></div>
+<div class="example" id="ex5"><pre class="linenums"></pre>
+<pre class="python"># Example 5
 
-    <p>The <code>assert</code> statement in the previous test function
-    verifies that the value returned from <code>math.sqrt(5)</code> is
-    within 1% (0.01) of 2.24.</p>
+def test_sqrt():
+    assert math.sqrt(5) == approx(2.24, <em>rel=0.01</em>)</pre></div>
+
+
+    <p>Notice the <code>rel</code> named argument in
+    <span class="cross" data-ref="ex5">line&nbsp;4</span> of the
+    previous example. The <code>rel</code> named argument causes
+    <code>approx</code> to compute the tolerance relative to the
+    expected value. This means that the <code>assert</code> statement in
+    the previous example causes the computer to verify that the actual
+    value returned from <code>math.sqrt(5)</code> is within 1% (0.01) of
+    2.24. When a programmer uses the <code>rel</code> named argument,
+    the <code>approx</code> function uses code similar to example&nbsp;6
+    to determine if the actual and expected values are equal.</p>
+
+<div class="example" id="ex6"><pre class="linenums"></pre>
+<pre class="python"># Example 6
+
+    # Compute the tolerance.
+    tolerance = expected_value * rel
+
+    # Use the tolerance to determine if the actual
+    # and expected values are close enough to be
+    # considered equal.
+    if abs(actual_value - expected_value) &lt; tolerance:
+        return True
+    else:
+        return False</pre></div>
+
+    <p>From <span class="cross" data-ref="ex6">lines&nbsp;4
+    and&nbsp;9</span> of example&nbsp;6, we learn that
+    <code>approx</code> will return <code>True</code> if the difference
+    between the actual value returned from <code>math.sqrt(5)</code> and
+    the expected value is less than 0.0224 (2.24&nbsp;*&nbsp;0.01).</p>
+
+    <p>We can also use the <code>abs</code> named argument to give
+    <code>approx</code> a tolerance. We can write a test for the
+    <code>math.sqrt</code> function like this:</p>
+
+<div class="example" id="ex7"><pre class="linenums"></pre>
+<pre class="python"># Example 7
+
+def test_sqrt():
+    assert math.sqrt(5) == approx(2.24, <em>abs=0.01</em>)</pre></div>
+
+    <p>Notice the <code>abs</code> named argument in
+    <span class="cross" data-ref="ex7">line&nbsp;4</span> of the
+    previous example. The <code>abs</code> named argument causes
+    the <code>approx</code> function to return <code>True</code> if the
+    difference between the actual and expected values is less than the
+    number in <code>abs</code> (0.01 in the previous example). This is
+    different from the <code>rel</code> named argument which causes
+    approx to return <code>True</code> if the difference is less than
+    <code>rel * expected_value</code>. The <code>abs</code> named
+    argument is simpler and easier to understand than the
+    <code>rel</code> named argument.</p>
 
     <h3 id="test_func">How to Test a Function</h3>
     <p>To test a function you should do the following:</p>
@@ -223,7 +342,7 @@ def test_sqrt():
     part of a larger Python program in a file named
     <code>weather.py</code>.</p>
 
-<div class="example" id="ex5"><pre class="linenums"></pre>
+<div class="example" id="ex8"><pre class="linenums"></pre>
 <pre class="python"># weather.py
 
 def cels_from_fahr(fahr):
@@ -236,7 +355,7 @@ def cels_from_fahr(fahr):
 
     <p>We want to test the <code>cels_from_fahr</code> function. From
     the function header at
-    <span class="cross" data-ref="ex5">line&nbsp;3</span> in
+    <span class="cross" data-ref="ex8">line&nbsp;3</span> in
     <code>weather.py</code>, we see that <code>cels_from_fahr</code>
     takes one parameter named <var>fahr</var>. To adequately test this
     function, we should call it at least three times with the following
@@ -251,7 +370,7 @@ def cels_from_fahr(fahr):
     <p>In a separate file named <code>test_weather.py</code> we write a
     test function named <code>test_cels_from_fahr</code> as follows:</p>
 
-<div class="example" id="ex6"><pre class="linenums"></pre>
+<div class="example" id="ex9"><pre class="linenums"></pre>
 <pre class="python"># test_weather.py
 
 from weather import cels_from_fahr
@@ -262,7 +381,7 @@ def <em>test_cels_from_fahr()</em>:
     """Test the cels_from_fahr function by calling it and
     comparing the values it returns to the expected values.
     Notice this test function uses pytest.approx to compare
-    floating point numbers.
+    floating-point numbers.
     """
     assert cels_from_fahr(-25) == approx(-31.66667)
     assert cels_from_fahr(0) == approx(-17.77778)
@@ -275,7 +394,7 @@ pytest.main(["-v", "--tb=line", "-rN", __file__])</pre>
 </div>
 
     <p>Notice in <code>test_weather.py</code> at
-    <span class="cross" data-ref="ex6">lines&nbsp;13&ndash;16</span>
+    <span class="cross" data-ref="ex9">lines&nbsp;13&ndash;16</span>
     that the test function <code>test_cels_from_fahr</code> calls the
     program function <code>cels_from_fahr</code> four times: once with a
     negative number, once with zero, and twice with positive numbers.
@@ -284,12 +403,12 @@ pytest.main(["-v", "--tb=line", "-rN", __file__])</pre>
 
     <p>After writing the test function, we use <code>pytest</code> to
     run the test function. At
-    <span class="cross" data-ref="ex6">line&nbsp;20</span>,
+    <span class="cross" data-ref="ex9">line&nbsp;20</span>,
     instead of writing a call to the <code>main</code> function, as we
     do in program files, we write a call to the <code>pytest.main</code>
     function. In CSE&nbsp;111, at the bottom of all test files, we will
-    write a call to <code>pytest.main</code> exactly as shown on
-    <span class="cross" data-ref="ex6">line&nbsp;20</span>. This call to
+    write a call to <code>pytest.main</code> exactly as shown in
+    <span class="cross" data-ref="ex9">line&nbsp;20</span>. This call to
     <code>pytest.main</code> will cause the <code>pytest</code> module
     to run our test functions. When <code>pytest</code> runs our test
     functions, it will produce output that tells us if the tests passed
@@ -324,7 +443,7 @@ test_weather.py::test_cels_from_fahr <span class="pass">PASSED               [10
     the test file that imports all the program functions that will be
     tested.</p>
 
-    <p><span class="cross" data-ref="ex6">Line&nbsp;3</span> from
+    <p><span class="cross" data-ref="ex9">Line&nbsp;3</span> from
     <code>test_weather.py</code> above is an example of an import
     statement that imports functions from a program file. Line&nbsp;3
     matches this template:</p>
