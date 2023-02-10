@@ -720,6 +720,10 @@ article div.formula div.fract > div:last-child {
 	border-top: 1px solid;
 }
 
+article span.units {
+	color: var(--byui-blue);
+}
+
 
 /* Figures */
 article figure {
