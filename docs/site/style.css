@@ -141,11 +141,10 @@ body {
 		background-color: var(--byui-blue);
 		color: white;
 	}
-	header > a.byuiLogo {
+	header > .byuiLogo {
 		flex: 0 0 auto;
-	}
-	header > a.byuiLogo > img {
 		width: 4em;
+		fill: white;
 	}
 	header > h2 {
 		margin: 0 var(--header-separation);
@@ -157,8 +156,11 @@ body {
 	header > .menuIcon {
 		flex: 0 0 auto;
 		width: 1.2em;
-		cursor: pointer;
 		fill: white;
+		cursor: pointer;
+	}
+	header > .menuIcon.closed {
+		display: none;
 	}
 
 	nav.menu {
@@ -197,11 +199,6 @@ body {
 		 * width of the navigation list item. */
 		display: block;
 		width: 100%;
-	}
-	nav.menu img {
-		width: 1em;
-		vertical-align: middle;
-		margin-right: 0.5em;
 	}
 	nav.menu svg {
 		width: 1em;
@@ -301,26 +298,28 @@ article h4 {
 }
 
 @media screen {
-	article h2 > span.copy,
-	article h3 > span.copy,
-	article h4 > span.copy {
-		font-size: smaller;
-		color: var(--dfn-fg-color);
-		margin: 0 0 0 0.5em;
-		cursor: pointer;
+	article h2 > .copy,
+	article h3 > .copy,
+	article h4 > .copy {
 		visibility: hidden;
+		font-size: smaller;
+		margin: 0 0 0 0.5em;
+		border-color: var(--byui-blue);
+		padding: 0.1em 0.3em;
+		background-color: var(--python-bk-color);
+		color: var(--byui-blue);
+		cursor: pointer;
 	}
 
-	article h2:hover > span.copy,
-	article h3:hover > span.copy,
-	article h4:hover > span.copy {
+	article h2:hover > .copy,
+	article h3:hover > .copy,
+	article h4:hover > .copy {
 		visibility: visible;
 	}
 
-	article h2 > span.copy:hover,
-	article h3 > span.copy:hover,
-	article h4 > span.copy:hover {
-		background-color: var(--console-bk-color);
+	article h2 > .copy:hover,
+	article h3 > .copy:hover,
+	article h4 > .copy:hover {
 		font-weight: 900;
 	}
 
@@ -343,9 +342,9 @@ article h4 {
 		orphans: 2;
 	}
 
-	article h2 > span.copy,
-	article h3 > span.copy,
-	article h4 > span.copy {
+	article h2 > .copy,
+	article h3 > .copy,
+	article h4 > .copy {
 		display: none;
 	}
 	article div.video {
@@ -458,14 +457,9 @@ article ol > li ol {
 	list-style-type: lower-alpha;
 }
 
-article ol.long > li {
-	margin-bottom: 1em;
-}
-
 article li {
 	color: var(--bullet-fg-color);
 }
-
 article li > div {
 	color: var(--fg-color);
 	margin-left: 0.25em;
@@ -476,18 +470,18 @@ article ul {
 	list-style-type: disc;
 }
 
-article ul.long > li {
-	margin-bottom: 1em;
-}
-
 article li ul {
 	list-style-type: circle;
+}
+
+article ol.long > li,
+article ul.long > li {
+	margin-bottom: 1em;
 }
 
 article ul.links {
 	list-style-type: "»";
 }
-
 article ul.links > li {
 	padding-left: 0.3em;
 }
@@ -502,26 +496,26 @@ article ul.mixed {
 
 article ul.references > li,
 article ul.mixed > li.reference {
-	background-image: url("icons/reference.png");
+	background-image: url("icons/reference.svg");
 	background-repeat: no-repeat;
-	min-height: 30px;
-	padding-left: 22px;
+	background-size: 1em auto;
+	padding-left: 1.2em;
 }
 
 article ul.tutorials > li,
 article ul.mixed > li.tutorial {
-	background-image: url("icons/tutorial.png");
+	background-image: url("icons/tutorial.svg");
 	background-repeat: no-repeat;
-	min-height: 30px;
-	padding-left: 22px;
+	background-size: 1em auto;
+	padding-left: 1.2em;
 }
 
 article ul.videos > li,
 article ul.mixed > li.video {
-	background-image: url("icons/video.png");
+	background-image: url("icons/video.svg");
 	background-repeat: no-repeat;
-	min-height: 30px;
-	padding-left: 34px;
+	background-size: 1.3em auto;
+	padding-left: 1.5em;
 }
 
 article ul.notes {
@@ -894,29 +888,26 @@ article pre.console > span.fail { color: red; }
 
 @media screen {
 	/* A button that copies code to the clipboard. */
-	article div.example > pre > button.copy {
+	article div.example > pre > .copy {
+		visibility: hidden;
 		position: absolute;
 		top: 0.5em;
 		right: 0.5em;
-		border-color: var(--byui-blue);
 		width: 3em;
 		height: 3em;
+		border-color: var(--byui-blue);
 		padding: 0.2em 0.4em;
-		cursor: pointer;
-		visibility: hidden;
 		background-color: white;
-	}
-
-	article div.example > pre:hover > button.copy {
-		visibility: visible;
-	}
-
-	article div.example > pre > button.copy > svg {
 		fill: var(--byui-blue);
+		cursor: pointer;
+	}
+
+	article div.example > pre:hover > .copy {
+		visibility: visible;
 	}
 }
 @media print {
-	article div.example > pre > button.copy {
+	article div.example > pre > .copy {
 		display: none;
 	}
 }
@@ -1030,6 +1021,7 @@ article figure.list > table > tbody > tr > td.label {
 
 
 svg.cache { display: none; }
+
 @media screen {
 	footer {
 		margin: 2em auto 1em auto;
@@ -1046,10 +1038,13 @@ svg.cache { display: none; }
 	}
 	footer > .up {
 		flex: 0 0 auto;
-		margin-left: 1em;
-		width: 1em;
-		cursor: pointer;
+		margin: 0 0 0 1em;
+		width: 1.6em;
+		border-color: var(--byui-blue);
+		padding: 0.2em 0.3em 0 0.3em;
+		background-color: var(--python-bk-color);
 		fill: var(--byui-blue);
+		cursor: pointer;
 	}
 }
 @media print {

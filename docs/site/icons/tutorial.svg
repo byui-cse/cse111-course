@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 77 99">
+<defs><style>
+.page {stroke-width:5;stroke:#505050;fill:#ff7f50}
+.corner {stroke-width:5;stroke:#505050;fill:white}
+text {font:bold 82px sans-serif;fill:white}
+</style></defs>
+<path class="page" d="M2.5,6Q2.5,2.5 6,2.5H48V26Q48,29 51,29H74.5V93Q74.5,96.5 71,96.5H6Q2.5,96.5 2.5,93Z"/>
+<path class="corner" d="M48,2.5V26,Q48,29 51,29H74.5V27L50,2.5Z"/>
+<text x="6" y="88">?</text>
+</svg>

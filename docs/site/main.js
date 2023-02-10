@@ -27,6 +27,7 @@ cse111.strings = {
 	zipText     : '.zip File',
 
 	menuHint    : 'Click to open the navigation menu',
+	closeHint   : 'Click to close the navigation menu',
 	lightHint   : 'Change to light mode',
 	darkHint    : 'Change to dark mode',
 	contentsHint: 'View list of contents for CSE 111',
@@ -38,8 +39,8 @@ cse111.strings = {
 	zipHint     : 'Download a zip file that\ncontains all CSE 111 content',
 	upHint      : 'Scroll to the top of this document',
 
-	paraSymbol : '¶',
-	copyURL    : 'Copy URL to the clipboard',
+	section : '§',
+	copyURL : 'Copy URL to the clipboard',
 
 	offHint : 'Click to turn off highlights.',
 	onHint  : 'Move mouse over to turn on highlights.\n' +
@@ -57,11 +58,10 @@ cse111.strings = {
 };
 
 
-/** Contains the filenames of all user visible icons and other files so
+/** Contains the filenames of user visible icons and other files so
  * that changing them, if necessary, will be easier. */
 cse111.filenames = {
-	byuiLogo     : 'site/icons/byui-logo.svg',
-	logoIcon     : 'site/icons/logo.png',
+	logoIcon : 'site/icons/logo.png',
 
 	contents : 'index.html',
 	search   : 'index.html#search',
@@ -75,7 +75,20 @@ cse111.filenames = {
 
 
 cse111.svgCache =
-'<svg xmlns="http://www.w3.org/2000/svg"><defs><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->\
+'<svg xmlns="http://www.w3.org/2000/svg"><defs>\
+<g id="svgBYUILogo" viewBox="0 0 88.48 52.39">\
+<path d="m2.45 2.02v21.07c0 .68 0 .92-.45 1.23a4.79 4.79 0 0 1-1.73.47c-.08 0-.06.32 0 .32h17c7.18 0 10.21-2.86 10.21-7.3 0-3.3-1.53-5.31-4.57-6.06a.05.05 0 0 1 0-.1c1.93-.6 3.72-2 3.72-5.43 0-4.64-3.15-6.21-10-6.21h-16.36c-.08 0-.09.3 0 .32a4.77 4.77 0 0 1 1.74.48c.49.3.44.53.44 1.22m8 17.68v-5a3.52 3.52 0 0 0 0-.6 4.18 4.18 0 0 0 .6.05h2.79c2.22 0 4.94 0 4.94 3.08 0 2.27-2 3.08-4.57 3.08h-3.16a4.92 4.92 0 0 0-.59 0 5.44 5.44 0 0 0 0-.6m0-10v-4.42a3.68 3.68 0 0 0 0-.6 4.18 4.18 0 0 0 .6.05h3.3c2.51 0 4 .39 4 2.67 0 1.48-.91 2.81-3.88 2.81h-3.4a4.92 4.92 0 0 0-.59 0 4.92 4.92 0 0 0 0-.59"/>\
+<path d="m48 25.11c.09 0 .1-.3 0-.32a4.79 4.79 0 0 1-1.74-.47c-.48-.31-.45-.55-.45-1.23v-8l8.7-12.9a6.09 6.09 0 0 1 1.17-1.41 3 3 0 0 1 .32-.22 1.65 1.65 0 0 1 .94-.24c.08 0 .1-.31 0-.31h-11.68c-.1 0-.08.31 0 .32.58 0 1.28 0 1.16.83l-5.01 7.96-5.02-7.96c-.08-.99.59-.83 1.15-.83.09 0 .11-.32 0-.32h-12.3c-.08 0-.07.28 0 .31a3.24 3.24 0 0 1 1.43.32 1.41 1.41 0 0 1 .31.21 5.52 5.52 0 0 1 1.11 1.34l8.67 12.85v8.05c0 .68.05.92-.44 1.23a4.79 4.79 0 0 1-1.74.47c-.08 0-.06.32 0 .32z"/>\
+<path d="m86.1 2.02c0-.69 0-.93.44-1.23a4.79 4.79 0 0 1 1.74-.47c.08 0 .07-.31 0-.31h-12.57c-.08 0-.1.3 0 .32a3.63 3.63 0 0 1 1.64.47c.48.3.44.55.44 1.23v12.66c0 2.89-1.66 5.11-4.94 5.11s-4.94-2.22-4.94-5.11v-12.67c0-.68 0-.93.45-1.23a4 4 0 0 1 1.64-.47c.08 0 .07-.31 0-.31h-11.87c-.09 0-.07.29 0 .31a1.53 1.53 0 0 1 1 .28c.39.33.46.73.46 1.42v12.45c0 6 3.28 11.09 13.24 11.09s13.25-5.1 13.25-11.09z"/>\
+<path d="m88.02 31.15h-87.67a.36.36 0 0 1 0-.72h87.67a.36.36 0 0 1 0 .72"/>\
+<path d="m.2 52.3c-.07 0-.07-.29 0-.32a5.59 5.59 0 0 0 1.88-.41c.28-.17.51-.59.51-5.38v-3.55c0-4.8-.23-5.24-.51-5.39a5.59 5.59 0 0 0-1.88-.41c-.1 0-.1-.32 0-.32h6.58c.07 0 .1.29 0 .32a5.49 5.49 0 0 0-1.85.41c-.31.15-.53.59-.53 5.39v3.55c0 4.79.22 5.21.53 5.38a5.49 5.49 0 0 0 1.85.41c.13 0 .1.32 0 .32z"/>\
+<path d="m18.56 37.3c-1.46 0-2.07.19-2.24.41s-.37 1.27-.37 4.82v3.63c0 3.12.23 4.34.54 4.68s1 .63 2.27.63c4.76 0 7-2.27 7-6.85a7 7 0 0 0-7.16-7.32m6.87 12.56c-1.68 1.68-3.53 2.41-6.65 2.41-1.07 0-2.8-.05-3.7-.05s-2 .05-3.09.05c-.08 0-.1-.29 0-.31a3.87 3.87 0 0 0 1.65-.42c.32-.17.52-.58.52-5.38v-3.56c0-4.79-.2-5.23-.52-5.38a3.92 3.92 0 0 0-1.65-.41c-.12 0-.1-.32 0-.32 1.07 0 2.19.06 3.09.06s3.14-.06 4.23-.06c4.9 0 8.43 3.29 8.43 7.69a8.16 8.16 0 0 1-2.31 5.68"/>\
+<path d="m38.3 39.47-2.09 5.83h4.31zm3 12.78c-.07 0-.1-.29 0-.31.75-.08 1.22-.22 1.22-.59s-.32-1.51-1.71-5h-5c-1.14 3.13-1.41 4.33-1.41 4.84s.34.66 1.39.76c.09 0 .07.31 0 .31h-5c-.07 0-.13-.29 0-.31a3.18 3.18 0 0 0 1.53-.47c.24-.19.68-.53 2.44-5.33l1.29-3.55c.75-2.05 1.55-4.17 2.16-6.06.06-.18.78-.18.83 0 .74 2.11 1.37 3.84 2.22 6.06l1.38 3.55c1.9 4.8 2.22 5.16 2.56 5.38a2.91 2.91 0 0 0 1.47.42c.09 0 .06.31 0 .31z"/>\
+<path d="m61.94 52.3c-.09 0-.09-.29 0-.31a3.87 3.87 0 0 0 1.65-.42c.3-.17.52-.58.52-5.38v-1.51h-9.17v1.51c0 4.8.22 5.21.51 5.38a3.94 3.94 0 0 0 1.66.42c.12 0 .12.31.05.31h-6.22c-.08 0-.1-.29 0-.31a4 4 0 0 0 1.65-.42c.32-.17.51-.58.51-5.38v-3.55c0-4.8-.19-5.24-.51-5.39a4 4 0 0 0-1.65-.41c-.12 0-.1-.32 0-.32h6.18c.07 0 .07.3-.05.32a4 4 0 0 0-1.66.41c-.29.15-.51.59-.51 5.39v1.14h9.21v-1.14c0-4.8-.22-5.24-.52-5.39a3.92 3.92 0 0 0-1.65-.41c-.12 0-.12-.32 0-.32h6.17c.09 0 .09.3 0 .32a4.09 4.09 0 0 0-1.66.41c-.29.15-.51.59-.51 5.39v3.55c0 4.8.22 5.21.51 5.38a4 4 0 0 0 1.66.42c.12 0 .12.31 0 .31z"/>\
+<path d="m79.82 37.23c-4.36 0-5.8 3.48-5.8 6.62 0 4 2.51 7.64 6.41 7.64 4.33 0 5.77-3.47 5.77-6.62 0-4-2.48-7.64-6.38-7.64m.12 15.17a7.7 7.7 0 0 1-7.94-7.84 8.22 8.22 0 0 1 8.28-8.23 7.68 7.68 0 0 1 7.94 7.83 8.21 8.21 0 0 1-8.28 8.24"/>\
+</g>\
+\
+<!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->\
 <symbol id="svgArrowLeft" viewBox="0 0 448 512"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></symbol>\
 <symbol id="svgArrowRight" viewBox="0 0 448 512"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></symbol>\
 <symbol id="svgArrowUp" viewBox="0 0 384 512"><path d="M214.6 9.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 109.3V480c0 17.7 14.3 32 32 32s32-14.3 32-32V109.3l73.4 73.4c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-128-128z"/></symbol>\
@@ -109,7 +122,7 @@ cse111.createElement = function(tag, classes, attrs) {
 };
 
 
-cse111.createSVG = function(id, clss, attrs) {
+cse111.createSVG = function(id, classes, title) {
 	const xmlns = 'http://www.w3.org/2000/svg';
 	const symbol = document.getElementById(id);
 	const viewBox = symbol.getAttributeNS(null, 'viewBox');
@@ -119,13 +132,15 @@ cse111.createSVG = function(id, clss, attrs) {
 
 	let svg = document.createElementNS(xmlns, 'svg');
 	svg.setAttributeNS(null, 'viewBox', viewBox);
-	if (clss) {
-		svg.classList.add(clss);
-	}
-	if (attrs) {
-		for (name in attrs) {
-			svg.setAttribute(name, attrs[name]);
+	if (classes) {
+		for (let clss of classes) {
+			svg.classList.add(clss);
 		}
+	}
+	if (title) {
+		let child = document.createElementNS(xmlns, 'title');
+		child.textContent = title;
+		svg.appendChild(child);
 	}
 	svg.appendChild(use);
 
@@ -173,13 +188,7 @@ cse111.common = {
 			const strings = cse111.strings;
 			const filenames = cse111.filenames;
 			const createElem = cse111.createElement;
-
-			/** Opens or closes the navigation menu. */
-			function toggleNavMenu(event) {
-				event.stopPropagation();
-				let nav = document.body.querySelector('nav.menu');
-				nav.classList.toggle('closed');
-			}
+			const createSVG = cse111.createSVG;
 
 			// Add the SVG image cache to the document.
 			const xmlns = 'http://www.w3.org/2000/svg';
@@ -189,29 +198,30 @@ cse111.common = {
 			document.body.appendChild(cache);
 
 			// Create the children of the header.
-			let img = createElem('img', null,
-					{alt : strings.byuiLogoAlt,
-					src : filenames.byuiLogo});
+			let svg = createSVG('svgBYUILogo', null, strings.byuiLogoAlt);
 			let byuiLogo = createElem('a', ['byuiLogo'],
-					{title : strings.byuiHint,
-					href : strings.byuiURL});
-				byuiLogo.appendChild(img);
+					{title : strings.byuiHint, href : strings.byuiURL});
+				byuiLogo.appendChild(svg);
 			let courseCode = createElem('a', null,
-					{title : strings.courseHint,
-					href : filenames.contents});
+					{title : strings.courseHint, href : filenames.contents});
 				courseCode.textContent =
 					strings.courseCode + ' | ' + strings.courseTitle;
 			let h2 = createElem('h2');
 				h2.appendChild(courseCode);
-			let menuIcon = cse111.createSVG('svgBars', 'menuIcon',
-					{title : strings.menuHint, alt : strings.menuHint});
-				menuIcon.addEventListener('click', toggleNavMenu);
+			let menuOpen = createSVG('svgBars', ['menuIcon'], strings.menuHint);
+				menuOpen.setAttribute('id', 'menuOpen');
+				menuOpen.addEventListener('click', this.openNavMenu);
+			let menuClose = createSVG('svgClose',
+					['menuIcon', 'closed'], strings.closeHint);
+				menuClose.setAttribute('id', 'menuClose');
+				menuClose.addEventListener('click', this.closeNavMenu);
 
 			// Create the header.
 			header = createElem('header');
 				header.appendChild(byuiLogo);
 				header.appendChild(h2);
-				header.appendChild(menuIcon);
+				header.appendChild(menuOpen);
+				header.appendChild(menuClose);
 
 			// Add the header to the document body.
 			const body = document.body;
@@ -230,11 +240,12 @@ cse111.common = {
 		const strings = cse111.strings;
 		const filenames = cse111.filenames;
 		const createElem = cse111.createElement;
+		const createSVG = cse111.createSVG;
 		const ul = createElem('ul');
 
 		/** Creates one menu item. */
-		function addMenuItem(id, text, hint, action, classes, down) {
-			let svg = cse111.createSVG(id);
+		function addMenuItem(id, text, hint, action, classes, download) {
+			let svg = cse111.createSVG(id, null, hint);
 			let node = document.createTextNode(' ' + text);
 			let item = createElem('li', classes, {title : hint});
 			if (typeof(action) == 'function') {
@@ -244,9 +255,8 @@ cse111.common = {
 			}
 			else if (typeof(action) == 'string') {
 				let anchor = createElem('a', null,
-						down ?
-						{download : '', href : action} :
-						{href : action});
+						download ?
+						{download : '', href : action} : {href : action});
 				anchor.appendChild(svg);
 				anchor.appendChild(node);
 				item.appendChild(anchor);
@@ -257,12 +267,10 @@ cse111.common = {
 		// Create the menu items.
 		addMenuItem('svgSun', strings.lightText,
 				strings.lightHint,
-				function() { self.setBrightness('light'); },
-				['light']);
+				function() { self.setBrightness('light'); }, ['light']);
 		addMenuItem('svgMoon', strings.darkText,
 				strings.darkHint,
-				function() { self.setBrightness('dark'); },
-				['dark']);
+				function() { self.setBrightness('dark'); }, ['dark']);
 
 		addMenuItem('svgList', strings.contentsText,
 				strings.contentsHint, filenames.contents, ['first']);
@@ -298,11 +306,33 @@ cse111.common = {
 	},
 
 
+	/** Opens the navigation menu. */
+	openNavMenu : function(event) {
+		if (event) {
+			event.stopPropagation();
+		}
+		let nav = document.body.querySelector('nav.menu');
+		if (nav) {
+			nav.classList.remove('closed');
+			let menuOpen = document.getElementById('menuOpen');
+			let menuClose = document.getElementById('menuClose');
+			menuOpen.classList.add('closed');
+			menuClose.classList.remove('closed');
+		}
+	},
+
 	/** Closes the navigation menu. */
-	closeNavMenu : function() {
+	closeNavMenu : function(event) {
+		if (event) {
+			event.stopPropagation();
+		}
 		let nav = document.body.querySelector('nav.menu');
 		if (nav) {
 			nav.classList.add('closed');
+			let menuOpen = document.getElementById('menuOpen');
+			let menuClose = document.getElementById('menuClose');
+			menuClose.classList.add('closed');
+			menuOpen.classList.remove('closed');
 		}
 	},
 
@@ -358,10 +388,11 @@ cse111.common = {
 
 		let elements = document.body.querySelectorAll('h2[id], h3[id], h4[id]');
 		for (let elem of elements) {
-			let span = createElem('span', ['copy'], {title : strings.copyURL});
-				span.addEventListener('click', copyFunc);
-				span.textContent = strings.paraSymbol;
-			elem.appendChild(span);
+			let button = createElem('button', ['copy'],
+					{type : 'button', title : strings.copyURL});
+				button.addEventListener('click', copyFunc);
+				button.textContent = strings.section;
+			elem.appendChild(button);
 		}
 	},
 
@@ -389,13 +420,15 @@ cse111.common = {
 				div.appendChild(copy);
 			}
 
-			let up = cse111.createSVG('svgArrowUp', 'up',
-					{alt : strings.upHint, title : strings.upHint});
-			up.addEventListener('click', function() { window.scroll(0, 0); });
+			let svg = cse111.createSVG('svgArrowUp', null, strings.upHint);
+			let button = createElem('button', ['up'],
+					{type : 'button', title : strings.upHint});
+			button.appendChild(svg);
+			button.addEventListener('click', function(){window.scroll(0, 0);});
 
 			footer = createElem('footer');
 			footer.appendChild(div);
-			footer.appendChild(up);
+			footer.appendChild(button);
 
 			body.appendChild(footer);
 		}
@@ -420,7 +453,7 @@ cse111.common = {
 				modified = object.dateModified;
 			}
 		}
-		return {notice: notice, modified: modified};
+		return {notice : notice, modified : modified};
 	},
 };
 
@@ -443,15 +476,28 @@ cse111.linenums = {
 		for (let pre of elements) {
 			let code = pre.nextElementSibling.innerHTML;
 			if (code.length > 0) {
+				let start = 1;
+
+				// If the HTML page author put a number in the
+				// current <pre class="linenums"> element, use
+				// that number as the starting number.
+				let numbers = pre.textContent;
+				if (numbers.length > 0) {
+					start = parseInt(numbers);
+					if (isNaN(start)) {
+						start = 1;
+					}
+				}
 
 				// If the pre.linenums element contains
 				// any children nodes, remove them.
 				pre.replaceChildren();
 
 				let span = document.createElement('span');
+				span.textContent = start.toString();
 				pre.appendChild(span);
-				let count = code.split(newline).length;
-				for (let n = 2;  n <= count;  ++n) {
+				let limit = start + code.split(newline).length;
+				for (let n = start + 1;  n <= limit;  ++n) {
 					pre.appendChild(document.createTextNode('\n'));
 					span = document.createElement('span');
 					span.textContent = n.toString();
@@ -616,9 +662,9 @@ cse111.linenums = {
 		// <div class="example"> element.
 		let elements = document.body.querySelectorAll('div.example');
 		for (let div of elements) {
-			let image = createSVG('svgCopy', null, {'alt' : copyHint});
+			let image = createSVG('svgCopy', null, copyHint);
 			let button = createElem('button', ['copy'],
-					{'type' : 'button', 'title' : copyHint});
+					{type : 'button', title : copyHint});
 			button.appendChild(image);
 			button.addEventListener('click', copyFunc);
 			let pre = div.querySelector('pre.python, pre.csv, pre.sql');
