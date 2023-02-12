@@ -149,11 +149,11 @@ def draw_circle(x, y, radius):
     <var>x</var>, <var>y</var>, and <var>radius</var>.”</p>
 
     <p>The <dfn>function name</dfn> must start with a letter or the
-    underscore (_). The rest of the name must be made of letters, digits
-    (0–9), or the underscore. A function name cannot include spaces or
-    other punctuation. A function name should be meaningful and should
-    describe briefly what the function does. Well-named functions often
-    start with a verb.</p>
+    underscore (&thinsp;_&thinsp;). The rest of the name must be made of
+    letters, digits (0–9), or the underscore. A function name cannot
+    include spaces or other punctuation. A function name should be
+    meaningful and should describe briefly what the function does.
+    Well-named functions often start with a verb.</p>
 
     <p>The statements inside a function are called the <dfn>body</dfn>
     of the function. Just like other block statements in Python, such as
@@ -498,80 +498,11 @@ Volume: 226.19</pre>
     result to a variable.</p>
 
     <figure class="code" style="width:34em">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -0.5 60.5 74">
-<title>A diagram showing a call to a function and a value returned from
-that function</title>
-<style>
-text{font:1.3pt monospace;fill:#000}
-text.em{font-weight:bold}
-text.exec,text.data{font-weight:bold;font-family:sans-serif}
-text.exec{fill:#0d0}
-text.data{fill:#00f}
-circle{stroke-width:0.2pt;fill:white}
-circle.exec{stroke:#0d0}
-circle.data{stroke:#00f}
-path{stroke-width:0.2pt}
-path.exec{stroke:#0d0;fill:none}
-path.execHead{stroke:#0d0;fill:#0d0}
-path.data{stroke:#00f;fill:none}
-path.dataHead{stroke:#00f;fill:#00f}
-</style>
-<text x="5" y="2">import math</text>
-<text x="5" y="6"># Define the main function.</text>
-<text x="5" y="8">def main():</text>
-<text x="9" y="10"># Get a radius and a height from the user.</text>
-<text x="9" y="12">r = float(input("Enter the radius of a cylinder: "))</text>
-<text x="9" y="14">h = float(input("Enter the height of a cylinder: "))</text>
-<text x="9" y="18"># Call the compute_cylinder_volume function and store</text>
-<text x="9" y="20"># its returned value in a variable to use later.</text>
-<text x="9" y="22" class="em">v = compute_cylinder_volume(r, h)</text>
-<text x="9" y="26"># Print the volume of the cylinder.</text>
-<text x="9" y="28">print(f"Volume: {v:.2f}")</text>
-<text x="5" y="34"># Define a function that accepts two parameters.</text>
-<text x="5" y="36">def compute_cylinder_volume(radius, height):</text>
-<text x="9" y="38">"""Compute return the volume of a cylinder.</text>
-<text x="9" y="40">Parameters</text>
-<text x="13" y="42">radius: the radius of the cylinder</text>
-<text x="13" y="44">height: the height of the cylinder</text>
-<text x="9" y="46">Return: the volume of the cylinder</text>
-<text x="9" y="48">"""</text>
-<text x="9" y="50"># Compute the volume of the cylinder.</text>
-<text x="9" y="52" class="em">volume = math.pi * radius**2 * height</text>
-<text x="9" y="56"># Return the volume of the cylinder so that it</text>
-<text x="9" y="58"># can be used at the call point in this program.</text>
-<text x="9" y="60" class="em">return volume</text>
-<text x="5" y="66"># Start this program by</text>
-<text x="5" y="68"># calling the main function.</text>
-<text x="5" y="70">main()</text>
-<circle class="exec" cx="2.5" cy="69" r="1.2"/>
-<text class="exec" x="1.95" y="69.6">1</text>
-<path class="exec" d="M4.8 69.5C.5 65 .5 13 8 12.5"/>
-<path class="execHead" d="M8 12.3m-.86-.08l1.46-.27l-.96 1.13z"/>
-<circle class="exec" cx="7.5" cy="10.3" r="1.2"/>
-<text class="exec" x="7" y="10.9">2</text>
-<circle class="exec" cx="7.5" cy="21.4" r="1.2"/>
-<text class="exec" x="7" y="22">3</text>
-<circle class="data" cx="37.8" cy="28" r="1.2"/>
-<text class="data" x="37.25" y="28.6">4</text>
-<path class="data" d="M36 22.5L34.8 33.5"/>
-<path class="dataHead" d="M34.8 33.5m.56-.65l-.62 1.35l-.38-1.44z"/>
-<path class="data" d="M39 22.5L41.8 33.5"/>
-<path class="dataHead" d="M41.8 33.5m.34-.79l-.2 1.47l-.78-1.27z"/>
-<circle class="exec" cx="7.5" cy="48" r="1.2"/>
-<text class="exec" x="7" y="48.65">5</text>
-<path class="exec" d="M23.3 22.5C24 34-3 44 8 51.2"/>
-<path class="execHead" d="M8 51m-.36-.78l.96 1.13l-1.46-.27z"/>
-<circle class="exec" cx="7.5" cy="59" r="1.2"/>
-<text class="exec" x="7" y="59.65">6</text>
-<circle class="data" cx="23.5" cy="60" r="1.2"/>
-<text class="data" x="23.05" y="60.65">7</text>
-<path class="data" d="M21.5 59.5C30 49 10 44 9.45 23.4"/>
-<path class="dataHead" d="M9.5 23.4m-.5.7l.5-1.4l.5 1.4z"/>
-<circle class="exec" cx="7.5" cy="27.6" r="1.2"/>
-<text class="exec" x="7" y="28.3">8</text>
-<circle class="exec" cx="2.5" cy="71.35" r="1.2"/>
-<text class="exec" x="2" y="72">9</text>
-</svg>
+        <img loading="lazy" src="call.svg"
+        alt="A diagram showing a call to a function and a value returned
+        from that function"
+        title="A diagram showing a call to a function and a value returned
+        from that function">
     </figure>
 
     <p>A computer will execute the statements in the previous diagram in

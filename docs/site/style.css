@@ -756,7 +756,7 @@ article figure.list {
 article figure > img {
 	max-width: 100%;
 }
-article figure.code > svg {
+article figure.code > img {
 	border: 1px solid var(--border-color);
 	/* Instead of --python-bk-color, we must use --lightest-coral for
 	 * figures with code in them, because the figure foreground
