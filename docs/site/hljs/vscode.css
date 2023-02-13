@@ -56,15 +56,15 @@
 .hljs-params   { color: #001080; }
 
 /* Dark */
-body.dark .hljs-number  { color: #b5cea8;  /* green yellow */ }
-body.dark .hljs-literal { color: #569cd6;  /* medium blue */ }
-body.dark .hljs-string  { color: #ce9178;  /* pumpkin */ }
-body.dark .hljs-subst   { color: #b8b8b8;  /* light gray */ }
+body.dark .hljs-number  { color: #b5cea8; /* green yellow */}
+body.dark .hljs-literal { color: #569cd6; /* medium blue */}
+body.dark .hljs-string  { color: #ce9178; /* pumpkin */}
+body.dark .hljs-subst   { color: #b8b8b8; /* light gray */}
 
-body.dark .hljs-comment { color: #6a9955;  /* mint green */ }
+body.dark .hljs-comment { color: #6a9955; /* mint green */}
 
-body.dark .hljs-keyword  { color: #c586c0;  /* pink */ }
-body.dark .hljs-built_in { color: #dcdc8b;  /* light yellow */ }
+body.dark .hljs-keyword  { color: #c586c0; /* pink */}
+body.dark .hljs-built_in { color: #dcdc8b; /* light yellow */}
 
-body.dark .hljs-title    { color: #dcdc8b;  /* light yellow */ }
-body.dark .hljs-params   { color: #9cdcfe;  /* light blue */ }
+body.dark .hljs-title  { color: #dcdc8b; /* light yellow */}
+body.dark .hljs-params { color: #9cdcfe; /* light blue */}
