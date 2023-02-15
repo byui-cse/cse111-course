@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07 Exercises: Lists and Repetition</title>
+    <script defer src="../site/main.js"></script>
+    <script defer src="../site/hljs/highlight.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Source+Code+Pro&family=Crimson+Pro&display=swap">
     <link rel="stylesheet" href="../site/reset.css">
     <link rel="stylesheet" href="../site/style.css">
     <link rel="stylesheet" href="../site/hljs/vscode.css">
-    <script defer src="../site/main.js"></script>
-    <script defer src="../site/hljs/highlight.min.js"></script>
-    <title>07 Exercises: Lists and Repetition</title>
     <link rel="icon" type="image/png" href="../site/icons/logo.png">
     <link rel="canonical" href="https://byui-cse.github.io/cse111-course/lesson07/exercises.html">
     <script type="application/ld+json">
@@ -21,7 +21,7 @@
         "educationalUse": "practice",
         "copyrightNotice": "Copyright © 2022, Brigham Young University–Idaho. All rights reserved.",
         "datePublished": "2022-06-02",
-        "dateModified": "2022-12-08"
+        "dateModified": "2023-02-14"
     }
     </script>
 </head>
@@ -37,7 +37,8 @@
     <ol class="long">
         <li><div>Write a loop that prints the integers between zero and
         ten, including zero and ten.
-
+        <details>
+            <summary>Solution</summary>
 <div class="example" id="exer1">
 <pre class="python">
 i = 0
@@ -64,11 +65,13 @@ for i in range(11):
 ⋮
 10</pre>
 </div>
+        </details>
         </div></li>
 
         <li><div>Write a loop that prints the integers between three and
         ten, including three and ten.
-
+        <details>
+            <summary>Solution</summary>
 <div class="example" id="exer2">
 <pre class="python">
 i = 3
@@ -94,10 +97,12 @@ for i in range(3, 11):
 ⋮
 10</pre>
 </div>
+        </details>
         </div></li>
 
         <li><div>Write a loop that prints the integers 20, 25, 30, 35.
-
+        <details>
+            <summary>Solution</summary>
 <div class="example" id="exer3">
 <pre class="python">
 i = 20
@@ -121,11 +126,13 @@ for i in range(20, 40, 5):
 30
 35</pre>
 </div>
+        </details>
         </div></li>
 
         <li><div>Write a loop that prints the integers 40, 38, 36, 34,
         32, 30.
-
+        <details>
+            <summary>Solution</summary>
 <div class="example" id="exer4">
 <pre class="python">
 i = 40
@@ -153,11 +160,13 @@ for i in range(40, 28, -2):
 32
 30</pre>
 </div>
+        </details>
         </div></li>
 
         <li><div>Write a loop that stores the integers from zero to ten
         in a list. Include zero and ten.
-
+        <details>
+            <summary>Solution</summary>
 <div class="example" id="exer5">
 <pre class="python">
 integers = []
@@ -188,11 +197,13 @@ print(integers)</pre>
 
 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</pre>
 </div>
+        </details>
         </div></li>
 
         <li><div>Write a loop that prints each element in a list on a
         different line.
-
+        <details>
+            <summary>Solution</summary>
 <div class="example" id="exer6">
 <pre class="python">
 people = ["James", "Lisa", "Juan", "Sophia", "William", "Noah"]
@@ -236,12 +247,14 @@ Sophia
 William
 Noah</pre>
 </div>
+        </details>
         </div></li>
 
         <li><div>Write a loop that prints the elements of two parallel
         lists to a terminal window. In the output, the elements from the
         two lists must be interleaved.
-
+        <details>
+            <summary>Solution</summary>
 <div class="example" id="exer7">
 <pre class="python">
 cities = ["Ashton", "Chester", "Drummond", "Felt", "Island Park"]
@@ -286,6 +299,7 @@ Drummond 83
 Felt 72
 Island Park 154</pre>
 </div>
+        </details>
         </div></li>
     </ol>
 

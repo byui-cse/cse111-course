@@ -1,40 +1,40 @@
-.hljs-addition { color: red; }
-.hljs-attr { color: red; }
-.hljs-attribute { color: red; }
-.hljs-builtin-name { color: red; }
-.hljs-bullet { color: red; }
-.hljs-class { color: red; }
-.hljs-code { color: red; }
-.hljs-constructor { color: red; }
-.hljs-deletion { color: red; }
-.hljs-doctag { color: red; }
-.hljs-emphasis { color: red; }
-.hljs-formula { color: red; }
-.hljs-link { color: red; }
-.hljs-link_label { color: red; }
-.hljs-meta { color: red; }
-.hljs-meta-keyword { color: red; }
-.hljs-meta-string { color: red; }
-.hljs-module { color: red; }
-.hljs-module-access { color: red; }
-.hljs-name { color: red; }
-.hljs-pattern-match { color: red; }
-.hljs-quote { color: red; }
-.hljs-regexp { color: red; }
-.hljs-section { color: red; }
-.hljs-selector-attr { color: red; }
-.hljs-selector-class { color: red; }
-.hljs-selector-id { color: red; }
-.hljs-selector-pseudo { color: red; }
-.hljs-selector-tag { color: red; }
-.hljs-strong { color: red; }
-.hljs-stronge { color: red; }
-.hljs-symbol { color: red; }
-.hljs-tag { color: red; }
-.hljs-template-tag { color: red; }
-.hljs-template-variable { color: red; }
-.hljs-type { color: red; }
-.hljs-typing { color: red; }
+.hljs-addition,
+.hljs-attr,
+.hljs-attribute,
+.hljs-builtin-name,
+.hljs-bullet,
+.hljs-class,
+.hljs-code,
+.hljs-constructor,
+.hljs-deletion,
+.hljs-doctag,
+.hljs-emphasis,
+.hljs-formula,
+.hljs-link,
+.hljs-link_label,
+.hljs-meta,
+.hljs-meta-keyword,
+.hljs-meta-string,
+.hljs-module,
+.hljs-module-access,
+.hljs-name,
+.hljs-pattern-match,
+.hljs-quote,
+.hljs-regexp,
+.hljs-section,
+.hljs-selector-attr,
+.hljs-selector-class,
+.hljs-selector-id,
+.hljs-selector-pseudo,
+.hljs-selector-tag,
+.hljs-strong,
+.hljs-stronge,
+.hljs-symbol,
+.hljs-tag,
+.hljs-template-tag,
+.hljs-template-variable,
+.hljs-type,
+.hljs-typing,
 .hljs-variable { color: red; }
 
 
