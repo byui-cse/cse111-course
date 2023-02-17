@@ -445,7 +445,7 @@ cse111.common = {
 		const query = 'script[type="application/ld+json"]';
 		const script = document.head.querySelector(query);
 		if (script) {
-			const object = JSON.parse(script.innerHTML);
+			const object = JSON.parse(script.textContent);
 			if (object.hasOwnProperty('copyrightNotice')) {
 				notice = object.copyrightNotice;
 			}
@@ -454,7 +454,7 @@ cse111.common = {
 			}
 		}
 		return {notice : notice, modified : modified};
-	},
+	}
 };
 
 
@@ -474,7 +474,7 @@ cse111.linenums = {
 		const newline = /<br>\n?|\n/g;
 		let elements = document.body.querySelectorAll('pre.linenums');
 		for (let pre of elements) {
-			let code = pre.nextElementSibling.innerHTML;
+			let code = pre.nextElementSibling.textContent;
 			if (code.length > 0) {
 				let start = 1;
 
