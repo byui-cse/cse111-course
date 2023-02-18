@@ -156,7 +156,7 @@ body {
 	header > .menuIcon {
 		flex: 0 0 auto;
 		width: 1.2em;
-		fill: white;
+		stroke: white;
 		cursor: pointer;
 	}
 	header > .menuIcon.closed {
@@ -204,6 +204,7 @@ body {
 		width: 1em;
 		vertical-align: middle;
 		margin-right: 0.5em;
+		stroke: white;
 		fill: white;
 	}
 
@@ -873,7 +874,7 @@ svg.cache { display: none; }
 		border-color: var(--byui-blue);
 		padding: 0.2em 0.3em 0 0.3em;
 		background-color: var(--python-bk-color);
-		fill: var(--byui-blue);
+		stroke: var(--byui-blue);
 		cursor: pointer;
 	}
 }
