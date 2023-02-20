@@ -23,7 +23,7 @@
         "educationalUse": "instruction",
         "copyrightNotice": "Copyright © 2020, Brigham Young University–Idaho. All rights reserved.",
         "datePublished": "2020-04-04",
-        "dateModified": "2022-12-09"
+        "dateModified": "2023-02-20"
     }
     </script>
 </head>
@@ -70,9 +70,9 @@
 
     <h3 id="exception">What Is an Exception?</h3>
     <p>An <dfn>exception</dfn> is a relatively rare event that sometimes
-    occurs while a Python program is running. For example, an exception
-    occurs when a Python program tries to open a file for reading, and
-    that file doesn’t exist. There are many different
+    occurs while a program is running. For example, an exception occurs
+    when a Python program tries to open a file for reading but that file
+    doesn’t exist. There are many different
     <a href="https://docs.python.org/3/library/exceptions.html">built-in
     exceptions</a> that may occur while a Python program is running.</p>
 
@@ -174,28 +174,33 @@ except:
     and a bare <code>except</code> block
     (<span class="cross" data-ref="ex1">line&nbsp;23</span>).</p>
 
-    <p>It is usually a bad idea to write an <code>except</code> block that
-    handles all types of exceptions or a bare except block because such
-    a block will handle <code>SyntaxError</code>. Normally, a program
-    should not handle <code>SyntaxError</code>. Instead, a program
-    should crash for a syntax error and print the line number where the
-    syntax error occurred so that a programmer can find and fix the
-    syntax error. As explained in the
-    <a href="../lesson06/prepare.html#err_types">preparation content</a>
-    for lesson 6, syntax errors are caused by a programmer mistyping
-    code and not by bad user input or missing files. A programmer
-    should find and fix all syntax errors in a program long before the
-    program is given to users, so there is no reason to handle syntax
-    errors in an <code>except</code> block.</p>
+    <p>In a Python program, it is usually a bad idea to write an
+    <code>except</code> block that handles all types of exceptions or a
+    bare except block because such a block will handle
+    <code>SyntaxError</code>. Normally, a program should not handle
+    <code>SyntaxError</code>. Instead, a program should crash for a
+    syntax error and print the line number where the syntax error
+    occurred so that a programmer can find and fix the syntax error. As
+    explained in the
+    <a href="../lesson06/prepare.html#err_types">preparation content for
+    lesson 6</a>, syntax errors are caused by a programmer mistyping
+    code and not by bad user input or missing files. A programmer should
+    find and fix all syntax errors in a program before the program is
+    given to users, so there is no reason to handle syntax errors in an
+    <code>except</code> block.</p>
 
     <p>As shown at
     <span class="cross" data-ref="ex1">line&nbsp;27</span> in
     example&nbsp;1 above, following the <code>except</code> blocks, a
     programmer may write an optional <code>else</code> block which the
     computer will execute if the <code>try</code> block does not raise
-    any exceptions. It is uncommon to need to write code in the
-    <code>else</code> block of <code>try</code> and <code>except</code>,
-    and professional programmers almost never do it.</p>
+    any exceptions. However, it is uncommon to write an
+    <code>else</code> block for <code>try</code> and <code>except</code>
+    blocks because any code that could be written in an
+    <code>else</code> block of <code>try</code> and <code>except</code>
+    could also be written at the end of the <code>try</code> block.
+    Professional programmers almost never write an <code>else</code>
+    block for <code>try</code> and <code>except</code> blocks.</p>
 
     <p>As shown at
     <span class="cross" data-ref="ex1">line&nbsp;31</span> in
@@ -211,6 +216,11 @@ except:
     the code in the <code>finally</code> block could close that file. In
     CSE&nbsp;111, you won’t need to write a <code>finally</code>
     block.</p>
+
+    <p>To summarize, in CSE 111 you will need to write <code>try</code>
+    and <code>except</code> blocks to handle exceptions. You will not
+    need to write bare <code>except</code> blocks, <code>else</code>
+    blocks, or <code>finally</code> blocks to handle exceptions.</p>
 
     <h2 id="except_types">Common Exception Types</h2>
     <p>There are many different types of
@@ -777,15 +787,23 @@ if __name__ == "__main__":
 
     <p>There are many types of exceptions in Python, but there are only
     seven types that your code will need to handle in
-    CSE&nbsp;111: <code>TypeError</code>, <code>ValueError</code>,
-    <code>ZeroDivisionError</code>, <code>IndexError</code>,
-    <code>KeyError</code>, <code>FileNotFoundError</code>, and
-    <code>PermissionError</code>. When writing code that writes to or
-    reads from a file, a programmer usally writes <code>try</code> and
-    <code>except</code> blocks to handle <code>FileNotFoundError</code>
-    and <code>PermissionError</code>. Also, when writing code that gets
-    input from a user, a programmer usually writes <code>try</code> and
-    <code>except</code> blocks to help validate the user’s input.</p>
+    CSE&nbsp;111, namely:</p>
+    <ul>
+        <li><div><code>TypeError</code></div></li>
+        <li><div><code>ValueError</code></div></li>
+        <li><div><code>ZeroDivisionError</code></div></li>
+        <li><div><code>IndexError</code></div></li>
+        <li><div><code>KeyError</code></div></li>
+        <li><div><code>FileNotFoundError</code></div></li>
+        <li><div><code>PermissionError</code></div></li>
+    </ul>
+
+    <p>When writing code that writes to or reads from a file, a
+    programmer usally writes <code>except</code> blocks to handle
+    <code>FileNotFoundError</code> and <code>PermissionError</code>.
+    Also, when writing code that gets input from a user, a programmer
+    usually writes <code>try</code> and <code>except</code> blocks to
+    help validate the user’s input.</p>
 </article>
 </body>
 </html>
