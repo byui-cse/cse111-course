@@ -30,9 +30,9 @@ def main():
 
             print()
             print(f"With a {perc_reduc}% reduction in using a cell",
-                "phone while driving, approximately this",
-                "number of injuries and deaths would have",
-                "been prevented in the USA.", sep="\n")
+                "phone while driving, approximately the",
+                "following number of injuries and deaths",
+                "would have been prevented in the USA.", sep="\n")
             print()
             print("Year, Injuries, Deaths")
 
