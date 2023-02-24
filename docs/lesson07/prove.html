@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Source+Code+Pro&family=Crimson+Pro&display=swap">
     <link rel="stylesheet" href="../site/reset.css">
     <link rel="stylesheet" href="../site/style.css">
-    <link rel="stylesheet" href="../site/math.css">
     <link rel="stylesheet" href="../site/hljs/vscode.css">
     <link rel="icon" type="image/png" href="../site/icons/logo.png">
     <link rel="canonical" href="https://byui-cse.github.io/cse111-course/lesson07/prove.html">
@@ -57,86 +56,9 @@
         3.71</div></li>
     </ul>
 
-    <p>The calculator computes the molar mass of the molecule by doing
-    the following for each element in the formula:</p>
-    <ol>
-        <li><div>Sum the number of atoms of each element in the
-        formula</div></li>
-        <li><div>Find the atomic mass of each element</div></li>
-        <li><div>Multiply the number of atoms by their atomic
-        mass</div></li>
-        <li><div>Add the product into the molar mass of the
-        molecule</div></li>
-    </ol>
-
-    <p>Then the calculator uses this formula to compute the number of
-    moles in the sample:</p>
-    <div class="block formula"><var>number_of_moles</var> = <div class="fract"><div><var>sample_mass</var></div><div><var>molar_mass</var></div></div></div>
-
-    <p>Finally, the calculator prints two results for the chemist to
-    see:</p>
-    <ul>
-        <li><div>the molar mass</div></li>
-        <li><div>the number of moles</div></li>
-    </ul>
-
-    <h3 id="example">Example</h3>
-    <p>As an example, consider a sample of glucose
-    (C<sub>6</sub>H<sub>12</sub>O<sub>6</sub>) with a mass of 12.37
-    grams. To use a molar mass calculator, a chemist would enter</p>
-    <ul>
-        <li><div><span class="input">C6H12O6</span></div></li>
-        <li><div><span class="input">12.37</span></div></li>
-    </ul>
-    <p>The calculator would compute the molar mass of glucose by doing
-    the following:</p>
-    <ol class="long">
-        <li><div>Sum the number of atoms of each element in the
-        formula for glucose:<br>
-        6 carbon atoms<br>
-        12 hydrogen atoms<br>
-        6 oxygen atoms</div></li>
-
-        <li><div>Find the atomic mass of each element:
-            <table><thead>
-                <tr><th>Symbol</th> <th>Name</th> <th>Atomic Mass</th></tr>
-            </thead><tbody>
-                <tr><td>C</td> <td>Carbon</td> <td>12.0107</td></tr>
-                <tr><td>H</td> <td>Hydrogen</td> <td>1.00794</td></tr>
-                <tr><td>O</td> <td>Oxygen</td> <td>15.9994</td></tr>
-            </tbody></table>
-        </div></li>
-
-        <li><div>Multiply the number of atoms by their atomic mass:
-            <table><tbody>
-                <tr><td class="number">6</td> <td>×</td>
-                    <td>12.0107</td> <td>=</td> <td>72.0642</td></tr>
-                <tr><td class="number">12</td> <td>×</td>
-                    <td>1.00794</td> <td>=</td> <td>12.09528</td></tr>
-                <tr><td class="number">6</td> <td>×</td>
-                    <td>15.9994</td> <td>=</td> <td>95.9964</td></tr>
-            </tbody></table>
-        </div></li>
-
-        <li><div>Add the results of the multiplications to get the molar mass
-        of glucose:
-        <div>72.0642 + 12.09528 + 95.9964 = 180.15588 grams/mole</div>
-        </div></li>
-    </ol>
-
-    <p>Then the calculator would divide the mass of the sample of
-    glucose by the molar mass of glucose which results in the
-    number of moles in the sample:</p>
-    <div class="block formula"><div class="fract"><div>12.37 grams</div><div>180.15588 grams/mole</div></div> = 0.06866 moles</div>
-
-    <p>The calculator would then print two results for the chemist to
-    see:</p>
-    <ul>
-        <li><div>the molar mass of glucose: 180.15588
-        grams/mole</div></li>
-        <li><div>the number of moles in the sample: 0.06866
-        moles</div></li>
-    </ul>
+    <p>The calculator computes the molar mass of the molecule and
+    the number of moles in the sample and then prints both of those
+    numbers.</p>
 
     <h3 id="elements">Table of Elements</h3>
     <p>There are 94 chemical elements known to occur naturally on earth.
@@ -331,6 +253,10 @@
         <code>main</code> function that takes no parameters and returns
         nothing. The <code>main</code> function should do the following:
         <ol>
+            <li><div>Get a chemical formula for a molecule from the
+            user.</div></li>
+            <li><div>Get the mass of a chemical sample in grams from the
+            user.</div></li>
             <li><div>Call the <code>make_periodic_table</code>
             function and store the returned list in a
             variable.</div></li>

@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Source+Code+Pro&family=Crimson+Pro&display=swap">
     <link rel="stylesheet" href="../site/reset.css">
     <link rel="stylesheet" href="../site/style.css">
+    <link rel="stylesheet" href="../site/math.css">
     <link rel="stylesheet" href="../site/hljs/vscode.css">
     <link rel="icon" type="image/png" href="../site/icons/logo.png">
     <link rel="canonical" href="https://byui-cse.github.io/cse111-course/lesson08/prove.html">
@@ -37,6 +38,104 @@
     <h2 id="purpose">Purpose</h2>
     <p>Prove that you can write a Python program that uses a dictionary
     and lists.</p>
+
+    <h2 id="problem">Problem Statement</h2>
+    <p>In chemistry, a <dfn>mole</dfn> is a very large, fixed quantity,
+    specifically 602,214,076,000,000,000,000,000 (usually written as
+    6.02214076 × 10<sup>23</sup>). The <dfn>molar mass</dfn> of a
+    substance is the mass in grams of one mole of the substance (grams /
+    mole). A molar mass calculator is a program that computes the molar
+    mass of a substance and the number of moles of a sample of that
+    substance. To use a molar mass calculator, a chemist enters two
+    inputs:</p>
+
+    <ul>
+        <li><div>The formula for a molecule, such as H<sub>2</sub>O
+        (water) or C<sub>6</sub>H<sub>12</sub>O<sub>6</sub>
+        (glucose)</div></li>
+        <li><div>The mass in grams of a sample of the substance, such as
+        3.71</div></li>
+    </ul>
+
+    <p>The calculator computes the molar mass of the molecule by doing
+    the following for each element in the formula:</p>
+    <ol>
+        <li><div>Sum the number of atoms of each element in the
+        formula</div></li>
+        <li><div>Find the atomic mass of each element</div></li>
+        <li><div>Multiply the number of atoms by their atomic
+        mass</div></li>
+        <li><div>Add the product into the molar mass of the
+        molecule</div></li>
+    </ol>
+
+    <p>Then the calculator computes the number of moles in the sample
+    with this formula:</p>
+    <div class="block formula"><var>number_of_moles</var> = <div class="fract"><div><var>sample_mass</var></div><div><var>molar_mass</var></div></div></div>
+
+    <p>Finally, the calculator prints two results for the chemist to
+    see:</p>
+    <ul>
+        <li><div>the molar mass</div></li>
+        <li><div>the number of moles</div></li>
+    </ul>
+
+    <h3 id="example">Example</h3>
+    <p>As an example, consider a sample of glucose
+    (C<sub>6</sub>H<sub>12</sub>O<sub>6</sub>) with a mass of 12.37
+    grams. To use a molar mass calculator, a chemist enters</p>
+    <ul>
+        <li><div><span class="input">C6H12O6</span></div></li>
+        <li><div><span class="input">12.37</span></div></li>
+    </ul>
+    <p>The calculator computes the molar mass of glucose by doing the
+    following:</p>
+    <ol class="long">
+        <li><div>Sum the number of atoms of each element in the
+        formula for glucose:<br>
+        6 carbon atoms<br>
+        12 hydrogen atoms<br>
+        6 oxygen atoms</div></li>
+
+        <li><div>Find the atomic mass of each element:
+            <table><thead>
+                <tr><th>Symbol</th> <th>Name</th> <th>Atomic Mass</th></tr>
+            </thead><tbody>
+                <tr><td>C</td> <td>Carbon</td> <td>12.0107</td></tr>
+                <tr><td>H</td> <td>Hydrogen</td> <td>1.00794</td></tr>
+                <tr><td>O</td> <td>Oxygen</td> <td>15.9994</td></tr>
+            </tbody></table>
+        </div></li>
+
+        <li><div>Multiply the number of atoms by their atomic mass:
+            <table><tbody>
+                <tr><td class="number">6</td> <td>×</td>
+                    <td>12.0107</td> <td>=</td> <td>72.0642</td></tr>
+                <tr><td class="number">12</td> <td>×</td>
+                    <td>1.00794</td> <td>=</td> <td>12.09528</td></tr>
+                <tr><td class="number">6</td> <td>×</td>
+                    <td>15.9994</td> <td>=</td> <td>95.9964</td></tr>
+            </tbody></table>
+        </div></li>
+
+        <li><div>Add the results of the multiplications to get the molar mass
+        of glucose:
+        <div>72.0642 + 12.09528 + 95.9964 = 180.15588 grams/mole</div>
+        </div></li>
+    </ol>
+
+    <p>Then the calculator divides the mass of the sample of glucose by
+    the molar mass of glucose which results in the number of moles in
+    the sample:</p>
+    <div class="block formula"><div class="fract"><div>12.37 grams</div><div>180.15588 grams/mole</div></div> = 0.06866 moles</div>
+
+    <p>The calculator prints two results for the chemist to see:</p>
+    <ul>
+        <li><div>the molar mass of glucose: 180.15588
+        grams/mole</div></li>
+        <li><div>the number of moles in the sample: 0.06866
+        moles</div></li>
+    </ul>
 
     <h2 id="assign">Assignment</h2>
     <p>During this assignment, you will write and test the remaining
