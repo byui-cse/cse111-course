@@ -1,32 +1,51 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="-0.5 -0.5 211 127">
-<title>A key for reading call graphs</title>
-<defs>
-<path id="tip" d="m-1 0v-1l2 1l-2 1z"/>
-</defs>
+<title>A key for reading a call graph</title>
 <style>
+.bk{fill:#fff}
 text{font-family:"Open Sans",sans-serif;font-size:10px;fill:#000}
 text.title{font-weight:bold;text-anchor:middle}
-text.func{text-anchor:middle}
-circle{stroke-width:1.5px;stroke:black;fill:none}
-rect,line{stroke-width:1px;stroke:black}
-rect{rx:4}
-rect.user{fill:#fce5cd}
-rect.std{fill:#cfe2f3}
-line.return{stroke-dasharray:4 3}
+.start{stroke-width:1.5;stroke:#000;fill:none}
+
+.user>rect,.std>rect{stroke-width:1;stroke:#000;rx:4}
+.user>rect{fill:#fce5cd}
+.std>rect{fill:#cfe2f3}
+.user>text,.std>text{text-anchor:middle}
+
+.call,.return{stroke-width:1;stroke:#000}
+.return>.shaft{stroke-dasharray:4 3}
+#tip{stroke:none;fill:#000}
 </style>
-<text class="title" x="110" y="15">Call Graph Key</text>
-<circle cx="38" cy="30" r="5"/>
+<defs>
+<path id="tip" transform="scale(3 3)" d="m1 0l-2-1v2z"/>
+</defs>
+
+<rect class="bk" x="-0.5" y="-0.5" width="211" height="127"/>
+<text class="title" x="106" y="15">Call Graph Key</text>
+
+<circle class="start" cx="38" cy="30" r="5"/>
 <text x="53" y="33">The program start point</text>
-<rect x="5" y="43" width="39" height="16" class="user"/>
-<text x="24" y="54" class="func">main</text>
+
+<g class="user">
+<rect x="5" y="43" width="39" height="16"/>
+<text x="24" y="54">main</text>
+</g>
 <text x="53" y="54">A user-defined function</text>
-<rect x="5" y="64" width="39" height="16" class="std"/>
-<text x="24" y="75" class="func">print</text>
+
+<g class="std">
+<rect x="5" y="64" width="39" height="16"/>
+<text x="24" y="75">print</text>
+</g>
 <text x="53" y="75">A standard Python function</text>
-<line x1="5" y1="92" x2="41" y2="92"/>
-<use href="#tip" transform="translate(41 92) scale(3 3)"/>
+
+<g class="call">
+<path class="shaft" d="m5 92h37"/>
+<use href="#tip" transform="translate(41 92)"/>
+</g>
 <text x="53" y="96">A function call</text>
-<line x1="44" y1="113" x2="8" y2="113" class="return"/>
-<use href="#tip" transform="translate(8 113) scale(3 3) rotate(180 0 0)"/>
+
+<g class="return">
+<path class="shaft" d="m44 113h-37"/>
+<use href="#tip" transform="translate(8 113) rotate(180 0 0)"/>
+</g>
 <text x="53" y="117">A value returned from a function</text>
 </svg>

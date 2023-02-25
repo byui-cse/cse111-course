@@ -2,20 +2,22 @@
 <title>A diagram showing a call to a function and a value returned from
 that function</title>
 <style>
-text{font-family:"Source Code Pro",monospace;font-size:1.2pt;fill:#000}
+.bk{fill:#fff}
+text{font:1.6px "Source Code Pro",monospace;fill:#000}
 text.em{font-weight:700}
-text.exec,text.data{font-weight:700;font-family:sans-serif}
+text.exec,text.data{font-weight:700;font-family:Arial,sans-serif}
 text.exec{fill:#0d0}
 text.data{fill:#00f}
-circle{stroke-width:0.2pt;fill:white}
+circle{stroke-width:0.25;fill:#fff}
 circle.exec{stroke:#0d0}
 circle.data{stroke:#00f}
-path{stroke-width:0.2pt}
-path.exec{stroke:#0d0;fill:none}
+path{stroke-width:0.25;fill:none}
+path.exec{stroke:#0d0}
 path.execHead{stroke:#0d0;fill:#0d0}
-path.data{stroke:#00f;fill:none}
+path.data{stroke:#00f}
 path.dataHead{stroke:#00f;fill:#00f}
 </style>
+<rect class="bk" x="0" y="-0.5" width="61" height="74"/>
 <text x="5" y="2">import math</text>
 <text x="5" y="6"># Define the main function.</text>
 <text x="5" y="8">def main():</text>
@@ -72,4 +74,3 @@ path.dataHead{stroke:#00f;fill:#00f}
 <circle class="exec" cx="2.5" cy="71.35" r="1.2"/>
 <text class="exec" x="2" y="72">9</text>
 </svg>
-
