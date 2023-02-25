@@ -25,7 +25,7 @@
         "educationalUse": "instruction",
         "copyrightNotice": "Copyright © 2019 Brigham Young University–Idaho. All rights reserved.",
         "datePublished": "2019-12-11",
-        "dateModified": "2023-02-15"
+        "dateModified": "2023-02-24"
     }
     </script>
 </head>
@@ -89,7 +89,7 @@
 def main():
     # Create a dictionary with student IDs as
     # the keys and student names as the values.
-    students = {
+    students_dict = {
         "42-039-4736": "Clint Huish",
         "61-315-0160": "Amelia Davis",
         "10-450-1203": "Ana Soares",
@@ -98,28 +98,28 @@ def main():
     }
 
     # Add an item to the dictionary.
-    <em>students["81-298-9238"] = "Sama Patel"</em>
+    <em>students_dict["81-298-9238"] = "Sama Patel"</em>
 
     # Remove an item from the dictionary.
-    students.pop("61-315-0160")
+    students_dict.pop("61-315-0160")
 
     # Get the number of items in the dictionary.
-    length = len(students)
+    length = len(students_dict)
     print(f"length: {length}")
 
     # Print the entire dictionary.
-    print(students)
+    print(students_dict)
     print()
 
     # Get a student ID from the user.
     id = input("Enter a student ID: ")
 
     # Check if the student ID is in the dictionary.
-    if id in students:
+    if id in students_dict:
 
         # Find the student ID in the dictionary and
         # retrieve the corresponding student name.
-        <em>name = students[id]</em>
+        <em>name = students_dict[id]</em>
 
         # Print the student's name.
         print(name)
@@ -176,20 +176,20 @@ Ana Soares</pre>
     <h3 id="compound_vals">Compound Values</h3>
     <p>A <dfn>simple value</dfn> is a value that doesn’t contain parts,
     such as an integer. A <dfn>compound value</dfn> is a value that has
-    parts, such as a list. In example&nbsp;1 above, the
-    <var>students</var> dictionary has simple keys and values. Each key
-    is a single string, and each value is a single string. It is
-    possible to store compound values in a dictionary. Example&nbsp;2
-    shows a <var>students</var> dictionary where each value is a Python
-    list. Because each list contains multiple parts, we say that the
-    dictionary stores compound values.</p>
+    parts, such as a list. In example&nbsp;1 above, the students
+    dictionary has simple keys and values. Each key is a single string,
+    and each value is a single string. It is possible to store compound
+    values in a dictionary. Example&nbsp;2 shows a students dictionary
+    where each value is a Python list. Because each list contains
+    multiple parts, we say that the dictionary stores compound
+    values.</p>
 
 <div class="example" id="ex2"><pre class="python"># Example 2
 
 def main():
     # Create a dictionary with student IDs as the keys
     # and student data stored in a list as the values.
-    students = {
+    students_dict = {
         # student_ID: [given_name, surname, email_address, credits]
         "42-039-4736": ["Clint", "Huish", "hui20001@byui.edu", 16],
         "61-315-0160": ["Amelia", "Davis", "dav21012@byui.edu", 3],
@@ -213,9 +213,9 @@ def main():
     <p>That one line of code will cause the computer to search the
     dictionary until it finds the <var>key</var>. Then the computer will
     return the <var>value</var> that corresponds to the <var>key</var>.
-    Some students forget how easy it is to find items in a dictionary,
-    and when asked to write code to find an item, they write complex
-    code like
+    Some programmers forget how easy it is to find items in a
+    dictionary, and when asked to write code to find an item, they write
+    complex code like
     <span class="cross" data-ref="ex3">lines&nbsp;24&ndash;28</span>
     in example&nbsp;3.</p>
 
@@ -225,7 +225,7 @@ def main():
 def main():
     # Create a dictionary with student IDs as the keys
     # and student data stored in a list as the values.
-    students = {
+    students_dict = {
         # student_ID: [given_name, surname, email_address, credits]
         "42-039-4736": ["Clint", "Huish", "hui20001@byui.edu", 16],
         "61-315-0160": ["Amelia", "Davis", "dav21012@byui.edu", 3],
@@ -244,18 +244,16 @@ def main():
     # For each item in the dictionary, check if
     # its key is the same as the variable id.
     student = None
-    for key, value in students.items(): <em># Bad example!</em>
-        if key == id:                   <em># Don't use a loop like</em>
-            student = value             <em># this to find an item</em>
-            break                       <em># in a dictionary.</em>
-</pre>
-</div>
+    for key, value in students_dict.items(): <em># Bad example!</em>
+        if key == id:                        <em># Don't use a loop</em>
+            student = value                  <em># like this to find an</em>
+            break                            <em># item in a dictionary.</em></pre></div>
 
     <p>Compare the <code>for</code> loop at
     <span class="cross" data-ref="ex3">lines&nbsp;24&ndash;28</span> in
     the previous example to this one line of code.</p>
 <div class="example"><pre class="python">
-    value = students[id]
+    value = students_dict[id]
 </pre></div>
 
     <p>Clearly, writing one line of code is easier for a programmer than
@@ -273,7 +271,7 @@ def main():
 def main():
     # Create a dictionary with student IDs as the keys
     # and student data stored in a list as the values.
-    students = {
+    students_dict = {
         # student_ID: [given_name, surname, email_address, credits]
         "42-039-4736": ["Clint", "Huish", "hui20001@byui.edu", 16],
         "61-315-0160": ["Amelia", "Davis", "dav21012@byui.edu", 3],
@@ -292,11 +290,11 @@ def main():
     id = input("Enter a student ID: ")
 
     # Check if the student ID is in the dictionary.
-    if id in students:
+    if id in students_dict:
 
         # Find the student ID in the dictionary and
         # retrieve the corresponding value, which is a list.
-        value = students[id]
+        value = students_dict[id]
 
         # Retrieve the student's given name (first name) and
         # surname (last name or family name) from the list.
@@ -337,7 +335,7 @@ No such student</pre>
 def main():
     # Create a dictionary with student IDs as the keys
     # and student data stored in a list as the values.
-    students = {
+    students_dict = {
         "42-039-4736": ["Clint", "Huish", "hui20001@byui.edu", 16],
         "61-315-0160": ["Amelia", "Davis", "dav21012@byui.edu", 3],
         "10-450-1203": ["Ana", "Soares", "soa22005@byui.edu", 15],
@@ -356,7 +354,7 @@ def main():
 
     # For each item in the list add the number
     # of credits that the student has earned.
-    <em>for item in students.items():</em>
+    <em>for item in students_dict.items():</em>
         key = item[0]
         value = item[1]
 
@@ -384,7 +382,7 @@ Total credits earned by all students: 47</pre>
     unpacking. Instead of writing lines&nbsp;25&ndash;27, like this:</p>
 
 <div class="example"><pre class="python">
-    for item in students.items():
+    for item in students_dict.items():
         key = item[0]
         value = item[1]
 </pre></div>
@@ -394,7 +392,7 @@ Total credits earned by all students: 47</pre>
     this:</p>
 
 <div class="example"><pre class="python">
-    for key, value in students.items():
+    for key, value in students_dict.items():
 </pre></div>
 
     <p>Example&nbsp;6 contains the same code as example&nbsp;5 except
@@ -407,7 +405,7 @@ Total credits earned by all students: 47</pre>
 def main():
     # Create a dictionary with student IDs as the keys
     # and student data stored in a list as the values.
-    students = {
+    students_dict = {
         "42-039-4736": ["Clint", "Huish", "hui20001@byui.edu", 16],
         "61-315-0160": ["Amelia", "Davis", "dav21012@byui.edu", 3],
         "10-450-1203": ["Ana", "Soares", "soa22005@byui.edu", 15],
@@ -426,7 +424,7 @@ def main():
 
     # For each item in the list add the number
     # of credits that the student has earned.
-    <em>for key, value in students.items():</em>
+    <em>for key, value in students_dict.items():</em>
 
         # Retrieve the number of credits from the value list.
         credits = value[CREDITS_INDEX]
@@ -517,7 +515,7 @@ Total credits earned by all students: 47</pre>
     people_dict["P317"] = "Davina Patel"
 </pre></div>
         </td></tr>
-viwoi<em>ea</em>
+
         <tr class="similar"><th>Similar</th>
         <td>To cause the computer to check whether an <em>element</em>
         is in a list, a programmer uses the <code>in</code>
@@ -667,15 +665,15 @@ viwoi<em>ea</em>
 
 def main():
     # Create a list that contains five student numbers.
-    numbers = ["42-039-4736", "61-315-0160",
+    numbers_list = ["42-039-4736", "61-315-0160",
             "10-450-1203", "75-421-2310", "07-103-5621"]
 
     # Create a list that contains five student names.
-    names = ["Clint Huish", "Amelia Davis",
+    names_list = ["Clint Huish", "Amelia Davis",
             "Ana Soares", "Abdul Ali", "Amelia Davis"]
 
-    # Convert the numbers list and names list into a dictionary.
-    <em>student_dict = dict(zip(numbers, names))</em>
+    # Convert the numbers and names lists into a dictionary.
+    <em>student_dict = dict(zip(numbers_list, names_list))</em>
 
     # Print the entire student dictionary.
     print("Dictionary:", student_dict)
