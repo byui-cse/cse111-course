@@ -25,7 +25,7 @@
         "educationalUse": "assignment",
         "copyrightNotice": "Copyright © 2020, Brigham Young University–Idaho. All rights reserved.",
         "datePublished": "2020-02-05",
-        "dateModified": "2023-02-24"
+        "dateModified": "2023-02-27"
     }
     </script>
 </head>
@@ -272,6 +272,32 @@
         <a href="../lesson05/prepare.html#separate">preparation content
         for lesson&nbsp;5</a>.</div></li>
     </ol>
+
+    <h2 id="call_graph">Call Graph</h2>
+    <p>The following call graph shows the user-defined functions and
+    function calls and returns as you should write them in your
+    <code>chemistry.py</code> program. From this call graph we see the
+    following function calls:</p>
+    <ol>
+        <li><div>The computer starts executing the
+        <code>chemistr.py</code> program by calling the
+        <code>main</code> function.</div></li>
+
+        <li><div>While executing the <code>main</code> function, the
+        computer calls the <code>input</code>, <code>float</code>
+        <code>make_periodic_table</code>, and <code>print</code>
+        functions.</div></li>
+    </ol>
+
+    <figure class="center callgraph" style="width:22em">
+        <img loading="lazy" src="call_graph_prove.svg"
+        alt="The call graph for a program that creates and prints a
+        basic periodic table"
+        title="The call graph for a program that creates and prints a
+        basic periodic table">
+        <figcaption class="center">The call graph for a program that
+        creates and prints a basic periodic table.</figcaption>
+    </figure>
 
     <h2 id="testing">Testing Procedure</h2>
     <p>Verify that your program works correctly by following each step

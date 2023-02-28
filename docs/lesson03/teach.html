@@ -26,7 +26,7 @@
         "educationalUse": "group assignment",
         "copyrightNotice": "Copyright © 2019, Brigham Young University–Idaho. All rights reserved.",
         "datePublished": "2019-12-11",
-        "dateModified": "2023-02-15"
+        "dateModified": "2023-02-27"
     }
     </script>
 </head>
@@ -321,17 +321,27 @@ Basal metabolic rate (kcal/day): 1580</pre>
     <h3 id="call_graph">Call Graph</h3>
     <p>The following call graph shows the function calls and returns in
     the sample solution for this assignment. From this call graph we see
-    that the computer starts executing the sample program by calling the
-    <code>main</code> function. While executing the <code>main</code>
-    function, the computer calls the <code>input</code> and
-    <code>float</code> functions. Then the computer calls the
-    <code>compute_age</code>, <code>kg_from_lb</code>,
-    <code>cm_from_in</code>, <code>body_mass_index</code>, and
-    <code>basal_metabloic_rate</code> functions. Finally the computer
-    calls the <code>print</code> function which is the end of the
-    program.</p>
+    the following function calls:</p>
+    <ol>
+        <li><div>The computer starts executing the sample program by
+        calling the <code>main</code> function.</div></li>
 
-    <figure class="center callgraph" style="width:23em">
+        <li><div>While executing the <code>main</code> function, the
+        computer calls the <code>input</code> and <code>float</code>
+        functions.</div></li>
+
+        <li><div>While still executing the <code>main</code> function, the
+        computer calls the <code>compute_age</code>,
+        <code>kg_from_lb</code>, <code>cm_from_in</code>,
+        <code>body_mass_index</code>, and
+        <code>basal_metabolic_rate</code> functions.</div></li>
+
+        <li><div>Finally, while still executing the main
+        <code>function</code>, the computer calls the <code>print</code>
+        function.</div></li>
+    </ol>
+
+    <figure class="center callgraph" style="width:24em">
         <img loading="lazy" src="call_graph_teach.svg"
         alt="A function call graph for this assignment"
         title="A function call graph for this assignment">

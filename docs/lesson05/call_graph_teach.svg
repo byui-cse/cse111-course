@@ -9,14 +9,15 @@
 text{font:13.5px Arial,sans-serif;text-anchor:middle;fill:#000}
 .head{font-weight:bold}
 
-.shaft{stroke-width:1;stroke:#000;fill:none}
+.call,.return{stroke-width:1;stroke:#444}
+.shaft{fill:none}
 .return>.shaft{stroke-dasharray:4 3}
-.tip{stroke-width:1;stroke:#000;fill:#000}
+.tip{fill:#444}
 </style>
 
 <rect class="bk" x="0" y="0" width="472" height="290"/>
-<text class="heading" x="220" y="22">Test Functions</text>
-<text class="heading" x="396" y="22">Program Functions</text>
+<text class="head" x="220" y="22">Test Functions</text>
+<text class="head" x="396" y="22">Program Functions</text>
 <circle class="start" cx="16" cy="24" r="8"/>
 
 <g class="std">

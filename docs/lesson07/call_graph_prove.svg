@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 272">
+<title>A call graph for a program that creates and prints a basic periodic table</title>
+<style>
+.bk{fill:#fff}
+.start{stroke-width:2;stroke:#000;fill:none}
+
+.std>rect,.user>rect{stroke-width:1;stroke:#000;rx:4}
+.std>rect{fill:#cfe2fe}
+.user>rect{fill:#fce5cd}
+text{font:13.5px Arial,sans-serif;text-anchor:middle;fill:#000}
+
+.call,.return{stroke-width:1;stroke:#444}
+.shaft{fill:none}
+.return>.shaft{stroke-dasharray:4 3}
+.tip{fill:#444}
+</style>
+
+<rect class="bk" x="0" y="0" width="280" height="272"/>
+<circle class="start" cx="16" cy="16" r="8"/>
+
+<g class="user">
+<rect x="16" y="48" width="56" height="24"/>
+<text x="44" y="65">main</text>
+</g>
+<g class="call">
+<path class="shaft" d="m24 16c5 0 10 4 13.75 10c1.88 3 3.44 6.5 4.53 10.25c.27.94.52 1.89.73 2.86c.11.48.2.97.29 1.46c.05.24.09.49.13.73l.11.72"/>
+<path class="tip" d="m41.9 42.14l1.99 4.4l1.31-4.65z"/>
+</g>
+
+<g class="std">
+<rect x="128" y="48" width="56" height="24"/>
+<text x="156" y="65">input</text>
+</g>
+<g class="call">
+<path class="shaft" d="m72 52c14 0 20.53-6.9 28-14.5c7.47-7.6 15.87-15.9 28-14.5c6.07.7 13.07 3.83 18.55 8.34c2.74 2.26 5.1 4.86 6.78 7.68c.42.71.8 1.42 1.12 2.15c.08.18.16.37.24.55c.04.09.08.18.11.28l.04.11"/>
+<path class="tip" d="m153.23 42.43l2.49 4.14l.75-4.77z"/>
+</g>
+<g class="return">
+<path class="shaft" d="m156 72c0 12.5-15.87 23.6-28 25c-12.13 1.4-20.53-6.9-28-14.5c-3.73-3.8-7.23-7.43-11.55-10.1c-2.16-1.34-4.52-2.44-7.22-3.2c-.67-.19-1.37-.36-2.09-.51c-.36-.07-.72-.14-1.1-.21l-.07-.01"/>
+<path class="tip" d="m78.11 66.82l-4.65 1.29l4.39 2z"/>
+</g>
+
+<g class="std">
+<rect x="128" y="112" width="56" height="24"/>
+<text x="156" y="129">float</text>
+</g>
+<g class="call">
+<path class="shaft" d="m72 52c21 0 42 7.5 57.75 18.75c7.88 5.63 14.44 12.19 19.03 19.22c2.3 3.52 4.1 7.15 5.33 10.84c.31.92.58 1.85.81 2.78c.12.46.23.93.32 1.4c.05.23.1.47.14.7l.06.34"/>
+<path class="tip" d="m153.81 106.18l2.06 4.37l1.23-4.67z"/>
+</g>
+<g class="return">
+<path class="shaft" d="m156 136c0 12.5-15.87 27.87-28 25c-12.13-2.87-20.53-23.97-28-46.5c-3.73-11.27-7.23-22.89-11.55-31.7c-2.16-4.4-4.52-8.1-7.22-10.7c-.67-.65-1.37-1.23-2.09-1.74c-.36-.25-.72-.49-1.1-.7l-.24-.14"/>
+<path class="tip" d="m78.22 67.92l-4.81.45l3.97 2.75z"/>
+</g>
+
+<g class="user">
+<rect x="128" y="176" width="144" height="24"/>
+<text x="200" y="193">make_periodic_table</text>
+</g>
+<g class="call">
+<path class="shaft" d="m72 52c32 0 64 15.5 88 38.75c12 11.63 22 25.19 29 39.72c3.5 7.27 6.25 14.77 8.13 22.4c.94 3.81 1.66 7.66 2.14 11.52c.12.96.23 1.93.32 2.9c.05.48.09.97.13 1.45c.02.24.04.48.05.73l.04.54"/>
+<path class="tip" d="m198.15 170.06l1.8 4.48l1.5-4.59z"/>
+</g>
+<g class="return">
+<path class="shaft" d="m200 200c0 12.5-27.6 32.13-50 25c-22.4-7.13-39.6-41.03-50-78.5c-5.2-18.73-8.7-38.36-12.65-53.3c-1.98-7.47-4.06-13.77-6.53-18.2c-.62-1.11-1.26-2.1-1.93-2.96c-.33-.43-.68-.83-1.03-1.2c-.09-.09-.17-.18-.26-.27l-.12-.12"/>
+<path class="tip" d="m78.15 68.94l-4.82-.34l3.47 3.36z"/>
+</g>
+
+<g class="std">
+<rect x="128" y="240" width="56" height="24"/>
+<text x="156" y="255">print</text>
+</g>
+<g class="call">
+<path class="shaft" d="m72 52c21 0 42 23.5 57.75 58.75c7.88 17.63 14.44 38.19 19.03 60.22c2.3 11.02 4.1 22.4 5.33 33.96c.62 5.78 1.09 11.61 1.4 17.46c.16 2.93.28 5.86.36 8.79c.02.73.04 1.47.05 2.2l.01.61"/>
+<path class="tip" d="m154.29 234.02l1.7 4.52l1.61-4.55z"/>
+</g>
+</svg>

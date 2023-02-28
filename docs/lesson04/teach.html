@@ -24,7 +24,7 @@
         "educationalUse": "group assignment",
         "copyrightNotice": "Copyright © 2020, Brigham Young University–Idaho. All rights reserved.",
         "datePublished": "2020-02-12",
-        "dateModified": "2023-02-15"
+        "dateModified": "2023-02-27"
     }
     </script>
 </head>
@@ -281,19 +281,54 @@
     complete the assignment, you may use the sample solution to help you
     finish.</p>
 
-    <h3 id="call_graph">Call Graph</h3>
+    <h3 id="call_graph">Call Graphs</h3>
     <p>The following call graph shows the function calls and returns in
     the sample solution for this assignment. From this call graph we see
-    that the computer starts executing the sample program by calling the
-    <code>main</code> function. While executing the <code>main</code>
-    function, the computer calls the <code>compute_volume</code>,
-    <code>compute_surface_area</code>, and <code>print</code>
-    functions.</p>
+    the following function calls:</p>
 
-    <figure class="center callgraph" style="width:24em">
+    <ol>
+        <li><div>The computer starts executing the sample program by
+        calling the <code>main</code> function.</div></li>
+
+        <li><div>While executing the <code>main</code> function, the
+        computer calls the <code>compute_volume</code>,
+        <code>compute_surface_area</code>, and <code>print</code>
+        functions.</div></li>
+    </ol>
+
+    <figure class="center callgraph" style="width:22em">
         <img loading="lazy" src="call_graph_teach.svg"
         alt="A function call graph for this assignment"
         title="A function call graph for this assignment">
+    </figure>
+
+    <p>The next call graph shows the function calls and returns in the
+    sample solution for the stretch challenges of this assignment. From
+    this call graph we see the following function calls:</p>
+
+    <ol>
+        <li><div>The computer starts executing the stretch program by
+        calling the <code>main</code> function.</div></li>
+
+        <li><div>While executing the <code>main</code> function, the
+        computer calls the <code>compute_storage_efficiency</code>
+        function which calls the <code>compute_surface_area</code> and
+        <code>compute_volume</code> functions.</div></li>
+
+        <li><div>While still executing the <code>main</code> function,
+        the computer calls the <code>compute_cost_efficiency</code>
+        function which calls the <code>compute_volume</code>
+        function.</div></li>
+
+        <li><div>Finally, while still executing the <code>main</code>
+        function the computer calls the <code>print</code>
+        function.</div></li>
+    </ol>
+
+    <figure class="center callgraph" style="width:34em">
+        <img loading="lazy" src="call_graph_teach_stretch.svg"
+        alt="A function call graph for the stretch challenges of this assignment"
+        title="A function call graph for the stretch challenges of this assignment">
     </figure>
 
     <h2 id="ponder">Ponder</h2>

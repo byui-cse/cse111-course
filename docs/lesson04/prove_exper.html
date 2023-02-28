@@ -25,7 +25,7 @@
         "description": "A programming assignment that requires writing and calling user-defined functions in Python",
         "copyrightNotice": "Copyright © 2020, Brigham Young University–Idaho. All rights reserved.",
         "datePublished": "2020-03-22",
-        "dateModified": "2023-01-07"
+        "dateModified": "2023-02-27"
     }
     </script>
 </head>
@@ -174,6 +174,53 @@ def get_prepositional_phrase(quantity):
         </tbody></table>
         </div></li>
     </ol>
+
+    <h2 id="call_graph">Call Graph</h2>
+    <p>The following call graph shows the user-defined functions and
+    function calls and returns as you should write them in your
+    <code>sentences.py</code> program. From this call graph we see the
+    following function calls:</p>
+
+    <ol>
+        <li><div>The computer starts executing the
+        <code>sentences.py</code> program by calling the
+        <code>main</code> function.</div></li>
+
+        <li><div>While executing the <code>main</code> function, the
+        computer calls the <code>make_sentence</code>
+        function.</div></li>
+
+        <li><div>While executing the <code>make_sentence</code>
+        function, the computer calls the <code>get_determiner</code>,
+        <code>get_noun</code>, <code>get_verb</code>, and
+        <code>get_prepositional_phrase</code> functions.</div></li>
+
+        <li><div>While executing the
+        <code>get_prepositional_phrase</code> function, the computer
+        calls the <code>get_preposition</code>,
+        <code>get_determiner</code>, and <code>get_noun</code>
+        functions.</div></li>
+
+        <li><div>While executing each of the
+        <code>get_determiner</code>, <code>get_noun</code>,
+        <code>get_verb</code>, and <code>get_preposition</code>
+        functions, the computer calls the <code>random.choice</code>
+        function.</div></li>
+
+        <li><div>Then, the computer executes the
+        <code>str.capitalize</code> method.</div></li>
+
+        <li><div>Finally, the computer executes the <code>print</code>
+        function.</div></li>
+    </ol>
+
+    <figure class="center callgraph" style="width:35em">
+        <img loading="lazy" src="call_graph_prove_exper.svg"
+        alt="The call graph for a program that builds and prints sentences"
+        title="The call graph for a program that builds and prints sentences">
+        <figcaption class="center">The call graph for a program that
+        builds and prints sentences.</figcaption>
+    </figure>
 
     <h2 id="testing">Testing Procedure</h2>
     <p>Verify that your test program works correctly by following each

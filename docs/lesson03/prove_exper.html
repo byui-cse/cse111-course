@@ -25,7 +25,7 @@
         "educationalUse": "group assignment",
         "copyrightNotice": "Copyright © 2019, Brigham Young University–Idaho. All rights reserved.",
         "datePublished": "2020-02-26",
-        "dateModified": "2023-01-07"
+        "dateModified": "2023-02-27"
     }
     </script>
 </head>
@@ -320,41 +320,6 @@ def make_sentence(quantity, tense):
         Function</a>.</div></li>
     </ol>
 
-    <h2 id="testing">Testing Procedure</h2>
-    <p>Verify that your test program works correctly by following each
-    step in this procedure:</p>
-
-    <ol class="test">
-        <li><div>Run your <code>sentences.py</code> program and ensure
-        that your program outputs six sentences with the following
-        characteristics:
-
-        <table class="center"><thead>
-            <tr><th></th> <th>Quantity</th> <th>Verb Tense</th></tr>
-        </thead><tbody>
-            <tr><td>a.</td> <td>single</td> <td>past</td></tr>
-            <tr><td>b.</td> <td>single</td> <td>present</td></tr>
-            <tr><td>c.</td> <td>single</td> <td>future</td></tr>
-            <tr><td>d.</td> <td>plural</td> <td>past</td></tr>
-            <tr><td>e.</td> <td>plural</td> <td>present</td></tr>
-            <tr><td>f.</td> <td>plural</td> <td>future</td></tr>
-        </tbody></table>
-
-        Your program’s output should be similar to the sample run output
-        shown here. However, because your program randomly chooses the
-        determiners, nouns, and verbs, your program will generate
-        different sentences than the six shown here.
-
-<pre class="console">&gt; python sentences.py
-The cat laughed.
-Some girls thought.
-One man eats.
-Many dogs run.
-The woman will think.
-Many men will write.</pre>
-        </div></li>
-    </ol>
-
     <h2 id="call_graph">Call Graph</h2>
     <p>The following call graph shows the user-defined functions and
     function calls and returns as you should write them in your
@@ -394,6 +359,41 @@ Many men will write.</pre>
         <figcaption class="center">The call graph for a program that
         builds and prints sentences.</figcaption>
     </figure>
+
+    <h2 id="testing">Testing Procedure</h2>
+    <p>Verify that your test program works correctly by following each
+    step in this procedure:</p>
+
+    <ol class="test">
+        <li><div>Run your <code>sentences.py</code> program and ensure
+        that your program outputs six sentences with the following
+        characteristics:
+
+        <table class="center"><thead>
+            <tr><th></th> <th>Quantity</th> <th>Verb Tense</th></tr>
+        </thead><tbody>
+            <tr><td>a.</td> <td>single</td> <td>past</td></tr>
+            <tr><td>b.</td> <td>single</td> <td>present</td></tr>
+            <tr><td>c.</td> <td>single</td> <td>future</td></tr>
+            <tr><td>d.</td> <td>plural</td> <td>past</td></tr>
+            <tr><td>e.</td> <td>plural</td> <td>present</td></tr>
+            <tr><td>f.</td> <td>plural</td> <td>future</td></tr>
+        </tbody></table>
+
+        Your program’s output should be similar to the sample run output
+        shown here. However, because your program randomly chooses the
+        determiners, nouns, and verbs, your program will generate
+        different sentences than the six shown here.
+
+<pre class="console">&gt; python sentences.py
+The cat laughed.
+Some girls thought.
+One man eats.
+Many dogs run.
+The woman will think.
+Many men will write.</pre>
+        </div></li>
+    </ol>
 
     <h2 id="ponder">Ponder</h2>
     <p>During this assignment, you wrote five functions named
