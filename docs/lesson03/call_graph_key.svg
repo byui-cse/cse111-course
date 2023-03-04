@@ -11,9 +11,9 @@ text.title{font-weight:bold;text-anchor:middle}
 .std>rect{fill:#cfe2f3}
 .user>text,.std>text{text-anchor:middle}
 
-.call,.return{stroke-width:1;stroke:#000}
+.call,.return{stroke-width:1;stroke:#444}
 .return>.shaft{stroke-dasharray:4 3}
-#tip{stroke:none;fill:#000}
+#tip{stroke:none;fill:#444}
 </style>
 <defs>
 <path id="tip" transform="scale(3 3)" d="m1 0l-2-1v2z"/>
