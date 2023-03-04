@@ -4,24 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11 Checkpoint: Functional Programming</title>
+    <script defer src="../site/main.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Source+Code+Pro&family=Crimson+Pro&display=swap">
     <link rel="stylesheet" href="../site/reset.css">
     <link rel="stylesheet" href="../site/style.css">
-    <script defer src="../site/main.js"></script>
-    <title>11 Checkpoint: Functional Programming</title>
     <link rel="icon" type="image/png" href="../site/icons/logo.png">
     <link rel="canonical" href="https://byui-cse.github.io/cse111-course/lesson11/check.html">
     <link rel="prev" type="text/html" href="prepare.html">
     <link rel="next" type="text/html" href="teach.html">
+    <meta name="description" content="A small programming assignment that checks a student's understanding of calling a higer order function in Python">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org/",
         "@type": "Article",
         "headline": "11 Checkpoint: Functional Programming",
+        "description": "A small programming assignment that checks a student's understanding of calling a higer order function in Python",
         "educationalUse": "assignment",
         "copyrightNotice": "Copyright © 2020, Brigham Young University–Idaho. All rights reserved.",
         "datePublished": "2020-04-04",
-        "dateModified": "2023-01-06"
+        "dateModified": "2023-03-04"
     }
     </script>
 </head>
@@ -44,6 +46,11 @@
     number, will not enter the area code and assume that other people
     will know the correct area code.</p>
 
+    <h2 id="assign">Assignment</h2>
+    <p>Write a program named <code>add_area_code.py</code> that reads
+    phone numbers from a text file and adds the area code "208-" to all
+    phone numbers that don’t have an area code.</p>
+
     <h2 id="helpful_docs">Helpful Documentation</h2>
     <ul class="mixed long">
         <li class="tutorial"><div>The Reading Files article explains how
@@ -56,17 +63,14 @@
         lesson&nbsp;9</a> explains how to read the contents of a text file
         into a list.</div></li>
 
-        <li class="tutorial"><div>The <a href="prepare.html">prepare
+        <li class="tutorial"><div>The <a href="prepare.html">preparation
         content for this lesson</a> explains higher-order functions,
         nested functions, lambda functions, and how to call the
         <a href="https://docs.python.org/3/library/functions.html#map"><code>map</code> function</a>.</div></li>
     </ul>
 
-    <h2 id="assign">Assignment</h2>
-    <p>Write a program named <code>add_area_code.py</code> that reads
-    phone numbers from a text file. Your program must add the area code
-    "208-" to all phone numbers that don’t have an area code. Do the
-    following:</p>
+    <h2 id="steps">Steps</h2>
+    <p>Do the following:</p>
 
     <ol class="long">
         <li><div>Download these two files:
@@ -80,15 +84,18 @@
         digits.</div></li>
 
         <li><div>Open the <code>add_area_code.py</code> file in VS Code.
-        Read the comments in the program and then add code to the
-        program so that it does the following:
+        Read the comments in the program and then add the following code:
         <ol>
-            <li><div>Reads the phone numbers in
-            <code>phone_numbers.txt</code> into a list.</div></li>
-            <li><div>Adds the area code "208-" to the phone numbers that
-            do not have an area code.</div></li>
-            <li><div>Prints the list with the corrected phone
-            numbers.</div></li>
+            <li><div>At line 16, write a call to the Python
+            <code>map</code> function and pass the
+            <code>add_area_code</code> function and
+            <var>phone_numbers</var> list as arguments to the
+            <code>map</code> function.</div></li>
+
+            <li><div>At line 36, write code that checks if the length of
+            a phone number is less than 12 and if the length is less
+            than 12 then adds the area code "208-" at the beginning of
+            the phone number.</div></li>
         </ol></div></li>
     </ol>
 

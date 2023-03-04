@@ -73,4 +73,3 @@ def read_list(filename):
 # imported (e.g. into a test file), then skip the call to main.
 if __name__ == "__main__":
     main()
-
