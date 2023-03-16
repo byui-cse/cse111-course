@@ -4,20 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing Text Files</title>
+    <script defer src="../site/main.js"></script>
+    <script defer src="../site/hljs/highlight.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Source+Code+Pro&family=Crimson+Pro&display=swap">
     <link rel="stylesheet" href="../site/reset.css">
     <link rel="stylesheet" href="../site/style.css">
     <link rel="stylesheet" href="../site/hljs/vscode.css">
-    <script defer src="../site/main.js"></script>
-    <script defer src="../site/hljs/highlight.min.js"></script>
-    <title>Writing Text Files</title>
     <link rel="icon" type="image/png" href="../site/icons/logo.png">
     <link rel="canonical" href="https://byui-cse.github.io/cse111-course/lesson09/write_text.html">
+    <meta name="description" content="Explains and demonstrates how to write data from a Python program into a text file or a CSV file">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org/",
         "@type": "Article",
         "headline": "Writing Text Files",
+        "description": "Explains and demonstrates how to write data from a Python program into a text file or a CSV file",
         "educationalUse": "instruction",
         "copyrightNotice": "Copyright © 2022, Brigham Young University–Idaho. All rights reserved.",
         "datePublished": "2022-06-15",
@@ -280,8 +282,8 @@ def write_dict(filename, dictionary, heading_list=None,
 
             # If a value stored in the dictionary is a
             # list, make a temporary copy of that value.
-            # Otherwise, create a list with that contains
-            # the value.
+            # Otherwise, create a list that contains the
+            # value.
             if isinstance(value, list):
                 row_list = value.copy()
             else:

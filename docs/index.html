@@ -4,20 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSE 111 - Contents</title>
+    <script defer src="site/main.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Source+Code+Pro&family=Crimson+Pro&display=swap">
     <link rel="stylesheet" href="site/reset.css">
     <link rel="stylesheet" href="site/style.css">
-    <script defer src="site/main.js"></script>
-    <title>CSE 111 - Contents</title>
     <link rel="icon" type="image/png" href="site/icons/logo.png">
     <link rel="canonical" href="https://byui-cse.github.io/cse111-course/">
-    <meta name="description" content="An unofficial listing of the course content for the BYU-Idaho course, CSE 111 - Programming with Functions.">
+    <meta name="description" content="An unofficial listing of the course content for the BYU-Idaho course, CSE 111 Programming with Functions.">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org/",
         "@type": "WebSite",
         "headline": "CSE 111 - Programming with Functions",
-        "description": "An unofficial listing of the course content for the BYU-Idaho course, CSE 111 - Programming with Functions.",
+        "description": "An unofficial listing of the course content for the BYU-Idaho course, CSE 111 Programming with Functions.",
         "copyrightNotice": "Copyright © 2019, Brigham Young University–Idaho. All rights reserved.",
         "countryOfOrigin": "USA",
         "datePublished": "2019-12-02",
@@ -33,35 +33,6 @@
         "logo": "https://byui-cse.github.io/cse111-course/site/icons/logo.png",
         "url": "https://byui-cse.github.io/cse111-course/"
     }
-    </script>
-
-    <script>
-    'use strict';
-
-    if (! window.hasOwnProperty('cse111')) {
-        window.cse111 = {};
-    }
-
-    cse111.search = {
-        keypress : function(event) {
-            if (event.key == 'Enter') {
-                event.preventDefault();
-                document.getElementById('btnSearch').click();
-            }
-        },
-
-        submit : function(event) {
-            let text = document.getElementById('txtSearch').value.trim();
-            if (text.length > 0) {
-                // Replace all white space characters with space.
-                text = text.replace(/\s+/g, ' ');
-
-                let url = 'https://www.google.com/search?q=' +
-                    encodeURI('site:byui-cse.github.io/cse111-course/ ' + text);
-                window.open(url, '_blank');
-            }
-        }
-    };
     </script>
 </head>
 
@@ -389,15 +360,6 @@
             <td></td>
             <td></td></tr>
     </tbody></table>
-
-    <h2 id="search">Search CSE&nbsp;111 Content</h2>
-    <form name="search" accept-charset="utf-8" autocomplete="on">
-    <input type="text" id="txtSearch" name="txtSearch" size="40"
-        autocomplete="on" required placeholder="Enter search text"
-        onkeypress="cse111.search.keypress(event)">
-    <button type="button" id="btnSearch"
-        onclick="cse111.search.submit()">Search</button>
-    </form>
 </article>
 </body>
 </html>

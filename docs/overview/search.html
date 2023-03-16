@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!-- Copyright © 2019, Brigham Young University–Idaho. All rights reserved. -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search CSE 111</title>
+    <script defer src="../site/main.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Source+Code+Pro&family=Crimson+Pro&display=swap">
+    <link rel="stylesheet" href="../site/reset.css">
+    <link rel="stylesheet" href="../site/style.css">
+    <link rel="icon" type="image/png" href="../site/icons/logo.png">
+    <link rel="canonical" href="https://byui-cse.github.io/cse111-course/overview/search.html">
+    <meta name="description" content="A form used to search the content of CSE 111 Programming with Functions, a computer programming course developed at Brigham Young University - Idaho">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org/",
+        "@type": "SearchResultsPage",
+        "headline": "Search CSE 111",
+        "description": "A form used to search the content of CSE 111 Programming with Functions, a computer programming course developed at Brigham Young University - Idaho",
+        "copyrightNotice": "Copyright © 2019, Brigham Young University–Idaho. All rights reserved.",
+        "datePublished": "2019-12-02",
+        "dateModified": "2023-03-16",
+        "isFamilyFriendly": True
+    }
+    </script>
+
+    <script>
+    'use strict';
+
+    if (! window.hasOwnProperty('cse111')) {
+        window.cse111 = {};
+    }
+
+    cse111.search = {
+        keypress : function(event) {
+            if (event.key == 'Enter') {
+                event.preventDefault();
+                document.getElementById('btnSearch').click();
+            }
+        },
+
+        submit : function(event) {
+            let text = document.getElementById('txtSearch').value.trim();
+            if (text.length > 0) {
+                // Replace all white space characters with space.
+                text = text.replace(/\s+/g, ' ');
+
+                let url = 'https://www.google.com/search?q=' +
+                    encodeURI('site:byui-cse.github.io/cse111-course/ ' + text);
+                window.open(url, '_blank');
+            }
+        }
+    };
+    </script>
+</head>
+
+<body>
+<article>
+    <h1 id="search">Search CSE 111 Content</h1>
+    <p>Use this form to search the content of CSE&nbsp;111.</p>
+
+    <form name="search" accept-charset="utf-8" autocomplete="on">
+    <input type="text" id="txtSearch" name="txtSearch" size="40"
+        autocomplete="on" required placeholder="Enter search text"
+        onkeypress="cse111.search.keypress(event)">
+    <button type="button" id="btnSearch"
+        onclick="cse111.search.submit()">Search</button>
+    </form>
+</article>
+</body>
+</html>
