@@ -305,9 +305,7 @@ article h4 {
 		visibility: hidden;
 		font-size: smaller;
 		margin: 0 0 0 0.5em;
-		border-color: var(--byui-blue);
 		padding: 0.1em 0.3em;
-		background-color: var(--python-bk-color);
 		color: var(--byui-blue);
 		cursor: pointer;
 	}
@@ -321,7 +319,7 @@ article h4 {
 	article h2 > .copy:hover,
 	article h3 > .copy:hover,
 	article h4 > .copy:hover {
-		font-weight: 900;
+		background-color: var(--python-bk-color);
 	}
 
 	/* Together the next two rules specify the width and height of videos. */

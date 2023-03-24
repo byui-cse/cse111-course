@@ -391,11 +391,10 @@ cse111.common = {
 
 		let elements = document.body.querySelectorAll('h2[id], h3[id], h4[id]');
 		for (let elem of elements) {
-			let button = createElem('button', ['copy'],
-					{type : 'button', title : strings.copyURL});
-				button.addEventListener('click', copyFunc);
-				button.textContent = strings.section;
-			elem.appendChild(button);
+			let span = createElem('span', ['copy'], {title : strings.copyURL});
+				span.addEventListener('click', copyFunc);
+				span.textContent = strings.section;
+			elem.appendChild(span);
 		}
 	},
 

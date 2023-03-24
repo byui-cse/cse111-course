@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Copyright © 2019, Brigham Young University–Idaho. All rights reserved. -->
+<!-- Copyright 2020, Brigham Young University - Idaho. All rights reserved. -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -22,9 +22,9 @@
         "@type": "Article",
         "headline": "03 Prove Milestone: Writing Functions",
         "description": "A programming assignment that requires writing and calling user-defined functions in Python",
-        "educationalUse": "assignment",
+        "educationalUse": "group assignment",
         "copyrightNotice": "Copyright © 2019, Brigham Young University–Idaho. All rights reserved.",
-        "datePublished": "2019-12-06",
+        "datePublished": "2020-02-26",
         "dateModified": "2023-02-27"
     }
     </script>
@@ -39,269 +39,374 @@
     functions multiple times with arguments.</p>
 
     <h2 id="problem">Problem Statement</h2>
-    <p>Modern computers are capable of performing all sorts of
-    calculations to produce numbers. However, they are also capable of
-    performing calculations to produce art, illustrations, animations,
-    movies, and music.</p>
+    <p>The <dfn>Turing test</dfn>, named after Alan Turing, is a test of
+    a computer’s ability to make conversation that is indistinguishable
+    from human conversation. A computer that could pass the Turing test
+    would need to understand sentences typed by a human and respond with
+    sentences that make sense.</p>
+
+    <p>In English and many other languages, <dfn>grammatical
+    quantity</dfn> (also known as grammatical number) is an attribute of
+    nouns, pronouns, adjectives, and verbs that expresses count
+    distinctions, such as “one”, “two”, “some”, or “many”. The
+    grammatical quantity of the words in a sentence must match. In
+    English, there are two categories of grammatical quantity: single
+    and plural. For example, here are three English sentences that
+    contain <dfn>single</dfn> nouns, pronouns, and verbs:</p>
+
+    <blockquote>The boy laughs.<br>
+    One dog eats.<br>
+    She drinks water.</blockquote>
+
+    <p>Here are three English sentences that contain <dfn>plural</dfn>
+    nouns, pronouns, and verbs:</p>
+
+    <blockquote>Two birds fly.<br>
+    Some animals eat.<br>
+    Many cars drive.</blockquote>
+
+    <p><dfn>Grammatical tense</dfn> is an attribute of verbs that
+    expresses when an action happened. Many languages include past,
+    present, and future tenses. For example, here are three English
+    sentences, the first with past tense, the second with present tense,
+    and the third with future tense:</p>
+
+    <blockquote>The cat walked.<br>
+    The cat walks.<br>
+    The cat will walk.</blockquote>
 
     <h2 id="assign">Assignment</h2>
-    <p>During this prove milestone and the next prove assignment, you
-    will write a Python program that draws a semi-realistic outdoor
-    scene in a computer window. Your program can draw any outdoor scene
-    that you like as long as it meets these requirements:</p>
-
+    <p>Write a Python program named <code>sentences.py</code> that
+    generates simple English sentences. During this prove milestone, you
+    will write functions that generate sentences with three parts:</p>
     <ol>
-        <li><div>The scene must be outdoor and include part of the
-        sky.</div></li>
-        <li><div>The sky must have clouds.</div></li>
-        <li><div>The scene must include repetitive objects, such as
-        blades of grass, trees, leaves on a tree, birds, flowers,
-        insects, fish, pickets in a fence, dashed lines on a road,
-        buildings, bales of hay, snowmen, snowflakes, or
-        icicles.</div></li>
+        <li><div>a determiner (sometimes known as an article)</div></li>
+        <li><div>a noun</div></li>
+        <li><div>a verb</div></li>
     </ol>
 
-    <p>Your program must be divided into functions such as
-    <code>draw_sky</code>, <code>draw_cloud</code>,
-    <code>draw_ground</code>, <code>draw_bird</code>,
-    <code>draw_flower</code>, <code>draw_insect</code>,
-    <code>draw_fish</code>, or <code>draw_snowman</code>. Each of the
-    objects in your scene should be drawn in its own function. To draw
-    the shapes in the scene, your program will call functions in a
-    Python library named Draw 2-D.</p>
+    <p>For example:</p>
+    <blockquote>A cat laughed.<br>
+    One man eats.<br>
+    The woman will think.<br>
+    Some girls thought.<br>
+    Many dogs run.<br>
+    Many men will write.</blockquote>
 
-    <p>During this milestone, you will write code that draws the sky,
-    the ground, and clouds in your scene. During the next prove
-    assignment, you will write code that completes your scene. As you
-    write your program, write it so that it draws objects in the order
-    of farthest away to nearest. For example, you program should draw
-    the sky first, then clouds, then the ground, then trees, then
-    insects in the trees. Be creative.</p>
+    <p>For this milestone, your program must include at least these five
+    functions:</p>
+    <ol>
+        <li><div><code>main</code></div></li>
+        <li><div><code>make_sentence</code></div></li>
+        <li><div><code>get_determiner</code></div></li>
+        <li><div><code>get_noun</code></div></li>
+        <li><div><code>get_verb</code></div></li>
+    </ol>
 
-    <h3 id="gallery">Scene Gallery</h3>
-    <p>The following example scene was drawn by a student’s Python
-    program and fulfills the requirements of this assignment.</p>
-
-    <figure class="full">
-    <img loading="lazy" src="../lesson04/gallery/benjamin3.png"
-        alt="A semi-realistic outdoor scene drawn by a Python program"
-        title="A semi-realistic outdoor scene drawn by a Python program">
-    </figure>
-
-    <p>If you would like ideas about what your program can draw, look at
-    this <a href="../lesson04/gallery/index.html">scene gallery</a>. All
-    the scenes in the gallery were drawn by programs written by former
-    CSE&nbsp;111 students.</p>
+    <p>You may add other functions if you want. The functions
+    <code>get_determiner</code>, <code>get_noun</code>, and
+    <code>get_verb</code>, must randomly choose a word from a list of
+    words and return the randomly chosen word. All the functions that
+    you must write for this milestone assignment are described in the
+    Steps section below.</p>
 
     <h2 id="helpful_docs">Helpful Documentation</h2>
-    <ul class="long">
-        <li><div>The <a href="../lesson02/prepare.html">preparation
-        content for the previous lesson</a> explains how to call
-        functions.</div></li>
+    <ul class="mixed long">
+        <li class="tutorial"><div>In CSE&nbsp;110, you studied Python
+        lists. You should recall that we create a Python list with
+        square brackets and commas like this list of strings:
 
-        <li><div>The <a href="prepare.html">preparation content for this
-        lesson</a> explains how to write functions.</div></li>
+<div class="example"><pre class="python">
+# Create a list of strings and assign
+# the list to a variable named words.
+words = ["boy", "girl", "cat", "dog", "bird", "house"]
+</pre></div>
+        </div></li>
 
-        <li><div>The <a href="draw2d.html">documentation for the Draw
-        2-D library</a> includes an overview, example programs, a
-        function reference, and a table of supported colors.</div></li>
+        <li class="tutorial"><div>The
+        <a href="../lesson02/prepare.html">preparation content for the
+        previous lesson</a> explains how to call functions.</div></li>
 
-        <li><div>The following videos walk through examples of using
-        functions to draw with the Draw 2-D library.
-        <ul class="videos">
-            <li><div><a href="https://video.byui.edu/media/t/1_dmhasxcq">Drawing with Functions, part 1</a> <span class="duration">(14 minutes)</span></div></li>
+        <li class="tutorial"><div>The
+        <a href="prepare.html">preparation content for this lesson</a>
+        explains how to write functions.</div></li>
 
-            <li><div><a href="https://video.byui.edu/media/t/1_7py4mnt5">Drawing with Functions, part 2</a> <span class="duration">(18 minutes)</span></div></li>
-        </ul></div></li>
+        <li class="reference"><div>The standard Python
+        <code>random</code> module includes a
+        <a href="https://docs.python.org/3/library/random.html#random.choice"><code>function named choice</code></a>
+        that randomly chooses one element from a list and returns that
+        element. The choice function is easy to call like this:
+<div class="example"><pre class="python">
+import random
+
+# Create a list of strings and assign
+# the list to a variable named words.
+words = ["boy", "girl", "cat", "dog", "bird", "house"]
+
+# Call the random.choice function which will choose
+# one string from the words list. Store the chosen
+# string in a variable named word.
+word = <em>random.choice(words)</em>
+</pre></div>
+        </div></li>
+
+        <li class="reference"><div>The Python
+        <a href="https://docs.python.org/3/library/stdtypes.html#str.capitalize">str.capitalize method</a>
+        will capitalize the first letter in a word. The capitalize
+        method is easy to call like this:
+<div class="example"><pre class="python">
+# This could be any word from any source.
+word = "horse"
+
+# Call the capitalize method which will
+# capitalize the first letter of the word.
+<em>cap_word = word.capitalize()</em>
+</pre></div>
+        </div></li>
+
+        <li class="tutorial"><div>In Python, it is easy to use an
+        <a href="https://realpython.com/python-f-strings/#f-strings-a-new-and-improved-way-to-format-strings-in-python">f-string</a>
+        to combine many strings into one large string like this:
+<div class="example"><pre class="python">
+given = "Michelle"
+middle = "Aya"
+surname = "Takechi"
+
+<em>full_name = f"{given} {middle} {surname}"</em>
+</pre></div>
+        </div></li>
     </ul>
-
-    <h2 id="tutor">Help from a Tutor</h2>
-    <p>As a BYU-Idaho campus or online student you can get help from a
-    tutor to complete your CSE&nbsp;111 assignments. Each tutor is a
-    current BYU-Idaho student employed by BYU-Idaho. Meeting with a
-    tutor is free. It will not cost you any money to meet with a tutor.
-    To get help from a tutor, you simply make an appointment and then
-    meet with the tutor. Campus students meet with tutors in the
-    tutoring center. Online students meet with tutors in Zoom. To make
-    an appointment, follow the instructions in the
-    <a href="https://courses.byui.edu/AcademicSupport/tutoring-center/online-tutoring/online-courses-tutoring-guide.pdf">course tutoring guide</a>.</p>
 
     <h2 id="steps">Steps</h2>
     <p>Do the following:</p>
-
     <ol class="long">
-        <li><div>Download the
-        <a download href="draw2d/draw2d.py"><code>draw2d.py</code></a>
-        file and save it in the same folder where you will save your
-        program.</div></li>
+        <li><div>Using VS Code, create a new file, import the
+        <code>random</code> module at the top of the file, and save the
+        file as <code>sentences.py</code></div></li>
 
-        <li><div>Using VS Code, create a new file and copy and paste the
-        following code into your new file. This beginning code imports
-        the functions from the Draw 2-D library and creates a window and
-        a canvas that your program will draw into.
-
-<div class="example" id="ex1">
-<pre class="python">
-# Import the functions from the Draw 2-D library
-# so that they can be used in this program.
-from draw2d import \
-    start_drawing, draw_line, draw_oval, draw_arc, \
-    draw_rectangle, draw_polygon, draw_text, finish_drawing
-
-
-def main():
-    # Width and height of the scene in pixels
-    scene_width = 800
-    scene_height = 500
-
-    # Call the start_drawing function in the draw2d.py
-    # library which will open a window and create a canvas.
-    canvas = start_drawing("Scene", scene_width, scene_height)
-
-    # Call your drawing functions such
-    # as draw_sky and draw_ground here.
-
-
-
-    # Call the finish_drawing function
-    # in the draw2d.py library.
-    finish_drawing(canvas)
-
-
-# Define your functions such as
-# draw_sky and draw_ground here.
-
-
-
-# Call the main function so that
-# this program will start executing.
-main()</pre>
-</div>
-        </div></li>
-
-        <li><div>Save your new file as <code>scene.py</code> and run
-        your new program. When you run it, it should open a window that
-        contains an empty canvas as shown in the following figure.
-
-        <figure class="full">
-        <img loading="lazy" src="empty.png"
-        alt="An empty canvas created by the Draw 2-D library"
-        title="An empty canvas created by the Draw 2-D library"></figure>
-        </div></li>
-
-        <li><div>Read the
-        <a href="draw2d.html">documentation for the Draw 2-D library</a>.</div></li>
-
-        <li><div>Starting at
-        <span class="cross" data-ref="ex1">line&nbsp;29</span> of your
-        new program, write your functions to draw the sky, ground, and
-        clouds.</div></li>
-
-        <li><div>Starting at
-        <span class="cross" data-ref="ex1">line&nbsp;19</span>,
-        write calls to your drawing functions.</div></li>
-    </ol>
-
-    <h2 id="intent">Intent</h2>
-    <p>The intent of this assignment is not to train you to become a
-    world-famous cloud artist. Instead, the intent is to teach you how
-    to apply the following principles to a real programming problem:</p>
-    <ul>
-        <li><div>Dividing a large program into functions</div></li>
-        <li><div>Writing a function</div></li>
-        <li><div>Deciding what needs to be a parameter in a function
-        definition</div></li>
-        <li><div>Calling a function with different argument values to
-        produce different results</div></li>
-        <li><div>Understanding how to separate the parts of a function
-        that should stay the same and the parts that depend on
-        parameters, in order to make the function as reusable as
-        possible.</div></li>
-    </ul>
-
-    <p>Your program must be divided into functions such as
-    <code>draw_sky</code>, <code>draw_cloud</code>,
-    <code>draw_ground</code>, <code>draw_bird</code>,
-    <code>draw_grass_blade</code>, or <code>draw_insect</code>. The
-    headers for the <code>draw_sky</code>, <code>draw_ground</code>,
-    and <code>draw_pine_tree</code> functions in the
-    <a href="draw2d.html#ex1">example program</a> of the Draw 2-D
-    documentation are good examples for the headers of all your draw_*
-    functions. Below are a few other examples of headers for functions
-    that you might want to include in your program. However, these are
-    simply examples, and you can change them in your program or even
-    exclude them from your program.</p>
+        <li><div>Copy and paste the following
+        <code>get_determiner</code> function into your program.
 
 <div class="example"><pre class="python">
-def draw_house(canvas, house_left, house_bottom):
+def get_determiner(quantity):
+    """Return a randomly chosen determiner. A determiner is
+    a word like "the", "a", "one", "some", "many".
+    If quantity is 1, this function will return either "a",
+    "one", or "the". Otherwise this function will return
+    either "some", "many", or "the".
 
-def draw_bird(canvas, bird_center, bird_top):
+    Parameter
+        quantity: an integer.
+            If quantity is 1, this function will return a
+            determiner for a single noun. Otherwise this
+            function will return a determiner for a plural
+            noun.
+    Return: a randomly chosen determiner.
+    """
+    if quantity == 1:
+        words = ["a", "one", "the"]
+    else:
+        words = ["some", "many", "the"]
 
-def draw_pebble(canvas, pebble_left, pebble_top, pebble_radius):
-
-def draw_picket(canvas, picket_left, picket_bottom):
-
-def draw_grass_blade(canvas, blade_left, blade_top, blade_height):
+    # Randomly choose and return a determiner.
+    word = random.choice(words)
+    return word
 </pre></div>
+        </div></li>
 
-    <p>The following call graph shows the functions for a well-designed
-    scene drawing program. From the call graph we see that this program
-    is divided into small functions (<code>draw_sky</code>,
-    <code>draw_ground</code>, <code>draw_sun</code>,
-    <code>draw_cloud</code>, etc.). We see that the <code>main</code>
-    function calls the <code>draw_sky</code> and
-    <code>draw_ground</code> functions. The <code>draw_sky</code>
-    function calls the <code>draw_sun</code>, <code>draw_cloud</code>,
-    and <code>draw_bird</code> functions, and so on. This is a good
-    design because each function is relatively small and performs just
-    one task. Also, because the <code>draw_flower</code> function has
-    parameters (not shown in the call graph), a programmer can write
-    multiple calls to the <code>draw_flower</code> function, which will
-    easily draw multiple flowers in different locations in his scene. The
-    <code>draw_cloud</code>, <code>draw_bird</code>, and
-    <code>draw_tree</code> functions also have parameters, and a
-    programmer can write multiple calls to them, which will easily draw
-    multiple clouds, birds, and trees in different locations. This is a
-    good design.</p>
+        <li><div>Use the <code>get_determiner</code> function as an
+        example to help you write the <code>get_noun</code> function.
+        The <code>get_noun</code> function must have the following
+        header and fulfill the requirements of the following
+        documentation string.
 
-    <figure class="center callgraph" style="width:38em">
-        <img loading="lazy" src="call_graph_prove.svg"
-        alt="The call graph from a well-designed program that draws an outdoor scene"
-        title="The call graph from a well-designed program that draws an outdoor scene">
-        <figcaption>The call graph for a well-designed program. Because
-        the program is divided into small functions that each perform a
-        single task, the program is well-designed.</figcaption>
-    </figure>
+<div class="example"><pre class="python">
+def get_noun(quantity):
+    """Return a randomly chosen noun.
+    If quantity is 1, this function will
+    return one of these ten single nouns:
+        "bird", "boy", "car", "cat", "child",
+        "dog", "girl", "man", "rabbit", "woman"
+    Otherwise, this function will return one of
+    these ten plural nouns:
+        "birds", "boys", "cars", "cats", "children",
+        "dogs", "girls", "men", "rabbits", "women"
 
-    <p>The next call graph shows the functions for a different scene
-    drawing program. Notice that this program isn’t separated into small
-    functions. Instead, all the code to draw an outdoor scene is inside
-    the <code>main</code> function. The scene that this program draws
-    may look very nice and have just as many objects as a well-designed
-    program. However, the <code>main</code> function in this second
-    program will be very long, complex, and confusing. This is a poor
-    design.</p>
+    Parameter
+        quantity: an integer that determines if
+            the returned noun is single or plural.
+    Return: a randomly chosen noun.
+    """
+</pre></div>
+        </div></li>
 
-    <figure class="center callgraph" style="width:22em">
-        <img loading="lazy" src="call_graph_prove_bad.svg"
-        alt="The call graph from a poorly designed program that draws an outdoor scene"
-        title="The call graph from a poorly designed program that draws an outdoor scene">
-        <figcaption>The call graph for a poorly designed program.
-        Because the program is not divided into small functions, the
-        <code>main</code> function calls the Draw 2-D functions to draw
-        all the objects in the scene. The <code>main</code> function
-        will be very long and confusing.</figcaption>
+        <li><div>Use the <code>get_determiner</code> function as an
+        example to help you write the <code>get_verb</code> function.
+        The <code>get_verb</code> function must have the following
+        header and fulfill the requirements of the following
+        documentation string.
+
+<div class="example"><pre class="python">
+def get_verb(quantity, tense):
+    """Return a randomly chosen verb. If tense is "past",
+    this function will return one of these ten verbs:
+        "drank", "ate", "grew", "laughed", "thought",
+        "ran", "slept", "talked", "walked", "wrote"
+    If tense is "present" and quantity is 1, this
+    function will return one of these ten verbs:
+        "drinks", "eats", "grows", "laughs", "thinks",
+        "runs", "sleeps", "talks", "walks", "writes"
+    If tense is "present" and quantity is NOT 1,
+    this function will return one of these ten verbs:
+        "drink", "eat", "grow", "laugh", "think",
+        "run", "sleep", "talk", "walk", "write"
+    If tense is "future", this function will return one of
+    these ten verbs:
+        "will drink", "will eat", "will grow", "will laugh",
+        "will think", "will run", "will sleep", "will talk",
+        "will walk", "will write"
+
+    Parameters
+        quantity: an integer that determines if the
+            returned verb is single or plural.
+        tense: a string that determines the verb conjugation,
+            either "past", "present" or "future".
+    Return: a randomly chosen verb.
+    """
+</pre></div>
+        </div></li>
+
+        <li><div>Write a function named <code>make_sentence</code> with
+        the following header and documentation string. Your
+        <code>make_sentence</code> function must call your
+        <code>get_determiner</code>, <code>get_noun</code>, and
+        <code>get_verb</code> function once each and build and return a
+        sentence. Your <code>make_sentence</code> function must
+        capitalize the first letter of the sentence and end it with a
+        period (.).
+
+<div class="example"><pre class="python">
+def make_sentence(quantity, tense):
+    """Build and return a sentence with three words:
+    a determiner, a noun, and a verb. The grammatical
+    quantity of the determiner and noun will match the
+    number in the quantity parameter. The grammatical
+    quantity and tense of the verb will match the number
+    and tense in the quantity and tense parameters.
+    """
+</pre></div>
+        </div></li>
+
+        <li><div><p>Write the <code>main</code> function to call your
+        <code>make_sentence</code> function six times and print six
+        sentences with these characteristics:</p>
+
+        <table class="center"><thead>
+            <tr><th></th> <th>Quantity</th> <th>Verb Tense</th></tr>
+        </thead><tbody>
+            <tr><td>a.</td> <td>single</td> <td>past</td></tr>
+            <tr><td>b.</td> <td>single</td> <td>present</td></tr>
+            <tr><td>c.</td> <td>single</td> <td>future</td></tr>
+            <tr><td>d.</td> <td>plural</td> <td>past</td></tr>
+            <tr><td>e.</td> <td>plural</td> <td>present</td></tr>
+            <tr><td>f.</td> <td>plural</td> <td>future</td></tr>
+        </tbody></table>
+        </div></li>
+
+        <li><div>At the bottom of your <code>sentences.py</code> file,
+        write a call to your <code>main</code> function as explained in
+        this lesson’s preparation content in the section titled
+        <a href="prepare.html#main">The <code>main</code> User-Defined
+        Function</a>.</div></li>
+    </ol>
+
+    <h2 id="call_graph">Call Graph</h2>
+    <p>The following call graph shows the user-defined functions and
+    function calls and returns as you should write them in your
+    <code>sentences.py</code> program. From this call graph we see the
+    following function calls:</p>
+
+    <ol>
+        <li><div>The computer starts executing the
+        <code>sentences.py</code> program by calling the
+        <code>main</code> function.</div></li>
+
+        <li><div>While executing the <code>main</code> function, the
+        computer calls the <code>make_sentence</code>
+        function.</div></li>
+
+        <li><div>While executing the <code>make_sentence</code>
+        function, the computer calls the <code>get_determiner</code>,
+        <code>get_noun</code>, and <code>get_verb</code>
+        functions.</div></li>
+
+        <li><div>While executing each of the
+        <code>get_determiner</code>, <code>get_noun</code>, and
+        <code>get_verb</code> functions, the computer calls the
+        <code>random.choice</code> function.</div></li>
+
+        <li><div>Then, the computer executes the
+        <code>str.capitalize</code> method.</div></li>
+
+        <li><div>Finally, the computer executes the <code>print</code>
+        function.</div></li>
+    </ol>
+
+    <figure class="center callgraph" style="width:35em">
+        <img src="call_graph_prove.svg"
+        alt="The call graph for a program that builds and prints sentences"
+        title="The call graph for a program that builds and prints sentences">
+        <figcaption class="center">The call graph for a program that
+        builds and prints sentences.</figcaption>
     </figure>
 
     <h2 id="testing">Testing Procedure</h2>
-    <p>Verify that your program works correctly by following each
-    step in this testing procedure:</p>
+    <p>Verify that your test program works correctly by following each
+    step in this procedure:</p>
 
     <ol class="test">
-        <li><div>Run your program and verify that it correctly opens a
-        window and draws within that window an outdoor scene that
-        contains at least the sky, clouds, and the ground.</div></li>
+        <li><div>Run your <code>sentences.py</code> program and ensure
+        that your program outputs six sentences with the following
+        characteristics:
+
+        <table class="center"><thead>
+            <tr><th></th> <th>Quantity</th> <th>Verb Tense</th></tr>
+        </thead><tbody>
+            <tr><td>a.</td> <td>single</td> <td>past</td></tr>
+            <tr><td>b.</td> <td>single</td> <td>present</td></tr>
+            <tr><td>c.</td> <td>single</td> <td>future</td></tr>
+            <tr><td>d.</td> <td>plural</td> <td>past</td></tr>
+            <tr><td>e.</td> <td>plural</td> <td>present</td></tr>
+            <tr><td>f.</td> <td>plural</td> <td>future</td></tr>
+        </tbody></table>
+
+        Your program’s output should be similar to the sample run output
+        shown here. However, because your program randomly chooses the
+        determiners, nouns, and verbs, your program will generate
+        different sentences than the six shown here.
+
+<pre class="console">&gt; python sentences.py
+The cat laughed.
+Some girls thought.
+One man eats.
+Many dogs run.
+The woman will think.
+Many men will write.</pre>
+        </div></li>
     </ol>
+
+    <h2 id="ponder">Ponder</h2>
+    <p>During this assignment, you wrote five functions named
+    <code>main</code>, <code>make_sentence</code>,
+    <code>get_determiner</code>, <code>get_noun</code>, and
+    <code>get_verb</code>. The <code>main</code> function is not easily
+    reusable in another program because it prints to the terminal
+    window. However, the <code>make_sentence</code>,
+    <code>get_determiner</code>, <code>get_noun</code>, and
+    <code>get_verb</code> functions are easily reusable in another
+    program because each one gets input from its parameters and returns
+    a value and does not get input from a user and does not print
+    anything.</p>
 
     <h2 id="submit">Submission</h2>
     <p>On or before the due date, return to I‑Learn and report your
