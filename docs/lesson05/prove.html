@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Copyright © 2020, Brigham Young University–Idaho. All rights reserved. -->
+<!-- Copyright 2023, Brigham Young University - Idaho. All rights reserved. -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,22 +10,21 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Source+Code+Pro&family=Crimson+Pro&display=swap">
     <link rel="stylesheet" href="../site/reset.css">
     <link rel="stylesheet" href="../site/style.css">
+    <link rel="stylesheet" href="../site/math.css">
     <link rel="stylesheet" href="../site/hljs/vscode.css">
     <link rel="icon" type="image/png" href="../site/icons/logo.png">
-    <link rel="canonical" href="https://byui-cse.github.io/cse111-course/lesson05/prove.html">
+    <link rel="canonical" href="https://byui-cse.github.io/cse111-course/lesson05/prove_exper.html">
     <link rel="prev" type="text/html" href="teach.html">
     <link rel="next" type="text/html" href="../lesson06/prepare.html">
-    <meta name="description" content="A programming assignment that requires writing test functions to automatically verify the functions within a Python program return correct results">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org/",
         "@type": "Article",
         "headline": "05 Prove Milestone: Testing and Fixing Functions",
-        "description": "A programming assignment that requires writing test functions to automatically verify the functions within a Python program return correct results",
         "educationalUse": "assignment",
-        "copyrightNotice": "Copyright © 2020, Brigham Young University–Idaho. All rights reserved.",
-        "datePublished": "2020-02-26",
-        "dateModified": "2023-01-19"
+        "copyrightNotice": "Copyright © 2023, Brigham Young University–Idaho. All rights reserved.",
+        "datePublished": "2023-01-20",
+        "dateModified": "2023-03-24"
     }
     </script>
 </head>
@@ -36,142 +35,70 @@
 
     <h2 id="purpose">Purpose</h2>
     <p>Prove that you can write a Python program and write and run test
-    functions to help you find and fix mistakes.</p>
+    functions to help you find and fix mistakes in your program.</p>
 
     <h2 id="problem">Problem Statement</h2>
-    <p>The <dfn>Turing test</dfn>, named after Alan Turing, is a test of
-    a computer’s ability to make conversation that is indistinguishable
-    from human conversation. A computer that could pass the Turing test
-    would need to understand sentences typed by a human and respond with
-    sentences that make sense.</p>
+    <p>Getting clean water to all buildings in a city is a large and
+    expensive task. Many cities will build an elevated water tank, and
+    install a pump that pushes water up to the tank where the water is
+    stored. In the city, when a thirsty person opens a water faucet,
+    water runs from the tank through pipes to the faucet. Earth’s
+    gravity pulling on the water in the elevated tank pressurizes the
+    water and causes it to spray from the faucet.</p>
 
-    <p>In English and many other languages, <dfn>grammatical
-    quantity</dfn> (also known as grammatical number) is an attribute of
-    nouns, pronouns, adjectives, and verbs that expresses count
-    distinctions, such as “one”, “two”, “some”, or “many”. The
-    grammatical quantity of the words in a sentence must match. In
-    English, there are two categories of grammatical quantity: single
-    and plural. For example, here are three English sentences that
-    contain <dfn>single</dfn> nouns, pronouns, and verbs:</p>
+    <figure class="full">
+        <img src="water_distrib_system.png"
+        alt="A diagram of a city water distribution system that stores
+        water in an elevated tank"
+        title="A diagram of a city water distribution system that stores
+        water in an elevated tank">
+        <figcaption>A diagram of a city water distribution system that
+        stores water in an elevated tank</figcaption>
+    </figure>
 
-    <blockquote>The boy laughs.<br>
-    One dog eats.<br>
-    She drinks water.</blockquote>
-
-    <p>Here are three English sentences that contain <dfn>plural</dfn>
-    nouns, pronouns, and verbs:</p>
-
-    <blockquote>Two birds fly.<br>
-    Some animals eat grass.<br>
-    Many cars are red.</blockquote>
-
-    <p><dfn>Grammatical tense</dfn> is an attribute of verbs that
-    expresses when an action happened. Many languages include past,
-    present, and future tenses. For example, here are three English
-    sentences, the first with past tense, the second with present tense,
-    and the third with future tense:</p>
-
-    <blockquote>The cat walked.<br>
-    The cat walks.<br>
-    The cat will walk.</blockquote>
+    <p>Before a city builds a water distribution system, an engineer
+    must design the system and ensure water will flow to all buildings
+    in the city. An engineer must choose the tower height, pipe type,
+    pipe diameter, and pipe path. Engineers use software to help them
+    make these choices and design a working water distribtuion
+    system.</p>
 
     <h2 id="assign">Assignment</h2>
-    <p>Write a Python program named <code>sentences.py</code> that
-    generates simple English sentences. During this prove milestone, you
-    will write and test functions that generate sentences with three
-    parts:</p>
-    <ol>
-        <li><div>a determiner (sometimes known as an article)</div></li>
-        <li><div>a noun</div></li>
-        <li><div>a verb</div></li>
-    </ol>
-
-    <p>For example:</p>
-    <blockquote>A cat laughed.<br>
-    One man eats.<br>
-    The woman will think.<br>
-    Some girls thought.<br>
-    Many dogs run.<br>
-    Many men will write.</blockquote>
-
-    <p>For this milestone, your program must include at least these four
-    functions:</p>
-    <ol>
-        <li><div><code>main</code></div></li>
-        <li><div><code>get_determiner</code></div></li>
-        <li><div><code>get_noun</code></div></li>
-        <li><div><code>get_verb</code></div></li>
-    </ol>
-
-    <p>You may add other program functions if you want. The functions
-    <code>get_determiner</code>, <code>get_noun</code>, and
-    <code>get_verb</code>, must randomly choose a word from a list of
-    words and return the randomly chosen word.</p>
-
-    <p>In addition, for this milestone assignment, you must write a file
-    named <code>test_sentences.py</code> that contains three functions
-    named as follows:</p>
-    <ol>
-        <li><div><code>test_get_determiner</code></div></li>
-        <li><div><code>test_get_noun</code></div></li>
-        <li><div><code>test_get_verb</code></div></li>
-    </ol>
-
-    <p>All the functions that you must write for this milestone
-    assignment are described in the Steps section below.</p>
+    <p>Write a Python program that could help an engineer design a water
+    distribution system. During this prove milestone, you will write
+    three program functions and three test functions as described in the
+    Steps section below.</p>
 
     <h2 id="helpful_docs">Helpful Documentation</h2>
     <ul class="mixed long">
-        <li class="tutorial"><div>In CSE&nbsp;110, you studied Python
-        lists. You should recall that we create a Python list with
-        square brackets and commas like this list of strings:
-
-<div class="example"><pre class="python">
-# Create a list of strings and assign
-# the list to a variable named words.
-words = ["boy", "girl", "cat", "dog", "bird", "house"]
-</pre></div>
-        </div></li>
-
-        <li class="reference"><div>The standard Python
-        <code>random</code> module includes a
-        <a href="https://docs.python.org/3/library/random.html#random.choice"><code>function named choice</code></a>
-        that randomly chooses one element from a list and returns that
-        element. The choice function is easy to call like this:
-<div class="example"><pre class="python">import random
-
-# Create a list of strings and assign
-# the list to a variable named words.
-words = ["boy", "girl", "cat", "dog", "bird", "house"]
-
-# Call the random.choice function which will choose
-# one string from the words list. Store the chosen
-# string in a variable named word.
-word = <em>random.choice(words)</em>
-</pre></div>
-        </div></li>
-
-        <li class="reference"><div>The Python
-        <a href="https://docs.python.org/3/library/stdtypes.html#str.capitalize">str.capitalize method</a>
-        will capitalize the first letter in a word. The capitalize
-        method is easy to call like this:
-<div class="example"><pre class="python">
-# This could be any word from any source.
-word = "horse"
-
-# Call the capitalize method which will
-# capitalize the first letter of the word.
-<em>cap_word = word.capitalize()</em>
-</pre></div>
-        </div></li>
-
-        <li class="tutorial"><div>The
-        <a href="prepare.html">preparation content</a> for this lesson
-        explains how to use <code>pytest</code> and <code>assert</code>
-        to automatically verify that functions are correct. It also
-        contains an <a href="prepare.html#example">example test
-        function</a> and links to additional documentation about
+        <li class="tutorial"><div>The <a href="prepare.html">preparation
+        content</a> for this lesson explains how to use
+        <code>pytest</code>, <code>assert</code>, and
+        <code>approx</code> to automatically verify that functions are
+        correct. It also contains an
+        <a href="prepare.html#example">example test function</a> and
+        links to additional documentation about
         <code>pytest</code>.</div></li>
+
+        <li class="reference"><div>The
+        <a href="https://docs.pytest.org/en/7.1.x/reference/reference.html#pytest-approx"><code>pytest</code> <code>approx</code> function</a>
+        accepts optional named arguments. One of those named arguments
+        is <var>abs</var>. The <var>abs</var> named argument causes the
+        <code>approx</code> function to compare the actual and expected
+        values up to a specified digit after the decimal point and to
+        ignore the following digits. For example, the following two
+        lines of code cause pytest to compare the actual number returned
+        from <code>pressure_loss_from_fittings</code> to &minus;0.306 to
+        only the third digit after the decimal point and to ignore all
+        digits in the actual number after the 6.
+
+<div class="example"><pre class="python">    assert pressure_loss_from_fittings(1.75, 5) \
+        == approx(-0.306, <em>abs=0.001</em>)</pre></div>
+
+        Notice in the previous example, that the value for
+        <var>abs</var> is 0.001, which causes the approx function to
+        ignore all digits after the third digit after the decimal
+        point.</div></li>
 
         <li class="video"><div>This
         <a href="https://video.byui.edu/media/t/1_9ickss60">video about
@@ -194,223 +121,200 @@ word = "horse"
     <h2 id="steps">Steps</h2>
     <p>Do the following:</p>
     <ol class="long">
-        <li><div>Using VS Code, create a new file, import the
-        <code>random</code> module at the top of the file, and save the
-        file as <code>sentences.py</code></div></li>
+        <li><div>Using VS Code, create a new file and save it as
+        <code>water_flow.py</code></div></li>
 
-        <li><div>Copy and paste the following
-        <code>get_determiner</code> function into your program.
-
-<div class="example"><pre class="python">
-def get_determiner(quantity):
-    """Return a randomly chosen determiner. A determiner is
-    a word like "the", "a", "one", "some", "many".
-    If quantity is 1, this function will return either "a",
-    "one", or "the". Otherwise this function will return
-    either "some", "many", or "the".
-
-    Parameter
-        quantity: an integer.
-            If quantity is 1, this function will return a
-            determiner for a single noun. Otherwise this
-            function will return a determiner for a plural
-            noun.
-    Return: a randomly chosen determiner.
-    """
-    if quantity == 1:
-        words = ["a", "one", "the"]
-    else:
-        words = ["some", "many", "the"]
-
-    # Randomly choose and return a determiner.
-    word = random.choice(words)
-    return word
-</pre></div>
+        <li><div>Create another new file, save it as
+        <code>test_water_flow.py</code>, and copy and paste the
+        following import statements into the file.
+<div class="example"><pre class="python">from pytest import approx
+import pytest</pre></div>
         </div></li>
 
-        <li><div>Use the <code>get_determiner</code> function as an
-        example to help you write the <code>get_noun</code> function.
-        The <code>get_noun</code> function must have the following
-        header and fulfill the requirements of the following
-        documentation string.
+        <li><div>In your <code>water_flow.py</code> program, write a
+        function named <code>water_column_height</code> that calculates
+        and returns the height of a column of water from a tower height
+        and a tank wall height. The function must have this header:
+        <div class="example"><pre class="python">def water_column_height(tower_height, tank_height):</pre></div>
 
-<div class="example"><pre class="python">
-def get_noun(quantity):
-    """Return a randomly chosen noun.
-    If quantity is 1, this function will
-    return one of these ten single nouns:
-        "bird", "boy", "car", "cat", "child",
-        "dog", "girl", "man", "rabbit", "woman"
-    Otherwise, this function will return one of
-    these ten plural nouns:
-        "birds", "boys", "cars", "cats", "children",
-        "dogs", "girls", "men", "rabbits", "women"
-
-    Parameter
-        quantity: an integer that determines if
-            the returned noun is single or plural.
-    Return: a randomly chosen noun.
-    """
-</pre></div>
+        <p>In your function, use the following formula for calculating
+        the water column height.</p>
+        <div class="block formula"><var>h</var> = <var>t</var> +
+        <div class="fract"><div>3<var>w</var></div><div>4</div></div></div>
+        where
+        <ul>
+            <li><div><var>h</var> is height of the water column</div></li>
+            <li><div><var>t</var> is the height of the tower</div></li>
+            <li><div><var>w</var> is the height of the walls of the tank
+            that is on top of the tower</div></li>
+        </ul>
         </div></li>
 
-        <li><div>Use the <code>get_determiner</code> function as an
-        example to help you write the <code>get_verb</code> function.
-        The <code>get_verb</code> function must have the following
-        header and fulfill the requirements of the following
-        documentation string.
-
-<div class="example"><pre class="python">
-def get_verb(quantity, tense):
-    """Return a randomly chosen verb. If tense is "past",
-    this function will return one of these ten verbs:
-        "drank", "ate", "grew", "laughed", "thought",
-        "ran", "slept", "talked", "walked", "wrote"
-    If tense is "present" and quantity is 1, this
-    function will return one of these ten verbs:
-        "drinks", "eats", "grows", "laughs", "thinks",
-        "runs", "sleeps", "talks", "walks", "writes"
-    If tense is "present" and quantity is NOT 1,
-    this function will return one of these ten verbs:
-        "drink", "eat", "grow", "laugh", "think",
-        "run", "sleep", "talk", "walk", "write"
-    If tense is "future", this function will return one of
-    these ten verbs:
-        "will drink", "will eat", "will grow", "will laugh",
-        "will think", "will run", "will sleep", "will talk",
-        "will walk", "will write"
-
-    Parameters
-        quantity: an integer that determines if the
-            returned verb is single or plural.
-        tense: a string that determines the verb conjugation,
-            either "past", "present" or "future".
-    Return: a randomly chosen verb.
-    """
-</pre></div>
-        </div></li>
-
-        <li><div><p>Write the <code>main</code> function and any other
-        functions that you think are necessary for your program to
-        generate and print six sentences with these characteristics:</p>
-
-        <table class="center"><thead>
-            <tr><th></th> <th>Quantity</th> <th>Verb Tense</th></tr>
+        <li><div>In your <code>test_water_flow.py</code> file, write a
+        test function named <code>test_water_column_height</code>. This
+        test function must call <code>water_column_height</code> at
+        least four times to verify that it is working correctly. Use
+        the following numbers in your test function.
+        <table class="center test"><thead>
+            <tr><th>Tower<br>Height</th>
+                <th>Tank Wall<br>Height</th>
+                <th class="expect">Expected Water<br>Column Height</th></tr>
         </thead><tbody>
-            <tr><td>a.</td> <td>single</td> <td>past</td></tr>
-            <tr><td>b.</td> <td>single</td> <td>present</td></tr>
-            <tr><td>c.</td> <td>single</td> <td>future</td></tr>
-            <tr><td>d.</td> <td>plural</td> <td>past</td></tr>
-            <tr><td>e.</td> <td>plural</td> <td>present</td></tr>
-            <tr><td>f.</td> <td>plural</td> <td>future</td></tr>
+            <tr><td>0<span class="hidden">.0</span></td>
+                <td>0<span class="hidden">.0</span></td>
+                <td class="expect">0<span class="hidden">.0</span></td></tr>
+            <tr><td>0<span class="hidden">.0</span></td>
+                <td>10<span class="hidden">.0</span></td>
+                <td class="expect">7.5</td></tr>
+            <tr><td>25<span class="hidden">.0</span></td>
+                <td>0<span class="hidden">.0</span></td>
+                <td class="expect">25<span class="hidden">.0</span></td></tr>
+            <tr><td>48.3</td>
+                <td>12.8</td>
+                <td class="expect">57.9</td></tr>
         </tbody></table>
         </div></li>
 
-        <li><div>At the bottom of your <code>sentences.py</code> file,
-        write a call to your <code>main</code> function. Be certain to
-        write the call to the <code>main</code> function inside the body
-        of an <code>if</code> statement as explained in this lesson’s
-        preparation content in the section titled
-        <a href="prepare.html#separate">Separating Program Code from
-        Test Code</a>.</div></li>
+        <li><div>In your <code>water_flow.py</code> program, write a
+        function named <code>pressure_gain_from_water_height</code> that
+        calculates and returns the pressure caused by Earth’s gravity
+        pulling on the water stored in an elevated tank. The function
+        must have this header:
+        <div class="example"><pre class="python">def pressure_gain_from_water_height(height):</pre></div>
 
-        <li><div><p>In a new file named <code>test_sentences.py</code>,
-        write three test functions named
-        <code>test_get_determiner</code>, <code>test_get_noun</code>,
-        and <code>test_get_verb</code>. Each of these three test
-        functions must test one of the program functions:
-        <code>get_determiner</code>, <code>get_noun</code>, and
-        <code>get_verb</code>.</p>
-
-        <p>Recall that each of the three program functions
-        (<code>get_determiner</code>, <code>get_noun</code>, and
-        <code>get_verb</code>) returns a word that the computer chooses
-        randomly from a list of words. The random nature of the program
-        functions makes the corresponding test functions a little
-        difficult to implement. How do we write code to verify that a
-        word chosen randomly is correct? One possible way is to verify
-        that the chosen word is from the correct list. For example, if
-        we write a call to the <code>get_determiner</code> function and
-        pass 1 as the quantity like this:</p>
-
-<div class="example"><pre class="python">
-    determ = get_determiner(1)
-</pre></div>
-
-        <p>Then the word in the <var>determ</var> variable should be in
-        this list:</p>
-
-<div class="example"><pre class="python">
-    ["a", "one", "the"]
-</pre></div>
-
-        <p>We can use the <code>assert</code> keyword and the Python
-        membership operator, which is the keyword <code>in</code>, to
-        verify that the word in the <var>determ</var> variable is in the
-        list, like this:</p>
-
-<div class="example"><pre class="python">
-def test_get_determiner():
-    # Call the get_determiner function.
-    determ = get_determiner(1)
-
-    # Verify that the word stored in the variable
-    # determ is in the list of single determiners.
-    words = ["a", "one", "the"]
-    <em>assert determ in words</em>
-</pre></div>
-
-        <p>The following example contains code for
-        the <code>test_get_determiner</code> function. Copy and paste
-        the code into your <code>test_sentences.py</code> file and use
-        it as an example to help you write <code>test_get_noun</code>
-        and <code>test_get_verb</code>.
-
-<div class="example"><pre class="python">
-from sentences import get_determiner, get_noun, get_verb
-import random
-import pytest
-
-
-def test_get_determiner():
-    # 1. Test the single determiners.
-
-    single_determiners = ["a", "one", "the"]
-
-    # This loop will repeat the statements inside it 4 times.
-    # If a loop's counting variable is not used inside the
-    # body of the loop, many programmers will use underscore
-    # (_) as the variable name for the counting variable.
-    for _ in range(4):
-
-        # Call the get_determiner function which
-        # should return a single determiner.
-        word = get_determiner(1)
-
-        # Verify that the word returned from get_determiner
-        # is one of the words in the single_determiners list.
-        assert word in single_determiners
-
-    # 2. Test the plural determiners.
-
-    plural_determiners = ["some", "many", "the"]
-
-    # This loop will repeat the statements inside it 4 times.
-    for _ in range(4):
-
-        # Call the get_determiner function which
-        # should return a plural determiner.
-        word = get_determiner(2)
-
-        # Verify that the word returned from get_determiner
-        # is one of the words in the plural_determiners list.
-        assert word in plural_determiners
-</pre></div>
+        <p>In your function, use the following formula for calculating
+        pressure caused by Earth’s gravity.</p>
+        <div class="block formula"><var>P</var> = <div class="fract">
+        <div><var>ρ</var><var>g</var><var>h</var></div>
+        <div>1000</div></div></div>
+        where
+        <ul>
+            <li><div><var>P</var> is the pressure in
+            <span class="units">kilopascals</span></div></li>
+            <li><div><var>ρ</var> is the density of water (998.2
+            <span class="units">kilogram / meter<sup>3</sup></span>)</div></li>
+            <li><div><var>g</var> is the acceleration from Earths
+            gravity (9.80665
+            <span class="units">meter / second<sup>2</sup></span>)</div></li>
+            <li><div><var>h</var> is the height of the water column in
+            <span class="units">meters</span></div></li>
+        </ul>
         </div></li>
 
-        <li><div>At the bottom of your <code>test_sentences.py</code>
-        file, write a call to the <code>pytest.main</code> function like
-        this:
+        <li><div>In your <code>test_water_flow.py</code> file, write a
+        test function named
+        <code>test_pressure_gain_from_water_height</code>. This test
+        function must call <code>pressure_gain_from_water_height</code>
+        at least three times to verify that it is working correctly.
+        Use the following numbers in your test function.
+        <table class="center test"><thead>
+            <tr><th>Height</th>
+                <th class="expect">Expected<br>Pressure</th>
+                <th><code>approx</code><br>Absolute<br>Tolerance</th></tr>
+        </thead><tbody>
+            <tr><td>0<span class="hidden">.0</span></td>
+				<td class="expect">0<span class="hidden">.000</span></td>
+                <td>0.001</td></tr>
+            <tr><td>30.2</td>
+				<td class="expect">295.628</td>
+                <td>0.001</td></tr>
+            <tr><td>50<span class="hidden">.0</span></td>
+				<td class="expect">489.450</td>
+                <td>0.001</td></tr>
+        </tbody></table>
+        </div></li>
+
+        <li><div>In your <code>water_flow.py</code> program, write a
+        function named <code>pressure_loss_from_pipe</code> that
+        calculates and returns the water pressure lost because of the
+        friction between the water and the walls of a pipe that it flows
+        through. The function must have this header:
+<div class="example"><pre class="python">def pressure_loss_from_pipe(pipe_diameter,
+        pipe_length, friction_factor, fluid_velocity):</pre></div>
+
+        <p>In your function, use the following formula for calculating
+        pressure loss from friction within a pipe.</p>
+        <div class="block formula"><var>P</var> = <div class="fract">
+        <div>&minus;&thinsp;<var>f</var>&thinsp;<var>L</var>&thinsp;<var>ρ</var>&thinsp;<var>v</var><sup>2</sup></div>
+        <div>2000&thinsp;<var>d</var></div></div></div>
+        where
+        <ul>
+            <li><div><var>P</var> is the lost pressure in
+            <span class="units">kilopascals</span></div></li>
+            <li><div><var>f</var> is the pipe’s friction factor</div></li>
+            <li><div><var>L</var> is the length of the pipe in
+            <span class="units">meters</span></div></li>
+            <li><div><var>ρ</var> is the density of water (998.2
+            <span class="units">kilogram / meter<sup>3</sup></span>)</div></li>
+            <li><div><var>v</var> is the velocity of the water flowing
+            through the pipe in
+            <span class="units">meters / second</span></div></li>
+            <li><div><var>d</var> is the diameter of the pipe in
+            <span class="units">meters</span></div></li>
+        </ul>
+        </div></li>
+
+        <li><div>In your <code>test_water_flow.py</code> file, write a
+        test function named <code>test_pressure_loss_from_pipe</code>
+        <code></code>. This test function must call
+        <code>pressure_loss_from_pipe</code> at least seven times to
+        verify that it is working correctly. Use the following numbers
+        in your test function.
+        <table class="center test"><thead>
+            <tr><th>Pipe<br>Diameter</th>
+                <th>Pipe<br>Length</th>
+                <th>Friction<br>Factor</th>
+                <th>Fluid<br>Velocity</th>
+                <th class="expect">Expected<br>Pressure<br>Loss</th>
+                <th><code>approx</code><br>Absolute<br>Tolerance</th></tr>
+        </thead><tbody>
+            <tr><td>0.048692</td>
+				<td>0<span class="hidden">.00</span></td>
+				<td>0.018</td>
+                <td>1.75</td>
+				<td class="expect">0<span class="hidden">.000</span></td>
+                <td>0.001</td></tr>
+            <tr><td>0.048692</td>
+				<td>200<span class="hidden">.00</span></td>
+				<td>0<span class="hidden">.000</span></td>
+                <td>1.75</td>
+				<td class="expect">0<span class="hidden">.000</span></td>
+                <td>0.001</td></tr>
+            <tr><td>0.048692</td>
+				<td>200<span class="hidden">.00</span></td>
+				<td>0.018</td>
+                <td>0<span class="hidden">.00</span></td>
+				<td class="expect">0<span class="hidden">.000</span></td>
+                <td>0.001</td></tr>
+            <tr><td>0.048692</td>
+				<td>200<span class="hidden">.00</span></td>
+				<td>0.018</td>
+                <td>1.75</td>
+				<td class="expect">-113.008</td>
+                <td>0.001</td></tr>
+            <tr><td>0.048692</td>
+				<td>200<span class="hidden">.00</span></td>
+				<td>0.018</td>
+                <td>1.65</td>
+				<td class="expect">-100.462</td>
+                <td>0.001</td></tr>
+            <tr><td>0.28687<span class="hidden">0</span></td>
+				<td>1000<span class="hidden">.00</span></td>
+				<td>0.013</td>
+                <td>1.65</td>
+				<td class="expect">-61.576</td>
+                <td>0.001</td></tr>
+            <tr><td>0.28687<span class="hidden">0</span></td>
+				<td>1800.75</td>
+				<td>0.013</td>
+                <td>1.65</td>
+				<td class="expect">-110.884</td>
+                <td>0.001</td></tr>
+        </tbody></table>
+        </div></li>
+
+        <li><div>Copy and paste the following code at the bottom of your
+        <code>test_water_flow.py</code> file.
 <div class="example"><pre class="python">
 # Call the main function that is part of pytest so that the
 # computer will execute the test functions in this file.
@@ -420,83 +324,43 @@ pytest.main(["-v", "--tb=line", "-rN", __file__])
     </ol>
 
     <h2 id="testing">Testing Procedure</h2>
-    <p>Verify that your test program works correctly by following each
-    step in this procedure:</p>
+    <p>Verify that your functions work correctly by following each step
+    in this procedure:</p>
 
     <ol class="test">
-        <li><div>Run your <code>test_sentences.py</code> program and
-        verify that all three of the test functions pass. If one or more
-        of the tests don’t pass, find and fix the mistakes in your
-        program functions or test functions until the tests pass as
-        shown in this output:
+        <li><div>Run your <code>test_water_flow.py</code> file and
+        ensure that all three of the test functions pass. If any of the
+        test functions don’t pass, there is a mistake in either the
+        program function that you wrote or the test function that you
+        wrote. Read the output from <code>pytest</code>, fix the
+        mistake, and run the <code>test_water_flow.py</code> file again
+        until all the test functions pass.
 
-<pre class="console">&gt; python test_sentences.py
-=================== test session starts ====================
-platform win32--Python 3.8.6, pytest-6.1.2, py-1.9.0, pluggy
+<pre class="console">&gt; python test_water_flow.py
+======================== test session starts ==========================
+platform win32 -- Python 3.11.1, pytest-7.2.1, pluggy-1.0.0 --
 rootdir: C:\Users\cse111\lesson05
 collected 3 items
 
-test_sentences.py::test_get_determiner <span class="pass">PASSED         [ 33%]</span>
-test_sentences.py::test_get_noun <span class="pass">PASSED               [ 66%]</span>
-test_sentences.py::test_get_verb <span class="pass">PASSED               [100%]</span>
+test_water_flow.py::test_water_column_height <span class="pass">PASSED              [ 33%]</span>
+test_water_flow.py::test_pressure_gain_from_water_height <span class="pass">PASSED  [ 66%]</span>
+test_water_flow.py::test_pressure_loss_from_pipe <span class="pass">PASSED          [100%]</span>
 
-<span class="pass">==================== 3 passed in 0.10s =====================</span></pre>
-
-        <p>Notice in the <code>pytest</code> output above that running
-        the test functions in <code>test_sentences.py</code> did not run
-        the <code>sentences.py</code> program. In other words, running
-        the test functions did not cause the program to print the pseudo
-        random sentences. If running your test functions causes your
-        program to print the pseudo random sentences, then at the bottom
-        of your <code>sentences.py</code> file you must rewrite the call
-        to your <code>main</code> function so that it is inside the body
-        of an <code>if</code> statement. In the preparation content for
-        this lesson, the section titled
-        <a href="prepare.html#separate">Separating Program Code from
-        Test Code</a> explains why and how.</div></li>
-
-        <li><div>Run your <code>sentences.py</code> program and ensure
-        that your program outputs six sentences with the following
-        characteristics:
-
-        <table class="center"><thead>
-            <tr><th></th> <th>Quantity</th> <th>Verb Tense</th></tr>
-        </thead><tbody>
-            <tr><td>a.</td> <td>single</td> <td>past</td></tr>
-            <tr><td>b.</td> <td>single</td> <td>present</td></tr>
-            <tr><td>c.</td> <td>single</td> <td>future</td></tr>
-            <tr><td>d.</td> <td>plural</td> <td>past</td></tr>
-            <tr><td>e.</td> <td>plural</td> <td>present</td></tr>
-            <tr><td>f.</td> <td>plural</td> <td>future</td></tr>
-        </tbody></table>
-
-        Your program’s output should be similar to the sample run output
-        shown here. However, because your program randomly chooses the
-        determiners, nouns, and verbs, your program will generate
-        different sentences than the ones shown here.
-
-<pre class="console">&gt; python sentences.py
-The cat laughed.
-Some girls thought.
-One man eats.
-Many dogs run.
-The woman will think.
-Many men will write.</pre>
+<span class="pass">========================= 3 passed in 0.07s ===========================</span></pre>
         </div></li>
     </ol>
 
     <h2 id="ponder">Ponder</h2>
-    <p>During this assignment, you wrote four program functions named
-    <code>main</code>, <code>get_determiner</code>,
-    <code>get_noun</code>, and <code>get_verb</code>. Also, in a
-    separate file, you wrote three test functions named
-    <code>test_get_determiner</code>, <code>test_get_noun</code>, and
-    <code>test_get_verb</code>. Each of the test functions called one of
-    the program functions and automatically verified that the value
-    returned from the program function was correct. If you worked as a
-    software developer on a large project with four other software
-    developers, how would test functions help you and the other
-    developers write better code?</p>
+    <p>During this assignment, you wrote three program functions named
+    <code>water_column_height</code>,
+    <code>pressure_gain_from_water_height</code>, and
+    <code>pressure_loss_from_pipe</code>. Also, in a separate file, you
+    wrote three test functions. Each of the test functions called one of
+    the program functions multiple times and automatically verified that
+    the value returned from the program function was correct. If you
+    worked as a software developer on a large project with four other
+    software developers, how would test functions help you and the other
+    developers ensure that your program worked correctly?</p>
 
     <h2 id="submit">Submission</h2>
     <p>On or before the due date, return to I‑Learn and report your

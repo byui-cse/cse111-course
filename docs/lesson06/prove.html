@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Copyright © 2020, Brigham Young University–Idaho. All rights reserved. -->
+<!-- Copyright 2023, Brigham Young University - Idaho. All rights reserved. -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,22 +10,21 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Source+Code+Pro&family=Crimson+Pro&display=swap">
     <link rel="stylesheet" href="../site/reset.css">
     <link rel="stylesheet" href="../site/style.css">
+    <link rel="stylesheet" href="../site/math.css">
     <link rel="stylesheet" href="../site/hljs/vscode.css">
     <link rel="icon" type="image/png" href="../site/icons/logo.png">
-    <link rel="canonical" href="https://byui-cse.github.io/cse111-course/lesson06/prove.html">
+    <link rel="canonical" href="https://byui-cse.github.io/cse111-course/lesson06/prove_exper.html">
     <link rel="prev" type="text/html" href="teach.html">
     <link rel="next" type="text/html" href="../lesson07/prepare.html">
-    <meta name="description" content="A programming assignment that requires writing test functions to automatically verify the functions within a Python program return correct results">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org/",
         "@type": "Article",
         "headline": "06 Prove Assignment: Troubleshooting Functions",
-        "description": "A programming assignment that requires writing test functions to automatically verify the functions within a Python program return correct results",
         "educationalUse": "assignment",
-        "copyrightNotice": "Copyright © 2020, Brigham Young University–Idaho. All rights reserved.",
-        "datePublished": "2020-03-22",
-        "dateModified": "2023-02-15"
+        "copyrightNotice": "Copyright © 2023, Brigham Young University–Idaho. All rights reserved.",
+        "datePublished": "2023-01-20",
+        "dateModified": "2023-03-24"
     }
     </script>
 </head>
@@ -36,85 +35,30 @@
 
     <h2 id="purpose">Purpose</h2>
     <p>Prove that you can write a Python program and write and run test
-    functions to help you find and fix mistakes.</p>
-
-    <h2 id="problem">Problem Statement</h2>
-    <p>The <dfn>Turing test</dfn>, named after Alan Turing, is a test of a
-    computer’s ability to make conversation that is indistinguishable
-    from human conversation. A computer that could pass the Turing test
-    would need to understand sentences typed by a human and respond with
-    sentences that make sense.</p>
-
-    <p>In English, a <dfn>preposition</dfn> is a word used to express
-    spatial or temporal relations, such as “in”, “over”, and “before”. A
-    <dfn>prepositional phrase</dfn> is group of words that begins with a
-    preposition and includes a noun. For example:</p>
-
-    <blockquote>above the water<br>
-    in the kitchen<br>
-    after the meeting</blockquote>
+    functions to help you find and fix mistakes in your program.</p>
 
     <h2 id="assign">Assignment</h2>
-    <p>Write the second half of the Python program that you began in the
-    previous lesson’s <a href="../lesson05/prove.html">prove milestone</a>,
-    a program that generates simple English sentences. During this prove
-    assignment, you will write and test functions that generate
-    sentences with four parts:</p>
-    <ol>
-        <li><div>a determiner</div></li>
-        <li><div>a noun</div></li>
-        <li><div>a verb</div></li>
-        <li><div>a prepositional phrase</div></li>
-    </ol>
-
-    <p>For example:</p>
-    <blockquote>One girl talked for the car.<br>
-    A bird drinks off one child.<br>
-    The child will run on the car.<br>
-    Some dogs drank above many rabbits.<br>
-    Some children laugh at many dogs.<br>
-    Some rabbits will talk about some cats.</blockquote>
-
-    <p>To complete this prove assignment, your program must include at
-    least these six functions:</p>
-    <ol>
-        <li><div><code>main</code></div></li>
-        <li><div><code>get_determiner</code></div></li>
-        <li><div><code>get_noun</code></div></li>
-        <li><div><code>get_verb</code></div></li>
-        <li><div><code>get_preposition</code></div></li>
-        <li><div><code>get_prepositional_phrase</code></div></li>
-    </ol>
-
-    <p>You may add other functions if you find them helpful. The
-    <code>get_preposition</code> function must randomly choose a
-    preposition from a list and return the randomly chosen preposition.
-    The <code>get_prepositional_phrase</code> function must make a
-    prepositional phrase by calling the <code>get_preposition</code>,
-    <code>get_determiner</code>, and <code>get_noun</code> functions.</p>
-
-    <p>In addition, to complete this prove assignment, you must write
-    and submit a file named <code>test_sentences.py</code> that contains
-    five functions named as follows:</p>
-    <ol>
-        <li><div><code>test_get_determiner</code></div></li>
-        <li><div><code>test_get_noun</code></div></li>
-        <li><div><code>test_get_verb</code></div></li>
-        <li><div><code>test_get_preposition</code></div></li>
-        <li><div><code>test_get_prepositional_phrase</code></div></li>
-    </ol>
+    <p>Write the second half of the Python program to help an engineer
+    design a water distribution system that you began in the
+    <a href="../lesson05/prove.html">previous lesson’s prove
+    milestone</a>. Also, write more test functions that will
+    automatically verify that your program functions work correctly.</p>
 
     <h2 id="helpful_docs">Helpful Documentation</h2>
     <ul class="mixed long">
-        <li class="tutorial"><div>The <a href="prepare.html">prepare
-        content</a> for this lesson explains how to troubleshoot
-        functions and entire programs that are not working
-        correctly.</div></li>
+        <li class="tutorial"><div>The
+        <a href="../lesson05/prepare.html">preparation content for the
+        previous lesson</a> explains how to use <code>pytest</code>,
+        <code>assert</code>, and <code>approx</code> to automatically
+        verify that functions are correct. It also contains an
+        <a href="../lesson05/prepare.html#example">example test
+        function</a> and links to additional documentation about
+        <code>pytest</code>.</div></li>
 
-        <li class="reference"><div>The string
-        <a href="https://docs.python.org/3/library/stdtypes.html#str.split"><code>split</code> method</a>
-        separates a string of text into words and returns a list of
-        strings.</div></li>
+        <li class="tutorial"><div>The <a href="prepare.html">preparation
+        content for this lesson explains</a> how to use the Python
+        debugger to watch the computer execute a program and to find
+        mistakes in the program.</div></li>
     </ul>
 
     <h2 id="tutor">Help from a Tutor</h2>
@@ -131,91 +75,251 @@
     <h2 id="steps">Steps</h2>
     <p>Do the following:</p>
     <ol class="long">
-        <li><div>Use the <code>get_determiner</code> function from the
-        previous lesson’s prove milestone as an example to help you
-        write the <code>get_preposition</code> function. The
-        <code>get_preposition</code> function must have the following
-        header and fulfill the requirements of the following
-        documentation string.
+        <li><div>In your <code>water_flow.py</code> program, write a
+        function named <code>pressure_loss_from_fittings</code> that
+        calculates the water pressure lost because of fittings such as
+        45° and 90° bends that are in a pipeline. The function must have
+        this header:
+<div class="example"><pre class="python">def pressure_loss_from_fittings(
+        fluid_velocity, quantity_fittings):</pre></div>
 
-<div class="example"><pre class="python">
-def get_preposition():
-    """Return a randomly chosen preposition
-    from this list of prepositions:
-        "about", "above", "across", "after", "along",
-        "around", "at", "before", "behind", "below",
-        "beyond", "by", "despite", "except", "for",
-        "from", "in", "into", "near", "of",
-        "off", "on", "onto", "out", "over",
-        "past", "to", "under", "with", "without"
-
-    Return: a randomly chosen preposition.
-    """
-</pre></div>
+        <p>In your function, use the following formula for calculating
+        pressure loss from pipe fittings.</p>
+        <div class="block formula"><var>P</var> = <div class="fract">
+        <div>&minus;0.04&thinsp;<var>ρ</var>&thinsp;<var>v</var><sup>2</sup>&thinsp;<var>n</var></div>
+        <div>2000&thinsp;</div></div></div>
+        where
+        <ul>
+            <li><div><var>P</var> is the lost pressure in
+            <span class="units">kilopascals</span></div></li>
+            <li><div><var>ρ</var> is the density of water (998.2
+            <span class="units">kilogram / meter<sup>3</sup></span>)</div></li>
+            <li><div><var>v</var> is the velocity of the water flowing
+            through the pipe in
+            <span class="units">meters / second</span></div></li>
+            <li><div><var>n</var> is the quantity of fittings</div></li>
+        </ul>
         </div></li>
 
-        <li><div>Write the <code>get_prepositional_phrase</code>
-        function to have the following header and fulfill the
-        requirements of the following documentation string.
-
-<div class="example"><pre class="python">
-def get_prepositional_phrase(quantity):
-    """Build and return a prepositional phrase composed
-    of three words: a preposition, a determiner, and a
-    noun by calling the get_preposition, get_determiner,
-    and get_noun functions.
-
-    Parameter
-        quantity: an integer that determines if the
-            determiner and noun in the prepositional
-            phrase returned from this function should
-            be single or pluaral.
-    Return: a prepositional phrase.
-    """
-</pre></div>
-        </div></li>
-
-        <li><div><p>Add code to the <code>main</code> function and write
-        any other functions that you think are necessary for your
-        program to generate and print six sentences, each with a
-        determiner, a noun, a verb, and a prepositional phrase. The six
-        sentences must have the following characteristics:</p>
-
-        <table class="center"><thead>
-            <tr><th></th> <th>Quantity</th> <th>Verb Tense</th></tr>
+        <li><div>In your <code>test_water_flow.py</code> file, write a
+        test function named
+        <code>test_pressure_loss_from_fittings</code>. This test
+        function must call <code>pressure_loss_from_fittings</code> at
+        least five times to verify that it is working correctly. Use the
+        following numbers in your test function.
+        <table class="center test"><thead>
+            <tr><th>Fluid<br>Velocity</th>
+                <th>Quantity<br>of Fittings</th>
+                <th class="expect">Expected<br>Pressure<br>Loss</th>
+                <th><code>approx</code><br>Absolute<br>Tolerance</th></tr>
         </thead><tbody>
-            <tr><td>a.</td> <td>single</td> <td>past</td></tr>
-            <tr><td>b.</td> <td>single</td> <td>present</td></tr>
-            <tr><td>c.</td> <td>single</td> <td>future</td></tr>
-            <tr><td>d.</td> <td>plural</td> <td>past</td></tr>
-            <tr><td>e.</td> <td>plural</td> <td>present</td></tr>
-            <tr><td>f.</td> <td>plural</td> <td>future</td></tr>
+            <tr><td>0<span class="hidden">.00</span></td>
+				<td>3</td>
+                <td class="expect">0<span class="hidden">.000</span></td>
+                <td>0.001</td></tr>
+            <tr><td>1.65</td>
+				<td>0</td>
+                <td class="expect">0<span class="hidden">.000</span></td>
+                <td>0.001</td></tr>
+            <tr><td>1.65</td>
+				<td>2</td>
+                <td class="expect">-0.109</td>
+                <td>0.001</td></tr>
+            <tr><td>1.75</td>
+				<td>2</td>
+                <td class="expect">-0.122</td>
+                <td>0.001</td></tr>
+            <tr><td>1.75</td>
+				<td>5</td>
+                <td class="expect">-0.306</td>
+                <td>0.001</td></tr>
         </tbody></table>
         </div></li>
 
-        <li><div><p>In the <code>test_sentences.py</code> file that you
-        wrote during the previous lesson’s prove milestone, write two
-        functions named <code>test_get_preposition</code> and
-        <code>test_get_prepositional_phrase</code> that test the
-        <code>get_preposition</code> and
-        <code>get_prepositional_phrase</code> functions.</p>
+        <li><div>In your <code>water_flow.py</code> program write a
+        function named <code>reynolds_number</code> that calculates and
+        returns the Reynolds number for a pipe with water flowing
+        through it. The <dfn>Reynolds number</dfn> is a unitless ratio
+        of the inertial and viscous forces in a fluid that is useful for
+        predicting fluid flow in different situations. The function must
+        have this header.
 
-        <p>Perhaps you are wondering what code you should write in the
-        <code>test_get_prepositional_phrase</code> function. To answer
-        that question, ask yourself, “What do we know about the
-        <code>get_prepositional_phrase</code> function?” From its
-        description, we know the <code>get_prepositional_phrase</code>
-        function returns a string made of three words: a preposition, a
-        determiner, and a noun. So you could write code in the
-        <code>test_get_prepositional_phrase</code> function that calls
-        the <code>get_prepositional_phrase</code> function and then
-        calls the Python string
-    <a href="https://docs.python.org/3/library/stdtypes.html#str.split"><code>split</code> method</a>
-        to separate the returned phrase into a list of words and
-        verifies that the length of the list is three. In addition for
-        each word in the list, you could write an <code>assert</code>
-        statement that verifies that each word is the correct English
-        part of speech.</p>
+<div class="example"><pre class="python">def reynolds_number(hydraulic_diameter, fluid_velocity):</pre></div>
+
+        <p>In your function, use the following formula for calculating
+        the Reynolds number.</p>
+        <div class="block formula"><var>R</var> =
+        <div class="fract"><div><var>ρ</var><var>d</var><var>v</var></div>
+        <div><var>μ</var></div></div></div>
+        where
+        <ul>
+            <li><div><var>R</var> is the Reynolds number</div></li>
+            <li><div><var>ρ</var> is the density of water (998.2
+            <span class="units">kilogram / meter<sup>3</sup></span>)</div></li>
+            <li><div><var>d</var> is the hydraulic diameter of a pipe in
+            <span class="units">meters</span>. For a round pipe, the
+            hydraulic diameter is the same as the pipe’s inner
+            diameter.</div></li>
+            <li><div><var>v</var> is the velocity of the water flowing
+            through the pipe in
+            <span class="units">meters / second</span></div></li>
+            <li><div><var>μ</var> is the dynamic viscosity of water
+            (0.0010016 <span class="units">Pascal seconds</span>)</div></li>
+        </ul>
+        </div></li>
+
+        <li><div>In your <code>test_water_flow.py</code> file, write a
+        test function named <code>test_reynolds_number</code>. This test
+        function must call <code>reynolds_number</code> at least five
+        times to verify that it is working correctly. Use the following
+        numbers in your test function.
+        <table class="center test"><thead>
+            <tr><th>Hydraulic<br>Diameter</th>
+                <th>Fluid<br>Velocity</th>
+                <th class="expect">Expected<br>Reynolds<br>Number</th>
+                <th><code>approx</code><br>Absolute<br>Tolerance</th></tr>
+        </thead><tbody>
+            <tr><td>0.048692</td>
+				<td>0<span class="hidden">.00</span></td>
+                <td class="expect">0</td> <td>1</td></tr>
+            <tr><td>0.048692</td>
+				<td>1.65</td>
+                <td class="expect">80069</td> <td>1</td></tr>
+            <tr><td>0.048692</td>
+				<td>1.75</td>
+                <td class="expect">84922</td> <td>1</td></tr>
+            <tr><td>0.28687<span class="hidden">0</span></td>
+				<td>1.65</td>
+                <td class="expect">471729</td> <td>1</td></tr>
+            <tr><td>0.28687<span class="hidden">0</span></td>
+				<td>1.75</td>
+                <td class="expect">500318</td> <td>1</td></tr>
+        </tbody></table>
+        </div></li>
+
+        <li><div>In your <code>water_flow.py</code> program write a
+        function named <code>pressure_loss_from_pipe_reduction</code>
+        that calculates the water pressure lost because of water moving
+        from a pipe with a large diameter into a pipe with a smaller
+        diameter. The function must have this header.
+
+<div class="example"><pre class="python">def pressure_loss_from_pipe_reduction(larger_diameter,
+        fluid_velocity, reynolds_number, smaller_diameter):</pre></div>
+
+        <p>In your function, use the following two formulas for
+        calculating pressure loss from a rounded reduction in a pipe’s
+        diameter.</p>
+        <div class="block formula"><var>k</var> =
+        <div class="paren two">0.1 +
+        <div class="fract"><div>50</div><div>R</div></div>&thinsp;</div><div class="paren two"><div class="paren two">&thinsp;<div class="fract"><div>D</div><div>d</div></div>&thinsp;</div><sup class="two">4</sup>
+        &minus; 1</div></div>
+
+        <div class="block formula"><var>P</var> = <div class="fract">
+        <div>&minus;&thinsp;<var>k</var>&thinsp;<var>ρ</var>&thinsp;<var>v</var><sup>2</sup></div>
+        <div>2000&thinsp;</div></div></div>
+        where
+        <ul>
+            <li><div><var>k</var> is a constant computed by the first
+            formula and used in the second formula</div></li>
+            <li><div><var>R</var> is the Reynolds number that
+            corresponds to the pipe with the larger diameter</div></li>
+            <li><div><var>D</var> is the diameter of the larger pipe in
+            <span class="units">meters</span></div></li>
+            <li><div><var>d</var> is the diameter of the smaller pipe in
+            <span class="units">meters</span></div></li>
+            <li><div><var>P</var> is the lost pressure
+            <span class="units">kilopascals</span></div></li>
+            <li><div><var>ρ</var> is the density of water (998.2
+            <span class="units">kilogram / meter<sup>3</sup></span>)</div></li>
+            <li><div><var>v</var> is the velocity of the water flowing
+            through the larger diameter pipe in
+            <span class="units">meters / second</span></div></li>
+        </ul>
+        </div></li>
+
+        <li><div>In your <code>test_water_flow.py</code> file, write a
+        test function named
+        <code>test_pressure_loss_from_pipe_reduction</code>. This test
+        function must call
+        <code>pressure_loss_from_pipe_reduction</code> at least three
+        times to verify that it is working correctly. Use the following
+        numbers in your test function.
+        <table class="center test"><thead>
+            <tr><th>Larger<br>Diameter</th>
+                <th>Fluid<br>Velocity</th>
+                <th>Reynolds<br>Number</th>
+                <th>Smaller<br>Diameter</th>
+                <th class="expect">Expected<br>Pressure<br>Loss</th>
+                <th><code>approx</code><br>Absolute<br>Tolerance</th></tr>
+        </thead><tbody>
+            <tr><td>0.28687</td>
+				<td>0<span class="hidden">.00</span></td>
+                <td>1</td>
+				<td>0.048692</td>
+                <td class="expect">0<span class="hidden">.000</span></td>
+                <td>0.001</td></tr>
+            <tr><td>0.28687</td>
+				<td>1.65</td>
+                <td>471729</td>
+				<td>0.048692</td>
+                <td class="expect">-163.744</td>
+                <td>0.001</td></tr>
+            <tr><td>0.28687</td>
+				<td>1.75</td>
+                <td>500318</td>
+				<td>0.048692</td>
+                <td class="expect">-184.182</td>
+                <td>0.001</td></tr>
+        </tbody></table>
+        </div></li>
+
+        <li><div>Copy and paste the following code at the bottom of your
+        <code>water_flow.py</code> program.
+<div class="example"><pre class="python">
+PVC_SCHED80_INNER_DIAMETER = 0.28687 # (meters)  11.294 inches
+PVC_SCHED80_FRICTION_FACTOR = 0.013  # (unitless)
+SUPPLY_VELOCITY = 1.65               # (meters / second)
+
+HDPE_SDR11_INNER_DIAMETER = 0.048692 # (meters)  1.917 inches
+HDPE_SDR11_FRICTION_FACTOR = 0.018   # (unitless)
+HOUSEHOLD_VELOCITY = 1.75            # (meters / second)
+
+
+def main():
+    tower_height = float(input("Height of water tower (meters): "))
+    tank_height = float(input("Height of water tank walls (meters): "))
+    length1 = float(input("Length of supply pipe from tank to lot (meters): "))
+    quantity_angles = int(input("Number of 90° angles in supply pipe: "))
+    length2 = float(input("Length of pipe from supply to house (meters): "))
+
+    water_height = water_column_height(tower_height, tank_height)
+    pressure = pressure_gain_from_water_height(water_height)
+
+    diameter = PVC_SCHED80_INNER_DIAMETER
+    friction = PVC_SCHED80_FRICTION_FACTOR
+    velocity = SUPPLY_VELOCITY
+    reynolds = reynolds_number(diameter, velocity)
+    loss = pressure_loss_from_pipe(diameter, length1, friction, velocity)
+    pressure += loss
+
+    loss = pressure_loss_from_fittings(velocity, quantity_angles)
+    pressure += loss
+
+    loss = pressure_loss_from_pipe_reduction(diameter,
+            velocity, reynolds, HDPE_SDR11_INNER_DIAMETER)
+    pressure += loss
+
+    diameter = HDPE_SDR11_INNER_DIAMETER
+    friction = HDPE_SDR11_FRICTION_FACTOR
+    velocity = HOUSEHOLD_VELOCITY
+    loss = pressure_loss_from_pipe(diameter, length2, friction, velocity)
+    pressure += loss
+
+    print(f"Pressure at house: {pressure:.1f} kilopascals")
+
+
+if __name__ == "__main__":
+    main()</pre></div>
         </div></li>
     </ol>
 
@@ -224,40 +328,41 @@ def get_prepositional_phrase(quantity):
     step in this procedure:</p>
 
     <ol class="test">
-        <li><div>Run your <code>test_sentences.py</code> program and
-        verify that all five of the test functions pass. If one or more
-        of the tests don’t pass, find and fix the mistakes in your
-        program functions or test functions until the tests pass as
-        shown in this output:
+        <li><div>Run your <code>test_water_flow.py</code> file and
+        ensure that all six of the test functions pass. If any of the
+        test functions don’t pass, there is a mistake in either the
+        program function that you wrote or the test function that you
+        wrote. Read the output from <code>pytest</code>, fix the
+        mistake, and run the <code>test_water_flow.py</code> file again
+        until all the test functions pass.
 
-<pre class="console">&gt; python test_sentences.py
-=================== test session starts ====================
-platform win32--Python 3.8.6, pytest-6.1.2, py-1.9.0, pluggy
-rootdir: C:\Users\cse111\lesson06
-collected 5 items
+<pre class="console">&gt; python test_water_flow.py
+========================== test session starts ==========================
+platform win32 -- Python 3.11.1, pytest-7.2.1, pluggy-1.0.0 --
+rootdir: C:\Users\cse111\lesson05
+collected 3 items
 
-test_sentences.py::test_get_determiner <span class="pass">PASSED         [ 20%]</span>
-test_sentences.py::test_get_noun <span class="pass">PASSED               [ 40%]</span>
-test_sentences.py::test_get_verb <span class="pass">PASSED               [ 60%]</span>
-test_sentences.py::test_get_preposition <span class="pass">PASSE         [ 80%]</span>
-test_sentences.py::test_get_prepositional_phrase <span class="pass">PASSED [100%]</span>
+test_water_flow.py::test_water_column_height <span class="pass">PASSED                [ 16%]</span>
+test_water_flow.py::test_pressure_gain_from_water_height <span class="pass">PASSED    [ 33%]</span>
+test_water_flow.py::test_pressure_loss_from_pipe <span class="pass">PASSED            [ 50%]</span>
+test_water_flow.py::test_pressure_loss_from_fittings <span class="pass">PASSED        [ 66%]</span>
+test_water_flow.py::test_reynolds_number <span class="pass">PASSED                    [ 83%]</span>
+test_water_flow.py::test_pressure_loss_from_pipe_reduction <span class="pass">PASSED  [100%]</span>
 
-<span class="pass">==================== 5 passed in 0.10s =====================</span></pre>
+<span class="pass">=========================== 3 passed in 0.08s ===========================</span></pre>
         </div></li>
 
-        <li><div>Run your <code>sentences.py</code> program and ensure
-        that your program’s output is similar to the sample run output
-        shown here. Because your program randomly chooses the
-        determiners, nouns, verbs, and prepositions, your program will
-        generate different sentences than the ones shown here.
-
-<pre class="console">&gt; python sentences.py
-One girl talked for the car.
-Some dogs drank above many rabbits.
-One bird drinks off one child.
-Some children laugh at many dogs.
-The child will run on the car.
-Some rabbits will talk about some cats.</pre>
+        <li><div>Run your finished <code>water_flow.py</code> program.
+        Enter the input shown below and ensure that your program prints
+        the output shown below.
+<pre class="console">
+Height of water tower (meters): <span class="input">36.6</span>
+Height of water tank walls (meters): <span class="input">9.1</span>
+Length of supply pipe from tank to lot (meters): <span class="input">1524.0</span>
+Number of 90° angles in supply pipe: <span class="input">3</span>
+Length of pipe from supply to house (meters): <span class="input">15.2</span>
+Pressure at house: 158.7 kilopascals
+</pre>
         </div></li>
     </ol>
 
@@ -271,47 +376,58 @@ Some rabbits will talk about some cats.</pre>
     your program if you wish.</p>
 
     <ul class="long">
-        <li><div>Within your <code>main</code> function add another call
-        to <code>get_prepositional_phrase</code> so that each sentence
-        includes two prepositional phrases like this:
+        <li><div>Inside the functions of your <code>water_flow.py</code>
+        program, you may have typed numbers for Earth’s acceleration of
+        gravity, the density of water, and the dynamic viscosity of
+        water. Instead of using the numbers inside your functions,
+        define the following constants outside your functions. Then use
+        the constant names in place of the numbers inside your
+        functions.
 
-        <blockquote>One girl across one cat talked for the car.<br>
-        A bird near the rabbit drinks off one child.<br>
-        The child under the cat will run on the car.<br>
-        Some dogs without a cat drank above many rabbits.<br>
-        Some children from a bird laugh at many dogs.<br>
-        Some rabbits behind one man will talk about some cats.</blockquote>
+        <table class="center"><thead>
+            <tr><th>Name</th> <th>Value</th></tr>
+        </thead><tbody>
+            <tr><td>EARTH_ACCELERATION_OF_GRAVITY</td>
+                <td class="number">9.80665<span class="hidden">00</span></td></tr>
+            <tr><td>WATER_DENSITY</td>
+                <td class="number">998.2<span class="hidden">000000</span></td></tr>
+            <tr><td>WATER_DYNAMIC_VISCOSITY</td>
+                <td class="number">0.0010016</td></tr>
+        </tbody></table>
         </div></li>
 
-        <li><div>Write a function named <code>get_adjective</code> and
-        call it in your <code>main</code> function to add an adjective
-        to the sentences produced by your program. Does it make sense to
-        call <code>get_adjective</code> in your
-        <code>get_prepositional_phrase</code> function?</div></li>
+        <li><div>The functions that you wrote for this assignment,
+        calculate water pressure in kilopascals (kPa). In the United
+        States, water pressure is usually expressed in pounds per square
+        inch (psi). Write a function in your <code>water_flow.py</code>
+        program that converts kPa to psi. Then at the bottom of your
+        <code>main</code> function, add code that calls your conversion
+        function and prints the final pressure value in both kPa and
+        psi.</div></li>
 
-        <li><div>In <code>test_sentences.py</code> write a function
-        named <code>test_get_adjective</code> that tests the
-        <code>get_adjective</code> function.</div></li>
-
-        <li><div>Write a function named <code>get_adverb</code> and
-        call it in your <code>main</code> function to add an adverb to
-        the sentences produced by your program.</div></li>
-
-        <li><div>In <code>test_sentences.py</code> write a function
-        named <code>test_get_adverb</code> that tests the
-        <code>get_adverb</code> function.</div></li>
+        <li><div>Add a test function to your
+        <code>test_water_flow.py</code> file that verifies that your
+        psi-from-kPa conversion function works correctly. In your test
+        function, call your conversion function multiple times so that
+        your test function is a rigorous test.</div></li>
     </ul>
 
     <h2 id="ponder">Ponder</h2>
-    <p>How hard would it be to modify your program to pass the Turing
-    test?</p>
+    <p>To complete this prove assignment, you wrote at least six program
+    functions that perform calculations. Some of the calculations are
+    complex, especially the calculation for pressure loss from pipe
+    reduction. You also wrote a test function for each program function
+    except <code>main</code>. Did the test functions help you find
+    mistakes in your program functions? Can you see why it is important
+    to write and run test functions when you are developing a large
+    program?</p>
 
     <h2 id="submit">Submission</h2>
     <p>To submit your program, return to I‑Learn and do these two
     things:</p>
     <ol>
-        <li><div>Upload your <code>sentences.py</code> and
-        <code>test_sentences.py</code> files for feedback.</div></li>
+        <li><div>Upload your <code>water_flow.py</code> and
+        <code>test_water_flow.py</code> files for feedback.</div></li>
 
         <li><div>Add a submission comment that specifies the grading
         category that best describes your program along with a one or
