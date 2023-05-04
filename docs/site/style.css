@@ -717,7 +717,7 @@ article pre.console > span.fail { color: red; }
 
 @media screen {
 	/* A button that copies code to the clipboard. */
-	article div.example > pre > .copy {
+	article div.example > button.copy {
 		visibility: hidden;
 		position: absolute;
 		top: 0.5em;
@@ -731,12 +731,12 @@ article pre.console > span.fail { color: red; }
 		cursor: pointer;
 	}
 
-	article div.example > pre:hover > .copy {
+	article div.example:hover > button.copy {
 		visibility: visible;
 	}
 }
 @media print {
-	article div.example > pre > .copy {
+	article div.example > button.copy {
 		display: none;
 	}
 }

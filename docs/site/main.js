@@ -633,7 +633,7 @@ cse111.linenums = {
 	addCodeCopyButtons : function() {
 		function copyFunc(event) {
 			let button = event.currentTarget;
-			let pre = button.parentElement;
+			let pre = button.parentElement.querySelector('pre.hljs');
 			let text = pre.textContent;
 
 			// Copy the text to the clipboard.
@@ -669,8 +669,7 @@ cse111.linenums = {
 					{type : 'button', title : copyHint});
 			button.appendChild(image);
 			button.addEventListener('click', copyFunc);
-			let pre = div.querySelector('pre.python, pre.csv, pre.sql');
-			pre.appendChild(button);
+			div.appendChild(button);
 		}
 	}
 };
