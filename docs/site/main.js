@@ -380,6 +380,7 @@ cse111.common = {
 			function listener(event) {
 				event.clipboardData.setData('text/plain', newURL);
 				event.preventDefault();
+				event.stopPropagation();
 			}
 			document.addEventListener('copy', listener);
 			document.execCommand('copy');
@@ -633,13 +634,15 @@ cse111.linenums = {
 	addCodeCopyButtons : function() {
 		function copyFunc(event) {
 			let button = event.currentTarget;
-			let pre = button.parentElement;
+			let div = button.parentElement;
+			let pre = div.querySelector('pre');
 			let text = pre.textContent;
 
 			// Copy the text to the clipboard.
 			function listener(event) {
 				event.clipboardData.setData('text/plain', text);
 				event.preventDefault();
+				event.stopPropagation();
 			}
 			document.addEventListener('copy', listener);
 			document.execCommand('copy');
@@ -664,13 +667,28 @@ cse111.linenums = {
 		// <div class="example"> element.
 		let elements = document.body.querySelectorAll('div.example');
 		for (let div of elements) {
+			// Create a button.copy element.
 			let image = createSVG('svgCopy', null, copyHint);
 			let button = createElem('button', ['copy'],
 					{type : 'button', title : copyHint});
 			button.appendChild(image);
 			button.addEventListener('click', copyFunc);
+
+			// Create a div to contain the pre.python (or pre.csv or
+			// pre.sql) and button.copy elements.
+			let code = createElem('div', ['code']);
+
+			// Move the pre.python, pre.csv, or pre.sql element from the
+			// div.example element into the new div.code element.
 			let pre = div.querySelector('pre.python, pre.csv, pre.sql');
-			pre.appendChild(button);
+			let next = pre.nextSibling;
+			div.removeChild(pre);
+			code.appendChild(pre);
+
+			code.appendChild(button);
+
+			// Insert the new div container.
+			div.insertBefore(code, next);
 		}
 	}
 };
