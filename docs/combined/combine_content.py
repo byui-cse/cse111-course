@@ -3,7 +3,7 @@ import re
 import subprocess
 import webbrowser
 
-chrome_pathname = "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe"
+chrome_pathname = "C:/Program Files/Google/Chrome/Application/chrome.exe"
 edge_pathname = "C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"
 
 zip_pathname = "combined/cse111_content.zip"
@@ -59,12 +59,6 @@ image_filenames = [
     "lesson01/install.png",
     "lesson01/light_green_run.png",
     "lesson03/cylinder.png",
-    "lesson03/draw2d/colors.png",
-    "lesson03/draw2d/grid.png",
-    "lesson03/draw2d/random.png",
-    "lesson03/draw2d/rectangular.png",
-    "lesson03/draw2d/repeated.png",
-    "lesson03/draw2d/two_trees.png",
     "lesson03/empty.png",
     "lesson04/cone.png",
     "lesson04/gallery/adessa.png",
@@ -150,7 +144,6 @@ content_filenames = [
     "lesson03/teach.html",
     "lesson03/teach_solution.py",
     "lesson03/prove.html",
-    "lesson03/draw2d.html",
 
     "lesson04/prepare.html",
     "lesson04/check.html",

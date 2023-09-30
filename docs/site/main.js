@@ -369,6 +369,8 @@ cse111.common = {
 		const strings = cse111.strings;
 		const createElem = cse111.createElement;
 
+		/** Copies a URL to the clipboard so that it can be quickly
+		 * pasted into another document that references this document. */
 		function copyFunc(event) {
 			let span = event.currentTarget;
 			let heading = span.parentElement;
@@ -629,9 +631,22 @@ cse111.linenums = {
 	},
 
 
-	/** Adds a copy button to each <pre class="python"> element
-	 * that is inside a <div class="example"> element. */
+	/** Adds a copy button to each <div class="example"> element. When
+	 * this function is finished the structure of each
+	 * <div class="example"> element and its children will be this:
+	 *
+	 * <div class="example" id="ex#">
+	 *     <pre class="linenums"></pre>
+	 *     <div class="code">
+	 *         <pre class="python"> ... </pre>
+	 *         <button type="button" class="copy"> ... </button>
+	 *     </div>
+	 *     <pre class="console"> ... </pre>
+	 * </div>
+	 */
 	addCodeCopyButtons : function() {
+		/** Copies example code to the clipboard so that a student can
+		 * paste it into her program and experiment with it. */
 		function copyFunc(event) {
 			let button = event.currentTarget;
 			let div = button.parentElement;
