@@ -4,10 +4,6 @@ def main():
         # of the phone numbers into a list named phone_numbers.
         phone_numbers = read_list("phone_numbers.txt")
 
-        # Print the list of phone numbers which will show that
-        # some of the phone number don't have an area code.
-        print(phone_numbers)
-
         # Some of the phone numbers in phone_numbers.txt do not start
         # with an area code. Replace each short phone number with a
         # phone number that begins with the area code "208-" To do this,

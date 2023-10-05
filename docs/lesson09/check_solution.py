@@ -11,7 +11,7 @@ def main():
     provinces_list = read_list("provinces.txt")
 
     # As a debugging aid, print the entire list.
-    print(provinces_list)
+    #print(provinces_list)
 
     # Remove the first element from the list.
     provinces_list.pop(0)
@@ -25,7 +25,10 @@ def main():
     for i in range(len(provinces_list)):
         if provinces_list[i] == "AB":
             provinces_list[i] = "Alberta"
-    #print(provinces_list)
+
+    # Print the list to show that all occurrences of "AB"
+    # are changed to "Alberta".
+    print(provinces_list)
 
     # Call the list.count method which will count the
     # number of times that Alberta appears in the list.
