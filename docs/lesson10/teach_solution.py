@@ -57,8 +57,8 @@ def main():
                 # in injuries and fatalities.
                 print(year, injur, fatal, sep=", ")
 
-    except (FileNotFoundError, PermissionError) as error:
-        print(error)
+    except FileNotFoundError as not_found_err:
+        print(not_found_err)
         print("Please choose a different file.")
 
     except ValueError as val_err:

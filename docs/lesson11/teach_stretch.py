@@ -30,8 +30,8 @@ def main():
         print("Ordered by Birth Month and Day")
         print_list(sorted_list_3)
 
-    except (FileNotFoundError, PermissionError) as error:
-        print(type(error).__name__, error, sep=": ")
+    except FileNotFoundError as not_found_err:
+        print(type(not_found_err).__name__, not_found_err, sep=": ")
 
 
 def sort_oldest_to_youngest(students_list):

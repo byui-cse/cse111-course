@@ -76,9 +76,8 @@
         and <code>except</code> blocks to a program to handle errors
         that might occur while the program is executing.</div></li>
 
-        <li class="reference"><div><a href="https://docs.python.org/3/library/functions.html#open">open function</a>,
-        <a href="https://docs.python.org/3/library/exceptions.html#FileNotFoundError">FileNotFoundError</a>, and
-        <a href="https://docs.python.org/3/library/exceptions.html#PermissionError">PermissionError</a></div></li>
+        <li class="reference"><div><a href="https://docs.python.org/3/library/functions.html#open">open function</a> and
+        <a href="https://docs.python.org/3/library/exceptions.html#FileNotFoundError">FileNotFoundError</a></div></li>
 
         <li class="reference"><div><a href="https://docs.python.org/3/library/functions.html#float">float function</a> and
         <a href="https://docs.python.org/3/library/exceptions.html#ValueError">ValueError</a></div></li>
@@ -104,11 +103,9 @@
         that lines&nbsp;21&ndash;22 contain code to ask the user for a
         filename and then open that file. It is possible that when the
         computer executes line&nbsp;21, the user may enter the name of a
-        file that does not exist or may enter the name of a file that
-        the user does not have permission to read. These two situations
-        cause the computer to raise a <code>FileNotFoundError</code> or
-        <code>PermissionError</code> when the computer tries to open the
-        file at line&nbsp;22.</div></li>
+        file that does not exist This will cause the computer to raise a
+        <code>FileNotFoundError</code> when the computer tries to open
+        the file at line&nbsp;22.</div></li>
 
         <li><div>Notice that lines&nbsp;25&ndash;26 of
         <code>accidents.py</code> contains code to prompt the user for a
@@ -135,8 +132,8 @@
     <h3 id="required">Core Requirements</h3>
     <ol class="long">
         <li><div>Add exception handling code that prints a useful error
-        message when the computer raises <code>FileNotFoundError</code>
-        or <code>PermissionError</code>.</div></li>
+        message when the computer raises
+        <code>FileNotFoundError</code>.</div></li>
 
         <li><div>Add exception handling code that prints a useful error
         message when the computer raises <code>ValueError</code> while
@@ -171,14 +168,9 @@
 
         <li><div>Test <em>all</em> of your error handling code,
         including the code that handles <code>ZeroDivisionError</code>
-        and <code>PermissionError</code>. To test
-        <code>ZeroDivisionError</code>, you could temporarily change
-        one of the numbers in the "Fatal Crashes" column of
-        <code>accidents.csv</code> to zero (0). To test
-        <code>PermissionError</code>, you could create a CSV file or a
-        simple text file and then use File Explorer or Finder to change
-        the permissions on that file so that your account doesn’t have
-        permission to read that file.</div></li>
+        To test <code>ZeroDivisionError</code>, you could temporarily
+        change and save one of the numbers in the "Fatal Crashes" column
+        of <code>accidents.csv</code> to zero (0).</div></li>
     </ol>
 
     <h2 id="testing">Testing Procedure</h2>
@@ -193,11 +185,6 @@
 <pre class="console">&gt; python accidents.py
 Name of file that contains NHTSA data: <span class="input">dentiaccs.vsc</span>
 [Errno 2] No such file or directory: 'dentiaccs.vsc'
-Please choose a different file.
-
-&gt; python accidents.py
-Name of file that contains NHTSA data: <span class="input">unreadable.csv</span>
-[Errno 13] Permission denied: 'unreadable.csv'
 Please choose a different file.
 
 &gt; python accidents.py

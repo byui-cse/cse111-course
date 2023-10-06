@@ -29,8 +29,8 @@ def main():
         # Call the print_list function to print the sorted list.
         print_list(sorted_list)
 
-    except (FileNotFoundError, PermissionError) as error:
-        print(type(error).__name__, error, sep=": ")
+    except FileNotFoundError as not_found_err:
+        print(type(not_found_err).__name__, not_found_err, sep=": ")
 
 
 def read_compound_list(filename):

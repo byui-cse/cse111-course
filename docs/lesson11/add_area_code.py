@@ -14,8 +14,8 @@ def main():
         # Print the list with the corrected phone numbers.
         print(new_numbers)
 
-    except (FileNotFoundError, PermissionError) as error:
-        print(type(error).__name__, error, sep=": ")
+    except FileNotFoundError as not_found_err:
+        print(type(not_found_err).__name__, not_found_err, sep=": ")
 
 
 def add_area_code(phone_number):

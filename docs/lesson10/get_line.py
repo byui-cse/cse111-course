@@ -33,15 +33,6 @@ def main():
         print("Run the program again and enter the" \
                 " name of an existing file.")
 
-    except PermissionError as perm_err:
-        # This code will be executed if the user enters the name
-        # of a file and doesn't have permission to read that file.
-        print()
-        print(type(perm_err).__name__, perm_err, sep=": ")
-        print(f"You don't have permission to read {filename}.")
-        print("Run the program again and enter the name" \
-                " of a file that you are allowed to read.")
-
     except ValueError as val_err:
         # This code will be executed if the user enters
         # an invalid integer for the line number.

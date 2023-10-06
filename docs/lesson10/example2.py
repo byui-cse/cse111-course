@@ -33,7 +33,7 @@ def main():
         # one digit after the decimal point.
         print(f"{avg:.1f}")
 
-    except FileNotFoundError as file_not_found_err:
+    except FileNotFoundError as not_found_err:
         print(f"Error: {filename} does not exist.")
     except PermissionError as perm_err:
         print(f"Error: you don't have permission to read {filename}.")
