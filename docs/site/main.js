@@ -268,15 +268,8 @@ cse111.common = {
 		}
 
 		// Create the menu items.
-		addMenuItem('svgSun', strings.lightText,
-				strings.lightHint,
-				function() { self.setBrightness('light'); }, ['light']);
-		addMenuItem('svgMoon', strings.darkText,
-				strings.darkHint,
-				function() { self.setBrightness('dark'); }, ['dark']);
-
 		addMenuItem('svgList', strings.contentsText,
-				strings.contentsHint, filenames.contents, ['first']);
+				strings.contentsHint, filenames.contents);
 
 		const head = document.head;
 		const prev = head.querySelector('link[rel="prev"]');
@@ -301,6 +294,13 @@ cse111.common = {
 			addMenuItem('svgFileZip', strings.zipText,
 					strings.zipHint, filenames.zipFile, null, true);
 		}
+
+		addMenuItem('svgSun', strings.lightText,
+				strings.lightHint,
+				function() { self.setBrightness('light'); }, ['light', 'first']);
+		addMenuItem('svgMoon', strings.darkText,
+				strings.darkHint,
+				function() { self.setBrightness('dark'); }, ['dark', 'first']);
 
 		// Add the navigation menu to the document body.
 		let nav = createElem('nav', ['menu', 'closed']);
