@@ -595,21 +595,21 @@ cse111.linenums = {
 			let state = target.getAttribute('data-on');
 			if (state == null) {
 				// Highlights are on because the user moved the mouse
-				// into the target before clicking on it. Because the
-				// user clicked on the target, set the highlights to
-				// stay on after the user moves out of the target.
+				// into the target before clicking it. Because the user
+				// clicked the target, set the highlights to stay on
+				// after the user moves out of the target.
 				target.removeEventListener('mouseover', on);
 				target.removeEventListener('mouseout', off);
 				target.setAttribute('data-on', 'true');
 				target.setAttribute('title', offHint);
 			}
 			else {
-				// Highlights are on because the user clicked on the
-				// target. The user has now clicked on the target again,
+				// Highlights are on because the user clicked the
+				// target. The user has now clicked the target again,
 				// so turn the highlights off.
 				let lineNumbers = getAllLineNumbers(target);
 				let references = getReferences(target);
-				for (number of references) {
+				for (let number of references) {
 					let elem = getLineNumber(lineNumbers, number);
 					elem.classList.remove('hi');
 				}
