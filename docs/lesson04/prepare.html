@@ -120,7 +120,7 @@
     <p>Because local variables are visible only within the function
     where they are defined, a programmer can define two variables with
     the same name as long as he defines them in different functions. In
-    the previous example, both of the <code>square_area</code> and
+    the previous example, both the <code>square_area</code> and
     <code>rectangle_area</code> functions contain a parameter named
     <var>length</var> and a variable named <var>area</var>. All four of
     these variables are entirely separate and do not conflict with each
@@ -130,12 +130,13 @@
     <p>When you write a program, you should use local variables whenever
     possible and use global varibles only when absolutely necessary.
     Global variables (not global constants) make a program hard to
-    understand and easy to make mistakes in the code. If you must use a
+    understand and easy to write mistakes in the code. If you must use a
     global variable in your program, it is important to know that all
-    functions can <em>read</em> the value of a global variable directly.
-    However, in order for a function to <em>modify</em> the value of a
-    global variable, the global variable must be declared as
-    <code>global</code> inside the function. W3Schools has
+    functions can <em>access</em> or <em>read</em> the value of a global
+    variable directly. However, in order for a function to
+    <em>modify</em> the value of a global variable, the global variable
+    must be declared as <code>global</code> inside the function.
+    W3Schools has
     <a href="https://www.w3schools.com/python/python_variables_global.asp">examples
     of using global variables</a> in Python.</p>
 
