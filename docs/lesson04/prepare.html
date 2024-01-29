@@ -127,6 +127,18 @@
     other in any way because the scope of each variable is local to the
     function where it is defined.</p>
 
+    <p>When you write a program, you should use local variables whenever
+    possible and use global varibles only when absolutely necessary.
+    Global variables (not global constants) make a program hard to
+    understand and easy to make mistakes in the code. If you must use a
+    global variable in your program, it is important to know that all
+    functions can <em>read</em> the value of a global variable directly.
+    However, in order for a function to <em>modify</em> the value of a
+    global variable, the global variable must be declared as
+    <code>global</code> inside the function. W3Schools has
+    <a href="https://www.w3schools.com/python/python_variables_global.asp">examples
+    of using global variables</a> in Python.</p>
+
     <h3 id="scope_mistake">Common Mistake</h3>
     <p>A common mistake that many programmers make is to assume that a
     local variable can be used inside other functions. For example, the
@@ -251,7 +263,7 @@ area: 54.6</pre>
 # Define a function with two parameters. The
 # second parameter has a default value of 360.
 <span data-scope="arc_length">def arc_length(<span class="varDef">radius</span>, <em><span class="varDef">degrees</span>=360</em>):
-    """Compute and return the length of an arc of a circle."""
+    """Compute and return the length of an arc of a circle"""
     <span class="varDef">circumference</span> = 2 * <span class="varUse">math</span>.pi * <span class="varUse">radius</span>
     <span class="varDef">length</span> = <span class="varUse">circumference</span> * <span class="varUse">degrees</span> / 360
     return <span class="varUse">length</span></span>
