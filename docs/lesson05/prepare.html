@@ -247,13 +247,13 @@ def test_min():
     <code>approx</code> will compare the actual value and expected value
     and return <code>True</code> if the difference between the two
     values is less than one millionth of the expected value. In other
-    words, one millionth of the expected value is the default tolerance.
-    Sometimes this is not the right tolerance. The <code>approx</code>
-    function has two parameters, <code>rel</code> and <code>abs</code>,
-    that we can use to give <code>approx</code> a better tolerance to
-    use in its comparison. For example, to test the
-    <code>math.sqrt</code> function, we could write a test function like
-    this:</p>
+    words, one millionth of the expected value (expected_value /
+    1000000) is the default tolerance. Sometimes this is not the right
+    tolerance. The <code>approx</code> function has two parameters,
+    <code>rel</code> and <code>abs</code>, that we can use to give
+    <code>approx</code> a better tolerance to use in its comparison. For
+    example, to test the <code>math.sqrt</code> function, we could write
+    a test function like this:</p>
 
 <div class="example" id="ex5"><pre class="linenums"></pre>
 <pre class="python"># Example 5
@@ -264,11 +264,12 @@ def test_sqrt():
 
     <p>Notice the <code>rel</code> named argument in
     <span class="cross" data-ref="ex5">line&nbsp;4</span> of the
-    previous example. The <code>rel</code> named argument causes
-    <code>approx</code> to compute the tolerance relative to the
-    expected value. This means that the <code>assert</code> statement in
-    the previous example causes the computer to verify that the actual
-    value returned from <code>math.sqrt(5)</code> is within 1% (0.01) of
+    previous example. The <code>rel</code> named argument causes the
+    <code>approx</code> function to compute the tolerance relative to
+    the expected value. This means that the <code>assert</code>
+    statement and the <code>approx</code> function at line&nbsp;4 in the
+    previous example cause the computer to verify that the actual value
+    returned from <code>math.sqrt(5)</code> is within 1%&nbsp;(0.01) of
     2.24. When a programmer uses the <code>rel</code> named argument,
     the <code>approx</code> function uses code similar to example&nbsp;6
     to determine if the actual and expected values are equal.</p>
