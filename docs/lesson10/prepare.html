@@ -158,9 +158,9 @@ except Exception as excep:
 </pre></div>
 
     <p>Or a bare <code>except</code> block may handle anything that can
-    be raised, including <code>SystemExit</code>,
-    <code>KeyboardInterrupt</code> and <code>GeneratorExit</code>, like
-    the code at
+    be raised, including <code>KeyboardInterrupt</code>,
+    <code>SystemExit</code>, and <code>GeneratorExit</code>, like the
+    code at
     <span class="cross" data-ref="ex1">line&nbsp;23</span>:</p>
 <div class="example"><pre class="python">
 except:
@@ -168,28 +168,23 @@ except:
 
     <p>The Python programming language requires us to order
     <code>except</code> blocks from most specific at the top to least
-    specific (most general) at the bottom. However, in most programs, it
-    is a bad idea to write <code>except</code> blocks that are very
-    general, including an <code>except</code> block that handles all
-    possible exception types
-    (<span class="cross" data-ref="ex1">line&nbsp;19</span>)
-    and a bare <code>except</code> block
-    (<span class="cross" data-ref="ex1">line&nbsp;23</span>).</p>
+    specific (most general) at the bottom.</p>
 
-    <p>In a Python program, it is usually a bad idea to write an
-    <code>except</code> block that handles all types of exceptions or a
-    bare except block because such a block will handle
-    <code>SyntaxError</code>. Normally, a program should not handle
-    <code>SyntaxError</code>. Instead, a program should crash for a
-    syntax error and print the line number where the syntax error
-    occurred so that a programmer can find and fix the syntax error. As
-    explained in the
-    <a href="../lesson06/prepare.html#err_types">preparation content for
-    lesson 6</a>, syntax errors are caused by a programmer mistyping
-    code and not by bad user input or missing files. A programmer should
-    find and fix all syntax errors in a program before the program is
-    given to users, so there is no reason to handle syntax errors in an
-    <code>except</code> block.</p>
+    <p>In a Python program, it is usually a bad idea to write a bare
+    <code>except</code> block
+    (<span class="cross" data-ref="ex1">line&nbsp;23</span>)
+    because a bare except block will handle
+    <code>KeyboardInterrupt</code> and <code>SystemExit</code>. Writing
+    code to handle <code>KeyboardInterrupt</code>, including a bare
+    except block, may make it difficult for a user to quit your program.
+    The most common reason to write <code>try</code> and
+    <code>except</code> blocks is to write code that will enable a
+    program to recover from an error. Writing recovery code is easiest
+    in an <code>except</code> block that includes the exception type
+    like the <code>except</code> blocks at lines
+    <span class="cross" data-ref="ex1">9,&nbsp;12, and&nbsp;15</span>.
+    This is why professional programmers rarely write bare except
+    blocks.</p>
 
     <p>As shown at
     <span class="cross" data-ref="ex1">line&nbsp;27</span> in
