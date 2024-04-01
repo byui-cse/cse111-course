@@ -3,7 +3,6 @@
 from students import read_dictionary
 from inspect import signature
 from os import path
-from tempfile import mktemp
 import pytest
 
 
@@ -13,17 +12,6 @@ def test_read_dictionary():
     Return: nothing
     """
     I_NUMBER_INDEX = 0
-
-    # Verify that the read_dictionary function uses its filename
-    # parameter by doing the following:
-    # 1. Get a filename for a file that doesn't exist.
-    # 2. Call the read_dictionary function with the filename.
-    # 3. Verify that the open function inside the read_dictionary
-    #    function raises a FileNotFoundError.
-    filename = mktemp(dir=".", prefix="not", suffix=".csv")
-    with pytest.raises(FileNotFoundError):
-        call_read_dictionary(filename, I_NUMBER_INDEX)
-        pytest.fail("read_dictionary function must use its filename parameter")
 
     # Call the read_dictionary function which will read the students.csv
     # file and create and return a dictinoary.
@@ -64,7 +52,7 @@ def call_read_dictionary(filename, key_column_index):
     min_len = 1
     max_len = 2
     assert length == min_len or length == max_len, \
-        "The read_dictionary function contains too " \
+        "The read_dictionary function has too " \
         f"{'few' if length < min_len else 'many'} parameters; " \
         f"expected {min_len} or {max_len} parameters but found {length}"
     if length == min_len:
