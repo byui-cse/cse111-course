@@ -175,14 +175,15 @@ Ana Soares</pre>
 
     <h3 id="compound_vals">Compound Values</h3>
     <p>A <dfn>simple value</dfn> is a value that doesn’t contain parts,
-    such as an integer. A <dfn>compound value</dfn> is a value that has
-    parts, such as a list. In example&nbsp;1 above, the students
-    dictionary has simple keys and values. Each key is a single string,
-    and each value is a single string. It is possible to store compound
-    values in a dictionary. Example&nbsp;2 shows a students dictionary
-    where each value is a Python list. Because each list contains
-    multiple parts, we say that the dictionary stores compound
-    values.</p>
+    such as an integer or a string. A <dfn>compound value</dfn> is a
+    value that has parts, such as a list. In example&nbsp;1,
+    <span class="cross" data-ref="ex1">lines&nbsp;6&ndash;12</span>
+    above, the students dictionary has simple keys and values. Each key
+    is a single string, and each value is a single string. It is
+    possible to store compound values in a dictionary. Example&nbsp;2
+    shows a students dictionary where each value is a Python list.
+    Because each list contains multiple parts, we say that the
+    dictionary stores compound values.</p>
 
 <div class="example" id="ex2"><pre class="python"># Example 2
 
@@ -262,7 +263,8 @@ def main():
     than the <code>for</code> loop. Therefore, when you need to write
     code to find an item in a dictionary, don’t write a loop. Instead,
     write one line of code that uses the square brackets
-    ([&nbsp;and&nbsp;]) and a key to find an item. Example&nbsp;4 shows
+    ([&nbsp;and&nbsp;]) and a key to find an item. Example&nbsp;4,
+    <span class="cross" data-ref="ex4">line&nbsp;29</span> shows
     the correct way to find an item in a dictionary.</p>
 
 <div class="example" id="ex4"><pre class="linenums"></pre>
@@ -379,7 +381,8 @@ Total credits earned by all students: 47</pre>
     contains working Python code. Even though the code works, we can
     combine <span class="cross" data-ref="ex5">lines&nbsp;25&ndash;27</span>
     into a single line of code by using a Python shortcut called
-    unpacking. Instead of writing lines&nbsp;25&ndash;27, like this:</p>
+    <dfn>unpacking</dfn>. Instead of writing lines&nbsp;25&ndash;27,
+    like this:</p>
 
 <div class="example"><pre class="python">
     for item in students_dict.items():
@@ -715,6 +718,29 @@ Values: ['Clint Huish', 'Amelia Davis', 'Ana Soares',
         <a href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">tutorial about dictionaries</a></div></li>
         <li><div>RealPython tutorial titled <a href="https://realpython.com/python-dicts/">Dictionaries in Python</a></div></li>
     </ul>
+
+    <h3 id="dict_apps">Some Ways to Use Dictionaries</h3>
+    <p>Dictionaries are an important programming tool that you can use
+    to use to solve different types of computing problems. You can use
+    dictionaries to count many things, to group things, and to make
+    finding things very fast.
+
+    <h4>Counting</h4>
+    <p>Consider a compound list that contains data about many cars,
+    including the VIN, manufacturer, year manufactured, and color. We
+    need a program to count how many of the cars were made by each
+    manufacturer. As shown in example&nbsp;8, we can use a dictionary
+    to store a counter for each manufacturer.</p>
+
+    <div class="example" id="ex7"><pre class="linenums"></pre>
+<pre class="python"># Example 7
+
+CARS = [
+    [
+</pre></div>
+
+    <h4>Grouping</h4>
+    <h4>Finding</h4>
 
     <h2 id="summary">Summary</h2>
     <p>A dictionary in a Python program can store many pieces of data

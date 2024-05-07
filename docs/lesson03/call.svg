@@ -2,6 +2,7 @@
 <title>A diagram showing a call to a function and a value returned from
 that function</title>
 <style>
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
 .bk{fill:#fff}
 text{font:1.6px "Source Code Pro",monospace;fill:#000}
 text.em{font-weight:700}
