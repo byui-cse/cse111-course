@@ -1,12 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 383 273">
 <style>
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 .bk{fill:#fff}
 .start{stroke-width:2;stroke:#000;fill:none}
 
 .std>rect,.user>rect{stroke-width:1;stroke:#000;rx:4}
 .std>rect{fill:#cfe2fe}
 .user>rect{fill:#fce5cd}
-text{font:13.5px Arial,sans-serif;text-anchor:middle;fill:#000}
+text{font:13.5px "Open Sans",sans-serif;text-anchor:middle;fill:#000}
 
 .call,.return{stroke-width:1;stroke:#444}
 .shaft{fill:none}

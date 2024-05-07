@@ -1,6 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="-0.5 -0.5 211 127">
 <title>A key for reading a call graph</title>
 <style>
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 .bk{fill:#fff}
 text{font-family:"Open Sans",sans-serif;font-size:10px;fill:#000}
 text.title{font-weight:bold;text-anchor:middle}
