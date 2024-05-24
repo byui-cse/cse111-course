@@ -1,5 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 77 99">
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans');
 path{stroke-width:5;stroke:#505050}
 .page{fill:#ff7f50}
 .corner{fill:white}

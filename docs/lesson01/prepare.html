@@ -26,7 +26,7 @@
         "educationalUse": "instruction",
         "copyrightNotice": "Copyright © 2019, Brigham Young University–Idaho. All rights reserved.",
         "datePublished": "2019-11-15",
-        "dateModified": "2023-01-16"
+        "dateModified": "2024-05-24"
     }
     </script>
 </head>
@@ -288,6 +288,49 @@ r: &lt;class 'float'&gt; 8.0</pre>
     <p>Python has many <dfn>arithmetic operators</dfn> including power
     (**), negation (-), multiplication (*), division (/), floor division
     (//), modulo (%), addition (+), and subtraction (-).</p>
+
+    <p>The power operator (**) is sometimes called exponentiation and
+    causes a computer to raise a base number to an exponent. For
+    example, the following Python code causes the computer to calculate
+    and store 125 in the variable <var>result</var> because the value in
+    <var>x</var> is 5 and the value in <var>y</var> is 3 and
+    <span class="expr">5 ** 3</span> or 5<sup>3</sup> or 5 raised to the
+    exponent 3 is 125.</p>
+<div class="example"><pre class="python">x = 5
+y = 3
+result = x ** y</pre></div>
+
+    <p>The modulo operator (%), sometimes called the modulus operator,
+    causes a computer to calculate the remainder after division. For
+    example, the following Python code causes the computer to store 2 in
+    the variable <var>result</var>. The value in <var>x</var> is 17 and
+    the value in <var>y</var> is 3. <span class="expr">17 % 3</span>
+    causes the computer to divide 17 by 3. 17 divided by 3 is 5 with a
+    remainder of 2.</p>
+<div class="example"><pre class="python">x = 17
+y = 3
+result = x % y</pre></div>
+
+    <p>Here are a few more examples of the result of the modulo
+    operator.</p>
+<div class="example"><pre class="python">print(f"21 % 5 == {21 % 5}")
+print(f"45 % 5 == {45 % 5}")
+print(f"5 % 1 == {5 % 1}")
+print(f"3 % 8 == {3 % 8}")
+print(f"-3 % 8 == {-3 % 8}")
+print(f"3 % -8 == {3 % -8}")
+print(f"-3 % -8 == {-3 % -8}")</pre>
+<pre class="console">21 % 5 == 1
+45 % 5 == 0
+5 % 1 == 0
+3 % 8 == 3
+-3 % 8 == 5
+3 % -8 == -5
+-3 % -8 == -3</pre></div>
+
+    <p>For more information, read the answers in this Stack Overflow
+    question about the
+    <a href="https://stackoverflow.com/questions/3883004/how-does-the-modulo-operator-work-on-negative-numbers-in-python">Python modulo operator and negative numbers</a>.</p>
 
     <h3 id="op_prec">Operator Precedence</h3>
     <p>When we write an arithmetic expression that contains more than
