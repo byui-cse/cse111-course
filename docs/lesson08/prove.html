@@ -390,7 +390,19 @@ test_chemistry_2.py::test_compute_molar_mass <span class="pass">PASSED   [100%]<
 Enter the molecular formula of the sample: <span class="input">C6H6</span>
 Enter the mass in grams of the sample: <span class="input">25.04</span>
 78.11184 grams/mole
-0.32057 moles</pre>
+0.32057 moles
+
+&gt; python chemistry.py
+Enter the molecular formula of the sample: <span class="input">Al(OH)3</span>
+Enter the mass in grams of the sample: <span class="input">17.03</span>
+78.00356 grams/mole
+0.21832 moles
+
+&gt; python chemistry.py
+Enter the molecular formula of the sample: <span class="input">Mg(C2H3O2)2</span>
+Enter the mass in grams of the sample: <span class="input">21.94</span>
+142.39304 grams/mole
+0.15408 moles</pre>
         </div></li>
     </ol>
 
@@ -408,6 +420,7 @@ Enter the mass in grams of the sample: <span class="input">25.04</span>
         and their names. For example:
 <div class="example"><pre class="python">
     known_molecules_dict = {
+        "Al(OH)3": "aluminum hydroxide",
         "Al2O3": "aluminum oxide",
         "CH3OH": "methanol",
         "C2H6O": "ethanol",
