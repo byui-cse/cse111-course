@@ -25,7 +25,7 @@
         "educationalUse": "instruction",
         "copyrightNotice": "Copyright © 2019, Brigham Young University–Idaho. All rights reserved.",
         "datePublished": "2019-11-20",
-        "dateModified": "2022-12-09"
+        "dateModified": "2024-09-25"
     }
     </script>
 </head>
@@ -561,6 +561,20 @@ import <var>module_name</var>
 </pre></div>
         </div></li>
     </ol>
+
+    <p>In this lesson, you also learned how to use named arguments when
+    calling a function. Here is a short example that calls the
+    <code>math.isclose</code> function and uses the <code>abs_tol</code>
+    named argument at <span class="cross" data-ref="ex9">line&nbsp;5</span>.</p>
+<div class="example" id="ex9"><pre class="linenums"></pre>
+<pre class="python">import math
+
+x = float(input("Please enter a number: "))
+y = float(input("Please enter another number: "))
+if math.isclose(x, y, <strong>abs_tol=0.001</strong>):
+    print(f"{x} and {y} are nearly equal or equal.")
+else:
+    print(f"{x} and {y} are not close to each other.")</pre></div>
 </article>
 </body>
 </html>
