@@ -125,19 +125,21 @@ def deposit(amount):
     named <code>pip</code> to install <code>pytest</code>.</p>
 
     <p><code>pytest</code> allows a programmer to write simple test
-    functions that use the Python <code>assert</code> statement to
-    verify that a function returns a correct result. For example, if we
-    want to verify that the built-in <code>min</code> function works
-    correctly, we could write a test function like this:</p>
+    functions. The name of each test function should begin with "test_",
+    and each test function should use the Python <code>assert</code>
+    statement to verify that a program function returns a correct
+    result. For example, if we want to verify that the built-in
+    <code>min</code> function works correctly, we could write a test
+    function like this:</p>
 
 <div class="example" id="ex3"><pre class="python">
 def test_min():
     assert min(7, -3, 0, 2) == -3
 </pre></div>
 
-    <p>In the previous function, the <code>assert</code> statement will
-    cause the computer to first call the <code>min</code> function and
-    pass 7, &minus;3, 0, and 2 as arguments to the <code>min</code>
+    <p>In the previous test function, the <code>assert</code> statement
+    will cause the computer to first call the <code>min</code> function
+    and pass 7, &minus;3, 0, and 2 as arguments to the <code>min</code>
     function. The <code>min</code> function will find the minimum value
     of its parameters and return that minimum value. Then the
     <code>assert</code> statement will compare the returned minimum
@@ -411,9 +413,10 @@ pytest.main(["-v", "--tb=line", "-rN", __file__])</pre>
     write a call to <code>pytest.main</code> exactly as shown in
     <span class="cross" data-ref="ex9">line&nbsp;20</span>. This call to
     <code>pytest.main</code> will cause the <code>pytest</code> module
-    to run our test functions. When <code>pytest</code> runs our test
-    functions, it will produce output that tells us if the tests passed
-    or failed like this:</p>
+    to run all the test functions in the <code>test_weather.py</code>
+    file. When <code>pytest</code> runs the test functions, it will
+    produce output that tells us if the tests passed or failed like
+    this:</p>
 
 <pre class="console">&gt; python test_weather.py
 ===================== test session starts ======================
