@@ -25,9 +25,14 @@
         "educationalUse": "instruction",
         "copyrightNotice": "Copyright © 2019 Brigham Young University–Idaho. All rights reserved.",
         "datePublished": "2019-12-11",
-        "dateModified": "2023-02-24"
+        "dateModified": "2024-11-01"
     }
     </script>
+    <style>
+        article details > summary > h3 {
+            display: inline-block;
+        }
+    </style>
 </head>
 
 <body>
@@ -719,28 +724,92 @@ Values: ['Clint Huish', 'Amelia Davis', 'Ana Soares',
         <li><div>RealPython tutorial titled <a href="https://realpython.com/python-dicts/">Dictionaries in Python</a></div></li>
     </ul>
 
-    <h3 id="dict_apps">Some Ways to Use Dictionaries</h3>
+    <h2 id="dict_apps">More Examples</h2>
     <p>Dictionaries are an important programming tool that you can use
     to use to solve different types of computing problems. You can use
     dictionaries to count many things, to group things, and to make
     finding things very fast.
 
-    <h4>Counting</h4>
+    <details>
+    <summary><h3>Counting</h3></summary>
     <p>Consider a compound list that contains data about many cars,
     including the VIN, manufacturer, year manufactured, and color. We
     need a program to count how many of the cars were made by each
     manufacturer. As shown in example&nbsp;8, we can use a dictionary
     to store a counter for each manufacturer.</p>
 
-    <div class="example" id="ex7"><pre class="linenums"></pre>
-<pre class="python"># Example 7
+    <div class="example" id="ex8"><pre class="linenums"></pre>
+<pre class="python"># Example 8
 
 CARS = [
-    [
-</pre></div>
+    # VIN, Manufacturer, Year Manufactured, Model, Color
+    ["JT3HN86R6X0012345", "Toyota", 2019, "Tacoma", "Blue"],
+    ["JTEBU5JR6K0123456", "Toyota", 2021, "4Runner", "Gray"],
+    ["1HGCM82633A012345", "Honda", 2021, "Accord", "Blue"],
+    ["1FTFW1EF2EFA12345", "Ford", 2018, "F-150", "White"],
+    ["KNAGM4AD3F5012345", "Kia", 2020, "Optima", "Black"],
+    ["JTMBFREV9HJ123456", "Toyota", 2020, "RAV4", "White"],
+    ["5FNYF6H59KB123456", "Honda", 2021, "Pilot", "Green"]
+]
 
-    <h4>Grouping</h4>
-    <h4>Finding</h4>
+
+def count_cars_by_manufacturer(cars_data):
+    """
+    Return a list of all the manufacturers in cars_data
+    and the number of cars made by each manufacturer.
+    """
+
+    # Create an empty dictionary that will hold the counters.
+    manufacturers = {}
+
+    # Unpack the data about each car.
+    for vin, manufac, *_ in cars_data:
+
+        if manufac not in manufacturers:
+            # The manufacturer of the current car is NOT in
+            # the dictionary, which means this is the first
+            # car in the cars_data made by that manufacturer
+            # so the count for that manufacturer should be 1.
+            count = 1
+
+        else:
+            # The manufacturer of the current car is in the
+            # dictionary so the new count is the previous
+            # count plus one more.
+            count = manufacturers[manufac] + 1
+
+        # Store the new count in the dictionary.
+        manufacturers[manufac] = count
+
+    # Return a list of the manufacturers
+    # and the number of cars made by each.
+    return manufacturers.items()
+
+
+def main():
+    cars_by_manufac = count_cars_by_manufacturer(CARS)
+    for manufac, count in cars_by_manufac:
+        print(f"{manufac}: {count}")
+
+
+# Call main to start this program.
+if __name__ == "__main__":
+    main()</pre>
+<pre class="console">&gt; python example_8.py
+Toyota: 3
+Honda: 2
+Ford: 1
+Kia: 1</pre>
+    </div>
+    </details>
+
+    <details>
+    <summary><h3>Grouping</h3></summary>
+    </details>
+
+    <details>
+    <summary><h3>Finding</h3></summary>
+    </details>
 
     <h2 id="summary">Summary</h2>
     <p>A dictionary in a Python program can store many pieces of data
