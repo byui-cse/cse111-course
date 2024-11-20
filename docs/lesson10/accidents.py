@@ -35,7 +35,7 @@ def main():
 
         # Use the csv module to create a reader
         # object that will read from the opened file.
-        reader = csv.reader(text_file)
+        reader = csv.reader(text_file, strict=True)
 
         # The first line of the CSV file contains column headings
         # and not a student's I-Number and name, so this statement
