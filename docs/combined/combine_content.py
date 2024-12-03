@@ -21,26 +21,26 @@ site_filenames = [
     "site/hljs/highlight.min.js",
     "site/hljs/vscode.css",
 
-    "site/icons/arrow-left.svg",
-    "site/icons/arrow-right.svg",
-    "site/icons/arrow-up-long.svg",
-    "site/icons/bars.svg",
-    "site/icons/byui-logo.svg",
-    "site/icons/file-pdf.png",
-    "site/icons/file-zip.png",
-    "site/icons/list.svg",
-    "site/icons/magnify-glass.svg",
-    "site/icons/moon.svg",
-    "site/icons/question.svg",
-    "site/icons/sun.svg"
+    #"site/icons/arrow-left.svg",
+    #"site/icons/arrow-right.svg",
+    #"site/icons/arrow-up-long.svg",
+    #"site/icons/bars.svg",
+    #"site/icons/byui-logo.svg",
+    #"site/icons/file-pdf.png",
+    #"site/icons/file-zip.png",
+    #"site/icons/list.svg",
+    #"site/icons/magnify-glass.svg",
+    #"site/icons/moon.svg",
+    #"site/icons/question.svg",
+    #"site/icons/sun.svg"
 
     "site/icons/collapsed.png",
-    "site/icons/copy.png",
+    #"site/icons/copy.png",
     "site/icons/expanded.png",
     "site/icons/logo.png",
-    "site/icons/reference.png",
-    "site/icons/tutorial.png",
-    "site/icons/video.png",
+    #"site/icons/reference.svg",
+    #"site/icons/tutorial.svg",
+    #"site/icons/video.svg",
 ]
 
 image_filenames = [
@@ -61,34 +61,6 @@ image_filenames = [
     "lesson03/cylinder.png",
     "lesson03/empty.png",
     "lesson04/cone.png",
-    "lesson04/gallery/adessa.png",
-    "lesson04/gallery/austin.png",
-    "lesson04/gallery/benjamin.png",
-    "lesson04/gallery/benjamin2.png",
-    "lesson04/gallery/benjamin3.png",
-    "lesson04/gallery/bryson.png",
-    "lesson04/gallery/carter.png",
-    "lesson04/gallery/conner.png",
-    "lesson04/gallery/cort.png",
-    "lesson04/gallery/eric.png",
-    "lesson04/gallery/ethan.png",
-    "lesson04/gallery/grant.png",
-    "lesson04/gallery/jared.png",
-    "lesson04/gallery/jonathan.png",
-    "lesson04/gallery/josh.png",
-    "lesson04/gallery/mark.png",
-    "lesson04/gallery/markus.png",
-    "lesson04/gallery/matthew.png",
-    "lesson04/gallery/matthew2.png",
-    "lesson04/gallery/mike.png",
-    "lesson04/gallery/monica.png",
-    "lesson04/gallery/patrick.png",
-    "lesson04/gallery/rachel.png",
-    "lesson04/gallery/rebecca.png",
-    "lesson04/gallery/robbie.png",
-    "lesson04/gallery/sama.png",
-    "lesson04/gallery/shayue.png",
-    "lesson04/gallery/you.png",
     "lesson05/install_pytest.png",
     "lesson05/open_terminal.png",
     "lesson05/terminal.png",
@@ -271,8 +243,8 @@ def main():
     if cwd.endswith("combined"):
         os.chdir("..")
     zip_content(zip_pathname)
-    combine_html(html_pathname, content_filenames)
-    combine_html(prepare_pathname, prepare_filenames)
+    #combine_html(html_pathname, content_filenames)
+    #combine_html(prepare_pathname, prepare_filenames)
 
 
 def zip_content(outname):
@@ -280,16 +252,17 @@ def zip_content(outname):
         os.remove(outname)
 
     command = ["zip", "-qo9", outname]
+    command.extend(content_filenames)
     command.extend(site_filenames)
     command.extend(image_filenames)
     command.extend(text_filenames)
-    #print(command)
+    print(command)
     subprocess.run(command)
 
-    command = ["zip", "-qo9", outname]
-    command.extend(content_filenames)
+    #command = ["zip", "-qo9", outname]
+    #command.extend(content_filenames)
     #print(command)
-    subprocess.run(command)
+    #subprocess.run(command)
 
 
 def combine_html(outname, innames):
