@@ -121,13 +121,6 @@ def test_make_periodic_table():
         "Zr", "Zirconium", 91.224
     )
 
-    exp_len = int(len(exp_data) / 3)
-    act_len = len(periodic_table_list)
-    assert act_len == exp_len, \
-        "The list returned by the make_periodic_table function" \
-        f" contains too {'few' if act_len < exp_len else 'many'}" \
-        f" elements; expected {exp_len} but found {act_len} elements."
-
     # Create a key function that will be used by the sorted method.
     by_name = lambda element: element[NAME_INDEX]
 
@@ -135,12 +128,18 @@ def test_make_periodic_table():
     periodic_table_list = sorted(periodic_table_list, key=by_name)
 
     # Check each element in the sorted periodic table.
-    for i in range(len(periodic_table_list)):
-        part = i * 3
-        check_element(periodic_table_list[i], exp_data[part : part+3])
+    for i in range(0, len(exp_data), 3):
+        check_element(periodic_table_list, exp_data[i : i+3])
+
+    exp_len = int(len(exp_data) / 3)
+    act_len = len(periodic_table_list)
+    assert act_len == exp_len, \
+        "The list returned by the make_periodic_table function" \
+        f" contains too {'few' if act_len < exp_len else 'many'}" \
+        f" elements; expected {exp_len} but found {act_len} elements."
 
 
-def check_element(actual, expected):
+def check_element(periodic_table_list, expected):
     """Verify that the actual element that came from the
     periodic_table_list contains the same values as the
     expected element.
@@ -151,8 +150,13 @@ def check_element(actual, expected):
     Return: nothing
     """
     name = expected[NAME_INDEX]
-    assert actual[NAME_INDEX] == name, \
+
+    # Verify that name is in the periodic table list.
+    index = binary_search(periodic_table_list, name)
+    assert index >= 0, \
          f"{name} is missing from the periodic table."
+
+    actual = periodic_table_list[index]
 
     # Verify that the element's symbol is correct.
     act_symbol = actual[SYMBOL_INDEX]
@@ -167,6 +171,29 @@ def check_element(actual, expected):
     assert act_mass == approx(exp_mass), \
             f"wrong atomic mass for {name}: " \
             f"expected {exp_mass} but found {act_mass}"
+
+
+def binary_search(periodic_table_list, exp_name):
+    """Find the expected element in the periodic_table_list. Assumes
+    the periodic_table_list is sorted by element name. If the expected
+    element is in the list, return the index where it is stored;
+    otherwise return -insert_point - 1.
+    """
+    left = 0
+    right = len(periodic_table_list) - 1
+    while left <= right:
+        middle = left + ((right - left) >> 1)
+        mid_name = periodic_table_list[middle][NAME_INDEX]
+        if exp_name > mid_name:
+            left = middle + 1
+        elif exp_name < mid_name:
+            right = middle - 1
+        else:
+            return middle
+
+    # The expected element is not present in list, but
+    # if it were, it would be stored at location left.
+    return -(left + 1)
 
 
 # Call the main function that is part of pytest so that the
