@@ -123,16 +123,19 @@ def test_make_periodic_table():
         "Zr", "Zirconium", 91.224
     )
 
+
+    # Check each item in the periodic table dictionary.
+    for i in range(0, len(exp_data), 3):
+        check_element(periodic_table_dict, exp_data[i], exp_data[i+1 : i+3])
+
+    # Verify that the periodic table dictionary
+    # contains the correct number of items.
     exp_len = int(len(exp_data) / 3)
     act_len = len(periodic_table_dict)
     assert act_len == exp_len, \
         "The dictionary returned by the make_periodic_table function" \
         f" contains too {'few' if act_len < exp_len else 'many'}" \
         f" items; expected {exp_len} but found {act_len} items."
-
-    # Check each item in the periodic table dictionary.
-    for i in range(0, len(exp_data), 3):
-        check_element(periodic_table_dict, exp_data[i], exp_data[i+1 : i+3])
 
 
 def check_element(periodic_table_dict, symbol, expected):

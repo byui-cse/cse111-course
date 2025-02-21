@@ -131,6 +131,8 @@ def test_make_periodic_table():
     for i in range(0, len(exp_data), 3):
         check_element(periodic_table_list, exp_data[i : i+3])
 
+    # Verify that the periodic table list
+    # contains the correct number of items.
     exp_len = int(len(exp_data) / 3)
     act_len = len(periodic_table_list)
     assert act_len == exp_len, \
