@@ -26,101 +26,113 @@ def test_make_periodic_table():
         "make_periodic_table function must return a dictionary: " \
         f" expected a dictionary but found a {type(periodic_table_dict)}"
 
+    exp_data = (
+        "Ac", "Actinium", 227,
+        "Al", "Aluminum", 26.9815386,
+        "Sb", "Antimony", 121.76,
+        "Ar", "Argon", 39.948,
+        "As", "Arsenic", 74.9216,
+        "At", "Astatine", 210,
+        "Ba", "Barium", 137.327,
+        "Be", "Beryllium", 9.012182,
+        "Bi", "Bismuth", 208.9804,
+        "B", "Boron", 10.811,
+        "Br", "Bromine", 79.904,
+        "Cd", "Cadmium", 112.411,
+        "Ca", "Calcium", 40.078,
+        "C", "Carbon", 12.0107,
+        "Ce", "Cerium", 140.116,
+        "Cs", "Cesium", 132.9054519,
+        "Cl", "Chlorine", 35.453,
+        "Cr", "Chromium", 51.9961,
+        "Co", "Cobalt", 58.933195,
+        "Cu", "Copper", 63.546,
+        "Dy", "Dysprosium", 162.5,
+        "Er", "Erbium", 167.259,
+        "Eu", "Europium", 151.964,
+        "F", "Fluorine", 18.9984032,
+        "Fr", "Francium", 223,
+        "Gd", "Gadolinium", 157.25,
+        "Ga", "Gallium", 69.723,
+        "Ge", "Germanium", 72.64,
+        "Au", "Gold", 196.966569,
+        "Hf", "Hafnium", 178.49,
+        "He", "Helium", 4.002602,
+        "Ho", "Holmium", 164.93032,
+        "H", "Hydrogen", 1.00794,
+        "In", "Indium", 114.818,
+        "I", "Iodine", 126.90447,
+        "Ir", "Iridium", 192.217,
+        "Fe", "Iron", 55.845,
+        "Kr", "Krypton", 83.798,
+        "La", "Lanthanum", 138.90547,
+        "Pb", "Lead", 207.2,
+        "Li", "Lithium", 6.941,
+        "Lu", "Lutetium", 174.9668,
+        "Mg", "Magnesium", 24.305,
+        "Mn", "Manganese", 54.938045,
+        "Hg", "Mercury", 200.59,
+        "Mo", "Molybdenum", 95.96,
+        "Nd", "Neodymium", 144.242,
+        "Ne", "Neon", 20.1797,
+        "Np", "Neptunium", 237,
+        "Ni", "Nickel", 58.6934,
+        "Nb", "Niobium", 92.90638,
+        "N", "Nitrogen", 14.0067,
+        "Os", "Osmium", 190.23,
+        "O", "Oxygen", 15.9994,
+        "Pd", "Palladium", 106.42,
+        "P", "Phosphorus", 30.973762,
+        "Pt", "Platinum", 195.084,
+        "Pu", "Plutonium", 244,
+        "Po", "Polonium", 209,
+        "K", "Potassium", 39.0983,
+        "Pr", "Praseodymium", 140.90765,
+        "Pm", "Promethium", 145,
+        "Pa", "Protactinium", 231.03588,
+        "Ra", "Radium", 226,
+        "Rn", "Radon", 222,
+        "Re", "Rhenium", 186.207,
+        "Rh", "Rhodium", 102.9055,
+        "Rb", "Rubidium", 85.4678,
+        "Ru", "Ruthenium", 101.07,
+        "Sm", "Samarium", 150.36,
+        "Sc", "Scandium", 44.955912,
+        "Se", "Selenium", 78.96,
+        "Si", "Silicon", 28.0855,
+        "Ag", "Silver", 107.8682,
+        "Na", "Sodium", 22.98976928,
+        "Sr", "Strontium", 87.62,
+        "S", "Sulfur", 32.065,
+        "Ta", "Tantalum", 180.94788,
+        "Tc", "Technetium", 98,
+        "Te", "Tellurium", 127.6,
+        "Tb", "Terbium", 158.92535,
+        "Tl", "Thallium", 204.3833,
+        "Th", "Thorium", 232.03806,
+        "Tm", "Thulium", 168.93421,
+        "Sn", "Tin", 118.71,
+        "Ti", "Titanium", 47.867,
+        "W", "Tungsten", 183.84,
+        "U", "Uranium", 238.02891,
+        "V", "Vanadium", 50.9415,
+        "Xe", "Xenon", 131.293,
+        "Yb", "Ytterbium", 173.054,
+        "Y", "Yttrium", 88.90585,
+        "Zn", "Zinc", 65.38,
+        "Zr", "Zirconium", 91.224
+    )
+
+    exp_len = int(len(exp_data) / 3)
+    act_len = len(periodic_table_dict)
+    assert act_len == exp_len, \
+        "The dictionary returned by the make_periodic_table function" \
+        f" contains too {'few' if act_len < exp_len else 'many'}" \
+        f" items; expected {exp_len} but found {act_len} items."
+
     # Check each item in the periodic table dictionary.
-    check_element(periodic_table_dict, "Ac", ["Actinium", 227])
-    check_element(periodic_table_dict, "Ag", ["Silver", 107.8682])
-    check_element(periodic_table_dict, "Al", ["Aluminum", 26.9815386])
-    check_element(periodic_table_dict, "Ar", ["Argon", 39.948])
-    check_element(periodic_table_dict, "As", ["Arsenic", 74.9216])
-    check_element(periodic_table_dict, "At", ["Astatine", 210])
-    check_element(periodic_table_dict, "Au", ["Gold", 196.966569])
-    check_element(periodic_table_dict, "B", ["Boron", 10.811])
-    check_element(periodic_table_dict, "Ba", ["Barium", 137.327])
-    check_element(periodic_table_dict, "Be", ["Beryllium", 9.012182])
-    check_element(periodic_table_dict, "Bi", ["Bismuth", 208.9804])
-    check_element(periodic_table_dict, "Br", ["Bromine", 79.904])
-    check_element(periodic_table_dict, "C", ["Carbon", 12.0107])
-    check_element(periodic_table_dict, "Ca", ["Calcium", 40.078])
-    check_element(periodic_table_dict, "Cd", ["Cadmium", 112.411])
-    check_element(periodic_table_dict, "Ce", ["Cerium", 140.116])
-    check_element(periodic_table_dict, "Cl", ["Chlorine", 35.453])
-    check_element(periodic_table_dict, "Co", ["Cobalt", 58.933195])
-    check_element(periodic_table_dict, "Cr", ["Chromium", 51.9961])
-    check_element(periodic_table_dict, "Cs", ["Cesium", 132.9054519])
-    check_element(periodic_table_dict, "Cu", ["Copper", 63.546])
-    check_element(periodic_table_dict, "Dy", ["Dysprosium", 162.5])
-    check_element(periodic_table_dict, "Er", ["Erbium", 167.259])
-    check_element(periodic_table_dict, "Eu", ["Europium", 151.964])
-    check_element(periodic_table_dict, "F", ["Fluorine", 18.9984032])
-    check_element(periodic_table_dict, "Fe", ["Iron", 55.845])
-    check_element(periodic_table_dict, "Fr", ["Francium", 223])
-    check_element(periodic_table_dict, "Ga", ["Gallium", 69.723])
-    check_element(periodic_table_dict, "Gd", ["Gadolinium", 157.25])
-    check_element(periodic_table_dict, "Ge", ["Germanium", 72.64])
-    check_element(periodic_table_dict, "H", ["Hydrogen", 1.00794])
-    check_element(periodic_table_dict, "He", ["Helium", 4.002602])
-    check_element(periodic_table_dict, "Hf", ["Hafnium", 178.49])
-    check_element(periodic_table_dict, "Hg", ["Mercury", 200.59])
-    check_element(periodic_table_dict, "Ho", ["Holmium", 164.93032])
-    check_element(periodic_table_dict, "I", ["Iodine", 126.90447])
-    check_element(periodic_table_dict, "In", ["Indium", 114.818])
-    check_element(periodic_table_dict, "Ir", ["Iridium", 192.217])
-    check_element(periodic_table_dict, "K", ["Potassium", 39.0983])
-    check_element(periodic_table_dict, "Kr", ["Krypton", 83.798])
-    check_element(periodic_table_dict, "La", ["Lanthanum", 138.90547])
-    check_element(periodic_table_dict, "Li", ["Lithium", 6.941])
-    check_element(periodic_table_dict, "Lu", ["Lutetium", 174.9668])
-    check_element(periodic_table_dict, "Mg", ["Magnesium", 24.305])
-    check_element(periodic_table_dict, "Mn", ["Manganese", 54.938045])
-    check_element(periodic_table_dict, "Mo", ["Molybdenum", 95.96])
-    check_element(periodic_table_dict, "N", ["Nitrogen", 14.0067])
-    check_element(periodic_table_dict, "Na", ["Sodium", 22.98976928])
-    check_element(periodic_table_dict, "Nb", ["Niobium", 92.90638])
-    check_element(periodic_table_dict, "Nd", ["Neodymium", 144.242])
-    check_element(periodic_table_dict, "Ne", ["Neon", 20.1797])
-    check_element(periodic_table_dict, "Ni", ["Nickel", 58.6934])
-    check_element(periodic_table_dict, "Np", ["Neptunium", 237])
-    check_element(periodic_table_dict, "O", ["Oxygen", 15.9994])
-    check_element(periodic_table_dict, "Os", ["Osmium", 190.23])
-    check_element(periodic_table_dict, "P", ["Phosphorus", 30.973762])
-    check_element(periodic_table_dict, "Pa", ["Protactinium", 231.03588])
-    check_element(periodic_table_dict, "Pb", ["Lead", 207.2])
-    check_element(periodic_table_dict, "Pd", ["Palladium", 106.42])
-    check_element(periodic_table_dict, "Pm", ["Promethium", 145])
-    check_element(periodic_table_dict, "Po", ["Polonium", 209])
-    check_element(periodic_table_dict, "Pr", ["Praseodymium", 140.90765])
-    check_element(periodic_table_dict, "Pt", ["Platinum", 195.084])
-    check_element(periodic_table_dict, "Pu", ["Plutonium", 244])
-    check_element(periodic_table_dict, "Ra", ["Radium", 226])
-    check_element(periodic_table_dict, "Rb", ["Rubidium", 85.4678])
-    check_element(periodic_table_dict, "Re", ["Rhenium", 186.207])
-    check_element(periodic_table_dict, "Rh", ["Rhodium", 102.9055])
-    check_element(periodic_table_dict, "Rn", ["Radon", 222])
-    check_element(periodic_table_dict, "Ru", ["Ruthenium", 101.07])
-    check_element(periodic_table_dict, "S", ["Sulfur", 32.065])
-    check_element(periodic_table_dict, "Sb", ["Antimony", 121.76])
-    check_element(periodic_table_dict, "Sc", ["Scandium", 44.955912])
-    check_element(periodic_table_dict, "Se", ["Selenium", 78.96])
-    check_element(periodic_table_dict, "Si", ["Silicon", 28.0855])
-    check_element(periodic_table_dict, "Sm", ["Samarium", 150.36])
-    check_element(periodic_table_dict, "Sn", ["Tin", 118.71])
-    check_element(periodic_table_dict, "Sr", ["Strontium", 87.62])
-    check_element(periodic_table_dict, "Ta", ["Tantalum", 180.94788])
-    check_element(periodic_table_dict, "Tb", ["Terbium", 158.92535])
-    check_element(periodic_table_dict, "Tc", ["Technetium", 98])
-    check_element(periodic_table_dict, "Te", ["Tellurium", 127.6])
-    check_element(periodic_table_dict, "Th", ["Thorium", 232.03806])
-    check_element(periodic_table_dict, "Ti", ["Titanium", 47.867])
-    check_element(periodic_table_dict, "Tl", ["Thallium", 204.3833])
-    check_element(periodic_table_dict, "Tm", ["Thulium", 168.93421])
-    check_element(periodic_table_dict, "U", ["Uranium", 238.02891])
-    check_element(periodic_table_dict, "V", ["Vanadium", 50.9415])
-    check_element(periodic_table_dict, "W", ["Tungsten", 183.84])
-    check_element(periodic_table_dict, "Xe", ["Xenon", 131.293])
-    check_element(periodic_table_dict, "Y", ["Yttrium", 88.90585])
-    check_element(periodic_table_dict, "Yb", ["Ytterbium", 173.054])
-    check_element(periodic_table_dict, "Zn", ["Zinc", 65.38])
-    check_element(periodic_table_dict, "Zr", ["Zirconium", 91.224])
+    for i in range(0, len(exp_data), 3):
+        check_element(periodic_table_dict, exp_data[i], exp_data[i+1 : i+3])
 
 
 def check_element(periodic_table_dict, symbol, expected):
