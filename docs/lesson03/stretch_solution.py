@@ -5,10 +5,10 @@ Write a Python program named fitness.py that does the following:
 1. Asks the user to enter four values:
     a. gender
     b. birthdate in this format: YYYY-MM-DD
-    c. weight in U.S. pounds
-    d. height in U.S. inches
-2. Converts the weight from pounds to kilograms (1 lb = 0.45359237 kg)
-3. Converts inches to centimeters (1 in = 2.54 cm).
+    c. weight in kilograms, U.S. pounds, or British stones
+    d. height in meters, centimeters, U.S. inches, or U.S. feet and inches
+2. Converts the weight to kilograms
+3. Converts the height to centimeters
 4. Calculates age, BMI, and BMR.
 5. Prints age, weight in kg, height in cm, BMI, and BMR.
 """
