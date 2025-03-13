@@ -37,9 +37,9 @@ def main():
         # object that will read from the opened file.
         reader = csv.reader(text_file, strict=True)
 
-        # The first line of the CSV file contains column headings
-        # and not a student's I-Number and name, so this statement
-        # skips the first line of the CSV file.
+        # The first line of the CSV file contains column
+        # headings and not data about accidents so this
+        # statement skips the first line of the CSV file.
         next(reader)
 
         # Process each row in the CSV file.
