@@ -31,7 +31,7 @@
 </head>
 
 <body>
-<article>
+<main>
     <h1>09 Prepare: Text Files</h1>
     <p>Most computers permanently store lots of data on devices such as
     hard drives, solid state drives, and thumb drives. The data that is
@@ -40,6 +40,7 @@
     a file. During this lesson, you will learn how to write Python code
     that reads text from text files.</p>
 
+    <section>
     <h2 id="videos">Videos</h2>
     <p>Watch the following three videos from Microsoft about writing
     Python code to work with files.</p>
@@ -72,7 +73,9 @@
         </iframe></div>
         </div></li>
     </ul>
+    </section>
 
+    <section>
     <h2 id="concepts">Concepts</h2>
     <p>Broadly speaking, there are two types of files: text files and
     binary files. A <dfn>text file</dfn> stores words and numbers as
@@ -80,6 +83,7 @@
     diagrams, sounds, music, movies, and other media as numbers in a
     format that is not directly readable by humans.</p>
 
+    <section>
     <h3 id="text_files">Text Files</h3>
     <p>In order to read data from a text file, the file must exist on
     one of the computer’s drives, and your program must do these three
@@ -187,7 +191,9 @@ if __name__ == "__main__":
     When the <code>with</code> block ends, the computer will
     automatically close the file, so that the programmer doesn’t have to
     write a call to the <code>file.close</code> method.</p>
+    </section>
 
+    <section>
     <h3 id="csv_files">CSV Files</h3>
     <p>Many computer systems import and export data in CSV files. CSV is
     an acronym for comma separated values. A <dfn>CSV file</dfn> is a
@@ -284,7 +290,9 @@ Title,Author,Composer
 "Oh, Come, All Ye Faithful",John Wade,John Wade
 "Christ the Lord is Risen Today",Charles Wesley,Anonymous
 </pre></div>
+    </section>
 
+    <section>
     <h3 id="process_rows">Processing Each Row in a CSV File</h3>
     <p>After reading each row from a CSV file, the <code>for</code> loop
     in the previous example simply prints the row list to a terminal
@@ -377,7 +385,9 @@ if __name__ == "__main__":
 <pre class="console">&gt; python example_3.py
 Cornerstone Family Dental has 181.6 patients per employee</pre>
 </div>
+    </section>
 
+    <section>
     <h3 id="csv_to_list">Reading a CSV File into a Compound List</h3>
     <p>The program in example&nbsp;3 reads and processes each row in a
     CSV file. That program needs to access the data in each row once
@@ -452,7 +462,9 @@ if __name__ == "__main__":
 '1982'], ['Cornerstone Family Dental', '44 S Center Street',
 '208-356-4240', '8', '1453']]</pre>
 </div>
+    </section>
 
+    <section>
     <h3 id="csv_to_dict">Reading a CSV File into a Compound Dictionary</h3>
     <p>If the values in one of the columns of a CSV file are unique,
     then a progam can read the contents of a CSV file into a compound
@@ -543,7 +555,10 @@ if __name__ == "__main__":
 '208-356-5600': ['Rockhouse Dentistry', '106 E 1st N', '208-356-5600', 12, 1982],
 '208-356-4240': ['Cornerstone Family Dental', '44 S Center Street', '208-356-4240', 8, 1453]}</pre>
 </div>
+    </section>
+    </section>
 
+    <section>
     <h2 id="more_info">Additional Information</h2>
     <p>The following tutorials contain additional information that you
     may find helpful. You are not required to read these tutorials.</p>
@@ -552,7 +567,9 @@ if __name__ == "__main__":
         <li><div><a href="https://realpython.com/python-for-loop/">Python "for" Loops</a></div></li>
         <li><div><a href="write_text.html">Writing Text Files in Python</a></div></li>
     </ul>
+    </section>
 
+    <section>
     <h2 id="summary">Summary</h2>
     <p>A text file stores words and numbers as human readable text.
     During this lesson, you are learning how to write Python code to
@@ -572,6 +589,7 @@ if __name__ == "__main__":
     write Python code to perform calculations for each row. Other times,
     we write Python code to read the contents of a CSV file into a
     compound list or compound dictionary.</p>
-</article>
+    </section>
+</main>
 </body>
 </html>

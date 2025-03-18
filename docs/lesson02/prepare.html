@@ -31,7 +31,7 @@
 </head>
 
 <body>
-<article>
+<main>
     <h1>02 Prepare: Calling Functions</h1>
 
     <p>Because most useful computer programs are very large, programmers
@@ -41,10 +41,12 @@
     this lesson, you will learn how to call existing functions, and in
     the next lesson, you will learn how to write your own functions.</p>
 
+    <section>
     <h2 id="concepts">Concepts</h2>
     <p>Here are the Python programming concepts and topics that you
     should learn during this lesson.</p>
 
+    <section>
     <h3 id="func_def">What Is a Function?</h3>
     <p>A <dfn>function</dfn> is a group of statements (computer
     commands) that together perform one task. Broadly speaking, there
@@ -64,7 +66,9 @@
     how to install third-party modules and call third-party functions.
     In the <a href="../lesson03/prepare.html">next lesson</a>, you will
     learn how to write and call user-defined functions.</p>
+    </section>
 
+    <section>
     <h3 id="built_in_funcs">Built-in Functions</h3>
     <p>Python includes many <dfn>built-in functions</dfn> such as:
     <code>input</code>, <code>int</code>, <code>float</code>,
@@ -77,7 +81,9 @@
     <a href="https://docs.python.org/3/library/functions.html">Built-in
     Functions</a> section of the official Python online
     reference.</p>
+    </section>
 
+    <section>
     <h3 id="call_func">How to Call a Function</h3>
     <p>A programmer uses a function by calling it (also known as
     invoking it). To <dfn>call</dfn> (or <dfn>invoke</dfn>) a function
@@ -228,7 +234,9 @@ Please enter a number: <span class="input">95.716</span>
         causes the computer to call the built-in <code>print</code>
         function to print the rounded number.</div></li>
     </ul>
+    </section>
 
+    <section>
     <h3 id="opt_args">Optional Arguments</h3>
     <p>When calling a function or method, some arguments are
     <dfn>optional</dfn>. Again consider the description of the built-in
@@ -265,7 +273,9 @@ print(r)</pre>
 Please enter a number: <span class="input">95.716</span>
 96</pre>
 </div>
+    </section>
 
+    <section>
     <h3 id="named_args">Named Arguments</h3>
     <p>For some optional arguments, we must pass a <dfn>named
     argument</dfn>, which is an argument that is preceded by the name of
@@ -298,7 +308,9 @@ print(x, y, z, sep="|", flush=True)</pre>
 <pre class="console">&gt; python example_4.py
 sun|moon|stars</pre>
 </div>
+    </section>
 
+    <section>
     <h3 id="call_module_func">How to Call a Function that Is inside a Module</h3>
     <p>A Python <dfn>module</dfn> is a collection of related functions.
     The Python <dfn>standard library</dfn> includes many modules which
@@ -354,7 +366,9 @@ print(r)</pre>
     standard modules in the official documentation for the
     <a href="https://docs.python.org/3/library/">Python Standard
     Library</a>.</p>
+    </section>
 
+    <section>
     <h3 id="call_method">How to Call a Method</h3>
     <p>Python is an object-oriented language and includes many classes
     and objects. A <dfn>method</dfn> is a function that belongs to a
@@ -425,7 +439,9 @@ text2 = text1.upper  # Does NOT call the upper method
     method to the <var>text2</var> variable. You don’t want the computer
     to do this because assigning a function reference won’t make sense
     to you until you study functional programming.</p>
+    </section>
 
+    <section>
     <h3 id="store_returned_val">How to Store a Returned Value</h3>
     <p>All the previous examples in this preparation content use the
     assignment operator (=) to store the value returned from a function
@@ -510,7 +526,10 @@ Enter a number: <span class="input">675</span>
 The square root is 25.98
 The square root is less than 100.</pre>
 </div>
+    </section>
+    </section>
 
+    <section>
     <h2 id="video">Video</h2>
     <p>The following video shows a BYU-Idaho student writing Python code
     that calls built-in functions.</p>
@@ -523,14 +542,18 @@ The square root is less than 100.</pre>
         src="https://cdnapisec.kaltura.com/p/1157612/sp/115761200/embedIframeJs/uiconf_id/41338032/partner_id/1157612?iframeembed=true&playerId=kaltura_player&entry_id=1_a0n2g19s"></iframe></div>
         </div></li>
     </ul>
+    </section>
 
+    <section>
     <h2 id="tutorial">Tutorial</h2>
     <p>If you are uncertain about any of the concepts in the Concepts
     section, you could reread the section. Also, you could read about
     the same concepts in the
     <a href="https://www.w3schools.com/python/python_functions.asp">Python
     functions tutorial</a> at w3schools.</p>
+    </section>
 
+    <section>
     <h2 id="summary">Summary</h2>
     <p>A function is a group of statements that together perform one
     task. The computer will not execute the code in a function unless
@@ -575,6 +598,7 @@ if math.isclose(x, y, <strong>abs_tol=0.001</strong>):
     print(f"{x} and {y} are nearly equal or equal.")
 else:
     print(f"{x} and {y} are not close to each other.")</pre></div>
-</article>
+    </section>
+</main>
 </body>
 </html>

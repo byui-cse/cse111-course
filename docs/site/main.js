@@ -228,17 +228,17 @@ cse111.common = {
 
 			// Add the header to the document body.
 			const body = document.body;
-			const article = body.querySelector('article');
-			body.insertBefore(header, article);
+			const main = body.querySelector('main');
+			body.insertBefore(header, main);
 			body.addEventListener('click', this.closeNavMenu);
 
-			this.addNavMenu(body, article);
+			this.addNavMenu(body, main);
 		}
 	},
 
 
 	/** Creates and adds the navigation menu. */
-	addNavMenu : function(body, article) {
+	addNavMenu : function(body, main) {
 		const self = this;
 		const strings = cse111.strings;
 		const filenames = cse111.filenames;
@@ -305,7 +305,7 @@ cse111.common = {
 		// Add the navigation menu to the document body.
 		let nav = createElem('nav', ['menu', 'closed']);
 		nav.appendChild(ul);
-		body.insertBefore(nav, article);
+		body.insertBefore(nav, main);
 	},
 
 
@@ -387,6 +387,9 @@ cse111.common = {
 			document.addEventListener('copy', listener);
 			document.execCommand('copy');
 			document.removeEventListener('copy', listener);
+
+			event.preventDefault();
+			event.stopPropagation();
 
 			// Load the new URL in the current browser window.
 			window.location.assign(anchor);

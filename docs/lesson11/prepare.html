@@ -31,7 +31,7 @@
 </head>
 
 <body>
-<article>
+<main>
     <h1>11 Prepare: Functional Programming</h1>
     <p>A <dfn>paradigm</dfn> is a way of thinking or a way of perceiving
     the world. There are at least four main paradigms for programming a
@@ -39,8 +39,8 @@
     During previous lessons in CSE&nbsp;110 and&nbsp;111, you used
     procedural programming. During this lesson, you will be introduced
     to functional programming. If you enroll in CSE&nbsp;382 - Patterns
-    in Functional Programming, you will study functional programming
-    in depth.</p>
+    and Data Structures, you will study functional programming in
+    depth.</p>
 
     <p><dfn>Procedural programming</dfn> is a programming paradigm that
     focuses on the process or the steps to accomplish a task. This is
@@ -70,10 +70,12 @@
         <li><div>A lambda function is a small anonymous function.</div></li>
     </ol>
 
+    <section>
     <h2 id="concepts">Concepts</h2>
     <p>Here are the functional programming concepts that you should
     learn during this lesson.</p>
 
+    <section>
     <h3 id="pass_func">Passing a Function into another Function</h3>
     <p>The Python programming language allows a programmer to pass a
     function as an argument into another function. A function that
@@ -197,7 +199,9 @@ Celsius: [22.2, 18.3, 21.7, 23.9, 27.8, 30.6, 20.0]</pre>
     <a href="https://docs.python.org/3/library/functions.html#filter"><code>filter</code></a>
     functions and several higher-order functions in the
     <a href="https://docs.python.org/3/library/functools.html"><code>functools</code> module</a>.</p>
+    </section>
 
+    <section>
     <h3 id="nested_func">Nested Functions</h3>
     <p>The Python programming language allows a programmer to define
     nested functions. A <dfn>nested function</dfn> is a function that is
@@ -243,7 +247,9 @@ if __name__ == "__main__":
 Fahrenheit: [72, 65, 71, 75, 82, 87, 68]
 Celsius: [22.2, 18.3, 21.7, 23.9, 27.8, 30.6, 20.0]</pre>
 </div>
+    </section>
 
+    <section>
     <h3 id="lambda_func">Lambda Functions</h3>
     <p id="lambda">A Python <dfn>lambda function</dfn> is a small
     anonymous function, meaning a small function without a name. A
@@ -324,8 +330,11 @@ Celsius: [22.2, 18.3, 21.7, 23.9, 27.8, 30.6, 20.0]</pre>
     Python function. For example, the lambda function in example&nbsp;4
     can be rewritten as the <code>cels_from_fahr</code> function in
     examples&nbsp;1,&nbsp;2, and&nbsp;3.</p>
+    </section>
+    </section>
 
-    <h2 id="map_filter">Example - Map and Filter</h2>
+    <section>
+    <h2 id="map_filter">Example: Map and Filter</h2>
     <p>The <a href="../lesson09/check.html">checkpoint</a> for
     lesson&nbsp;9 required you to write a program that replaced all the
     occurrences of "AB" in a list with the name "Alberta" and then
@@ -455,8 +464,10 @@ List filtered to Alberta only:
 
 Alberta occurs 11 times in the modified list.</pre>
 </div>
+    </section>
 
-    <h2 id="sort_list">Example - Sorting a Compound List</h2>
+    <section>
+    <h2 id="sort_list">Example: Sorting a Compound List</h2>
     <p>Python includes a built-in higher-order function named
     <code>sorted</code> that accepts a list as an argument and returns a
     new sorted list. Calling the <code>sorted</code> function is
@@ -643,7 +654,9 @@ if __name__ == "__main__":
 ['Annie', 'Smith', 6.2]
 ['Robert', 'Smith', 6.7]</pre>
 </div>
+    </section>
 
+    <section>
     <h2 id="videos">Videos</h2>
     <p>These two Microsoft videos might help you understand lambda
     functions more deeply.</p>
@@ -682,7 +695,9 @@ if __name__ == "__main__":
 
         <li><div>The Python <a href="https://youtu.be/ZrZ6vJGiE8I"><code>reduce</code> function</a> <span class="duration">(18 minutes)</span></div></li>
     </ul>
+    </section>
 
+    <section>
     <h2 id="docs">Additional Documentation</h2>
     <p>If you wish to learn even more details about functional
     programming, the following articles contain reference documentation
@@ -695,7 +710,9 @@ if __name__ == "__main__":
         <li class="reference"><div>Python <a href="https://docs.python.org/3/library/functools.html"><code>functools</code> module</a></div></li>
         <li class="tutorial"><div>A thorough tutorial about <a href="https://realpython.com/python-lambda/">lambda functions</a></div></li>
     </ul>
+    </section>
 
+    <section>
     <h2 id="summary">Summary</h2>
     <p>In this preparation content, you learned that functional
     programming is a programming paradigm that focuses on functions,
@@ -710,6 +727,7 @@ if __name__ == "__main__":
         <li><div>A lambda function is a small anonymous
         function.</div></li>
     </ol>
-</article>
+    </section>
+</main>
 </body>
 </html>

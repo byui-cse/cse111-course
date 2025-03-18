@@ -30,13 +30,16 @@
 </head>
 
 <body>
-<article>
+<main>
     <h1>05 Prove Milestone: Testing and Fixing Functions</h1>
 
+    <section>
     <h2 id="purpose">Purpose</h2>
     <p>Prove that you can write a Python program and write and run test
     functions to help you find and fix mistakes in your program.</p>
+    </section>
 
+    <section>
     <h2 id="problem">Problem Statement</h2>
     <p>Getting clean water to all buildings in a city is a large and
     expensive task. Many cities will build an elevated water tank, and
@@ -62,13 +65,17 @@
     pipe diameter, and pipe path. Engineers use software to help them
     make these choices and design a working water distribtuion
     system.</p>
+    </section>
 
+    <section>
     <h2 id="assign">Assignment</h2>
     <p>Write a Python program that could help an engineer design a water
     distribution system. During this prove milestone, you will write
     three program functions and three test functions as described in the
     Steps section below.</p>
+    </section>
 
+    <section>
     <h2 id="helpful_docs">Helpful Documentation</h2>
     <ul class="mixed long">
         <li class="tutorial"><div>The <a href="prepare.html">preparation
@@ -106,7 +113,9 @@
         shows a BYU-Idaho faculty member writing two test functions and
         using <code>pytest</code> to run them.</div></li>
     </ul>
+    </section>
 
+    <section>
     <h2 id="steps">Steps</h2>
     <p>Do the following:</p>
     <ol class="long">
@@ -202,13 +211,13 @@ import pytest</pre></div>
                 <th><code>approx</code><br>Absolute<br>Tolerance</th></tr>
         </thead><tbody>
             <tr><td>0<span class="hidden">.0</span></td>
-				<td class="expect">0<span class="hidden">.000</span></td>
+                <td class="expect">0<span class="hidden">.000</span></td>
                 <td>0.001</td></tr>
             <tr><td>30.2</td>
-				<td class="expect">295.628</td>
+                <td class="expect">295.628</td>
                 <td>0.001</td></tr>
             <tr><td>50<span class="hidden">.0</span></td>
-				<td class="expect">489.450</td>
+                <td class="expect">489.450</td>
                 <td>0.001</td></tr>
         </tbody></table>
         </div></li>
@@ -258,46 +267,46 @@ import pytest</pre></div>
                 <th><code>approx</code><br>Absolute<br>Tolerance</th></tr>
         </thead><tbody>
             <tr><td>0.048692</td>
-				<td>0<span class="hidden">.00</span></td>
-				<td>0.018</td>
-                <td>1.75</td>
-				<td class="expect">0<span class="hidden">.000</span></td>
-                <td>0.001</td></tr>
-            <tr><td>0.048692</td>
-				<td>200<span class="hidden">.00</span></td>
-				<td>0<span class="hidden">.000</span></td>
-                <td>1.75</td>
-				<td class="expect">0<span class="hidden">.000</span></td>
-                <td>0.001</td></tr>
-            <tr><td>0.048692</td>
-				<td>200<span class="hidden">.00</span></td>
-				<td>0.018</td>
                 <td>0<span class="hidden">.00</span></td>
-				<td class="expect">0<span class="hidden">.000</span></td>
-                <td>0.001</td></tr>
-            <tr><td>0.048692</td>
-				<td>200<span class="hidden">.00</span></td>
-				<td>0.018</td>
+                <td>0.018</td>
                 <td>1.75</td>
-				<td class="expect">-113.008</td>
+                <td class="expect">0<span class="hidden">.000</span></td>
                 <td>0.001</td></tr>
             <tr><td>0.048692</td>
-				<td>200<span class="hidden">.00</span></td>
-				<td>0.018</td>
+                <td>200<span class="hidden">.00</span></td>
+                <td>0<span class="hidden">.000</span></td>
+                <td>1.75</td>
+                <td class="expect">0<span class="hidden">.000</span></td>
+                <td>0.001</td></tr>
+            <tr><td>0.048692</td>
+                <td>200<span class="hidden">.00</span></td>
+                <td>0.018</td>
+                <td>0<span class="hidden">.00</span></td>
+                <td class="expect">0<span class="hidden">.000</span></td>
+                <td>0.001</td></tr>
+            <tr><td>0.048692</td>
+                <td>200<span class="hidden">.00</span></td>
+                <td>0.018</td>
+                <td>1.75</td>
+                <td class="expect">-113.008</td>
+                <td>0.001</td></tr>
+            <tr><td>0.048692</td>
+                <td>200<span class="hidden">.00</span></td>
+                <td>0.018</td>
                 <td>1.65</td>
-				<td class="expect">-100.462</td>
+                <td class="expect">-100.462</td>
                 <td>0.001</td></tr>
             <tr><td>0.28687<span class="hidden">0</span></td>
-				<td>1000<span class="hidden">.00</span></td>
-				<td>0.013</td>
+                <td>1000<span class="hidden">.00</span></td>
+                <td>0.013</td>
                 <td>1.65</td>
-				<td class="expect">-61.576</td>
+                <td class="expect">-61.576</td>
                 <td>0.001</td></tr>
             <tr><td>0.28687<span class="hidden">0</span></td>
-				<td>1800.75</td>
-				<td>0.013</td>
+                <td>1800.75</td>
+                <td>0.013</td>
                 <td>1.65</td>
-				<td class="expect">-110.884</td>
+                <td class="expect">-110.884</td>
                 <td>0.001</td></tr>
         </tbody></table>
         </div></li>
@@ -311,7 +320,9 @@ pytest.main(["-v", "--tb=line", "-rN", __file__])
 </pre></div>
         </div></li>
     </ol>
+    </section>
 
+    <section>
     <h2 id="testing">Testing Procedure</h2>
     <p>Verify that your functions work correctly by following each step
     in this procedure:</p>
@@ -338,7 +349,9 @@ test_water_flow.py::test_pressure_loss_from_pipe <span class="pass">PASSED      
 <span class="pass">========================= 3 passed in 0.07s ===========================</span></pre>
         </div></li>
     </ol>
+    </section>
 
+    <section>
     <h2 id="tutor">Help from a Tutor</h2>
     <p>As a BYU-Idaho campus or online student you can get help from a
     tutor to complete your CSE&nbsp;111 assignments. Each tutor is a
@@ -373,7 +386,9 @@ test_water_flow.py::test_pressure_loss_from_pipe <span class="pass">PASSED      
     Please help me fix this function.</p>
     <p><b>(Copy and paste your Python function here.)</b></p>
     </blockquote>
+    </section>
 
+    <section>
     <h2 id="ponder">Ponder</h2>
     <p>During this assignment, you wrote three program functions named
     <code>water_column_height</code>,
@@ -385,10 +400,13 @@ test_water_flow.py::test_pressure_loss_from_pipe <span class="pass">PASSED      
     worked as a software developer on a large project with four other
     software developers, how would test functions help you and the other
     developers ensure that your program worked correctly?</p>
+    </section>
 
+    <section>
     <h2 id="submit">Submission</h2>
     <p>On or before the due date, return to I‑Learn and report your
     progress on this milestone.</p>
-</article>
+    </section>
+</main>
 </body>
 </html>

@@ -29,16 +29,19 @@
 </head>
 
 <body>
-<article>
+<main>
     <h1>Writing Text Files</h1>
 
+    <section>
     <h2 id="text_files">Text Files</h2>
     <p>Broadly speaking, there are two types of files: text files and
     binary files. A <dfn>text file</dfn> stores words and numbers as
     human readable text. A <dfn>binary file</dfn> stores pictures,
     diagrams, sounds, music, movies, and other media as numbers in a
     format that is not directly readable by humans.</p>
+    </section>
 
+    <section>
     <h3 id="write">Writing into a Text File</h3>
     <p>In order to write text to a file, a program must call the
     built-in <code>open</code> function to open the file for writing or
@@ -111,7 +114,9 @@ def write_list(filename, text_list):
 if __name__ == "__main__":
     main()</pre>
 </div>
+    </section>
 
+    <section>
     <h2 id="csv_files">CSV Files</h2>
     <p>Many computer systems import and export data in CSV files. CSV is
     an acronym for comma separated values. A <dfn>CSV file</dfn> is a
@@ -135,6 +140,7 @@ With Wondering Awe,Anonymous,Anonymous
     <a href="https://docs.python.org/3/library/csv.html">module named <code>csv</code></a>
     that includes functionality to read from and write to CSV files.
 
+    <section>
     <h3 id="list_to_csv">Writing a Compound List into a CSV File</h3>
     <p>Example&nbsp;3 shows how to write the contents of a compound list
     into a CSV file. At
@@ -204,7 +210,9 @@ def write_compound_list(filename, compound_list,
 if __name__ == "__main__":
     main()</pre>
 </div>
+    </section>
 
+    <section>
     <h3 id="dict_to_csv">Writing a Dictionary into a CSV File</h3>
     <p>Example&nbsp;4 shows how to write the contents of a dictionary
     into a CSV file. At
@@ -303,7 +311,10 @@ def write_dict(filename, dictionary, heading_list=None,
 if __name__ == "__main__":
     main()</pre>
 </div>
+    </section>
+    </section>
 
+    <section>
     <h2 id="summary">Summary</h2>
     <p>A text file stores words and numbers as human readable text.
     To write text into file, your program must first open the file by
@@ -320,6 +331,7 @@ if __name__ == "__main__":
     each row in a CSV file, the data values are separated by commas.
     Python includes a standard module named <code>csv</code> that helps
     us easily write Python code to write to a CSV file.</p>
-</article>
+    </section>
+</main>
 </body>
 </html>

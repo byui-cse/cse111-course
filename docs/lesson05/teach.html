@@ -31,21 +31,26 @@
 </head>
 
 <body>
-<article>
+<main>
     <h1>05 Team Activity: Testing and Fixing Functions</h1>
 
+    <section>
     <h2 id="instrucs">Instructions</h2>
     <p>Work as a team as explained in the instructions for the
     <a href="../lesson02/teach.html#instrucs">lesson&nbsp;2 team
     activity</a>.</p>
+    </section>
 
+    <section>
     <h2 id="purpose">Purpose</h2>
     <p>Writing and running test functions often help a software
     developer find mistakes in code. During this assignment, you will
     write three test functions. Then use <code>pytest</code> to run the
     test functions and use the output of <code>pytest</code> to help you
     find and fix errors in some program functions.</p>
+    </section>
 
+    <section>
     <h2 id="problem">Problem Statement</h2>
     <p>Most people around the world today have at least two names, a
     family name and a given name. In the United States, we usually write
@@ -73,7 +78,9 @@
 
     <p>A programmer has already written those three functions. However,
     there are mistakes in at least two of the three functions.</p>
+    </section>
 
+    <section>
     <h2 id="assign">Assignment</h2>
     <p>As a team, write three test functions named
     <code>test_make_full_name</code>,
@@ -82,7 +89,9 @@
     will test one of three previously written program functions. Use
     <code>pytest</code> to run the test functions and find and fix the
     mistakes, if any, that are in program functions.</p>
+    </section>
 
+    <section>
     <h2 id="helpful_docs">Helpful Documentation</h2>
     <ul class="mixed long">
         <li class="tutorial"><div>The <a href="prepare.html">prepare
@@ -100,7 +109,9 @@
         shows a BYU-Idaho faculty member writing two test functions and
         using <code>pytest</code> to run them.</div></li>
     </ul>
+    </section>
 
+    <section>
     <h2 id="steps">Steps</h2>
     <p>Do the following:</p>
     <ol class="long">
@@ -171,6 +182,7 @@ pytest.main(["-v", "--tb=line", "-rN", __file__])
         pass.</div></li>
     </ol>
 
+    <section>
     <h3 id="required">Core Requirements</h3>
     <ol class="long">
         <li><div>Write <code>test_make_full_name</code> so that it tests
@@ -189,7 +201,9 @@ pytest.main(["-v", "--tb=line", "-rN", __file__])
         mistake in the <code>extract_given_name</code>
         function.</div></li>
     </ol>
+    </section>
 
+    <section>
     <h3 id="stretch">Stretch Challenges</h3>
     <p>If your team finishes the core requirements in less than an hour,
     complete one or more of these stretch challenges. Note that the
@@ -218,7 +232,10 @@ pytest.main(["-v", "--tb=line", "-rN", __file__])
         <code>test_extract_zipcode</code> that verifies that the
         extract_zipcode function works correctly.</div></li>
     </ol>
+    </section>
+    </section>
 
+    <section>
     <h2 id="testing">Testing Procedure</h2>
     <p>Before you fix the mistakes in the <code>make_full_name</code>
     and <code>extract_given_name</code> functions, <code>pytest</code>
@@ -257,7 +274,9 @@ test_names.py::test_extract_family_name <span class="pass">PASSED            [ 6
 test_names.py::test_extract_given_name <span class="pass">PASSED             [100%]</span>
 
 <span class="pass">====================== 3 passed in 0.12s =======================</span></pre>
+    </section>
 
+    <section>
     <h2>Sample Solution</h2>
     <p>Please work diligently with your team for the one hour meeting.
     After the meeting is over, please compare your solution to the
@@ -268,7 +287,9 @@ test_names.py::test_extract_given_name <span class="pass">PASSED             [10
     have finished the program or diligently worked for one hour</strong>.
     At the end of the hour, if you are still struggling to complete the
     assignment, you may use the sample solution to help you finish.</p>
+    </section>
 
+    <section>
     <h3>Call Graph</h3>
     <p>The following call graph shows the function calls and returns in
     the sample solution for this assignment. From this call graph we see
@@ -289,7 +310,9 @@ test_names.py::test_extract_given_name <span class="pass">PASSED             [10
         alt="A function call graph for this assignment"
         title="A function call graph for this assignment">
     </figure>
+    </section>
 
+    <section>
     <h2>Ponder</h2>
     <p>During this assignment, you downloaded three program functions
     that work with a person’s name. You wrote three test functions that
@@ -298,7 +321,9 @@ test_names.py::test_extract_given_name <span class="pass">PASSED             [10
     <code>pytest</code> to help you find and fix the mistakes in the
     program functions. How will writing and running test functions help
     you write better programs?</p>
+    </section>
 
+    <section>
     <h2>Submission</h2>
     <p>When you have finished the activity, please report your progress
     via the associated I‑Learn quiz. When asked about which of the
@@ -307,6 +332,7 @@ test_names.py::test_extract_given_name <span class="pass">PASSED             [10
     with the help of the sample solution, if necessary. In short, report
     on what you were able to accomplish, regardless of when you
     completed it or if you needed help from the sample solution.</p>
-</article>
+    </section>
+</main>
 </body>
 </html>

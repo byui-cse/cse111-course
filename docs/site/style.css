@@ -55,7 +55,7 @@
 
 		--body-font-size: 110%;
 		--formula-font-size: 118%;
-		--article-line-height: 1.4;
+		--main-line-height: 1.4;
 	}
 }
 @media screen and (max-width: 600px) {
@@ -63,7 +63,7 @@
 	:root {
 		--header-padding-side: 0.75em;
 		--header-separation: 0.75em;
-		--article-padding-side: 0.75em;
+		--main-padding-side: 0.75em;
 	}
 }
 @media screen and (min-width: 600px) {
@@ -71,7 +71,7 @@
 	:root {
 		--header-padding-side: 1em;
 		--header-separation: 1em;
-		--article-padding-side: 1em;
+		--main-padding-side: 1em;
 	}
 }
 @media print {
@@ -98,8 +98,8 @@
 		--body-font-size: 110%;
 		--formula-font-size: 105%;
 
-		--article-padding-side: 0;
-		--article-line-height: 1.15;
+		--main-padding-side: 0;
+		--main-line-height: 1.15;
 	}
 }
 
@@ -249,34 +249,34 @@ section p.author {
 }
 
 
-article {
-	padding: 0 var(--article-padding-side);
-	line-height: var(--article-line-height);
+main {
+	padding: 0 var(--main-padding-side);
+	line-height: var(--main-line-height);
 }
 
 @media screen {
-	article {
+	main {
 		max-width: 40em;
 		margin: 0.5em auto 1em auto;
 	}
 
-	/* article.solution is used by overview/solution.html, which
+	/* main.solution is used by overview/solution.html, which
 	 * shows sample solutions for checkpoints and team activities. */
-	article.solution {
+	main.solution {
 		max-width: none;
 	}
-	article.solution h1 {
+	main.solution h1 {
 		font-size: 150%;
 	}
 }
 
-article h1 {
+main h1 {
 	text-align: center;
 	font-size: 175%;
 	margin: 0 0 1em 0;
 }
 
-article h2 {
+main h2 {
 	clear: both;
 	font-size: 150%;
 	font-weight: bold;
@@ -285,23 +285,23 @@ article h2 {
 	border-bottom: 1px solid;
 }
 
-article h3 {
+main h3 {
 	font-weight: bold;
 	font-size: 130%;
 	color: var(--heading-fg-color);
 	margin: 1.5em 0 0.5em 0;
 }
 
-article h4 {
+main h4 {
 	font-weight: bold;
 	font-size: 110%;
 	margin: 1em 0 0.5em 0;
 }
 
 @media screen {
-	article h2 > .copy,
-	article h3 > .copy,
-	article h4 > .copy {
+	main h2 > .copy,
+	main h3 > .copy,
+	main h4 > .copy {
 		visibility: hidden;
 		font-size: smaller;
 		margin: 0 0 0 0.5em;
@@ -310,25 +310,25 @@ article h4 {
 		cursor: pointer;
 	}
 
-	article h2:hover > .copy,
-	article h3:hover > .copy,
-	article h4:hover > .copy {
+	main h2:hover > .copy,
+	main h3:hover > .copy,
+	main h4:hover > .copy {
 		visibility: visible;
 	}
 
-	article h2 > .copy:hover,
-	article h3 > .copy:hover,
-	article h4 > .copy:hover {
+	main h2 > .copy:hover,
+	main h3 > .copy:hover,
+	main h4 > .copy:hover {
 		background-color: var(--python-bk-color);
 	}
 
 	/* Together the next two rules specify the width and height of videos. */
-	article div.video {
+	main div.video {
 		position: relative;
 		width: 100%;
 		padding-bottom: 56.25%;
 	}
-	article div.video > iframe {
+	main div.video > iframe {
 		position: absolute;
 		width: 100%;
 		height: 100%;
@@ -341,49 +341,49 @@ article h4 {
 		orphans: 2;
 	}
 
-	article h2 > .copy,
-	article h3 > .copy,
-	article h4 > .copy {
+	main h2 > .copy,
+	main h3 > .copy,
+	main h4 > .copy {
 		display: none;
 	}
-	article div.video {
+	main div.video {
 		display: none;
 	}
 
 	/* As of November 2021, Chrome doesn't honor "page-break-after: avoid".
 	 * Changing "-after" to "-inside" plus the following CSS rule is a
 	 * work around. */
-	article h1::after,
-	article h2::after,
-	article h3::after,
-	article h4::after {
+	main h1::after,
+	main h2::after,
+	main h3::after,
+	main h4::after {
 		content: " ";
 		display: block;
 		height: 1em;
 		margin-bottom: -1em;
 	}
 
-	article h1,
-	article h2,
-	article h3,
-	article h4 {
+	main h1,
+	main h2,
+	main h3,
+	main h4 {
 		page-break-inside: avoid !important;
 	}
 }
 
-article p,
-article div.p,
-article form {
+main p,
+main div.p,
+main form {
 	margin: 1em 0;
 }
 
-article blockquote {
+main blockquote {
 	margin: 1em 1em;
 	border-left: 0.12em solid var(--bullet-fg-color);
 	padding-left: 0.5em;
 }
 
-article div.search {
+main div.search {
 	margin: 1em auto;
 	border: 1px solid var(--border-color);
 	padding: 0.25em 0.5em;
@@ -391,40 +391,40 @@ article div.search {
 }
 
 
-article a:link { color: var(--link-before-fg-color); }
-article a:hover { color: var(--link-hover-fg-color); }
-article a:active { color: var(--link-active-fg-color); }
-article a:visited { color: var(--link-visited-fg-color); }
+main a:link { color: var(--link-before-fg-color); }
+main a:hover { color: var(--link-hover-fg-color); }
+main a:active { color: var(--link-active-fg-color); }
+main a:visited { color: var(--link-visited-fg-color); }
 
-article dfn {
+main dfn {
 	color: var(--dfn-fg-color)
 }
 @media print {
-	article dfn {
+	main dfn {
 		font-weight: bold;
 	}
 }
 
-article b {
+main b {
 	font-weight: bold;
 }
-article em {
+main em {
 	font-style: italic;
 }
-article strong {
+main strong {
 	font-weight: bold;
 	font-style: italic;
 	color: var(--strong-fg-color);
 }
-article var {
+main var {
 	font-style: italic;
 }
 
-article span.duration {
+main span.duration {
 	font-size: smaller;
 	white-space: nowrap;
 }
-article span.nowrap {
+main span.nowrap {
 	white-space: nowrap;
 }
 
@@ -433,166 +433,166 @@ button {
 	font-size: inherit;
 }
 
-article details {
+main details {
 	margin-bottom: 1em;
 }
 
-article .clear {
+main .clear {
 	clear: both;
 }
 
 
 /* Lists */
-article ol {
-	margin: 0 0 1em 2em;
+main ol {
+	margin: 1em 0 1em 2em;
 	list-style-type: decimal;
 }
 
-article ol > li ol > li ol {
+main ol > li ol > li ol {
 	list-style-type: lower-roman;
 }
 
-article ol > li ol {
+main ol > li ol {
 	list-style-type: lower-alpha;
 }
 
-article li {
+main li {
 	color: var(--bullet-fg-color);
 }
-article li > div {
+main li > div {
 	color: var(--fg-color);
 	margin-left: 0.25em;
 }
 
-article ul {
-	margin: 0 0 1em 2em;
+main ul {
+	margin: 1em 0 1em 2em;
 	list-style-type: disc;
 }
 
-article li ul {
+main li ul {
 	list-style-type: circle;
 }
 
-article ol.long > li,
-article ul.long > li {
+main ol.long > li,
+main ul.long > li {
 	margin-bottom: 1em;
 }
 
-article ul.links {
+main ul.links {
 	list-style-type: "»";
 }
-article ul.links > li {
+main ul.links > li {
 	padding-left: 0.3em;
 }
 
-article ul.references,
-article ul.tutorials,
-article ul.videos,
-article ul.mixed {
+main ul.references,
+main ul.tutorials,
+main ul.videos,
+main ul.mixed {
 	list-style-type: none;
 	margin-left: 1.5em;
 }
 
-article ul.references > li,
-article ul.mixed > li.reference {
+main ul.references > li,
+main ul.mixed > li.reference {
 	background-image: url("icons/reference.svg");
 	background-repeat: no-repeat;
 	background-size: 1em auto;
 	padding-left: 1.2em;
 }
 
-article ul.tutorials > li,
-article ul.mixed > li.tutorial {
+main ul.tutorials > li,
+main ul.mixed > li.tutorial {
 	background-image: url("icons/tutorial.svg");
 	background-repeat: no-repeat;
 	background-size: 1em auto;
 	padding-left: 1.2em;
 }
 
-article ul.videos > li,
-article ul.mixed > li.video {
+main ul.videos > li,
+main ul.mixed > li.video {
 	background-image: url("icons/video.svg");
 	background-repeat: no-repeat;
 	background-size: 1.3em auto;
 	padding-left: 1.5em;
 }
 
-article ul.notes {
+main ul.notes {
 	list-style-type: "*";
 }
 
-article ul.notes > li {
+main ul.notes > li {
 	padding-left: 0.4em;
 	color: var(--bullet-fg-color);
 }
 
-article dl.function {
+main dl.function {
 	margin: 1em;
 }
 
-article dl.function dt {
+main dl.function dt {
 	border-left: 0.12em solid var(--bullet-fg-color);
 	padding-left: 0.5em;
 }
 
-article dl.function dd {
+main dl.function dd {
 	border-left: 0.12em solid var(--bullet-fg-color);
 	padding-left: 2.5em;
 	margin-bottom: 1em;
 }
 
-article dl.long dt {
+main dl.long dt {
 	padding-bottom: 1em;
 }
 
-article dl.long dd {
+main dl.long dd {
 	margin-bottom: 2em;
 }
 
 
 /* Figures */
-article figure {
+main figure {
 	page-break-inside: avoid !important;
 	margin: 0 0 1em 0;
 }
 
-article figure.full {
+main figure.full {
 	margin: 0 0 1em 0;
 }
 
-article figure.code {
+main figure.code {
 	margin: 0 auto 1em 1.5em;
 }
 
-article figure.center {
+main figure.center {
 	display: table;
 	margin: 0 auto 1em auto;
 }
 
-article figure.right {
+main figure.right {
 	float: right;
 	margin: 0 0 1em 1em;
 }
 
-article figure.list {
+main figure.list {
 	border: 1px solid var(--border-color);
 }
 
-article figure > img {
+main figure > img {
 	max-width: 100%;
 }
-article figure.code > img {
+main figure.code > img {
 	border: 1px solid var(--border-color);
 	/* Instead of --python-bk-color, we must use --lightest-coral for
 	 * figures with code in them, because the figure foreground
 	 * colors will not change if the reader switches to dark mode. */
 	background-color: var(--lightest-coral);
 }
-article figure.callgraph > img {
+main figure.callgraph > img {
 	border: 1px solid var(--border-color);
 }
 
-article figure > figcaption {
+main figure > figcaption {
 	font-size: 90%;
 	text-align: left;
 	margin: 0 auto 1em auto;
@@ -602,7 +602,7 @@ article figure > figcaption {
 
 /* Cross reference link for line numbers in example code. */
 @media screen {
-	article span.cross {
+	main span.cross {
 		cursor: pointer;
 		text-decoration: underline var(--link-before-fg-color) dotted;
 	}
@@ -610,49 +610,49 @@ article figure > figcaption {
 
 
 /* Code containers */
-article code {
+main code {
 	font-family: "Source Code Pro", "Lucida Console", Consolas, monospace;
 	white-space: nowrap;
 }
 
-article pre {
+main pre {
 	padding: 0.25em 0.5em;
 	font-family: "Source Code Pro", "Lucida Console", Consolas, monospace;
 	line-height: 1.15;
 }
 @media screen {
-	article code { font-size: 95%; }
-	article pre {
+	main code { font-size: 95%; }
+	main pre {
 		font-size: 95%;
 		overflow: auto hidden;  /* Show a horizontal scroll bar when needed. */
 	}
 }
 @media print {
-	article code { font-size: 78%; }
-	article pre {
+	main code { font-size: 78%; }
+	main pre {
 		font-size: 78%;
 		overflow: clip hidden;  /* Clip code that is too wide. */
 	}
 }
 
-article pre em,
-article code em {
+main pre em,
+main code em {
 	font-weight: bold;
 	font-style: normal;
 }
 
-article div.example {
+main div.example {
 	position: relative;  /* Necessary for button.copy */
 	margin: 1em auto 1em 1.25em;
 	display: grid;
 	grid-template-columns: auto 1fr;
 	max-width: fit-content;
 }
-article li div.example {
+main li div.example {
 	margin-left: 0;  /* In a list, don't indent example code. */
 }
 
-article div.example > pre.linenums {
+main div.example > pre.linenums {
 	grid-column: 1;
 	border-color: var(--border-color);
 	border-style: solid;
@@ -662,25 +662,17 @@ article div.example > pre.linenums {
 	background-color: var(--python-bk-color);
 	color: var(--border-color);
 }
-article div.example > pre.linenums > .hi {
+main div.example > pre.linenums > .hi {
 	background-color: var(--line-number-hilite);
 	color: white;
 }
 
-/*
-article div.example > pre:first-child.csv,
-article div.example > pre:first-child.sql,
-article div.example > pre:first-child.python {
-*/
-article div.example > div:first-child.code {
+main div.example > div:first-child.code {
 	grid-column: 1 / span 2;
 	border: 1px solid var(--border-color);
 	background-color: var(--python-bk-color);
 }
-/*
-article div.example > pre:nth-child(2).python {
-*/
-article div.example > div:nth-child(2).code {
+main div.example > div:nth-child(2).code {
 	grid-column: 2;
 	border-color: var(--border-color);
 	border-style: solid;
@@ -691,45 +683,45 @@ article div.example > div:nth-child(2).code {
 
 /* Span classes used by the JavaScript code in scope.js
  * to show global and local variable scope to students. */
-article div.example div.code span.hiScope  { background-color: yellow; }
-article div.example div.code span.hiVarDef { background-color: orange; }
-article div.example div.code span.hiVarUse { background-color: yellow; }
-article div.example div.code span.hiError  { background-color: red; }
+main div.example div.code span.hiScope  { background-color: yellow; }
+main div.example div.code span.hiVarDef { background-color: orange; }
+main div.example div.code span.hiVarUse { background-color: yellow; }
+main div.example div.code span.hiError  { background-color: red; }
 
 
 /* Container for console (terminal) input and output. */
-article pre.console {
+main pre.console {
 	margin: 1em 0 1em 1.25em;
 	border: 1px solid var(--border-color);
 	background-color: var(--console-bk-color);
 }
-article li pre.console {
+main li pre.console {
 	margin-left: 0;  /* In a list, don't indent pre.console elements. */
 }
-article div.example > pre.console {
+main div.example > pre.console {
 	grid-column: 1 / span 2;
 	margin: 1em 0 0 0;  /* In an example, don't indent pre.console elements. */
 }
 
-article pre.console > span.input {
+main pre.console > span.input {
 	border: 1px solid var(--border-color);
 	padding: 0 0.25em;
 	background-color: var(--user-input-bk-color);
 	color: var(--user-input-fg-color);
 }
 
-article pre.console > span.pass { color: green; }
-article pre.console > span.fail { color: red; }
+main pre.console > span.pass { color: green; }
+main pre.console > span.fail { color: red; }
 
 @media screen {
 	/* A button that copies code to the clipboard. */
-	article div.example button.copy {
+	main div.example button.copy {
 		visibility: hidden;
 		position: absolute;
 		top: 0.5em;
 		right: 0.5em;
-		width: 3em;
-		height: 3em;
+		width: 2.5em;
+		height: 2.5em;
 		border-color: var(--byui-blue);
 		padding: 0.2em 0.4em;
 		background-color: white;
@@ -737,119 +729,119 @@ article pre.console > span.fail { color: red; }
 		cursor: pointer;
 	}
 
-	article div.example div.code:hover button.copy{
+	main div.example div.code:hover button.copy{
 		visibility: visible;
 	}
 }
 @media print {
-	article div.example button.copy {
+	main div.example button.copy {
 		display: none;
 	}
 }
 
 
 /* Tables */
-article table {
+main table {
 	margin-bottom: 1em;
 }
 
-article table.center {
+main table.center {
 	margin: 1em auto;
 }
 
-article table th,
-article table td {
+main table th,
+main table td {
 	padding: 0.1em 0.25em;
 }
 
-article table.long tbody th,
-article table.long tbody td {
+main table.long tbody th,
+main table.long tbody td {
 	padding-bottom: 1em;
 }
 
-article table tr.center > td,
-article table td.center { text-align: center; }
+main table tr.center > td,
+main table td.center { text-align: center; }
 
-article table tr.number > td,
-article table td.number { text-align: right; }
+main table tr.number > td,
+main table td.number { text-align: right; }
 
-article table td span.hidden {
+main table td span.hidden {
 	visibility: hidden;
 }
 
-article table > thead > tr > th {
+main table > thead > tr > th {
 	vertical-align: bottom;
 	text-align: center;
 	font-weight: bold;
 }
 
-article table > tbody > tr > th {
+main table > tbody > tr > th {
 	vertical-align: top;
 	text-align: left;
 	font-weight: bold;
 }
 
-article table.contents tbody > tr > th[colspan="3"] {
+main table.contents tbody > tr > th[colspan="3"] {
 	font-weight: bold;
 	font-size: 120%;
 	color: var(--heading-fg-color);
 	padding: 1.5em 0 0.5em 0;
 }
-article table.contents tbody > tr > td { padding-top: 0.3em; }
-article table.contents tbody > tr > td:first-child { min-width: 10em; }
+main table.contents tbody > tr > td { padding-top: 0.3em; }
+main table.contents tbody > tr > td:first-child { min-width: 10em; }
 
-article span.same,
-article table.compare tbody > tr.same > th {
+main span.same,
+main table.compare tbody > tr.same > th {
 	background-color: var(--compare-same-color);
 }
-article span.similar,
-article table.compare tbody > tr.similar > th {
+main span.similar,
+main table.compare tbody > tr.similar > th {
 	background-color: var(--compare-similar-color);
 }
-article span.diff,
-article table.compare tbody > tr.diff > th {
+main span.diff,
+main table.compare tbody > tr.diff > th {
 	background-color: var(--compare-diff-color);
 }
 
-article table.prec > tbody > tr > td {
+main table.prec > tbody > tr > td {
     border: 1px solid var(--border-color);
 }
-article table.prec > tbody > tr > td.prec {
+main table.prec > tbody > tr > td.prec {
     border: none;
     text-align: center;
 }
 
-article table.test thead th.expect,
-article table.test thead th.expect ~ th {
+main table.test thead th.expect,
+main table.test thead th.expect ~ th {
 	color: var(--byui-blue);
 }
-article table.test tbody td {
+main table.test tbody td {
 	padding-right: 1em;
 	padding-left: 0.5em;
 	text-align: right;
 }
-article table.test tbody td.expect {
+main table.test tbody td.expect {
 	border-left: 1px solid var(--byui-blue);
 	color: var(--byui-blue);
 }
-article table.test tbody td.expect ~ td {
+main table.test tbody td.expect ~ td {
 	color: var(--byui-blue);
 }
 
 /* Figures that contain tables */
-article figure.list > table {
+main figure.list > table {
 	margin: 1em;
 }
 
-article figure.list > table > tbody > tr > td {
+main figure.list > table > tbody > tr > td {
 	text-align: center;
 }
 
-article figure.list > table > tbody > tr.elems > td {
+main figure.list > table > tbody > tr.elems > td {
 	border: 1px solid var(--border-color);
 }
 
-article figure.list > table > tbody > tr > td.label {
+main figure.list > table > tbody > tr > td.label {
 	border: none;
 	text-align: right;
 }

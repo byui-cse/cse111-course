@@ -32,7 +32,7 @@
 </head>
 
 <body>
-<article>
+<main>
     <h1>01 Prepare: Review Python</h1>
     <p>The concepts in CSE&nbsp;111 build on the concepts that you
     learned in
@@ -43,10 +43,12 @@
     will review programming concepts that you learned in
     CSE&nbsp;110.</p>
 
+    <section>
     <h2 id="concepts">Concepts</h2>
     <p>Here is a list of the Python programming concepts and topics from
     CSE&nbsp;110 that you should review during this lesson.</p>
 
+    <section>
     <h3 id="comments">Comments</h3>
     <p>A <dfn>comment</dfn> in a computer program is a note or
     description that is supposed to help a programmer understand the
@@ -57,7 +59,9 @@
 # This is a comment because it has
 # hash symbols at the beginning.
 </pre></div>
+    </section>
 
+    <section>
     <h3 id="variables">Variables</h3>
     <p>A <dfn>variable</dfn> is a location in a computer’s memory where
     a program stores a value. A variable has a name, a data type, and a
@@ -73,7 +77,9 @@ time = 7.2
 in_flight = True
 first_name = "Cho"
 </pre></div>
+    </section>
 
+    <section>
     <h3 id="data_types">Data Types</h3>
     <p>Python has many <dfn>data types</dfn> including <code>str</code>,
     <code>bool</code>, <code>int</code>, <code>float</code>,
@@ -168,7 +174,9 @@ students = {
     especially useful to convert user input, which is always a string,
     to a number. See the program in <a href="#ex2">example&nbsp;2</a>
     below.</p>
+    </section>
 
+    <section>
     <h3 id="user_input">User Input</h3>
     <p>In a Python program, we use the
     <a href="https://docs.python.org/3/library/functions.html#input"><code>input()</code></a>
@@ -179,7 +187,9 @@ students = {
 text = input("Please enter your name: ")
 color = input("What is your favorite color? ")
 </pre></div>
+    </section>
 
+    <section>
     <h3 id="print">Displaying Results</h3>
     <p>In a Python program, we use the
     <a href="https://docs.python.org/3/library/functions.html#print"><code>print()</code></a>
@@ -290,7 +300,9 @@ p: &lt;class 'int'&gt; 5
 q: &lt;class 'float'&gt; 3.0
 r: &lt;class 'float'&gt; 8.0</pre>
 </div>
+    </section>
 
+    <section>
     <h3 id="arith">Arithmetic</h3>
     <p>Python has many <dfn>arithmetic operators</dfn> including power
     (**), negation (-), multiplication (*), division (/), floor division
@@ -338,7 +350,9 @@ print(f"-3 % -8 == {-3 % -8}")</pre>
     <p>For more information, read the answers in this Stack Overflow
     question about the
     <a href="https://stackoverflow.com/questions/3883004/how-does-the-modulo-operator-work-on-negative-numbers-in-python">Python modulo operator and negative numbers</a>.</p>
+    </section>
 
+    <section>
     <h3 id="op_prec">Operator Precedence</h3>
     <p>When we write an arithmetic expression that contains more than
     one operator, the computer executes the operators according to their
@@ -423,7 +437,9 @@ Length of cable in meters: 501.83</pre>
     calculating the length of the cable is:</p>
 
     <div class="block formula"><var>length</var> = <var>span</var> + <div class="fract"><div>8 <var>dip</var><sup>2</sup></div><div>3 <var>span</var></div></div></div>
+    </section>
 
+    <section>
     <h3 id="short_ops">Shorthand Operators</h3>
     <p>The Python programming language includes many <dfn>augmented
     assignment operators</dfn>, also known as <dfn>shorthand
@@ -515,7 +531,9 @@ print(f"Price: ${price:.2f}")</pre>
 How many toppings? <span class="input">3</span>
 Price: $15.30</pre>
 </div>
+    </section>
 
+    <section>
     <h3 id="if">if Statements</h3>
     <p>In Python, we use <code>if</code> statements to cause the
     computer to make decisions; <code>if</code> statements are also
@@ -581,7 +599,9 @@ balance: 540.75</pre>
     way forces us to write code where the indentation matches the
     functionality or in other words, the way we indent the code matches
     the way that the computer will execute the code.</p>
+    </section>
 
+    <section>
     <h3 id="if_elif">if … elif … else Statements</h3>
     <p>Each <code>if</code> statement may have an <code>else</code>
     statement as shown in example&nbsp;7 on
@@ -618,7 +638,9 @@ print(f"After the discount, you will pay {cost:.2f}")</pre>
 Please enter the cost: <span class="input">300</span>
 After the discount, you will pay 246.00</pre>
 </div>
+    </section>
 
+    <section>
     <h3 id="logic_ops">Logical Operators</h3>
     <p>Python includes two <dfn>logic operators</dfn> which are the
     keywords <code>and</code>, <code>or</code> that we can use to
@@ -631,7 +653,10 @@ After the discount, you will pay 246.00</pre>
 if driver &gt;= 54 <em>or</em> (driver &gt;= 32 <em>and</em> passenger &gt;= 54):
     message = "Enjoy the ride!"
 </pre></div>
+    </section>
+    </section>
 
+    <section>
     <h2 id="videos">Videos</h2>
     <p>If any of the concepts or topics in the previous list seem
     unfamiliar to you, you should review them. To review the unfamiliar
@@ -648,7 +673,9 @@ if driver &gt;= 54 <em>or</em> (driver &gt;= 32 <em>and</em> passenger &gt;= 54)
         <li><div><a href="https://learn.microsoft.com/en-us/shows/intro-to-python-development/python-for-beginners-21-of-44-handling-multiple-conditions">Handling Multiple Conditions</a> <span class="duration">(6 minutes)</span></div></li>
         <li><div><a href="https://learn.microsoft.com/en-us/shows/intro-to-python-development/python-for-beginners-23-of-44-complex-conditions">Complex Conditions</a> <span class="duration">(4 minutes)</span></div></li>
     </ul>
+    </section>
 
+    <section>
     <h2 id="tutorials">Tutorials</h2>
     <p>Reading these tutorials may help you recall programming concepts
     from CSE&nbsp;110.</p>
@@ -667,7 +694,9 @@ if driver &gt;= 54 <em>or</em> (driver &gt;= 32 <em>and</em> passenger &gt;= 54)
     Or you could search for "Python" in the
     <a href="https://library.byui.edu">BYU-Idaho library online catalog</a>
     and read one of the online books from the result set.</p>
+    </section>
 
+    <section>
     <h2 id="summary">Summary</h2>
     <p>During this lesson, you are reviewing the programming concepts
     that you learned in CSE&nbsp;110. These concepts include how to do
@@ -685,6 +714,7 @@ if driver &gt;= 54 <em>or</em> (driver &gt;= 32 <em>and</em> passenger &gt;= 54)
         <li><div>use the logical operators <code>and</code>,
         <code>or</code>, <code>not</code></div></li>
     </ul>
-</article>
+    </section>
+</main>
 </body>
 </html>

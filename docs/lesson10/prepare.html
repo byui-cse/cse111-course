@@ -31,7 +31,7 @@
 </head>
 
 <body>
-<article>
+<main>
     <h1>10 Prepare: Handling Exceptions</h1>
     <p>Errors and exceptional situations sometimes occur while a program
     is running. Such errors include a program attempting to read from a
@@ -45,6 +45,7 @@
     handles errors that may occur while your Python program is
     running.</p>
 
+    <section>
     <h2 id="videos">Videos</h2>
     <p>Watch these two videos from Microsoft about error handling.</p>
 
@@ -69,11 +70,14 @@
         </iframe></div>
         </div></li>
     </ul>
+    </section>
 
+    <section>
     <h2 id="concepts">Concepts</h2>
     <p>Here are the Python programming concepts and topics that you
     should learn during this lesson.</p>
 
+    <section>
     <h3 id="exception">What Is an Exception?</h3>
     <p>An <dfn>exception</dfn> is a relatively rare event that sometimes
     occurs while a program is running. For example, an exception occurs
@@ -90,7 +94,9 @@
     functions, such as <code>open</code>, <code>int</code>, and
     <code>float</code>, will raise an exception when necessary. You will
     need to write code in your programs to handle exceptions.</p>
+    </section>
 
+    <section>
     <h3 id="handle_except">How to Handle an Exception</h3>
     <p>The Python keywords to handle exceptions are <code>try</code>,
     <code>except</code>, <code>else</code>, and <code>finally</code>.
@@ -222,13 +228,17 @@ except:
     and <code>except</code> blocks to handle exceptions. You will not
     need to write bare <code>except</code> blocks, <code>else</code>
     blocks, or <code>finally</code> blocks to handle exceptions.</p>
+    </section>
+    </section>
 
+    <section>
     <h2 id="except_types">Common Exception Types</h2>
     <p>There are many different types of
     <a href="https://docs.python.org/3/library/exceptions.html">built-in
     exceptions</a> that may occur while a Python program is running.
     This section shows how seven types of exceptions may occur.</p>
 
+    <section>
     <h3 id="type_err">TypeError</h3>
     <p>The computer raises a <a href="https://docs.python.org/3/library/exceptions.html#TypeError"><code>TypeError</code></a>
     when the code that calls a function passes an argument with the
@@ -258,7 +268,9 @@ if __name__ == "__main__":
 Please enter a number: <span class="input">25.7</span>
 type str doesn't define __round__ method</pre>
 </div>
+    </section>
 
+    <section>
     <h3 id="value_err">ValueError</h3>
     <p>The computer raises a <a href="https://docs.python.org/3/library/exceptions.html#ValueError"><code>ValueError</code></a>
     when the code that calls a function passes an argument with the
@@ -287,7 +299,9 @@ if __name__ == "__main__":
 Please enter a number: <span class="input">45.7u</span>
 could not convert string to float: '45.7u'</pre>
 </div>
+    </section>
 
+    <section>
     <h3 id="zero_div_err">ZeroDivisionError</h3>
     <p>The computer raises a <a href="https://docs.python.org/3/library/exceptions.html#ZeroDivisionError"><code>ZeroDivisionError</code></a>
     when a program attempts to divide a number by zero (0) as shown in
@@ -316,7 +330,9 @@ Enter the number of players: <span class="input">20</span>
 Enter the number of teams: <span class="input">0</span>
 division by zero</pre>
 </div>
+    </section>
 
+    <section>
     <h3 id="index_err">IndexError</h3>
     <p>Recall from <a href="../lesson07/prepare.html">lesson&nbsp;7</a>
     that each element in a list is stored at a unique index and that an
@@ -385,7 +401,9 @@ if __name__ == "__main__":
 <pre class="console">&gt; python index_error_read.py
 list index out of range</pre>
 </div>
+    </section>
 
+    <section>
     <h3 id="key_err">KeyError</h3>
     <p>As shown in example&nbsp;7, if we write code that attempts to
     find a key in a dictionary and that key doesn’t exist in the
@@ -450,7 +468,9 @@ KeyError '50-420-1021'</pre>
     else:
         print("No such student")
 </pre></div>
+    </section>
 
+    <section>
     <h3 id="file_not_found_err">FileNotFoundError</h3>
     <p>If we write a call to the <code>open</code> function that
     attempts to open a file for reading and that file doesn’t exist, the
@@ -476,7 +496,9 @@ if __name__ == "__main__":
 <pre class="console">&gt; python file_not_found.py
 [Errno 2] No such file or directory: 'products.vcs'</pre>
 </div>
+    </section>
 
+    <section>
     <h3 id="perm_err">PermissionError</h3>
     <p>Nearly all computer operating systems, such as Microsoft Windows,
     Mac OS X, and Linux, allow multiple people to use a single computer.
@@ -508,8 +530,13 @@ if __name__ == "__main__":
 <pre class="console">&gt; python permission_error.py
 [Errno 13] Permission denied: 'contacts.csv'</pre>
 </div>
+    </section>
+    </section>
 
+    <section>
     <h2 id="examples">Examples</h2>
+
+    <section>
     <h3 id="arith_excepts">Arithmetic</h3>
     <p>Example&nbsp;10 contains a complete program with
     <code>except</code> blocks to handle two types of exceptions:
@@ -578,7 +605,9 @@ Number of sandwiches that were made today: <span class="input">350</span>
 Number of employees who worked today: <span class="input">8</span>
 43.8 sandwiches per employee</pre>
 </div>
+    </section>
 
+    <section>
     <h3 id="file_excepts">Reading from a File</h3>
     <p>The program in example&nbsp;11 below handles exceptions that
     might occur when the program opens and reads from a file. This
@@ -671,7 +700,9 @@ def miles_per_gallon(start_miles, end_miles, gallons):
 if __name__ == "__main__":
     main()</pre>
 </div>
+    </section>
 
+    <section>
     <h3 id="validate_input">Validating User Input</h3>
     <p>To <dfn>validate user input</dfn> means to check user input to
     ensure it is in the correct format before using that input. The
@@ -759,7 +790,10 @@ def basal_metabolic_rate(gender, weight, height, age):
 if __name__ == "__main__":
     main()</pre>
 </div>
+    </section>
+    </section>
 
+    <section>
     <h2 id="tutorials">Tutorials</h2>
     <p>If the concepts above seem vague, these tutorials may clear some
     confusion for you:</p>
@@ -777,7 +811,9 @@ if __name__ == "__main__":
     hierarchy</a> for the built-in exceptions that is helpful for
     ordering <code>except</code> blocks from most specific to most
     general.</p>
+    </section>
 
+    <section>
     <h2 id="summary">Summary</h2>
     <p>Errors and exceptional situations sometimes occur while a program
     is running. When an exceptional situation occurs, a computer will
@@ -806,6 +842,7 @@ if __name__ == "__main__":
     Also, when writing code that gets input from a user, a programmer
     usually writes <code>try</code> and <code>except</code> blocks to
     help validate the user’s input.</p>
-</article>
+    </section>
+</main>
 </body>
 </html>

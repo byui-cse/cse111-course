@@ -32,13 +32,14 @@
 </head>
 
 <body onload="cse111.scope.addVarHandlers('ex10', 'ex11', 'ex12')">
-<article>
+<main>
     <h1>07 Prepare: Lists and Repetition</h1>
     <p>During this lesson, you will learn how to store many elements in
     a Python list. You will learn how to write a loop that processes
     each element in a list. Also, you will learn that lists are passed
     into a function differently than numbers are passed.</p>
 
+    <section>
     <h2 id="videos">Videos</h2>
     <p>Watch these videos from Microsoft about lists and repetition in
     Python.</p>
@@ -63,11 +64,14 @@
         </iframe></div>
         </div></li>
     </ul>
+    </section>
 
+    <section>
     <h2 id="concepts">Concepts</h2>
     <p>Here are the Python programming concepts and topics that you
     should learn during this lesson:</p>
 
+    <section>
     <h3 id="lists">Lists</h3>
     <p>A Python program can store many values in a <dfn>list</dfn>.
     Lists are mutable, meaning they can be changed after they are
@@ -197,7 +201,9 @@ The fabrics list contains 2 elements.
     it is possible to store numbers in a list, too. In fact, Python
     allows a program to store any data type in a list, including other
     lists.</p>
+    </section>
 
+    <section>
     <h3 id="repetition">Repetition</h3>
     <p>A programmer can cause a computer to repeat a group of statements
     by writing <code>for</code> and <code>while</code> loops.</p>
@@ -515,7 +521,9 @@ pytest.main(["-v", "- -tb=line", "-rN", __file__])
 <pre class="console">&gt; python example_7.py
 list1 and list2 differ at index 2</pre>
 </div>
+    </section>
 
+    <section>
     <h3 id="compound_list">Compound Lists</h3>
     <p>A <dfn>compound list</dfn> is a list that contains other lists.
     Compound lists are used to store lots of related data.
@@ -623,7 +631,9 @@ if __name__ == "__main__":
 42.1
 Total fruit amount: 256.6</pre>
 </div>
+    </section>
 
+    <section>
     <h3 id="vals_and_refs">Values and References</h3>
     <p>In a Python program, the computer assigns values to variables
     differently based on their data type. Consider the small program in
@@ -745,7 +755,9 @@ After changing lx:  <em>lx [7, -2, 5]  ly [7, -2, 5]</em></pre>
     (<code>ly = lx</code>), the computer does not copy <em>the
     value</em> but instead copies <em>the reference</em> so that both
     variables refer to the same list in memory.</p>
+    </section>
 
+    <section>
     <h3 id="pass_by_ref">Pass by Value and Pass by Reference</h3>
     <p>The fact that the computer copies the value of some data types
     (boolean, integer, float) and copies the reference for other data
@@ -847,7 +859,9 @@ After calling modify_args():  x 5  <em>lx [7, -2, 4]</em></pre>
     and the parameter both refer to the same list in memory. Copying the
     reference of an argument into a parameter is known as <dfn>pass by
     reference</dfn>.</p>
+    </section>
 
+    <section>
     <h3 id="rationale">Rationale for Pass by Reference</h3>
     <p>Why are booleans and numbers passed to a function by value and
     lists are passed to a function by reference? To understand the
@@ -870,7 +884,10 @@ After calling modify_args():  x 5  <em>lx [7, -2, 4]</em></pre>
     computer’s memory for the copy. Therefore, to make programs fast and
     use less memory, lists (and other large data types) are passed to a
     function by reference.</p>
+    </section>
+    </section>
 
+    <section>
     <h2 id="tutorials">Tutorials</h2>
     <p>If the concepts in this preparation content seem confusing to
     you, reading these tutorials may help you better understand the
@@ -882,7 +899,9 @@ After calling modify_args():  x 5  <em>lx [7, -2, 4]</em></pre>
         <li><div><a href="https://realpython.com/python-for-loop/">Python "for" Loops</a></div></li>
         <li><div><a href="https://realpython.com/python-while-loop/">Python "while" Loops</a></div></li>
     </ul>
+    </section>
 
+    <section>
     <h2 id="summmary">Summary</h2>
     <p>During this lesson, you are learning how to store many values in
     a list. Each element in a list is stored at a unique index. Each
@@ -905,6 +924,7 @@ After calling modify_args():  x 5  <em>lx [7, -2, 4]</em></pre>
     if a called function changes a list that is a parameter, that
     function is not changing a copy of the list but instead is changing
     the original list from the calling function.</p>
-</article>
+    </section>
+</main>
 </body>
 </html>
