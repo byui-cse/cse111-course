@@ -311,6 +311,7 @@ main summary:has(h2) {
 	border-bottom: 1px solid;
 }
 main summary:has(h3) {
+	color: var(--heading-fg-color);
 	margin: 1.5em 0 0.5em 0;
 }
 
