@@ -298,6 +298,22 @@ main h4 {
 	margin: 1em 0 0.5em 0;
 }
 
+main summary > h2,
+main summary > h3 {
+	display: inline-block;
+	margin: 0;
+	border: 0;
+	padding: 0;
+}
+main summary:has(h2) {
+	margin: 1.5em 0 0.25em 0;
+	padding-bottom: 0.25em;
+	border-bottom: 1px solid;
+}
+main summary:has(h3) {
+	margin: 1.5em 0 0.5em 0;
+}
+
 @media screen {
 	main h2 > .copy,
 	main h3 > .copy,

@@ -21,6 +21,8 @@ cse111.strings = {
 	contentsText: 'Contents',
 	prevText    : 'Previous Document',
 	nextText    : 'Next Document',
+	expandText  : 'Expand All',
+	collapseText: 'Collapse All',
 	searchText  : 'Search',
 	helpText    : 'Help',
 	pdfText     : '.pdf File',
@@ -33,6 +35,8 @@ cse111.strings = {
 	contentsHint: 'View list of contents for CSE 111',
 	prevHint    : 'View previous document',
 	nextHint    : 'View next document',
+	expandHint  : 'Expand all sections in this document',
+	collapseHint: 'Collapse all sections in this document',
 	searchHint  : 'Search the CSE 111 content',
 	helpHint    : 'Get help for CSE 111',
 	pdfHint     : 'Download a PDF that contains all\nCSE 111 HTML preparation content',
@@ -93,6 +97,8 @@ cse111.svgCache =
 <symbol id="svgClose" viewBox="0 0 56 64"><path class="stroke" d="M12 16L44 48M12 48L44 16"/></symbol>\
 <symbol id="svgLeft" viewBox="0 0 64 64"><path class="stroke" d="M56 32H8M28 12L8 32L28 52"/></symbol>\
 <symbol id="svgList" viewBox="0 0 64 64"><rect x="0" y="7" width="10" height="10" rx="2"/><rect x="0" y="27" width="10" height="10" rx="2"/><rect x="0" y="47" width="10" height="10" rx="2"/><path class="stroke" d="M24 12H60M24 32H60M24 52H60"/></symbol>\
+<symbol id="svgExpand" viewBox="0 0 64 64"><path class="stroke" d="M0 32H64M32 0V64"/></symbol>\
+<symbol id="svgCollapse" viewBox="0 0 64 64"><path class="stroke" d="M0 32H64"/></symbol>\
 <symbol id="svgMagnify" viewBox="0 0 64 64"><path class="stroke" d="M48 26A16 16 0 104 26A16 16 0 1048 26M44 44L60 60"/></symbol>\
 <symbol id="svgMoon" viewBox="0 0 64 64"><path d="M38.4 6a26 26 0 1016 44 26 26 0 01-16-44"/></symbol>\
 <symbol id="svgQuestion" viewBox="0 0 64 64"><path class="stroke" d="M16 18A16 12 0 0148 18A8 12 0 0142 32C40 33 36 34.5 34 35.5C30 37.25 30 37.5 30 43"/><circle cx="30" cy="57" r="5"/></symbol>\
@@ -283,6 +289,24 @@ cse111.common = {
 					strings.nextHint, next.href);
 		}
 
+		const section = document.querySelector('section');
+		if (section) {
+			/** Expands or collapses all details elements. */
+			function changeDetails(expand) {
+				let elements = document.querySelectorAll('details');
+				for (let elem of elements) {
+					elem.open = expand;
+				}
+			}
+
+			addMenuItem('svgExpand', strings.expandText,
+					strings.expandHint,
+					function() { changeDetails(true); }, ['first']);
+			addMenuItem('svgCollapse', strings.collapseText,
+					strings.collapseHint,
+					function() { changeDetails(false); });
+		}
+
 		addMenuItem('svgMagnify', strings.searchText,
 				strings.searchHint, filenames.search, ['first']);
 		addMenuItem('svgQuestion', strings.helpText,
@@ -361,6 +385,27 @@ cse111.common = {
 		let clist = document.body.classList;
 		clist.remove(remove);
 		clist.add(brightness);
+	},
+
+
+	addDetailsAndSummaries : function() {
+		const createElem = cse111.createElement;
+
+		let elements = document.body.querySelectorAll('section');
+		for (let section of elements) {
+			let heading = section.querySelector('h2, h3');
+			if (heading) {
+				let summary = createElem('summary');
+				section.insertBefore(summary, heading);
+				summary.appendChild(heading);
+
+				let details = createElem('details', null, {open:true});
+				while (section.childNodes.length > 0) {
+					details.appendChild(section.childNodes[0]);
+				}
+				section.appendChild(details);
+			}
+		}
 	},
 
 
@@ -835,6 +880,7 @@ cse111.onDOMLoaded = function() {
 	cse111.solution.modifyLinks();
 	common.addFooter();
 
+	common.addDetailsAndSummaries();
 	common.addURLCopyChars();
 	linenums.addCodeCopyButtons();
 	linenums.addCrossRefs();
