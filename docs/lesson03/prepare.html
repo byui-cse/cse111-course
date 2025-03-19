@@ -25,7 +25,7 @@
         "educationalUse": "instruction",
         "copyrightNotice": "Copyright © 2019, Brigham Young University–Idaho. All rights reserved.",
         "datePublished": "2019-12-06",
-        "dateModified": "2023-02-27"
+        "dateModified": "2025-03-19"
     }
     </script>
 </head>
@@ -594,10 +594,12 @@ Volume: 226.19</pre>
     function, the computer calls the <code>input</code> and
     <code>float</code> functions. Then the computer calls the
     <code>compute_cylinder_volume</code> function. Finally the computer
-    calls the <code>print</code> function. In the call graph we can see
-    that the <code>main</code> and <code>print</code> functions don’t
-    return a value. The <code>print</code> function prints results for
-    the user to see, but it doesn’t return anything.</p>
+    calls the <code>print</code> function. In the call graph we see that
+    each of the <code>input</code>, <code>float</code>, and
+    <code>compute_cylinder_volume</code> functions returns a value. We
+    also see that the <code>main</code> and <code>print</code> functions
+    don’t return a value. The <code>print</code> function prints results
+    for the user to see, but it doesn’t return anything.</p>
 
     <figure class="center callgraph" style="width:30em">
         <img src="call_graph_prepare.svg"
