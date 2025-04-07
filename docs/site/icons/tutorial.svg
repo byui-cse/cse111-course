@@ -6,8 +6,7 @@ path{stroke-width:5;stroke:#505050}
 .corner{fill:white}
 text{font:bold 82px "Open Sans",sans-serif;text-anchor:middle;fill:white}
 </style>
-<path class="page" d="M2.5,6Q2.5,2.5 6,2.5H48V26Q48,29 51,29H74.5V93Q74.5,96.5 71,96.5H6Q2.5,96.5 2.5,93Z"/>
-<path class="corner" d="M48,2.5V26,Q48,29 51,29H74.5V27L50,2.5Z"/>
+<path class="page" d="M74.5 27V93Q74.5 96.5 71 96.5H6Q2.5 96.5 2.5 93V6Q2.5 2.5 6 2.5H50Z"/>
+<path class="corner" d="M48 4V26Q48 29 51 29H73"/>
 <text x="29" y="88">?</text>
 </svg>
-

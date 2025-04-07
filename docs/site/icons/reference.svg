@@ -3,13 +3,9 @@
 path{stroke-width:5;stroke:#505050}
 .page{fill:white}
 .corner{fill:none}
-line{stroke-width:7;stroke:#0076b6;stroke-linecap:round}
+path.text{stroke-width:7;stroke:#0076b6;stroke-linecap:round;fill:none}
 </style>
-<path class="page" d="M2.5,6Q2.5,2.5 6,2.5H50L74.5,27V93Q74.5,96.5 71,96.5H6Q2.5,96.5 2.5,93Z"/>
-<path class="corner" d="M48,3V26Q48,29 51,29H74"/>
-<line x1="14" y1="15" x2="38" y2="15"/>
-<line x1="14" y1="31" x2="38" y2="31"/>
-<line x1="14" y1="47" x2="63" y2="47"/>
-<line x1="14" y1="63" x2="63" y2="63"/>
-<line x1="14" y1="79" x2="63" y2="79"/>
+<path class="page" d="M74.5 27V93Q74.5 96.5 71 96.5H6Q2.5 96.5 2.5 93V6Q2.5 2.5 6 2.5H50Z"/>
+<path class="corner" d="M48 4V26Q48 29 51 29H73"/>
+<path class="text" d="M14 15H38M14 31H38M14 47H63M14 63H63M14 79H63"/>
 </svg>
