@@ -30,6 +30,8 @@
 	--compare-same-color: var(--lighter-yellow);
 	--compare-similar-color: var(--lighter-coral);
 	--compare-diff-color: var(--lighter-raspberry);
+
+	--important-fg-color: var(--raspberry);
 }
 @media screen {
 	:root {
@@ -407,6 +409,19 @@ main div.search {
 	white-space: pre-line;
 }
 
+main div.note {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.75em;
+	margin: 1em 0;
+}
+main div.note::before {
+	flex-shrink: 0; /* Prevent the icon from shrinking */
+	font-size: 200%;
+	color: var(--important-fg-color);
+	content: "\26a0";
+}
+
 
 main a:link { color: var(--link-before-fg-color); }
 main a:hover { color: var(--link-hover-fg-color); }
@@ -532,15 +547,6 @@ main ul.mixed > li.video {
 	background-repeat: no-repeat;
 	background-size: 1.3em auto;
 	padding-left: 1.5em;
-}
-
-main ul.notes {
-	list-style-type: "*";
-}
-
-main ul.notes > li {
-	padding-left: 0.4em;
-	color: var(--bullet-fg-color);
 }
 
 main dl.function {
