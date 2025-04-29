@@ -47,8 +47,8 @@ cse111.show = {
 		if (className) {
 			document.getElementById('code').classList.add(className);
 
-			let article = document.querySelector('article');
-			let links = article.querySelectorAll('a[download]');
+			let main = document.querySelector('main');
+			let links = main.querySelectorAll('a[download]');
 			for (let link of links) {
 				link.setAttribute('href', href);
 				link.setAttribute('title', 'Download ' + href);
