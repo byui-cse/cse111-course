@@ -46,16 +46,16 @@
     a computer’s ability to make conversation that is indistinguishable
     from human conversation. A computer that could pass the Turing test
     would need to understand sentences typed by a human and respond with
-    sentences that make sense.</p>
+    sentences that are meaningful.</p>
 
     <p>In English and many other languages, <dfn>grammatical
     quantity</dfn> (also known as grammatical number) is an attribute of
     nouns, pronouns, adjectives, and verbs that expresses count
-    distinctions, such as “one”, “two”, “some”, or “many”. The
-    grammatical quantity of the words in a sentence must match. In
-    English, there are two categories of grammatical quantity: single
-    and plural. For example, here are three English sentences that
-    contain <dfn>single</dfn> nouns, pronouns, and verbs:</p>
+    distinctions (how many), such as “one”, “two”, “some”, or “many”.
+    The words in a sentence must agree in quantity. In English, there
+    are two categories of grammatical quantity: single and plural. For
+    example, here are three English sentences that contain
+    <dfn>single</dfn> nouns, pronouns, and verbs:</p>
 
     <blockquote>The boy laughs.<br>
     One dog eats.<br>
@@ -71,8 +71,8 @@
     <p><dfn>Grammatical tense</dfn> is an attribute of verbs that
     expresses when an action happened. Many languages include past,
     present, and future tenses. For example, here are three English
-    sentences, the first with past tense, the second with present tense,
-    and the third with future tense:</p>
+    sentences, the first in past tense, the second in present tense,
+    and the third in future tense:</p>
 
     <blockquote>The cat walked.<br>
     The cat walks.<br>
@@ -90,12 +90,16 @@
         <li><div>a verb</div></li>
     </ol>
 
+    <p>In other words, your program will build and output sentences in this
+    form:</p>
+    <pre>Sentence = [Determiner] + [noun] + [verb] + .</pre>
+
     <p>For example:</p>
     <blockquote>A cat laughed.<br>
-    One man eats.<br>
-    The woman will think.<br>
     Some girls thought.<br>
+    One man eats.<br>
     Many dogs run.<br>
+    The woman will think.<br>
     Many men will write.</blockquote>
 
     <p>For this milestone, your program must include at least these five
@@ -110,7 +114,7 @@
 
     <p>You may add other functions if you want. The functions
     <code>get_determiner</code>, <code>get_noun</code>, and
-    <code>get_verb</code>, must randomly choose a word from a list of
+    <code>get_verb</code> must randomly choose a word from a list of
     words and return the randomly chosen word. All the functions that
     you must write for this milestone assignment are described in the
     Steps section below.</p>
@@ -193,7 +197,7 @@ surname = "Takechi"
 
     <section>
     <h3 id="ai_tutor">Help from an AI Tutor</h3>
-    <p>You could use a generative AI as a tutor to help you write and
+    <p>You can use a generative AI as a tutor to help you write and
     troubleshoot your program. Bro. Lee Barney created a custom Chat GPT
     named Pythonista that is fine-tuned to focus on Python functions,
     loops, if statements, and related programming concepts.
@@ -427,28 +431,28 @@ def make_sentence(quantity, tense):
     step in this procedure:</p>
 
     <ol class="test">
-        <li><div>Run your <code>sentences.py</code> program and ensure
-        that your program outputs six sentences with the following
-        characteristics:
+        <li><div><p>Run your <code>sentences.py</code> program and
+        ensure that your program outputs six sentences with the
+        following grammatical characteristics:</p>
 
         <table class="center"><thead>
             <tr><th></th> <th>Quantity</th> <th>Verb Tense</th></tr>
         </thead><tbody>
             <tr><td>a.</td> <td>single</td> <td>past</td></tr>
-            <tr><td>b.</td> <td>single</td> <td>present</td></tr>
-            <tr><td>c.</td> <td>single</td> <td>future</td></tr>
-            <tr><td>d.</td> <td>plural</td> <td>past</td></tr>
-            <tr><td>e.</td> <td>plural</td> <td>present</td></tr>
+            <tr><td>b.</td> <td>plural</td> <td>past</td></tr>
+            <tr><td>c.</td> <td>single</td> <td>present</td></tr>
+            <tr><td>d.</td> <td>plural</td> <td>present</td></tr>
+            <tr><td>e.</td> <td>single</td> <td>future</td></tr>
             <tr><td>f.</td> <td>plural</td> <td>future</td></tr>
         </tbody></table>
 
-        Your program’s output should be similar to the sample run output
-        shown here. However, because your program randomly chooses the
+        <p>Your program’s output should be similar to the sample output
+        shown below. However, because your program randomly chooses the
         determiners, nouns, and verbs, your program will generate
-        different sentences than the six shown here.
+        different sentences than the six shown here.</p>
 
 <pre class="console">&gt; python sentences.py
-The cat laughed.
+A cat laughed.
 Some girls thought.
 One man eats.
 Many dogs run.

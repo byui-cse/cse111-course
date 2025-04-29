@@ -42,10 +42,10 @@
 
     <section>
     <h2 id="problem">Problem Statement</h2>
-    <p>In English, a <dfn>preposition</dfn> is a word used to express
-    spatial or temporal relations, such as “in”, “over”, and “before”. A
-    <dfn>prepositional phrase</dfn> is group of words that begins with a
-    preposition and includes a noun. For example:</p>
+    <p>In English, a <dfn>preposition</dfn> is a word that shows time or
+    place, such as “in”, “over”, and “before”. A
+    <dfn>prepositional phrase</dfn> is a group of words that begins with
+    a preposition and includes a noun. For example:</p>
 
     <blockquote>above the water<br>
     in the kitchen<br>
@@ -122,7 +122,7 @@
 
     <section>
     <h3 id="ai_tutor">Help from an AI Tutor</h3>
-    <p>You could use a generative AI as a tutor to help you write and
+    <p>You can use a generative AI as a tutor to help you write and
     troubleshoot your program. Bro. Lee Barney created a custom Chat GPT
     named Pythonista that is fine-tuned to focus on Python functions,
     loops, if statements, and related programming concepts.
@@ -285,15 +285,30 @@ def get_prepositional_phrase(quantity):
 
     <section>
     <h2 id="testing">Testing Procedure</h2>
-    <p>Verify that your test program works correctly by following each
+    <p>Verify that your program works correctly by following each
     step in this procedure:</p>
 
     <ol class="test">
-        <li><div>Run your <code>sentences.py</code> program and ensure
-        that your program’s output is similar to the sample run output
-        shown here. Because your program randomly chooses the
-        determiners, nouns, verbs, and prepositions, your program will
-        generate different sentences than the ones shown here.
+        <li><div><p>Run your <code>sentences.py</code> program and
+        ensure that your program’s output is similar to the sample
+        output shown below. Notice in the sample output that each
+        sentence has a different combination of single or plural nouns
+        and past, present, or future verbs. In other words, the sample
+        sentences have the following grammatical characteristics:
+
+        <table class="center"><thead>
+            <tr><th></th> <th>Quantity</th> <th>Verb Tense</th></tr>
+        </thead><tbody>
+            <tr><td>a.</td> <td>single</td> <td>past</td></tr>
+            <tr><td>b.</td> <td>plural</td> <td>past</td></tr>
+            <tr><td>c.</td> <td>single</td> <td>present</td></tr>
+            <tr><td>d.</td> <td>plural</td> <td>present</td></tr>
+            <tr><td>e.</td> <td>single</td> <td>future</td></tr>
+            <tr><td>f.</td> <td>plural</td> <td>future</td></tr>
+        </tbody></table>
+
+        <p>Of course, the sentences from your program will be different
+        because your program chooses words randomly.</p>
 
 <pre class="console">&gt; python sentences.py
 One girl talked for the car.

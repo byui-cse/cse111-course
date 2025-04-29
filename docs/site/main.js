@@ -130,6 +130,7 @@ cse111.createElement = function(tag, classes, attrs) {
 };
 
 
+/** Creates a scalable vector graphic element from svgCache above. */
 cse111.createSVG = function(id, classes, title) {
 	const xmlns = 'http://www.w3.org/2000/svg';
 	const symbol = document.getElementById(id);
@@ -488,7 +489,7 @@ cse111.common = {
 
 
 	/** Gets the copyright notice and the last modified date, from the
-	 * search engine structured data in this document's head. Returns
+	 * search engine structured data in the document's head. Returns
 	 * the two values in an object. */
 	getCopyrightData : function() {
 		const strings = cse111.strings;
