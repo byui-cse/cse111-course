@@ -43,14 +43,14 @@
 
     <section>
     <h2 id="problem">Problem Statement</h2>
-    <p>In chemistry, a <dfn>mole</dfn> is a very large, fixed quantity,
-    specifically 602,214,076,000,000,000,000,000 (usually written as
-    6.02214076 × 10<sup>23</sup>). The <dfn>molar mass</dfn> of a
-    substance is the mass in grams of one mole of the substance (grams /
-    mole). A molar mass calculator is a program that computes the molar
-    mass of a substance and the number of moles of a sample of that
-    substance. To use a molar mass calculator, a chemist enters two
-    inputs:</p>
+    <p>In chemistry, a <dfn>mole</dfn> is a huge quantity, specifically
+    602,214,076,000,000,000,000,000 (usually written as
+    6.02214076&nbsp;×&nbsp;10<sup>23</sup>). The <dfn>molar mass</dfn>
+    of a substance is the mass in grams of one mole of the substance
+    (grams&nbsp;/&nbsp;mole). A <dfn>molar mass calculator</dfn> is a
+    program that computes the molar mass of a substance and the number
+    of moles of a sample of that substance. To use a molar mass
+    calculator, a chemist enters two inputs:</p>
 
     <ul>
         <li><div>The formula for a molecule, such as H<sub>2</sub>O
@@ -63,12 +63,12 @@
     <p>The calculator computes the molar mass of the molecule by doing
     the following for each element in the formula:</p>
     <ol>
-        <li><div>Sum the number of atoms of each element in the
+        <li><div>Count the number of atoms of each element in the
         formula</div></li>
         <li><div>Find the atomic mass of each element</div></li>
         <li><div>Multiply the number of atoms by their atomic
         mass</div></li>
-        <li><div>Add the product into the molar mass of the
+        <li><div>Add the product to the total molar mass of the
         molecule</div></li>
     </ol>
 
@@ -128,9 +128,8 @@
         </div></li>
     </ol>
 
-    <p>Then the calculator divides the mass of the sample of glucose by
-    the molar mass of glucose which results in the number of moles in
-    the sample:</p>
+    <p>Then the calculator divides the sample’s mass by the molar mass
+    of glucose to calculate the number of moles in the sample:</p>
     <div class="block formula"><div class="fract"><div>12.37 grams</div><div>180.15588 grams/mole</div></div> = 0.06866 moles</div>
 
     <p>The calculator prints two results for the chemist to see:</p>
@@ -147,8 +146,8 @@
     <h2 id="assign">Assignment</h2>
     <p>During this assignment, you will write and test the remaining
     parts of the molar mass calculator that you started writing in the
-    previous lesson’s prove milestone. When you are finished with this
-    prove assignment, your <code>chemistry.py</code> program must
+    prove milestone from the previous lesson. When you are finished with
+    this prove assignment, your <code>chemistry.py</code> program must
     contain at least three functions named as follows:</p>
     <ol>
         <li><div><code>main</code></div></li>
@@ -187,7 +186,7 @@
 
     <section>
     <h3 id="ai_tutor">Help from an AI Tutor</h3>
-    <p>You could use a generative AI as a tutor to help you write and
+    <p>You can use a generative AI as a tutor to help you write and
     troubleshoot your program. Bro. Lee Barney created a custom Chat GPT
     named Pythonista that is fine-tuned to focus on Python functions,
     loops, if statements, and related programming concepts.
@@ -268,8 +267,8 @@ from formula import parse_formula
         <li><div>In your <code>chemistry.py</code> program, change the
         compound list that is in your <code>make_periodic_table</code>
         function to a compound dictionary. Each item in the dictionary
-        should have a chemical symbol as the key and the chemical name
-        and atomic mass in a list as the value, like this:
+        should use a chemical symbol as the key, and the value should be
+        a list with the element’s name and atomic mass, like this:
 <div class="example"><pre class="python">
     periodic_table_dict = {
         # symbol: [name, atomic_mass]
@@ -289,7 +288,7 @@ from formula import parse_formula
         teacher for help.</div></li>
 
         <li><div>Copy and paste the following Python code into your
-        <code>chemistry.py</code> program. Be certain not to paste the
+        <code>chemistry.py</code> program. Make sure you don’t paste the
         code inside an existing function.
 
 <div class="example"><pre class="python">
