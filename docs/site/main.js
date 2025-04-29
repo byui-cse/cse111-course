@@ -65,7 +65,7 @@ cse111.strings = {
 /** Contains the filenames of user visible icons and other files so
  * that changing them, if necessary, will be easier. */
 cse111.filenames = {
-	logoIcon : 'site/icons/logo.png',
+	logoIcon : 'site/icons/logo.webp',
 
 	contents : 'index.html',
 	search   : 'index.html#search',
