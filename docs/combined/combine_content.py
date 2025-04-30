@@ -21,26 +21,12 @@ site_filenames = [
     "site/hljs/highlight.min.js",
     "site/hljs/vscode.css",
 
-    #"site/icons/arrow-left.svg",
-    #"site/icons/arrow-right.svg",
-    #"site/icons/arrow-up-long.svg",
-    #"site/icons/bars.svg",
-    #"site/icons/byui-logo.svg",
-    #"site/icons/file-pdf.png",
-    #"site/icons/file-zip.png",
-    #"site/icons/list.svg",
-    #"site/icons/magnify-glass.svg",
-    #"site/icons/moon.svg",
-    #"site/icons/question.svg",
-    #"site/icons/sun.svg"
-
-    "site/icons/collapsed.png",
-    #"site/icons/copy.png",
-    "site/icons/expanded.png",
-    "site/icons/logo.png",
-    #"site/icons/reference.svg",
-    #"site/icons/tutorial.svg",
-    #"site/icons/video.svg",
+    "site/icons/collapsed.webp",
+    "site/icons/expanded.webp",
+    "site/icons/logo.webp",
+    "site/icons/reference.svg",
+    "site/icons/tutorial.svg",
+    "site/icons/video.svg",
 ]
 
 image_filenames = [
@@ -49,24 +35,31 @@ image_filenames = [
     "lesson03/call_graph_key.svg",
     "lesson03/call_graph_prepare.svg",
     "lesson03/call_graph_prove.svg",
-    "lesson03/call_graph_prove_bad.svg",
     "lesson03/call_graph_teach.svg",
+    "lesson03/cylinder.svg",
+    "lesson04/call_graph_prove.svg",
     "lesson04/call_graph_teach.svg",
+    "lesson04/call_graph_teach_stretch.svg",
     "lesson05/call_graph_check.svg",
     "lesson05/call_graph_teach.svg",
+    "lesson06/call_graph_prove.svg",
+    "lesson07/call_graph_prove.svg",
+    "lesson08/call_graph_prove.svg",
 
-    "lesson01/dark_green_run.png",
-    "lesson01/install.png",
-    "lesson01/light_green_run.png",
-    "lesson03/cylinder.png",
-    "lesson03/empty.png",
-    "lesson04/cone.png",
-    "lesson05/install_pytest.png",
-    "lesson05/open_terminal.png",
-    "lesson05/terminal.png",
-    "lesson05/upgrade_pip.png",
-    "lesson06/step_into.png",
-    "lesson06/step_over.png"
+    "lesson01/dark_green_run.webp",
+    "lesson01/install.webp",
+    "lesson01/in_file_dir.webp",
+    "lesson01/light_green_run.webp",
+    "lesson01/settings.webp",
+    "lesson04/cone.webp",
+    "lesson05/install_pytest.webp",
+    "lesson05/open_terminal.webp",
+    "lesson05/terminal.webp",
+    "lesson05/upgrade_pip.webp",
+    "lesson06/step_into.webp",
+    "lesson06/step_over.webp",
+
+    "lesson05/water_distrib_system.png"
 ]
 
 text_filenames = [
@@ -78,6 +71,7 @@ text_filenames = [
     "lesson12wwb/report_1.txt",
     "lesson13wwb/report_2.txt",
     "lesson14/reflection.txt",
+
     "lesson09/dentists.csv",
     "lesson09/hymns.csv",
     "lesson09/products.csv",
@@ -242,9 +236,9 @@ def main():
     print(cwd)
     if cwd.endswith("combined"):
         os.chdir("..")
-    zip_content(zip_pathname)
+    #zip_content(zip_pathname)
     #combine_html(html_pathname, content_filenames)
-    #combine_html(prepare_pathname, prepare_filenames)
+    combine_html(prepare_pathname, prepare_filenames)
 
 
 def zip_content(outname):
@@ -331,16 +325,16 @@ def write_html(outfile, infile, original):
     #filename = os.path.basename(original)
     print(original)
 
-    # Skip all lines up to and including <article>.
+    # Skip all lines up to and including <main>.
     for text in infile:
-        if text.startswith("<article"):
+        if text.startswith("<main"):
             break
 
     outfile.write('\n' +
         '<section>\n')
-    # Add all lines up to but excluding </article>.
+    # Add all lines up to but excluding </main>.
     for text in infile:
-        if text.startswith("</article"):
+        if text.startswith("</main"):
             break
         if srcvalpat.search(text) and not srcprotopat.search(text):
             relpath = srcvalpat.sub(r"\2", text).strip()
@@ -377,17 +371,17 @@ def write_head(outfile):
     <link rel="stylesheet" href="../site/reset.css">
     <link rel="stylesheet" href="../site/style.css">
     <link rel="stylesheet" href="../site/hljs/vscode.css">
-    <link rel="icon" type="image/png" href="../site/icons/logo.png">
+    <link rel="icon" type="image/webp" href="../site/icons/logo.webp">
     <title>CSE 111</title>
 </head>
 
 <body>
-<article>''')
+<main>''')
 
 
 def write_foot(outfile):
     outfile.write(
-'''</article>
+'''</main>
 </body>
 </html>
 ''')

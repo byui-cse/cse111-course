@@ -354,7 +354,7 @@ main summary:has(h3) {
 	}
 }
 @media print {
-	section {
+	main > section {
 		page-break-before: always !important;
 		widows: 2;
 		orphans: 2;
