@@ -46,16 +46,16 @@
     enables its customers to order groceries online. After a customer
     completes an order, the online service sends a CSV file that
     contains the customer’s requests to the grocery store. The store
-    needs you to write a program that reads the CSV file and prints to
-    the terminal window a receipt that lists the purchased items and
+    needs you to write a program that reads the CSV file and prints a
+    receipt in the terminal window that lists the purchased items and
     shows the subtotal, the sales tax amount, and the total.</p>
     </section>
 
     <section>
     <h2 id="assign">Assignment</h2>
     <p>During this milestone, you will write half of a Python program
-    named <code>receipt.py</code> that prints to the terminal window a
-    receipt for a customer’s grocery order. Specifically, by the end of
+    named <code>receipt.py</code> that prints a receipt in the terminal
+    window for a customer’s grocery order. Specifically, by the end of
     this milestone, your program must contain at least these two
     functions:
     <ol>
@@ -108,9 +108,9 @@
     <h3 id="ai_tutor">Help from an AI Tutor</h3>
     <p>You could use a generative AI as a tutor to help you write and
     troubleshoot your program. Bro. Lee Barney created a custom Chat GPT
-    named Pythonista that is fine-tuned to focus on Python functions,
-    loops, if statements, and related programming concepts.
-    If your program is generating an error, ask
+    named Pythonista that is designed to focus on Python functions,
+    loops, if statements, and related programming concepts. If your
+    program is generating an error, ask
     <a href="https://chatgpt.com/g/g-sQydCh2Q6-pythonista">Pythonista</a>
     a question like this:</p>
 
@@ -163,8 +163,8 @@
         and a retail price. Also, notice that each product number in the
         <code>products.csv</code> file is unique. This means that your
         program can read the <code>products.csv</code> file into a
-        dictionary and use the product numbers as keys in the
-        dictionary.</div></li>
+        dictionary and use the product numbers as dictionary
+        keys.</div></li>
 
         <li><div>In VS Code, create a new file and save it as
         <code>receipt.py</code> in the same folder where you saved the
@@ -193,20 +193,20 @@ def read_dictionary(filename, key_column_index):
 </pre></div>
 
         <p>As part of the <a href="teach.html">team activity for this
-        lesson</a>, you already wrote a similar or the same
+        lesson</a>, you already wrote a similar
         <code>read_dictionary</code> function.</p>
         </div></li>
 
         <li><div>Open the <code>request.csv</code> file in VS Code and
         examine it. Notice that each row contains only two values, a
         product number and a quantity. Notice also that product number
-        D083 appears twice in the file. It appears twice because the
-        customer who created the order in the <code>request.csv</code>
-        file added four yogurts to his order and then later added three
-        more yogurts to his order. Because product numbers may appear
-        multiple times in the <code>request.csv</code> file, your
-        program must not read the contents of <code>request.csv</code>
-        into a dictionary.</div></li>
+        D083 appears twice in the file because the customer who created
+        the order in the <code>request.csv</code> file added four
+        yogurts to his order and then later added three more yogurts to
+        his order. Because product numbers may appear multiple times in
+        the <code>request.csv</code> file, your program should not read
+        the contents of <code>request.csv</code> into a
+        dictionary.</div></li>
 
         <li><div>In your <code>receipt.py</code> program, write another
         function named <code>main</code> that does the following:
@@ -310,19 +310,19 @@ twix candy bar: 2 @ 0.85
 
     <h3>Counting Only Three D083 Yogurts</h3>
     <p>Because product number D083 appears twice in the
-    <code>request.csv</code> file, your program must not read the
+    <code>request.csv</code> file, your program should not read the
     <code>request.csv</code> file into a dictionary. Recall that each
     key in a dictionary is unique. If your program reads the
     <code>request.csv</code> file into a dictionary, when your program
     reads line 3 of the <code>request.csv</code> file, your program will
-    put a request for four yogurts into the dictionary. Then when your
-    program reads line 6 of the <code>request.csv</code> file, your
-    program will replace the request for four yogurts with a request for
-    three yogurts. In other words, if your program reads the
+    store a request for four yogurts into the dictionary. Then when it
+    reads line 6 of the <code>request.csv</code> file, your program will
+    replace the request for four yogurts with a request for three
+    yogurts. In other words, if your program reads the
     <code>request.csv</code> file into a dictionary, your program will
     think that the customer ordered only three yogurts instead of the
     seven <span class="nowrap">(4 + 3)</span> that he ordered.
-    Therefore, your program must not read the <code>request.csv</code>
+    Therefore, your program should not read the <code>request.csv</code>
     file into a dictionary but should instead read and process each row
     similar to <a href="prepare.html#ex3">example&nbsp;3</a> in the
     preparation content for this lesson.</p>
