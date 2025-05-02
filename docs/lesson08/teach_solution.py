@@ -26,10 +26,10 @@ def main():
         "P201": ["Tiffany Hughes", "F", 1689, 1747],
         "P203": ["Ignacio Torres", "M", 1693, 1758],
         "P128": ["Yasmin Li", "F", 1701, 1716],
-        "P342": ["Trent Ross", "M", 1705, 1757],
+        "P342": ["Trent Ross", "M", 1695, 1752],
         "P202": ["Samyukta Nguyen", "M", 1717, 1774],
         "P132": ["Joel Johnson", "M", 1724, 1800],
-        "P445": ["Whitney Nelson", "F", 1757, 1823],
+        "P445": ["Whitney Nelson", "F", 1737, 1803],
         "P318": ["Khalid Ali", "M", 1759, 1814],
         "P317": ["Davina Patel", "F", 1775, 1860],
         "P313": ["Enzo Ruiz", "M", 1782, 1782],
@@ -38,14 +38,14 @@ def main():
         "P435": ["Jamal Gray", "M", 1810, 1831],
         "P204": ["Fatima Soares", "F", 1812, 1898],
         "P206": ["Ephraim Foster", "M", 1831, 1885],
-        "P500": ["Peter Price", "M", 1832, 1878],
+        "P500": ["Peter Price", "M", 1802, 1858],
         "P207": ["Rosalina Jimenez", "F", 1875, 1956],
         "P425": ["Rachel Johnson", "F", 1876, 1940],
         "P121": ["Vanessa Bennet", "F", 1880, 1960],
         "P152": ["Jose Castillo", "M", 1884, 1931],
         "P205": ["Liam Myers", "M", 1902, 1950],
         "P465": ["Isabella Lopez", "F", 1907, 1959],
-        "P168": ["Megan Anderson", "F", 1909, 1945]
+        "P168": ["Megan Anderson", "F", 1899, 1945]
     }
 
     marriages_dict = {
@@ -64,7 +64,7 @@ def main():
         "M12": ["P318", "P317", 1808],
         "M54": ["P435", "P204", 1830],
         "M34": ["P455", "P204", 1853],
-        "M55": ["P500", "P317", 1859],
+        "M55": ["P500", "P317", 1829],
         "M52": ["P206", "P204", 1875],
         "M78": ["P152", "P121", 1905],
         "M50": ["P152", "P425", 1917],
@@ -128,12 +128,15 @@ def count_genders(people_dict):
             person_key: [name, gender, birth_year, death_year]
     Return: nothing
     """
+    # Count the number of males in the people dictionary.
     num_males = 0
     for person_key, person_list in people_dict.items():
         gender = person_list[GENDER_INDEX]
         if gender == "M":
             num_males += 1
 
+    # Compute the number of females by subtracting the
+    # number of males from the total number of people.
     num_people = len(people_dict)
     num_females = num_people - num_males
 
