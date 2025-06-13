@@ -16,22 +16,22 @@
     <link rel="canonical" href="https://byui-cse.github.io/cse111-course/lesson07/prepare.html">
     <link rel="prev" type="text/html" href="../lesson06/prove.html">
     <link rel="next" type="text/html" href="check.html">
-    <meta name="description" content="Explains how to create and use Python lists in a program. Includes a detailed explanation of passing arguments by value versus passing by reference.">
+    <meta name="description" content="Explains how to create and use Python lists in a program. Includes an example function that accepts a list as a parameter and changes the list.">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org/",
         "@type": "Article",
         "headline": "07 Prepare: Lists and Repetition",
-        "description": "Explains how to create and use Python lists in a program. Includes a detailed explanation of passing arguments by value versus passing by reference.",
+        "description": "Explains how to create and use Python lists in a program. Includes an example function that accepts a list as a parameter and changes the list.",
         "educationalUse": "instruction",
         "copyrightNotice": "Copyright © 2020, Brigham Young University–Idaho. All rights reserved.",
         "datePublished": "2020-03-06",
-        "dateModified": "2023-02-15"
+        "dateModified": "2025-06-10"
     }
     </script>
 </head>
 
-<body onload="cse111.scope.addVarHandlers('ex10', 'ex11', 'ex12')">
+<body onload="cse111.scope.addVarHandlers('ex10')">
 <main>
     <h1>07 Prepare: Lists and Repetition</h1>
     <p>During this lesson, you will learn how to store many elements in
@@ -569,12 +569,12 @@ height: 2.3</pre>
     list. The <code>for</code> loop at
     <span class="cross" data-ref="ex9">line&nbsp;24</span>
     causes the computer to repeat
-    <span class="cross" data-ref="ex9">lines&nbsp;24&ndash;34</span>
+    <span class="cross" data-ref="ex9">lines&nbsp;24&ndash;35</span>
     once for each inner list that is inside the compound list named
     <code>apple_tree_data</code>.
-    <span class="cross" data-ref="ex9">Line&nbsp;28</span>
+    <span class="cross" data-ref="ex9">Line&nbsp;29</span>
     retrieves the fruit amount from one inner list and then
-    <span class="cross" data-ref="ex9">line&nbsp;34</span>
+    <span class="cross" data-ref="ex9">line&nbsp;35</span>
     adds one fruit amount to the total fruit amount.</p>
 
 <div class="example" id="ex9"><pre class="linenums"></pre>
@@ -597,7 +597,7 @@ def main():
         [2016, 2.1, 2.7, 42.1]
     ]
 
-    total_fruit_amount = 0
+    total = 0
 
     # This loop will repeat once for each inner list
     # in the apple_tree_data compound list.
@@ -605,16 +605,17 @@ def main():
 
         # Retrieve the fruit amount from
         # the current inner list.
+        year_planted = inner_list[YEAR_PLANTED_INDEX]
         fruit_amount = inner_list[FRUIT_AMOUNT_INDEX]
 
         # Print the fruit amount for the current tree.
-        print(fruit_amount)
+        print(year_planted, fruit_amount)
 
         # Add the current fruit amount to the total.
-        total_fruit_amount += fruit_amount
+        total += fruit_amount
 
     # Print the total fruit amount.
-    print(f"Total fruit amount: {total_fruit_amount:.1f}")
+    print(f"Total fruit amount: {total:.1f}")
 
 
 # Call main to start this program.
@@ -622,172 +623,48 @@ if __name__ == "__main__":
     main()</pre>
 
 <pre class="console">&gt; python example_9.py
-70.5
-81.3
-62.7
-42.1
+2012 70.5
+2012 81.3
+2015 62.7
+2016 42.1
 Total fruit amount: 256.6</pre>
 </div>
     </section>
 
     <section>
-    <h3 id="vals_and_refs">Values and References</h3>
-    <p>In a Python program, the computer assigns values to variables
-    differently based on their data type. Consider the small program in
-    example&nbsp;10 and the output of that program. The program in
-    example&nbsp;10 contains two integer variables named <var>x</var>
-    and <var>y</var>. The program in example&nbsp;10 does the
-    following:</p>
+    <h3 id="mutable">Python Lists Are Mutable</h3>
+    <p>Python lists are <dfn>mutable</dfn> which means they can be
+    changed after they are created. A list can be changed in the
+    function where it is created. A list can also be changed inside a
+    called function that accepts the list as a parameter. Consider the
+    Python program in example&nbsp;10 with two functions named
+    <code>main</code> and <code>modify_args</code>. The program in
+    example&nbsp;10 does the following:</p>
 
     <ul>
         <li><div>The statement at
-        <span class="cross" data-ref="ex10">line&nbsp;4</span>
-        stores the value 17 into the variable <var>x</var>.</div></li>
-        <li><div><span class="cross" data-ref="ex10">Line&nbsp;5</span>
-        copies the value that is in the variable <var>x</var> into the
-        variable <var>y</var>.</div></li>
+        <span class="cross" data-ref="ex10">line&nbsp;5</span> assigns
+        the value 5 to an integer variable named <var>x</var>.</div></li>
+
         <li><div><span class="cross" data-ref="ex10">Line&nbsp;6</span>
-        prints the values of <var>x</var> and <var>y</var> which are
-        both 17.</div></li>
-        <li><div><span class="cross" data-ref="ex10">Line&nbsp;7</span>
-        adds one to the value of <var>x</var>, making its value 18
-        instead of 17.</div></li>
-        <li><div><span class="cross" data-ref="ex10">Line&nbsp;8</span>
-        prints the values of <var>x</var> and <var>y</var> again. The
-        value of <var>x</var> was changed to 18. The value of
-        <var>y</var> remained unchanged.</div></li>
-    </ul>
-
-    <p>Why does <span class="cross" data-ref="ex10">line&nbsp;7</span>
-    (<code>x += 1</code>) change the value of <var>x</var> but not
-    change the value of <var>y</var>&thinsp;? Because
-    <span class="cross" data-ref="ex10">line&nbsp;5</span> copies
-    <em>the value</em> that was in <var>x</var> into <var>y</var>. In
-    other words, <var>x</var> and <var>y</var> are two separate
-    variables, each with its own value.</p>
-
-<div class="example" id="ex10"><pre class="linenums"></pre>
-<pre class="python"># Example 10
-
-<span data-scope="global"><span data-scope="main">def main():
-    <span class="varDef">x</span> = 17
-    <span class="varDef">y</span> = <span class="varUse">x</span>
-    print(f"Before changing x: x {<span class="varUse">x</span>}  y {<span class="varUse">y</span>}")
-    <span class="varUse">x</span> += 1
-    print(f"After changing x:  x {<span class="varUse">x</span>}  y {<span class="varUse">y</span>}")</span>
-
-# Call main to start this program.
-if __name__ == "__main__":
-    main()</span></pre>
-
-<pre class="console">&gt; python example_10.py
-Before changing x: x 17  y 17
-After changing x:  <em>x 18  y 17</em></pre>
-</div>
-
-    <p>Example&nbsp;11 shows a small Python program that contains two
-    variables named <var>lx</var> and <var>ly</var> that each refer to a
-    list. This program is similar to the previous program, but it has
-    two lists instead of two integers. From the output of
-    example&nbsp;11, we see there is a big difference between the way a
-    Python program assigns integers and the way it assigns lists. The
-    program in example&nbsp;11 does the following:</p>
-
-    <ul>
-        <li><div>The statement at
-        <span class="cross" data-ref="ex11">line&nbsp;4</span>
-        creates a list and stores a reference to that list in the
-        variable <var>lx</var>.</div></li>
-        <li><div><span class="cross" data-ref="ex11">Line&nbsp;5</span>
-        copies the reference in the variable <var>lx</var> into the
-        variable <var>ly</var>. Line&nbsp;5 does not create a copy of
-        the list but instead causes both the variables <var>lx</var> and
-        <var>ly</var> to refer to the same list.</div></li>
-        <li><div><span class="cross" data-ref="ex11">Line&nbsp;6</span>
-        prints the values of <var>lx</var> and <var>ly</var>. Notice
-        that their values are the same as we expect them to be because
-        of line&nbsp;5.</div></li>
-        <li><div><span class="cross" data-ref="ex11">Line&nbsp;7</span>
-        appends the number 5 onto the list <var>lx</var>.</div></li>
-        <li><div><span class="cross" data-ref="ex11">Line&nbsp;8</span>
-        prints the values of <var>lx</var> and <var>ly</var> again.
-        Notice in the output that when <var>lx</var> and <var>ly</var>
-        are printed the second time, it appears that the number 5 was
-        appended to both lists.</div></li>
-    </ul>
-
-    <p>Why does it appear that appending the number 5 onto <var>lx</var>
-    also appends the number 5 onto <var>ly</var>&thinsp;? Because
-    <var>lx</var> and <var>ly</var> refer to the same list. There is
-    really only one list with two references to that list. Because
-    <var>lx</var> and <var>ly</var> refer to the same list, a change to
-    the list through variable <var>lx</var> can be seen through variable
-    <var>ly</var>.</p>
-
-<div class="example" id="ex11"><pre class="linenums"></pre>
-<pre class="python"># Example 11
-
-<span data-scope="global"><span data-scope="main">def main():
-    <span class="varDef">lx</span> = [7, -2]
-    <span class="varDef">ly</span> = <span class="varUse">lx</span>
-    print(f"Before changing lx: lx {<span class="varUse">lx</span>}  ly {<span class="varUse">ly</span>}")
-    <span class="varUse">lx</span>.append(5)
-    print(f"After changing lx:  lx {<span class="varUse">lx</span>}  ly {<span class="varUse">ly</span>}")</span>
-
-# Call main to start this program.
-if __name__ == "__main__":
-    main()</span></pre>
-
-<pre class="console">&gt; python example_11.py
-Before changing lx: lx [7, -2]  ly [7, -2]
-After changing lx:  <em>lx [7, -2, 5]  ly [7, -2, 5]</em></pre>
-</div>
-
-    <p>From examples&nbsp;10 and&nbsp;11, we learn that when a computer
-    executes a Python statement to assign the value of a boolean,
-    integer, or float variable to another variable (<code>y = x</code>),
-    the computer copies <em>the value</em> of one variable into the
-    other. However, when a computer executes a Python statement to
-    assign the value of a list variable to another variable
-    (<code>ly = lx</code>), the computer does not copy <em>the
-    value</em> but instead copies <em>the reference</em> so that both
-    variables refer to the same list in memory.</p>
-    </section>
-
-    <section>
-    <h3 id="pass_by_ref">Pass by Value and Pass by Reference</h3>
-    <p>The fact that the computer copies the value of some data types
-    (boolean, integer, float) and copies the reference for other data
-    types (list and other large data types) has important implications
-    for passing arguments into functions. Consider the Python program in
-    example&nbsp;12 with two functions named <code>main</code> and
-    <code>modify_args</code>. The program in example&nbsp;12 does the
-    following:</p>
-
-    <ul>
-        <li><div>The statement at
-        <span class="cross" data-ref="ex12">line&nbsp;5</span> assigns
-        the value 5 to a variable named <var>x</var>.</div></li>
-
-        <li><div><span class="cross" data-ref="ex12">Line&nbsp;6</span>
         assigns a list to a variable named <var>lx</var>.</div></li>
 
-        <li><div><span class="cross" data-ref="ex12">Line&nbsp;7 </span>
+        <li><div><span class="cross" data-ref="ex10">Line&nbsp;7 </span>
         prints the values of <var>x</var> and <var>lx</var> before they
         are passed to the <var>modify_args</var> function.</div></li>
 
-        <li><div><span class="cross" data-ref="ex12">Line&nbsp;11</span>
+        <li><div><span class="cross" data-ref="ex10">Line&nbsp;11</span>
         calls the <code>modify_args</code> function and passes
         <var>x</var> and <var>lx</var> to that function.</div></li>
 
         <li><div>Within the <code>modify_args</code> function,
-        <span class="cross" data-ref="ex12">line&nbsp;28</span>
+        <span class="cross" data-ref="ex10">line&nbsp;28</span>
         changes the value of the parameter <var>n</var> by adding one to
-        it, and <span class="cross" data-ref="ex12">line&nbsp;29</span>
+        it, and <span class="cross" data-ref="ex10">line&nbsp;29</span>
         changes the value of the parameter <var>alist</var> by appending
         the number 4 onto it.</div></li>
 
-        <li><div><span class="cross" data-ref="ex12">Line&nbsp;13</span>
+        <li><div><span class="cross" data-ref="ex10">Line&nbsp;13</span>
         prints the values of <var>x</var> and <var>lx</var> after they
         were passed to the <code>modify_args</code> function. Notice in
         the output below that the value of <var>x</var> was not changed
@@ -796,8 +673,8 @@ After changing lx:  <em>lx [7, -2, 5]  ly [7, -2, 5]</em></pre>
         function.</div></li>
     </ul>
 
-<div class="example" id="ex12"><pre class="linenums"></pre>
-<pre class="python"># Example 12
+<div class="example" id="ex10"><pre class="linenums"></pre>
+<pre class="python"># Example 10
 
 <span data-scope="global"><span data-scope="main">def main():
     print("main()")
@@ -813,8 +690,8 @@ After changing lx:  <em>lx [7, -2, 5]  ly [7, -2, 5]</em></pre>
 
 
 <span data-scope="modify_args">def modify_args(<span class="varDef">n</span>, <span class="varDef">alist</span>):
-    """Demonstrate that the computer passes a value
-    for integers and passes a reference for lists.
+    """Demonstrate that Python numbers are
+    immutable and Python lists are mutable.
     Parameters
         n: A number
         alist: A list
@@ -834,7 +711,7 @@ After changing lx:  <em>lx [7, -2, 5]  ly [7, -2, 5]</em></pre>
 if __name__ == "__main__":
     main()</span></pre>
 
-<pre class="console">&gt; python example_12.py
+<pre class="console">&gt; python example_10.py
 main()
 Before calling modify_args(): x 5  <em>lx [7, -2]</em>
     modify_args(n, alist)
@@ -843,44 +720,31 @@ Before calling modify_args(): x 5  <em>lx [7, -2]</em>
 After calling modify_args():  x 5  <em>lx [7, -2, 4]</em></pre>
 </div>
 
-    <p>From the output of example&nbsp;12, we see that modifying an
+    <p>From the output of example&nbsp;10, we see that modifying an
     integer parameter changes the integer within the called function
     only. However, modifying a list parameter changes the list within
-    the called function and within the calling function. Why? Because
-    when a computer passes a boolean, integer, or float variable to a
-    function, the computer copies <em>the value</em> of that variable
-    into the parameter of the called function. Copying the value of an
-    argument into a parameter is known as <dfn>pass by value</dfn>.
-    However, when a computer passes a list variable to a function, the
-    computer copies <em>the reference</em> so that the original variable
-    and the parameter both refer to the same list in memory. Copying the
-    reference of an argument into a parameter is known as <dfn>pass by
-    reference</dfn>.</p>
-    </section>
+    the called function and within the calling function. Why? Because in
+    the Python programming language, boolean, integer, float, and string
+    variables are immutable. When the computer executes code that
+    changes a boolean, integer, float, or string, the computer actually
+    creates a new value and assigns that new value to the variable. For
+    example, <span class="cross" data-ref="ex10">line&nbsp;28</span> of
+    example&nbsp;10 causes the computer to create a new integer value
+    that is one (1) larger than the old value and then assign the new
+    value to the variable <var>n</var>. However, the computer doesn’t
+    assign the new value to the variable <var>x</var> which is in the
+    <code>main</code> function. So the variable <var>x</var> still holds
+    the old value (5).</p>
 
-    <section>
-    <h3 id="rationale">Rationale for Pass by Reference</h3>
-    <p>Why are booleans and numbers passed to a function by value and
-    lists are passed to a function by reference? To understand the
-    answer to this question, consider the work a computer would have to
-    do if lists were passed by value.</p>
-
-    <p>When a computer passes a number (or boolean) variable to a
-    function, the number is passed by value which means the computer
-    copies the value of the number variable into the parameter of the
-    called function. This works well for numbers because each number
-    variable occupies a small amount of the computer’s memory. Making a
-    copy of a number is fast, and the copy uses a small amount of
-    memory.</p>
-
-    <p>However, a list may contain millions of elements and therefore
-    occupy a large amount of the computer’s memory. If lists were passed
-    by value to a function, the computer would have to make a copy of a
-    list each time it is passed to a function. If a list is large,
-    copying the list takes a relatively long time and uses a lot of the
-    computer’s memory for the copy. Therefore, to make programs fast and
-    use less memory, lists (and other large data types) are passed to a
-    function by reference.</p>
+    <p>When a computer executes code that changes a list, the computer
+    doesn’t create a new list but instead changes the list by adding,
+    updating, or removing an element from the list. This means that the
+    code on <span class="cross" data-ref="ex10">line&nbsp;29</span>
+    causes the computer to add another element to <var>alist</var>. But,
+    the variables <var>alist</var> in <code>modify_args</code> and
+    <var>lx</var> in <code>main</code> refer to the same list. Because
+    <var>alist</var> and <var>lx</var> refer to the same list, changing
+    <var>alist</var> also changes <var>lx</var>.</p>
     </section>
     </section>
 
@@ -918,16 +782,15 @@ After calling modify_args():  x 5  <em>lx [7, -2, 4]</em></pre>
     elements in a list, you can write a <code>for</code> loop. A
     compound list is a list that stores smaller lists.</p>
 
-    <p>During this lesson, you are also learning the difference between
-    passing arguments into a function by value and by reference. Numbers
-    are passed into a function by value, meaning that the computer
-    copies the number from an argument into a parameter. Lists are
-    passed into a function by reference, meaning the computer does not
-    make a copy of a list argument but instead passes a reference to the
-    list into a called function. Because lists are passed by reference,
-    if a called function changes a list that is a parameter, that
-    function is not changing a copy of the list but instead is changing
-    the original list from the calling function.</p>
+    <p>During this lesson, you are also learning that booleans,
+    integers, floats, and strings in Python are immutable and that lists
+    in Python are mutable. When a computer executes a line of code that
+    appears to change a boolean, integer, float, or string, the computer
+    doesn’t actually change the old value of the variable but instead
+    creates a new value and assigns the new value to the variable. When
+    a computer executes a line of code that adds, updates, or removes an
+    element from a list, the computer doesn’t create a new list but
+    instead changes the list.</p>
     </section>
 </main>
 </body>

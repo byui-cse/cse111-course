@@ -2,7 +2,7 @@
 
 """
 Write and call functions that demonstrate both
-default parameter values and pass by reference.
+default parameter values and mutable lists.
 """
 import random
 

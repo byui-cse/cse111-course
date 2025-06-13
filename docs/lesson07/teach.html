@@ -43,12 +43,12 @@
 
     <section>
     <h2 id="purpose">Purpose</h2>
-    <p>There are a few details about writing and calling functions in
-    Python that, if you understand, will help you be a more effective
-    programmer. These details include default parameter values and pass
-    by reference. As a team during this activity, you will write and
-    call a function that demonstrates both default parameter values and
-    pass by reference.</p>
+    <p>There are a few details about Python variables and functions
+    that, if you understand, will help you be a more effective
+    programmer. These details include immutable booleans, numbers, and
+    strings; mutable lists; and default parameter values. As a team
+    during this activity, you will write and call a function that
+    demonstrates both mutable lists and default parameter values.</p>
     </section>
 
     <section>
@@ -62,27 +62,26 @@
         <a href="../lesson04/prepare.html#default_params">default
         parameter values</a>.</div></li>
 
-        <li><div><p>Within a Python program, when a number is passed as
-        an argument to a function, the computer copies the number from
-        the argument into the parameter. In other words, the parameter
-        gets a copy of the value that is in the argument. Copying the
-        value of an argument into a parameter is known as <dfn>pass by
-        value</dfn>.</p>
+        <li><div><p>Within a Python program, variables of type boolean,
+        integer, float, and string are <dfn>immutable</dfn> which means
+        after a value is assigned to one of those variables, the value
+        cannot be changed. When a computer executes a line of code that
+        appears to change a boolean, integer, float, or string, the
+        computer doesn’t change the old value of the variable but
+        instead creates a new value and assigns the new value to the
+        variable.</p>
 
-        <p>In Python, when a list is passed as an argument to a
-        function, the computer does <em>not</em> copy the list. Instead,
-        the computer copies a reference to the list into the parameter.
-        This means the argument and parameter refer to the same list.
-        Copying a reference from an argument into a parameter is known
-        as <dfn>pass by reference</dfn>. With pass by reference, if a
-        called function changes a list that was passed to the function,
-        this will of course change the list in both the calling and
-        called functions because both the argument and parameter refer
-        to the same list.</p>
+        <p>Unlike booleans, integers, floats, and strings, within a
+        Python program, lists are <dfn>mutable</dfn> which means the
+        value of a list can be changed. When a computer executes a line
+        of code that adds, updates, or removes an element from a list,
+        the computer doesn’t create a new list but instead changes the
+        list.</p>
 
         <p>The preparation content for this lesson includes a section
-        about <a href="prepare.html#pass_by_ref">passing arguments by
-        value and by reference</a>.</p></div></li>
+        titled <a href="prepare.html#mutable">Python Lists Are
+        Mutable</a> that contains example code showing the immutabilty
+        of numbers and the mutability of lists.</p></div></li>
 
         <li><div>The Python <code>random</code> module contains
         functions to generate pseudo random numbers. The
@@ -259,13 +258,13 @@ words ['join', 'love', 'smile', 'love', 'cloud', 'head']</pre>
     (and the <code>append_random_words</code> function if you wrote it
     for the stretch challenge). The first parameter,
     <var>numbers_list</var>, is a list. Recall that in Python, lists are
-    passed by reference which means that any changes made to the list in
-    the <code>append_random_numbers</code> (and
-    <code>append_random_words</code>) function will change the list in
-    <code>main</code>. You can verify this is true by looking at the
-    output of your program. The numbers that were appended onto the list
-    by the <code>append_random_numbers</code> function are stored in the
-    same list in <code>main</code>.</p>
+    mutable which means when the <code>append_random_numbers</code> (and
+    <code>append_random_words</code>) function adds elements to the
+    list, this will change the list in <code>main</code>. You can verify
+    this is true by looking at the output of your program. The numbers
+    that were appended onto the list by the
+    <code>append_random_numbers</code> function are stored in the same
+    list in <code>main</code>.</p>
     </section>
 
     <section>

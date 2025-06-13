@@ -13,17 +13,17 @@
     <link rel="canonical" href="https://byui-cse.github.io/cse111-course/lesson07/check.html">
     <link rel="prev" type="text/html" href="prepare.html">
     <link rel="next" type="text/html" href="teach.html">
-    <meta name="description" content="A short exercise that demonstrates passing an argument by value and passing another argument by reference in a Python program">
+    <meta name="description" content="A short exercise that demonstrates Python lists are mutable by changing a list inside a called function">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org/",
         "@type": "Article",
         "headline": "07 Checkpoint: Lists",
-        "description": "A short exercise that demonstrates passing an argument by value and passing another argument by reference in a Python program",
+        "description": "A short exercise that demonstrates Python lists are mutable by changing a list inside a called function",
         "educationalUse": "assignment",
         "copyrightNotice": "Copyright © 2020, Brigham Young University–Idaho. All rights reserved.",
         "datePublished": "2020-03-06",
-        "dateModified": "2023-02-15"
+        "dateModified": "2025-06-10"
     }
     </script>
 </head>
@@ -34,24 +34,53 @@
 
     <section>
     <h2 id="purpose">Purpose</h2>
-    <p>Reinforce your understanding that numbers are passed to a
-    function by value and lists are passed to a function by
-    reference.</p>
+    <p>Reinforce your understanding that Python numbers are immutable
+    and Python lists are mutable.</p>
     </section>
 
     <section>
     <h2 id="problem">Problem Statement</h2>
-    <p>Within a Python program, when a number is passed as an argument
-    to a function, the computer copies the number from the argument into
-    the parameter. In other words, the parameter gets a copy of the
-    value that is in the argument. However, when a list is passed as an
-    argument to a function, the computer does not copy the list.
-    Instead, the computer copies a reference to the list into the
-    parameter. This means the argument and parameter refer to the same
-    list. If a called function changes a list that was passed to the
-    function, this will change the list in both the calling and called
-    functions because both the argument and parameter refer to the same
-    list.</p>
+    <p>Within a Python program, variables of type boolean, integer,
+    float, and string are <dfn>immutable</dfn> which means after a value
+    is assigned to one of those variables, the value cannot be changed.
+    When a computer executes a line of code that appears to change a
+    boolean, integer, float, or string, the computer doesn’t change the
+    old value of the variable but instead creates a new value and
+    assigns the new value to the variable. For example, on
+    <span class="cross" data-ref="ex1">line&nbsp;4</span> in
+    example&nbsp;1 the <code>int</code> function creates and returns an
+    integer value that the computer assigns to the variable
+    <var>x</var>. <span class="cross" data-ref="ex1">Line&nbsp;5</span>
+    appears to change the value of <var>x</var> by adding 5 to it, but
+    what really happens is the computer creates a new integer value that
+    is 5 larger than the old value and assigns the new value to the
+    variable <var>x</var>.</p>
+
+<div class="example" id="ex1"><pre class="linenums"></pre>
+<pre class="python"># Example 1
+
+def main():
+    x = int(input("Please enter an integer: "))
+    x += 5
+    print(x)</pre></div>
+
+    <p>Unlike booleans, integers, floats, and strings, within a Python
+    program, lists are <dfn>mutable</dfn> which means the value of a
+    list can be changed. When a computer executes a line of code that
+    adds, updates, or removes an element from a list, the computer
+    doesn’t create a new list but instead changes the list. For example,
+    <span class="cross" data-ref="ex2">line&nbsp;4</span> in
+    example&nbsp;2 creates a list with two elements.
+    <span class="cross" data-ref="ex2">Line&nbsp;5</span> changes the
+    list by adding the element "silk" to the list.</span>
+
+<div class="example" id="ex2"><pre class="linenums"></pre>
+<pre class="python"># Example 2
+
+def main():
+    list1 = ["denim", "linen"]
+    list1.append("silk")
+    print(list1)</pre></div>
     </section>
 
     <section>
@@ -61,15 +90,15 @@
 
     <ol class="long">
         <li><div>Download and save the
-        <a download href="pass_args.py">pass_args.py</a> Python file and
-        then open it in VS Code.</div></li>
+        <a download href="modify_args.py">modify_args.py</a> Python file
+        and then open it in VS Code.</div></li>
 
-        <li><div>Run the <code>pass_args.py</code> program on your
+        <li><div>Run the <code>modify_args.py</code> program on your
         computer. Examine the code and the output and answer the
         following three questions:
         <ol>
             <li><div>In <code>main</code>, there are two local variables
-            named <var>x</var> and <var>lx</var>. At line&nbsp;14, both
+            named <var>x</var> and <var>lx</var>. At line&nbsp;15, both
             of these local variables are passed to the
             <code>modify_args</code> function. After the call to
             <code>modify_args</code> finished, which of
@@ -83,21 +112,23 @@
             </ol></div></li>
 
             <li><div>Why is the <code>modify_args</code> function NOT
-            able to change <code>main</code>’s local variable <var>x</var>?
+            able to change the value of <code>main</code>’s local
+            variable <var>x</var>?
             <ol>
-                <li><div>Because <var>x</var> is a number and therefore
-                passed to a function by value</div></li>
-                <li><div>Because <var>x</var> is a list and therefore
-                passed to a function by reference</div></li>
+                <li><div>Because <var>x</var> is a number and numbers in
+                Python are immutable</div></li>
+                <li><div>Because <var>x</var> is a list and lists in
+                Python are mutable</div></li>
             </ol></div></li>
 
             <li><div>Why is the <code>modify_args</code> function able
-            to change <code>main</code>’s local variable <var>lx</var>?
+            to change the value of <code>main</code>’s local variable
+            <var>lx</var>?
             <ol>
-                <li><div>Because <var>lx</var> is a number and therefore
-                passed to a function by value</div></li>
-                <li><div>Because <var>lx</var> is a list and therefore
-                passed to a function by reference</div></li>
+                <li><div>Because <var>lx</var> is a number and numbers
+                in Python are immutable</div></li>
+                <li><div>Because <var>lx</var> is a list and lists in
+                Python are mutable</div></li>
             </ol></div></li>
         </ol></div></li>
     </ol>
@@ -105,7 +136,7 @@
 
     <section>
     <h2 id="sample_run">Sample Run</h2>
-<pre class="console">&gt; python pass_args.py
+<pre class="console">&gt; python modify_args.py
 main()
     Before calling modify_args(): x 5  lx [7, -2]
     modify_args(n, alist)
