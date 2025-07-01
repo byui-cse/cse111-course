@@ -659,8 +659,8 @@ Total fruit amount: 256.6</pre>
 
         <li><div>Within the <code>modify_args</code> function,
         <span class="cross" data-ref="ex10">line&nbsp;28</span>
-        changes the value of the parameter <var>n</var> by adding one to
-        it, and <span class="cross" data-ref="ex10">line&nbsp;29</span>
+        changes the value of the parameter <var>n</var> by adding one (1)
+        to it, and <span class="cross" data-ref="ex10">line&nbsp;29</span>
         changes the value of the parameter <var>alist</var> by appending
         the number 4 onto it.</div></li>
 
@@ -723,9 +723,13 @@ After calling modify_args():  x 5  <em>lx [7, -2, 4]</em></pre>
     <p>From the output of example&nbsp;10, we see that modifying an
     integer parameter changes the integer within the called function
     only. However, modifying a list parameter changes the list within
-    the called function and within the calling function. Why? Because in
-    the Python programming language, boolean, integer, float, and string
-    variables are immutable. When the computer executes code that
+    the called function and within the calling function.</p>
+
+    <p>Why was the code inside the <code>modify_args</code> function not
+    able to change the value in the variable <var>x</var> but it was
+    able to change the list <var>lx</var>. Because in the Python
+    programming language, boolean, integer, float, and string variables
+    are <dfn>immutable</dfn>. When the computer executes code that
     changes a boolean, integer, float, or string, the computer actually
     creates a new value and assigns that new value to the variable. For
     example, <span class="cross" data-ref="ex10">line&nbsp;28</span> of
@@ -736,10 +740,12 @@ After calling modify_args():  x 5  <em>lx [7, -2, 4]</em></pre>
     <code>main</code> function. So the variable <var>x</var> still holds
     the old value (5).</p>
 
-    <p>When a computer executes code that changes a list, the computer
-    doesn’t create a new list but instead changes the list by adding,
-    updating, or removing an element from the list. This means that the
-    code on <span class="cross" data-ref="ex10">line&nbsp;29</span>
+    <p>Unlike bools, ints, floats, and strings, Python lists are
+    <dfn>mutable</dfn>. When a computer executes code that changes a
+    list, the computer doesn’t create a new list but instead changes the
+    list by adding, updating, or removing an element from the list. This
+    means that the code on
+    <span class="cross" data-ref="ex10">line&nbsp;29</span>
     causes the computer to add another element to <var>alist</var>. But,
     the variables <var>alist</var> in <code>modify_args</code> and
     <var>lx</var> in <code>main</code> refer to the same list. Because
