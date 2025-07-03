@@ -344,7 +344,7 @@ No such student</pre>
     is different than finding one item in a dictionary. Processing all
     the items is done using a <code>for</code> loop and the
     <code>dict.items()</code> method as shown in example&nbsp;5 on
-    <span class="cross" data-ref="ex5">line&nbsp;25</span>.</p>
+    <span class="cross" data-ref="ex5">line&nbsp;26</span>.</p>
 
 <div class="example" id="ex5"><pre class="linenums"></pre>
 <pre class="python"># Example 5
@@ -353,6 +353,7 @@ def main():
     # Create a dictionary with student IDs as the keys
     # and student data stored in a list as the values.
     students_dict = {
+        # student_ID: [given_name, surname, email_address, credits]
         "42-039-4736": ["Clint", "Huish", "hui20001@byui.edu", 16],
         "61-315-0160": ["Amelia", "Davis", "dav21012@byui.edu", 3],
         "10-450-1203": ["Ana", "Soares", "soa22005@byui.edu", 15],
@@ -394,9 +395,9 @@ Total credits earned by all students: 47</pre>
 
     <p>As with all the example code in CSE&nbsp;111, example&nbsp;5
     contains working Python code. Even though the code works, we can
-    combine <span class="cross" data-ref="ex5">lines&nbsp;25&ndash;27</span>
+    combine <span class="cross" data-ref="ex5">lines&nbsp;26&ndash;28</span>
     into a single line of code by using a Python shortcut called
-    <dfn>unpacking</dfn>. Instead of writing lines&nbsp;25&ndash;27,
+    <dfn>unpacking</dfn>. Instead of writing lines&nbsp;26&ndash;28,
     like this:</p>
 
 <div class="example"><pre class="python">
@@ -415,7 +416,7 @@ Total credits earned by all students: 47</pre>
 
     <p>Example&nbsp;6 contains the same code as example&nbsp;5 except
     example&nbsp;6 uses the Python unpacking shortcut at
-    <span class="cross" data-ref="ex6">line&nbsp;25</span>.</p>
+    <span class="cross" data-ref="ex6">line&nbsp;26</span>.</p>
 
 <div class="example" id="ex6"><pre class="linenums"></pre>
 <pre class="python"># Example 6
@@ -424,6 +425,7 @@ def main():
     # Create a dictionary with student IDs as the keys
     # and student data stored in a list as the values.
     students_dict = {
+        # student_ID: [given_name, surname, email_address, credits]
         "42-039-4736": ["Clint", "Huish", "hui20001@byui.edu", 16],
         "61-315-0160": ["Amelia", "Davis", "dav21012@byui.edu", 3],
         "10-450-1203": ["Ana", "Soares", "soa22005@byui.edu", 15],
@@ -746,19 +748,133 @@ Values: ['Clint Huish', 'Amelia Davis', 'Ana Soares',
     <h2 id="dict_apps">More Examples</h2>
     <p>Dictionaries are an important programming tool that you can use
     to use to solve different types of computing problems. You can use
-    dictionaries to count many things, to group things, and to make
-    finding things very fast.
+    dictionaries to find things very fast, to count many things, and to
+    group things.</p>
 
     <section>
-    <h3>Counting</h3>
-    <p>Consider a compound list that contains data about many cars,
-    including the VIN, manufacturer, year manufactured, and color. We
-    need a program to count how many of the cars were made by each
-    manufacturer. As shown in example&nbsp;8, we can use a dictionary
-    to store a counter for each manufacturer.</p>
+    <h3 id="find">Finding</h3>
+    <p>The reason Python dictionaries were developed is to make finding
+    items easy and fast. Each item in a dictionary is a key value pair.
+    The Python language imposes some restrictions on the keys, including
+    the restriction that each key within a dictionary must be unique.
+    Python imposes very few restrictions on the values in a dictionary.
+    This means we can store almost any Python object as a value in a
+    dictionary, and we can use that dictionary to easily and quickly
+    find the value.</p>
+
+    <p>Consider the program in example&nbsp;8 which stores Python
+    functions as values in a dictionary. At
+    <span class="cross" data-ref="ex8">lines&nbsp;41&ndash;54</span>,
+    the program contains five functions that each perform a different
+    task. Each of the five functions is stored as a value in a
+    dictionary on
+    <span class="cross" data-ref="ex8">lines&nbsp;4&ndash;10</span>.
+    When a user runs the program, the code on
+    <span class="cross" data-ref="ex8">lines&nbsp;15&ndash;21</span>
+    causes the program to print a small menu of possible tasks.
+    Then the user chooses one of the tasks for the program to execute.
+    Then at
+    <span class="cross" data-ref="ex8">lines&nbsp;25 and&nbsp;28</span>,
+    the program finds the user choice in the tasks dictionary and at
+    <span class="cross" data-ref="ex8">line&nbsp;33</span>, calls the
+    correct function to complete the task.</p>
 
     <div class="example" id="ex8"><pre class="linenums"></pre>
 <pre class="python"># Example 8
+
+def main():
+    <b>tasks_dict = {
+        "A": add_goal,
+        "R": record_event,
+        "D": display_goals,
+        "S": save_goals,
+        "L": load_goals
+    }</b>
+    goals_list = []
+
+    choice = ""
+    while choice != "Q":
+        print("Possible Commands:",
+            "[A]dd a new goal",
+            "[R]ecord an event",
+            "[D]isplay all goals",
+            "[S]ave all goals",
+            "[L]oad goals",
+            "[Q]uit", sep="\n  ");
+        choice = input("What would you like to do? ")
+        choice = choice.upper()[0]
+
+        <b>if choice in tasks_dict:</b>
+            # From the tasks dictionary, get
+            # the function that corresponds to
+            # the task that the user chose.
+            <b>function = tasks_dict[choice]</b>
+
+            # Call the function that will complete
+            # the task chosen by the user.
+            <b>function(goals_list)</b>
+
+        elif choice != "Q":
+            print(f"\n{choice} is not a valid task.")
+            possible = ", ".join(tasks_dict.keys())
+            print(f"Please choose {possible}, or Q\n")
+
+
+def add_goal(goals_list):
+    print("\nWrite code here to add a goal.\n")
+
+def record_event(goals_list):
+    print("\nWrite code here to record achieving a goal.\n")
+
+def display_goals(goals_list):
+    print("\nWrite code here to display all the goals.\n")
+
+def save_goals(goals_list):
+    print("\nWrite code here to save the goals to a file.\n")
+
+def load_goals(goals_list):
+    print("\nWrite code here to load goals from a file.\n")
+
+
+# Call main to start this program.
+if __name__ == "__main__":
+    main()</pre>
+
+<pre class="console">&gt; python example_8.py
+Possible Commands:
+  [A]dd a new goal
+  [R]ecord an event
+  [D]isplay all goals
+  [S]ave all goals
+  [L]oad goals
+  [Q]uit
+What would you like to do? A
+
+Write code here to add a goal.
+
+Possible Commands:
+  [A]dd a new goal
+  [R]ecord an event
+  [D]isplay all goals
+  [S]ave all goals
+  [L]oad goals
+  [Q]uit
+What would you like to do? Q
+</pre>
+    </div>
+    </section>
+
+    <section>
+    <h3 id="count">Counting</h3>
+    <p>We can use a dictionary to help a computer count many things.
+    Consider a compound list that contains data about many cars,
+    including the VIN, manufacturer, year manufactured, and color. We
+    need a program to count how many of the cars were made by each
+    manufacturer. As shown in example&nbsp;9, we can use a dictionary
+    to store a counter for each manufacturer.</p>
+
+    <div class="example" id="ex9"><pre class="linenums"></pre>
+<pre class="python"># Example 9
 
 CARS = [
     # VIN, Manufacturer, Year Manufactured, Model, Color
@@ -774,17 +890,17 @@ CARS = [
 
 def count_cars_by_manufacturer(cars_data):
     """
-    Return a list of all the manufacturers in cars_data
-    and the number of cars made by each manufacturer.
+    Return a list of the manufacturers and the
+    number of cars made by each manufacturer.
     """
 
-    # Create an empty dictionary that will hold the counters.
-    manufacturers = {}
+    # Create an empty dictionary to hold the counters.
+    manufacturers_dict = {}
 
     # Unpack the data about each car.
     for vin, manufac, *_ in cars_data:
 
-        if manufac not in manufacturers:
+        if manufac not in manufacturers_dict:
             # The manufacturer of the current car is NOT in
             # the dictionary, which means this is the first
             # car in the cars_data made by that manufacturer
@@ -795,14 +911,14 @@ def count_cars_by_manufacturer(cars_data):
             # The manufacturer of the current car is in the
             # dictionary so the new count is the previous
             # count plus one more.
-            count = manufacturers[manufac] + 1
+            count = manufacturers_dict[manufac] + 1
 
         # Store the new count in the dictionary.
-        manufacturers[manufac] = count
+        manufacturers_dict[manufac] = count
 
     # Return a list of the manufacturers
     # and the number of cars made by each.
-    return manufacturers.items()
+    return manufacturers_dict.items()
 
 
 def main():
@@ -814,7 +930,8 @@ def main():
 # Call main to start this program.
 if __name__ == "__main__":
     main()</pre>
-<pre class="console">&gt; python example_8.py
+
+<pre class="console">&gt; python example_9.py
 Toyota: 3
 Honda: 2
 Ford: 1
@@ -823,11 +940,90 @@ Kia: 1</pre>
     </section>
 
     <section>
-    <h3>Grouping</h3>
-    </section>
+    <h3 id="group">Grouping</h3>
+    <p>We can use a dictionary to organize many things into groups.
+    Consider a compound list that contains data about many people,
+    including given name, family name, and city. We need a program to
+    group the people according to the city where they live. As shown in
+    example&nbsp;10 in
+    <span class="cross" data-ref="ex10">lines&nbsp;28&ndash;43</span>,
+    we can use a dictionary to group the people.</p>
 
-    <section>
-    <h3>Finding</h3>
+    <div class="example" id="ex10"><pre class="linenums"></pre>
+<pre class="python"># Example 10
+
+PEOPLE = [
+    # Given Name, Family Name, City, Phone Number
+    ["Kaylee",  "Johnson", "Berea", "859-314-6438"],
+    ["Demetri", "Petrov",  "Cadiz", "364-473-0820"],
+    ["Maria",   "Morales", "Union", "859-642-7134"],
+    ["Yuseong", "Kim",     "Berea", "859-314-6438"],
+    ["Kwame",   "Abdi",    "Berea", "859-314-6438"],
+    ["Raj",     "Singh",   "Cadiz", "364-473-0820"],
+    ["Aisha",   "Hall",    "Union", "859-642-7134"],
+    ["Fatima",  "Cruz",    "Berea", "859-314-6438"]
+]
+
+
+def group_people_by_city(people_list):
+    """
+    Return a compound list of the cities and
+    the people who live in those cities.
+    """
+
+    # Create an empty dictionary to store the cities.
+    cities_dict = {}
+
+    # Unpack the data about each person.
+    for given, family, city, phone in people_list:
+
+        if city not in cities_dict:
+            # The city of the current person is NOT in the
+            # dictionary, which means this is the first person
+            # in the cars_list who lives in that city. Put
+            # the city and an empty list in the dictionary.
+            people_in_city_list = []
+            cities_dict[city] = people_in_city_list
+
+        else:
+            # The city of the current person is in the
+            # dictionary so get the city's compound list.
+            people_in_city_list = cities_dict[city]
+
+        # Add the current person to the
+        # compound list for the person's city.
+        people_in_city_list.append( [given, family, city, phone] )
+
+    # Return a compound list of cities and
+    # the people who live in those cities.
+    return cities_dict.items()
+
+
+def main():
+    people_grouped_by_city = group_people_by_city(PEOPLE)
+    for city, residents_list in people_grouped_by_city:
+        print(city)
+        for given, family, _, phone in residents_list:
+            print(f"    {given} {family} {phone}")
+
+
+# Call main to start this program.
+if __name__ == "__main__":
+    main()</pre>
+
+<pre class="console">&gt; python example_10.py
+Berea
+    Kaylee Johnson 859-314-6438
+    Yuseong Kim 859-314-6438
+    Kwame Abdi 859-314-6438
+    Fatima Cruz 859-314-6438
+Cadiz
+    Demetri Petrov 364-473-0820
+    Raj Singh 364-473-0820
+Union
+    Maria Morales 859-642-7134
+    Aisha Hall 859-642-7134</pre>
+    </div>
     </section>
     </section>
 
