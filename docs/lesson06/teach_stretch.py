@@ -41,7 +41,7 @@ def main():
     score += ask_question("10. Humans have the right to use natural"
         " resources any way we want.", NEGATIVE)
     score += ask_question("11. Conservation is unnecessary because"
-        " nature is\n    strong enough to recover from any human impact.",
+        " nature is\n   strong enough to recover from any human impact.",
         NEGATIVE)
     score += ask_question("12. Animals, birds and plants have fewer"
         " rights than humans.", NEGATIVE)
@@ -52,7 +52,7 @@ def main():
     score += ask_question("15. The state of nonhuman species is an"
         " indicator of the future for humans.", POSITIVE)
     score += ask_question("16. The thought of being deep in the woods,"
-        " away\n    from civilization, is frightening.", NEGATIVE)
+        " away\n   from civilization, is frightening.", NEGATIVE)
     score += ask_question("17. My ideal vacation spot would be a"
         " remote, wilderness area.", POSITIVE)
     score += ask_question("18. I enjoy being outdoors, even in"

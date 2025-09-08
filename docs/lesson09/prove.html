@@ -56,13 +56,8 @@
     <p>During this milestone, you will write half of a Python program
     named <code>receipt.py</code> that prints a receipt in the terminal
     window for a customer’s grocery order. Specifically, by the end of
-    this milestone, your program must contain at least these two
-    functions:
-    <ol>
-        <li><div><code>main</code></div></li>
-        <li><div><code>read_dictionary</code></div></li>
-    </ol>
-    <p>and must read and process these two CSV files:</p>
+    this milestone, your program must read and process these two CSV
+    files:</p>
     <ul>
         <li><div>The <code>products.csv</code> file is a catalog of
             all the products that the grocery store sells.</div></li>
@@ -171,31 +166,13 @@
         <code>products.csv</code> and <code>request.csv</code>
         files.</div></li>
 
-        <li><div><p>In <code>receipt.py</code>, write a function named
-        <code>read_dictionary</code> that will open a CSV file for
-        reading and use a <code>csv.reader</code> to read each row and
-        populate a compound dictionary with the contents of the
-        <code>products.csv</code> file. The <code>read_dictionary</code>
-        function must have this header and documentation string:</p>
-
-<div class="example"><pre class="python">
-def read_dictionary(filename, key_column_index):
-    """Read the contents of a CSV file into a compound
-    dictionary and return the dictionary.
-
-    Parameters
-        filename: the name of the CSV file to read.
-        key_column_index: the index of the column
-            to use as the keys in the dictionary.
-    Return: a compound dictionary that contains
-        the contents of the CSV file.
-    """
-</pre></div>
-
-        <p>As part of the <a href="teach.html">team activity for this
-        lesson</a>, you already wrote a similar
-        <code>read_dictionary</code> function.</p>
-        </div></li>
+        <li><div>In <code>receipt.py</code>, write code to open the
+        <code>products.csv</code> file and read its rows into a compound
+        dictionary. Because you want to write a well-organized program,
+        does it seem like a good idea to put this code into a function?
+        Will this function need any parameters? As part of the
+        <a href="teach.html">team activity for this lesson</a>, you
+        already wrote a similar function.</div></li>
 
         <li><div>Open the <code>request.csv</code> file in VS Code and
         examine it. Notice that each row contains only two values, a
@@ -208,23 +185,21 @@ def read_dictionary(filename, key_column_index):
         the contents of <code>request.csv</code> into a
         dictionary.</div></li>
 
-        <li><div>In your <code>receipt.py</code> program, write another
-        function named <code>main</code> that does the following:
+        <li><div><p>In your <code>receipt.py</code> program, write code
+        to open the <code>request.csv</code> file and read and process
+        each row. Because you want to write a well-organized program,
+        does it seem like a good idea to put this code into a function?
+        Will this function need any parameters? Your code that reads the
+        <code>request.csv</code> file must do the following:</p>
         <ol>
-            <li><div>Calls the <code>read_dictionary</code> function and
-            stores the compound dictionary in a variable named
-            <var>products_dict</var>.</div></li>
-
-            <li><div>Prints the <var>products_dict</var>.</div></li>
-
-            <li><div>Opens the <code>request.csv</code> file for
+            <li><div>Open the <code>request.csv</code> file for
             reading.</div></li>
 
-            <li><div>Skips the first line of the
-            <code>request.csv</code> file because the first line
-            contains column headings.</div></li>
+            <li><div>Skip the first line of the <code>request.csv</code>
+            file because the first line contains column
+            headings.</div></li>
 
-            <li><div>Uses a loop that reads and processes each row from
+            <li><div>Use a loop that reads and processes each row from
             the <code>request.csv</code> file. Within the body of the
             loop, your program must do the following for each row:
             <ol>
@@ -233,9 +208,25 @@ def read_dictionary(filename, key_column_index):
                 <li><div>Print the product name, requested quantity, and
                 product price.</div></li>
             </ol></div></li>
-        </ol>
+        </ol></div></li>
 
-        </div></li>
+        <li><div>In your <code>receipt.py</code> program, write another
+        function named <code>main</code> that does the following:
+        <ol>
+            <li><div>Calls your function that reads from the
+            <code>products.csv</code> file into a compound dictionary
+            and stores the returned compound dictionary in a variable
+            named <var>products_dict</var>. Does your function have any
+            parameters? If so, did you add arguments to the function
+            call?</div></li>
+
+            <li><div>Prints the <var>products_dict</var>.</div></li>
+
+            <li><div>Calls your function that reads and processes the
+            <code>request.csv</code> file. Does your function have any
+            parameters? If so, did you add arguments to the function
+            call?</div></li>
+        </ol></div></li>
 
         <li><div>At the bottom of your <code>receipt.py</code> file,
         add a call to the <code>main</code> function. Be certain to
@@ -252,28 +243,6 @@ def read_dictionary(filename, key_column_index):
     in this testing procedure:</p>
 
     <ol class="test long">
-        <li><div>Download the
-        <a download href="test_products.py"><code>test_products.py</code></a>
-        file and save it in the same folder where you saved your
-        <code>receipt.py</code> program. Run the
-        <code>test_products.py</code> file and ensure that the
-        <code>test_read_dictionary</code> function passes. If it doesn’t
-        pass, there is a mistake in your <code>read_dictionary</code>
-        function. Read the output from <code>pytest</code>, fix the
-        mistake, and run the <code>test_products.py</code> file again
-        until the test function passes.
-
-<pre class="console">&gt; python test_products.py
-=================== test session starts ====================
-platform win32--Python 3.8.6, pytest-6.1.2, py-1.9.0, pluggy
-rootdir: C:\Users\cse111\lesson09
-collected 1 item
-
-test_products.py::test_read_dictionary <span class="pass">PASSED         [100%]</span>
-
-<span class="pass">==================== 1 passed in 0.12s =====================</span></pre>
-        </div></li>
-
         <li><div>Run your program and verify that it prints the
         <var>products</var> dictionary and requested items as shown in
         the sample output below.
