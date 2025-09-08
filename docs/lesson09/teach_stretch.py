@@ -21,19 +21,19 @@ def main():
     # as the key in the dictionary.
     students_dict = read_dictionary("students.csv", I_NUMBER_INDEX)
 
-    # Get an I-Number from the user.
-    inumber = input("Please enter an I-Number (xxxxxxxxx): ")
+    another = True
+    while another:
+        # Get an I-Number from the user and
+        # find the corresponding student.
+        find_student(students_dict)
 
-    if inumber not in students_dict:
-        print("No such student")
-    else:
-        # Retrieve the student name that corresponds
-        # to the I-Number that the user entered.
-        value = students_dict[inumber]
-        name = value[NAME_INDEX]
-
-        # Print the student name.
-        print(name)
+        # Ask the user if he wants to find
+        # another student in the dictioanry.
+        response = input("Would you like to find another student (Y/n)?")
+        if len(response) == 0:
+            another = True
+        else:
+            another = (response[0].lower() == "y")
 
 
 def read_dictionary(filename, key_column_index):
@@ -78,6 +78,44 @@ def read_dictionary(filename, key_column_index):
 
     # Return the dictionary.
     return dictionary
+
+
+def find_student(students_dict):
+    """Get an I-Number from the user, verify the I-Number
+    is valid, and find the student with that I-Number.
+
+    Parameters
+        students_dict: the Python dictionary that contains I-Numbers and
+        students' names.
+    Return: nothing
+    """
+    # Get an I-Number from the user.
+    inumber = input("Please enter an I-Number (xx-xxx-xxxx): ")
+
+    # The I-Numbers are stored in the CSV file as digits only (without
+    # any dashes), so we remove all dashes from the user's input.
+    inumber = inumber.replace("-", "")
+
+    # Determine if the user input is formatted correctly.
+    if not inumber.isdigit():
+        print("Invalid character in I-Number")
+    elif len(inumber) < 9:
+        print("Invalid I-Number: too few digits")
+    elif len(inumber) > 9:
+        print("Invalid I-Number: too many digits")
+    else:
+        # The user input is a valid I-Number. Find
+        # the I-Number in the list of I-Numbers.
+        if inumber not in students_dict:
+            print("No such student")
+        else:
+            # Retrieve the student name that corresponds
+            # to the I-Number that the user entered.
+            value = students_dict[inumber]
+            name = value[NAME_INDEX]
+
+            # Print the student name.
+            print(name)
 
 
 # If this file was executed like this:
