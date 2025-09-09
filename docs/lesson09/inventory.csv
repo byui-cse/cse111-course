@@ -1,0 +1,54 @@
+SKU,Name,Category,Quantity
+A100,Apples,Fruit,50
+A101,Bananas,Fruit,40
+A102,Oranges,Fruit,35
+A103,Blueberries,Fruit,20
+A104,Grapes,Fruit,30
+B200,Broccoli,Vegetable,25
+B201,Carrots,Vegetable,45
+B202,Potatoes,Vegetable,80
+B203,Spinach,Vegetable,28
+B204,Onions,Vegetable,60
+C300,White Bread,Bakery,40
+C301,Whole-Wheat Bread,Bakery,35
+C302,Croissants,Bakery,22
+C303,Donuts,Bakery,50
+C304,Bagels,Bakery,32
+D400,Milk,Dairy,70
+D401,Cheddar Cheese,Dairy,25
+D402,Greek Yogurt,Dairy,40
+D403,Butter,Dairy,33
+D404,Eggs,Dairy,60
+E500,Chicken Breast,Meat,45
+E501,Ground Beef,Meat,38
+E502,Bacon,Meat,30
+E503,Pork Chops,Meat,26
+E504,Salmon Fillet,Meat,18
+F600,Bottled Water,Beverage,120
+F601,Orange Juice,Beverage,48
+F602,Soda (12-pk),Beverage,36
+F604,Herbal Tea,Beverage,40
+G700,Potato Chips,Snacks,55
+G701,Chocolate Bar,Snacks,90
+G702,Granola Bars,Snacks,60
+G703,Trail Mix,Snacks,35
+G704,Popcorn,Snacks,45
+H800,Toothpaste,Health,30
+H801,Shampoo,Health,28
+H802,Hand Soap,Health,42
+H803,Vitamins,Health,20
+H804,First-Aid Kit,Health,12
+I900,Laundry Detergent,Household,25
+I901,Paper Towels (6-pk),Household,40
+I902,Trash Bags (30-ct),Household,33
+I903,Disinfectant Wipes,Household,22
+I904,Light Bulbs (4-pk),Household,18
+J1000,Notebook,Stationery,80
+J1001,Blue Pens (10-pk),Stationery,90
+J1002,Sticky Notes,Stationery,75
+J1003,Glue Sticks (4-pk),Stationery,30
+J1004,Highlighters (5-pk),Stationery,50
+J1005,"16"" Pan, Pizza",Household,12
+J1006,"Chef's ""Special"" Hot Sauce",Grocery,24
+J1007,"12"" Skillet, Nonstick",Household,15
+J1008,"8.5"" x 11"" Printer Paper, (500)",Stationery,60
