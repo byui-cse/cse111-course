@@ -1,4 +1,4 @@
-from ice_06_sample_solution import compute_monthly_payment, compute_total_payment
+from practice_solution import compute_monthly_payment, compute_total_payment
 
 from pytest import approx
 import pytest

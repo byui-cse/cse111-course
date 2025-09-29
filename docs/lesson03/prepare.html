@@ -96,9 +96,10 @@
     </ol>
 
     <p>In the previous lesson, you learned how to call the first two
-    types of functions. In lesson&nbsp;5, you will learn how to install
-    third-party modules and call third-party functions. In this lesson,
-    you will learn how to write and call user-defined
+    types of functions. In
+    <a href="../lesson05/check.html">lesson&nbsp;5</a>, you will learn
+    how to install third-party modules and call third-party functions.
+    In this lesson, you will learn how to write and call user-defined
     functions.</p>
     </section>
 
@@ -165,6 +166,17 @@ def draw_circle(x, y, radius):
     meaningful and should describe briefly what the function does.
     Well-named functions often start with a verb.</p>
 
+    <p id="param">The parameter list in a function’s header contains
+    zero or more parameters separated by commas. A <dfn>parameter</dfn>
+    is a variable whose value comes from outside the function. One way
+    to get data into a function is to ask the user for input by calling
+    the Python built-in <code>input</code> function. Another way to get
+    data into a function is through the function’s parameters. Getting
+    input through parameters is much more flexible than asking the user
+    for input because the input through parameters can come from the
+    user or a file on a hard drive or the network or a sensor or even
+    another function.</p>
+
     <p>The statements inside a function are called the <dfn>body</dfn>
     of the function. You must indent the statements inside the body of a
     function just like other block statements in Python which end with a
@@ -230,25 +242,18 @@ def print_cylinder_volume():
     In other words, the <code>print_cylinder_volume</code> function in
     example&nbsp;1 is not reusable in other programs. The most
     <dfn>reusable functions</dfn> are ones that take parameters, perform
-    calculations, and return a result but <em>do not perform user input
-    and output</em>.</p>
+    calculations, and return a result but <em>do not get user input or
+    print output</em>.</p>
 
-    <p id="param">The parameter list in a function’s header contains
-    data stored in variables that the function needs to complete its
-    task. A <dfn>parameter</dfn> is a variable whose value comes from
-    outside the function. One way to get input into a function is to ask
-    the user for input by calling the built-in Python <code>input</code>
-    function. Another way to get input into a function is through the
-    function’s parameters. Getting input through parameters is much more
-    flexible than asking the user for input because the input through
-    parameters can come from the user or a file on a hard drive or the
-    network or a sensor or even another function.</p>
-
-    <p>Example&nbsp;2 contains another version of the
-    <code>print_cylinder_volume</code> function. This second version
-    doesn’t get the radius and height from the user. Instead, it gets
-    input through its two parameters named <var>radius</var> and
-    <var>height</var>.</p>
+    <p>Remember that a <dfn>parameter</dfn> is a variable whose value
+    comes from outside the function. Getting data through parameters is
+    much more flexible than asking the user for input because the data
+    through parameters can come from the user or a file on a hard drive
+    or the network or a sensor or even another function. Example&nbsp;2
+    contains another version of the <code>print_cylinder_volume</code>
+    function. This second version doesn’t get the radius and height from
+    the user. Instead, it gets input through its two parameters named
+    <var>radius</var> and <var>height</var>.</p>
 
 <div class="example" id="ex2">
 <pre class="python"># Example 2
@@ -275,7 +280,15 @@ def print_cylinder_volume(<em>radius</em>, <em>height</em>):
     it must be called with two arguments like this:</p>
 
 <div class="example"><pre class="python">
-    print_cylinder_volume(2.5, 4.1)
+    <b>print_cylinder_volume(2.5, 4.1)</b>
+</pre></div>
+
+    <p>or like this:</p>
+
+<div class="example"><pre class="python">
+    r = float(input("Please enter the cylinder's radius: "))
+    h = float(input("Please enter the cylinder's height: "))
+    <b>print_cylinder_volume(r, h)</b>
 </pre></div>
 
     <p>To <dfn>return</dfn> a result from a function, simply type the
