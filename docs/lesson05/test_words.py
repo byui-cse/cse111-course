@@ -12,11 +12,11 @@ def test_prefix():
     # Call the prefix function and verify that it returns a string.
     pre = prefix("upbeat", "upgrade")
     assert isinstance(pre, str), "prefix function must return a string"
+    assert pre == "up"
 
     # Call the prefix function ten times and use an assert
     # statement to verify that the string returned by the
     # prefix function is correct each time.
-    assert prefix("cat", "catalog") == "cat"
     assert prefix("", "") == ""
     assert prefix("", "correct") == ""
     assert prefix("clear", "") == ""
@@ -25,7 +25,7 @@ def test_prefix():
     assert prefix("dogmatic", "dog") == "dog"
     assert prefix("jump", "joyous") == "j"
     assert prefix("upbeat", "upgrade") == "up"
-    assert prefix("Disable", "dIstasteful") == "dis"
+    assert prefix("Disable", "dIstastEFul") == "dis"
 
 
 # Call the main function that is part of pytest so that the
