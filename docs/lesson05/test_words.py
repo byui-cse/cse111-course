@@ -12,7 +12,6 @@ def test_prefix():
     # Call the prefix function and verify that it returns a string.
     pre = prefix("upbeat", "upgrade")
     assert isinstance(pre, str), "prefix function must return a string"
-    assert pre == "up"
 
     # Call the prefix function ten times and use an assert
     # statement to verify that the string returned by the

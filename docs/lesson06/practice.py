@@ -52,7 +52,7 @@ def main()
 def compute_monthly_payment(p, r, y):
     months = y * 12
     monthly_rate = r / 12
-    return p * monthly_rate / (1 - (1 * monthly_rate) ** -months)
+    return p * monthly_rate / (1 - (1 * monthly_rate) ** -months
 
 
 if __name__ == "__main__":
