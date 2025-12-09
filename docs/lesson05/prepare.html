@@ -215,7 +215,7 @@ def test_min():
     difference between <var>e</var> and <var>f</var> is less than 0.01,
     the computer will consider the two numbers to be equal. The number
     0.01 in the comparison at
-    <span class="cross" data-ref="ex4">line&nbsp;6</span> is called the
+    <span class="cross" data-ref="ex4">line&nbsp;8</span> is called the
     tolerance. The <dfn>tolerance</dfn> is the maximum difference
     between two floating-point numbers that the programmer will allow
     and still consider the numbers to be equal.</p>
@@ -455,8 +455,8 @@ test_weather.py::test_cels_from_fahr <span class="pass">PASSED               [10
     release a program to users without releasing the test functions to
     them. In general, users of a program don’t want the test functions.
     One consequence of writing program functions and test functions in
-    separate files is that we must add an import statement at the top of
-    the test file that imports all the program functions that will be
+    separate files is that at the top of the test file we must write an
+    import statement that imports all the program functions that will be
     tested.</p>
 
     <p><span class="cross" data-ref="ex9">Line&nbsp;3</span> from
@@ -480,7 +480,7 @@ main()
 </pre></div>
 
     <p>This means that when we run our test functions, the computer will
-    import our program functions and at the same time, will execute the
+    import our program functions and, at the same time, will execute the
     call to <code>main()</code> which will start the program executing.
     However, we don’t want the computer to execute the program while it
     is executing the test functions, so we have a problem. How can we

@@ -11,8 +11,8 @@ Copyright 2020, Brigham Young University - Idaho. All rights reserved.
 """
 
 def main():
-    # In the code below, there are nine tasks. Each task is described in
-    # a comment. Then each task is implemented one or more times. The
+    # In the code below, there are seven tasks. Each task is described
+    # in a comment. Then each task is implemented one or more times. The
     # last implementation is the preferred way in Python of implementing
     # the task.
 
