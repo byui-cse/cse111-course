@@ -286,11 +286,11 @@ len2: 22.1</pre>
     <p>What are the properties of a good function?</p>
 
     <p>There are many things to consider when writing a function, and
-    many authors have written about design concepts that make functions
-    easier to understand and less error prone. In future courses at
-    BYU-Idaho, you will study some of these design concepts. For
-    CSE&nbsp;111, the following list contains a few properties that you
-    should incorporate into your functions.</p>
+    many authors have written articles and books about design concepts
+    that make functions easier to understand and less error prone. In
+    future courses at BYU-Idaho, you will study some of these design
+    concepts. For CSE&nbsp;111, the following list contains a few
+    guidelines that you should follow when you write functions.</p>
 
     <ul class="long">
         <li><div>A good function performs a single task that the
@@ -318,10 +318,80 @@ len2: 22.1</pre>
         terminal window.</div></li>
     </ul>
 
-    <p>As you read the sample code in CSE&nbsp;111, observe how the
-    sample functions fit these good properties, and as you write
-    programs for CSE&nbsp;111, do your best to write functions that have
-    these good properties.</p>
+    <p>Consider the following two functions, one that follows the
+    guidelines and one that doesn’t.</p>
+
+<div class="example" id="ex6"><pre class="linenums"></pre>
+<pre class="python"># A good function
+
+def calculate_output_rpm(
+        driver_teeth, follower_teeth, driver_rpm):
+    """Calculates the revolutions per minute of the
+    output shaft of a gear train with two gears.
+
+    Parameters:
+        driver_teeth: number of teeth on the driver gear
+        follower_teeth: number of teeth on the follower gear
+        driver_rpm: revolutions per minute of the driver gear
+
+    Returns:
+        revolutions per minute of the output shaft
+    """
+    ratio = driver_teeth / follower_teeth
+    output_rpm = driver_rpm * ratio
+    return output_rpm</pre>
+    </div>
+
+    <p>The <code>calculate_output_rpm</code> function follows each of
+    the guidelines for a well-written function:</p>
+    <ul>
+        <li><div><b>Performs a single, clear task</b>: calculates the
+        revolutions per minute of the output shaft of a gear
+        train</div></li>
+        <li><div><b>Descriptive name</b>: clearly describes what the
+        function does</div></li>
+        <li><div><b>Short and simple</b>: performs a single task without
+        complicated logic</div></li>
+        <li><div><b>Reusable</b>: accepts arguments through its two
+        parameters and returns a result; doesn’t get input from the user
+        or print anything so it can be used in many contexts such as a
+        GUI, web app, or larger script</div></li>
+    </ul>
+
+<div class="example" id="ex7"><pre class="linenums"></pre>
+<pre class="python"># A bad function
+
+def stuff():
+    # This function does a bunch of things.
+    name = input("What is your name? ")
+    age = int(input("How old are you? "))
+    if age &lt; 18:
+        print(name + ", you're a minor.")
+    else:
+        print(name + ", you're an adult.")
+    area = 10 * 5
+    print(f"The area of a 10x5 rectangle is {area}")</pre>
+    </div>
+
+    <p>The <code>stuff</code> function doesn’t follow each of
+    the guidelines for a well-written function:</p>
+    <ul>
+        <li><div><b>Does several unrelated things</b>: gets user input,
+        calculates an unrelated area, prints results</div></li>
+        <li><div><b>Poor name</b>: "<code>stuff</code>" tells us nothing
+        about what the function does</div></li>
+        <li><div><b>Not understandable</b>: Hard for other programmers
+        to understand or test</div></li>
+        <li><div><b>Hard to reuse</b>: gets user input and prints so
+        can’t be reused easily in other programs without rewriting parts
+        of it</div></li>
+    </ul>
+
+    <p> Writing clear, focused, and reusable functions makes your code
+    easier to understand, debug, and reuse. As you read the sample code
+    in CSE&nbsp;111, observe how the sample functions follow the
+    guidelines. As you write programs, do your best to write functions
+    that follow the guidelines.</p>
     </section>
 
     <section>
