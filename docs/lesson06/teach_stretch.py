@@ -46,7 +46,7 @@ def main():
     score += ask_question("12. Animals, birds and plants have fewer"
         " rights than humans.", NEGATIVE)
     score += ask_question("13. Some species are just meant to die out"
-        "or become extinct.", NEGATIVE)
+        " or become extinct.", NEGATIVE)
     score += ask_question("14. Nothing I do will change problems in"
         " other places on the planet.", NEGATIVE)
     score += ask_question("15. The state of nonhuman species is an"
