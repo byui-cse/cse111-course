@@ -16,8 +16,6 @@ cse111.strings = {
 	courseTitle : 'Programming with Functions',
 	courseHint  : 'CSE 111 Content',
 
-	lightText   : 'Light Mode',
-	darkText    : 'Dark Mode',
 	contentsText: 'Contents',
 	prevText    : 'Previous Document',
 	nextText    : 'Next Document',
@@ -27,11 +25,12 @@ cse111.strings = {
 	helpText    : 'Help',
 	pdfText     : '.pdf File',
 	zipText     : '.zip File',
+	lightText   : 'Light Mode',
+	darkText    : 'Dark Mode',
+	browserText : 'Browser’s Mode',
 
 	menuHint    : 'Click to open the navigation menu',
 	closeHint   : 'Click to close the navigation menu',
-	lightHint   : 'Change to light mode',
-	darkHint    : 'Change to dark mode',
 	contentsHint: 'View list of contents for CSE 111',
 	prevHint    : 'View previous document',
 	nextHint    : 'View next document',
@@ -41,6 +40,9 @@ cse111.strings = {
 	helpHint    : 'Get help for CSE 111',
 	pdfHint     : 'Download a PDF that contains all\nCSE 111 HTML preparation content',
 	zipHint     : 'Download a zip file that\ncontains all CSE 111 content',
+	lightHint   : 'Change to light mode',
+	darkHint    : 'Change to dark mode',
+	browserHint : 'Use the browser’s color mode',
 	upHint      : 'Scroll to the top of this document',
 
 	section : '§',
@@ -105,6 +107,7 @@ cse111.svgCache =
 <symbol id="svgRight" viewBox="0 0 64 64"><path class="stroke" d="M8 32H56M36 12L56 32L36 52"/></symbol>\
 <symbol id="svgSun" viewBox="0 0 64 64"><circle cx="32" cy="32" r="16"/><path d="M51.32 26.82a20 20 0 010 10.36L64 32zM49.32 42A20 20 0 0142 49.32l12.63 5.31zM37.18 51.32a20 20 0 01-10.36 0L32 64zM22 49.32A20 20 0 0114.68 42L9.37 54.63zM12.68 37.18a20 20 0 010-10.36L0 32zm2-15.18A20 20 0 0122 14.68L9.37 9.37zm12.14-9.32a20 20 0 0110.36 0L32 0zm15.18 2A20 20 0 0149.32 22L54.63 9.37z"/></symbol>\
 <symbol id="svgUp" viewBox="0 0 48 64"><path class="stroke" d="M24 60V4M8 20L24 4L40 20"/></symbol>\
+<symbol id="svgWindow" viewBox="0 0 64 64"><path class="stroke" d="M4 8H60V56H4V8M4 22H60"/></symbol>\
 \
 <!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->\
 <symbol id="svgCopy" viewBox="0 0 512 512"><path d="M441.4 9.4c-6-6-14.2-9.4-22.7-9.4H255.1c-35.3 0-64 28.7-64 64V320c.9 35.4 29.6 64 64.9 64H448c35.2 0 64-28.8 64-64V93.3c0-8.5-3.4-16.7-9.4-22.7zM384 96c0 17.7 14.3 32 32 32h48V320c0 8.8-7.2 16-16 16H255c-8.7 0-16-7.2-16-16V64c0-8.7 7.3-16 16-16H384zM272 448c0 8.8-7.2 16-16 16H63.1c-8.8 0-15.1-7.2-15.1-16V192.1c0-8.8 7.1-16 16-16h96V128H64c-35.4 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H256c35.2 0 64-28.8 64-64V416H272z"/></symbol>\
@@ -321,10 +324,13 @@ cse111.common = {
 
 		addMenuItem('svgSun', strings.lightText,
 				strings.lightHint,
-				function() { self.setBrightness('light'); }, ['light', 'first']);
+				function() { self.setBrightness('light'); }, ['first']);
 		addMenuItem('svgMoon', strings.darkText,
 				strings.darkHint,
-				function() { self.setBrightness('dark'); }, ['dark', 'first']);
+				function() { self.setBrightness('dark'); });
+		addMenuItem('svgWindow', strings.browserText,
+				strings.browserHint,
+				function() { self.setBrightness('browser'); });
 
 		// Add the navigation menu to the document body.
 		let nav = createElem('nav', ['menu', 'closed']);
@@ -369,22 +375,28 @@ cse111.common = {
 	initBrightness : function() {
 		let brightness = localStorage.getItem('brightness');
 		if (! brightness) {
-			let clist = document.body.classList;
-			brightness = clist.contains('dark') ? 'dark' : 'light';
+			// The user has not chosen a brightness
+			// so use the browser's brightness setting.
+			brightness = 'browser';
 		}
 		this.setBrightness(brightness);
 	},
 
 	/** Sets the brightness. */
 	setBrightness : function(brightness) {
-		// Store the chosen brightness (light or dark) in local storage.
+		// Store the chosen brightness (light,
+		// dark, or browser) in local storage.
 		localStorage.setItem('brightness', brightness);
 
-		// Change the classList for the document body.
-		let remove = (brightness == 'dark' ? 'light' : 'dark');
-		let clist = document.body.classList;
-		clist.remove(remove);
-		clist.add(brightness);
+		if (brightness == 'browser') {
+			// Remove the color-scheme inline style from the document
+			// body. Doing this will cause the document to use the color
+			// scheme selected by the user in the browser.
+			document.body.style.removeProperty('color-scheme');
+		}
+		else {
+			document.body.style.colorScheme = brightness;
+		}
 	},
 
 

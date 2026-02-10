@@ -19,25 +19,23 @@
 	--byui-blue: rgb(0, 118, 182);
 	--darkest-byui-blue: rgb(0, 24, 36);
 
-	--light-bk-color: rgb(255, 255, 255);
-	--light-fg-color: rgb(4, 4, 4);
+	color-scheme: light dark;
+	--bk-color: light-dark(rgb(255, 255, 255), rgb(0, 0, 0));
+	--fg-color: light-dark(rgb(4, 4, 4), rgb(184, 184, 184));
 
-	--dark-bk-color: rgb(0, 0, 0);
-	--dark-fg-color: rgb(184, 184, 184);
+	--python-bk-color: light-dark(var(--lightest-coral), var(--darkest-coral));
+	--console-bk-color: light-dark(var(--lightest-byui-blue), var(--darkest-byui-blue));
+
+	--compare-same-color: light-dark(var(--light-yellow), var(--darker-yellow));
+	--compare-similar-color: light-dark(var(--light-coral), var(--darker-coral));
+	--compare-diff-color: light-dark(var(--light-raspberry), var(--darker-raspberry));
 
 	--border-color: rgb(112, 112, 112);
-
-	--compare-same-color: var(--lighter-yellow);
-	--compare-similar-color: var(--lighter-coral);
-	--compare-diff-color: var(--lighter-raspberry);
 
 	--important-fg-color: var(--raspberry);
 }
 @media screen {
 	:root {
-		--bk-color: var(--light-bk-color);
-		--fg-color: var(--light-fg-color);
-
 		--heading-fg-color: var(--byui-blue);
 		--bullet-fg-color: var(--byui-blue);
 
@@ -47,8 +45,6 @@
 		--user-input-fg-color: white;
 
 		--line-number-hilite: var(--byui-blue);
-		--python-bk-color: var(--lightest-coral);
-		--console-bk-color: var(--lightest-byui-blue);
 
 		--link-before-fg-color: var(--byui-blue);
 		--link-hover-fg-color: var(--coral);
@@ -114,17 +110,6 @@ body {
 	body {
 		font-family: "Open Sans", Arial, Helvetica, Verdana, sans-serif;
 	}
-	body.dark {
-		--bk-color: var(--dark-bk-color);
-		--fg-color: var(--dark-fg-color);
-
-		--python-bk-color: var(--darkest-coral);
-		--console-bk-color: var(--darkest-byui-blue);
-
-		--compare-same-color: var(--darker-yellow);
-		--compare-similar-color: var(--darker-coral);
-		--compare-diff-color: var(--darker-raspberry);
-	}
 }
 @media print {
 	body {
@@ -187,14 +172,6 @@ body {
 	nav.menu li.first {
 		border-top: 1px solid white;
 		padding-top: 0.5em;
-	}
-	nav.menu li.dark,
-	body.dark nav.menu li.light {
-		display: block;
-	}
-	nav.menu li.light,
-	body.dark nav.menu li.dark {
-		display: none;
 	}
 	nav.menu a {
 		/* Force the a tags to occupy the entire

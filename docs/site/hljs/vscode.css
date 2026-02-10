@@ -38,33 +38,18 @@
 .hljs-variable { color: red; }
 
 
-/* Light */
 .hljs { }
 
-.hljs-number  { color: #098658; }
-.hljs-literal { color: #0000ff; }
-.hljs-string  { color: #a31515; }
-.hljs-subst   { color: #040404; }
+.hljs-number  { color: light-dark(#098658, #b5cea8 /* green yellow */); }
+.hljs-literal { color: light-dark(#0000ff, #569cd6 /* medium blue */); }
+.hljs-string  { color: light-dark(#a31515, #ce9178 /* pumpkin */); }
+.hljs-subst   { color: light-dark(#040404, #b8b8b8 /* light gray */); }
 
-.hljs-comment { color: #008000; }
+.hljs-comment { color: light-dark(#008000, #6a9955 /* mint green */); }
 
-.hljs-keyword  { color: #af00d8; }
-.hljs-built_in { color: #267f99; }
+.hljs-keyword  { color: light-dark(#af00d8, #c586c0 /* pink */); }
+.hljs-built_in { color: light-dark(#267f99, #dcdc8b /* light yellow */); }
 
 .hljs-function { }
-.hljs-title    { color: #795e26; }
-.hljs-params   { color: #001080; }
-
-/* Dark */
-body.dark .hljs-number  { color: #b5cea8; /* green yellow */}
-body.dark .hljs-literal { color: #569cd6; /* medium blue */}
-body.dark .hljs-string  { color: #ce9178; /* pumpkin */}
-body.dark .hljs-subst   { color: #b8b8b8; /* light gray */}
-
-body.dark .hljs-comment { color: #6a9955; /* mint green */}
-
-body.dark .hljs-keyword  { color: #c586c0; /* pink */}
-body.dark .hljs-built_in { color: #dcdc8b; /* light yellow */}
-
-body.dark .hljs-title  { color: #dcdc8b; /* light yellow */}
-body.dark .hljs-params { color: #9cdcfe; /* light blue */}
+.hljs-title    { color: light-dark(#795e26, #dcdc8b /* light yellow */); }
+.hljs-params   { color: light-dark(#001080, #9cdcfe /* light blue */); }
