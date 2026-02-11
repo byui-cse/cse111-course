@@ -100,7 +100,7 @@ def print_death_age(people_dict):
             person_key: [name, gender, birth_year, death_year]
     Return: nothing
     """
-    pass
+    ...
 
 
 def count_genders(people_dict):
@@ -113,7 +113,7 @@ def count_genders(people_dict):
             person_key: [name, gender, birth_year, death_year]
     Return: nothing
     """
-    pass
+    ...
 
 
 def print_marriages(marriages_dict, people_dict):
@@ -130,7 +130,7 @@ def print_marriages(marriages_dict, people_dict):
             person_key: [name, gender, birth_year, death_year]
     Return: nothing
     """
-    pass
+    ...
 
 
 # If this file was executed like this:
