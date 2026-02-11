@@ -1,13 +1,8 @@
 """
-Use all or any part of this file as a demonstration of iteration (loops)
-and lists during class in your section of CSE 111.
+CSE 111
+Lesson 7 - Repetition (Loops) and Lists
 
-You could retain the numbered comments and delete all or any parts of
-the code. Then give the modified file to your students and ask them to
-write the code for the numbered comments. Or you could write the code
-for the numbered comments with them as a demonstration during class.
-
-Copyright 2020, Brigham Young University - Idaho. All rights reserved.
+Practice writing loops by completing each of the exercises below.
 """
 
 def main():

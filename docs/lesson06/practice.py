@@ -1,6 +1,6 @@
 """
 CSE 111
-Lesson 06 ICE - Debugging functions
+Lesson 6 - Debugging functions
 Author: [Your Name Here]
 
 Description:

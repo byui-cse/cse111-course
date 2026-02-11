@@ -1,6 +1,6 @@
 """
 CSE 111
-Lesson 07 ICE - Lists and Repetition (Compound Lists)
+Lesson 7 - Repetition and Lists (Compound Lists)
 Author: [Your Name Here]
 
 Description:

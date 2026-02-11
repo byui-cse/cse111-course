@@ -1,6 +1,6 @@
 """
 CSE 111
-Lesson 03 ICE - Writing and Calling Functions
+Lesson 3 - Writing and Calling Functions
 Author: [Your Name Here]
 
 Description:

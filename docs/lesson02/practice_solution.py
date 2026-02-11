@@ -1,6 +1,6 @@
 """
 CSE 111
-Lesson 02 Coding Challenge - Calling Functions
+Lesson 02 - Calling Functions
 Author: [Your Name Here]
 
 Description:

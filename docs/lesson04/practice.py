@@ -1,6 +1,6 @@
 """
 CSE 111
-Lesson 04 ICE - Functions with Parameters
+Lesson 4 - Functions with Parameters
 Author: [Your Name Here]
 
 Description:
@@ -30,12 +30,6 @@ def div(a, b):
     # Your code here
     ...
 
-# Example Usage:
-print(add(5, 3))  # Should print 8
-print(sub(5, 3))  # Should print 2
-print(mult(5, 3)) # Should print 15
-print(div(5,3))   # Should print 1.67
-
 
 # 2. String Repeater
 # Write a function named "repeat_string" that takes two parameters:
@@ -46,10 +40,6 @@ def repeat_string(string, n):
     # Your code here
     ...
 
-# Example Usage:
-print(repeat_string("Hello", 3))  # Should print "HelloHelloHello"
-print(repeat_string("Bob", 5))  # Should print "BobBobBobBobBob"
-
 
 # 3. Compound Interest
 # Write a function named "compound_interest" that calculates and returns
@@ -59,9 +49,6 @@ print(repeat_string("Bob", 5))  # Should print "BobBobBobBobBob"
 def compound_interest(principal, rate, time):
     # Your code here
     ...
-
-# Example Usage:
-print(compound_interest(1000, 0.05, 5))  # Should print the total amount after 5 years
 
 
 # 4. Password Validator
@@ -76,14 +63,6 @@ def validate_password(password):
     # Your code here
     ...
 
-# Example Usage:
-print(validate_password("pass1234"))  # Should print True
-print(validate_password("password1")) # Should print True
-print(validate_password("pass"))      # Should print False
-print(validate_password("pass12"))    # Should print False
-print(validate_password("passwords")) # Should print False
-print(validate_password("123456789")) # Should print False
-
 
 # 5. Distance Between Two Points
 # Write a function named "calculate_distance" that takes four parameters:
@@ -97,6 +76,28 @@ def calculate_distance(x1, y1, x2, y2):
     # Your code here
     ...
 
+
 # Example Usage:
-print(calculate_distance(1, 2, 4, 6))  # Should print the distance between
-                                       # points (1, 2) and (4, 6), which is 5.0
+def main():
+    print(add(5, 3))  # Should print 8
+    print(sub(5, 3))  # Should print 2
+    print(mult(5, 3)) # Should print 15
+    print(div(5,3))   # Should print 1.67
+
+    print(repeat_string("Hello", 3))  # Should print "HelloHelloHello"
+    print(repeat_string("Bob", 5))  # Should print "BobBobBobBobBob"
+
+    print(compound_interest(1000, 0.05, 5))  # Should print the total amount after 5 years
+
+    print(validate_password("pass1234"))  # Should print True
+    print(validate_password("password1")) # Should print True
+    print(validate_password("pass"))      # Should print False
+    print(validate_password("pass12"))    # Should print False
+    print(validate_password("passwords")) # Should print False
+    print(validate_password("123456789")) # Should print False
+
+    print(calculate_distance(1, 2, 4, 6))  # Should print the distance between
+                                           # points (1, 2) and (4, 6), which is 5.0
+
+
+main()

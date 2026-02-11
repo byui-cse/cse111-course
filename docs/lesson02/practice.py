@@ -1,6 +1,6 @@
 """
 CSE 111
-Lesson 02 ICE - Calling Functions
+Lesson 2 - Calling Functions
 Author: [Your Name Here]
 
 Description:

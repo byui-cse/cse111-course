@@ -1,6 +1,6 @@
 """
 CSE 111
-Lesson 07 ICE - Lists and Repetition (Compound Lists)
+Lesson 7 - Repetition and Lists (Compound Lists)
 Author: [Your Name Here]
 
 Description:
@@ -17,7 +17,7 @@ Write a program that:
 
   1. Contains a main() function that does the following:
        • Repeatedly asks the user for a student's name.
-         - A blank name quits data entry.
+           - A blank name quits data entry.
        • For each student, asks for:
            - Homework average (0-100)
            - Exam score      (0-100)

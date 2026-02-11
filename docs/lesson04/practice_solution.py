@@ -1,6 +1,6 @@
 """
 CSE 111
-Lesson 04 ICE - Functions with Parameters
+Lesson 4 - Functions with Parameters
 Author: [Your Name Here]
 
 Description:
