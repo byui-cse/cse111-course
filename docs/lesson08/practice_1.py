@@ -1,6 +1,6 @@
 """
 CSE 111
-Lesson 08 ICE - Dictionaries & Compound Values
+Lesson 8 - Dictionaries & Compound Values
 Author: [Your Name]
 
 Description:
@@ -12,7 +12,7 @@ inventory items by SKU code.
 
 For each SKU, store the item name, aisle, and quantity. Store the
 inventory in a dictionary where the key is the SKU number and the value
-is a list containing the [item name, aisle, quantity].
+is a list containing the [item_name, aisle, quantity].
 
 Menu options allow a clerk to add new items, restock, look up a single
 item, print the full inventory, and show the total quantity of all items
@@ -24,32 +24,34 @@ NAME_INDEX  = 0
 AISLE_INDEX = 1
 QTY_INDEX   = 2
 
+
 def main():
-    # 1) Seed inventory with at least five items
-    inventory = {
+    # Seed the inventory dictionary with five items.
+    inventory_dict = {
         # "SKU": [name, aisle, qty]
         "A100": ["Apples", 1, 50],
-        # TODO: add 5 more...
+        # TODO: add 4 more...
     }
 
-    # Menu
+    # Menu loop
     while True:
-        print("\n1 Add  2 Restock  3 Lookup  4 Print all  5 Total qty  6 Quit")
-        choice = input("Select: ").strip()
-        if choice == "1":
-            add_item(inventory)
-        elif choice == "2":
-            restock_item(inventory)
-        elif choice == "3":
-            lookup_item(inventory)
-        elif choice == "4":
-            print_inventory(inventory)
-        elif choice == "5":
-            print_total(inventory)
-        elif choice == "6":
+        print("\n[A]dd  [R]estock  [L]ookup  [P]rint all  [T]otal qty  [Q]uit")
+        choice = input("Select: ").strip().upper()[0]
+        if choice == "A":
+            add_item(inventory_dict)
+        elif choice == "R":
+            restock_item(inventory_dict)
+        elif choice == "L":
+            lookup_item(inventory_dict)
+        elif choice == "P":
+            print_all(inventory_dict)
+        elif choice == "T":
+            print_total(inventory_dict)
+        elif choice == "Q":
             break
         else:
             print("Invalid option")
+
 
 # helper functions
 def add_item(inv):
@@ -57,23 +59,28 @@ def add_item(inv):
     #       add to dictionary only if SKU not present
     ...
 
+
 def restock_item(inv):
     # TODO: ask for SKU and amount; increase quantity if found
     ...
 
+
 def lookup_item(inv):
-    # TODO: ask for SKU; display info about the item or “not found”
+    # TODO: ask for SKU; display info about the item or "not found"
     ...
 
-def print_inventory(inv):
-    # TODO: iterate by using for sku, data in inv.items():
-    #       print nicely formatted line showing each item in the inventory
+
+def print_all(inv):
+    # TODO: iterate through all items in the inventory:
+    #       print nicely formatted line for each item
     ...
+
 
 def print_total(inv):
-    # TODO: sum the QTY_INDEX of every inner list and print the sum
+    # TODO: sum the quantity of every item and print the sum
     ...
 
-# run program
+
+# Run program
 if __name__ == "__main__":
     main()
