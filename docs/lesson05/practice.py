@@ -1,4 +1,13 @@
-# Copyright 2020, Brigham Young University-Idaho. All rights reserved.
+# Copyright 2026, Brigham Young University-Idaho. All rights reserved.
+
+def fahr_from_cels(cels):
+    """Convert a temperature in Celsius to
+    Fahrenheit and return the Fahrenheit temperature.
+    """
+    fahr = cels * 9 / 5 + 32
+    rounded = round(fahr, 1)
+    return rounded
+
 
 def wind_chill(temperature, wind_speed):
     """Compute and return the wind chill factor as defined by the U.S.
@@ -41,19 +50,3 @@ def heat_index(temperature, humidity):
         - 0.00000199 * temperature**2 * humidity**2
     rounded = round(index, 1)
     return rounded
-
-
-def cels_from_fahr(fahr):
-    """Convert a temperature in Fahrenheit to
-    Celsius and return the Celsius temperature.
-    """
-    cels = (fahr - 32) * 5 / 9
-    return cels
-
-
-def fahr_from_cels(cels):
-    """Convert a temperature in Celsius to
-    Fahrenheit and return the Fahrenheit temperature.
-    """
-    fahr = cels * 9 / 5 + 32
-    return fahr

@@ -1,12 +1,36 @@
-# Copyright 2020, Brigham Young University-Idaho. All rights reserved.
+# Copyright 2026, Brigham Young University-Idaho. All rights reserved.
 
 """
-Verify that the wind_chill and heat_index functions work correctly.
+Verify that the fahr_from_cels, wind_chill,
+and heat_index functions work correctly.
 """
 
-from example import wind_chill, heat_index
-from pytest import approx
 import pytest
+from pytest import approx
+from practice import fahr_from_cels, wind_chill, heat_index
+
+
+def test_fahr_from_cels():
+    """Verify that the fahr_from_cels function works correctly.
+    Parameters: none
+    Return: nothing
+    """
+    # Call the fahr_from_cels function and verify that it returns a number.
+    fahr = fahr_from_cels(20)
+    assert isinstance(fahr, int) or isinstance(fahr, float), \
+        "fahr_from_cels function must return a number"
+
+    # Call the fahr_from_cels function three times, each time with
+    # different arguments. Use an assert statement to verify that
+    # the fahr_from_cels function returns the correct result each time.
+    fahr = fahr_from_cels(20)
+    assert fahr == approx(68)
+
+    fahr = fahr_from_cels(0)
+    assert fahr == approx(32)
+
+    fahr = fahr_from_cels(-40)
+    assert fahr == approx(-40)
 
 
 def test_wind_chill():
