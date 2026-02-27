@@ -60,7 +60,7 @@ QTY_INDEX      = 3
 
 def main():
     # Read inventory.csv into a compound dictionary.
-    inventory = read_inventory("ice_09_inventory.csv", SKU_INDEX)
+    inventory = read_inventory("inventory.csv", SKU_INDEX)
 
     while True:
         sku = input("\nEnter an SKU (or 'quit'): ").strip()
