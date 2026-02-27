@@ -41,8 +41,6 @@ def main():
         print(f"Error: invalid score in {filename} at line {linenum}.")
     except ZeroDivisionError as zero_div_err:
         print(f"Error: {filename} is empty.")
-    except Exception as excep:
-        print(type(excep).__name__, excep, sep=": ")
 
 
 # If this file was executed like this:

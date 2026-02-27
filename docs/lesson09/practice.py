@@ -21,8 +21,8 @@ Program Requirements
        • Uses `csv.reader` to read rows.
        • Skips the header row.
        • Builds and returns a dictionary where…
-         - key   = value from `key_col` (use SKU column index)
-         - value = entire row list.
+           - key   = value from `key_col` (use SKU column index)
+           - value = entire row list.
 
          Example:
          {'A100': ['A100', 'Apples', 'Fruit', '50'],
