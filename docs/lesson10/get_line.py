@@ -30,7 +30,7 @@ def main():
         print()
         print(type(not_found_err).__name__, not_found_err, sep=": ")
         print(f"The file {filename} doesn't exist.")
-        print("Run the program again and enter the" \
+        print("Run the program again and enter the"
                 " name of an existing file.")
 
     except ValueError as val_err:
@@ -39,7 +39,7 @@ def main():
         print()
         print(type(val_err).__name__, val_err, sep=": ")
         print("You entered an invalid integer for the line number.")
-        print("Run the program again and enter an integer for" \
+        print("Run the program again and enter an integer for"
                 " the line number.")
 
     except IndexError as index_err:
@@ -52,10 +52,10 @@ def main():
         if linenum < 0:
             print(f"{linenum} is a negative integer.")
         else:
-            print(f"{linenum} is greater than the number" \
+            print(f"{linenum} is greater than the number"
                     f" of lines in {filename}.")
             print(f"There are only {length} lines in {filename}.")
-        print(f"Run the program again and enter a line number" \
+        print(f"Run the program again and enter a line number"
                 f" between 1 and {length}.")
 
     except Exception as excep:

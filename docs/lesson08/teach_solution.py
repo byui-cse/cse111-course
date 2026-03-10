@@ -191,7 +191,7 @@ def print_marriages(marriages_dict, people_dict):
         wife_age = wedding_year - wife_birth
 
         # Print the data about the marriage for the user to see.
-        print(f"{husband_name} {husband_age}" \
+        print(f"{husband_name} {husband_age}"
             f" > {wedding_year} < {wife_name} {wife_age}")
 
 

@@ -301,13 +301,13 @@ def test_get_int(monkeypatch):
     num = get_int(prompt, min, max)
 
     monkeypatch.undo()
-    pattern = prompt + "\\s*" \
-        + "Invalid integer: 1r\\. Please try again\\.\\s*" \
-        + prompt + "\\s*" \
-        + f"Invalid input: number must be {min} or greater\\.\\s*" \
-        + prompt + "\\s*" \
-        + f"Invalid input: number must be {max} or less\\.\\s*" \
+    pattern = (prompt + "\\s*"
+        + "Invalid integer: 1r\\. Please try again\\.\\s*"
         + prompt + "\\s*"
+        + f"Invalid input: number must be {min} or greater\\.\\s*"
+        + prompt + "\\s*"
+        + f"Invalid input: number must be {max} or less\\.\\s*"
+        + prompt + "\\s*")
     output = stdout.getvalue()
     assert re.compile(pattern).match(output) != None
     assert num == 8
