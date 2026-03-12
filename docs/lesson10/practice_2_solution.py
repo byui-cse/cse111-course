@@ -22,19 +22,19 @@ def main():
     process_inputs(sample_inputs)
 
 
-def process_inputs(inputs):
+def process_inputs(inputs_list):
     try:
         # Potential ValueError: Converting a string to an integer
-        number = int(inputs[0])
+        number = int(inputs_list[0])
 
         # Potential TypeError: Attempting an unsupported operation
-        result = number + inputs[1]
+        result = number + inputs_list[1]
 
         # Potential ZeroDivisionError: Dividing by zero
-        division = number / inputs[2]
+        division = number / inputs_list[2]
 
         # Potential IndexError: Accessing an out-of-range list index
-        item = inputs[3]
+        item = inputs_list[3]
 
         print(f"Processed values: {result}, {division}, {item}")
 

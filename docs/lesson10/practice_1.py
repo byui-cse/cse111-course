@@ -13,7 +13,7 @@ def main():
         filename = input("Enter the name of the scores text file: ")
 
         # Create an empty list that will store all the scores.
-        scores = []
+        scores_list = []
 
         linenum = 0
         with open(filename, "rt") as scores_file:
@@ -23,12 +23,12 @@ def main():
             #     Add the floating point number to the list of scores.
             for text in scores_file:
                 linenum += 1
-                score = float(text)
-                scores.append(score)
+                score = float(text.strip())
+                scores_list.append(score)
 
         # Call the statistics.mean function
         # to compute the average score.
-        avg = statistics.mean(scores)
+        avg = statistics.mean(scores_list)
 
         # Print the average score rounded to
         # one digit after the decimal point.
