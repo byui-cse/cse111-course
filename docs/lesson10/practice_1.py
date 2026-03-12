@@ -7,7 +7,17 @@ and computes and prints the average of the test scores.
 import statistics
 
 def main():
-    # TODO: Put all the code in the main function inside one try block.
+    # TODO: Add a try block and four except blocks to the main function.
+    # Each except block should print a helpful error message. The four
+    # except blocks should handle these errors:
+    # 1. FileNotFoundError
+    # 2. PermissionError
+    # 3. ValueError
+    # 4. ZeroDivisionError
+    #
+    # Thought questions:
+    # At which line should you write the try block?
+    # At which lines should you write the except blocks?
 
         # Get a file name from the user.
         filename = input("Enter the name of the scores text file: ")
@@ -33,15 +43,6 @@ def main():
         # Print the average score rounded to
         # one digit after the decimal point.
         print(f"{avg:.1f}")
-
-    # TODO: At the end of the main function, add one except block for
-    # each of the following error types. Each except block should
-    # contain one print statement that prints a helpful error message
-    # for the user.
-    # 1. FileNotFoundError
-    # 2. PermissionError
-    # 3. ValueError
-    # 4. ZeroDivisionError
 
 
 # If this file was executed like this:
