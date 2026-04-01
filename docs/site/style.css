@@ -781,12 +781,6 @@ main table > tbody > tr > th {
 	font-weight: bold;
 }
 
-main table.contents tbody > tr > th[colspan="3"] {
-	font-weight: bold;
-	font-size: 120%;
-	color: var(--heading-fg-color);
-	padding: 1.5em 0 0.5em 0;
-}
 main table.contents tbody > tr > td { padding-top: 0.3em; }
 main table.contents tbody > tr > td:first-child { min-width: 10em; }
 
