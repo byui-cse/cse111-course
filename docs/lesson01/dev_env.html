@@ -206,7 +206,25 @@
             <li><div>In the popup menu, click “New File...” and name the
             new file “launch.json” (without the quote marks).</div></li>
             <li><div>Copy the following JSON code and paste it into your
-            new <code>launch.json</code> file.</div></li>
+            new <code>launch.json</code> file.
+
+            <pre>{
+    // For more information, visit:
+    // https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python Debugger: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "cwd": "${fileDirname}",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        }
+    ]
+}</pre>
+            </div></li>
             <li><div>Save your <code>launch.json</code> file.</div></li>
         </ol></div></li>
 
