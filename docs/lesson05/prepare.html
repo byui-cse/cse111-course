@@ -25,7 +25,7 @@
         "educationalUse": "instruction",
         "copyrightNotice": "Copyright © 2019, Brigham Young University–Idaho. All rights reserved.",
         "datePublished": "2019-12-11",
-        "dateModified": "2023-01-05"
+        "dateModified": "2026-04-03"
     }
     </script>
 </head>
@@ -182,6 +182,7 @@ def test_min():
     from decimal import Decimal
     number = 23.7
     print(Decimal(number).as_tuple())
+    print(Decimal(number).as_tuple().digits)
 
     DecimalTuple(sign=0, digits=(2, 3, 6, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 2, 8, 9, 4, 5, 7, 2, 6, 4, 2, 3, 9, 8, 9, 9, 8, 1, 4, 1, 2, 8, 8, 7, 5, 7, 3, 2, 4, 2, 1, 8, 7, 5), exponent=-48)
     23.699999999999999289457264239899814128875732421875
@@ -414,17 +415,19 @@ pytest.main(["-v", "--tb=line", "-rN", __file__])</pre>
     Notice also that the test function uses <code>assert</code> and
     <code>approx</code>.</p>
 
-    <p>After writing the test function, we use <code>pytest</code> to
-    run the test function. At
+    <p>After writing one or more test functions, we use
+    <code>pytest</code> to run them. At
     <span class="cross" data-ref="ex9">line&nbsp;20</span>,
     instead of writing a call to the <code>main</code> function, as we
     do in program files, we write a call to the <code>pytest.main</code>
     function. In CSE&nbsp;111, at the bottom of all test files, we will
     write a call to <code>pytest.main</code> exactly as shown in
     <span class="cross" data-ref="ex9">line&nbsp;20</span>. This call to
-    <code>pytest.main</code> will cause the <code>pytest</code> module
-    to run all the test functions in the <code>test_weather.py</code>
-    file. When <code>pytest</code> runs the test functions, it will
+    the <code>pytest.main</code> function will cause the
+    <code>pytest</code> module to run all the test functions in the
+    current file.</p>
+
+    <p>When <code>pytest.main</code> runs the test functions, it will
     produce output that tells us if the tests passed or failed like
     this:</p>
 
@@ -438,13 +441,38 @@ test_weather.py::test_cels_from_fahr <span class="pass">PASSED               [10
 
 <span class="pass">====================== 1 passed in 0.10s =======================</span></pre>
 
-    <p>As shown above, <code>pytest</code> runs the
-    <code>test_cels_from_fahr</code> function which calls the
-    <code>cels_from_fahr</code> function four times and verifies that
-    <code>cels_from_fahr</code> returns the correct value each time. We
-    can see from the output of <code>pytest</code>, "PASSED [100%]" and
-    "1&nbsp;passed", that the <code>cels_from_fahr</code> function
+    <p>As shown above, <code>pytest</code> ran the
+    <code>test_cels_from_fahr</code> function which called the
+    <code>cels_from_fahr</code> function four times and verified that
+    <code>cels_from_fahr</code> returned the correct value each time. We
+    can see from the output of <code>pytest</code>, “PASSED [100%]” and
+    “1&nbsp;passed”, that the <code>cels_from_fahr</code> function
     returned the expected (correct) result all four times.</p>
+
+    <p>The call to <code>pytest.main</code> at
+    <span class="cross" data-ref="ex9">line&nbsp;20</span> of
+    <code>test_weather.py</code> includes four arguments in a list. The
+    meaning of the four arguments is as follows:</p>
+    <dl class="function">
+        <dt>-v</dt>
+        <dd>causes <code>pytest</code> to print verbose output which
+        simply means more output than <code>pytest</code> normally
+        prints</dd>
+
+        <dt>--tb=line</dt>
+        <dd>when an exception or error is raised, causes
+        <code>pytest</code> to print only the most recent line from the
+        function traceback (function call stack)</dd>
+
+        <dt>-rN</dt>
+        <dd>causes <code>pytest</code> to NOT print a summary report.
+        The summary report often confuses students so we use
+        <code>-rN</code> to turn it off.</dd>
+
+        <dt>__file__</dt>
+        <dd>causes pytest to run all the functions in the current file
+        that begin with the word “test_”</dd>
+    </dl>
     </section>
 
     <section>
