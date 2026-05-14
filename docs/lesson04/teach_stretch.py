@@ -47,7 +47,7 @@ def main():
         print(f"{name} {store_eff:.2f} {cost_eff:.0f}")
 
         # If the storage efficiency of the current can size is
-        # greater than the maximum storage efficiency, save then
+        # greater than the maximum storage efficiency, then save
         # the current can size name and its storage efficiency.
         if store_eff > max_store_eff:
             best_store = name
