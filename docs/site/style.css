@@ -1,38 +1,46 @@
 :root {
 	--transpar: rgba(0, 0, 0, 0);
 
-	--lighter-yellow: rgb(255, 236, 211);
-	--yellow: rgb(255, 179, 80);
-	--darker-yellow: rgb(77, 54, 24);
+	--lighter-yellow: hsl(50, 100%, 91%);
+	--yellow:         hsl(50, 100%, 65%);
+	--darker-yellow:  hsl(50, 100%, 20%);
 
-	--lightest-coral: rgb(255, 245, 241);
-	--lighter-coral: rgb(255, 223, 211);
-	--coral: rgb(255, 127, 80);
-	--darker-coral: rgb(64, 32, 20);
-	--darkest-coral: rgb(36, 16, 10);
+	--lightest-coral: hsl(16, 100%, 97%);
+	--lighter-coral:  hsl(16, 100%, 80%);
+	--coral:          hsl(16, 100%, 65%);
+	--darker-coral:   hsl(16, 100%, 20%);
+	--darkest-coral:  hsl(16, 100%, 10%);
 
-	--lighter-raspberry: rgb(248, 209, 221);
-	--raspberry: rgb(226, 71, 121);
-	--darker-raspberry: rgb(57, 18, 30);
+	--lighter-raspberry: hsl(342, 73%, 90%);
+	--raspberry:         hsl(342, 73%, 58%);
+	--darker-raspberry:  hsl(342, 73%, 15%);
 
-	--lightest-byui-blue: rgb(235, 244, 249);
-	--byui-blue: rgb(0, 118, 182);
-	--darkest-byui-blue: rgb(0, 24, 36);
+	--lightest-purple: hsl(285, 75%, 95%);
+	--lighter-purple:  hsl(285, 75%, 70%);
+	--purple:          hsl(285, 75%, 50%);
+	--darkest-purple:  hsl(285, 75%, 18%);
+
+	--lightest-byui-blue: hsl(201, 100%, 95%);
+	--byui-blue:          hsl(201, 100%, 36%);
+	--darkest-byui-blue:  hsl(201, 100%,  7%);
 
 	color-scheme: light dark;
 	--bk-color: light-dark(rgb(255, 255, 255), rgb(0, 0, 0));
 	--fg-color: light-dark(rgb(4, 4, 4), rgb(184, 184, 184));
 
+	--gospel-bk-color: light-dark(var(--lightest-purple), var(--darkest-purple));
+	--gospel-fg-color: light-dark(var(--purple), var(--lighter-purple));
+
 	--python-bk-color: light-dark(var(--lightest-coral), var(--darkest-coral));
 	--console-bk-color: light-dark(var(--lightest-byui-blue), var(--darkest-byui-blue));
 
-	--compare-same-color: light-dark(var(--light-yellow), var(--darker-yellow));
-	--compare-similar-color: light-dark(var(--light-coral), var(--darker-coral));
-	--compare-diff-color: light-dark(var(--light-raspberry), var(--darker-raspberry));
+	--compare-same-color: light-dark(var(--lighter-yellow), var(--darker-yellow));
+	--compare-similar-color: light-dark(var(--lighter-coral), var(--darker-coral));
+	--compare-diff-color: light-dark(var(--lighter-raspberry), var(--darker-raspberry));
+
+	--note-bk-color: light-dark(var(--lighter-raspberry), var(--darker-raspberry));
 
 	--border-color: rgb(112, 112, 112);
-
-	--important-fg-color: var(--raspberry);
 }
 @media screen {
 	:root {
@@ -373,7 +381,60 @@ main form {
 	margin: 1em 0;
 }
 
-main blockquote {
+main div.gospel {
+	margin: 1em 0 1em 4em;
+	display: flex;
+	align-items: stretch;  /* Force the icon area to match the text height. */
+}
+main div.gospel::before {
+	flex-shrink: 0;  /* Prevent the icon from shrinking */
+	border: 0.5em solid var(--purple);
+	border-radius: 0.4em 0 0 0.4em;
+	background-color: var(--purple);
+	content: "";
+	width: 3em;
+	min-height: 4em;
+	background-image: url("../site/icons/christus.webp");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: top center;
+}
+main div.gospel > div.text {
+	flex-grow: 1;
+	border: 0.5em solid var(--gospel-bk-color);
+	border-radius: 0 0.4em 0.4em 0;
+	background-color: var(--gospel-bk-color);
+	color: var(--gospel-fg-color);
+	padding-left: 0.5em;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+main div.note {
+	margin: 1em 0 1em 4em;
+	display: flex;
+	align-items: stretch;  /* Force the icon area to match the text height. */
+}
+main div.note::before {
+	flex-shrink: 0;  /* Prevent the icon from shrinking */
+	border: 0.5em solid var(--raspberry);
+	border-radius: 0.4em 0 0 0.4em;
+	background-color: var(--raspberry);
+	color: white;
+	font-size: 200%;
+	content: "\26a0";
+}
+main div.note > div.text {
+	flex-grow: 1;
+	border: 0.5em solid var(--note-bk-color);
+	border-radius: 0 0.4em 0.4em 0;
+	background-color: var(--note-bk-color);
+	padding-left: 0.5em;
+}
+
+main blockquote,
+main div.aiPrompt {
 	margin: 1em 1em;
 	border-left: 0.12em solid var(--bullet-fg-color);
 	padding-left: 0.5em;
@@ -384,19 +445,6 @@ main div.search {
 	border: 1px solid var(--border-color);
 	padding: 0.25em 0.5em;
 	white-space: pre-line;
-}
-
-main div.note {
-	display: flex;
-	align-items: flex-start;
-	gap: 0.75em;
-	margin: 1em 0;
-}
-main div.note::before {
-	flex-shrink: 0; /* Prevent the icon from shrinking */
-	font-size: 200%;
-	color: var(--important-fg-color);
-	content: "\26a0";
 }
 
 
@@ -485,6 +533,14 @@ main li ul {
 main ol.long > li,
 main ul.long > li {
 	margin-bottom: 1em;
+}
+
+main ul.bar {
+	list-style-type: none;
+}
+main ul.bar > li {
+	border-left: 0.12em solid var(--bullet-fg-color);
+	padding-left: 0.5em;
 }
 
 main ul.links {
@@ -785,15 +841,15 @@ main table.contents tbody > tr > td { padding-top: 0.3em; }
 main table.contents tbody > tr > td:first-child { min-width: 10em; }
 
 main span.same,
-main table.compare tbody > tr.same > th {
+main table.compare > tbody > tr.same > th {
 	background-color: var(--compare-same-color);
 }
 main span.similar,
-main table.compare tbody > tr.similar > th {
+main table.compare > tbody > tr.similar > th {
 	background-color: var(--compare-similar-color);
 }
 main span.diff,
-main table.compare tbody > tr.diff > th {
+main table.compare > tbody > tr.diff > th {
 	background-color: var(--compare-diff-color);
 }
 

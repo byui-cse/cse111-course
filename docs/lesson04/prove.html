@@ -47,9 +47,11 @@
     <dfn>prepositional phrase</dfn> is a group of words that begins with
     a preposition and includes a noun. For example:</p>
 
-    <blockquote>above the water<br>
-    in the kitchen<br>
-    after the meeting</blockquote>
+    <ul class="bar">
+        <li><div>above the water</div></li>
+        <li><div>in the kitchen</div></li>
+        <li><div>after the meeting</div></li>
+    </ul>
     </section>
 
     <section>
@@ -70,12 +72,14 @@
     </ol>
 
     <p>For example:</p>
-    <blockquote>One girl talked for the car.<br>
-    A bird drinks off one child.<br>
-    The child will run on the car.<br>
-    Some dogs drank above many rabbits.<br>
-    Some children laugh at many dogs.<br>
-    Some rabbits will talk about some cats.</blockquote>
+    <ul class="bar">
+        <li><div>One girl talked for the car.</div></li>
+        <li><div>A bird drinks off one child.</div></li>
+        <li><div>The child will run on the car.</div></li>
+        <li><div>Some dogs drank above many rabbits.</div></li>
+        <li><div>Some children laugh at many dogs.</div></li>
+        <li><div>Some rabbits will talk about some cats.</div></li>
+    </ul>
 
     <p>To complete this prove assignment, your program must include at
     least these seven functions:</p>
@@ -130,23 +134,23 @@
     <a href="https://chatgpt.com/g/g-sQydCh2Q6-pythonista">Pythonista</a>
     a question like this:</p>
 
-    <blockquote><p>I'm writing a Python program that generates simple,
-    random English sentences. When I run my program, it causes the
-    following error. Please suggest some mistakes that might cause this
-    error.</p>
+    <div class="aiPrompt"><p>I'm writing a Python program that generates
+    simple, random English sentences. When I run my program, it causes
+    the following error. Please suggest some mistakes that might cause
+    this error.</p>
     <p><b>(Copy and paste the error message here.)</b></p>
-    </blockquote>
+    </div>
 
     <p>You could also ask
     <a href="https://chatgpt.com/g/g-sQydCh2Q6-pythonista">Pythonista</a>
     a question about one of your functions, like this:</p>
 
-    <blockquote><p>I wrote the following Python function that is
-    supposed to <b>(type a short description here)</b>. However, the
+    <div class="aiPrompt"><p>I wrote the following Python function that
+    is supposed to <b>(type a short description here)</b>. However, the
     function isn't <b>(type what it's not doing correctly here)</b>.
     Please help me fix this function.</p>
     <p><b>(Copy and paste your Python function here.)</b></p>
-    </blockquote>
+    </div>
     </section>
 
     <section>
@@ -336,12 +340,20 @@ Some rabbits will talk about some cats.</pre>
         another call to <code>get_prepositional_phrase</code> so that
         each sentence includes two prepositional phrases like this:
 
-        <blockquote>One girl across one cat talked for the car.<br>
-        A bird near the rabbit drinks off one child.<br>
-        The child under the cat will run on the car.<br>
-        Some dogs without a cat drank above many rabbits.<br>
-        Some children from a bird laugh at many dogs.<br>
-        Some rabbits behind one man will talk about some cats.</blockquote>
+        <ul class="bar">
+            <li><div>One girl across one cat talked for the
+            car.</div></li>
+            <li><div>A bird near the rabbit drinks off one
+            child.</div></li>
+            <li><div>The child under the cat will run on the
+            car.</div></li>
+            <li><div>Some dogs without a cat drank above many
+            rabbits.</div></li>
+            <li><div>Some children from a bird laugh at many
+            dogs.</div></li>
+            <li><div>Some rabbits behind one man will talk about some
+            cats.</div></li>
+        </ul>
         </div></li>
 
         <li><div>Write a function named <code>get_adjective</code> and
@@ -361,18 +373,18 @@ Some rabbits will talk about some cats.</pre>
     <p>What changes would you have to make to your program so that it
     could produce sentences that fit the following form?</p>
 
-    <blockquote>{Determiner} {adjective} {noun} {prepositional_phrase}
-    {adverb} {verb} {determiner} {adjective} {noun}
-    {prepositional_phrase}.</blockquote>
+    <p>{Determiner} {adjective} {noun} {prepositional_phrase} {adverb}
+    {verb} {determiner} {adjective} {noun} {prepositional_phrase}.</p>
 
     <p>Such as these sentences:</p>
-    <blockquote>The red birds in the air quickly ate some fast fish in
-    the water.<br>
-    The busy bird with a car sweetly drank many smart rabbits by one
-    boy.<br>
-    One dinky boy near the dog calmly grew some tall children across a
-    cat.<br>
-    </blockquote>
+    <ul class="bar">
+        <li><div>The red birds in the air quickly ate some fast fish in
+        the water.</div></li>
+        <li><div>The busy bird with a car sweetly drank many smart
+        rabbits by one boy.</div></li>
+        <li><div>One dinky boy near the dog calmly grew some tall
+        children across a cat.</div></li>
+    </ul>
 
     <p>How hard would it be to modify your program to pass the
     <a href="../lesson03/prove.html#problem">Turing test</a>?</p>
