@@ -29,7 +29,6 @@
 	--fg-color: light-dark(rgb(4, 4, 4), rgb(184, 184, 184));
 
 	--gospel-bk-color: light-dark(var(--lightest-purple), var(--darkest-purple));
-	--gospel-fg-color: light-dark(var(--purple), var(--lighter-purple));
 
 	--python-bk-color: light-dark(var(--lightest-coral), var(--darkest-coral));
 	--console-bk-color: light-dark(var(--lightest-byui-blue), var(--darkest-byui-blue));
@@ -404,11 +403,13 @@ main div.gospel > div.text {
 	border: 0.5em solid var(--gospel-bk-color);
 	border-radius: 0 0.4em 0.4em 0;
 	background-color: var(--gospel-bk-color);
-	color: var(--gospel-fg-color);
 	padding-left: 0.5em;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+}
+main div.gospel > div.text > pre {
+	padding: 0;
 }
 
 main div.note {
@@ -421,7 +422,6 @@ main div.note::before {
 	border: 0.5em solid var(--raspberry);
 	border-radius: 0.4em 0 0 0.4em;
 	background-color: var(--raspberry);
-	color: white;
 	font-size: 200%;
 	content: "\26a0";
 }
