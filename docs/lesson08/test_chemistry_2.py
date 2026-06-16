@@ -24,7 +24,7 @@ def test_make_periodic_table():
     # Verify that the make_periodic_table function returns a dictionary.
     assert isinstance(periodic_table_dict, dict), \
         "make_periodic_table function must return a dictionary: " \
-        f" expected a dictionary but found a {type(periodic_table_dict)}"
+        f"expected a dictionary but found a {type(periodic_table_dict)}"
 
     exp_data = (
         "Ac", "Actinium", 227,
@@ -123,7 +123,6 @@ def test_make_periodic_table():
         "Zr", "Zirconium", 91.224
     )
 
-
     # Check each item in the periodic table dictionary.
     for i in range(0, len(exp_data), 3):
         check_element(periodic_table_dict, exp_data[i], exp_data[i+1 : i+3])
@@ -132,10 +131,29 @@ def test_make_periodic_table():
     # contains the correct number of items.
     exp_len = int(len(exp_data) / 3)
     act_len = len(periodic_table_dict)
-    assert act_len == exp_len, \
-        "The dictionary returned by the make_periodic_table function" \
-        f" contains too {'few' if act_len < exp_len else 'many'}" \
-        f" items; expected {exp_len} but found {act_len} items."
+
+    if act_len < exp_len:
+        assert act_len == exp_len, \
+        "The dictionary returned from the make_periodic_table function " \
+        f"contains too few chemical elements; expected {exp_len} but " \
+        f"found {act_len} items."
+
+    elif act_len > exp_len:
+        # Create a set of the expected chemical element symbols.
+        exp_symbols = set(exp_data[::3])
+
+        # Use the set to get a list of all the extra
+        # chemical elements in the periodic_table_dict.
+        extra_symbols = []
+        for symbol in periodic_table_dict:
+            if symbol not in exp_symbols:
+                extra_symbols.append(symbol)
+
+        assert act_len == exp_len, \
+        "The dictionary returned from the make_periodic_table function " \
+        f"contains too many chemical elements; expected {exp_len} but " \
+        f"found {act_len} chemical elements. The extra, unexpected " \
+        "chemical elements are " + ", ".join(extra_symbols) + "."
 
 
 def check_element(periodic_table_dict, symbol, expected):
@@ -179,14 +197,14 @@ def test_parse_formula():
     periodic_table_dict = make_periodic_table()
     assert isinstance(periodic_table_dict, dict), \
         "make_periodic_table function must return a dictionary: " \
-        f" expected a dictionary but found a {type(periodic_table_dict)}"
+        f"expected a dictionary but found a {type(periodic_table_dict)}"
 
     # Call the parse_formula function and
     # verify that it returns a list.
     sym_quant_list = parse_formula("H2O", periodic_table_dict)
     assert isinstance(sym_quant_list, list), \
         "parse_formula function must return a list: " \
-        f" expected a list but found a {type(sym_quant_list)}"
+        f"expected a list but found a {type(sym_quant_list)}"
 
     # Call the compute_molar_mass function four times and
     # verify that it returns the correct number each time.
@@ -225,14 +243,14 @@ def test_compute_molar_mass():
     periodic_table_dict = make_periodic_table()
     assert isinstance(periodic_table_dict, dict), \
         "make_periodic_table function must return a dictionary: " \
-        f" expected a dictionary but found a {type(periodic_table_dict)}"
+        f"expected a dictionary but found a {type(periodic_table_dict)}"
 
     # Call the compute_molar_mass function
     # and verify that it returns a number.
     molar_mass = compute_molar_mass([["O",2]], periodic_table_dict)
     assert isinstance(molar_mass, int) or isinstance(molar_mass, float), \
         "compute_molar_mass function must return a number: " \
-        f" expected a number but found a {type(molar_mass)}"
+        f"expected a number but found a {type(molar_mass)}"
 
     # Call the compute_molar_mass function four times and
     # verify that it returns the correct number each time.
