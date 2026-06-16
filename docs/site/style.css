@@ -20,9 +20,9 @@
 	--purple:          hsl(285, 75%, 50%);
 	--darkest-purple:  hsl(285, 75%, 18%);
 
-	--lightest-byui-blue: hsl(201, 100%, 95%);
-	--byui-blue:          hsl(201, 100%, 36%);
-	--darkest-byui-blue:  hsl(201, 100%,  7%);
+	--lightest-byui-blue: hsl(204, 100%, 95%);
+	--byui-blue:          hsl(204, 100%, 36%);
+	--darkest-byui-blue:  hsl(204, 100%,  7%);
 
 	color-scheme: light dark;
 	--bk-color: light-dark(rgb(255, 255, 255), rgb(0, 0, 0));
