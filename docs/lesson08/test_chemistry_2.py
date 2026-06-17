@@ -132,28 +132,22 @@ def test_make_periodic_table():
     exp_len = int(len(exp_data) / 3)
     act_len = len(periodic_table_dict)
 
-    if act_len < exp_len:
-        assert act_len == exp_len, \
-        "The dictionary returned from the make_periodic_table function " \
-        f"contains too few chemical elements; expected {exp_len} but " \
-        f"found {act_len} items."
-
-    elif act_len > exp_len:
+    if act_len > exp_len:
         # Create a set of the expected chemical element symbols.
         exp_symbols = set(exp_data[::3])
 
-        # Use the set to get a list of all the extra
-        # chemical elements in the periodic_table_dict.
-        extra_symbols = []
-        for symbol in periodic_table_dict:
-            if symbol not in exp_symbols:
-                extra_symbols.append(symbol)
+        # Use the expected symbols set to get a list of all the
+        # extra chemical elements in the periodic_table_dict.
+        extra_symbols = periodic_table_dict.keys() - exp_symbols
 
-        assert act_len == exp_len, \
+        extra_msg = " The extra, unexpected chemical elements are " \
+                + ", ".join(extra_symbols) + "."
+
+    assert act_len == exp_len, \
         "The dictionary returned from the make_periodic_table function " \
-        f"contains too many chemical elements; expected {exp_len} but " \
-        f"found {act_len} chemical elements. The extra, unexpected " \
-        "chemical elements are " + ", ".join(extra_symbols) + "."
+        f"contains too {'few' if act_len < exp_len else 'many'} chemical " \
+        f"elements; expected {exp_len} but found {act_len} chemical elements." \
+        + (extra_msg if act_len > exp_len else "")
 
 
 def check_element(periodic_table_dict, symbol, expected):
