@@ -5,6 +5,7 @@ This program reads assignment scores from a text file
 and computes and prints the average of the test scores.
 """
 import statistics
+from statistics import StatisticsError
 
 def main():
     # TODO: Add a try block and four except blocks to the main function.
@@ -12,12 +13,14 @@ def main():
     # except blocks should handle these errors:
     # 1. FileNotFoundError
     # 2. PermissionError
-    # 3. ValueError
-    # 4. ZeroDivisionError
+    # 3. StatisticsError
+    # 4. ValueError
     #
     # Thought questions:
-    # At which line should you write the try block?
-    # At which lines should you write the except blocks?
+    # 1. At which line should you write the try block?
+    # 2. At which lines should you write the except blocks?
+    # 3. Why should you write the except StatisticsError block before
+    #    the except ValueError block?
 
         # Get a file name from the user.
         filename = input("Enter the name of the scores text file: ")

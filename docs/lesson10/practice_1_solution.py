@@ -5,6 +5,7 @@ This program reads assignment scores from a text file
 and computes and prints the average of the test scores.
 """
 import statistics
+from statistics import StatisticsError
 
 def main():
     try:
@@ -37,10 +38,10 @@ def main():
         print(f"Error: {filename} does not exist.")
     except PermissionError as perm_err:
         print(f"Error: you don't have permission to read {filename}.")
+    except StatisticsError as stats_err:
+        print(f"Error: {filename} is empty.")
     except ValueError as val_err:
         print(f"Error: invalid score in {filename} at line {linenum}.")
-    except ZeroDivisionError as zero_div_err:
-        print(f"Error: {filename} is empty.")
 
 
 # If this file was executed like this:

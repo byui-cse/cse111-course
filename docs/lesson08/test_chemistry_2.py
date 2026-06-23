@@ -136,8 +136,8 @@ def test_make_periodic_table():
         # Create a set of the expected chemical element symbols.
         exp_symbols = set(exp_data[::3])
 
-        # Use the expected symbols set to get a list of all the
-        # extra chemical elements in the periodic_table_dict.
+        # Use the set of expected symbols to get a list of all
+        # the extra chemical elements in the periodic_table_dict.
         extra_symbols = periodic_table_dict.keys() - exp_symbols
 
         extra_msg = " The extra, unexpected chemical elements are " \
