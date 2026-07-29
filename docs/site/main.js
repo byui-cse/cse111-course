@@ -428,7 +428,7 @@ cse111.common = {
 
 		/** Copies a URL to the clipboard so that it can be quickly
 		 * pasted into another document that references this document. */
-		function copyFunc(event) {
+		async function copyFunc(event) {
 			let span = event.currentTarget;
 			let heading = span.parentElement;
 			let url = window.location.href;
@@ -436,14 +436,7 @@ cse111.common = {
 			let newURL = url.replace(/#.*/, '') + anchor;
 
 			// Copy the new URL to the clipboard.
-			function listener(event) {
-				event.clipboardData.setData('text/plain', newURL);
-				event.preventDefault();
-				event.stopPropagation();
-			}
-			document.addEventListener('copy', listener);
-			document.execCommand('copy');
-			document.removeEventListener('copy', listener);
+			await navigator.clipboard.writeText(newURL);
 
 			event.preventDefault();
 			event.stopPropagation();
@@ -706,21 +699,14 @@ cse111.linenums = {
 	addCodeCopyButtons : function() {
 		/** Copies example code to the clipboard so that a student can
 		 * paste it into her program and experiment with it. */
-		function copyFunc(event) {
+		async function copyFunc(event) {
 			let button = event.currentTarget;
 			let div = button.parentElement;
 			let pre = div.querySelector('pre');
 			let text = pre.textContent;
 
 			// Copy the text to the clipboard.
-			function listener(event) {
-				event.clipboardData.setData('text/plain', text);
-				event.preventDefault();
-				event.stopPropagation();
-			}
-			document.addEventListener('copy', listener);
-			document.execCommand('copy');
-			document.removeEventListener('copy', listener);
+			await navigator.clipboard.writeText(text);
 
 			// Select the text as a hint to the user that it was
 			// copied to the clipboard. Selecting the text is not
